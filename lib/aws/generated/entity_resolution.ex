@@ -3,27 +3,10 @@
 
 defmodule AWS.EntityResolution do
   @moduledoc """
-  Welcome to the *Entity Resolution API Reference*.
-
-  Entity Resolution is an Amazon Web Services service that provides pre-configured
-  entity
-  resolution capabilities that enable developers and analysts at advertising and
-  marketing
+  Welcome to the *Entity Resolution API Reference*. Entity Resolution is an Amazon
+  Web Services service that provides pre-configured entity resolution
+  capabilities that enable developers and analysts at advertising and marketing
   companies to build an accurate and complete view of their consumers.
-
-  With Entity Resolution, you can match source records containing consumer
-  identifiers,
-  such as name, email address, and phone number. This is true even when these
-  records have
-  incomplete or conflicting identifiers. For example, Entity Resolution can
-  effectively match
-  a source record from a customer relationship management (CRM) system with a
-  source record
-  from a marketing system containing campaign information.
-
-  To learn more about Entity Resolution concepts, procedures, and best practices,
-  see the
-  [Entity Resolution User Guide](https://docs.aws.amazon.com/entityresolution/latest/userguide/what-is-service.html).
   """
 
   alias AWS.Client
@@ -1769,12 +1752,26 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Adds a policy statement object.
+  Adds a policy statement object. To retrieve a list of existing policy
+  statements, use the `GetPolicy` API.
 
-  To retrieve a list of existing policy statements, use
-  the `GetPolicy` API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20AddPolicyStatement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that will
+    be accessed by the principal.
+  * `:statement_id` (`t:string`) A statement identifier that differentiates the
+    statement from others in the same policy.
+
+  ## Optional parameters:
   """
-  @spec add_policy_statement(map(), String.t(), String.t(), add_policy_statement_input(), list()) ::
+  @spec add_policy_statement(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          add_policy_statement_input(),
+          Keyword.t()
+        ) ::
           {:ok, add_policy_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_policy_statement_errors()}
@@ -1783,7 +1780,8 @@ defmodule AWS.EntityResolution do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1800,13 +1798,37 @@ defmodule AWS.EntityResolution do
 
   @doc """
   Deletes multiple unique IDs in a matching workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20BatchDeleteUniqueId&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workflow_name` (`t:string`) The name of the workflow.
+  * `:unique_ids` (`t:list[com.amazonaws.entityresolution#UniqueId]`) The unique
+    IDs to delete.
+
+  ## Optional parameters:
+  * `:input_source` (`t:`) The input source for the batch delete unique ID
+    operation.
   """
-  @spec batch_delete_unique_id(map(), String.t(), batch_delete_unique_id_input(), list()) ::
+  @spec batch_delete_unique_id(
+          AWS.Client.t(),
+          String.t(),
+          batch_delete_unique_id_input(),
+          Keyword.t()
+        ) ::
           {:ok, batch_delete_unique_id_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_unique_id_errors()}
   def batch_delete_unique_id(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}/uniqueids"
+
+    optional_params = [input_source: nil, unique_ids: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -1817,7 +1839,13 @@ defmodule AWS.EntityResolution do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:input_source])
 
     Request.request_rest(
       client,
@@ -1833,14 +1861,21 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Creates an `IdMappingWorkflow` object which stores the configuration of the
-  data processing job to be run.
+  Creates an `IdMappingWorkflow` object which stores the configuration of the data
+  processing job to be run. Each `IdMappingWorkflow` must have a unique workflow
+  name. To modify an existing workflow, use the `UpdateIdMappingWorkflow` API.
 
-  Each `IdMappingWorkflow` must have a unique
-  workflow name. To modify an existing workflow, use the `UpdateIdMappingWorkflow`
-  API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20CreateIdMappingWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_id_mapping_workflow(map(), create_id_mapping_workflow_input(), list()) ::
+  @spec create_id_mapping_workflow(
+          AWS.Client.t(),
+          create_id_mapping_workflow_input(),
+          Keyword.t()
+        ) ::
           {:ok, create_id_mapping_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_id_mapping_workflow_errors()}
@@ -1849,7 +1884,8 @@ defmodule AWS.EntityResolution do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1866,13 +1902,17 @@ defmodule AWS.EntityResolution do
 
   @doc """
   Creates an ID namespace object which will help customers provide metadata
-  explaining
-  their dataset and how to use it.
+  explaining their dataset and how to use it. Each ID namespace must have a
+  unique name. To modify an existing ID namespace, use the `UpdateIdNamespace`
+  API.
 
-  Each ID namespace must have a unique name. To modify an
-  existing ID namespace, use the `UpdateIdNamespace` API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20CreateIdNamespace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_id_namespace(map(), create_id_namespace_input(), list()) ::
+  @spec create_id_namespace(AWS.Client.t(), create_id_namespace_input(), Keyword.t()) ::
           {:ok, create_id_namespace_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_id_namespace_errors()}
@@ -1881,7 +1921,8 @@ defmodule AWS.EntityResolution do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1897,14 +1938,18 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Creates a `MatchingWorkflow` object which stores the configuration of the
-  data processing job to be run.
-
-  It is important to note that there should not be a
+  Creates a `MatchingWorkflow` object which stores the configuration of the data
+  processing job to be run. It is important to note that there should not be a
   pre-existing `MatchingWorkflow` with the same name. To modify an existing
   workflow, utilize the `UpdateMatchingWorkflow` API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20CreateMatchingWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_matching_workflow(map(), create_matching_workflow_input(), list()) ::
+  @spec create_matching_workflow(AWS.Client.t(), create_matching_workflow_input(), Keyword.t()) ::
           {:ok, create_matching_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_matching_workflow_errors()}
@@ -1913,7 +1958,8 @@ defmodule AWS.EntityResolution do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1930,12 +1976,17 @@ defmodule AWS.EntityResolution do
 
   @doc """
   Creates a schema mapping, which defines the schema of the input customer records
-  table.
+  table. The `SchemaMapping` also provides Entity Resolution with some metadata
+  about the table, such as the attribute types of the columns and which columns
+  to match on.
 
-  The `SchemaMapping` also provides Entity Resolution with some metadata about the
-  table, such as the attribute types of the columns and which columns to match on.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20CreateSchemaMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_schema_mapping(map(), create_schema_mapping_input(), list()) ::
+  @spec create_schema_mapping(AWS.Client.t(), create_schema_mapping_input(), Keyword.t()) ::
           {:ok, create_schema_mapping_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_schema_mapping_errors()}
@@ -1944,7 +1995,8 @@ defmodule AWS.EntityResolution do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1960,12 +2012,22 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Deletes the `IdMappingWorkflow` with a given name.
+  Deletes the `IdMappingWorkflow` with a given name. This operation will succeed
+  even if a workflow with the given name does not exist.
 
-  This operation will
-  succeed even if a workflow with the given name does not exist.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20DeleteIdMappingWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workflow_name` (`t:string`) The name of the workflow to be deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_id_mapping_workflow(map(), String.t(), delete_id_mapping_workflow_input(), list()) ::
+  @spec delete_id_mapping_workflow(
+          AWS.Client.t(),
+          String.t(),
+          delete_id_mapping_workflow_input(),
+          Keyword.t()
+        ) ::
           {:ok, delete_id_mapping_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_id_mapping_workflow_errors()}
@@ -1974,7 +2036,8 @@ defmodule AWS.EntityResolution do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1991,8 +2054,15 @@ defmodule AWS.EntityResolution do
 
   @doc """
   Deletes the `IdNamespace` with a given name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20DeleteIdNamespace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id_namespace_name` (`t:string`) The name of the ID namespace.
+
+  ## Optional parameters:
   """
-  @spec delete_id_namespace(map(), String.t(), delete_id_namespace_input(), list()) ::
+  @spec delete_id_namespace(AWS.Client.t(), String.t(), delete_id_namespace_input(), Keyword.t()) ::
           {:ok, delete_id_namespace_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_id_namespace_errors()}
@@ -2001,7 +2071,8 @@ defmodule AWS.EntityResolution do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2017,12 +2088,22 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Deletes the `MatchingWorkflow` with a given name.
-
-  This operation will succeed
+  Deletes the `MatchingWorkflow` with a given name. This operation will succeed
   even if a workflow with the given name does not exist.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20DeleteMatchingWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workflow_name` (`t:string`) The name of the workflow to be retrieved.
+
+  ## Optional parameters:
   """
-  @spec delete_matching_workflow(map(), String.t(), delete_matching_workflow_input(), list()) ::
+  @spec delete_matching_workflow(
+          AWS.Client.t(),
+          String.t(),
+          delete_matching_workflow_input(),
+          Keyword.t()
+        ) ::
           {:ok, delete_matching_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_matching_workflow_errors()}
@@ -2031,7 +2112,8 @@ defmodule AWS.EntityResolution do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2048,13 +2130,23 @@ defmodule AWS.EntityResolution do
 
   @doc """
   Deletes the policy statement.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20DeletePolicyStatement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The ARN of the resource for which the policy need to be
+    deleted.
+  * `:statement_id` (`t:string`) A statement identifier that differentiates the
+    statement from others in the same policy.
+
+  ## Optional parameters:
   """
   @spec delete_policy_statement(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_policy_statement_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_policy_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2064,7 +2156,8 @@ defmodule AWS.EntityResolution do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2080,15 +2173,24 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Deletes the `SchemaMapping` with a given name.
-
-  This operation will succeed
-  even if a schema with the given name does not exist. This operation will fail if
-  there is a
-  `MatchingWorkflow` object that references the `SchemaMapping` in
+  Deletes the `SchemaMapping` with a given name. This operation will succeed even
+  if a schema with the given name does not exist. This operation will fail if
+  there is a `MatchingWorkflow` object that references the `SchemaMapping` in
   the workflow's `InputSourceConfig`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20DeleteSchemaMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:schema_name` (`t:string`) The name of the schema to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_schema_mapping(map(), String.t(), delete_schema_mapping_input(), list()) ::
+  @spec delete_schema_mapping(
+          AWS.Client.t(),
+          String.t(),
+          delete_schema_mapping_input(),
+          Keyword.t()
+        ) ::
           {:ok, delete_schema_mapping_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_schema_mapping_errors()}
@@ -2097,7 +2199,8 @@ defmodule AWS.EntityResolution do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2114,10 +2217,17 @@ defmodule AWS.EntityResolution do
 
   @doc """
   Gets the status, metrics, and errors (if there are any) that are associated with
-  a
-  job.
+  a job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetIdMappingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The ID of the job.
+  * `:workflow_name` (`t:string`) The name of the workflow.
+
+  ## Optional parameters:
   """
-  @spec get_id_mapping_job(map(), String.t(), String.t(), list()) ::
+  @spec get_id_mapping_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_id_mapping_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_id_mapping_job_errors()}
@@ -2125,44 +2235,111 @@ defmodule AWS.EntityResolution do
     url_path =
       "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the `IdMappingWorkflow` with a given name, if it exists.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetIdMappingWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workflow_name` (`t:string`) The name of the workflow.
+
+  ## Optional parameters:
   """
-  @spec get_id_mapping_workflow(map(), String.t(), list()) ::
+  @spec get_id_mapping_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_id_mapping_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_id_mapping_workflow_errors()}
   def get_id_mapping_workflow(%Client{} = client, workflow_name, options \\ []) do
     url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the `IdNamespace` with a given name, if it exists.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetIdNamespace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id_namespace_name` (`t:string`) The name of the ID namespace.
+
+  ## Optional parameters:
   """
-  @spec get_id_namespace(map(), String.t(), list()) ::
+  @spec get_id_namespace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_id_namespace_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_id_namespace_errors()}
   def get_id_namespace(%Client{} = client, id_namespace_name, options \\ []) do
     url_path = "/idnamespaces/#{AWS.Util.encode_uri(id_namespace_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2170,8 +2347,15 @@ defmodule AWS.EntityResolution do
   @doc """
   Returns the corresponding Match ID of a customer record if the record has been
   processed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetMatchId&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workflow_name` (`t:string`) The name of the workflow.
+
+  ## Optional parameters:
   """
-  @spec get_match_id(map(), String.t(), get_match_id_input(), list()) ::
+  @spec get_match_id(AWS.Client.t(), String.t(), get_match_id_input(), Keyword.t()) ::
           {:ok, get_match_id_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_match_id_errors()}
@@ -2180,7 +2364,8 @@ defmodule AWS.EntityResolution do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2197,10 +2382,17 @@ defmodule AWS.EntityResolution do
 
   @doc """
   Gets the status, metrics, and errors (if there are any) that are associated with
-  a
-  job.
+  a job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetMatchingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The ID of the job.
+  * `:workflow_name` (`t:string`) The name of the workflow.
+
+  ## Optional parameters:
   """
-  @spec get_matching_job(map(), String.t(), String.t(), list()) ::
+  @spec get_matching_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_matching_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_matching_job_errors()}
@@ -2208,52 +2400,130 @@ defmodule AWS.EntityResolution do
     url_path =
       "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the `MatchingWorkflow` with a given name, if it exists.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetMatchingWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workflow_name` (`t:string`) The name of the workflow.
+
+  ## Optional parameters:
   """
-  @spec get_matching_workflow(map(), String.t(), list()) ::
+  @spec get_matching_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_matching_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_matching_workflow_errors()}
   def get_matching_workflow(%Client{} = client, workflow_name, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the resource-based policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the resource for which
+    the policy need to be returned.
+
+  ## Optional parameters:
   """
-  @spec get_policy(map(), String.t(), list()) ::
+  @spec get_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_policy_errors()}
   def get_policy(%Client{} = client, arn, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the `ProviderService` of a given name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetProviderService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:provider_name` (`t:string`) The name of the provider. This name is typically
+    the company name.
+  * `:provider_service_name` (`t:string`) The ARN (Amazon Resource Name) of the
+    product that the provider service provides.
+
+  ## Optional parameters:
   """
-  @spec get_provider_service(map(), String.t(), String.t(), list()) ::
+  @spec get_provider_service(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_provider_service_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_provider_service_errors()}
@@ -2266,64 +2536,131 @@ defmodule AWS.EntityResolution do
     url_path =
       "/providerservices/#{AWS.Util.encode_uri(provider_name)}/#{AWS.Util.encode_uri(provider_service_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the SchemaMapping of a given name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetSchemaMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:schema_name` (`t:string`) The name of the schema to be retrieved.
+
+  ## Optional parameters:
   """
-  @spec get_schema_mapping(map(), String.t(), list()) ::
+  @spec get_schema_mapping(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_schema_mapping_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_schema_mapping_errors()}
   def get_schema_mapping(%Client{} = client, schema_name, options \\ []) do
     url_path = "/schemas/#{AWS.Util.encode_uri(schema_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all ID mapping jobs for a given workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListIdMappingJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workflow_name` (`t:string`) The name of the workflow to be retrieved.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of objects returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous API call.
   """
-  @spec list_id_mapping_jobs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_id_mapping_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_id_mapping_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_id_mapping_jobs_errors()}
-  def list_id_mapping_jobs(
-        %Client{} = client,
-        workflow_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_id_mapping_jobs(%Client{} = client, workflow_name, options \\ []) do
     url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}/jobs"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2331,104 +2668,185 @@ defmodule AWS.EntityResolution do
   @doc """
   Returns a list of all the `IdMappingWorkflows` that have been created for an
   Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListIdMappingWorkflows&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of objects returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous API call.
   """
-  @spec list_id_mapping_workflows(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_id_mapping_workflows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_id_mapping_workflows_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_id_mapping_workflows_errors()}
-  def list_id_mapping_workflows(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_id_mapping_workflows(%Client{} = client, options \\ []) do
     url_path = "/idmappingworkflows"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all ID namespaces.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListIdNamespaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of IdNamespace objects returned per
+    page.
+  * `:next_token` (`t:string`) The pagination token from the previous API call.
   """
-  @spec list_id_namespaces(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_id_namespaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_id_namespaces_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_id_namespaces_errors()}
-  def list_id_namespaces(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_id_namespaces(%Client{} = client, options \\ []) do
     url_path = "/idnamespaces"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all jobs for a given workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListMatchingJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workflow_name` (`t:string`) The name of the workflow to be retrieved.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of objects returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous API call.
   """
-  @spec list_matching_jobs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_matching_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_matching_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_matching_jobs_errors()}
-  def list_matching_jobs(
-        %Client{} = client,
-        workflow_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_matching_jobs(%Client{} = client, workflow_name, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}/jobs"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2436,152 +2854,254 @@ defmodule AWS.EntityResolution do
   @doc """
   Returns a list of all the `MatchingWorkflows` that have been created for an
   Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListMatchingWorkflows&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of objects returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous API call.
   """
-  @spec list_matching_workflows(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_matching_workflows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_matching_workflows_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_matching_workflows_errors()}
-  def list_matching_workflows(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_matching_workflows(%Client{} = client, options \\ []) do
     url_path = "/matchingworkflows"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns a list of all the `ProviderServices` that are available in this
-  Amazon Web Services Region.
+  Returns a list of all the `ProviderServices` that are available in this Amazon
+  Web Services Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListProviderServices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of objects returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous API call.
+  * `:provider_name` (`t:string`) The name of the provider. This name is typically
+    the company name.
   """
-  @spec list_provider_services(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_provider_services(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_provider_services_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_provider_services_errors()}
-  def list_provider_services(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        provider_name \\ nil,
-        options \\ []
-      ) do
+  def list_provider_services(%Client{} = client, options \\ []) do
     url_path = "/providerservices"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, provider_name: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(provider_name) do
-        [{"providerName", provider_name} | query_params]
+      if opt_val = Keyword.get(options, :provider_name) do
+        [{"providerName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :provider_name])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns a list of all the `SchemaMappings` that have been created for an
-  Amazon Web Services account.
+  Returns a list of all the `SchemaMappings` that have been created for an Amazon
+  Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListSchemaMappings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of objects returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous API call.
   """
-  @spec list_schema_mappings(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_schema_mappings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_schema_mappings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schema_mappings_errors()}
-  def list_schema_mappings(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_schema_mappings(%Client{} = client, options \\ []) do
     url_path = "/schemas"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Displays the tags associated with an Entity Resolution resource.
+  Displays the tags associated with an Entity Resolution resource. In Entity
+  Resolution, `SchemaMapping`, and `MatchingWorkflow` can be tagged.
 
-  In Entity Resolution,
-  `SchemaMapping`, and `MatchingWorkflow` can be tagged.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource for which you want to
+    view tags.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Updates the resource-based policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20PutPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the resource for which
+    the policy needs to be updated.
+
+  ## Optional parameters:
   """
-  @spec put_policy(map(), String.t(), put_policy_input(), list()) ::
+  @spec put_policy(AWS.Client.t(), String.t(), put_policy_input(), Keyword.t()) ::
           {:ok, put_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_policy_errors()}
@@ -2590,18 +3110,29 @@ defmodule AWS.EntityResolution do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Starts the `IdMappingJob` of a workflow.
+  Starts the `IdMappingJob` of a workflow. The workflow must have previously been
+  created using the `CreateIdMappingWorkflow` endpoint.
 
-  The workflow must have previously
-  been created using the `CreateIdMappingWorkflow` endpoint.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20StartIdMappingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workflow_name` (`t:string`) The name of the ID mapping job to be retrieved.
+
+  ## Optional parameters:
   """
-  @spec start_id_mapping_job(map(), String.t(), start_id_mapping_job_input(), list()) ::
+  @spec start_id_mapping_job(
+          AWS.Client.t(),
+          String.t(),
+          start_id_mapping_job_input(),
+          Keyword.t()
+        ) ::
           {:ok, start_id_mapping_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_id_mapping_job_errors()}
@@ -2610,7 +3141,8 @@ defmodule AWS.EntityResolution do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2626,12 +3158,17 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Starts the `MatchingJob` of a workflow.
+  Starts the `MatchingJob` of a workflow. The workflow must have previously been
+  created using the `CreateMatchingWorkflow` endpoint.
 
-  The workflow must have previously
-  been created using the `CreateMatchingWorkflow` endpoint.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20StartMatchingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workflow_name` (`t:string`) The name of the matching job to be retrieved.
+
+  ## Optional parameters:
   """
-  @spec start_matching_job(map(), String.t(), start_matching_job_input(), list()) ::
+  @spec start_matching_job(AWS.Client.t(), String.t(), start_matching_job_input(), Keyword.t()) ::
           {:ok, start_matching_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_matching_job_errors()}
@@ -2640,7 +3177,8 @@ defmodule AWS.EntityResolution do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2657,24 +3195,26 @@ defmodule AWS.EntityResolution do
 
   @doc """
   Assigns one or more tags (key-value pairs) to the specified Entity Resolution
-  resource.
+  resource. Tags can help you organize and categorize your resources. You can
+  also use them to scope user permissions by granting a user permission to
+  access or change only resources with certain tag values. In Entity Resolution,
+  `SchemaMapping` and `MatchingWorkflow` can be tagged. Tags don't have any
+  semantic meaning to Amazon Web Services and are interpreted strictly as
+  strings of characters. You can use the `TagResource` action with a resource
+  that already has tags. If you specify a new tag key, this tag is appended to
+  the list of tags associated with the resource. If you specify a tag key that
+  is already associated with the resource, the new tag value that you specify
+  replaces the previous value for that tag.
 
-  Tags can help you organize and categorize your resources. You can also use them
-  to scope
-  user permissions by granting a user permission to access or change only
-  resources with
-  certain tag values. In Entity Resolution, `SchemaMapping` and
-  `MatchingWorkflow` can be tagged. Tags don't have any semantic meaning to
-  Amazon Web Services and are interpreted strictly as strings of characters. You
-  can use
-  the `TagResource` action with a resource that already has tags. If you specify a
-  new tag key, this tag is appended to the list of tags associated with the
-  resource. If you
-  specify a tag key that is already associated with the resource, the new tag
-  value that you
-  specify replaces the previous value for that tag.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource for which you want to
+    view tags.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_input(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2683,7 +3223,8 @@ defmodule AWS.EntityResolution do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2699,12 +3240,20 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Removes one or more tags from the specified Entity Resolution resource.
+  Removes one or more tags from the specified Entity Resolution resource. In
+  Entity Resolution, `SchemaMapping`, and `MatchingWorkflow` can be tagged.
 
-  In Entity Resolution, `SchemaMapping`, and `MatchingWorkflow` can be
-  tagged.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource for which you want to
+    untag.
+  * `:tag_keys` (`t:list[com.amazonaws.entityresolution#TagKey]`) The list of tag
+    keys to remove from the resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2718,7 +3267,8 @@ defmodule AWS.EntityResolution do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2734,14 +3284,24 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Updates an existing `IdMappingWorkflow`.
+  Updates an existing `IdMappingWorkflow`. This method is identical to
+  `CreateIdMappingWorkflow`, except it uses an HTTP `PUT` request instead of a
+  `POST` request, and the `IdMappingWorkflow` must already exist for the method
+  to succeed.
 
-  This method is identical to
-  `CreateIdMappingWorkflow`, except it uses an HTTP `PUT` request
-  instead of a `POST` request, and the `IdMappingWorkflow` must already
-  exist for the method to succeed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20UpdateIdMappingWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workflow_name` (`t:string`) The name of the workflow.
+
+  ## Optional parameters:
   """
-  @spec update_id_mapping_workflow(map(), String.t(), update_id_mapping_workflow_input(), list()) ::
+  @spec update_id_mapping_workflow(
+          AWS.Client.t(),
+          String.t(),
+          update_id_mapping_workflow_input(),
+          Keyword.t()
+        ) ::
           {:ok, update_id_mapping_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_id_mapping_workflow_errors()}
@@ -2750,15 +3310,23 @@ defmodule AWS.EntityResolution do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates an existing ID namespace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20UpdateIdNamespace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id_namespace_name` (`t:string`) The name of the ID namespace.
+
+  ## Optional parameters:
   """
-  @spec update_id_namespace(map(), String.t(), update_id_namespace_input(), list()) ::
+  @spec update_id_namespace(AWS.Client.t(), String.t(), update_id_namespace_input(), Keyword.t()) ::
           {:ok, update_id_namespace_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_id_namespace_errors()}
@@ -2767,20 +3335,31 @@ defmodule AWS.EntityResolution do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Updates an existing `MatchingWorkflow`.
+  Updates an existing `MatchingWorkflow`. This method is identical to
+  `CreateMatchingWorkflow`, except it uses an HTTP `PUT` request instead of a
+  `POST` request, and the `MatchingWorkflow` must already exist for the method
+  to succeed.
 
-  This method is identical to
-  `CreateMatchingWorkflow`, except it uses an HTTP `PUT` request
-  instead of a `POST` request, and the `MatchingWorkflow` must already
-  exist for the method to succeed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20UpdateMatchingWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workflow_name` (`t:string`) The name of the workflow to be retrieved.
+
+  ## Optional parameters:
   """
-  @spec update_matching_workflow(map(), String.t(), update_matching_workflow_input(), list()) ::
+  @spec update_matching_workflow(
+          AWS.Client.t(),
+          String.t(),
+          update_matching_workflow_input(),
+          Keyword.t()
+        ) ::
           {:ok, update_matching_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_matching_workflow_errors()}
@@ -2789,7 +3368,8 @@ defmodule AWS.EntityResolution do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -2797,11 +3377,20 @@ defmodule AWS.EntityResolution do
   @doc """
   Updates a schema mapping.
 
-  A schema is immutable if it is being used by a workflow. Therefore, you can't
-  update
-  a schema mapping if it's associated with a workflow.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20UpdateSchemaMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:schema_name` (`t:string`) The name of the schema. There can't be multiple
+    SchemaMappings with the same name.
+
+  ## Optional parameters:
   """
-  @spec update_schema_mapping(map(), String.t(), update_schema_mapping_input(), list()) ::
+  @spec update_schema_mapping(
+          AWS.Client.t(),
+          String.t(),
+          update_schema_mapping_input(),
+          Keyword.t()
+        ) ::
           {:ok, update_schema_mapping_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_schema_mapping_errors()}
@@ -2810,7 +3399,8 @@ defmodule AWS.EntityResolution do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

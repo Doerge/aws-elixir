@@ -3,30 +3,14 @@
 
 defmodule AWS.EMRServerless do
   @moduledoc """
-  Amazon EMR Serverless is a new deployment option for Amazon EMR.
-
-  Amazon EMR Serverless provides a serverless runtime environment that simplifies
-  running
+  Amazon EMR Serverless is a new deployment option for Amazon EMR. Amazon EMR
+  Serverless provides a serverless runtime environment that simplifies running
   analytics applications using the latest open source frameworks such as Apache
-  Spark and
-  Apache Hive. With Amazon EMR Serverless, you don’t have to configure, optimize,
-  secure, or operate clusters to run applications with these frameworks.
-
-  The API reference to Amazon EMR Serverless is `emr-serverless`. The
-  `emr-serverless` prefix is used in the following scenarios:
-
-    *
-  It is the prefix in the CLI commands for Amazon EMR Serverless. For
-  example, `aws emr-serverless start-job-run`.
-
-    *
-  It is the prefix before IAM policy actions for Amazon EMR Serverless. For
-  example, `"Action": ["emr-serverless:StartJobRun"]`. For more information, see [Policy actions for Amazon EMR
-  Serverless](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-actions).
-
-    *
-  It is the prefix used in Amazon EMR Serverless service endpoints. For
-  example, `emr-serverless.us-east-2.amazonaws.com`.
+  Spark and Apache Hive. With Amazon EMR Serverless, you don’t have to
+  configure, optimize, secure, or operate clusters to run applications with
+  these frameworks. The API reference to Amazon EMR Serverless is
+  `emr-serverless`. The `emr-serverless` prefix is used in the following
+  scenarios:
   """
 
   alias AWS.Client
@@ -961,8 +945,23 @@ defmodule AWS.EMRServerless do
 
   @doc """
   Cancels a job run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20CancelJobRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application on which the job run
+    will be canceled.
+  * `:job_run_id` (`t:string`) The ID of the job run to cancel.
+
+  ## Optional parameters:
   """
-  @spec cancel_job_run(map(), String.t(), String.t(), cancel_job_run_request(), list()) ::
+  @spec cancel_job_run(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          cancel_job_run_request(),
+          Keyword.t()
+        ) ::
           {:ok, cancel_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_job_run_errors()}
@@ -973,7 +972,8 @@ defmodule AWS.EMRServerless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -990,8 +990,14 @@ defmodule AWS.EMRServerless do
 
   @doc """
   Creates an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20CreateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_application(map(), create_application_request(), list()) ::
+  @spec create_application(AWS.Client.t(), create_application_request(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
@@ -1000,7 +1006,8 @@ defmodule AWS.EMRServerless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1016,12 +1023,17 @@ defmodule AWS.EMRServerless do
   end
 
   @doc """
-  Deletes an application.
+  Deletes an application. An application has to be in a stopped or created state
+  in order to be deleted.
 
-  An application has to be in a stopped or created state in order
-  to be deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20DeleteApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application that will be deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
+  @spec delete_application(AWS.Client.t(), String.t(), delete_application_request(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
@@ -1030,7 +1042,8 @@ defmodule AWS.EMRServerless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1047,282 +1060,473 @@ defmodule AWS.EMRServerless do
 
   @doc """
   Displays detailed information about a specified application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20GetApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application that will be
+    described.
+
+  ## Optional parameters:
   """
-  @spec get_application(map(), String.t(), list()) ::
+  @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_errors()}
   def get_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Creates and returns a URL that you can use to access the application UIs for a
-  job
-  run.
+  job run. For jobs in a running state, the application UI is a live user
+  interface such as the Spark or Tez web UI. For completed jobs, the application
+  UI is a persistent application user interface such as the Spark History Server
+  or persistent Tez UI.
 
-  For jobs in a running state, the application UI is a live user interface such as
-  the
-  Spark or Tez web UI. For completed jobs, the application UI is a persistent
-  application
-  user interface such as the Spark History Server or persistent Tez UI.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20GetDashboardForJobRun&this_doc_guide=API%2520Reference)
 
-  The URL is valid for one hour after you generate it. To access the application
-  UI
-  after that hour elapses, you must invoke the API again to generate a new URL.
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application.
+  * `:job_run_id` (`t:string`) The ID of the job run.
+
+  ## Optional parameters:
+  * `:attempt` (`t:integer`) An optimal parameter that indicates the amount of
+    attempts for the job. If not specified, this value defaults to the attempt
+    of the latest job.
   """
-  @spec get_dashboard_for_job_run(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_dashboard_for_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_dashboard_for_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dashboard_for_job_run_errors()}
-  def get_dashboard_for_job_run(
-        %Client{} = client,
-        application_id,
-        job_run_id,
-        attempt \\ nil,
-        options \\ []
-      ) do
+  def get_dashboard_for_job_run(%Client{} = client, application_id, job_run_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}/dashboard"
 
+    # Validate optional parameters
+    optional_params = [attempt: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(attempt) do
-        [{"attempt", attempt} | query_params]
+      if opt_val = Keyword.get(options, :attempt) do
+        [{"attempt", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:attempt])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Displays detailed information about a job run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20GetJobRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application on which the job run
+    is submitted.
+  * `:job_run_id` (`t:string`) The ID of the job run.
+
+  ## Optional parameters:
+  * `:attempt` (`t:integer`) An optimal parameter that indicates the amount of
+    attempts for the job. If not specified, this value defaults to the attempt
+    of the latest job.
   """
-  @spec get_job_run(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_run_errors()}
-  def get_job_run(%Client{} = client, application_id, job_run_id, attempt \\ nil, options \\ []) do
+  def get_job_run(%Client{} = client, application_id, job_run_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}"
 
+    # Validate optional parameters
+    optional_params = [attempt: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(attempt) do
-        [{"attempt", attempt} | query_params]
+      if opt_val = Keyword.get(options, :attempt) do
+        [{"attempt", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:attempt])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists applications based on a set of parameters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20ListApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of applications that can be listed.
+  * `:next_token` (`t:string`) The token for the next set of application results.
+  * `:states` (`t:list[com.amazonaws.emrserverless#ApplicationState]`) An optional
+    filter for application states. Note that if this filter contains multiple
+    states, the resulting list will be grouped by the state.
   """
-  @spec list_applications(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
-  def list_applications(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        states \\ nil,
-        options \\ []
-      ) do
+  def list_applications(%Client{} = client, options \\ []) do
     url_path = "/applications"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, states: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(states) do
-        [{"states", states} | query_params]
+      if opt_val = Keyword.get(options, :states) do
+        [{"states", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :states])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all attempt of a job run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20ListJobRunAttempts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application for which to list job
+    runs.
+  * `:job_run_id` (`t:string`) The ID of the job run to list.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of job run attempts to list.
+  * `:next_token` (`t:string`) The token for the next set of job run attempt
+    results.
   """
-  @spec list_job_run_attempts(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_job_run_attempts(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_run_attempts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_job_run_attempts_errors()}
-  def list_job_run_attempts(
-        %Client{} = client,
-        application_id,
-        job_run_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_job_run_attempts(%Client{} = client, application_id, job_run_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}/attempts"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists job runs based on a set of parameters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20ListJobRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application for which to list the
+    job run.
+
+  ## Optional parameters:
+  * `:created_at_after` (`t:timestamp`) The lower bound of the option to filter by
+    creation date and time.
+  * `:created_at_before` (`t:timestamp`) The upper bound of the option to filter
+    by creation date and time.
+  * `:max_results` (`t:`) The maximum number of job runs that can be listed.
+  * `:mode` (`t:string`) The mode of the job runs to list.
+  * `:next_token` (`t:string`) The token for the next set of job run results.
+  * `:states` (`t:list[com.amazonaws.emrserverless#JobRunState]`) An optional
+    filter for job run states. Note that if this filter contains multiple
+    states, the resulting list will be grouped by the state.
   """
-  @spec list_job_runs(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_job_runs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_job_runs_errors()}
-  def list_job_runs(
-        %Client{} = client,
-        application_id,
-        created_at_after \\ nil,
-        created_at_before \\ nil,
-        max_results \\ nil,
-        mode \\ nil,
-        next_token \\ nil,
-        states \\ nil,
-        options \\ []
-      ) do
+  def list_job_runs(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns"
+
+    # Validate optional parameters
+    optional_params = [
+      created_at_after: nil,
+      created_at_before: nil,
+      max_results: nil,
+      mode: nil,
+      next_token: nil,
+      states: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(states) do
-        [{"states", states} | query_params]
+      if opt_val = Keyword.get(options, :states) do
+        [{"states", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(mode) do
-        [{"mode", mode} | query_params]
+      if opt_val = Keyword.get(options, :mode) do
+        [{"mode", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(created_at_before) do
-        [{"createdAtBefore", created_at_before} | query_params]
+      if opt_val = Keyword.get(options, :created_at_before) do
+        [{"createdAtBefore", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(created_at_after) do
-        [{"createdAtAfter", created_at_after} | query_params]
+      if opt_val = Keyword.get(options, :created_at_after) do
+        [{"createdAtAfter", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :created_at_after,
+        :created_at_before,
+        :max_results,
+        :mode,
+        :next_token,
+        :states
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the tags assigned to the resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies
+    the resource to list the tags for. Currently, the supported resources are
+    Amazon EMR Serverless applications and job runs.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Starts a specified application and initializes initial capacity if configured.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20StartApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application to start.
+
+  ## Optional parameters:
   """
-  @spec start_application(map(), String.t(), start_application_request(), list()) ::
+  @spec start_application(AWS.Client.t(), String.t(), start_application_request(), Keyword.t()) ::
           {:ok, start_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_application_errors()}
@@ -1331,7 +1535,8 @@ defmodule AWS.EMRServerless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1348,8 +1553,16 @@ defmodule AWS.EMRServerless do
 
   @doc """
   Starts a job run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20StartJobRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application on which to run the
+    job.
+
+  ## Optional parameters:
   """
-  @spec start_job_run(map(), String.t(), start_job_run_request(), list()) ::
+  @spec start_job_run(AWS.Client.t(), String.t(), start_job_run_request(), Keyword.t()) ::
           {:ok, start_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_job_run_errors()}
@@ -1358,7 +1571,8 @@ defmodule AWS.EMRServerless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1374,12 +1588,18 @@ defmodule AWS.EMRServerless do
   end
 
   @doc """
-  Stops a specified application and releases initial capacity if configured.
+  Stops a specified application and releases initial capacity if configured. All
+  scheduled and running jobs must be completed or cancelled before stopping an
+  application.
 
-  All scheduled
-  and running jobs must be completed or cancelled before stopping an application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20StopApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application to stop.
+
+  ## Optional parameters:
   """
-  @spec stop_application(map(), String.t(), stop_application_request(), list()) ::
+  @spec stop_application(AWS.Client.t(), String.t(), stop_application_request(), Keyword.t()) ::
           {:ok, stop_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_application_errors()}
@@ -1388,7 +1608,8 @@ defmodule AWS.EMRServerless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1404,18 +1625,23 @@ defmodule AWS.EMRServerless do
   end
 
   @doc """
-  Assigns tags to resources.
+  Assigns tags to resources. A tag is a label that you assign to an Amazon Web
+  Services resource. Each tag consists of a key and an optional value, both of
+  which you define. Tags enable you to categorize your Amazon Web Services
+  resources by attributes such as purpose, owner, or environment. When you have
+  many resources of the same type, you can quickly identify a specific resource
+  based on the tags you've assigned to it.
 
-  A tag is a label that you assign to an Amazon Web Services
-  resource. Each tag consists of a key and an optional value, both of which you
-  define. Tags
-  enable you to categorize your Amazon Web Services resources by attributes such
-  as purpose,
-  owner, or environment. When you have many resources of the same type, you can
-  quickly
-  identify a specific resource based on the tags you've assigned to it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies
+    the resource to list the tags for. Currently, the supported resources are
+    Amazon EMR Serverless applications and job runs.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1424,7 +1650,8 @@ defmodule AWS.EMRServerless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1441,8 +1668,19 @@ defmodule AWS.EMRServerless do
 
   @doc """
   Removes tags from resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies
+    the resource to list the tags for. Currently, the supported resources are
+    Amazon EMR Serverless applications and job runs.
+  * `:tag_keys` (`t:list[com.amazonaws.emrserverless#TagKey]`) The keys of the
+    tags to be removed.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1456,7 +1694,8 @@ defmodule AWS.EMRServerless do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1472,12 +1711,17 @@ defmodule AWS.EMRServerless do
   end
 
   @doc """
-  Updates a specified application.
+  Updates a specified application. An application has to be in a stopped or
+  created state in order to be updated.
 
-  An application has to be in a stopped or created state
-  in order to be updated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20UpdateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application to update.
+
+  ## Optional parameters:
   """
-  @spec update_application(map(), String.t(), update_application_request(), list()) ::
+  @spec update_application(AWS.Client.t(), String.t(), update_application_request(), Keyword.t()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
@@ -1486,7 +1730,8 @@ defmodule AWS.EMRServerless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

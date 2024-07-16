@@ -4,24 +4,10 @@
 defmodule AWS.Evidently do
   @moduledoc """
   You can use Amazon CloudWatch Evidently to safely validate new features by
-  serving
-  them to a specified percentage
-  of your users while you roll out the feature.
-
-  You can monitor the performance of the new feature
-  to help you decide when to ramp up traffic to your users. This helps you
-  reduce risk and identify unintended consequences before you fully launch the
-  feature.
-
-  You can also conduct A/B experiments to make feature design decisions based on
-  evidence
-  and data. An experiment can test as many as five variations at once. Evidently
-  collects
-  experiment data and analyzes it using statistical methods. It also provides
-  clear
-  recommendations about which variations perform better. You can test both
-  user-facing features
-  and backend features.
+  serving them to a specified percentage of your users while you roll out the
+  feature. You can monitor the performance of the new feature to help you decide
+  when to ramp up traffic to your users. This helps you reduce risk and identify
+  unintended consequences before you fully launch the feature.
   """
 
   alias AWS.Client
@@ -1899,36 +1885,26 @@ defmodule AWS.Evidently do
   end
 
   @doc """
-  This operation assigns feature variation to user sessions.
+  This operation assigns feature variation to user sessions. For each user
+  session, you pass in an `entityID` that represents the user. Evidently then
+  checks the evaluation rules and assigns the variation. The first rules that
+  are evaluated are the override rules. If the user's `entityID` matches an
+  override rule, the user is served the variation specified by that rule.
 
-  For each user session, you pass
-  in an `entityID` that represents the user. Evidently then checks the evaluation
-  rules and assigns the variation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20BatchEvaluateFeature&this_doc_guide=API%2520Reference)
 
-  The first rules that are evaluated are the override rules. If the user's
-  `entityID` matches an override rule, the user is served the variation specified
-  by that rule.
+  ## Parameters:
+  * `:project` (`t:string`) The name or ARN of the project that contains the
+    feature being evaluated.
 
-  Next, if there is a launch of the feature, the user might be assigned to a
-  variation in
-  the launch. The chance of this depends on the percentage of users that are
-  allocated to that
-  launch. If the user is enrolled in the launch, the variation they are served
-  depends on the
-  allocation of the various feature variations used for the launch.
-
-  If the user is not assigned to a launch, and there is an ongoing experiment for
-  this feature, the user might
-  be assigned to a variation in the experiment. The chance of this
-  depends on the percentage of users that are allocated to that experiment. If the
-  user is enrolled in the experiment,
-  the variation they are served depends on the allocation of the various feature
-  variations used for the experiment.
-
-  If the user is not assigned to a launch or experiment, they are served the
-  default variation.
+  ## Optional parameters:
   """
-  @spec batch_evaluate_feature(map(), String.t(), batch_evaluate_feature_request(), list()) ::
+  @spec batch_evaluate_feature(
+          AWS.Client.t(),
+          String.t(),
+          batch_evaluate_feature_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_evaluate_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_evaluate_feature_errors()}
@@ -1937,7 +1913,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "dataplane.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "dataplane.")
 
     Request.request_rest(
       client,
@@ -1953,26 +1930,22 @@ defmodule AWS.Evidently do
   end
 
   @doc """
-  Creates an Evidently *experiment*.
+  Creates an Evidently *experiment*. Before you create an experiment, you must
+  create the feature to use for the experiment. An experiment helps you make
+  feature design decisions based on evidence and data. An experiment can test as
+  many as five variations at once. Evidently collects experiment data and
+  analyzes it by statistical methods, and provides clear recommendations about
+  which variations perform better.
 
-  Before you create an experiment,
-  you must create the feature to use for the experiment.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20CreateExperiment&this_doc_guide=API%2520Reference)
 
-  An experiment helps you make feature design
-  decisions based on evidence and data. An experiment can test as
-  many as five variations at once. Evidently collects experiment data and analyzes
-  it by statistical methods, and provides
-  clear recommendations about which variations perform better.
+  ## Parameters:
+  * `:project` (`t:string`) The name or ARN of the project that you want to create
+    the new experiment in.
 
-  You can optionally specify a `segment` to have the experiment consider only
-  certain audience
-  types in the experiment, such as using only user sessions from a certain
-  location or who use a certain internet browser.
-
-  Don't use this operation to update an existing experiment. Instead, use
-  [UpdateExperiment](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateExperiment.html).
+  ## Optional parameters:
   """
-  @spec create_experiment(map(), String.t(), create_experiment_request(), list()) ::
+  @spec create_experiment(AWS.Client.t(), String.t(), create_experiment_request(), Keyword.t()) ::
           {:ok, create_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_experiment_errors()}
@@ -1981,7 +1954,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1997,16 +1971,23 @@ defmodule AWS.Evidently do
   end
 
   @doc """
-  Creates an Evidently *feature* that you want to launch or test.
-
-  You can define up to
-  five variations of a feature, and use these variations in your launches and
-  experiments. A feature must be created in
-  a project. For information about creating a project, see
-  [CreateProject](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateProject.html).   Don't use this operation to update an existing feature. Instead, use
+  Creates an Evidently *feature* that you want to launch or test. You can define
+  up to five variations of a feature, and use these variations in your launches
+  and experiments. A feature must be created in a project. For information about
+  creating a project, see
+  [CreateProject](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateProject.html).
+  Don't use this operation to update an existing feature. Instead, use
   [UpdateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateFeature.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20CreateFeature&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project` (`t:string`) The name or ARN of the project that is to contain the
+    new feature.
+
+  ## Optional parameters:
   """
-  @spec create_feature(map(), String.t(), create_feature_request(), list()) ::
+  @spec create_feature(AWS.Client.t(), String.t(), create_feature_request(), Keyword.t()) ::
           {:ok, create_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_feature_errors()}
@@ -2015,7 +1996,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2031,24 +2013,23 @@ defmodule AWS.Evidently do
   end
 
   @doc """
-  Creates a *launch* of a given feature.
+  Creates a *launch* of a given feature. Before you create a launch, you must
+  create the feature to use for the launch. You can use a launch to safely
+  validate new features by serving them to a specified percentage of your users
+  while you roll out the feature. You can monitor the performance of the new
+  feature to help you decide when to ramp up traffic to more users. This helps
+  you reduce risk and identify unintended consequences before you fully launch
+  the feature.
 
-  Before you create a launch, you
-  must create the feature to use for the launch.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20CreateLaunch&this_doc_guide=API%2520Reference)
 
-  You can use a launch to safely validate new features by serving them to a
-  specified
-  percentage of your users while you roll out the feature. You can monitor the
-  performance of
-  the new feature to help you decide when to ramp up traffic to more users. This
-  helps you
-  reduce risk and identify unintended consequences before you fully launch the
-  feature.
+  ## Parameters:
+  * `:project` (`t:string`) The name or ARN of the project that you want to create
+    the launch in.
 
-  Don't use this operation to update an existing launch. Instead, use
-  [UpdateLaunch](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateLaunch.html).
+  ## Optional parameters:
   """
-  @spec create_launch(map(), String.t(), create_launch_request(), list()) ::
+  @spec create_launch(AWS.Client.t(), String.t(), create_launch_request(), Keyword.t()) ::
           {:ok, create_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_launch_errors()}
@@ -2057,7 +2038,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2074,15 +2056,16 @@ defmodule AWS.Evidently do
 
   @doc """
   Creates a project, which is the logical object in Evidently that can contain
-  features, launches, and
-  experiments.
+  features, launches, and experiments. Use projects to group similar features
+  together.
 
-  Use projects to group similar features together.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20CreateProject&this_doc_guide=API%2520Reference)
 
-  To update an existing project, use
-  [UpdateProject](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateProject.html).
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_project(map(), create_project_request(), list()) ::
+  @spec create_project(AWS.Client.t(), create_project_request(), Keyword.t()) ::
           {:ok, create_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_errors()}
@@ -2091,7 +2074,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2107,34 +2091,22 @@ defmodule AWS.Evidently do
   end
 
   @doc """
-  Use this operation to define a *segment* of your audience.
-
-  A segment
-  is a portion of your audience that share one or more characteristics. Examples
-  could be Chrome browser users,
-  users in Europe, or Firefox browser users in Europe who also fit other criteria
-  that your application collects,
-  such as age.
-
-  Using a segment in an experiment limits that experiment to evaluate only the
-  users who match the segment
-  criteria. Using one or more segments in a launch allows you to define different
-  traffic splits for the different
+  Use this operation to define a *segment* of your audience. A segment is a
+  portion of your audience that share one or more characteristics. Examples
+  could be Chrome browser users, users in Europe, or Firefox browser users in
+  Europe who also fit other criteria that your application collects, such as
+  age. Using a segment in an experiment limits that experiment to evaluate only
+  the users who match the segment criteria. Using one or more segments in a
+  launch allows you to define different traffic splits for the different
   audience segments.
 
-  For more information about segment pattern syntax, see
-  [
-  Segment rule pattern
-  syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20CreateSegment&this_doc_guide=API%2520Reference)
 
-  The pattern that you define for a segment is matched against the value of
-  `evaluationContext`, which
-  is passed into Evidently in the
-  [EvaluateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html)
-  operation,
-  when Evidently assigns a feature variation to a user.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_segment(map(), create_segment_request(), list()) ::
+  @spec create_segment(AWS.Client.t(), create_segment_request(), Keyword.t()) ::
           {:ok, create_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_segment_errors()}
@@ -2143,7 +2115,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2159,14 +2132,25 @@ defmodule AWS.Evidently do
   end
 
   @doc """
-  Deletes an Evidently experiment.
+  Deletes an Evidently experiment. The feature used for the experiment is not
+  deleted.
 
-  The feature used for the experiment is not deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20DeleteExperiment&this_doc_guide=API%2520Reference)
 
-  To stop an experiment without deleting it, use
-  [StopExperiment](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_StopExperiment.html).
+  ## Parameters:
+  * `:experiment` (`t:string`) The name of the experiment to delete.
+  * `:project` (`t:string`) The name or ARN of the project that contains the
+    experiment to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_experiment(map(), String.t(), String.t(), delete_experiment_request(), list()) ::
+  @spec delete_experiment(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_experiment_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_experiment_errors()}
@@ -2177,7 +2161,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2194,8 +2179,23 @@ defmodule AWS.Evidently do
 
   @doc """
   Deletes an Evidently feature.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20DeleteFeature&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:feature` (`t:string`) The name of the feature to delete.
+  * `:project` (`t:string`) The name or ARN of the project that contains the
+    feature to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_feature(map(), String.t(), String.t(), delete_feature_request(), list()) ::
+  @spec delete_feature(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_feature_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_feature_errors()}
@@ -2206,7 +2206,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2222,14 +2223,24 @@ defmodule AWS.Evidently do
   end
 
   @doc """
-  Deletes an Evidently launch.
+  Deletes an Evidently launch. The feature used for the launch is not deleted.
 
-  The feature used for the launch is not deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20DeleteLaunch&this_doc_guide=API%2520Reference)
 
-  To stop a launch without deleting it, use
-  [StopLaunch](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_StopLaunch.html).
+  ## Parameters:
+  * `:launch` (`t:string`) The name of the launch to delete.
+  * `:project` (`t:string`) The name or ARN of the project that contains the
+    launch to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_launch(map(), String.t(), String.t(), delete_launch_request(), list()) ::
+  @spec delete_launch(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_launch_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_launch_errors()}
@@ -2238,7 +2249,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2254,13 +2266,18 @@ defmodule AWS.Evidently do
   end
 
   @doc """
-  Deletes an Evidently project.
-
-  Before you can delete a project, you must delete all the
-  features that the project contains. To delete a feature, use
+  Deletes an Evidently project. Before you can delete a project, you must delete
+  all the features that the project contains. To delete a feature, use
   [DeleteFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_DeleteFeature.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20DeleteProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project` (`t:string`) The name or ARN of the project to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_project(map(), String.t(), delete_project_request(), list()) ::
+  @spec delete_project(AWS.Client.t(), String.t(), delete_project_request(), Keyword.t()) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_errors()}
@@ -2269,7 +2286,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2285,13 +2303,17 @@ defmodule AWS.Evidently do
   end
 
   @doc """
-  Deletes a segment.
+  Deletes a segment. You can't delete a segment that is being used in a launch or
+  experiment, even if that launch or experiment is not currently running.
 
-  You can't delete a segment that is being used in a launch or experiment, even if
-  that
-  launch or experiment is not currently running.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20DeleteSegment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:segment` (`t:string`) Specifies the segment to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_segment(map(), String.t(), delete_segment_request(), list()) ::
+  @spec delete_segment(AWS.Client.t(), String.t(), delete_segment_request(), Keyword.t()) ::
           {:ok, delete_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_segment_errors()}
@@ -2300,7 +2322,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2316,50 +2339,28 @@ defmodule AWS.Evidently do
   end
 
   @doc """
-  This operation assigns a feature variation to one given user session.
+  This operation assigns a feature variation to one given user session. You pass
+  in an `entityID` that represents the user. Evidently then checks the
+  evaluation rules and assigns the variation. The first rules that are evaluated
+  are the override rules. If the user's `entityID` matches an override rule, the
+  user is served the variation specified by that rule.
 
-  You pass in an
-  `entityID` that represents the user. Evidently then checks the evaluation rules
-  and assigns the variation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20EvaluateFeature&this_doc_guide=API%2520Reference)
 
-  The first rules that are evaluated are the override rules. If the user's
-  `entityID` matches an override rule, the user is served the variation specified
-  by that rule.
+  ## Parameters:
+  * `:feature` (`t:string`) The name of the feature being evaluated.
+  * `:project` (`t:string`) The name or ARN of the project that contains this
+    feature.
 
-  If there is a current launch with this feature that uses segment overrides, and
-  if the user session's `evaluationContext` matches a segment rule defined in a
-  segment override, the configuration in the segment overrides is used. For more
-  information
-  about segments, see
-  [CreateSegment](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html) and
-  [Use segments to focus your
-  audience](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html).
-
-  If there is a launch with no segment overrides, the user might be assigned to a
-  variation in
-  the launch. The chance of this depends on the percentage of users that are
-  allocated to that
-  launch. If the user is enrolled in the launch, the variation they are served
-  depends on the
-  allocation of the various feature variations used for the launch.
-
-  If the user is not assigned to a launch, and there is an ongoing experiment for
-  this feature, the user might
-  be assigned to a variation in the experiment. The chance of this
-  depends on the percentage of users that are allocated to that experiment.
-
-  If the experiment uses a segment, then only
-  user sessions with `evaluationContext` values that match the segment rule are
-  used in the experiment.
-
-  If the user is enrolled in the experiment,
-  the variation they are served depends on the allocation of the various feature
-  variations used for the experiment.
-
-  If the user is not assigned to a launch or experiment, they are served the
-  default variation.
+  ## Optional parameters:
   """
-  @spec evaluate_feature(map(), String.t(), String.t(), evaluate_feature_request(), list()) ::
+  @spec evaluate_feature(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          evaluate_feature_request(),
+          Keyword.t()
+        ) ::
           {:ok, evaluate_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, evaluate_feature_errors()}
@@ -2370,7 +2371,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "dataplane.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "dataplane.")
 
     Request.request_rest(
       client,
@@ -2386,13 +2388,21 @@ defmodule AWS.Evidently do
   end
 
   @doc """
-  Returns the details about one experiment.
-
-  You must already know the
-  experiment name. To retrieve a list of experiments in your account, use
+  Returns the details about one experiment. You must already know the experiment
+  name. To retrieve a list of experiments in your account, use
   [ListExperiments](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListExperiments.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20GetExperiment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:experiment` (`t:string`) The name of the experiment that you want to see the
+    details of.
+  * `:project` (`t:string`) The name or ARN of the project that contains the
+    experiment.
+
+  ## Optional parameters:
   """
-  @spec get_experiment(map(), String.t(), String.t(), list()) ::
+  @spec get_experiment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_experiment_errors()}
@@ -2400,37 +2410,56 @@ defmodule AWS.Evidently do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves the results of a running or completed experiment.
+  Retrieves the results of a running or completed experiment. No results are
+  available until there have been 100 events for each variation and at least 10
+  minutes have passed since the start of the experiment. To increase the
+  statistical power, Evidently performs an additional offline p-value analysis
+  at the end of the experiment. Offline p-value analysis can detect statistical
+  significance in some cases where the anytime p-values used during the
+  experiment do not find statistical significance.
 
-  No results are available until
-  there have been 100 events for each variation and at least 10 minutes have
-  passed since the start of the experiment.
-  To increase the statistical power, Evidently performs an additional offline
-  p-value analysis at the end of the experiment.
-  Offline p-value analysis can detect statistical significance in some cases where
-  the anytime p-values used during
-  the experiment do not find statistical significance.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20GetExperimentResults&this_doc_guide=API%2520Reference)
 
-  Experiment
-  results are available up to 63 days after the start of the experiment. They are
-  not available after that because
-  of CloudWatch data retention policies.
+  ## Parameters:
+  * `:experiment` (`t:string`) The name of the experiment to retrieve the results
+    of.
+  * `:project` (`t:string`) The name or ARN of the project that contains the
+    experiment that you want to see the results of.
+
+  ## Optional parameters:
   """
   @spec get_experiment_results(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           get_experiment_results_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_experiment_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2442,7 +2471,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2458,13 +2488,21 @@ defmodule AWS.Evidently do
   end
 
   @doc """
-  Returns the details about one feature.
-
-  You must already know the feature name. To
-  retrieve a list of features in your account, use
+  Returns the details about one feature. You must already know the feature name.
+  To retrieve a list of features in your account, use
   [ListFeatures](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListFeatures.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20GetFeature&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:feature` (`t:string`) The name of the feature that you want to retrieve
+    information for.
+  * `:project` (`t:string`) The name or ARN of the project that contains the
+    feature.
+
+  ## Optional parameters:
   """
-  @spec get_feature(map(), String.t(), String.t(), list()) ::
+  @spec get_feature(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_feature_errors()}
@@ -2472,72 +2510,162 @@ defmodule AWS.Evidently do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/features/#{AWS.Util.encode_uri(feature)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns the details about one launch.
-
-  You must already know the
-  launch name. To retrieve a list of launches in your account, use
+  Returns the details about one launch. You must already know the launch name. To
+  retrieve a list of launches in your account, use
   [ListLaunches](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListLaunches.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20GetLaunch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:launch` (`t:string`) The name of the launch that you want to see the details
+    of.
+  * `:project` (`t:string`) The name or ARN of the project that contains the
+    launch.
+
+  ## Optional parameters:
   """
-  @spec get_launch(map(), String.t(), String.t(), list()) ::
+  @spec get_launch(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_launch_errors()}
   def get_launch(%Client{} = client, launch, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns the details about one launch.
-
-  You must already know the
-  project name. To retrieve a list of projects in your account, use
+  Returns the details about one launch. You must already know the project name. To
+  retrieve a list of projects in your account, use
   [ListProjects](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListProjects.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20GetProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project` (`t:string`) The name or ARN of the project that you want to see
+    the details of.
+
+  ## Optional parameters:
   """
-  @spec get_project(map(), String.t(), list()) ::
+  @spec get_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_project_errors()}
   def get_project(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns information about the specified segment.
+  Returns information about the specified segment. Specify the segment you want to
+  view by specifying its ARN.
 
-  Specify the segment you want to view
-  by specifying its ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20GetSegment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:segment` (`t:string`) The ARN of the segment to return information for.
+
+  ## Optional parameters:
   """
-  @spec get_segment(map(), String.t(), list()) ::
+  @spec get_segment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_segment_errors()}
   def get_segment(%Client{} = client, segment, options \\ []) do
     url_path = "/segments/#{AWS.Util.encode_uri(segment)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2545,174 +2673,277 @@ defmodule AWS.Evidently do
   @doc """
   Returns configuration details about all the experiments in the specified
   project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20ListExperiments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project` (`t:string`) The name or ARN of the project to return the
+    experiment list from.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to include in the
+    response.
+  * `:next_token` (`t:string`) The token to use when requesting the next set of
+    results. You received this token from a previous ListExperiments operation.
+  * `:status` (`t:string`) Use this optional parameter to limit the returned
+    results to only the experiments with the status that you specify here.
   """
-  @spec list_experiments(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_experiments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_experiments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_experiments_errors()}
-  def list_experiments(
-        %Client{} = client,
-        project,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_experiments(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/experiments"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns configuration details about all the features in the specified project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20ListFeatures&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project` (`t:string`) The name or ARN of the project to return the feature
+    list from.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to include in the
+    response.
+  * `:next_token` (`t:string`) The token to use when requesting the next set of
+    results. You received this token from a previous ListFeatures operation.
   """
-  @spec list_features(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_features(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_features_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_features_errors()}
-  def list_features(
-        %Client{} = client,
-        project,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_features(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/features"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns configuration details about all the launches in the specified project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20ListLaunches&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project` (`t:string`) The name or ARN of the project to return the launch
+    list from.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to include in the
+    response.
+  * `:next_token` (`t:string`) The token to use when requesting the next set of
+    results. You received this token from a previous ListLaunches operation.
+  * `:status` (`t:string`) Use this optional parameter to limit the returned
+    results to only the launches with the status that you specify here.
   """
-  @spec list_launches(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_launches(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_launches_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_launches_errors()}
-  def list_launches(
-        %Client{} = client,
-        project,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_launches(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns configuration details about all the projects in the current Region in
-  your
-  account.
+  your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20ListProjects&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to include in the
+    response.
+  * `:next_token` (`t:string`) The token to use when requesting the next set of
+    results. You received this token from a previous ListProjects operation.
   """
-  @spec list_projects(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_projects(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_projects_errors()}
-  def list_projects(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_projects(%Client{} = client, options \\ []) do
     url_path = "/projects"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2720,52 +2951,68 @@ defmodule AWS.Evidently do
   @doc """
   Use this operation to find which experiments or launches are using a specified
   segment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20ListSegmentReferences&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:segment` (`t:string`) The ARN of the segment that you want to view
+    information for.
+  * `:type` (`t:string`) Specifies whether to return information about launches or
+    experiments that use this segment.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to include in the
+    response. If you omit this, the default of 50 is used.
+  * `:next_token` (`t:string`) The token to use when requesting the next set of
+    results. You received this token from a previous ListSegmentReferences
+    operation.
   """
-  @spec list_segment_references(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          list()
-        ) ::
+  @spec list_segment_references(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_segment_references_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_segment_references_errors()}
-  def list_segment_references(
-        %Client{} = client,
-        segment,
-        max_results \\ nil,
-        next_token \\ nil,
-        type,
-        options \\ []
-      ) do
+  def list_segment_references(%Client{} = client, segment, type, options \\ []) do
     url_path = "/segments/#{AWS.Util.encode_uri(segment)}/references"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"type", type}]
+
+    # Optional query params
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2773,59 +3020,122 @@ defmodule AWS.Evidently do
   @doc """
   Returns a list of audience segments that you have created in your account in
   this Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20ListSegments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to include in the
+    response. If you omit this, the default of 50 is used.
+  * `:next_token` (`t:string`) The token to use when requesting the next set of
+    results. You received this token from a previous ListSegments operation.
   """
-  @spec list_segments(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_segments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_segments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_segments_errors()}
-  def list_segments(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_segments(%Client{} = client, options \\ []) do
     url_path = "/segments"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Displays the tags associated with an Evidently resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource that you want to see the
+    tags of.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Sends performance events to Evidently.
+  Sends performance events to Evidently. These events can be used to evaluate a
+  launch or an experiment.
 
-  These events can be used to evaluate a launch or
-  an experiment.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20PutProjectEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project` (`t:string`) The name or ARN of the project to write the events to.
+
+  ## Optional parameters:
   """
-  @spec put_project_events(map(), String.t(), put_project_events_request(), list()) ::
+  @spec put_project_events(AWS.Client.t(), String.t(), put_project_events_request(), Keyword.t()) ::
           {:ok, put_project_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_project_events_errors()}
@@ -2834,7 +3144,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "dataplane.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "dataplane.")
 
     Request.request_rest(
       client,
@@ -2850,13 +3161,25 @@ defmodule AWS.Evidently do
   end
 
   @doc """
-  Starts an existing experiment.
-
-  To create an experiment,
-  use
+  Starts an existing experiment. To create an experiment, use
   [CreateExperiment](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateExperiment.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20StartExperiment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:experiment` (`t:string`) The name of the experiment to start.
+  * `:project` (`t:string`) The name or ARN of the project that contains the
+    experiment to start.
+
+  ## Optional parameters:
   """
-  @spec start_experiment(map(), String.t(), String.t(), start_experiment_request(), list()) ::
+  @spec start_experiment(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          start_experiment_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_experiment_errors()}
@@ -2867,7 +3190,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2883,13 +3207,19 @@ defmodule AWS.Evidently do
   end
 
   @doc """
-  Starts an existing launch.
-
-  To create a launch,
-  use
+  Starts an existing launch. To create a launch, use
   [CreateLaunch](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateLaunch.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20StartLaunch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:launch` (`t:string`) The name of the launch to start.
+  * `:project` (`t:string`) The name or ARN of the project that contains the
+    launch to start.
+
+  ## Optional parameters:
   """
-  @spec start_launch(map(), String.t(), String.t(), start_launch_request(), list()) ::
+  @spec start_launch(AWS.Client.t(), String.t(), String.t(), start_launch_request(), Keyword.t()) ::
           {:ok, start_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_launch_errors()}
@@ -2900,7 +3230,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2916,12 +3247,25 @@ defmodule AWS.Evidently do
   end
 
   @doc """
-  Stops an experiment that is currently running.
+  Stops an experiment that is currently running. If you stop an experiment, you
+  can't resume it or restart it.
 
-  If you stop an experiment, you can't
-  resume it or restart it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20StopExperiment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:experiment` (`t:string`) The name of the experiment to stop.
+  * `:project` (`t:string`) The name or ARN of the project that contains the
+    experiment to stop.
+
+  ## Optional parameters:
   """
-  @spec stop_experiment(map(), String.t(), String.t(), stop_experiment_request(), list()) ::
+  @spec stop_experiment(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          stop_experiment_request(),
+          Keyword.t()
+        ) ::
           {:ok, stop_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_experiment_errors()}
@@ -2932,7 +3276,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2948,17 +3293,22 @@ defmodule AWS.Evidently do
   end
 
   @doc """
-  Stops a launch that is currently running.
+  Stops a launch that is currently running. After you stop a launch, you will not
+  be able to resume it or restart it. Also, it will not be evaluated as a rule
+  for traffic allocation, and the traffic that was allocated to the launch will
+  instead be available to the feature's experiment, if there is one. Otherwise,
+  all traffic will be served the default variation after the launch is stopped.
 
-  After you stop a launch, you will not be able to resume it or restart it.
-  Also, it
-  will not be evaluated as a rule for traffic allocation, and the traffic that was
-  allocated to the launch
-  will instead be available to the feature's experiment, if there is one.
-  Otherwise, all traffic
-  will be served the default variation after the launch is stopped.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20StopLaunch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:launch` (`t:string`) The name of the launch to stop.
+  * `:project` (`t:string`) The name or ARN of the project that contains the
+    launch that you want to stop.
+
+  ## Optional parameters:
   """
-  @spec stop_launch(map(), String.t(), String.t(), stop_launch_request(), list()) ::
+  @spec stop_launch(AWS.Client.t(), String.t(), String.t(), stop_launch_request(), Keyword.t()) ::
           {:ok, stop_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_launch_errors()}
@@ -2969,7 +3319,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2986,31 +3337,20 @@ defmodule AWS.Evidently do
 
   @doc """
   Assigns one or more tags (key-value pairs) to the specified CloudWatch Evidently
-  resource.
+  resource. Projects, features, launches, and experiments can be tagged. Tags
+  can help you organize and categorize your resources. You can also use them to
+  scope user permissions by granting a user permission to access or change only
+  resources with certain tag values.
 
-  Projects,
-  features, launches, and experiments can be tagged.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20TagResource&this_doc_guide=API%2520Reference)
 
-  Tags can help you organize and categorize your resources. You can also use them
-  to scope user
-  permissions by granting a user
-  permission to access or change only resources with certain tag values.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the CloudWatch Evidently resource that
+    you're adding tags to.
 
-  Tags don't have any semantic meaning to Amazon Web Services and are interpreted
-  strictly as strings of characters.
-
-  You can use the `TagResource` action with a resource that already has tags.
-  If you specify a new tag key for the resource,
-  this tag is appended to the list of tags associated
-  with the alarm. If you specify a tag key that is already associated with the
-  resource, the new tag value that you specify replaces
-  the previous value for that tag.
-
-  You can associate as many as 50 tags with a resource.
-
-  For more information, see [Tagging Amazon Web Services resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html).
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -3019,7 +3359,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3036,12 +3377,16 @@ defmodule AWS.Evidently do
 
   @doc """
   Use this operation to test a rules pattern that you plan to use to create an
-  audience segment.
-
-  For more information about segments, see
+  audience segment. For more information about segments, see
   [CreateSegment](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20TestSegmentPattern&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec test_segment_pattern(map(), test_segment_pattern_request(), list()) ::
+  @spec test_segment_pattern(AWS.Client.t(), test_segment_pattern_request(), Keyword.t()) ::
           {:ok, test_segment_pattern_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_segment_pattern_errors()}
@@ -3050,7 +3395,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3067,8 +3413,18 @@ defmodule AWS.Evidently do
 
   @doc """
   Removes one or more tags from the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the CloudWatch Evidently resource that
+    you're removing tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.evidently#TagKey]`) The list of tag keys to
+    remove from the resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -3082,7 +3438,8 @@ defmodule AWS.Evidently do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3100,10 +3457,22 @@ defmodule AWS.Evidently do
   @doc """
   Updates an Evidently experiment.
 
-  Don't use this operation to update an experiment's tag. Instead, use
-  [TagResource](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20UpdateExperiment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:experiment` (`t:string`) The name of the experiment to update.
+  * `:project` (`t:string`) The name or ARN of the project that contains the
+    experiment that you want to update.
+
+  ## Optional parameters:
   """
-  @spec update_experiment(map(), String.t(), String.t(), update_experiment_request(), list()) ::
+  @spec update_experiment(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_experiment_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_experiment_errors()}
@@ -3114,7 +3483,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3132,11 +3502,22 @@ defmodule AWS.Evidently do
   @doc """
   Updates an existing feature.
 
-  You can't use this operation to update the tags of an existing feature. Instead,
-  use
-  [TagResource](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20UpdateFeature&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:feature` (`t:string`) The name of the feature to be updated.
+  * `:project` (`t:string`) The name or ARN of the project that contains the
+    feature to be updated.
+
+  ## Optional parameters:
   """
-  @spec update_feature(map(), String.t(), String.t(), update_feature_request(), list()) ::
+  @spec update_feature(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_feature_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_feature_errors()}
@@ -3147,7 +3528,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3165,10 +3547,22 @@ defmodule AWS.Evidently do
   @doc """
   Updates a launch of a given feature.
 
-  Don't use this operation to update the tags of an existing launch. Instead, use
-  [TagResource](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20UpdateLaunch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:launch` (`t:string`) The name of the launch that is to be updated.
+  * `:project` (`t:string`) The name or ARN of the project that contains the
+    launch that you want to update.
+
+  ## Optional parameters:
   """
-  @spec update_launch(map(), String.t(), String.t(), update_launch_request(), list()) ::
+  @spec update_launch(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_launch_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_launch_errors()}
@@ -3177,7 +3571,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3193,17 +3588,20 @@ defmodule AWS.Evidently do
   end
 
   @doc """
-  Updates the description of an existing project.
-
-  To create a new project, use
-  [CreateProject](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateProject.html).   Don't use this operation to update the data storage options of a project.
+  Updates the description of an existing project. To create a new project, use
+  [CreateProject](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateProject.html).
+  Don't use this operation to update the data storage options of a project.
   Instead, use
   [UpdateProjectDataDelivery](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateProjectDataDelivery.html).
 
-  Don't use this operation to update the tags of a project. Instead, use
-  [TagResource](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20UpdateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project` (`t:string`) The name or ARN of the project to update.
+
+  ## Optional parameters:
   """
-  @spec update_project(map(), String.t(), update_project_request(), list()) ::
+  @spec update_project(AWS.Client.t(), String.t(), update_project_request(), Keyword.t()) ::
           {:ok, update_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_errors()}
@@ -3212,7 +3610,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3228,23 +3627,24 @@ defmodule AWS.Evidently do
   end
 
   @doc """
-  Updates the data storage options for this project.
+  Updates the data storage options for this project. If you store evaluation
+  events, you an keep them and analyze them on your own. If you choose not to
+  store evaluation events, Evidently deletes them after using them to produce
+  metrics and other experiment results that you can view.
 
-  If you store evaluation events, you an
-  keep them and analyze them on your own. If you choose not to store evaluation
-  events,
-  Evidently deletes them after using them to produce metrics and other experiment
-  results that
-  you can view.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20UpdateProjectDataDelivery&this_doc_guide=API%2520Reference)
 
-  You can't specify both `cloudWatchLogs` and `s3Destination` in the same
-  operation.
+  ## Parameters:
+  * `:project` (`t:string`) The name or ARN of the project that you want to modify
+    the data storage options for.
+
+  ## Optional parameters:
   """
   @spec update_project_data_delivery(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_project_data_delivery_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_project_data_delivery_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3254,7 +3654,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

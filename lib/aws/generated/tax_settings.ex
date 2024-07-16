@@ -4,22 +4,11 @@
 defmodule AWS.TaxSettings do
   @moduledoc """
   You can use the tax setting API to programmatically set, modify, and delete the
-  tax
-  registration number (TRN), associated business legal name, and address
-  (Collectively referred
-  to as "TRN information").
-
-  You can also programmatically view TRN information and tax addresses
-  ("Tax profiles").
-
-  You can use this API to automate your TRN information settings instead of
-  manually using
-  the console.
-
-  Service Endpoint
-
-    *
-  https://tax.us-east-1.amazonaws.com
+  tax registration number (TRN), associated business legal name, and address
+  (Collectively referred to as "TRN information"). You can also programmatically
+  view TRN information and tax addresses ("Tax profiles"). You can use this API
+  to automate your TRN information settings instead of manually using the
+  console.
   """
 
   alias AWS.Client
@@ -736,16 +725,20 @@ defmodule AWS.TaxSettings do
   end
 
   @doc """
-  Deletes tax registration for multiple accounts in batch.
+  Deletes tax registration for multiple accounts in batch. This can be used to
+  delete tax registrations for up to five accounts in one batch.
 
-  This can be used to delete tax
-  registrations for up to five accounts in one batch.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=taxsettings%20BatchDeleteTaxRegistration&this_doc_guide=API%2520Reference)
 
-  This API operation can't be used to delete your tax registration in Brazil. Use
-  the [Payment preferences](https://console.aws.amazon.com/billing/home#/paymentpreferences/paymentmethods)
-  page in the Billing and Cost Management console instead.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_delete_tax_registration(map(), batch_delete_tax_registration_request(), list()) ::
+  @spec batch_delete_tax_registration(
+          AWS.Client.t(),
+          batch_delete_tax_registration_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_delete_tax_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_tax_registration_errors()}
@@ -754,7 +747,8 @@ defmodule AWS.TaxSettings do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -770,176 +764,23 @@ defmodule AWS.TaxSettings do
   end
 
   @doc """
-  Adds or updates tax registration for multiple accounts in batch.
+  Adds or updates tax registration for multiple accounts in batch. This can be
+  used to add or update tax registrations for up to five accounts in one batch.
+  You can't set a TRN if there's a pending TRN. You'll need to delete the
+  pending TRN first. To call this API operation for specific countries, see the
+  following country-specific requirements.
 
-  This can be used to add
-  or update tax registrations for up to five accounts in one batch. You can't set
-  a TRN if there's a pending TRN. You'll need to delete the pending TRN first.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=taxsettings%20BatchPutTaxRegistration&this_doc_guide=API%2520Reference)
 
-  To call this API operation for specific countries, see the following
-  country-specific
-  requirements.
+  ## Parameters:
 
-  ## Bangladesh
-
-    *
-  You must specify the tax registration certificate document in the
-  `taxRegistrationDocuments` field of the `VerificationDetails`
-  object.
-
-  ## Brazil
-
-    *
-  You must complete the tax registration process in the [Payment preferences](https://console.aws.amazon.com/billing/home#/paymentpreferences/paymentmethods)
-  page in the Billing and Cost Management console. After your TRN and billing
-  address are verified, you can call this API operation.
-
-    *
-  For Amazon Web Services accounts created through Organizations, you can call
-  this API operation when you don't have a billing address.
-
-  ## Georgia
-
-    *
-  The valid `personType` values are `Physical Person` and `Business`.
-
-  ## Kenya
-
-    *
-  You must specify the `personType` in the `kenyaAdditionalInfo`
-  field of the `additionalTaxInformation` object.
-
-    *
-  If the `personType` is `Physical Person`, you must specify the
-  tax registration certificate document in the `taxRegistrationDocuments` field
-  of the `VerificationDetails` object.
-
-  ## Malaysia
-
-    *
-  If you use this operation to set a tax registration number (TRN) in Malaysia,
-  only
-  resellers with a valid sales and service tax (SST) number are required to
-  provide tax
-  registration information.
-
-    *
-  By using this API operation to set a TRN in Malaysia, Amazon Web Services will
-  regard you as
-  self-declaring that you're an authorized business reseller registered with the
-  Royal
-  Malaysia Customs Department (RMCD) and have a valid SST number.
-
-    *
-  Amazon Web Services reserves the right to seek additional information and/or
-  take other actions to
-  support your self-declaration as appropriate.
-
-    *
-  If you're not a reseller of Amazon Web Services, we don't recommend that you use
-  this operation to set the TRN in Malaysia.
-
-    *
-  Only use this API operation to upload the TRNs for accounts through which you're
-  reselling Amazon Web Services.
-
-    *
-  Amazon Web Services is currently registered under the following service tax
-  codes. You must include
-  at least one of the service tax codes in the service tax code strings to declare
-  yourself
-  as an authorized registered business reseller.
-
-  Taxable service and service tax codes:
-
-  Consultancy - 9907061674
-
-  Training or coaching service - 9907071685
-
-  IT service - 9907101676
-
-  Digital services and electronic medium - 9907121690
-
-  ## Nepal
-
-    *
-  The sector valid values are `Business` and `Individual`.
-
-  ## Saudi Arabia
-
-    *
-  For `address`, you must specify `addressLine3`.
-
-  ## South Korea
-
-    *
-  You must specify the `certifiedEmailId` and `legalName` in the
-  `TaxRegistrationEntry` object. Use Korean characters for
-  `legalName`.
-
-    *
-  You must specify the `businessRepresentativeName`,
-  `itemOfBusiness`, and `lineOfBusiness` in the
-  `southKoreaAdditionalInfo` field of the `additionalTaxInformation`
-  object. Use Korean characters for these fields.
-
-    *
-  You must specify the tax registration certificate document in the
-  `taxRegistrationDocuments` field of the `VerificationDetails`
-  object.
-
-    *
-  For the `address` object, use Korean characters for `addressLine1`,
-  `addressLine2`
-  `city`, `postalCode`, and `stateOrRegion`.
-
-  ## Spain
-
-    *
-  You must specify the `registrationType` in the
-  `spainAdditionalInfo` field of the `additionalTaxInformation`
-  object.
-
-    *
-  If the `registrationType` is `Local`, you must specify the tax
-  registration certificate document in the `taxRegistrationDocuments` field of
-  the `VerificationDetails` object.
-
-  ## Turkey
-
-    *
-  You must specify the `sector` in the `taxRegistrationEntry` object.
-
-    *
-  If your `sector` is `Business`, `Individual`, or
-  `Government`:
-
-      *
-  Specify the `taxOffice`. If your
-  `sector` is `Individual`, don't enter this value.
-
-      *
-  (Optional) Specify the `kepEmailId`. If your
-  `sector` is `Individual`, don't enter this value.
-
-      *
-
-  **Note:** In the **Tax Settings** page of the Billing console, `Government`
-  appears as ## Public institutions
-
-    *
-  If your `sector` is `Business` and you're subject to KDV tax,
-  you must specify your industry in the `industries` field.
-
-    *
-  For `address`, you must specify `districtOrCounty`.
-
-  ## Ukraine
-
-    *
-  The sector valid values are `Business` and `Individual`.
+  ## Optional parameters:
   """
-  @spec batch_put_tax_registration(map(), batch_put_tax_registration_request(), list()) ::
+  @spec batch_put_tax_registration(
+          AWS.Client.t(),
+          batch_put_tax_registration_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_put_tax_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_put_tax_registration_errors()}
@@ -948,7 +789,8 @@ defmodule AWS.TaxSettings do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -966,11 +808,13 @@ defmodule AWS.TaxSettings do
   @doc """
   Deletes tax registration for a single account.
 
-  This API operation can't be used to delete your tax registration in Brazil. Use
-  the [Payment preferences](https://console.aws.amazon.com/billing/home#/paymentpreferences/paymentmethods)
-  page in the Billing and Cost Management console instead.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=taxsettings%20DeleteTaxRegistration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_tax_registration(map(), delete_tax_registration_request(), list()) ::
+  @spec delete_tax_registration(AWS.Client.t(), delete_tax_registration_request(), Keyword.t()) ::
           {:ok, delete_tax_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tax_registration_errors()}
@@ -979,7 +823,8 @@ defmodule AWS.TaxSettings do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -996,8 +841,14 @@ defmodule AWS.TaxSettings do
 
   @doc """
   Retrieves tax registration for a single account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=taxsettings%20GetTaxRegistration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_tax_registration(map(), get_tax_registration_request(), list()) ::
+  @spec get_tax_registration(AWS.Client.t(), get_tax_registration_request(), Keyword.t()) ::
           {:ok, get_tax_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_tax_registration_errors()}
@@ -1006,7 +857,8 @@ defmodule AWS.TaxSettings do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1024,8 +876,18 @@ defmodule AWS.TaxSettings do
   @doc """
   Downloads your tax documents to the Amazon S3 bucket that you specify in your
   request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=taxsettings%20GetTaxRegistrationDocument&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_tax_registration_document(map(), get_tax_registration_document_request(), list()) ::
+  @spec get_tax_registration_document(
+          AWS.Client.t(),
+          get_tax_registration_document_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_tax_registration_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_tax_registration_document_errors()}
@@ -1034,7 +896,8 @@ defmodule AWS.TaxSettings do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1051,13 +914,16 @@ defmodule AWS.TaxSettings do
 
   @doc """
   Retrieves the tax registration of accounts listed in a consolidated billing
-  family.
+  family. This can be used to retrieve up to 100 accounts' tax registrations in
+  one call (default 50).
 
-  This
-  can be used to retrieve up to 100 accounts' tax registrations in one call
-  (default 50).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=taxsettings%20ListTaxRegistrations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_tax_registrations(map(), list_tax_registrations_request(), list()) ::
+  @spec list_tax_registrations(AWS.Client.t(), list_tax_registrations_request(), Keyword.t()) ::
           {:ok, list_tax_registrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tax_registrations_errors()}
@@ -1066,7 +932,8 @@ defmodule AWS.TaxSettings do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1082,175 +949,18 @@ defmodule AWS.TaxSettings do
   end
 
   @doc """
-  Adds or updates tax registration for a single account.
-
-  You can't set a TRN if there's a pending TRN. You'll need to delete the pending
-  TRN first.
-
-  To call this API operation for specific countries, see the following
-  country-specific
+  Adds or updates tax registration for a single account. You can't set a TRN if
+  there's a pending TRN. You'll need to delete the pending TRN first. To call
+  this API operation for specific countries, see the following country-specific
   requirements.
 
-  ## Bangladesh
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=taxsettings%20PutTaxRegistration&this_doc_guide=API%2520Reference)
 
-    *
-  You must specify the tax registration certificate document in the
-  `taxRegistrationDocuments` field of the `VerificationDetails`
-  object.
+  ## Parameters:
 
-  ## Brazil
-
-    *
-  You must complete the tax registration process in the [Payment preferences](https://console.aws.amazon.com/billing/home#/paymentpreferences/paymentmethods)
-  page in the Billing and Cost Management console. After your TRN and billing
-  address are verified, you can call this API operation.
-
-    *
-  For Amazon Web Services accounts created through Organizations, you can call
-  this API operation when you don't have a billing address.
-
-  ## Georgia
-
-    *
-  The valid `personType` values are `Physical Person` and `Business`.
-
-  ## Kenya
-
-    *
-  You must specify the `personType` in the `kenyaAdditionalInfo`
-  field of the `additionalTaxInformation` object.
-
-    *
-  If the `personType` is `Physical Person`, you must specify the
-  tax registration certificate document in the `taxRegistrationDocuments` field
-  of the `VerificationDetails` object.
-
-  ## Malaysia
-
-    *
-  If you use this operation to set a tax registration number (TRN) in Malaysia,
-  only
-  resellers with a valid sales and service tax (SST) number are required to
-  provide tax
-  registration information.
-
-    *
-  By using this API operation to set a TRN in Malaysia, Amazon Web Services will
-  regard you as
-  self-declaring that you're an authorized business reseller registered with the
-  Royal
-  Malaysia Customs Department (RMCD) and have a valid SST number.
-
-    *
-  Amazon Web Services reserves the right to seek additional information and/or
-  take other actions to
-  support your self-declaration as appropriate.
-
-    *
-  If you're not a reseller of Amazon Web Services, we don't recommend that you use
-  this operation to set the TRN in Malaysia.
-
-    *
-  Only use this API operation to upload the TRNs for accounts through which you're
-  reselling Amazon Web Services.
-
-    *
-  Amazon Web Services is currently registered under the following service tax
-  codes. You must include
-  at least one of the service tax codes in the service tax code strings to declare
-  yourself
-  as an authorized registered business reseller.
-
-  Taxable service and service tax codes:
-
-  Consultancy - 9907061674
-
-  Training or coaching service - 9907071685
-
-  IT service - 9907101676
-
-  Digital services and electronic medium - 9907121690
-
-  ## Nepal
-
-    *
-  The sector valid values are `Business` and `Individual`.
-
-  ## Saudi Arabia
-
-    *
-  For `address`, you must specify `addressLine3`.
-
-  ## South Korea
-
-    *
-  You must specify the `certifiedEmailId` and `legalName` in the
-  `TaxRegistrationEntry` object. Use Korean characters for
-  `legalName`.
-
-    *
-  You must specify the `businessRepresentativeName`,
-  `itemOfBusiness`, and `lineOfBusiness` in the
-  `southKoreaAdditionalInfo` field of the `additionalTaxInformation`
-  object. Use Korean characters for these fields.
-
-    *
-  You must specify the tax registration certificate document in the
-  `taxRegistrationDocuments` field of the `VerificationDetails`
-  object.
-
-    *
-  For the `address` object, use Korean characters for `addressLine1`,
-  `addressLine2`
-  `city`, `postalCode`, and `stateOrRegion`.
-
-  ## Spain
-
-    *
-  You must specify the `registrationType` in the
-  `spainAdditionalInfo` field of the `additionalTaxInformation`
-  object.
-
-    *
-  If the `registrationType` is `Local`, you must specify the tax
-  registration certificate document in the `taxRegistrationDocuments` field of
-  the `VerificationDetails` object.
-
-  ## Turkey
-
-    *
-  You must specify the `sector` in the `taxRegistrationEntry` object.
-
-    *
-  If your `sector` is `Business`, `Individual`, or
-  `Government`:
-
-      *
-  Specify the `taxOffice`. If your
-  `sector` is `Individual`, don't enter this value.
-
-      *
-  (Optional) Specify the `kepEmailId`. If your
-  `sector` is `Individual`, don't enter this value.
-
-      *
-
-  **Note:** In the **Tax Settings** page of the Billing console, `Government`
-  appears as ## Public institutions
-
-    *
-  If your `sector` is `Business` and you're subject to KDV tax,
-  you must specify your industry in the `industries` field.
-
-    *
-  For `address`, you must specify `districtOrCounty`.
-
-  ## Ukraine
-
-    *
-  The sector valid values are `Business` and `Individual`.
+  ## Optional parameters:
   """
-  @spec put_tax_registration(map(), put_tax_registration_request(), list()) ::
+  @spec put_tax_registration(AWS.Client.t(), put_tax_registration_request(), Keyword.t()) ::
           {:ok, put_tax_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_tax_registration_errors()}
@@ -1259,7 +969,8 @@ defmodule AWS.TaxSettings do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

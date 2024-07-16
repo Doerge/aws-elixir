@@ -4,23 +4,6 @@
 defmodule AWS.CodeBuild do
   @moduledoc """
   CodeBuild
-
-  CodeBuild is a fully managed build service in the cloud.
-
-  CodeBuild compiles your source code,
-  runs unit tests, and produces artifacts that are ready to deploy. CodeBuild
-  eliminates the
-  need to provision, manage, and scale your own build servers. It provides
-  prepackaged
-  build environments for the most popular programming languages and build tools,
-  such as
-  Apache Maven, Gradle, and more. You can also fully customize build environments
-  in CodeBuild
-  to use your own build tools. CodeBuild scales automatically to meet peak build
-  requests. You
-  pay only for the build time you consume. For more information about CodeBuild,
-  see the *
-  [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html).*
   """
 
   alias AWS.Client
@@ -2452,12 +2435,13 @@ defmodule AWS.CodeBuild do
   @doc """
   Deletes one or more builds.
   """
-  @spec batch_delete_builds(map(), batch_delete_builds_input(), list()) ::
+  @spec batch_delete_builds(AWS.Client.t(), batch_delete_builds_input(), Keyword.t()) ::
           {:ok, batch_delete_builds_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_builds_errors()}
   def batch_delete_builds(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteBuilds", input, options)
   end
@@ -2465,12 +2449,13 @@ defmodule AWS.CodeBuild do
   @doc """
   Retrieves information about one or more batch builds.
   """
-  @spec batch_get_build_batches(map(), batch_get_build_batches_input(), list()) ::
+  @spec batch_get_build_batches(AWS.Client.t(), batch_get_build_batches_input(), Keyword.t()) ::
           {:ok, batch_get_build_batches_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_build_batches_errors()}
   def batch_get_build_batches(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetBuildBatches", input, options)
   end
@@ -2478,12 +2463,13 @@ defmodule AWS.CodeBuild do
   @doc """
   Gets information about one or more builds.
   """
-  @spec batch_get_builds(map(), batch_get_builds_input(), list()) ::
+  @spec batch_get_builds(AWS.Client.t(), batch_get_builds_input(), Keyword.t()) ::
           {:ok, batch_get_builds_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_builds_errors()}
   def batch_get_builds(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetBuilds", input, options)
   end
@@ -2491,12 +2477,13 @@ defmodule AWS.CodeBuild do
   @doc """
   Gets information about one or more compute fleets.
   """
-  @spec batch_get_fleets(map(), batch_get_fleets_input(), list()) ::
+  @spec batch_get_fleets(AWS.Client.t(), batch_get_fleets_input(), Keyword.t()) ::
           {:ok, batch_get_fleets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_fleets_errors()}
   def batch_get_fleets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetFleets", input, options)
   end
@@ -2504,40 +2491,41 @@ defmodule AWS.CodeBuild do
   @doc """
   Gets information about one or more build projects.
   """
-  @spec batch_get_projects(map(), batch_get_projects_input(), list()) ::
+  @spec batch_get_projects(AWS.Client.t(), batch_get_projects_input(), Keyword.t()) ::
           {:ok, batch_get_projects_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_projects_errors()}
   def batch_get_projects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetProjects", input, options)
   end
 
   @doc """
-
   Returns an array of report groups.
   """
-  @spec batch_get_report_groups(map(), batch_get_report_groups_input(), list()) ::
+  @spec batch_get_report_groups(AWS.Client.t(), batch_get_report_groups_input(), Keyword.t()) ::
           {:ok, batch_get_report_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_report_groups_errors()}
   def batch_get_report_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetReportGroups", input, options)
   end
 
   @doc """
-
   Returns an array of reports.
   """
-  @spec batch_get_reports(map(), batch_get_reports_input(), list()) ::
+  @spec batch_get_reports(AWS.Client.t(), batch_get_reports_input(), Keyword.t()) ::
           {:ok, batch_get_reports_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_reports_errors()}
   def batch_get_reports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetReports", input, options)
   end
@@ -2545,12 +2533,13 @@ defmodule AWS.CodeBuild do
   @doc """
   Creates a compute fleet.
   """
-  @spec create_fleet(map(), create_fleet_input(), list()) ::
+  @spec create_fleet(AWS.Client.t(), create_fleet_input(), Keyword.t()) ::
           {:ok, create_fleet_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_fleet_errors()}
   def create_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFleet", input, options)
   end
@@ -2558,57 +2547,43 @@ defmodule AWS.CodeBuild do
   @doc """
   Creates a build project.
   """
-  @spec create_project(map(), create_project_input(), list()) ::
+  @spec create_project(AWS.Client.t(), create_project_input(), Keyword.t()) ::
           {:ok, create_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProject", input, options)
   end
 
   @doc """
-
-  Creates a report group.
-
-  A report group contains a collection of reports.
+  Creates a report group. A report group contains a collection of reports.
   """
-  @spec create_report_group(map(), create_report_group_input(), list()) ::
+  @spec create_report_group(AWS.Client.t(), create_report_group_input(), Keyword.t()) ::
           {:ok, create_report_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_report_group_errors()}
   def create_report_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReportGroup", input, options)
   end
 
   @doc """
   For an existing CodeBuild build project that has its source code stored in a
-  GitHub or
-  Bitbucket repository, enables CodeBuild to start rebuilding the source code
-  every time a
-  code change is pushed to the repository.
-
-  If you enable webhooks for an CodeBuild project, and the project is used as a
-  build
-  step in CodePipeline, then two identical builds are created for each commit. One
-  build is
-  triggered through webhooks, and one through CodePipeline. Because billing is on
-  a per-build
-  basis, you are billed for both builds. Therefore, if you are using CodePipeline,
-  we
-  recommend that you disable webhooks in CodeBuild. In the CodeBuild console,
-  clear the
-  Webhook box. For more information, see step 5 in [Change a Build Project's Settings](https://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console).
+  GitHub or Bitbucket repository, enables CodeBuild to start rebuilding the
+  source code every time a code change is pushed to the repository.
   """
-  @spec create_webhook(map(), create_webhook_input(), list()) ::
+  @spec create_webhook(AWS.Client.t(), create_webhook_input(), Keyword.t()) ::
           {:ok, create_webhook_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_webhook_errors()}
   def create_webhook(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWebhook", input, options)
   end
@@ -2616,71 +2591,71 @@ defmodule AWS.CodeBuild do
   @doc """
   Deletes a batch build.
   """
-  @spec delete_build_batch(map(), delete_build_batch_input(), list()) ::
+  @spec delete_build_batch(AWS.Client.t(), delete_build_batch_input(), Keyword.t()) ::
           {:ok, delete_build_batch_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_build_batch_errors()}
   def delete_build_batch(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBuildBatch", input, options)
   end
 
   @doc """
-  Deletes a compute fleet.
-
-  When you delete a compute fleet, its builds are not deleted.
+  Deletes a compute fleet. When you delete a compute fleet, its builds are not
+  deleted.
   """
-  @spec delete_fleet(map(), delete_fleet_input(), list()) ::
+  @spec delete_fleet(AWS.Client.t(), delete_fleet_input(), Keyword.t()) ::
           {:ok, delete_fleet_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fleet_errors()}
   def delete_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFleet", input, options)
   end
 
   @doc """
-  Deletes a build project.
-
-  When you delete a project, its builds are not deleted.
+  Deletes a build project. When you delete a project, its builds are not deleted.
   """
-  @spec delete_project(map(), delete_project_input(), list()) ::
+  @spec delete_project(AWS.Client.t(), delete_project_input(), Keyword.t()) ::
           {:ok, delete_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProject", input, options)
   end
 
   @doc """
-
   Deletes a report.
   """
-  @spec delete_report(map(), delete_report_input(), list()) ::
+  @spec delete_report(AWS.Client.t(), delete_report_input(), Keyword.t()) ::
           {:ok, delete_report_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_report_errors()}
   def delete_report(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReport", input, options)
   end
 
   @doc """
-  Deletes a report group.
-
-  Before you delete a report group, you must delete its reports.
+  Deletes a report group. Before you delete a report group, you must delete its
+  reports.
   """
-  @spec delete_report_group(map(), delete_report_group_input(), list()) ::
+  @spec delete_report_group(AWS.Client.t(), delete_report_group_input(), Keyword.t()) ::
           {:ok, delete_report_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_report_group_errors()}
   def delete_report_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReportGroup", input, options)
   end
@@ -2688,12 +2663,13 @@ defmodule AWS.CodeBuild do
   @doc """
   Deletes a resource policy that is identified by its resource ARN.
   """
-  @spec delete_resource_policy(map(), delete_resource_policy_input(), list()) ::
+  @spec delete_resource_policy(AWS.Client.t(), delete_resource_policy_input(), Keyword.t()) ::
           {:ok, delete_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -2701,29 +2677,29 @@ defmodule AWS.CodeBuild do
   @doc """
   Deletes a set of GitHub, GitHub Enterprise, or Bitbucket source credentials.
   """
-  @spec delete_source_credentials(map(), delete_source_credentials_input(), list()) ::
+  @spec delete_source_credentials(AWS.Client.t(), delete_source_credentials_input(), Keyword.t()) ::
           {:ok, delete_source_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_source_credentials_errors()}
   def delete_source_credentials(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSourceCredentials", input, options)
   end
 
   @doc """
   For an existing CodeBuild build project that has its source code stored in a
-  GitHub or
-  Bitbucket repository, stops CodeBuild from rebuilding the source code every time
-  a code
-  change is pushed to the repository.
+  GitHub or Bitbucket repository, stops CodeBuild from rebuilding the source
+  code every time a code change is pushed to the repository.
   """
-  @spec delete_webhook(map(), delete_webhook_input(), list()) ::
+  @spec delete_webhook(AWS.Client.t(), delete_webhook_input(), Keyword.t()) ::
           {:ok, delete_webhook_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_webhook_errors()}
   def delete_webhook(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWebhook", input, options)
   end
@@ -2731,26 +2707,27 @@ defmodule AWS.CodeBuild do
   @doc """
   Retrieves one or more code coverage reports.
   """
-  @spec describe_code_coverages(map(), describe_code_coverages_input(), list()) ::
+  @spec describe_code_coverages(AWS.Client.t(), describe_code_coverages_input(), Keyword.t()) ::
           {:ok, describe_code_coverages_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_code_coverages_errors()}
   def describe_code_coverages(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCodeCoverages", input, options)
   end
 
   @doc """
-
   Returns a list of details about test cases for a report.
   """
-  @spec describe_test_cases(map(), describe_test_cases_input(), list()) ::
+  @spec describe_test_cases(AWS.Client.t(), describe_test_cases_input(), Keyword.t()) ::
           {:ok, describe_test_cases_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_test_cases_errors()}
   def describe_test_cases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTestCases", input, options)
   end
@@ -2758,12 +2735,13 @@ defmodule AWS.CodeBuild do
   @doc """
   Analyzes and accumulates test report values for the specified test reports.
   """
-  @spec get_report_group_trend(map(), get_report_group_trend_input(), list()) ::
+  @spec get_report_group_trend(AWS.Client.t(), get_report_group_trend_input(), Keyword.t()) ::
           {:ok, get_report_group_trend_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_report_group_trend_errors()}
   def get_report_group_trend(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetReportGroupTrend", input, options)
   end
@@ -2771,12 +2749,13 @@ defmodule AWS.CodeBuild do
   @doc """
   Gets a resource policy that is identified by its resource ARN.
   """
-  @spec get_resource_policy(map(), get_resource_policy_input(), list()) ::
+  @spec get_resource_policy(AWS.Client.t(), get_resource_policy_input(), Keyword.t()) ::
           {:ok, get_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -2785,12 +2764,13 @@ defmodule AWS.CodeBuild do
   Imports the source repository credentials for an CodeBuild project that has its
   source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository.
   """
-  @spec import_source_credentials(map(), import_source_credentials_input(), list()) ::
+  @spec import_source_credentials(AWS.Client.t(), import_source_credentials_input(), Keyword.t()) ::
           {:ok, import_source_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_source_credentials_errors()}
   def import_source_credentials(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportSourceCredentials", input, options)
   end
@@ -2798,12 +2778,13 @@ defmodule AWS.CodeBuild do
   @doc """
   Resets the cache for a project.
   """
-  @spec invalidate_project_cache(map(), invalidate_project_cache_input(), list()) ::
+  @spec invalidate_project_cache(AWS.Client.t(), invalidate_project_cache_input(), Keyword.t()) ::
           {:ok, invalidate_project_cache_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invalidate_project_cache_errors()}
   def invalidate_project_cache(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "InvalidateProjectCache", input, options)
   end
@@ -2811,12 +2792,13 @@ defmodule AWS.CodeBuild do
   @doc """
   Retrieves the identifiers of your build batches in the current region.
   """
-  @spec list_build_batches(map(), list_build_batches_input(), list()) ::
+  @spec list_build_batches(AWS.Client.t(), list_build_batches_input(), Keyword.t()) ::
           {:ok, list_build_batches_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_build_batches_errors()}
   def list_build_batches(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBuildBatches", input, options)
   end
@@ -2824,12 +2806,17 @@ defmodule AWS.CodeBuild do
   @doc """
   Retrieves the identifiers of the build batches for a specific project.
   """
-  @spec list_build_batches_for_project(map(), list_build_batches_for_project_input(), list()) ::
+  @spec list_build_batches_for_project(
+          AWS.Client.t(),
+          list_build_batches_for_project_input(),
+          Keyword.t()
+        ) ::
           {:ok, list_build_batches_for_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_build_batches_for_project_errors()}
   def list_build_batches_for_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBuildBatchesForProject", input, options)
   end
@@ -2837,27 +2824,28 @@ defmodule AWS.CodeBuild do
   @doc """
   Gets a list of build IDs, with each build ID representing a single build.
   """
-  @spec list_builds(map(), list_builds_input(), list()) ::
+  @spec list_builds(AWS.Client.t(), list_builds_input(), Keyword.t()) ::
           {:ok, list_builds_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_builds_errors()}
   def list_builds(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBuilds", input, options)
   end
 
   @doc """
   Gets a list of build identifiers for the specified build project, with each
-  build
-  identifier representing a single build.
+  build identifier representing a single build.
   """
-  @spec list_builds_for_project(map(), list_builds_for_project_input(), list()) ::
+  @spec list_builds_for_project(AWS.Client.t(), list_builds_for_project_input(), Keyword.t()) ::
           {:ok, list_builds_for_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_builds_for_project_errors()}
   def list_builds_for_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBuildsForProject", input, options)
   end
@@ -2865,11 +2853,16 @@ defmodule AWS.CodeBuild do
   @doc """
   Gets information about Docker images that are managed by CodeBuild.
   """
-  @spec list_curated_environment_images(map(), list_curated_environment_images_input(), list()) ::
+  @spec list_curated_environment_images(
+          AWS.Client.t(),
+          list_curated_environment_images_input(),
+          Keyword.t()
+        ) ::
           {:ok, list_curated_environment_images_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_curated_environment_images(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCuratedEnvironmentImages", input, options)
   end
@@ -2878,71 +2871,76 @@ defmodule AWS.CodeBuild do
   Gets a list of compute fleet names with each compute fleet name representing a
   single compute fleet.
   """
-  @spec list_fleets(map(), list_fleets_input(), list()) ::
+  @spec list_fleets(AWS.Client.t(), list_fleets_input(), Keyword.t()) ::
           {:ok, list_fleets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fleets_errors()}
   def list_fleets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFleets", input, options)
   end
 
   @doc """
   Gets a list of build project names, with each build project name representing a
-  single
-  build project.
+  single build project.
   """
-  @spec list_projects(map(), list_projects_input(), list()) ::
+  @spec list_projects(AWS.Client.t(), list_projects_input(), Keyword.t()) ::
           {:ok, list_projects_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_projects_errors()}
   def list_projects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProjects", input, options)
   end
 
   @doc """
-
   Gets a list ARNs for the report groups in the current Amazon Web Services
   account.
   """
-  @spec list_report_groups(map(), list_report_groups_input(), list()) ::
+  @spec list_report_groups(AWS.Client.t(), list_report_groups_input(), Keyword.t()) ::
           {:ok, list_report_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_report_groups_errors()}
   def list_report_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReportGroups", input, options)
   end
 
   @doc """
-
   Returns a list of ARNs for the reports in the current Amazon Web Services
   account.
   """
-  @spec list_reports(map(), list_reports_input(), list()) ::
+  @spec list_reports(AWS.Client.t(), list_reports_input(), Keyword.t()) ::
           {:ok, list_reports_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_reports_errors()}
   def list_reports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReports", input, options)
   end
 
   @doc """
-
   Returns a list of ARNs for the reports that belong to a `ReportGroup`.
   """
-  @spec list_reports_for_report_group(map(), list_reports_for_report_group_input(), list()) ::
+  @spec list_reports_for_report_group(
+          AWS.Client.t(),
+          list_reports_for_report_group_input(),
+          Keyword.t()
+        ) ::
           {:ok, list_reports_for_report_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_reports_for_report_group_errors()}
   def list_reports_for_report_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReportsForReportGroup", input, options)
   end
@@ -2951,12 +2949,13 @@ defmodule AWS.CodeBuild do
   Gets a list of projects that are shared with other Amazon Web Services accounts
   or users.
   """
-  @spec list_shared_projects(map(), list_shared_projects_input(), list()) ::
+  @spec list_shared_projects(AWS.Client.t(), list_shared_projects_input(), Keyword.t()) ::
           {:ok, list_shared_projects_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_shared_projects_errors()}
   def list_shared_projects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSharedProjects", input, options)
   end
@@ -2965,12 +2964,13 @@ defmodule AWS.CodeBuild do
   Gets a list of report groups that are shared with other Amazon Web Services
   accounts or users.
   """
-  @spec list_shared_report_groups(map(), list_shared_report_groups_input(), list()) ::
+  @spec list_shared_report_groups(AWS.Client.t(), list_shared_report_groups_input(), Keyword.t()) ::
           {:ok, list_shared_report_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_shared_report_groups_errors()}
   def list_shared_report_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSharedReportGroups", input, options)
   end
@@ -2978,26 +2978,27 @@ defmodule AWS.CodeBuild do
   @doc """
   Returns a list of `SourceCredentialsInfo` objects.
   """
-  @spec list_source_credentials(map(), list_source_credentials_input(), list()) ::
+  @spec list_source_credentials(AWS.Client.t(), list_source_credentials_input(), Keyword.t()) ::
           {:ok, list_source_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_source_credentials_errors()}
   def list_source_credentials(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSourceCredentials", input, options)
   end
 
   @doc """
-  Stores a resource policy for the ARN of a `Project` or
-  `ReportGroup` object.
+  Stores a resource policy for the ARN of a `Project` or `ReportGroup` object.
   """
-  @spec put_resource_policy(map(), put_resource_policy_input(), list()) ::
+  @spec put_resource_policy(AWS.Client.t(), put_resource_policy_input(), Keyword.t()) ::
           {:ok, put_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -3005,48 +3006,45 @@ defmodule AWS.CodeBuild do
   @doc """
   Restarts a build.
   """
-  @spec retry_build(map(), retry_build_input(), list()) ::
+  @spec retry_build(AWS.Client.t(), retry_build_input(), Keyword.t()) ::
           {:ok, retry_build_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retry_build_errors()}
   def retry_build(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RetryBuild", input, options)
   end
 
   @doc """
-  Restarts a failed batch build.
-
-  Only batch builds that have failed can be retried.
+  Restarts a failed batch build. Only batch builds that have failed can be
+  retried.
   """
-  @spec retry_build_batch(map(), retry_build_batch_input(), list()) ::
+  @spec retry_build_batch(AWS.Client.t(), retry_build_batch_input(), Keyword.t()) ::
           {:ok, retry_build_batch_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retry_build_batch_errors()}
   def retry_build_batch(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RetryBuildBatch", input, options)
   end
 
   @doc """
-  Starts running a build with the settings defined in the project.
-
-  These setting include: how to run a build,
-  where to get the source code, which build environment to use, which build
-  commands to run, and where to store the build output.
-
-  You can also start a build run by overriding some of the build settings in the
-  project. The overrides only apply for that
-  specific start build request. The settings in the project are unaltered.
+  Starts running a build with the settings defined in the project. These setting
+  include: how to run a build, where to get the source code, which build
+  environment to use, which build commands to run, and where to store the build
+  output.
   """
-  @spec start_build(map(), start_build_input(), list()) ::
+  @spec start_build(AWS.Client.t(), start_build_input(), Keyword.t()) ::
           {:ok, start_build_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_build_errors()}
   def start_build(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartBuild", input, options)
   end
@@ -3054,12 +3052,13 @@ defmodule AWS.CodeBuild do
   @doc """
   Starts a batch build for a project.
   """
-  @spec start_build_batch(map(), start_build_batch_input(), list()) ::
+  @spec start_build_batch(AWS.Client.t(), start_build_batch_input(), Keyword.t()) ::
           {:ok, start_build_batch_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_build_batch_errors()}
   def start_build_batch(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartBuildBatch", input, options)
   end
@@ -3067,12 +3066,13 @@ defmodule AWS.CodeBuild do
   @doc """
   Attempts to stop running a build.
   """
-  @spec stop_build(map(), stop_build_input(), list()) ::
+  @spec stop_build(AWS.Client.t(), stop_build_input(), Keyword.t()) ::
           {:ok, stop_build_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_build_errors()}
   def stop_build(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopBuild", input, options)
   end
@@ -3080,12 +3080,13 @@ defmodule AWS.CodeBuild do
   @doc """
   Stops a running batch build.
   """
-  @spec stop_build_batch(map(), stop_build_batch_input(), list()) ::
+  @spec stop_build_batch(AWS.Client.t(), stop_build_batch_input(), Keyword.t()) ::
           {:ok, stop_build_batch_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_build_batch_errors()}
   def stop_build_batch(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopBuildBatch", input, options)
   end
@@ -3093,12 +3094,13 @@ defmodule AWS.CodeBuild do
   @doc """
   Updates a compute fleet.
   """
-  @spec update_fleet(map(), update_fleet_input(), list()) ::
+  @spec update_fleet(AWS.Client.t(), update_fleet_input(), Keyword.t()) ::
           {:ok, update_fleet_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_fleet_errors()}
   def update_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFleet", input, options)
   end
@@ -3106,98 +3108,76 @@ defmodule AWS.CodeBuild do
   @doc """
   Changes the settings of a build project.
   """
-  @spec update_project(map(), update_project_input(), list()) ::
+  @spec update_project(AWS.Client.t(), update_project_input(), Keyword.t()) ::
           {:ok, update_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_errors()}
   def update_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProject", input, options)
   end
 
   @doc """
-  Changes the public visibility for a project.
-
-  The project's build results, logs, and
-  artifacts are available to the general public. For more information, see [Public build
+  Changes the public visibility for a project. The project's build results, logs,
+  and artifacts are available to the general public. For more information, see
+  [Public build
   projects](https://docs.aws.amazon.com/codebuild/latest/userguide/public-builds.html)
-  in the *CodeBuild User Guide*.
-
-  The following should be kept in mind when making your projects public:
-
-    
-  All of a project's build results, logs, and artifacts, including builds that
-  were run
-  when the project was private, are available to the general public.
-
-    
-  All build logs and artifacts are available to the public. Environment variables,
-  source
-  code, and other sensitive information may have been output to the build logs and
-  artifacts.
-  You must be careful about what information is output to the build logs. Some
-  best practice
-  are:
-
-      
-  Do not store sensitive values in environment variables. We recommend that you
-  use an Amazon EC2 Systems Manager Parameter Store
-  or Secrets Manager to store sensitive values.
-
-      
-  Follow [Best practices for using
+  in the *CodeBuild User Guide*. The following should be kept in mind when
+  making your projects public: All of a project's build results, logs, and
+  artifacts, including builds that were run when the project was private, are
+  available to the general public. All build logs and artifacts are available to
+  the public. Environment variables, source code, and other sensitive
+  information may have been output to the build logs and artifacts. You must be
+  careful about what information is output to the build logs. Some best practice
+  are: Do not store sensitive values in environment variables. We recommend that
+  you use an Amazon EC2 Systems Manager Parameter Store or Secrets Manager to
+  store sensitive values. Follow [Best practices for using
   webhooks](https://docs.aws.amazon.com/codebuild/latest/userguide/webhooks.html#webhook-best-practices)
-  in the *CodeBuild User
-  Guide* to limit which entities can trigger a build, and do
-  not store the buildspec in the project itself, to ensure that your webhooks are
-  as
-  secure as possible.
-
-    
-  A malicious user can use public builds to distribute malicious artifacts. We
-  recommend
-  that you review all pull requests to verify that the pull request is a
-  legitimate change. We
-  also recommend that you validate any artifacts with their checksums to make sure
-  that the
-  correct artifacts are being downloaded.
+  in the *CodeBuild User Guide* to limit which entities can trigger a build, and
+  do not store the buildspec in the project itself, to ensure that your webhooks
+  are as secure as possible. A malicious user can use public builds to
+  distribute malicious artifacts. We recommend that you review all pull requests
+  to verify that the pull request is a legitimate change. We also recommend that
+  you validate any artifacts with their checksums to make sure that the correct
+  artifacts are being downloaded.
   """
-  @spec update_project_visibility(map(), update_project_visibility_input(), list()) ::
+  @spec update_project_visibility(AWS.Client.t(), update_project_visibility_input(), Keyword.t()) ::
           {:ok, update_project_visibility_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_visibility_errors()}
   def update_project_visibility(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProjectVisibility", input, options)
   end
 
   @doc """
-
   Updates a report group.
   """
-  @spec update_report_group(map(), update_report_group_input(), list()) ::
+  @spec update_report_group(AWS.Client.t(), update_report_group_input(), Keyword.t()) ::
           {:ok, update_report_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_report_group_errors()}
   def update_report_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateReportGroup", input, options)
   end
 
   @doc """
   Updates the webhook associated with an CodeBuild build project.
-
-  If you use Bitbucket for your repository, `rotateSecret` is ignored.
   """
-  @spec update_webhook(map(), update_webhook_input(), list()) ::
+  @spec update_webhook(AWS.Client.t(), update_webhook_input(), Keyword.t()) ::
           {:ok, update_webhook_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_webhook_errors()}
   def update_webhook(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWebhook", input, options)
   end

@@ -3,24 +3,15 @@
 
 defmodule AWS.ManagedBlockchain do
   @moduledoc """
-
-
   Amazon Managed Blockchain is a fully managed service for creating and managing
-  blockchain networks using open-source frameworks.
-
-  Blockchain allows you to build applications where multiple parties can securely
-  and transparently run transactions and share data without the need for a
-  trusted, central authority.
-
+  blockchain networks using open-source frameworks. Blockchain allows you to
+  build applications where multiple parties can securely and transparently run
+  transactions and share data without the need for a trusted, central authority.
   Managed Blockchain supports the Hyperledger Fabric and Ethereum open-source
-  frameworks. Because of fundamental differences between the frameworks, some API
-  actions or data types may only apply in the context of one framework and not the
-  other. For example, actions related to Hyperledger Fabric network members such
-  as `CreateMember` and `DeleteMember` don't apply to Ethereum.
-
-  The description for each action indicates the framework or frameworks to which
-  it applies. Data types and properties that apply only in the context of a
-  particular framework are similarly indicated.
+  frameworks. Because of fundamental differences between the frameworks, some
+  API actions or data types may only apply in the context of one framework and
+  not the other. For example, actions related to Hyperledger Fabric network
+  members such as `CreateMember` and `DeleteMember` don't apply to Ethereum.
   """
 
   alias AWS.Client
@@ -1477,11 +1468,16 @@ defmodule AWS.ManagedBlockchain do
 
   @doc """
   Creates a new accessor for use with Amazon Managed Blockchain service that
-  supports token based access.
+  supports token based access. The accessor contains information required for
+  token based access.
 
-  The accessor contains information required for token based access.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20CreateAccessor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_accessor(map(), create_accessor_input(), list()) ::
+  @spec create_accessor(AWS.Client.t(), create_accessor_input(), Keyword.t()) ::
           {:ok, create_accessor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_accessor_errors()}
@@ -1490,7 +1486,8 @@ defmodule AWS.ManagedBlockchain do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1508,9 +1505,15 @@ defmodule AWS.ManagedBlockchain do
   @doc """
   Creates a member within a Managed Blockchain network.
 
-  Applies only to Hyperledger Fabric.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20CreateMember&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:network_id` (`t:string`) The unique identifier of the network in which the
+    member is created.
+
+  ## Optional parameters:
   """
-  @spec create_member(map(), String.t(), create_member_input(), list()) ::
+  @spec create_member(AWS.Client.t(), String.t(), create_member_input(), Keyword.t()) ::
           {:ok, create_member_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_member_errors()}
@@ -1519,7 +1522,8 @@ defmodule AWS.ManagedBlockchain do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1537,9 +1541,13 @@ defmodule AWS.ManagedBlockchain do
   @doc """
   Creates a new blockchain network using Amazon Managed Blockchain.
 
-  Applies only to Hyperledger Fabric.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20CreateNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_network(map(), create_network_input(), list()) ::
+  @spec create_network(AWS.Client.t(), create_network_input(), Keyword.t()) ::
           {:ok, create_network_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_network_errors()}
@@ -1548,7 +1556,8 @@ defmodule AWS.ManagedBlockchain do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1566,9 +1575,14 @@ defmodule AWS.ManagedBlockchain do
   @doc """
   Creates a node on the specified blockchain network.
 
-  Applies to Hyperledger Fabric and Ethereum.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20CreateNode&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:network_id` (`t:string`) The unique identifier of the network for the node.
+
+  ## Optional parameters:
   """
-  @spec create_node(map(), String.t(), create_node_input(), list()) ::
+  @spec create_node(AWS.Client.t(), String.t(), create_node_input(), Keyword.t()) ::
           {:ok, create_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_node_errors()}
@@ -1577,7 +1591,8 @@ defmodule AWS.ManagedBlockchain do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1594,13 +1609,18 @@ defmodule AWS.ManagedBlockchain do
 
   @doc """
   Creates a proposal for a change to the network that other members of the network
-  can vote on, for example, a proposal to add a new member to the network.
+  can vote on, for example, a proposal to add a new member to the network. Any
+  member can create a proposal.
 
-  Any member can create a proposal.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20CreateProposal&this_doc_guide=API%2520Reference)
 
-  Applies only to Hyperledger Fabric.
+  ## Parameters:
+  * `:network_id` (`t:string`) The unique identifier of the network for which the
+    proposal is made.
+
+  ## Optional parameters:
   """
-  @spec create_proposal(map(), String.t(), create_proposal_input(), list()) ::
+  @spec create_proposal(AWS.Client.t(), String.t(), create_proposal_input(), Keyword.t()) ::
           {:ok, create_proposal_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_proposal_errors()}
@@ -1609,7 +1629,8 @@ defmodule AWS.ManagedBlockchain do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1625,20 +1646,23 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  Deletes an accessor that your Amazon Web Services account owns.
+  Deletes an accessor that your Amazon Web Services account owns. An accessor
+  object is a container that has the information required for token based access
+  to your Ethereum nodes including, the `BILLING_TOKEN`. After an accessor is
+  deleted, the status of the accessor changes from `AVAILABLE` to
+  `PENDING_DELETION`. An accessor in the `PENDING_DELETION` state can’t be used
+  for new WebSocket requests or HTTP requests. However, WebSocket connections
+  that were initiated while the accessor was in the `AVAILABLE` state remain
+  open until they expire (up to 2 hours).
 
-  An accessor object is a container that has the
-  information required for token based access to your Ethereum nodes including,
-  the
-  `BILLING_TOKEN`. After an accessor is deleted, the status of the accessor
-  changes
-  from `AVAILABLE` to `PENDING_DELETION`. An accessor in the
-  `PENDING_DELETION` state can’t be used for new WebSocket requests or
-  HTTP requests. However, WebSocket connections that were initiated while the
-  accessor was in the
-  `AVAILABLE` state remain open until they expire (up to 2 hours).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20DeleteAccessor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:accessor_id` (`t:string`) The unique identifier of the accessor.
+
+  ## Optional parameters:
   """
-  @spec delete_accessor(map(), String.t(), delete_accessor_input(), list()) ::
+  @spec delete_accessor(AWS.Client.t(), String.t(), delete_accessor_input(), Keyword.t()) ::
           {:ok, delete_accessor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_accessor_errors()}
@@ -1647,7 +1671,8 @@ defmodule AWS.ManagedBlockchain do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1663,19 +1688,24 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  Deletes a member.
+  Deletes a member. Deleting a member removes the member and all associated
+  resources from the network. `DeleteMember` can only be called for a specified
+  `MemberId` if the principal performing the action is associated with the
+  Amazon Web Services account that owns the member. In all other cases, the
+  `DeleteMember` action is carried out as the result of an approved proposal to
+  remove a member. If `MemberId` is the last member in a network specified by
+  the last Amazon Web Services account, the network is deleted also.
 
-  Deleting a member removes the member and all associated resources from the
-  network. `DeleteMember` can only be called for a specified `MemberId` if the
-  principal performing the action is associated with the Amazon Web Services
-  account that owns the member. In all other cases, the `DeleteMember` action is
-  carried out as the result of an approved proposal to remove a member. If
-  `MemberId` is the last member in a network specified by the last Amazon Web
-  Services account, the network is deleted also.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20DeleteMember&this_doc_guide=API%2520Reference)
 
-  Applies only to Hyperledger Fabric.
+  ## Parameters:
+  * `:member_id` (`t:string`) The unique identifier of the member to remove.
+  * `:network_id` (`t:string`) The unique identifier of the network from which the
+    member is removed.
+
+  ## Optional parameters:
   """
-  @spec delete_member(map(), String.t(), String.t(), delete_member_input(), list()) ::
+  @spec delete_member(AWS.Client.t(), String.t(), String.t(), delete_member_input(), Keyword.t()) ::
           {:ok, delete_member_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_member_errors()}
@@ -1686,7 +1716,8 @@ defmodule AWS.ManagedBlockchain do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1702,13 +1733,21 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  Deletes a node that your Amazon Web Services account owns.
+  Deletes a node that your Amazon Web Services account owns. All data on the node
+  is lost and cannot be recovered.
 
-  All data on the node is lost and cannot be recovered.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20DeleteNode&this_doc_guide=API%2520Reference)
 
-  Applies to Hyperledger Fabric and Ethereum.
+  ## Parameters:
+  * `:network_id` (`t:string`) The unique identifier of the network that the node
+    is on.
+  * `:node_id` (`t:string`) The unique identifier of the node.
+
+  ## Optional parameters:
+  * `:member_id` (`t:string`) The unique identifier of the member that owns this
+    node.
   """
-  @spec delete_node(map(), String.t(), String.t(), delete_node_input(), list()) ::
+  @spec delete_node(AWS.Client.t(), String.t(), String.t(), delete_node_input(), Keyword.t()) ::
           {:ok, delete_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_node_errors()}
@@ -1724,7 +1763,13 @@ defmodule AWS.ManagedBlockchain do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:member_id])
 
     Request.request_rest(
       client,
@@ -1740,21 +1785,45 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  Returns detailed information about an accessor.
+  Returns detailed information about an accessor. An accessor object is a
+  container that has the information required for token based access to your
+  Ethereum nodes.
 
-  An accessor object is a container that has the
-  information required for token based access to your Ethereum nodes.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20GetAccessor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:accessor_id` (`t:string`) The unique identifier of the accessor.
+
+  ## Optional parameters:
   """
-  @spec get_accessor(map(), String.t(), list()) ::
+  @spec get_accessor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_accessor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_accessor_errors()}
   def get_accessor(%Client{} = client, accessor_id, options \\ []) do
     url_path = "/accessors/#{AWS.Util.encode_uri(accessor_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1762,9 +1831,16 @@ defmodule AWS.ManagedBlockchain do
   @doc """
   Returns detailed information about a member.
 
-  Applies only to Hyperledger Fabric.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20GetMember&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:member_id` (`t:string`) The unique identifier of the member.
+  * `:network_id` (`t:string`) The unique identifier of the network to which the
+    member belongs.
+
+  ## Optional parameters:
   """
-  @spec get_member(map(), String.t(), String.t(), list()) ::
+  @spec get_member(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_member_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_member_errors()}
@@ -1772,10 +1848,27 @@ defmodule AWS.ManagedBlockchain do
     url_path =
       "/networks/#{AWS.Util.encode_uri(network_id)}/members/#{AWS.Util.encode_uri(member_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1783,18 +1876,42 @@ defmodule AWS.ManagedBlockchain do
   @doc """
   Returns detailed information about a network.
 
-  Applies to Hyperledger Fabric and Ethereum.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20GetNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:network_id` (`t:string`) The unique identifier of the network to get
+    information about.
+
+  ## Optional parameters:
   """
-  @spec get_network(map(), String.t(), list()) ::
+  @spec get_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_errors()}
   def get_network(%Client{} = client, network_id, options \\ []) do
     url_path = "/networks/#{AWS.Util.encode_uri(network_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1802,27 +1919,57 @@ defmodule AWS.ManagedBlockchain do
   @doc """
   Returns detailed information about a node.
 
-  Applies to Hyperledger Fabric and Ethereum.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20GetNode&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:network_id` (`t:string`) The unique identifier of the network that the node
+    is on.
+  * `:node_id` (`t:string`) The unique identifier of the node.
+
+  ## Optional parameters:
+  * `:member_id` (`t:string`) The unique identifier of the member that owns the
+    node.
   """
-  @spec get_node(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_node(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_node_errors()}
-  def get_node(%Client{} = client, network_id, node_id, member_id \\ nil, options \\ []) do
+  def get_node(%Client{} = client, network_id, node_id, options \\ []) do
     url_path =
       "/networks/#{AWS.Util.encode_uri(network_id)}/nodes/#{AWS.Util.encode_uri(node_id)}"
 
+    # Validate optional parameters
+    optional_params = [member_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(member_id) do
-        [{"memberId", member_id} | query_params]
+      if opt_val = Keyword.get(options, :member_id) do
+        [{"memberId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:member_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1830,9 +1977,16 @@ defmodule AWS.ManagedBlockchain do
   @doc """
   Returns detailed information about a proposal.
 
-  Applies only to Hyperledger Fabric.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20GetProposal&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:network_id` (`t:string`) The unique identifier of the network for which the
+    proposal is made.
+  * `:proposal_id` (`t:string`) The unique identifier of the proposal.
+
+  ## Optional parameters:
   """
-  @spec get_proposal(map(), String.t(), String.t(), list()) ::
+  @spec get_proposal(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_proposal_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_proposal_errors()}
@@ -1840,57 +1994,101 @@ defmodule AWS.ManagedBlockchain do
     url_path =
       "/networks/#{AWS.Util.encode_uri(network_id)}/proposals/#{AWS.Util.encode_uri(proposal_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns a list of the accessors and their properties.
+  Returns a list of the accessors and their properties. Accessor objects are
+  containers that have the information required for token based access to your
+  Ethereum nodes.
 
-  Accessor objects are containers that have the
-  information required for token based access to your Ethereum nodes.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20ListAccessors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of accessors to list.
+  * `:network_type`
+    (`t:enum["ETHEREUM_GOERLI|ETHEREUM_MAINNET|ETHEREUM_MAINNET_AND_GOERLI|POLYGON_MAINNET|POLYGON_MUMBAI"]`)
+    The blockchain network that the Accessor token is created for.
+  * `:next_token` (`t:string`) The pagination token that indicates the next set of
+    results to retrieve.
   """
-  @spec list_accessors(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_accessors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_accessors_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_accessors_errors()}
-  def list_accessors(
-        %Client{} = client,
-        max_results \\ nil,
-        network_type \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_accessors(%Client{} = client, options \\ []) do
     url_path = "/accessors"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, network_type: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(network_type) do
-        [{"networkType", network_type} | query_params]
+      if opt_val = Keyword.get(options, :network_type) do
+        [{"networkType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :network_type, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1898,32 +2096,61 @@ defmodule AWS.ManagedBlockchain do
   @doc """
   Returns a list of all invitations for the current Amazon Web Services account.
 
-  Applies only to Hyperledger Fabric.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20ListInvitations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of invitations to return.
+  * `:next_token` (`t:string`) The pagination token that indicates the next set of
+    results to retrieve.
   """
-  @spec list_invitations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_invitations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_invitations_errors()}
-  def list_invitations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_invitations(%Client{} = client, options \\ []) do
     url_path = "/invitations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1932,71 +2159,94 @@ defmodule AWS.ManagedBlockchain do
   Returns a list of the members in a network and properties of their
   configurations.
 
-  Applies only to Hyperledger Fabric.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20ListMembers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:network_id` (`t:string`) The unique identifier of the network for which to
+    list members.
+
+  ## Optional parameters:
+  * `:is_owned` (`t:boolean`) An optional Boolean value. If provided, the request
+    is limited either to members that the current Amazon Web Services account
+    owns (true) or that other Amazon Web Services accountsn own (false). If
+    omitted, all members are listed.
+  * `:max_results` (`t:integer`) The maximum number of members to return in the
+    request.
+  * `:name` (`t:string`) The optional name of the member to list.
+  * `:next_token` (`t:string`) The pagination token that indicates the next set of
+    results to retrieve.
+  * `:status`
+    (`t:enum["AVAILABLE|CREATE_FAILED|CREATING|DELETED|DELETING|INACCESSIBLE_ENCRYPTION_KEY|UPDATING"]`)
+    An optional status specifier. If provided, only members currently in this
+    status are listed.
   """
-  @spec list_members(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_members(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_members_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_members_errors()}
-  def list_members(
-        %Client{} = client,
-        network_id,
-        is_owned \\ nil,
-        max_results \\ nil,
-        name \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_members(%Client{} = client, network_id, options \\ []) do
     url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/members"
+
+    # Validate optional parameters
+    optional_params = [is_owned: nil, max_results: nil, name: nil, next_token: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
+      if opt_val = Keyword.get(options, :name) do
+        [{"name", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(is_owned) do
-        [{"isOwned", is_owned} | query_params]
+      if opt_val = Keyword.get(options, :is_owned) do
+        [{"isOwned", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:is_owned, :max_results, :name, :next_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2005,69 +2255,88 @@ defmodule AWS.ManagedBlockchain do
   Returns information about the networks in which the current Amazon Web Services
   account participates.
 
-  Applies to Hyperledger Fabric and Ethereum.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20ListNetworks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:framework` (`t:enum["ETHEREUM|HYPERLEDGER_FABRIC"]`) An optional framework
+    specifier. If provided, only networks of this framework type are listed.
+  * `:max_results` (`t:integer`) The maximum number of networks to list.
+  * `:name` (`t:string`) The name of the network.
+  * `:next_token` (`t:string`) The pagination token that indicates the next set of
+    results to retrieve.
+  * `:status` (`t:enum["AVAILABLE|CREATE_FAILED|CREATING|DELETED|DELETING"]`) An
+    optional status specifier. If provided, only networks currently in this
+    status are listed.
   """
-  @spec list_networks(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_networks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_networks_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_networks_errors()}
-  def list_networks(
-        %Client{} = client,
-        framework \\ nil,
-        max_results \\ nil,
-        name \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_networks(%Client{} = client, options \\ []) do
     url_path = "/networks"
+
+    # Validate optional parameters
+    optional_params = [framework: nil, max_results: nil, name: nil, next_token: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
+      if opt_val = Keyword.get(options, :name) do
+        [{"name", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(framework) do
-        [{"framework", framework} | query_params]
+      if opt_val = Keyword.get(options, :framework) do
+        [{"framework", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:framework, :max_results, :name, :next_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2075,62 +2344,83 @@ defmodule AWS.ManagedBlockchain do
   @doc """
   Returns information about the nodes within a network.
 
-  Applies to Hyperledger Fabric and Ethereum.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20ListNodes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:network_id` (`t:string`) The unique identifier of the network for which to
+    list nodes.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of nodes to list.
+  * `:member_id` (`t:string`) The unique identifier of the member who owns the
+    nodes to list.
+  * `:next_token` (`t:string`) The pagination token that indicates the next set of
+    results to retrieve.
+  * `:status`
+    (`t:enum["AVAILABLE|CREATE_FAILED|CREATING|DELETED|DELETING|FAILED|INACCESSIBLE_ENCRYPTION_KEY|UNHEALTHY|UPDATING"]`)
+    An optional status specifier. If provided, only nodes currently in this
+    status are listed.
   """
-  @spec list_nodes(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_nodes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_nodes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_nodes_errors()}
-  def list_nodes(
-        %Client{} = client,
-        network_id,
-        max_results \\ nil,
-        member_id \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_nodes(%Client{} = client, network_id, options \\ []) do
     url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/nodes"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, member_id: nil, next_token: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(member_id) do
-        [{"memberId", member_id} | query_params]
+      if opt_val = Keyword.get(options, :member_id) do
+        [{"memberId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :member_id, :next_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2139,48 +2429,64 @@ defmodule AWS.ManagedBlockchain do
   Returns the list of votes for a specified proposal, including the value of each
   vote and the unique identifier of the member that cast the vote.
 
-  Applies only to Hyperledger Fabric.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20ListProposalVotes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:network_id` (`t:string`) The unique identifier of the network.
+  * `:proposal_id` (`t:string`) The unique identifier of the proposal.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of votes to return.
+  * `:next_token` (`t:string`) The pagination token that indicates the next set of
+    results to retrieve.
   """
-  @spec list_proposal_votes(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_proposal_votes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_proposal_votes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_proposal_votes_errors()}
-  def list_proposal_votes(
-        %Client{} = client,
-        network_id,
-        proposal_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_proposal_votes(%Client{} = client, network_id, proposal_id, options \\ []) do
     url_path =
       "/networks/#{AWS.Util.encode_uri(network_id)}/proposals/#{AWS.Util.encode_uri(proposal_id)}/votes"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2188,74 +2494,125 @@ defmodule AWS.ManagedBlockchain do
   @doc """
   Returns a list of proposals for the network.
 
-  Applies only to Hyperledger Fabric.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20ListProposals&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:network_id` (`t:string`) The unique identifier of the network.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of proposals to return.
+  * `:next_token` (`t:string`) The pagination token that indicates the next set of
+    results to retrieve.
   """
-  @spec list_proposals(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_proposals(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_proposals_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_proposals_errors()}
-  def list_proposals(
-        %Client{} = client,
-        network_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_proposals(%Client{} = client, network_id, options \\ []) do
     url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/proposals"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns a list of tags for the specified resource.
+  Returns a list of tags for the specified resource. Each tag consists of a key
+  and optional value.
 
-  Each tag consists of a key and optional value.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
-  For more information about tags, see [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html)
-  in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html)
-  in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+    For more information about ARNs and their format, see Amazon Resource Names
+    (ARNs) in the Amazon Web Services General Reference.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Rejects an invitation to join a network.
+  Rejects an invitation to join a network. This action can be called by a
+  principal in an Amazon Web Services account that has received an invitation to
+  create a member and join a network.
 
-  This action can be called by a principal in an Amazon Web Services account that
-  has received an invitation to create a member and join a network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20RejectInvitation&this_doc_guide=API%2520Reference)
 
-  Applies only to Hyperledger Fabric.
+  ## Parameters:
+  * `:invitation_id` (`t:string`) The unique identifier of the invitation to
+    reject.
+
+  ## Optional parameters:
   """
-  @spec reject_invitation(map(), String.t(), reject_invitation_input(), list()) ::
+  @spec reject_invitation(AWS.Client.t(), String.t(), reject_invitation_input(), Keyword.t()) ::
           {:ok, reject_invitation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_invitation_errors()}
@@ -2264,7 +2621,8 @@ defmodule AWS.ManagedBlockchain do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2281,21 +2639,20 @@ defmodule AWS.ManagedBlockchain do
 
   @doc """
   Adds or overwrites the specified tags for the specified Amazon Managed
-  Blockchain resource.
+  Blockchain resource. Each tag consists of a key and optional value. When you
+  specify a tag key that already exists, the tag value is overwritten with the
+  new value. Use `UntagResource` to remove tag keys.
 
-  Each tag consists of a key and optional value.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20TagResource&this_doc_guide=API%2520Reference)
 
-  When you specify a tag key that already exists, the tag value is overwritten
-  with the new value. Use `UntagResource` to remove tag keys.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+    For more information about ARNs and their format, see Amazon Resource Names
+    (ARNs) in the Amazon Web Services General Reference.
 
-  A resource can have up to 50 tags. If you try to create more than 50 tags for a
-  resource, your request fails and returns an error.
-
-  For more information about tags, see [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html)
-  in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html)
-  in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2304,7 +2661,8 @@ defmodule AWS.ManagedBlockchain do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2322,11 +2680,17 @@ defmodule AWS.ManagedBlockchain do
   @doc """
   Removes the specified tags from the Amazon Managed Blockchain resource.
 
-  For more information about tags, see [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html)
-  in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html)
-  in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+    For more information about ARNs and their format, see Amazon Resource Names
+    (ARNs) in the Amazon Web Services General Reference.
+  * `:tag_keys` (`t:list[com.amazonaws.managedblockchain#TagKey]`) The tag keys.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2340,7 +2704,8 @@ defmodule AWS.ManagedBlockchain do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2358,9 +2723,16 @@ defmodule AWS.ManagedBlockchain do
   @doc """
   Updates a member configuration with new parameters.
 
-  Applies only to Hyperledger Fabric.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20UpdateMember&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:member_id` (`t:string`) The unique identifier of the member.
+  * `:network_id` (`t:string`) The unique identifier of the Managed Blockchain
+    network to which the member belongs.
+
+  ## Optional parameters:
   """
-  @spec update_member(map(), String.t(), String.t(), update_member_input(), list()) ::
+  @spec update_member(AWS.Client.t(), String.t(), String.t(), update_member_input(), Keyword.t()) ::
           {:ok, update_member_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_member_errors()}
@@ -2371,7 +2743,8 @@ defmodule AWS.ManagedBlockchain do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2389,9 +2762,16 @@ defmodule AWS.ManagedBlockchain do
   @doc """
   Updates a node configuration with new parameters.
 
-  Applies only to Hyperledger Fabric.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20UpdateNode&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:network_id` (`t:string`) The unique identifier of the network that the node
+    is on.
+  * `:node_id` (`t:string`) The unique identifier of the node.
+
+  ## Optional parameters:
   """
-  @spec update_node(map(), String.t(), String.t(), update_node_input(), list()) ::
+  @spec update_node(AWS.Client.t(), String.t(), String.t(), update_node_input(), Keyword.t()) ::
           {:ok, update_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_node_errors()}
@@ -2402,7 +2782,8 @@ defmodule AWS.ManagedBlockchain do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2418,14 +2799,25 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  Casts a vote for a specified `ProposalId` on behalf of a member.
+  Casts a vote for a specified `ProposalId` on behalf of a member. The member to
+  vote as, specified by `VoterMemberId`, must be in the same Amazon Web Services
+  account as the principal that calls the action.
 
-  The member to vote as, specified by `VoterMemberId`, must be in the same Amazon
-  Web Services account as the principal that calls the action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20VoteOnProposal&this_doc_guide=API%2520Reference)
 
-  Applies only to Hyperledger Fabric.
+  ## Parameters:
+  * `:network_id` (`t:string`) The unique identifier of the network.
+  * `:proposal_id` (`t:string`) The unique identifier of the proposal.
+
+  ## Optional parameters:
   """
-  @spec vote_on_proposal(map(), String.t(), String.t(), vote_on_proposal_input(), list()) ::
+  @spec vote_on_proposal(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          vote_on_proposal_input(),
+          Keyword.t()
+        ) ::
           {:ok, vote_on_proposal_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, vote_on_proposal_errors()}
@@ -2436,7 +2828,8 @@ defmodule AWS.ManagedBlockchain do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

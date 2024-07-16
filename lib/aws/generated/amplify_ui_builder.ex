@@ -3,21 +3,10 @@
 
 defmodule AWS.AmplifyUIBuilder do
   @moduledoc """
-  The Amplify UI Builder API provides a programmatic interface for creating
-  and configuring user interface (UI) component libraries and themes for use in
-  your Amplify applications.
-
-  You can then connect these UI components to an application's
-  backend Amazon Web Services resources.
-
-  You can also use the Amplify Studio visual designer to create UI components
-  and model data for an app. For more information, see
-  [Introduction](https://docs.amplify.aws/console/adminui/intro) in the *Amplify Docs*.
-
-  The Amplify Framework is a comprehensive set of SDKs, libraries, tools, and
-  documentation for client app development. For more information, see the [Amplify
-  Framework](https://docs.amplify.aws/). For more information about
-  deploying an Amplify application to Amazon Web Services, see the [Amplify User Guide](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html).
+  The Amplify UI Builder API provides a programmatic interface for creating and
+  configuring user interface (UI) component libraries and themes for use in your
+  Amplify applications. You can then connect these UI components to an
+  application's backend Amazon Web Services resources.
   """
 
   alias AWS.Client
@@ -1738,8 +1727,25 @@ defmodule AWS.AmplifyUIBuilder do
 
   @doc """
   Creates a new component for an Amplify app.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20CreateComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:`) The unique ID of the Amplify app to associate with the
+    component.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
+
+  ## Optional parameters:
+  * `:client_token` (`t:`) The unique client token.
   """
-  @spec create_component(map(), String.t(), String.t(), create_component_request(), list()) ::
+  @spec create_component(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          create_component_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_component_errors()}
@@ -1755,7 +1761,13 @@ defmodule AWS.AmplifyUIBuilder do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -1772,8 +1784,18 @@ defmodule AWS.AmplifyUIBuilder do
 
   @doc """
   Creates a new form for an Amplify app.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20CreateForm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:`) The unique ID of the Amplify app to associate with the form.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
+
+  ## Optional parameters:
+  * `:client_token` (`t:`) The unique client token.
   """
-  @spec create_form(map(), String.t(), String.t(), create_form_request(), list()) ::
+  @spec create_form(AWS.Client.t(), String.t(), String.t(), create_form_request(), Keyword.t()) ::
           {:ok, create_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_form_errors()}
@@ -1789,7 +1811,13 @@ defmodule AWS.AmplifyUIBuilder do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -1806,8 +1834,18 @@ defmodule AWS.AmplifyUIBuilder do
 
   @doc """
   Creates a theme to apply to the components in an Amplify app.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20CreateTheme&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:`) The unique ID of the Amplify app associated with the theme.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
+
+  ## Optional parameters:
+  * `:client_token` (`t:`) The unique client token.
   """
-  @spec create_theme(map(), String.t(), String.t(), create_theme_request(), list()) ::
+  @spec create_theme(AWS.Client.t(), String.t(), String.t(), create_theme_request(), Keyword.t()) ::
           {:ok, create_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_theme_errors()}
@@ -1823,7 +1861,13 @@ defmodule AWS.AmplifyUIBuilder do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -1840,14 +1884,25 @@ defmodule AWS.AmplifyUIBuilder do
 
   @doc """
   Deletes a component from an Amplify app.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20DeleteComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:`) The unique ID of the Amplify app associated with the
+    component to delete.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
+  * `:id` (`t:string`) The unique ID of the component to delete.
+
+  ## Optional parameters:
   """
   @spec delete_component(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_component_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -1859,7 +1914,8 @@ defmodule AWS.AmplifyUIBuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1876,8 +1932,26 @@ defmodule AWS.AmplifyUIBuilder do
 
   @doc """
   Deletes a form from an Amplify app.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20DeleteForm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:`) The unique ID of the Amplify app associated with the form to
+    delete.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
+  * `:id` (`t:string`) The unique ID of the form to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_form(map(), String.t(), String.t(), String.t(), delete_form_request(), list()) ::
+  @spec delete_form(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_form_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_form_errors()}
@@ -1888,7 +1962,8 @@ defmodule AWS.AmplifyUIBuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1905,8 +1980,26 @@ defmodule AWS.AmplifyUIBuilder do
 
   @doc """
   Deletes a theme from an Amplify app.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20DeleteTheme&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:`) The unique ID of the Amplify app associated with the theme to
+    delete.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
+  * `:id` (`t:string`) The unique ID of the theme to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_theme(map(), String.t(), String.t(), String.t(), delete_theme_request(), list()) ::
+  @spec delete_theme(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_theme_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_theme_errors()}
@@ -1917,7 +2010,8 @@ defmodule AWS.AmplifyUIBuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1933,12 +2027,22 @@ defmodule AWS.AmplifyUIBuilder do
   end
 
   @doc """
-
   This is for internal use.
 
-  Amplify uses this action to exchange an access code for a token.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20ExchangeCodeForToken&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:provider` (`t:string`) The third-party provider for the token. The only
+    valid value is figma.
+
+  ## Optional parameters:
   """
-  @spec exchange_code_for_token(map(), String.t(), exchange_code_for_token_request(), list()) ::
+  @spec exchange_code_for_token(
+          AWS.Client.t(),
+          String.t(),
+          exchange_code_for_token_request(),
+          Keyword.t()
+        ) ::
           {:ok, exchange_code_for_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, exchange_code_for_token_errors()}
@@ -1947,7 +2051,8 @@ defmodule AWS.AmplifyUIBuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1965,32 +2070,57 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Exports component configurations to code that is ready to integrate into an
   Amplify app.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20ExportComponents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:`) The unique ID of the Amplify app to export components to.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
+
+  ## Optional parameters:
+  * `:next_token` (`t:`) The token to request the next page of results.
   """
-  @spec export_components(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec export_components(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, export_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_components_errors()}
-  def export_components(
-        %Client{} = client,
-        app_id,
-        environment_name,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def export_components(%Client{} = client, app_id, environment_name, options \\ []) do
     url_path =
       "/export/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/components"
 
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1998,26 +2128,57 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Exports form configurations to code that is ready to integrate into an Amplify
   app.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20ExportForms&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:`) The unique ID of the Amplify app to export forms to.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
+
+  ## Optional parameters:
+  * `:next_token` (`t:`) The token to request the next page of results.
   """
-  @spec export_forms(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec export_forms(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, export_forms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_forms_errors()}
-  def export_forms(%Client{} = client, app_id, environment_name, next_token \\ nil, options \\ []) do
+  def export_forms(%Client{} = client, app_id, environment_name, options \\ []) do
     url_path =
       "/export/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/forms"
 
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2025,40 +2186,76 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Exports theme configurations to code that is ready to integrate into an Amplify
   app.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20ExportThemes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:`) The unique ID of the Amplify app to export the themes to.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of
+    the Amplify app.
+
+  ## Optional parameters:
+  * `:next_token` (`t:`) The token to request the next page of results.
   """
-  @spec export_themes(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec export_themes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, export_themes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_themes_errors()}
-  def export_themes(
-        %Client{} = client,
-        app_id,
-        environment_name,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def export_themes(%Client{} = client, app_id, environment_name, options \\ []) do
     url_path =
       "/export/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/themes"
 
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns an existing code generation job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20GetCodegenJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID of the Amplify app associated with the
+    code generation job.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app associated with the code generation job.
+  * `:id` (`t:string`) The unique ID of the code generation job.
+
+  ## Optional parameters:
   """
-  @spec get_codegen_job(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_codegen_job(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_codegen_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_codegen_job_errors()}
@@ -2066,18 +2263,45 @@ defmodule AWS.AmplifyUIBuilder do
     url_path =
       "/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/codegen-jobs/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns an existing component for an Amplify app.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20GetComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:`) The unique ID of the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of
+    the Amplify app.
+  * `:id` (`t:string`) The unique ID of the component.
+
+  ## Optional parameters:
   """
-  @spec get_component(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_component(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_component_errors()}
@@ -2085,18 +2309,45 @@ defmodule AWS.AmplifyUIBuilder do
     url_path =
       "/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/components/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns an existing form for an Amplify app.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20GetForm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:`) The unique ID of the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of
+    the Amplify app.
+  * `:id` (`t:string`) The unique ID of the form.
+
+  ## Optional parameters:
   """
-  @spec get_form(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_form(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_form_errors()}
@@ -2104,18 +2355,44 @@ defmodule AWS.AmplifyUIBuilder do
     url_path =
       "/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/forms/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns existing metadata for an Amplify app.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20GetMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:`) The unique ID of the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of
+    the Amplify app.
+
+  ## Optional parameters:
   """
-  @spec get_metadata(map(), String.t(), String.t(), list()) ::
+  @spec get_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_metadata_errors()}
@@ -2123,18 +2400,45 @@ defmodule AWS.AmplifyUIBuilder do
     url_path =
       "/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/metadata"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns an existing theme for an Amplify app.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20GetTheme&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:`) The unique ID of the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of
+    the Amplify app.
+  * `:id` (`t:string`) The unique ID for the theme.
+
+  ## Optional parameters:
   """
-  @spec get_theme(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_theme(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_theme_errors()}
@@ -2142,10 +2446,27 @@ defmodule AWS.AmplifyUIBuilder do
     url_path =
       "/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/themes/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2153,47 +2474,65 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Retrieves a list of code generation jobs for a specified Amplify app and backend
   environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20ListCodegenJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of jobs to retrieve.
+  * `:next_token` (`t:`) The token to request the next page of results.
   """
-  @spec list_codegen_jobs(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_codegen_jobs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_codegen_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_codegen_jobs_errors()}
-  def list_codegen_jobs(
-        %Client{} = client,
-        app_id,
-        environment_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_codegen_jobs(%Client{} = client, app_id, environment_name, options \\ []) do
     url_path =
       "/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/codegen-jobs"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2201,152 +2540,262 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Retrieves a list of components for a specified Amplify app and backend
   environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20ListComponents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:`) The unique ID for the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of components to retrieve.
+  * `:next_token` (`t:`) The token to request the next page of results.
   """
-  @spec list_components(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_components(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_components_errors()}
-  def list_components(
-        %Client{} = client,
-        app_id,
-        environment_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_components(%Client{} = client, app_id, environment_name, options \\ []) do
     url_path =
       "/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/components"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of forms for a specified Amplify app and backend environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20ListForms&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:`) The unique ID for the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of forms to retrieve.
+  * `:next_token` (`t:`) The token to request the next page of results.
   """
-  @spec list_forms(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_forms(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_forms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_forms_errors()}
-  def list_forms(
-        %Client{} = client,
-        app_id,
-        environment_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_forms(%Client{} = client, app_id, environment_name, options \\ []) do
     url_path =
       "/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/forms"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of tags for a specified Amazon Resource Name (ARN).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) to use to list tags.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves a list of themes for a specified Amplify app and backend
-  environment.
+  Retrieves a list of themes for a specified Amplify app and backend environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20ListThemes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:`) The unique ID for the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of theme results to return in
+    the response.
+  * `:next_token` (`t:`) The token to request the next page of results.
   """
-  @spec list_themes(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_themes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_themes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_themes_errors()}
-  def list_themes(
-        %Client{} = client,
-        app_id,
-        environment_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_themes(%Client{} = client, app_id, environment_name, options \\ []) do
     url_path =
       "/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/themes"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Stores the metadata information about a feature on a form.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20PutMetadataFlag&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:`) The unique ID for the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of
+    the Amplify app.
+  * `:feature_name` (`t:`) The name of the feature associated with the metadata.
+
+  ## Optional parameters:
   """
   @spec put_metadata_flag(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           put_metadata_flag_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -2365,19 +2814,24 @@ defmodule AWS.AmplifyUIBuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-
   This is for internal use.
 
-  Amplify uses this action to refresh a previously issued access token that might
-  have expired.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20RefreshToken&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:provider` (`t:string`) The third-party provider for the token. The only
+    valid value is figma.
+
+  ## Optional parameters:
   """
-  @spec refresh_token(map(), String.t(), refresh_token_request(), list()) ::
+  @spec refresh_token(AWS.Client.t(), String.t(), refresh_token_request(), Keyword.t()) ::
           {:ok, refresh_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, refresh_token_errors()}
@@ -2386,7 +2840,8 @@ defmodule AWS.AmplifyUIBuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2404,8 +2859,25 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Starts a code generation job for a specified Amplify app and backend
   environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20StartCodegenJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
+
+  ## Optional parameters:
+  * `:client_token` (`t:`) The idempotency token used to ensure that the code
+    generation job request completes only once.
   """
-  @spec start_codegen_job(map(), String.t(), String.t(), start_codegen_job_request(), list()) ::
+  @spec start_codegen_job(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          start_codegen_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_codegen_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_codegen_job_errors()}
@@ -2421,7 +2893,13 @@ defmodule AWS.AmplifyUIBuilder do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -2438,8 +2916,16 @@ defmodule AWS.AmplifyUIBuilder do
 
   @doc """
   Tags the resource with a tag key and value.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) to use to tag a
+    resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2448,7 +2934,8 @@ defmodule AWS.AmplifyUIBuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2465,8 +2952,18 @@ defmodule AWS.AmplifyUIBuilder do
 
   @doc """
   Untags a resource with a specified Amazon Resource Name (ARN).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) to use to untag a
+    resource.
+  * `:tag_keys` (`t:list[com.amazonaws.amplifyuibuilder#TagKey]`) The tag keys to
+    use to untag a resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2480,7 +2977,8 @@ defmodule AWS.AmplifyUIBuilder do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2497,14 +2995,25 @@ defmodule AWS.AmplifyUIBuilder do
 
   @doc """
   Updates an existing component.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20UpdateComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:`) The unique ID for the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of
+    the Amplify app.
+  * `:id` (`t:string`) The unique ID for the component.
+
+  ## Optional parameters:
+  * `:client_token` (`t:`) The unique client token.
   """
   @spec update_component(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           update_component_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2521,7 +3030,13 @@ defmodule AWS.AmplifyUIBuilder do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -2538,8 +3053,26 @@ defmodule AWS.AmplifyUIBuilder do
 
   @doc """
   Updates an existing form.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20UpdateForm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:`) The unique ID for the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of
+    the Amplify app.
+  * `:id` (`t:string`) The unique ID for the form.
+
+  ## Optional parameters:
+  * `:client_token` (`t:`) The unique client token.
   """
-  @spec update_form(map(), String.t(), String.t(), String.t(), update_form_request(), list()) ::
+  @spec update_form(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          update_form_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_form_errors()}
@@ -2555,7 +3088,13 @@ defmodule AWS.AmplifyUIBuilder do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -2572,8 +3111,26 @@ defmodule AWS.AmplifyUIBuilder do
 
   @doc """
   Updates an existing theme.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20UpdateTheme&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:`) The unique ID for the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of
+    the Amplify app.
+  * `:id` (`t:string`) The unique ID for the theme.
+
+  ## Optional parameters:
+  * `:client_token` (`t:`) The unique client token.
   """
-  @spec update_theme(map(), String.t(), String.t(), String.t(), update_theme_request(), list()) ::
+  @spec update_theme(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          update_theme_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_theme_errors()}
@@ -2589,7 +3146,13 @@ defmodule AWS.AmplifyUIBuilder do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,

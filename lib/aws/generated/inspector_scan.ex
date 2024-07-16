@@ -118,11 +118,16 @@ defmodule AWS.InspectorScan do
 
   @doc """
   Scans a provided CycloneDX 1.5 SBOM and reports on any vulnerabilities
-  discovered in that SBOM.
+  discovered in that SBOM. You can generate compatible SBOMs for your resources
+  using the [Amazon Inspector SBOM generator]().
 
-  You can generate compatible SBOMs for your resources using the [Amazon Inspector SBOM generator]().
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspectorscan%20ScanSbom&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec scan_sbom(map(), scan_sbom_request(), list()) ::
+  @spec scan_sbom(AWS.Client.t(), scan_sbom_request(), Keyword.t()) ::
           {:ok, scan_sbom_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, scan_sbom_errors()}
@@ -131,7 +136,8 @@ defmodule AWS.InspectorScan do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

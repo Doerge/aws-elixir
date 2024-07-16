@@ -3,16 +3,8 @@
 
 defmodule AWS.KinesisAnalyticsV2 do
   @moduledoc """
-
   Amazon Managed Service for Apache Flink was previously known as Amazon Kinesis
   Data Analytics for Apache Flink.
-
-  Amazon Managed Service for Apache Flink is a fully managed service that you can
-  use to process and analyze streaming data using Java, Python, SQL, or Scala. The
-  service
-  enables you to quickly author and run Java, SQL, or Scala code against streaming
-  sources to perform time
-  series analytics, feed real-time dashboards, and create real-time metrics.
   """
 
   alias AWS.Client
@@ -2833,64 +2825,54 @@ defmodule AWS.KinesisAnalyticsV2 do
   errors.
   """
   @spec add_application_cloud_watch_logging_option(
-          map(),
+          AWS.Client.t(),
           add_application_cloud_watch_logging_option_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, add_application_cloud_watch_logging_option_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_application_cloud_watch_logging_option_errors()}
   def add_application_cloud_watch_logging_option(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddApplicationCloudWatchLoggingOption", input, options)
   end
 
   @doc """
-
   Adds a streaming source to your SQL-based Kinesis Data Analytics application.
-
   You can add a streaming source when you create an application, or you can use
-  this
-  operation to add a streaming source after you create an application. For more
-  information, see
-  `CreateApplication`.
-
-  Any configuration update, including adding a streaming source using this
-  operation,
-  results in a new version of the application. You can use the
-  `DescribeApplication` operation
-  to find the current application version.
+  this operation to add a streaming source after you create an application. For
+  more information, see `CreateApplication`.
   """
-  @spec add_application_input(map(), add_application_input_request(), list()) ::
+  @spec add_application_input(AWS.Client.t(), add_application_input_request(), Keyword.t()) ::
           {:ok, add_application_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_application_input_errors()}
   def add_application_input(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddApplicationInput", input, options)
   end
 
   @doc """
   Adds an `InputProcessingConfiguration` to a SQL-based Kinesis Data Analytics
-  application.
-
-  An input processor pre-processes records
-  on the input stream before the
-  application's SQL code executes. Currently, the only input processor available
-  is [Amazon Lambda](https://docs.aws.amazon.com/lambda/).
+  application. An input processor pre-processes records on the input stream
+  before the application's SQL code executes. Currently, the only input
+  processor available is [Amazon Lambda](https://docs.aws.amazon.com/lambda/).
   """
   @spec add_application_input_processing_configuration(
-          map(),
+          AWS.Client.t(),
           add_application_input_processing_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, add_application_input_processing_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_application_input_processing_configuration_errors()}
   def add_application_input_processing_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -2903,36 +2885,21 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   @doc """
   Adds an external destination to your SQL-based Kinesis Data Analytics
-  application.
-
-  If you want Kinesis Data Analytics to deliver data from an in-application stream
-  within
-  your application to an external destination (such as an Kinesis data stream, a
-  Kinesis Data
-  Firehose delivery stream, or an Amazon Lambda function), you add the relevant
-  configuration to
-  your application using this operation. You can configure one or more outputs for
-  your
-  application. Each output configuration maps an in-application stream and an
-  external
-  destination.
-
-  You can use one of the output configurations to deliver data from your
-  in-application error stream to an external destination so that you can analyze
-  the
-  errors.
-
-  Any configuration update, including adding a streaming source using this
-  operation, results in a new version of the application. You can use the
-  `DescribeApplication` operation to find the current application
-  version.
+  application. If you want Kinesis Data Analytics to deliver data from an
+  in-application stream within your application to an external destination (such
+  as an Kinesis data stream, a Kinesis Data Firehose delivery stream, or an
+  Amazon Lambda function), you add the relevant configuration to your
+  application using this operation. You can configure one or more outputs for
+  your application. Each output configuration maps an in-application stream and
+  an external destination.
   """
-  @spec add_application_output(map(), add_application_output_request(), list()) ::
+  @spec add_application_output(AWS.Client.t(), add_application_output_request(), Keyword.t()) ::
           {:ok, add_application_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_application_output_errors()}
   def add_application_output(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddApplicationOutput", input, options)
   end
@@ -2940,111 +2907,78 @@ defmodule AWS.KinesisAnalyticsV2 do
   @doc """
   Adds a reference data source to an existing SQL-based Kinesis Data Analytics
   application.
-
-  Kinesis Data Analytics reads reference data (that is, an Amazon S3 object) and
-  creates an
-  in-application table within your application. In the request, you provide the
-  source (S3
-  bucket name and object key name), name of the in-application table to create,
-  and the
-  necessary mapping information that describes how data in an Amazon S3 object
-  maps to columns
-  in the resulting in-application table.
   """
   @spec add_application_reference_data_source(
-          map(),
+          AWS.Client.t(),
           add_application_reference_data_source_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, add_application_reference_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_application_reference_data_source_errors()}
   def add_application_reference_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddApplicationReferenceDataSource", input, options)
   end
 
   @doc """
   Adds a Virtual Private Cloud (VPC) configuration to the application.
-
-  Applications can use VPCs to store
-  and access resources securely.
-
-  Note the following about VPC configurations for Managed Service for Apache Flink
+  Applications can use VPCs to store and access resources securely. Note the
+  following about VPC configurations for Managed Service for Apache Flink
   applications:
-
-    *
-  VPC configurations are not supported for SQL applications.
-
-    *
-  When a VPC is added to a Managed Service for Apache Flink application, the
-  application can no longer be accessed from the
-  Internet directly. To enable Internet access to the application, add an Internet
-  gateway to your VPC.
   """
   @spec add_application_vpc_configuration(
-          map(),
+          AWS.Client.t(),
           add_application_vpc_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, add_application_vpc_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_application_vpc_configuration_errors()}
   def add_application_vpc_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddApplicationVpcConfiguration", input, options)
   end
 
   @doc """
-  Creates a Managed Service for Apache Flink application.
-
-  For information about creating a
-  Managed Service for Apache Flink application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
+  Creates a Managed Service for Apache Flink application. For information about
+  creating a Managed Service for Apache Flink application, see [Creating an
+  Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
   """
-  @spec create_application(map(), create_application_request(), list()) ::
+  @spec create_application(AWS.Client.t(), create_application_request(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApplication", input, options)
   end
 
   @doc """
-  Creates and returns a URL that you can use to connect to
-  an application's extension.
-
-  The IAM role or user used to call this API defines the permissions to access the
-  extension. After the presigned URL is created, no additional permission is
-  required to access
-  this URL. IAM authorization policies for this API are also enforced for every
-  HTTP request
-  that attempts to connect to the extension.
-
-  You control the amount of time that the URL will be valid using the
-  `SessionExpirationDurationInSeconds`
-  parameter. If you do not provide this parameter, the returned URL is valid for
-  twelve hours.
-
-  The URL that you get from a call to CreateApplicationPresignedUrl must be used
-  within 3 minutes
-  to be valid.
-  If you first try to use the URL after the 3-minute limit expires, the service
-  returns an HTTP 403 Forbidden error.
+  Creates and returns a URL that you can use to connect to an application's
+  extension. The IAM role or user used to call this API defines the permissions
+  to access the extension. After the presigned URL is created, no additional
+  permission is required to access this URL. IAM authorization policies for this
+  API are also enforced for every HTTP request that attempts to connect to the
+  extension.
   """
   @spec create_application_presigned_url(
-          map(),
+          AWS.Client.t(),
           create_application_presigned_url_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_application_presigned_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_presigned_url_errors()}
   def create_application_presigned_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApplicationPresignedUrl", input, options)
   end
@@ -3052,28 +2986,32 @@ defmodule AWS.KinesisAnalyticsV2 do
   @doc """
   Creates a snapshot of the application's state data.
   """
-  @spec create_application_snapshot(map(), create_application_snapshot_request(), list()) ::
+  @spec create_application_snapshot(
+          AWS.Client.t(),
+          create_application_snapshot_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_application_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_snapshot_errors()}
   def create_application_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApplicationSnapshot", input, options)
   end
 
   @doc """
-  Deletes the specified application.
-
-  Managed Service for Apache Flink halts application execution and deletes the
-  application.
+  Deletes the specified application. Managed Service for Apache Flink halts
+  application execution and deletes the application.
   """
-  @spec delete_application(map(), delete_application_request(), list()) ::
+  @spec delete_application(AWS.Client.t(), delete_application_request(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplication", input, options)
   end
@@ -3083,15 +3021,16 @@ defmodule AWS.KinesisAnalyticsV2 do
   application.
   """
   @spec delete_application_cloud_watch_logging_option(
-          map(),
+          AWS.Client.t(),
           delete_application_cloud_watch_logging_option_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_application_cloud_watch_logging_option_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_cloud_watch_logging_option_errors()}
   def delete_application_cloud_watch_logging_option(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplicationCloudWatchLoggingOption", input, options)
   end
@@ -3100,15 +3039,16 @@ defmodule AWS.KinesisAnalyticsV2 do
   Deletes an `InputProcessingConfiguration` from an input.
   """
   @spec delete_application_input_processing_configuration(
-          map(),
+          AWS.Client.t(),
           delete_application_input_processing_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_application_input_processing_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_input_processing_configuration_errors()}
   def delete_application_input_processing_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -3121,17 +3061,21 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   @doc """
   Deletes the output destination configuration from your SQL-based Kinesis Data
-  Analytics application's configuration.
-
-  Kinesis Data Analytics will no longer write data from
-  the corresponding in-application stream to the external output destination.
+  Analytics application's configuration. Kinesis Data Analytics will no longer
+  write data from the corresponding in-application stream to the external output
+  destination.
   """
-  @spec delete_application_output(map(), delete_application_output_request(), list()) ::
+  @spec delete_application_output(
+          AWS.Client.t(),
+          delete_application_output_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_application_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_output_errors()}
   def delete_application_output(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplicationOutput", input, options)
   end
@@ -3139,21 +3083,18 @@ defmodule AWS.KinesisAnalyticsV2 do
   @doc """
   Deletes a reference data source configuration from the specified SQL-based
   Kinesis Data Analytics application's configuration.
-
-  If the application is running, Kinesis Data Analytics immediately removes the
-  in-application table
-  that you created using the `AddApplicationReferenceDataSource` operation.
   """
   @spec delete_application_reference_data_source(
-          map(),
+          AWS.Client.t(),
           delete_application_reference_data_source_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_application_reference_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_reference_data_source_errors()}
   def delete_application_reference_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplicationReferenceDataSource", input, options)
   end
@@ -3161,12 +3102,17 @@ defmodule AWS.KinesisAnalyticsV2 do
   @doc """
   Deletes a snapshot of application state.
   """
-  @spec delete_application_snapshot(map(), delete_application_snapshot_request(), list()) ::
+  @spec delete_application_snapshot(
+          AWS.Client.t(),
+          delete_application_snapshot_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_application_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_snapshot_errors()}
   def delete_application_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplicationSnapshot", input, options)
   end
@@ -3175,15 +3121,16 @@ defmodule AWS.KinesisAnalyticsV2 do
   Removes a VPC configuration from a Managed Service for Apache Flink application.
   """
   @spec delete_application_vpc_configuration(
-          map(),
+          AWS.Client.t(),
           delete_application_vpc_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_application_vpc_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_vpc_configuration_errors()}
   def delete_application_vpc_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplicationVpcConfiguration", input, options)
   end
@@ -3191,16 +3138,14 @@ defmodule AWS.KinesisAnalyticsV2 do
   @doc """
   Returns information about a specific Managed Service for Apache Flink
   application.
-
-  If you want to retrieve a list of all applications in your account,
-  use the `ListApplications` operation.
   """
-  @spec describe_application(map(), describe_application_request(), list()) ::
+  @spec describe_application(AWS.Client.t(), describe_application_request(), Keyword.t()) ::
           {:ok, describe_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_application_errors()}
   def describe_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplication", input, options)
   end
@@ -3209,12 +3154,17 @@ defmodule AWS.KinesisAnalyticsV2 do
   Returns information about a specific operation performed on a Managed Service
   for Apache Flink application
   """
-  @spec describe_application_operation(map(), describe_application_operation_request(), list()) ::
+  @spec describe_application_operation(
+          AWS.Client.t(),
+          describe_application_operation_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_application_operation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_application_operation_errors()}
   def describe_application_operation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplicationOperation", input, options)
   end
@@ -3222,55 +3172,55 @@ defmodule AWS.KinesisAnalyticsV2 do
   @doc """
   Returns information about a snapshot of application state data.
   """
-  @spec describe_application_snapshot(map(), describe_application_snapshot_request(), list()) ::
+  @spec describe_application_snapshot(
+          AWS.Client.t(),
+          describe_application_snapshot_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_application_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_application_snapshot_errors()}
   def describe_application_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplicationSnapshot", input, options)
   end
 
   @doc """
-  Provides a detailed description of a specified version of the application.
-
-  To see a list of all the versions of an application, invoke the
+  Provides a detailed description of a specified version of the application. To
+  see a list of all the versions of an application, invoke the
   `ListApplicationVersions` operation.
-
-  This operation is supported only for Managed Service for Apache Flink.
   """
-  @spec describe_application_version(map(), describe_application_version_request(), list()) ::
+  @spec describe_application_version(
+          AWS.Client.t(),
+          describe_application_version_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_application_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_application_version_errors()}
   def describe_application_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplicationVersion", input, options)
   end
 
   @doc """
   Infers a schema for a SQL-based Kinesis Data Analytics application by evaluating
-  sample records on the specified streaming source (Kinesis data stream or Kinesis
-  Data Firehose
-  delivery stream) or Amazon S3 object.
-
-  In the response, the operation returns the inferred
-  schema and also the sample records that the operation used to infer the schema.
-
-  You can use the inferred schema when configuring a streaming source for your
-  application.
-  When you create an application using the Kinesis Data Analytics console, the
-  console uses this
-  operation to infer a schema and show it in the console user interface.
+  sample records on the specified streaming source (Kinesis data stream or
+  Kinesis Data Firehose delivery stream) or Amazon S3 object. In the response,
+  the operation returns the inferred schema and also the sample records that the
+  operation used to infer the schema.
   """
-  @spec discover_input_schema(map(), discover_input_schema_request(), list()) ::
+  @spec discover_input_schema(AWS.Client.t(), discover_input_schema_request(), Keyword.t()) ::
           {:ok, discover_input_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, discover_input_schema_errors()}
   def discover_input_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DiscoverInputSchema", input, options)
   end
@@ -3279,12 +3229,17 @@ defmodule AWS.KinesisAnalyticsV2 do
   Lists information about operations performed on a Managed Service for Apache
   Flink application
   """
-  @spec list_application_operations(map(), list_application_operations_request(), list()) ::
+  @spec list_application_operations(
+          AWS.Client.t(),
+          list_application_operations_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_application_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_operations_errors()}
   def list_application_operations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApplicationOperations", input, options)
   end
@@ -3292,233 +3247,198 @@ defmodule AWS.KinesisAnalyticsV2 do
   @doc """
   Lists information about the current application snapshots.
   """
-  @spec list_application_snapshots(map(), list_application_snapshots_request(), list()) ::
+  @spec list_application_snapshots(
+          AWS.Client.t(),
+          list_application_snapshots_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_application_snapshots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_snapshots_errors()}
   def list_application_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApplicationSnapshots", input, options)
   end
 
   @doc """
   Lists all the versions for the specified application, including versions that
-  were rolled back.
-
-  The response also includes a summary of the configuration
-  associated with each version.
-
-  To get the complete description of a specific application version, invoke the
-  `DescribeApplicationVersion` operation.
-
-  This operation is supported only for Managed Service for Apache Flink.
+  were rolled back. The response also includes a summary of the configuration
+  associated with each version. To get the complete description of a specific
+  application version, invoke the `DescribeApplicationVersion` operation.
   """
-  @spec list_application_versions(map(), list_application_versions_request(), list()) ::
+  @spec list_application_versions(
+          AWS.Client.t(),
+          list_application_versions_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_application_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_versions_errors()}
   def list_application_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApplicationVersions", input, options)
   end
 
   @doc """
   Returns a list of Managed Service for Apache Flink applications in your account.
-
-  For each
-  application, the response includes the application name, Amazon Resource Name
-  (ARN), and
-  status.
-
-  If you want detailed information about a specific application, use
-  `DescribeApplication`.
+  For each application, the response includes the application name, Amazon
+  Resource Name (ARN), and status.
   """
-  @spec list_applications(map(), list_applications_request(), list()) ::
+  @spec list_applications(AWS.Client.t(), list_applications_request(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApplications", input, options)
   end
 
   @doc """
-  Retrieves the list of key-value tags assigned to the application.
-
-  For more information, see
-  [Using Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html).
+  Retrieves the list of key-value tags assigned to the application. For more
+  information, see [Using
+  Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html).
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
-  Reverts the application to the previous running version.
-
-  You can roll back an
+  Reverts the application to the previous running version. You can roll back an
   application if you suspect it is stuck in a transient status or in the running
-  status.
-
-  You can roll back an application only if it is in the `UPDATING`,
+  status. You can roll back an application only if it is in the `UPDATING`,
   `AUTOSCALING`, or `RUNNING` statuses.
-
-  When you rollback an application, it loads state data from the last successful
-  snapshot.
-  If the application has no snapshots, Managed Service for Apache Flink rejects
-  the rollback request.
   """
-  @spec rollback_application(map(), rollback_application_request(), list()) ::
+  @spec rollback_application(AWS.Client.t(), rollback_application_request(), Keyword.t()) ::
           {:ok, rollback_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, rollback_application_errors()}
   def rollback_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RollbackApplication", input, options)
   end
 
   @doc """
-  Starts the specified Managed Service for Apache Flink application.
-
-  After creating an application, you must exclusively call this operation to
-  start your application.
+  Starts the specified Managed Service for Apache Flink application. After
+  creating an application, you must exclusively call this operation to start
+  your application.
   """
-  @spec start_application(map(), start_application_request(), list()) ::
+  @spec start_application(AWS.Client.t(), start_application_request(), Keyword.t()) ::
           {:ok, start_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_application_errors()}
   def start_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartApplication", input, options)
   end
 
   @doc """
-  Stops the application from processing data.
-
-  You can stop
-  an application only if it is in the running status, unless you set the `Force`
-  parameter to `true`.
-
-  You can use the `DescribeApplication` operation to find the application status.
-
-  Managed Service for Apache Flink takes a snapshot when the application is
-  stopped, unless `Force` is set
-  to `true`.
+  Stops the application from processing data. You can stop an application only if
+  it is in the running status, unless you set the `Force` parameter to `true`.
+  You can use the `DescribeApplication` operation to find the application
+  status.
   """
-  @spec stop_application(map(), stop_application_request(), list()) ::
+  @spec stop_application(AWS.Client.t(), stop_application_request(), Keyword.t()) ::
           {:ok, stop_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_application_errors()}
   def stop_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopApplication", input, options)
   end
 
   @doc """
   Adds one or more key-value tags to a Managed Service for Apache Flink
-  application.
-
-  Note that the maximum number of application
-  tags includes system tags. The maximum number of user-defined application tags
-  is 50.
-  For more information, see [Using Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html).
+  application. Note that the maximum number of application tags includes system
+  tags. The maximum number of user-defined application tags is 50. For more
+  information, see [Using
+  Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html).
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Removes one or more tags from a Managed Service for Apache Flink application.
-
-  For more information, see
-  [Using Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html).
+  For more information, see [Using
+  Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html).
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
-  Updates an existing Managed Service for Apache Flink application.
-
-  Using this operation, you
-  can update application code, input configuration, and output configuration.
-
-  Managed Service for Apache Flink updates the `ApplicationVersionId` each time
-  you update
-  your application.
+  Updates an existing Managed Service for Apache Flink application. Using this
+  operation, you can update application code, input configuration, and output
+  configuration.
   """
-  @spec update_application(map(), update_application_request(), list()) ::
+  @spec update_application(AWS.Client.t(), update_application_request(), Keyword.t()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApplication", input, options)
   end
 
   @doc """
   Updates the maintenance configuration of the Managed Service for Apache Flink
-  application.
-
-  You can invoke this operation on an application that is in one of the two
-  following
-  states: `READY` or `RUNNING`. If you invoke it when the application is
-  in a state other than these two states, it throws a `ResourceInUseException`.
-  The
-  service makes use of the updated configuration the next time it schedules
-  maintenance for the
-  application. If you invoke this operation after the service schedules
-  maintenance, the service
-  will apply the configuration update the next time it schedules maintenance for
-  the
+  application. You can invoke this operation on an application that is in one of
+  the two following states: `READY` or `RUNNING`. If you invoke it when the
+  application is in a state other than these two states, it throws a
+  `ResourceInUseException`. The service makes use of the updated configuration
+  the next time it schedules maintenance for the application. If you invoke this
+  operation after the service schedules maintenance, the service will apply the
+  configuration update the next time it schedules maintenance for the
   application. This means that you might not see the maintenance configuration
-  update applied to
-  the maintenance process that follows a successful invocation of this operation,
-  but to the
-  following maintenance process instead.
-
-  To see the current maintenance configuration of your application, invoke the
-  `DescribeApplication` operation.
-
-  For information about application maintenance, see [Managed Service for Apache Flink for Apache Flink
-  Maintenance](https://docs.aws.amazon.com/kinesisanalytics/latest/java/maintenance.html).
-
-  This operation is supported only for Managed Service for Apache Flink.
+  update applied to the maintenance process that follows a successful invocation
+  of this operation, but to the following maintenance process instead.
   """
   @spec update_application_maintenance_configuration(
-          map(),
+          AWS.Client.t(),
           update_application_maintenance_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_application_maintenance_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_maintenance_configuration_errors()}
   def update_application_maintenance_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,

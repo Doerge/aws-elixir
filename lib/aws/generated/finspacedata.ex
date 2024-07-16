@@ -1404,13 +1404,22 @@ defmodule AWS.Finspacedata do
   @doc """
   Adds a user to a permission group to grant permissions for actions a user can
   perform in FinSpace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20AssociateUserToPermissionGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:permission_group_id` (`t:string`) The unique identifier for the permission
+    group.
+  * `:user_id` (`t:string`) The unique identifier for the user.
+
+  ## Optional parameters:
   """
   @spec associate_user_to_permission_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           associate_user_to_permission_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_user_to_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1428,7 +1437,8 @@ defmodule AWS.Finspacedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1445,8 +1455,16 @@ defmodule AWS.Finspacedata do
 
   @doc """
   Creates a new Changeset in a FinSpace Dataset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20CreateChangeset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dataset_id` (`t:string`) The unique identifier for the FinSpace Dataset
+    where the Changeset will be created.
+
+  ## Optional parameters:
   """
-  @spec create_changeset(map(), String.t(), create_changeset_request(), list()) ::
+  @spec create_changeset(AWS.Client.t(), String.t(), create_changeset_request(), Keyword.t()) ::
           {:ok, create_changeset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_changeset_errors()}
@@ -1455,7 +1473,8 @@ defmodule AWS.Finspacedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1472,8 +1491,16 @@ defmodule AWS.Finspacedata do
 
   @doc """
   Creates a Dataview for a Dataset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20CreateDataView&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dataset_id` (`t:string`) The unique Dataset identifier that is used to
+    create a Dataview.
+
+  ## Optional parameters:
   """
-  @spec create_data_view(map(), String.t(), create_data_view_request(), list()) ::
+  @spec create_data_view(AWS.Client.t(), String.t(), create_data_view_request(), Keyword.t()) ::
           {:ok, create_data_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_view_errors()}
@@ -1482,7 +1509,8 @@ defmodule AWS.Finspacedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1499,8 +1527,14 @@ defmodule AWS.Finspacedata do
 
   @doc """
   Creates a new FinSpace Dataset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20CreateDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_dataset(map(), create_dataset_request(), list()) ::
+  @spec create_dataset(AWS.Client.t(), create_dataset_request(), Keyword.t()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_errors()}
@@ -1509,7 +1543,8 @@ defmodule AWS.Finspacedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1527,8 +1562,14 @@ defmodule AWS.Finspacedata do
   @doc """
   Creates a group of permissions for various actions that a user can perform in
   FinSpace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20CreatePermissionGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_permission_group(map(), create_permission_group_request(), list()) ::
+  @spec create_permission_group(AWS.Client.t(), create_permission_group_request(), Keyword.t()) ::
           {:ok, create_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_permission_group_errors()}
@@ -1537,7 +1578,8 @@ defmodule AWS.Finspacedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1554,8 +1596,14 @@ defmodule AWS.Finspacedata do
 
   @doc """
   Creates a new user in FinSpace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20CreateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_user(map(), create_user_request(), list()) ::
+  @spec create_user(AWS.Client.t(), create_user_request(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
@@ -1564,7 +1612,8 @@ defmodule AWS.Finspacedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1581,8 +1630,17 @@ defmodule AWS.Finspacedata do
 
   @doc """
   Deletes a FinSpace Dataset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20DeleteDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dataset_id` (`t:string`) The unique identifier of the Dataset to be deleted.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A token that ensures idempotency. This token
+    expires in 10 minutes.
   """
-  @spec delete_dataset(map(), String.t(), delete_dataset_request(), list()) ::
+  @spec delete_dataset(AWS.Client.t(), String.t(), delete_dataset_request(), Keyword.t()) ::
           {:ok, delete_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dataset_errors()}
@@ -1596,7 +1654,13 @@ defmodule AWS.Finspacedata do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -1612,11 +1676,24 @@ defmodule AWS.Finspacedata do
   end
 
   @doc """
-  Deletes a permission group.
+  Deletes a permission group. This action is irreversible.
 
-  This action is irreversible.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20DeletePermissionGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:permission_group_id` (`t:string`) The unique identifier for the permission
+    group that you want to delete.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A token that ensures idempotency. This token
+    expires in 10 minutes.
   """
-  @spec delete_permission_group(map(), String.t(), delete_permission_group_request(), list()) ::
+  @spec delete_permission_group(
+          AWS.Client.t(),
+          String.t(),
+          delete_permission_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_permission_group_errors()}
@@ -1630,7 +1707,13 @@ defmodule AWS.Finspacedata do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -1647,8 +1730,16 @@ defmodule AWS.Finspacedata do
 
   @doc """
   Denies access to the FinSpace web application and API for the specified user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20DisableUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:user_id` (`t:string`) The unique identifier for the user that you want to
+    deactivate.
+
+  ## Optional parameters:
   """
-  @spec disable_user(map(), String.t(), disable_user_request(), list()) ::
+  @spec disable_user(AWS.Client.t(), String.t(), disable_user_request(), Keyword.t()) ::
           {:ok, disable_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_user_errors()}
@@ -1657,7 +1748,8 @@ defmodule AWS.Finspacedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1674,13 +1766,24 @@ defmodule AWS.Finspacedata do
 
   @doc """
   Removes a user from a permission group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20DisassociateUserFromPermissionGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:permission_group_id` (`t:string`) The unique identifier for the permission
+    group.
+  * `:user_id` (`t:string`) The unique identifier for the user.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A token that ensures idempotency. This token
+    expires in 10 minutes.
   """
   @spec disassociate_user_from_permission_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           disassociate_user_from_permission_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_user_from_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1703,7 +1806,13 @@ defmodule AWS.Finspacedata do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -1720,8 +1829,16 @@ defmodule AWS.Finspacedata do
 
   @doc """
   Allows the specified user to access the FinSpace web application and API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20EnableUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:user_id` (`t:string`) The unique identifier for the user that you want to
+    activate.
+
+  ## Optional parameters:
   """
-  @spec enable_user(map(), String.t(), enable_user_request(), list()) ::
+  @spec enable_user(AWS.Client.t(), String.t(), enable_user_request(), Keyword.t()) ::
           {:ok, enable_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_user_errors()}
@@ -1730,7 +1847,8 @@ defmodule AWS.Finspacedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1747,8 +1865,18 @@ defmodule AWS.Finspacedata do
 
   @doc """
   Get information about a Changeset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetChangeset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:changeset_id` (`t:string`) The unique identifier of the Changeset for which
+    to get data.
+  * `:dataset_id` (`t:string`) The unique identifier for the FinSpace Dataset
+    where the Changeset is created.
+
+  ## Optional parameters:
   """
-  @spec get_changeset(map(), String.t(), String.t(), list()) ::
+  @spec get_changeset(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_changeset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_changeset_errors()}
@@ -1756,18 +1884,44 @@ defmodule AWS.Finspacedata do
     url_path =
       "/datasets/#{AWS.Util.encode_uri(dataset_id)}/changesetsv2/#{AWS.Util.encode_uri(changeset_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a Dataview.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetDataView&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_view_id` (`t:string`) The unique identifier for the Dataview.
+  * `:dataset_id` (`t:string`) The unique identifier for the Dataset used in the
+    Dataview.
+
+  ## Optional parameters:
   """
-  @spec get_data_view(map(), String.t(), String.t(), list()) ::
+  @spec get_data_view(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_view_errors()}
@@ -1775,49 +1929,92 @@ defmodule AWS.Finspacedata do
     url_path =
       "/datasets/#{AWS.Util.encode_uri(dataset_id)}/dataviewsv2/#{AWS.Util.encode_uri(data_view_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a Dataset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dataset_id` (`t:string`) The unique identifier for a Dataset.
+
+  ## Optional parameters:
   """
-  @spec get_dataset(map(), String.t(), list()) ::
+  @spec get_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dataset_errors()}
   def get_dataset(%Client{} = client, dataset_id, options \\ []) do
     url_path = "/datasetsv2/#{AWS.Util.encode_uri(dataset_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns the credentials to access the external Dataview from an S3 location.
+  Returns the credentials to access the external Dataview from an S3 location. To
+  call this API:
 
-  To call this API:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetExternalDataViewAccessDetails&this_doc_guide=API%2520Reference)
 
-    *
-  You must retrieve the programmatic credentials.
+  ## Parameters:
+  * `:data_view_id` (`t:string`) The unique identifier for the Dataview that you
+    want to access.
+  * `:dataset_id` (`t:string`) The unique identifier for the Dataset.
 
-    *
-  You must be a member of a FinSpace user group, where the dataset that you want
-  to access has `Read Dataset Data` permissions.
+  ## Optional parameters:
   """
   @spec get_external_data_view_access_details(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           get_external_data_view_access_details_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_external_data_view_access_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1835,7 +2032,8 @@ defmodule AWS.Finspacedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1852,83 +2050,158 @@ defmodule AWS.Finspacedata do
 
   @doc """
   Retrieves the details of a specific permission group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetPermissionGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:permission_group_id` (`t:string`) The unique identifier for the permission
+    group.
+
+  ## Optional parameters:
   """
-  @spec get_permission_group(map(), String.t(), list()) ::
+  @spec get_permission_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_permission_group_errors()}
   def get_permission_group(%Client{} = client, permission_group_id, options \\ []) do
     url_path = "/permission-group/#{AWS.Util.encode_uri(permission_group_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Request programmatic credentials to use with FinSpace SDK.
-
-  For more information, see [Step 2. Access credentials programmatically using IAM access key id and secret access
+  Request programmatic credentials to use with FinSpace SDK. For more information,
+  see [Step 2. Access credentials programmatically using IAM access key id and
+  secret access
   key](https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#accessing-credentials).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetProgrammaticAccessCredentials&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:environment_id` (`t:string`) The FinSpace environment identifier.
+
+  ## Optional parameters:
+  * `:duration_in_minutes` (`t:long`) The time duration in which the credentials
+    remain valid.
   """
-  @spec get_programmatic_access_credentials(map(), String.t() | nil, String.t(), list()) ::
+  @spec get_programmatic_access_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_programmatic_access_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_programmatic_access_credentials_errors()}
-  def get_programmatic_access_credentials(
-        %Client{} = client,
-        duration_in_minutes \\ nil,
-        environment_id,
-        options \\ []
-      ) do
+  def get_programmatic_access_credentials(%Client{} = client, environment_id, options \\ []) do
     url_path = "/credentials/programmatic"
+
+    # Validate optional parameters
+    optional_params = [duration_in_minutes: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"environmentId", environment_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(environment_id) do
-        [{"environmentId", environment_id} | query_params]
+      if opt_val = Keyword.get(options, :duration_in_minutes) do
+        [{"durationInMinutes", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(duration_in_minutes) do
-        [{"durationInMinutes", duration_in_minutes} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:duration_in_minutes])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves details for a specific user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:user_id` (`t:string`) The unique identifier of the user to get data for.
+
+  ## Optional parameters:
   """
-  @spec get_user(map(), String.t(), list()) ::
+  @spec get_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_errors()}
   def get_user(%Client{} = client, user_id, options \\ []) do
     url_path = "/user/#{AWS.Util.encode_uri(user_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   A temporary Amazon S3 location, where you can copy your files from a source
-  location to stage or use
-  as a scratch space in FinSpace notebook.
+  location to stage or use as a scratch space in FinSpace notebook.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetWorkingLocation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_working_location(map(), get_working_location_request(), list()) ::
+  @spec get_working_location(AWS.Client.t(), get_working_location_request(), Keyword.t()) ::
           {:ok, get_working_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_working_location_errors()}
@@ -1937,7 +2210,8 @@ defmodule AWS.Finspacedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1954,212 +2228,375 @@ defmodule AWS.Finspacedata do
 
   @doc """
   Lists the FinSpace Changesets for a Dataset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ListChangesets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dataset_id` (`t:string`) The unique identifier for the FinSpace Dataset to
+    which the Changeset belongs.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results per page.
+  * `:next_token` (`t:string`) A token that indicates where a results page should
+    begin.
   """
-  @spec list_changesets(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_changesets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_changesets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_changesets_errors()}
-  def list_changesets(
-        %Client{} = client,
-        dataset_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_changesets(%Client{} = client, dataset_id, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/changesetsv2"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all available Dataviews for a Dataset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ListDataViews&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dataset_id` (`t:string`) The unique identifier of the Dataset for which to
+    retrieve Dataviews.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results per page.
+  * `:next_token` (`t:string`) A token that indicates where a results page should
+    begin.
   """
-  @spec list_data_views(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_data_views(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_views_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_views_errors()}
-  def list_data_views(
-        %Client{} = client,
-        dataset_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_data_views(%Client{} = client, dataset_id, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/dataviewsv2"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all of the active Datasets that a user has access to.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ListDatasets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results per page.
+  * `:next_token` (`t:string`) A token that indicates where a results page should
+    begin.
   """
-  @spec list_datasets(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_datasets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_datasets_errors()}
-  def list_datasets(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_datasets(%Client{} = client, options \\ []) do
     url_path = "/datasetsv2"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all available permission groups in FinSpace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ListPermissionGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:max_results` (`t:integer`) The maximum number of results per page.
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) A token that indicates where a results page should
+    begin.
   """
-  @spec list_permission_groups(map(), String.t(), String.t() | nil, list()) ::
+  @spec list_permission_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_permission_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_permission_groups_errors()}
-  def list_permission_groups(%Client{} = client, max_results, next_token \\ nil, options \\ []) do
+  def list_permission_groups(%Client{} = client, max_results, options \\ []) do
     url_path = "/permission-group"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"maxResults", max_results}]
+
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all the permission groups that are associated with a specific user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ListPermissionGroupsByUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:user_id` (`t:string`) The unique identifier for the user.
+  * `:max_results` (`t:integer`) The maximum number of results per page.
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) A token that indicates where a results page should
+    begin.
   """
-  @spec list_permission_groups_by_user(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec list_permission_groups_by_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_permission_groups_by_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_permission_groups_by_user_errors()}
-  def list_permission_groups_by_user(
-        %Client{} = client,
-        user_id,
-        max_results,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_permission_groups_by_user(%Client{} = client, user_id, max_results, options \\ []) do
     url_path = "/user/#{AWS.Util.encode_uri(user_id)}/permission-groups"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"maxResults", max_results}]
+
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all available users in FinSpace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ListUsers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:max_results` (`t:integer`) The maximum number of results per page.
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) A token that indicates where a results page should
+    begin.
   """
-  @spec list_users(map(), String.t(), String.t() | nil, list()) ::
+  @spec list_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_users_errors()}
-  def list_users(%Client{} = client, max_results, next_token \\ nil, options \\ []) do
+  def list_users(%Client{} = client, max_results, options \\ []) do
     url_path = "/user"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"maxResults", max_results}]
+
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists details of all the users in a specific permission group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ListUsersByPermissionGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:permission_group_id` (`t:string`) The unique identifier for the permission
+    group.
+  * `:max_results` (`t:integer`) The maximum number of results per page.
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) A token that indicates where a results page should
+    begin.
   """
-  @spec list_users_by_permission_group(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec list_users_by_permission_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_by_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_users_by_permission_group_errors()}
@@ -2167,39 +2604,65 @@ defmodule AWS.Finspacedata do
         %Client{} = client,
         permission_group_id,
         max_results,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path = "/permission-group/#{AWS.Util.encode_uri(permission_group_id)}/users"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"maxResults", max_results}]
+
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Resets the password for a specified user ID and generates a temporary one.
-
-  Only a superuser can reset password for other users. Resetting the password
+  Resets the password for a specified user ID and generates a temporary one. Only
+  a superuser can reset password for other users. Resetting the password
   immediately invalidates the previous password associated with the user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ResetUserPassword&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:user_id` (`t:string`) The unique identifier of the user that a temporary
+    password is requested for.
+
+  ## Optional parameters:
   """
-  @spec reset_user_password(map(), String.t(), reset_user_password_request(), list()) ::
+  @spec reset_user_password(
+          AWS.Client.t(),
+          String.t(),
+          reset_user_password_request(),
+          Keyword.t()
+        ) ::
           {:ok, reset_user_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_user_password_errors()}
@@ -2208,7 +2671,8 @@ defmodule AWS.Finspacedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2225,8 +2689,24 @@ defmodule AWS.Finspacedata do
 
   @doc """
   Updates a FinSpace Changeset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20UpdateChangeset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:changeset_id` (`t:string`) The unique identifier for the Changeset to
+    update.
+  * `:dataset_id` (`t:string`) The unique identifier for the FinSpace Dataset in
+    which the Changeset is created.
+
+  ## Optional parameters:
   """
-  @spec update_changeset(map(), String.t(), String.t(), update_changeset_request(), list()) ::
+  @spec update_changeset(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_changeset_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_changeset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_changeset_errors()}
@@ -2237,15 +2717,23 @@ defmodule AWS.Finspacedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a FinSpace Dataset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20UpdateDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dataset_id` (`t:string`) The unique identifier for the Dataset to update.
+
+  ## Optional parameters:
   """
-  @spec update_dataset(map(), String.t(), update_dataset_request(), list()) ::
+  @spec update_dataset(AWS.Client.t(), String.t(), update_dataset_request(), Keyword.t()) ::
           {:ok, update_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dataset_errors()}
@@ -2254,17 +2742,30 @@ defmodule AWS.Finspacedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Modifies the details of a permission group.
+  Modifies the details of a permission group. You cannot modify a
+  `permissionGroupID`.
 
-  You cannot modify a `permissionGroupID`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20UpdatePermissionGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:permission_group_id` (`t:string`) The unique identifier for the permission
+    group to update.
+
+  ## Optional parameters:
   """
-  @spec update_permission_group(map(), String.t(), update_permission_group_request(), list()) ::
+  @spec update_permission_group(
+          AWS.Client.t(),
+          String.t(),
+          update_permission_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_permission_group_errors()}
@@ -2273,17 +2774,25 @@ defmodule AWS.Finspacedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Modifies the details of the specified user.
+  Modifies the details of the specified user. You cannot update the `userId` for a
+  user.
 
-  You cannot update the `userId` for a user.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20UpdateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:user_id` (`t:string`) The unique identifier for the user that you want to
+    update.
+
+  ## Optional parameters:
   """
-  @spec update_user(map(), String.t(), update_user_request(), list()) ::
+  @spec update_user(AWS.Client.t(), String.t(), update_user_request(), Keyword.t()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_errors()}
@@ -2292,7 +2801,8 @@ defmodule AWS.Finspacedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

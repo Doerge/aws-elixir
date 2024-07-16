@@ -1325,8 +1325,14 @@ defmodule AWS.KafkaConnect do
 
   @doc """
   Creates a connector using the specified properties.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20CreateConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_connector(map(), create_connector_request(), list()) ::
+  @spec create_connector(AWS.Client.t(), create_connector_request(), Keyword.t()) ::
           {:ok, create_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connector_errors()}
@@ -1335,7 +1341,8 @@ defmodule AWS.KafkaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1352,8 +1359,14 @@ defmodule AWS.KafkaConnect do
 
   @doc """
   Creates a custom plugin using the specified properties.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20CreateCustomPlugin&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_custom_plugin(map(), create_custom_plugin_request(), list()) ::
+  @spec create_custom_plugin(AWS.Client.t(), create_custom_plugin_request(), Keyword.t()) ::
           {:ok, create_custom_plugin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_custom_plugin_errors()}
@@ -1362,7 +1375,8 @@ defmodule AWS.KafkaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1379,8 +1393,18 @@ defmodule AWS.KafkaConnect do
 
   @doc """
   Creates a worker configuration using the specified properties.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20CreateWorkerConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_worker_configuration(map(), create_worker_configuration_request(), list()) ::
+  @spec create_worker_configuration(
+          AWS.Client.t(),
+          create_worker_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_worker_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_worker_configuration_errors()}
@@ -1389,7 +1413,8 @@ defmodule AWS.KafkaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1406,8 +1431,18 @@ defmodule AWS.KafkaConnect do
 
   @doc """
   Deletes the specified connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20DeleteConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) of the connector
+    that you want to delete.
+
+  ## Optional parameters:
+  * `:current_version` (`t:string`) The current version of the connector that you
+    want to delete.
   """
-  @spec delete_connector(map(), String.t(), delete_connector_request(), list()) ::
+  @spec delete_connector(AWS.Client.t(), String.t(), delete_connector_request(), Keyword.t()) ::
           {:ok, delete_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connector_errors()}
@@ -1421,7 +1456,13 @@ defmodule AWS.KafkaConnect do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:current_version])
 
     Request.request_rest(
       client,
@@ -1438,8 +1479,21 @@ defmodule AWS.KafkaConnect do
 
   @doc """
   Deletes a custom plugin.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20DeleteCustomPlugin&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:custom_plugin_arn` (`t:string`) The Amazon Resource Name (ARN) of the custom
+    plugin that you want to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_custom_plugin(map(), String.t(), delete_custom_plugin_request(), list()) ::
+  @spec delete_custom_plugin(
+          AWS.Client.t(),
+          String.t(),
+          delete_custom_plugin_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_custom_plugin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_plugin_errors()}
@@ -1448,7 +1502,8 @@ defmodule AWS.KafkaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1465,12 +1520,20 @@ defmodule AWS.KafkaConnect do
 
   @doc """
   Deletes the specified worker configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20DeleteWorkerConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:worker_configuration_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    worker configuration that you want to delete.
+
+  ## Optional parameters:
   """
   @spec delete_worker_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_worker_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_worker_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1485,7 +1548,8 @@ defmodule AWS.KafkaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1502,219 +1566,409 @@ defmodule AWS.KafkaConnect do
 
   @doc """
   Returns summary information about the connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20DescribeConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) of the connector
+    that you want to describe.
+
+  ## Optional parameters:
   """
-  @spec describe_connector(map(), String.t(), list()) ::
+  @spec describe_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connector_errors()}
   def describe_connector(%Client{} = client, connector_arn, options \\ []) do
     url_path = "/v1/connectors/#{AWS.Util.encode_uri(connector_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   A summary description of the custom plugin.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20DescribeCustomPlugin&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:custom_plugin_arn` (`t:string`) Returns information about a custom plugin.
+
+  ## Optional parameters:
   """
-  @spec describe_custom_plugin(map(), String.t(), list()) ::
+  @spec describe_custom_plugin(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_custom_plugin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_custom_plugin_errors()}
   def describe_custom_plugin(%Client{} = client, custom_plugin_arn, options \\ []) do
     url_path = "/v1/custom-plugins/#{AWS.Util.encode_uri(custom_plugin_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a worker configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20DescribeWorkerConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:worker_configuration_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    worker configuration that you want to get information about.
+
+  ## Optional parameters:
   """
-  @spec describe_worker_configuration(map(), String.t(), list()) ::
+  @spec describe_worker_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_worker_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_worker_configuration_errors()}
   def describe_worker_configuration(%Client{} = client, worker_configuration_arn, options \\ []) do
     url_path = "/v1/worker-configurations/#{AWS.Util.encode_uri(worker_configuration_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns a list of all the connectors in this account and Region.
+  Returns a list of all the connectors in this account and Region. The list is
+  limited to connectors whose name starts with the specified prefix. The
+  response also includes a description of each of the listed connectors.
 
-  The list is limited to
-  connectors whose name starts with the specified prefix. The response also
-  includes a
-  description of each of the listed connectors.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20ListConnectors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:connector_name_prefix` (`t:string`) The name prefix that you want to use to
+    search for and list connectors.
+  * `:max_results` (`t:integer`) The maximum number of connectors to list in one
+    response.
+  * `:next_token` (`t:string`) If the response of a ListConnectors operation is
+    truncated, it will include a NextToken. Send this NextToken in a subsequent
+    request to continue listing from where the previous operation left off.
   """
-  @spec list_connectors(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_connectors_errors()}
-  def list_connectors(
-        %Client{} = client,
-        connector_name_prefix \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_connectors(%Client{} = client, options \\ []) do
     url_path = "/v1/connectors"
+
+    # Validate optional parameters
+    optional_params = [connector_name_prefix: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(connector_name_prefix) do
-        [{"connectorNamePrefix", connector_name_prefix} | query_params]
+      if opt_val = Keyword.get(options, :connector_name_prefix) do
+        [{"connectorNamePrefix", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:connector_name_prefix, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all of the custom plugins in this account and Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20ListCustomPlugins&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of custom plugins to list in
+    one response.
+  * `:name_prefix` (`t:string`) Lists custom plugin names that start with the
+    specified text string.
+  * `:next_token` (`t:string`) If the response of a ListCustomPlugins operation is
+    truncated, it will include a NextToken. Send this NextToken in a subsequent
+    request to continue listing from where the previous operation left off.
   """
-  @spec list_custom_plugins(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_custom_plugins(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_custom_plugins_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_plugins_errors()}
-  def list_custom_plugins(
-        %Client{} = client,
-        max_results \\ nil,
-        name_prefix \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_custom_plugins(%Client{} = client, options \\ []) do
     url_path = "/v1/custom-plugins"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, name_prefix: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name_prefix) do
-        [{"namePrefix", name_prefix} | query_params]
+      if opt_val = Keyword.get(options, :name_prefix) do
+        [{"namePrefix", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :name_prefix, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all the tags attached to the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    for which you want to list all attached tags.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all of the worker configurations in this account and Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20ListWorkerConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of worker configurations to
+    list in one response.
+  * `:name_prefix` (`t:string`) Lists worker configuration names that start with
+    the specified text string.
+  * `:next_token` (`t:string`) If the response of a ListWorkerConfigurations
+    operation is truncated, it will include a NextToken. Send this NextToken in
+    a subsequent request to continue listing from where the previous operation
+    left off.
   """
-  @spec list_worker_configurations(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_worker_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_worker_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_worker_configurations_errors()}
-  def list_worker_configurations(
-        %Client{} = client,
-        max_results \\ nil,
-        name_prefix \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_worker_configurations(%Client{} = client, options \\ []) do
     url_path = "/v1/worker-configurations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, name_prefix: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name_prefix) do
-        [{"namePrefix", name_prefix} | query_params]
+      if opt_val = Keyword.get(options, :name_prefix) do
+        [{"namePrefix", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :name_prefix, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Attaches tags to the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
+    which you want to attach tags.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1723,7 +1977,8 @@ defmodule AWS.KafkaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1740,8 +1995,18 @@ defmodule AWS.KafkaConnect do
 
   @doc """
   Removes tags from the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    from which you want to remove tags.
+  * `:tag_keys` (`t:list[com.amazonaws.kafkaconnect#TagKey]`) The keys of the tags
+    that you want to remove from the resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1755,7 +2020,8 @@ defmodule AWS.KafkaConnect do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1772,8 +2038,18 @@ defmodule AWS.KafkaConnect do
 
   @doc """
   Updates the specified connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafkaconnect%20UpdateConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) of the connector
+    that you want to update.
+  * `:current_version` (`t:string`) The current version of the connector that you
+    want to update.
+
+  ## Optional parameters:
   """
-  @spec update_connector(map(), String.t(), update_connector_request(), list()) ::
+  @spec update_connector(AWS.Client.t(), String.t(), update_connector_request(), Keyword.t()) ::
           {:ok, update_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connector_errors()}
@@ -1787,7 +2063,8 @@ defmodule AWS.KafkaConnect do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

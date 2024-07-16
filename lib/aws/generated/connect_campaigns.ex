@@ -853,11 +853,16 @@ defmodule AWS.ConnectCampaigns do
   end
 
   @doc """
-  Creates a campaign for the specified Amazon Connect account.
+  Creates a campaign for the specified Amazon Connect account. This API is
+  idempotent.
 
-  This API is idempotent.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20CreateCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_campaign(map(), create_campaign_request(), list()) ::
+  @spec create_campaign(AWS.Client.t(), create_campaign_request(), Keyword.t()) ::
           {:ok, create_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_campaign_errors()}
@@ -866,15 +871,23 @@ defmodule AWS.ConnectCampaigns do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Deletes a campaign from the specified Amazon Connect account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20DeleteCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_campaign(map(), String.t(), delete_campaign_request(), list()) ::
+  @spec delete_campaign(AWS.Client.t(), String.t(), delete_campaign_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_campaign_errors()}
@@ -883,7 +896,8 @@ defmodule AWS.ConnectCampaigns do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -900,12 +914,19 @@ defmodule AWS.ConnectCampaigns do
 
   @doc """
   Deletes a connect instance config from the specified AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20DeleteConnectInstanceConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connect_instance_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec delete_connect_instance_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_connect_instance_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -920,7 +941,8 @@ defmodule AWS.ConnectCampaigns do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -938,12 +960,19 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Delete the Connect Campaigns onboarding job for the specified Amazon Connect
   instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20DeleteInstanceOnboardingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connect_instance_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec delete_instance_onboarding_job(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_instance_onboarding_job_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -958,7 +987,8 @@ defmodule AWS.ConnectCampaigns do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -975,42 +1005,98 @@ defmodule AWS.ConnectCampaigns do
 
   @doc """
   Describes the specific campaign.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20DescribeCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_campaign(map(), String.t(), list()) ::
+  @spec describe_campaign(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_campaign_errors()}
   def describe_campaign(%Client{} = client, id, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get state of a campaign for the specified Amazon Connect account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20GetCampaignState&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_campaign_state(map(), String.t(), list()) ::
+  @spec get_campaign_state(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_campaign_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_campaign_state_errors()}
   def get_campaign_state(%Client{} = client, id, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}/state"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get state of campaigns for the specified Amazon Connect account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20GetCampaignStateBatch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_campaign_state_batch(map(), get_campaign_state_batch_request(), list()) ::
+  @spec get_campaign_state_batch(AWS.Client.t(), get_campaign_state_batch_request(), Keyword.t()) ::
           {:ok, get_campaign_state_batch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_campaign_state_batch_errors()}
@@ -1019,7 +1105,8 @@ defmodule AWS.ConnectCampaigns do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1036,34 +1123,84 @@ defmodule AWS.ConnectCampaigns do
 
   @doc """
   Get the specific Connect instance config.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20GetConnectInstanceConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connect_instance_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_connect_instance_config(map(), String.t(), list()) ::
+  @spec get_connect_instance_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connect_instance_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connect_instance_config_errors()}
   def get_connect_instance_config(%Client{} = client, connect_instance_id, options \\ []) do
     url_path = "/connect-instance/#{AWS.Util.encode_uri(connect_instance_id)}/config"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get the specific instance onboarding job status.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20GetInstanceOnboardingJobStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connect_instance_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_instance_onboarding_job_status(map(), String.t(), list()) ::
+  @spec get_instance_onboarding_job_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_instance_onboarding_job_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_instance_onboarding_job_status_errors()}
   def get_instance_onboarding_job_status(%Client{} = client, connect_instance_id, options \\ []) do
     url_path = "/connect-instance/#{AWS.Util.encode_uri(connect_instance_id)}/onboarding"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1071,8 +1208,14 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Provides summary information about the campaigns under the specified Amazon
   Connect account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20ListCampaigns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_campaigns(map(), list_campaigns_request(), list()) ::
+  @spec list_campaigns(AWS.Client.t(), list_campaigns_request(), Keyword.t()) ::
           {:ok, list_campaigns_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_campaigns_errors()}
@@ -1081,7 +1224,8 @@ defmodule AWS.ConnectCampaigns do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1098,25 +1242,57 @@ defmodule AWS.ConnectCampaigns do
 
   @doc """
   List tags for a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Pauses a campaign for the specified Amazon Connect account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20PauseCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec pause_campaign(map(), String.t(), pause_campaign_request(), list()) ::
+  @spec pause_campaign(AWS.Client.t(), String.t(), pause_campaign_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, pause_campaign_errors()}
@@ -1125,7 +1301,8 @@ defmodule AWS.ConnectCampaigns do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1141,11 +1318,22 @@ defmodule AWS.ConnectCampaigns do
   end
 
   @doc """
-  Creates dials requests for the specified campaign Amazon Connect account.
+  Creates dials requests for the specified campaign Amazon Connect account. This
+  API is idempotent.
 
-  This API is idempotent.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20PutDialRequestBatch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec put_dial_request_batch(map(), String.t(), put_dial_request_batch_request(), list()) ::
+  @spec put_dial_request_batch(
+          AWS.Client.t(),
+          String.t(),
+          put_dial_request_batch_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_dial_request_batch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_dial_request_batch_errors()}
@@ -1154,15 +1342,23 @@ defmodule AWS.ConnectCampaigns do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Stops a campaign for the specified Amazon Connect account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20ResumeCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec resume_campaign(map(), String.t(), resume_campaign_request(), list()) ::
+  @spec resume_campaign(AWS.Client.t(), String.t(), resume_campaign_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resume_campaign_errors()}
@@ -1171,7 +1367,8 @@ defmodule AWS.ConnectCampaigns do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1188,8 +1385,15 @@ defmodule AWS.ConnectCampaigns do
 
   @doc """
   Starts a campaign for the specified Amazon Connect account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20StartCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec start_campaign(map(), String.t(), start_campaign_request(), list()) ::
+  @spec start_campaign(AWS.Client.t(), String.t(), start_campaign_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_campaign_errors()}
@@ -1198,7 +1402,8 @@ defmodule AWS.ConnectCampaigns do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1215,12 +1420,19 @@ defmodule AWS.ConnectCampaigns do
 
   @doc """
   Onboard the specific Amazon Connect instance to Connect Campaigns.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20StartInstanceOnboardingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connect_instance_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec start_instance_onboarding_job(
-          map(),
+          AWS.Client.t(),
           String.t(),
           start_instance_onboarding_job_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_instance_onboarding_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1230,15 +1442,23 @@ defmodule AWS.ConnectCampaigns do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Stops a campaign for the specified Amazon Connect account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20StopCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec stop_campaign(map(), String.t(), stop_campaign_request(), list()) ::
+  @spec stop_campaign(AWS.Client.t(), String.t(), stop_campaign_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_campaign_errors()}
@@ -1247,7 +1467,8 @@ defmodule AWS.ConnectCampaigns do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1264,8 +1485,15 @@ defmodule AWS.ConnectCampaigns do
 
   @doc """
   Tag a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1274,7 +1502,8 @@ defmodule AWS.ConnectCampaigns do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1291,8 +1520,16 @@ defmodule AWS.ConnectCampaigns do
 
   @doc """
   Untag a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`)
+  * `:tag_keys` (`t:list[com.amazonaws.connectcampaigns#TagKey]`)
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1306,7 +1543,8 @@ defmodule AWS.ConnectCampaigns do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1322,15 +1560,20 @@ defmodule AWS.ConnectCampaigns do
   end
 
   @doc """
-  Updates the dialer config of a campaign.
+  Updates the dialer config of a campaign. This API is idempotent.
 
-  This API is idempotent.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20UpdateCampaignDialerConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec update_campaign_dialer_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_campaign_dialer_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -1340,7 +1583,8 @@ defmodule AWS.ConnectCampaigns do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1356,11 +1600,21 @@ defmodule AWS.ConnectCampaigns do
   end
 
   @doc """
-  Updates the name of a campaign.
+  Updates the name of a campaign. This API is idempotent.
 
-  This API is idempotent.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20UpdateCampaignName&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_campaign_name(map(), String.t(), update_campaign_name_request(), list()) ::
+  @spec update_campaign_name(
+          AWS.Client.t(),
+          String.t(),
+          update_campaign_name_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_campaign_name_errors()}
@@ -1369,7 +1623,8 @@ defmodule AWS.ConnectCampaigns do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1385,15 +1640,20 @@ defmodule AWS.ConnectCampaigns do
   end
 
   @doc """
-  Updates the outbound call config of a campaign.
+  Updates the outbound call config of a campaign. This API is idempotent.
 
-  This API is idempotent.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20UpdateCampaignOutboundCallConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec update_campaign_outbound_call_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_campaign_outbound_call_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -1403,7 +1663,8 @@ defmodule AWS.ConnectCampaigns do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

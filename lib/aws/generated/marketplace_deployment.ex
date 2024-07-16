@@ -4,13 +4,12 @@
 defmodule AWS.MarketplaceDeployment do
   @moduledoc """
   The AWS Marketplace Deployment Service supports the Quick Launch experience,
-  which is a deployment option for software as a service (SaaS) products.
-
-  Quick Launch simplifies and reduces the time, resources, and steps required to
-  configure, deploy, and launch a products. The AWS Marketplace Deployment Service
-  provides sellers with a secure method for passing deployment parameters (for
-  example, API keys and external IDs) to buyers during the Quick Launch
-  experience.
+  which is a deployment option for software as a service (SaaS) products. Quick
+  Launch simplifies and reduces the time, resources, and steps required to
+  configure, deploy, and launch a products. The AWS Marketplace Deployment
+  Service provides sellers with a secure method for passing deployment
+  parameters (for example, API keys and external IDs) to buyers during the Quick
+  Launch experience.
   """
 
   alias AWS.Client
@@ -246,17 +245,43 @@ defmodule AWS.MarketplaceDeployment do
 
   @doc """
   Lists all tags that have been added to a deployment parameter resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacedeployment%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) associated with the
+    deployment parameter resource you want to list tags on.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -264,13 +289,23 @@ defmodule AWS.MarketplaceDeployment do
   @doc """
   Creates or updates a deployment parameter and is targeted by `catalog` and
   `agreementId`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacedeployment%20PutDeploymentParameter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:catalog` (`t:string`) The catalog related to the request. Fixed value: AWS
+    Marketplace
+  * `:product_id` (`t:string`) The product for which AWS Marketplace will save
+    secrets for the buyer’s account.
+
+  ## Optional parameters:
   """
   @spec put_deployment_parameter(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           put_deployment_parameter_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_deployment_parameter_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -282,7 +317,8 @@ defmodule AWS.MarketplaceDeployment do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -299,8 +335,16 @@ defmodule AWS.MarketplaceDeployment do
 
   @doc """
   Tags a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacedeployment%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) associated with the
+    resource you want to tag.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -309,7 +353,8 @@ defmodule AWS.MarketplaceDeployment do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -326,8 +371,18 @@ defmodule AWS.MarketplaceDeployment do
 
   @doc """
   Removes a tag or list of tags from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacedeployment%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) associated with the
+    resource you want to remove the tag from.
+  * `:tag_keys` (`t:list[smithy.api#String]`) A list of key names of tags to be
+    removed.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -341,7 +396,8 @@ defmodule AWS.MarketplaceDeployment do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

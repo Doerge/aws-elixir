@@ -4,14 +4,6 @@
 defmodule AWS.WellArchitected do
   @moduledoc """
   Well-Architected Tool
-
-  This is the *Well-Architected Tool API Reference*.
-
-  The WA Tool API provides programmatic access to the
-  [Well-Architected Tool](http://aws.amazon.com/well-architected-tool) in the [Amazon Web Services Management
-  Console](https://console.aws.amazon.com/wellarchitected). For information
-  about the Well-Architected Tool, see the
-  [Well-Architected Tool User Guide](https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html).
   """
 
   alias AWS.Client
@@ -3253,20 +3245,18 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  Associate a lens to a workload.
+  Associate a lens to a workload. Up to 10 lenses can be associated with a
+  workload in a single API operation. A maximum of 20 lenses can be associated
+  with a workload.
 
-  Up to 10 lenses can be associated with a workload in a single API operation. A
-  maximum of 20 lenses can be associated with a workload.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20AssociateLenses&this_doc_guide=API%2520Reference)
 
-  ## Disclaimer
+  ## Parameters:
+  * `:workload_id` (`t:string`)
 
-  By accessing and/or applying custom lenses created by another Amazon Web
-  Services user or account,
-  you acknowledge that custom lenses created by other users and shared with you
-  are
-  Third Party Content as defined in the Amazon Web Services Customer Agreement.
+  ## Optional parameters:
   """
-  @spec associate_lenses(map(), String.t(), associate_lenses_input(), list()) ::
+  @spec associate_lenses(AWS.Client.t(), String.t(), associate_lenses_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_lenses_errors()}
@@ -3275,7 +3265,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3292,8 +3283,15 @@ defmodule AWS.WellArchitected do
 
   @doc """
   Associate a profile with a workload.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20AssociateProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workload_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec associate_profiles(map(), String.t(), associate_profiles_input(), list()) ::
+  @spec associate_profiles(AWS.Client.t(), String.t(), associate_profiles_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_profiles_errors()}
@@ -3302,7 +3300,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3318,35 +3317,19 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  Create a lens share.
+  Create a lens share. The owner of a lens can share it with other Amazon Web
+  Services accounts, users, an organization, and organizational units (OUs) in
+  the same Amazon Web Services Region. Lenses provided by Amazon Web Services
+  (Amazon Web Services Official Content) cannot be shared.
 
-  The owner of a lens can share it with other Amazon Web Services accounts, users,
-  an organization,
-  and organizational units (OUs) in the same Amazon Web Services Region.
-  Lenses provided by Amazon Web Services (Amazon Web Services Official Content)
-  cannot be shared.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20CreateLensShare&this_doc_guide=API%2520Reference)
 
-  Shared access to a lens is not removed until the lens invitation is deleted.
+  ## Parameters:
+  * `:lens_alias` (`t:string`)
 
-  If you share a lens with an organization or OU, all accounts in the organization
-  or OU
-  are granted access to the lens.
-
-  For more information, see [Sharing a custom lens](https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-sharing.html)
-  in the
-  *Well-Architected Tool User Guide*.
-
-  ## Disclaimer
-
-  By sharing your custom lenses with other Amazon Web Services accounts,
-  you acknowledge that Amazon Web Services will make your custom lenses available
-  to those
-  other accounts. Those other accounts may continue to access and use your
-  shared custom lenses even if you delete the custom lenses
-  from your own Amazon Web Services account or terminate
-  your Amazon Web Services account.
+  ## Optional parameters:
   """
-  @spec create_lens_share(map(), String.t(), create_lens_share_input(), list()) ::
+  @spec create_lens_share(AWS.Client.t(), String.t(), create_lens_share_input(), Keyword.t()) ::
           {:ok, create_lens_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_lens_share_errors()}
@@ -3355,7 +3338,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3371,18 +3355,16 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  Create a new lens version.
+  Create a new lens version. A lens can have up to 100 versions.
 
-  A lens can have up to 100 versions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20CreateLensVersion&this_doc_guide=API%2520Reference)
 
-  Use this operation to publish a new lens version after you have imported a lens.
-  The `LensAlias`
-  is used to identify the lens to be published.
-  The owner of a lens can share the lens with other
-  Amazon Web Services accounts and users in the same Amazon Web Services Region.
-  Only the owner of a lens can delete it.
+  ## Parameters:
+  * `:lens_alias` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec create_lens_version(map(), String.t(), create_lens_version_input(), list()) ::
+  @spec create_lens_version(AWS.Client.t(), String.t(), create_lens_version_input(), Keyword.t()) ::
           {:ok, create_lens_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_lens_version_errors()}
@@ -3391,7 +3373,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3408,8 +3391,15 @@ defmodule AWS.WellArchitected do
 
   @doc """
   Create a milestone for an existing workload.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20CreateMilestone&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workload_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec create_milestone(map(), String.t(), create_milestone_input(), list()) ::
+  @spec create_milestone(AWS.Client.t(), String.t(), create_milestone_input(), Keyword.t()) ::
           {:ok, create_milestone_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_milestone_errors()}
@@ -3418,7 +3408,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3435,8 +3426,14 @@ defmodule AWS.WellArchitected do
 
   @doc """
   Create a profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20CreateProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_profile(map(), create_profile_input(), list()) ::
+  @spec create_profile(AWS.Client.t(), create_profile_input(), Keyword.t()) ::
           {:ok, create_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_profile_errors()}
@@ -3445,7 +3442,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3462,8 +3460,20 @@ defmodule AWS.WellArchitected do
 
   @doc """
   Create a profile share.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20CreateProfileShare&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_arn` (`t:string`) The profile ARN.
+
+  ## Optional parameters:
   """
-  @spec create_profile_share(map(), String.t(), create_profile_share_input(), list()) ::
+  @spec create_profile_share(
+          AWS.Client.t(),
+          String.t(),
+          create_profile_share_input(),
+          Keyword.t()
+        ) ::
           {:ok, create_profile_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_profile_share_errors()}
@@ -3472,7 +3482,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3490,18 +3501,13 @@ defmodule AWS.WellArchitected do
   @doc """
   Create a review template.
 
-  ## Disclaimer
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20CreateReviewTemplate&this_doc_guide=API%2520Reference)
 
-  Do not include or gather personal identifiable information (PII) of end users or
-  other identifiable individuals in or via your review templates. If your review
-  template or those shared with you and used in your account do include or collect
-  PII
-  you are responsible for: ensuring that the included PII is processed in
-  accordance
-  with applicable law, providing adequate privacy notices, and obtaining necessary
-  consents for processing such data.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_review_template(map(), create_review_template_input(), list()) ::
+  @spec create_review_template(AWS.Client.t(), create_review_template_input(), Keyword.t()) ::
           {:ok, create_review_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_review_template_errors()}
@@ -3510,7 +3516,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3526,27 +3533,23 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  Create a review template share.
+  Create a review template share. The owner of a review template can share it with
+  other Amazon Web Services accounts, users, an organization, and organizational
+  units (OUs) in the same Amazon Web Services Region.
 
-  The owner of a review template can share it with other Amazon Web Services
-  accounts,
-  users, an organization, and organizational units (OUs) in the same Amazon Web
-  Services Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20CreateTemplateShare&this_doc_guide=API%2520Reference)
 
-  Shared access to a review template is not removed until the review template
-  share
-  invitation is deleted.
+  ## Parameters:
+  * `:template_arn` (`t:string`) The review template ARN.
 
-  If you share a review template with an organization or OU, all accounts in the
-  organization or OU are granted access to the review template.
-
-  ## Disclaimer
-
-  By sharing your review template with other Amazon Web Services accounts, you
-  acknowledge that Amazon Web Services will make your review template available to
-  those other accounts.
+  ## Optional parameters:
   """
-  @spec create_template_share(map(), String.t(), create_template_share_input(), list()) ::
+  @spec create_template_share(
+          AWS.Client.t(),
+          String.t(),
+          create_template_share_input(),
+          Keyword.t()
+        ) ::
           {:ok, create_template_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_template_share_errors()}
@@ -3555,7 +3558,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3571,44 +3575,18 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  Create a new workload.
+  Create a new workload. The owner of a workload can share the workload with other
+  Amazon Web Services accounts, users, an organization, and organizational units
+  (OUs) in the same Amazon Web Services Region. Only the owner of a workload can
+  delete it.
 
-  The owner of a workload can share the workload with other Amazon Web Services
-  accounts, users,
-  an organization, and organizational units (OUs)
-  in the same Amazon Web Services Region. Only the owner of a workload can delete
-  it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20CreateWorkload&this_doc_guide=API%2520Reference)
 
-  For more information, see [Defining a Workload](https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html)
-  in the
-  *Well-Architected Tool User Guide*.
+  ## Parameters:
 
-  Either `AwsRegions`, `NonAwsRegions`, or both must be specified when
-  creating a workload.
-
-  You also must specify `ReviewOwner`, even though the
-  parameter is listed as not being required in the following section.
-
-  When creating a workload using a review template, you must have the following
-  IAM permissions:
-
-    *
-
-  `wellarchitected:GetReviewTemplate`
-
-    *
-
-  `wellarchitected:GetReviewTemplateAnswer`
-
-    *
-
-  `wellarchitected:ListReviewTemplateAnswers`
-
-    *
-
-  `wellarchitected:GetReviewTemplateLensReview`
+  ## Optional parameters:
   """
-  @spec create_workload(map(), create_workload_input(), list()) ::
+  @spec create_workload(AWS.Client.t(), create_workload_input(), Keyword.t()) ::
           {:ok, create_workload_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workload_errors()}
@@ -3617,7 +3595,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3633,23 +3612,23 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  Create a workload share.
+  Create a workload share. The owner of a workload can share it with other Amazon
+  Web Services accounts and users in the same Amazon Web Services Region. Shared
+  access to a workload is not removed until the workload invitation is deleted.
 
-  The owner of a workload can share it with other Amazon Web Services accounts and
-  users in the same
-  Amazon Web Services Region. Shared access to a workload is not removed until the
-  workload invitation is
-  deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20CreateWorkloadShare&this_doc_guide=API%2520Reference)
 
-  If you share a workload with an organization or OU, all accounts in the
-  organization or OU
-  are granted access to the workload.
+  ## Parameters:
+  * `:workload_id` (`t:string`)
 
-  For more information, see [Sharing a workload](https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads-sharing.html)
-  in the
-  *Well-Architected Tool User Guide*.
+  ## Optional parameters:
   """
-  @spec create_workload_share(map(), String.t(), create_workload_share_input(), list()) ::
+  @spec create_workload_share(
+          AWS.Client.t(),
+          String.t(),
+          create_workload_share_input(),
+          Keyword.t()
+        ) ::
           {:ok, create_workload_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workload_share_errors()}
@@ -3658,7 +3637,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3674,24 +3654,22 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  Delete an existing lens.
+  Delete an existing lens. Only the owner of a lens can delete it. After the lens
+  is deleted, Amazon Web Services accounts and users that you shared the lens
+  with can continue to use it, but they will no longer be able to apply it to
+  new workloads.
 
-  Only the owner of a lens can delete it. After the lens is deleted, Amazon Web
-  Services accounts and users
-  that you shared the lens with can continue to use it, but they will no longer be
-  able to apply it to new workloads.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20DeleteLens&this_doc_guide=API%2520Reference)
 
-  ## Disclaimer
+  ## Parameters:
+  * `:lens_alias` (`t:string`)
+  * `:client_request_token` (`t:string`)
+  * `:lens_status` (`t:enum["ALL|DRAFT|PUBLISHED"]`) The status of the lens to be
+    deleted.
 
-  By sharing your custom lenses with other Amazon Web Services accounts,
-  you acknowledge that Amazon Web Services will make your custom lenses available
-  to those
-  other accounts. Those other accounts may continue to access and use your
-  shared custom lenses even if you delete the custom lenses
-  from your own Amazon Web Services account or terminate
-  your Amazon Web Services account.
+  ## Optional parameters:
   """
-  @spec delete_lens(map(), String.t(), delete_lens_input(), list()) ::
+  @spec delete_lens(AWS.Client.t(), String.t(), delete_lens_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_lens_errors()}
@@ -3706,7 +3684,8 @@ defmodule AWS.WellArchitected do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3722,25 +3701,27 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  Delete a lens share.
+  Delete a lens share. After the lens share is deleted, Amazon Web Services
+  accounts, users, organizations, and organizational units (OUs) that you shared
+  the lens with can continue to use it, but they will no longer be able to apply
+  it to new workloads.
 
-  After the lens share is deleted, Amazon Web Services accounts, users,
-  organizations,
-  and organizational units (OUs)
-  that you shared the lens with can continue to use it, but they will no longer be
-  able to apply it to new workloads.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20DeleteLensShare&this_doc_guide=API%2520Reference)
 
-  ## Disclaimer
+  ## Parameters:
+  * `:lens_alias` (`t:string`)
+  * `:share_id` (`t:string`)
+  * `:client_request_token` (`t:string`)
 
-  By sharing your custom lenses with other Amazon Web Services accounts,
-  you acknowledge that Amazon Web Services will make your custom lenses available
-  to those
-  other accounts. Those other accounts may continue to access and use your
-  shared custom lenses even if you delete the custom lenses
-  from your own Amazon Web Services account or terminate
-  your Amazon Web Services account.
+  ## Optional parameters:
   """
-  @spec delete_lens_share(map(), String.t(), String.t(), delete_lens_share_input(), list()) ::
+  @spec delete_lens_share(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_lens_share_input(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_lens_share_errors()}
@@ -3756,7 +3737,8 @@ defmodule AWS.WellArchitected do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3774,17 +3756,15 @@ defmodule AWS.WellArchitected do
   @doc """
   Delete a profile.
 
-  ## Disclaimer
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20DeleteProfile&this_doc_guide=API%2520Reference)
 
-  By sharing your profile with other Amazon Web Services accounts,
-  you acknowledge that Amazon Web Services will make your profile available to
-  those
-  other accounts. Those other accounts may continue to access and use your
-  shared profile even if you delete the profile
-  from your own Amazon Web Services account or terminate
-  your Amazon Web Services account.
+  ## Parameters:
+  * `:profile_arn` (`t:string`) The profile ARN.
+  * `:client_request_token` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_profile(map(), String.t(), delete_profile_input(), list()) ::
+  @spec delete_profile(AWS.Client.t(), String.t(), delete_profile_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_profile_errors()}
@@ -3798,7 +3778,8 @@ defmodule AWS.WellArchitected do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3815,8 +3796,23 @@ defmodule AWS.WellArchitected do
 
   @doc """
   Delete a profile share.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20DeleteProfileShare&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_arn` (`t:string`) The profile ARN.
+  * `:share_id` (`t:string`)
+  * `:client_request_token` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_profile_share(map(), String.t(), String.t(), delete_profile_share_input(), list()) ::
+  @spec delete_profile_share(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_profile_share_input(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_profile_share_errors()}
@@ -3832,7 +3828,8 @@ defmodule AWS.WellArchitected do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3848,16 +3845,22 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  Delete a review template.
+  Delete a review template. Only the owner of a review template can delete it.
 
-  Only the owner of a review template can delete it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20DeleteReviewTemplate&this_doc_guide=API%2520Reference)
 
-  After the review template is deleted, Amazon Web Services accounts, users,
-  organizations, and organizational units (OUs) that you shared the review
-  template with
-  will no longer be able to apply it to new workloads.
+  ## Parameters:
+  * `:template_arn` (`t:string`) The review template ARN.
+  * `:client_request_token` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_review_template(map(), String.t(), delete_review_template_input(), list()) ::
+  @spec delete_review_template(
+          AWS.Client.t(),
+          String.t(),
+          delete_review_template_input(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_review_template_errors()}
@@ -3871,7 +3874,8 @@ defmodule AWS.WellArchitected do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3889,17 +3893,21 @@ defmodule AWS.WellArchitected do
   @doc """
   Delete a review template share.
 
-  After the review template share is deleted, Amazon Web Services accounts, users,
-  organizations, and organizational units (OUs) that you shared the review
-  template with
-  will no longer be able to apply it to new workloads.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20DeleteTemplateShare&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:share_id` (`t:string`)
+  * `:template_arn` (`t:string`) The review template ARN.
+  * `:client_request_token` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec delete_template_share(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_template_share_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -3916,7 +3924,8 @@ defmodule AWS.WellArchitected do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3933,8 +3942,16 @@ defmodule AWS.WellArchitected do
 
   @doc """
   Delete an existing workload.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20DeleteWorkload&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workload_id` (`t:string`)
+  * `:client_request_token` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_workload(map(), String.t(), delete_workload_input(), list()) ::
+  @spec delete_workload(AWS.Client.t(), String.t(), delete_workload_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workload_errors()}
@@ -3948,7 +3965,8 @@ defmodule AWS.WellArchitected do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3965,13 +3983,22 @@ defmodule AWS.WellArchitected do
 
   @doc """
   Delete a workload share.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20DeleteWorkloadShare&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:share_id` (`t:string`)
+  * `:workload_id` (`t:string`)
+  * `:client_request_token` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec delete_workload_share(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_workload_share_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -3988,7 +4015,8 @@ defmodule AWS.WellArchitected do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4004,15 +4032,17 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  Disassociate a lens from a workload.
+  Disassociate a lens from a workload. Up to 10 lenses can be disassociated from a
+  workload in a single API operation.
 
-  Up to 10 lenses can be disassociated from a workload in a single API operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20DisassociateLenses&this_doc_guide=API%2520Reference)
 
-  The Amazon Web Services Well-Architected Framework lens (`wellarchitected`)
-  cannot be
-  removed from a workload.
+  ## Parameters:
+  * `:workload_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec disassociate_lenses(map(), String.t(), disassociate_lenses_input(), list()) ::
+  @spec disassociate_lenses(AWS.Client.t(), String.t(), disassociate_lenses_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_lenses_errors()}
@@ -4021,7 +4051,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4038,8 +4069,20 @@ defmodule AWS.WellArchitected do
 
   @doc """
   Disassociate a profile from a workload.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20DisassociateProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workload_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec disassociate_profiles(map(), String.t(), disassociate_profiles_input(), list()) ::
+  @spec disassociate_profiles(
+          AWS.Client.t(),
+          String.t(),
+          disassociate_profiles_input(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_profiles_errors()}
@@ -4048,7 +4091,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4064,75 +4108,114 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  Export an existing lens.
+  Export an existing lens. Only the owner of a lens can export it. Lenses provided
+  by Amazon Web Services (Amazon Web Services Official Content) cannot be
+  exported.
 
-  Only the owner of a lens can export it. Lenses provided by Amazon Web Services
-  (Amazon Web Services Official Content)
-  cannot be exported.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ExportLens&this_doc_guide=API%2520Reference)
 
-  Lenses are defined in JSON. For more information, see [JSON format specification](https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html)
-  in the *Well-Architected Tool User Guide*.
+  ## Parameters:
+  * `:lens_alias` (`t:string`)
 
-  ## Disclaimer
-
-  Do not include or gather personal identifiable information (PII) of end users or
-  other identifiable individuals in or via your custom lenses. If your custom
-  lens or those shared with you and used in your account do include or collect
-  PII you are responsible for: ensuring that the included PII is processed in
-  accordance
-  with applicable law, providing adequate privacy notices, and obtaining necessary
-  consents for processing such data.
+  ## Optional parameters:
+  * `:lens_version` (`t:string`) The lens version to be exported.
   """
-  @spec export_lens(map(), String.t(), String.t() | nil, list()) ::
+  @spec export_lens(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, export_lens_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_lens_errors()}
-  def export_lens(%Client{} = client, lens_alias, lens_version \\ nil, options \\ []) do
+  def export_lens(%Client{} = client, lens_alias, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/export"
+
+    # Validate optional parameters
+    optional_params = [lens_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(lens_version) do
-        [{"LensVersion", lens_version} | query_params]
+      if opt_val = Keyword.get(options, :lens_version) do
+        [{"LensVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:lens_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get the answer to a specific question in a workload review.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetAnswer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:lens_alias` (`t:string`)
+  * `:question_id` (`t:string`)
+  * `:workload_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:milestone_number` (`t:integer`)
   """
-  @spec get_answer(map(), String.t(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_answer(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_answer_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_answer_errors()}
-  def get_answer(
-        %Client{} = client,
-        lens_alias,
-        question_id,
-        workload_id,
-        milestone_number \\ nil,
-        options \\ []
-      ) do
+  def get_answer(%Client{} = client, lens_alias, question_id, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/answers/#{AWS.Util.encode_uri(question_id)}"
 
+    # Validate optional parameters
+    optional_params = [milestone_number: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(milestone_number) do
-        [{"MilestoneNumber", milestone_number} | query_params]
+      if opt_val = Keyword.get(options, :milestone_number) do
+        [{"MilestoneNumber", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:milestone_number])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4140,210 +4223,357 @@ defmodule AWS.WellArchitected do
   @doc """
   Get a consolidated report of your workloads.
 
-  You can optionally choose to include workloads that have been shared with you.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetConsolidatedReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:format` (`t:enum["JSON|PDF"]`) The format of the consolidated report.
+
+  ## Optional parameters:
+  * `:include_shared_resources` (`t:boolean`) Set to true to have shared resources
+    included in the report.
+  * `:max_results` (`t:integer`) The maximum number of results to return for this
+    request.
+  * `:next_token` (`t:string`)
   """
-  @spec get_consolidated_report(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_consolidated_report(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_consolidated_report_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_consolidated_report_errors()}
-  def get_consolidated_report(
-        %Client{} = client,
-        format,
-        include_shared_resources \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_consolidated_report(%Client{} = client, format, options \\ []) do
     url_path = "/consolidatedReport"
+
+    # Validate optional parameters
+    optional_params = [include_shared_resources: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"Format", format}]
+
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(include_shared_resources) do
-        [{"IncludeSharedResources", include_shared_resources} | query_params]
+      if opt_val = Keyword.get(options, :include_shared_resources) do
+        [{"IncludeSharedResources", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(format) do
-        [{"Format", format} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:include_shared_resources, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Global settings for all workloads.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetGlobalSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_global_settings(map(), list()) ::
+  @spec get_global_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_global_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_global_settings_errors()}
   def get_global_settings(%Client{} = client, options \\ []) do
     url_path = "/global-settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get an existing lens.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetLens&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:lens_alias` (`t:string`)
+
+  ## Optional parameters:
+  * `:lens_version` (`t:string`) The lens version to be retrieved.
   """
-  @spec get_lens(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_lens(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lens_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lens_errors()}
-  def get_lens(%Client{} = client, lens_alias, lens_version \\ nil, options \\ []) do
+  def get_lens(%Client{} = client, lens_alias, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}"
+
+    # Validate optional parameters
+    optional_params = [lens_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(lens_version) do
-        [{"LensVersion", lens_version} | query_params]
+      if opt_val = Keyword.get(options, :lens_version) do
+        [{"LensVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:lens_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get lens review.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetLensReview&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:lens_alias` (`t:string`)
+  * `:workload_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:milestone_number` (`t:integer`)
   """
-  @spec get_lens_review(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_lens_review(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_lens_review_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lens_review_errors()}
-  def get_lens_review(
-        %Client{} = client,
-        lens_alias,
-        workload_id,
-        milestone_number \\ nil,
-        options \\ []
-      ) do
+  def get_lens_review(%Client{} = client, lens_alias, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}"
 
+    # Validate optional parameters
+    optional_params = [milestone_number: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(milestone_number) do
-        [{"MilestoneNumber", milestone_number} | query_params]
+      if opt_val = Keyword.get(options, :milestone_number) do
+        [{"MilestoneNumber", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:milestone_number])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get lens review report.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetLensReviewReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:lens_alias` (`t:string`)
+  * `:workload_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:milestone_number` (`t:integer`)
   """
-  @spec get_lens_review_report(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_lens_review_report(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_lens_review_report_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lens_review_report_errors()}
-  def get_lens_review_report(
-        %Client{} = client,
-        lens_alias,
-        workload_id,
-        milestone_number \\ nil,
-        options \\ []
-      ) do
+  def get_lens_review_report(%Client{} = client, lens_alias, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/report"
 
+    # Validate optional parameters
+    optional_params = [milestone_number: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(milestone_number) do
-        [{"MilestoneNumber", milestone_number} | query_params]
+      if opt_val = Keyword.get(options, :milestone_number) do
+        [{"MilestoneNumber", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:milestone_number])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get lens version differences.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetLensVersionDifference&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:lens_alias` (`t:string`)
+
+  ## Optional parameters:
+  * `:base_lens_version` (`t:string`) The base version of the lens.
+  * `:target_lens_version` (`t:string`) The lens version to target a difference
+    for.
   """
-  @spec get_lens_version_difference(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_lens_version_difference(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lens_version_difference_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lens_version_difference_errors()}
-  def get_lens_version_difference(
-        %Client{} = client,
-        lens_alias,
-        base_lens_version \\ nil,
-        target_lens_version \\ nil,
-        options \\ []
-      ) do
+  def get_lens_version_difference(%Client{} = client, lens_alias, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/versionDifference"
+
+    # Validate optional parameters
+    optional_params = [base_lens_version: nil, target_lens_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(target_lens_version) do
-        [{"TargetLensVersion", target_lens_version} | query_params]
+      if opt_val = Keyword.get(options, :target_lens_version) do
+        [{"TargetLensVersion", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(base_lens_version) do
-        [{"BaseLensVersion", base_lens_version} | query_params]
+      if opt_val = Keyword.get(options, :base_lens_version) do
+        [{"BaseLensVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:base_lens_version, :target_lens_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get a milestone for an existing workload.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetMilestone&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:milestone_number` (`t:integer`)
+  * `:workload_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_milestone(map(), String.t(), String.t(), list()) ::
+  @spec get_milestone(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_milestone_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_milestone_errors()}
@@ -4351,76 +4581,187 @@ defmodule AWS.WellArchitected do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/milestones/#{AWS.Util.encode_uri(milestone_number)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get profile information.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_arn` (`t:string`) The profile ARN.
+
+  ## Optional parameters:
+  * `:profile_version` (`t:string`) The profile version.
   """
-  @spec get_profile(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_profile_errors()}
-  def get_profile(%Client{} = client, profile_arn, profile_version \\ nil, options \\ []) do
+  def get_profile(%Client{} = client, profile_arn, options \\ []) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}"
+
+    # Validate optional parameters
+    optional_params = [profile_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(profile_version) do
-        [{"ProfileVersion", profile_version} | query_params]
+      if opt_val = Keyword.get(options, :profile_version) do
+        [{"ProfileVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:profile_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get profile template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetProfileTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_profile_template(map(), list()) ::
+  @spec get_profile_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_profile_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_profile_template_errors()}
   def get_profile_template(%Client{} = client, options \\ []) do
     url_path = "/profileTemplate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get review template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetReviewTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_arn` (`t:string`) The review template ARN.
+
+  ## Optional parameters:
   """
-  @spec get_review_template(map(), String.t(), list()) ::
+  @spec get_review_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_review_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_review_template_errors()}
   def get_review_template(%Client{} = client, template_arn, options \\ []) do
     url_path = "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get review template answer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetReviewTemplateAnswer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:lens_alias` (`t:string`)
+  * `:question_id` (`t:string`)
+  * `:template_arn` (`t:string`) The review template ARN.
+
+  ## Optional parameters:
   """
-  @spec get_review_template_answer(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_review_template_answer(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, get_review_template_answer_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_review_template_answer_errors()}
@@ -4434,18 +4775,43 @@ defmodule AWS.WellArchitected do
     url_path =
       "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/answers/#{AWS.Util.encode_uri(question_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get a lens review associated with a review template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetReviewTemplateLensReview&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:lens_alias` (`t:string`)
+  * `:template_arn` (`t:string`) The review template ARN.
+
+  ## Optional parameters:
   """
-  @spec get_review_template_lens_review(map(), String.t(), String.t(), list()) ::
+  @spec get_review_template_lens_review(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_review_template_lens_review_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_review_template_lens_review_errors()}
@@ -4453,58 +4819,85 @@ defmodule AWS.WellArchitected do
     url_path =
       "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get an existing workload.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetWorkload&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workload_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_workload(map(), String.t(), list()) ::
+  @spec get_workload(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workload_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workload_errors()}
   def get_workload(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Import a new custom lens or update an existing custom lens.
+  Import a new custom lens or update an existing custom lens. To update an
+  existing custom lens, specify its ARN as the `LensAlias`. If no ARN is
+  specified, a new custom lens is created.
 
-  To update an existing custom lens, specify its ARN as the `LensAlias`. If
-  no ARN is specified, a new custom lens is created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ImportLens&this_doc_guide=API%2520Reference)
 
-  The new or updated lens will have a status of `DRAFT`. The lens cannot be
-  applied to workloads or shared with other Amazon Web Services accounts until
-  it's
-  published with `CreateLensVersion`.
+  ## Parameters:
 
-  Lenses are defined in JSON. For more information, see [JSON format specification](https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html)
-  in the *Well-Architected Tool User Guide*.
-
-  A custom lens cannot exceed 500 KB in size.
-
-  ## Disclaimer
-
-  Do not include or gather personal identifiable information (PII) of end users or
-  other identifiable individuals in or via your custom lenses. If your custom
-  lens or those shared with you and used in your account do include or collect
-  PII you are responsible for: ensuring that the included PII is processed in
-  accordance
-  with applicable law, providing adequate privacy notices, and obtaining necessary
-  consents for processing such data.
+  ## Optional parameters:
   """
-  @spec import_lens(map(), import_lens_input(), list()) ::
+  @spec import_lens(AWS.Client.t(), import_lens_input(), Keyword.t()) ::
           {:ok, import_lens_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_lens_errors()}
@@ -4513,89 +4906,125 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   List of answers for a particular workload and lens.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListAnswers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:lens_alias` (`t:string`)
+  * `:workload_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return for this
+    request.
+  * `:milestone_number` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:pillar_id` (`t:string`)
+  * `:question_priority` (`t:enum["NONE|PRIORITIZED"]`) The priority of the
+    question.
   """
-  @spec list_answers(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_answers(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_answers_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_answers_errors()}
-  def list_answers(
-        %Client{} = client,
-        lens_alias,
-        workload_id,
-        max_results \\ nil,
-        milestone_number \\ nil,
-        next_token \\ nil,
-        pillar_id \\ nil,
-        question_priority \\ nil,
-        options \\ []
-      ) do
+  def list_answers(%Client{} = client, lens_alias, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/answers"
 
+    # Validate optional parameters
+    optional_params = [
+      max_results: nil,
+      milestone_number: nil,
+      next_token: nil,
+      pillar_id: nil,
+      question_priority: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(question_priority) do
-        [{"QuestionPriority", question_priority} | query_params]
+      if opt_val = Keyword.get(options, :question_priority) do
+        [{"QuestionPriority", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(pillar_id) do
-        [{"PillarId", pillar_id} | query_params]
+      if opt_val = Keyword.get(options, :pillar_id) do
+        [{"PillarId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(milestone_number) do
-        [{"MilestoneNumber", milestone_number} | query_params]
+      if opt_val = Keyword.get(options, :milestone_number) do
+        [{"MilestoneNumber", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :max_results,
+        :milestone_number,
+        :next_token,
+        :pillar_id,
+        :question_priority
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List of Trusted Advisor check details by account related to the workload.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListCheckDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workload_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec list_check_details(map(), String.t(), list_check_details_input(), list()) ::
+  @spec list_check_details(AWS.Client.t(), String.t(), list_check_details_input(), Keyword.t()) ::
           {:ok, list_check_details_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_check_details_errors()}
@@ -4604,7 +5033,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4622,8 +5052,20 @@ defmodule AWS.WellArchitected do
   @doc """
   List of Trusted Advisor checks summarized for all accounts related to the
   workload.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListCheckSummaries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workload_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec list_check_summaries(map(), String.t(), list_check_summaries_input(), list()) ::
+  @spec list_check_summaries(
+          AWS.Client.t(),
+          String.t(),
+          list_check_summaries_input(),
+          Keyword.t()
+        ) ::
           {:ok, list_check_summaries_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_check_summaries_errors()}
@@ -4632,7 +5074,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4649,263 +5092,362 @@ defmodule AWS.WellArchitected do
 
   @doc """
   List the improvements of a particular lens review.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListLensReviewImprovements&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:lens_alias` (`t:string`)
+  * `:workload_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return for this
+    request.
+  * `:milestone_number` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:pillar_id` (`t:string`)
+  * `:question_priority` (`t:enum["NONE|PRIORITIZED"]`) The priority of the
+    question.
   """
-  @spec list_lens_review_improvements(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_lens_review_improvements(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_lens_review_improvements_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lens_review_improvements_errors()}
-  def list_lens_review_improvements(
-        %Client{} = client,
-        lens_alias,
-        workload_id,
-        max_results \\ nil,
-        milestone_number \\ nil,
-        next_token \\ nil,
-        pillar_id \\ nil,
-        question_priority \\ nil,
-        options \\ []
-      ) do
+  def list_lens_review_improvements(%Client{} = client, lens_alias, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/improvements"
 
+    # Validate optional parameters
+    optional_params = [
+      max_results: nil,
+      milestone_number: nil,
+      next_token: nil,
+      pillar_id: nil,
+      question_priority: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(question_priority) do
-        [{"QuestionPriority", question_priority} | query_params]
+      if opt_val = Keyword.get(options, :question_priority) do
+        [{"QuestionPriority", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(pillar_id) do
-        [{"PillarId", pillar_id} | query_params]
+      if opt_val = Keyword.get(options, :pillar_id) do
+        [{"PillarId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(milestone_number) do
-        [{"MilestoneNumber", milestone_number} | query_params]
+      if opt_val = Keyword.get(options, :milestone_number) do
+        [{"MilestoneNumber", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :max_results,
+        :milestone_number,
+        :next_token,
+        :pillar_id,
+        :question_priority
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List lens reviews for a particular workload.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListLensReviews&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workload_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:milestone_number` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_lens_reviews(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_lens_reviews(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_lens_reviews_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lens_reviews_errors()}
-  def list_lens_reviews(
-        %Client{} = client,
-        workload_id,
-        max_results \\ nil,
-        milestone_number \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_lens_reviews(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, milestone_number: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(milestone_number) do
-        [{"MilestoneNumber", milestone_number} | query_params]
+      if opt_val = Keyword.get(options, :milestone_number) do
+        [{"MilestoneNumber", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :milestone_number, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List the lens shares associated with the lens.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListLensShares&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:lens_alias` (`t:string`)
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return for this
+    request.
+  * `:next_token` (`t:string`)
+  * `:shared_with_prefix` (`t:string`) The Amazon Web Services account ID,
+    organization ID, or organizational unit (OU) ID with which the lens is
+    shared.
+  * `:status`
+    (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
   """
-  @spec list_lens_shares(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_lens_shares(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_lens_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lens_shares_errors()}
-  def list_lens_shares(
-        %Client{} = client,
-        lens_alias,
-        max_results \\ nil,
-        next_token \\ nil,
-        shared_with_prefix \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_lens_shares(%Client{} = client, lens_alias, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/shares"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, shared_with_prefix: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"Status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"Status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(shared_with_prefix) do
-        [{"SharedWithPrefix", shared_with_prefix} | query_params]
+      if opt_val = Keyword.get(options, :shared_with_prefix) do
+        [{"SharedWithPrefix", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :shared_with_prefix, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List the available lenses.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListLenses&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:lens_name` (`t:string`)
+  * `:lens_status` (`t:enum["ALL|DRAFT|PUBLISHED"]`) The status of lenses to be
+    returned.
+  * `:lens_type` (`t:enum["AWS_OFFICIAL|CUSTOM_SELF|CUSTOM_SHARED"]`) The type of
+    lenses to be returned.
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_lenses(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_lenses(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_lenses_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lenses_errors()}
-  def list_lenses(
-        %Client{} = client,
-        lens_name \\ nil,
-        lens_status \\ nil,
-        lens_type \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_lenses(%Client{} = client, options \\ []) do
     url_path = "/lenses"
+
+    # Validate optional parameters
+    optional_params = [
+      lens_name: nil,
+      lens_status: nil,
+      lens_type: nil,
+      max_results: nil,
+      next_token: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(lens_type) do
-        [{"LensType", lens_type} | query_params]
+      if opt_val = Keyword.get(options, :lens_type) do
+        [{"LensType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(lens_status) do
-        [{"LensStatus", lens_status} | query_params]
+      if opt_val = Keyword.get(options, :lens_status) do
+        [{"LensStatus", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(lens_name) do
-        [{"LensName", lens_name} | query_params]
+      if opt_val = Keyword.get(options, :lens_name) do
+        [{"LensName", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:lens_name, :lens_status, :lens_type, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List all milestones for an existing workload.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListMilestones&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workload_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec list_milestones(map(), String.t(), list_milestones_input(), list()) ::
+  @spec list_milestones(AWS.Client.t(), String.t(), list_milestones_input(), Keyword.t()) ::
           {:ok, list_milestones_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_milestones_errors()}
@@ -4914,7 +5456,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4931,8 +5474,14 @@ defmodule AWS.WellArchitected do
 
   @doc """
   List lens notifications.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListNotifications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_notifications(map(), list_notifications_input(), list()) ::
+  @spec list_notifications(AWS.Client.t(), list_notifications_input(), Keyword.t()) ::
           {:ok, list_notifications_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_notifications_errors()}
@@ -4941,7 +5490,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4958,262 +5508,368 @@ defmodule AWS.WellArchitected do
 
   @doc """
   List profile notifications.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListProfileNotifications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:workload_id` (`t:string`)
   """
-  @spec list_profile_notifications(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_profile_notifications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profile_notifications_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profile_notifications_errors()}
-  def list_profile_notifications(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        workload_id \\ nil,
-        options \\ []
-      ) do
+  def list_profile_notifications(%Client{} = client, options \\ []) do
     url_path = "/profileNotifications"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, workload_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(workload_id) do
-        [{"WorkloadId", workload_id} | query_params]
+      if opt_val = Keyword.get(options, :workload_id) do
+        [{"WorkloadId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :workload_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List profile shares.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListProfileShares&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_arn` (`t:string`) The profile ARN.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return for this
+    request.
+  * `:next_token` (`t:string`)
+  * `:shared_with_prefix` (`t:string`) The Amazon Web Services account ID,
+    organization ID, or organizational unit (OU) ID with which the profile is
+    shared.
+  * `:status`
+    (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
   """
-  @spec list_profile_shares(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_profile_shares(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_profile_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profile_shares_errors()}
-  def list_profile_shares(
-        %Client{} = client,
-        profile_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        shared_with_prefix \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_profile_shares(%Client{} = client, profile_arn, options \\ []) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}/shares"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, shared_with_prefix: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"Status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"Status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(shared_with_prefix) do
-        [{"SharedWithPrefix", shared_with_prefix} | query_params]
+      if opt_val = Keyword.get(options, :shared_with_prefix) do
+        [{"SharedWithPrefix", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :shared_with_prefix, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List profiles.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:profile_name_prefix` (`t:string`) An optional string added to the beginning
+    of each profile name returned in the results.
+  * `:profile_owner_type` (`t:enum["SELF|SHARED"]`) Profile owner type.
   """
-  @spec list_profiles(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profiles_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profiles_errors()}
-  def list_profiles(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        profile_name_prefix \\ nil,
-        profile_owner_type \\ nil,
-        options \\ []
-      ) do
+  def list_profiles(%Client{} = client, options \\ []) do
     url_path = "/profileSummaries"
+
+    # Validate optional parameters
+    optional_params = [
+      max_results: nil,
+      next_token: nil,
+      profile_name_prefix: nil,
+      profile_owner_type: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(profile_owner_type) do
-        [{"ProfileOwnerType", profile_owner_type} | query_params]
+      if opt_val = Keyword.get(options, :profile_owner_type) do
+        [{"ProfileOwnerType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(profile_name_prefix) do
-        [{"ProfileNamePrefix", profile_name_prefix} | query_params]
+      if opt_val = Keyword.get(options, :profile_name_prefix) do
+        [{"ProfileNamePrefix", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :profile_name_prefix, :profile_owner_type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List the answers of a review template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListReviewTemplateAnswers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:lens_alias` (`t:string`)
+  * `:template_arn` (`t:string`) The ARN of the review template.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return for this
+    request.
+  * `:next_token` (`t:string`)
+  * `:pillar_id` (`t:string`)
   """
-  @spec list_review_template_answers(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_review_template_answers(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_review_template_answers_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_review_template_answers_errors()}
-  def list_review_template_answers(
-        %Client{} = client,
-        lens_alias,
-        template_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        pillar_id \\ nil,
-        options \\ []
-      ) do
+  def list_review_template_answers(%Client{} = client, lens_alias, template_arn, options \\ []) do
     url_path =
       "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/answers"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, pillar_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(pillar_id) do
-        [{"PillarId", pillar_id} | query_params]
+      if opt_val = Keyword.get(options, :pillar_id) do
+        [{"PillarId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :pillar_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List review templates.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListReviewTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_review_templates(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_review_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_review_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_review_templates_errors()}
-  def list_review_templates(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_review_templates(%Client{} = client, options \\ []) do
     url_path = "/reviewTemplates"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5221,89 +5877,121 @@ defmodule AWS.WellArchitected do
   @doc """
   List the share invitations.
 
-  `WorkloadNamePrefix`, `LensNamePrefix`,
-  `ProfileNamePrefix`, and `TemplateNamePrefix` are mutually
-  exclusive. Use the parameter that matches your `ShareResourceType`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListShareInvitations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:lens_name_prefix` (`t:string`) An optional string added to the beginning of
+    each lens name returned in the results.
+  * `:max_results` (`t:integer`) The maximum number of results to return for this
+    request.
+  * `:next_token` (`t:string`)
+  * `:profile_name_prefix` (`t:string`) An optional string added to the beginning
+    of each profile name returned in the results.
+  * `:share_resource_type` (`t:enum["LENS|PROFILE|TEMPLATE|WORKLOAD"]`) The type
+    of share invitations to be returned.
+  * `:template_name_prefix` (`t:string`) An optional string added to the beginning
+    of each review template name returned in the results.
+  * `:workload_name_prefix` (`t:string`)
   """
-  @spec list_share_invitations(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_share_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_share_invitations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_share_invitations_errors()}
-  def list_share_invitations(
-        %Client{} = client,
-        lens_name_prefix \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        profile_name_prefix \\ nil,
-        share_resource_type \\ nil,
-        template_name_prefix \\ nil,
-        workload_name_prefix \\ nil,
-        options \\ []
-      ) do
+  def list_share_invitations(%Client{} = client, options \\ []) do
     url_path = "/shareInvitations"
+
+    # Validate optional parameters
+    optional_params = [
+      lens_name_prefix: nil,
+      max_results: nil,
+      next_token: nil,
+      profile_name_prefix: nil,
+      share_resource_type: nil,
+      template_name_prefix: nil,
+      workload_name_prefix: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(workload_name_prefix) do
-        [{"WorkloadNamePrefix", workload_name_prefix} | query_params]
+      if opt_val = Keyword.get(options, :workload_name_prefix) do
+        [{"WorkloadNamePrefix", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(template_name_prefix) do
-        [{"TemplateNamePrefix", template_name_prefix} | query_params]
+      if opt_val = Keyword.get(options, :template_name_prefix) do
+        [{"TemplateNamePrefix", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(share_resource_type) do
-        [{"ShareResourceType", share_resource_type} | query_params]
+      if opt_val = Keyword.get(options, :share_resource_type) do
+        [{"ShareResourceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(profile_name_prefix) do
-        [{"ProfileNamePrefix", profile_name_prefix} | query_params]
+      if opt_val = Keyword.get(options, :profile_name_prefix) do
+        [{"ProfileNamePrefix", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(lens_name_prefix) do
-        [{"LensNamePrefix", lens_name_prefix} | query_params]
+      if opt_val = Keyword.get(options, :lens_name_prefix) do
+        [{"LensNamePrefix", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :lens_name_prefix,
+        :max_results,
+        :next_token,
+        :profile_name_prefix,
+        :share_resource_type,
+        :template_name_prefix,
+        :workload_name_prefix
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5311,149 +5999,219 @@ defmodule AWS.WellArchitected do
   @doc """
   List the tags for a resource.
 
-  The WorkloadArn parameter can be a workload ARN, a custom lens ARN, a profile
-  ARN, or review template ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workload_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, workload_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(workload_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List review template shares.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListTemplateShares&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_arn` (`t:string`) The review template ARN.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return for this
+    request.
+  * `:next_token` (`t:string`)
+  * `:shared_with_prefix` (`t:string`) The Amazon Web Services account ID,
+    organization ID, or organizational unit (OU) ID with which the profile is
+    shared.
+  * `:status`
+    (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
   """
-  @spec list_template_shares(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_template_shares(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_template_shares_errors()}
-  def list_template_shares(
-        %Client{} = client,
-        template_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        shared_with_prefix \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_template_shares(%Client{} = client, template_arn, options \\ []) do
     url_path = "/templates/shares/#{AWS.Util.encode_uri(template_arn)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, shared_with_prefix: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"Status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"Status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(shared_with_prefix) do
-        [{"SharedWithPrefix", shared_with_prefix} | query_params]
+      if opt_val = Keyword.get(options, :shared_with_prefix) do
+        [{"SharedWithPrefix", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :shared_with_prefix, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List the workload shares associated with the workload.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListWorkloadShares&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workload_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return for this
+    request.
+  * `:next_token` (`t:string`)
+  * `:shared_with_prefix` (`t:string`) The Amazon Web Services account ID,
+    organization ID, or organizational unit (OU) ID with which the workload is
+    shared.
+  * `:status`
+    (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
   """
-  @spec list_workload_shares(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_workload_shares(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_workload_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workload_shares_errors()}
-  def list_workload_shares(
-        %Client{} = client,
-        workload_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        shared_with_prefix \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_workload_shares(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/shares"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, shared_with_prefix: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"Status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"Status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(shared_with_prefix) do
-        [{"SharedWithPrefix", shared_with_prefix} | query_params]
+      if opt_val = Keyword.get(options, :shared_with_prefix) do
+        [{"SharedWithPrefix", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :shared_with_prefix, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Paginated list of workloads.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListWorkloads&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_workloads(map(), list_workloads_input(), list()) ::
+  @spec list_workloads(AWS.Client.t(), list_workloads_input(), Keyword.t()) ::
           {:ok, list_workloads_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workloads_errors()}
@@ -5462,7 +6220,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5480,10 +6239,14 @@ defmodule AWS.WellArchitected do
   @doc """
   Adds one or more tags to the specified resource.
 
-  The WorkloadArn parameter can be a workload ARN, a custom lens ARN, a profile
-  ARN, or review template ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workload_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_input(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -5492,7 +6255,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5508,16 +6272,20 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  Deletes specified tags from a resource.
+  Deletes specified tags from a resource. The WorkloadArn parameter can be a
+  workload ARN, a custom lens ARN, a profile ARN, or review template ARN.
 
-  The WorkloadArn parameter can be a workload ARN, a custom lens ARN, a profile
-  ARN, or review template ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UntagResource&this_doc_guide=API%2520Reference)
 
-  To specify multiple tags, use separate **tagKeys** parameters, for example:
+  ## Parameters:
+  * `:workload_arn` (`t:string`)
+  * `:tag_keys` (`t:list[com.amazonaws.wellarchitected#TagKey]`) A list of tag
+    keys. Existing tags of the resource whose keys are members of this list are
+    removed from the resource.
 
-  `DELETE /tags/WorkloadArn?tagKeys=key1&tagKeys=key2`
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -5531,7 +6299,8 @@ defmodule AWS.WellArchitected do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5548,8 +6317,24 @@ defmodule AWS.WellArchitected do
 
   @doc """
   Update the answer to a specific question in a workload review.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpdateAnswer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:lens_alias` (`t:string`)
+  * `:question_id` (`t:string`)
+  * `:workload_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_answer(map(), String.t(), String.t(), String.t(), update_answer_input(), list()) ::
+  @spec update_answer(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          update_answer_input(),
+          Keyword.t()
+        ) ::
           {:ok, update_answer_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_answer_errors()}
@@ -5567,7 +6352,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5585,8 +6371,14 @@ defmodule AWS.WellArchitected do
   @doc """
   Update whether the Amazon Web Services account is opted into organization
   sharing and discovery integration features.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpdateGlobalSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_global_settings(map(), update_global_settings_input(), list()) ::
+  @spec update_global_settings(AWS.Client.t(), update_global_settings_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_global_settings_errors()}
@@ -5595,7 +6387,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5612,8 +6405,15 @@ defmodule AWS.WellArchitected do
 
   @doc """
   Update integration features.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpdateIntegration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workload_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_integration(map(), String.t(), update_integration_input(), list()) ::
+  @spec update_integration(AWS.Client.t(), String.t(), update_integration_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_integration_errors()}
@@ -5622,7 +6422,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5639,8 +6440,22 @@ defmodule AWS.WellArchitected do
 
   @doc """
   Update lens review for a particular workload.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpdateLensReview&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:lens_alias` (`t:string`)
+  * `:workload_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_lens_review(map(), String.t(), String.t(), update_lens_review_input(), list()) ::
+  @spec update_lens_review(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_lens_review_input(),
+          Keyword.t()
+        ) ::
           {:ok, update_lens_review_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_lens_review_errors()}
@@ -5651,7 +6466,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5668,8 +6484,15 @@ defmodule AWS.WellArchitected do
 
   @doc """
   Update a profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpdateProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_arn` (`t:string`) The profile ARN.
+
+  ## Optional parameters:
   """
-  @spec update_profile(map(), String.t(), update_profile_input(), list()) ::
+  @spec update_profile(AWS.Client.t(), String.t(), update_profile_input(), Keyword.t()) ::
           {:ok, update_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_profile_errors()}
@@ -5678,7 +6501,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5695,8 +6519,20 @@ defmodule AWS.WellArchitected do
 
   @doc """
   Update a review template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpdateReviewTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_arn` (`t:string`) The review template ARN.
+
+  ## Optional parameters:
   """
-  @spec update_review_template(map(), String.t(), update_review_template_input(), list()) ::
+  @spec update_review_template(
+          AWS.Client.t(),
+          String.t(),
+          update_review_template_input(),
+          Keyword.t()
+        ) ::
           {:ok, update_review_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_review_template_errors()}
@@ -5705,7 +6541,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5722,14 +6559,23 @@ defmodule AWS.WellArchitected do
 
   @doc """
   Update a review template answer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpdateReviewTemplateAnswer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:lens_alias` (`t:string`)
+  * `:question_id` (`t:string`)
+  * `:template_arn` (`t:string`) The review template ARN.
+
+  ## Optional parameters:
   """
   @spec update_review_template_answer(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           update_review_template_answer_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_review_template_answer_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5748,7 +6594,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5765,13 +6612,21 @@ defmodule AWS.WellArchitected do
 
   @doc """
   Update a lens review associated with a review template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpdateReviewTemplateLensReview&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:lens_alias` (`t:string`)
+  * `:template_arn` (`t:string`) The review template ARN.
+
+  ## Optional parameters:
   """
   @spec update_review_template_lens_review(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_review_template_lens_review_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_review_template_lens_review_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5789,7 +6644,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5807,10 +6663,19 @@ defmodule AWS.WellArchitected do
   @doc """
   Update a workload or custom lens share invitation.
 
-  This API operation can be called independently of any resource. Previous
-  documentation implied that a workload ARN must be specified.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpdateShareInvitation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:share_invitation_id` (`t:string`) The ID assigned to the share invitation.
+
+  ## Optional parameters:
   """
-  @spec update_share_invitation(map(), String.t(), update_share_invitation_input(), list()) ::
+  @spec update_share_invitation(
+          AWS.Client.t(),
+          String.t(),
+          update_share_invitation_input(),
+          Keyword.t()
+        ) ::
           {:ok, update_share_invitation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_share_invitation_errors()}
@@ -5819,7 +6684,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5836,8 +6702,15 @@ defmodule AWS.WellArchitected do
 
   @doc """
   Update an existing workload.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpdateWorkload&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workload_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_workload(map(), String.t(), update_workload_input(), list()) ::
+  @spec update_workload(AWS.Client.t(), String.t(), update_workload_input(), Keyword.t()) ::
           {:ok, update_workload_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workload_errors()}
@@ -5846,7 +6719,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5863,13 +6737,21 @@ defmodule AWS.WellArchitected do
 
   @doc """
   Update a workload share.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpdateWorkloadShare&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:share_id` (`t:string`)
+  * `:workload_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec update_workload_share(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_workload_share_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_workload_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5881,7 +6763,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5898,8 +6781,22 @@ defmodule AWS.WellArchitected do
 
   @doc """
   Upgrade lens review for a particular workload.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpgradeLensReview&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:lens_alias` (`t:string`)
+  * `:workload_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec upgrade_lens_review(map(), String.t(), String.t(), upgrade_lens_review_input(), list()) ::
+  @spec upgrade_lens_review(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          upgrade_lens_review_input(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upgrade_lens_review_errors()}
@@ -5910,20 +6807,29 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Upgrade a profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpgradeProfileVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_arn` (`t:string`) The profile ARN.
+  * `:workload_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec upgrade_profile_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           upgrade_profile_version_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -5935,20 +6841,29 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Upgrade the lens review of a review template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpgradeReviewTemplateLensReview&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:lens_alias` (`t:string`)
+  * `:template_arn` (`t:string`) The ARN of the review template.
+
+  ## Optional parameters:
   """
   @spec upgrade_review_template_lens_review(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           upgrade_review_template_lens_review_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -5966,7 +6881,8 @@ defmodule AWS.WellArchitected do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

@@ -4,23 +4,16 @@
 defmodule AWS.IotDeviceAdvisor do
   @moduledoc """
   Amazon Web Services IoT Core Device Advisor is a cloud-based, fully managed test
-  capability for validating IoT
-  devices during device software development.
-
-  Device Advisor provides pre-built tests that you
-  can use to validate IoT devices for reliable and secure connectivity with Amazon
-  Web Services IoT Core
-  before deploying devices to production. By using Device Advisor, you can confirm
-  that your
-  devices can connect to Amazon Web Services IoT Core, follow security best
-  practices and, if applicable,
-  receive software updates from IoT Device Management. You can also download
-  signed
-  qualification reports to submit to the Amazon Web Services Partner Network to
-  get your device
-  qualified for the Amazon Web Services Partner Device Catalog without the need to
-  send your device in
-  and wait for it to be tested.
+  capability for validating IoT devices during device software development.
+  Device Advisor provides pre-built tests that you can use to validate IoT
+  devices for reliable and secure connectivity with Amazon Web Services IoT Core
+  before deploying devices to production. By using Device Advisor, you can
+  confirm that your devices can connect to Amazon Web Services IoT Core, follow
+  security best practices and, if applicable, receive software updates from IoT
+  Device Management. You can also download signed qualification reports to
+  submit to the Amazon Web Services Partner Network to get your device qualified
+  for the Amazon Web Services Partner Device Catalog without the need to send
+  your device in and wait for it to be tested.
   """
 
   alias AWS.Client
@@ -595,11 +588,13 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Creates a Device Advisor test suite.
 
-  Requires permission to access the
-  [CreateSuiteDefinition](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20CreateSuiteDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_suite_definition(map(), create_suite_definition_request(), list()) ::
+  @spec create_suite_definition(AWS.Client.t(), create_suite_definition_request(), Keyword.t()) ::
           {:ok, create_suite_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_suite_definition_errors()}
@@ -608,7 +603,8 @@ defmodule AWS.IotDeviceAdvisor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -626,11 +622,20 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Deletes a Device Advisor test suite.
 
-  Requires permission to access the
-  [DeleteSuiteDefinition](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20DeleteSuiteDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite to
+    be deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_suite_definition(map(), String.t(), delete_suite_definition_request(), list()) ::
+  @spec delete_suite_definition(
+          AWS.Client.t(),
+          String.t(),
+          delete_suite_definition_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_suite_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_suite_definition_errors()}
@@ -639,7 +644,8 @@ defmodule AWS.IotDeviceAdvisor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -656,59 +662,86 @@ defmodule AWS.IotDeviceAdvisor do
 
   @doc """
   Gets information about an Device Advisor endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20GetEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:authentication_method` (`t:enum["SignatureVersion4|X509ClientCertificate"]`)
+    The authentication method used during the device connection.
+  * `:certificate_arn` (`t:string`) The certificate ARN of the device. This is an
+    optional parameter.
+  * `:device_role_arn` (`t:string`) The device role ARN of the device. This is an
+    optional parameter.
+  * `:thing_arn` (`t:string`) The thing ARN of the device. This is an optional
+    parameter.
   """
-  @spec get_endpoint(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_endpoint_errors()}
-  def get_endpoint(
-        %Client{} = client,
-        authentication_method \\ nil,
-        certificate_arn \\ nil,
-        device_role_arn \\ nil,
-        thing_arn \\ nil,
-        options \\ []
-      ) do
+  def get_endpoint(%Client{} = client, options \\ []) do
     url_path = "/endpoint"
+
+    # Validate optional parameters
+    optional_params = [
+      authentication_method: nil,
+      certificate_arn: nil,
+      device_role_arn: nil,
+      thing_arn: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(thing_arn) do
-        [{"thingArn", thing_arn} | query_params]
+      if opt_val = Keyword.get(options, :thing_arn) do
+        [{"thingArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(device_role_arn) do
-        [{"deviceRoleArn", device_role_arn} | query_params]
+      if opt_val = Keyword.get(options, :device_role_arn) do
+        [{"deviceRoleArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(certificate_arn) do
-        [{"certificateArn", certificate_arn} | query_params]
+      if opt_val = Keyword.get(options, :certificate_arn) do
+        [{"certificateArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(authentication_method) do
-        [{"authenticationMethod", authentication_method} | query_params]
+      if opt_val = Keyword.get(options, :authentication_method) do
+        [{"authenticationMethod", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:authentication_method, :certificate_arn, :device_role_arn, :thing_arn])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -716,32 +749,55 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Gets information about a Device Advisor test suite.
 
-  Requires permission to access the
-  [GetSuiteDefinition](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20GetSuiteDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite to
+    get.
+
+  ## Optional parameters:
+  * `:suite_definition_version` (`t:string`) Suite definition version of the test
+    suite to get.
   """
-  @spec get_suite_definition(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_suite_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_suite_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_suite_definition_errors()}
-  def get_suite_definition(
-        %Client{} = client,
-        suite_definition_id,
-        suite_definition_version \\ nil,
-        options \\ []
-      ) do
+  def get_suite_definition(%Client{} = client, suite_definition_id, options \\ []) do
     url_path = "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}"
+
+    # Validate optional parameters
+    optional_params = [suite_definition_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(suite_definition_version) do
-        [{"suiteDefinitionVersion", suite_definition_version} | query_params]
+      if opt_val = Keyword.get(options, :suite_definition_version) do
+        [{"suiteDefinitionVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:suite_definition_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -749,11 +805,16 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Gets information about a Device Advisor test suite run.
 
-  Requires permission to access the
-  [GetSuiteRun](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20GetSuiteRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:suite_definition_id` (`t:string`) Suite definition ID for the test suite
+    run.
+  * `:suite_run_id` (`t:string`) Suite run ID for the test suite run.
+
+  ## Optional parameters:
   """
-  @spec get_suite_run(map(), String.t(), String.t(), list()) ::
+  @spec get_suite_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_suite_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_suite_run_errors()}
@@ -761,10 +822,27 @@ defmodule AWS.IotDeviceAdvisor do
     url_path =
       "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}/suiteRuns/#{AWS.Util.encode_uri(suite_run_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -773,11 +851,15 @@ defmodule AWS.IotDeviceAdvisor do
   Gets a report download link for a successful Device Advisor qualifying test
   suite run.
 
-  Requires permission to access the
-  [GetSuiteRunReport](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20GetSuiteRunReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite.
+  * `:suite_run_id` (`t:string`) Suite run ID of the test suite run.
+
+  ## Optional parameters:
   """
-  @spec get_suite_run_report(map(), String.t(), String.t(), list()) ::
+  @spec get_suite_run_report(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_suite_run_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_suite_run_report_errors()}
@@ -785,10 +867,27 @@ defmodule AWS.IotDeviceAdvisor do
     url_path =
       "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}/suiteRuns/#{AWS.Util.encode_uri(suite_run_id)}/report"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -796,105 +895,146 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Lists the Device Advisor test suites you have created.
 
-  Requires permission to access the
-  [ListSuiteDefinitions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20ListSuiteDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return at once.
+  * `:next_token` (`t:string`) A token used to get the next set of results.
   """
-  @spec list_suite_definitions(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_suite_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_suite_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_suite_definitions_errors()}
-  def list_suite_definitions(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_suite_definitions(%Client{} = client, options \\ []) do
     url_path = "/suiteDefinitions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists runs of the specified Device Advisor test suite.
+  Lists runs of the specified Device Advisor test suite. You can list all runs of
+  the test suite, or the runs of a specific version of the test suite.
 
-  You can list all runs of the test
-  suite, or the runs of a specific version of the test suite.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20ListSuiteRuns&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [ListSuiteRuns](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return at once.
+  * `:next_token` (`t:string`) A token to retrieve the next set of results.
+  * `:suite_definition_id` (`t:string`) Lists the test suite runs of the specified
+    test suite based on suite definition ID.
+  * `:suite_definition_version` (`t:string`) Must be passed along with
+    suiteDefinitionId. Lists the test suite runs of the specified test suite
+    based on suite definition version.
   """
-  @spec list_suite_runs(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_suite_runs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_suite_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_suite_runs_errors()}
-  def list_suite_runs(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        suite_definition_id \\ nil,
-        suite_definition_version \\ nil,
-        options \\ []
-      ) do
+  def list_suite_runs(%Client{} = client, options \\ []) do
     url_path = "/suiteRuns"
+
+    # Validate optional parameters
+    optional_params = [
+      max_results: nil,
+      next_token: nil,
+      suite_definition_id: nil,
+      suite_definition_version: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(suite_definition_version) do
-        [{"suiteDefinitionVersion", suite_definition_version} | query_params]
+      if opt_val = Keyword.get(options, :suite_definition_version) do
+        [{"suiteDefinitionVersion", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(suite_definition_id) do
-        [{"suiteDefinitionId", suite_definition_id} | query_params]
+      if opt_val = Keyword.get(options, :suite_definition_id) do
+        [{"suiteDefinitionId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :suite_definition_id, :suite_definition_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -902,20 +1042,42 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Lists the tags attached to an IoT Device Advisor resource.
 
-  Requires permission to access the
-  [ListTagsForResource](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource ARN of the IoT Device Advisor
+    resource. This can be SuiteDefinition ARN or SuiteRun ARN.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -923,11 +1085,14 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Starts a Device Advisor test suite run.
 
-  Requires permission to access the
-  [StartSuiteRun](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20StartSuiteRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite.
+
+  ## Optional parameters:
   """
-  @spec start_suite_run(map(), String.t(), start_suite_run_request(), list()) ::
+  @spec start_suite_run(AWS.Client.t(), String.t(), start_suite_run_request(), Keyword.t()) ::
           {:ok, start_suite_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_suite_run_errors()}
@@ -936,7 +1101,8 @@ defmodule AWS.IotDeviceAdvisor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -954,11 +1120,22 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Stops a Device Advisor test suite run that is currently running.
 
-  Requires permission to access the
-  [StopSuiteRun](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20StopSuiteRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite run
+    to be stopped.
+  * `:suite_run_id` (`t:string`) Suite run ID of the test suite run to be stopped.
+
+  ## Optional parameters:
   """
-  @spec stop_suite_run(map(), String.t(), String.t(), stop_suite_run_request(), list()) ::
+  @spec stop_suite_run(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          stop_suite_run_request(),
+          Keyword.t()
+        ) ::
           {:ok, stop_suite_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_suite_run_errors()}
@@ -969,7 +1146,8 @@ defmodule AWS.IotDeviceAdvisor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -987,11 +1165,15 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Adds to and modifies existing tags of an IoT Device Advisor resource.
 
-  Requires permission to access the
-  [TagResource](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource ARN of an IoT Device Advisor
+    resource. This can be SuiteDefinition ARN or SuiteRun ARN.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1000,7 +1182,8 @@ defmodule AWS.IotDeviceAdvisor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1018,11 +1201,17 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Removes tags from an IoT Device Advisor resource.
 
-  Requires permission to access the
-  [UntagResource](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource ARN of an IoT Device Advisor
+    resource. This can be SuiteDefinition ARN or SuiteRun ARN.
+  * `:tag_keys` (`t:list[com.amazonaws.iotdeviceadvisor#String128]`) List of tag
+    keys to remove from the IoT Device Advisor resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1036,7 +1225,8 @@ defmodule AWS.IotDeviceAdvisor do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1054,11 +1244,20 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Updates a Device Advisor test suite.
 
-  Requires permission to access the
-  [UpdateSuiteDefinition](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20UpdateSuiteDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite to
+    be updated.
+
+  ## Optional parameters:
   """
-  @spec update_suite_definition(map(), String.t(), update_suite_definition_request(), list()) ::
+  @spec update_suite_definition(
+          AWS.Client.t(),
+          String.t(),
+          update_suite_definition_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_suite_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_suite_definition_errors()}
@@ -1067,7 +1266,8 @@ defmodule AWS.IotDeviceAdvisor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

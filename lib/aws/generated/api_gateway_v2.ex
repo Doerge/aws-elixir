@@ -2561,8 +2561,14 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates an Api resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateApi&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_api(map(), create_api_request(), list()) ::
+  @spec create_api(AWS.Client.t(), create_api_request(), Keyword.t()) ::
           {:ok, create_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_api_errors()}
@@ -2571,7 +2577,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2588,8 +2595,15 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates an API mapping.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateApiMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The domain name.
+
+  ## Optional parameters:
   """
-  @spec create_api_mapping(map(), String.t(), create_api_mapping_request(), list()) ::
+  @spec create_api_mapping(AWS.Client.t(), String.t(), create_api_mapping_request(), Keyword.t()) ::
           {:ok, create_api_mapping_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_api_mapping_errors()}
@@ -2598,7 +2612,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2615,8 +2630,15 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates an Authorizer for an API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateAuthorizer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+
+  ## Optional parameters:
   """
-  @spec create_authorizer(map(), String.t(), create_authorizer_request(), list()) ::
+  @spec create_authorizer(AWS.Client.t(), String.t(), create_authorizer_request(), Keyword.t()) ::
           {:ok, create_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_authorizer_errors()}
@@ -2625,7 +2647,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2642,8 +2665,15 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates a Deployment for an API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+
+  ## Optional parameters:
   """
-  @spec create_deployment(map(), String.t(), create_deployment_request(), list()) ::
+  @spec create_deployment(AWS.Client.t(), String.t(), create_deployment_request(), Keyword.t()) ::
           {:ok, create_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deployment_errors()}
@@ -2652,7 +2682,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2669,8 +2700,14 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates a domain name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateDomainName&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_domain_name(map(), create_domain_name_request(), list()) ::
+  @spec create_domain_name(AWS.Client.t(), create_domain_name_request(), Keyword.t()) ::
           {:ok, create_domain_name_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_domain_name_errors()}
@@ -2679,7 +2716,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2696,8 +2734,15 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates an Integration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateIntegration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+
+  ## Optional parameters:
   """
-  @spec create_integration(map(), String.t(), create_integration_request(), list()) ::
+  @spec create_integration(AWS.Client.t(), String.t(), create_integration_request(), Keyword.t()) ::
           {:ok, create_integration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_integration_errors()}
@@ -2706,7 +2751,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2723,13 +2769,21 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates an IntegrationResponses.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateIntegrationResponse&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:integration_id` (`t:string`) The integration ID.
+
+  ## Optional parameters:
   """
   @spec create_integration_response(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           create_integration_response_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_integration_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2747,7 +2801,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2764,8 +2819,15 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates a Model for an API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+
+  ## Optional parameters:
   """
-  @spec create_model(map(), String.t(), create_model_request(), list()) ::
+  @spec create_model(AWS.Client.t(), String.t(), create_model_request(), Keyword.t()) ::
           {:ok, create_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_errors()}
@@ -2774,7 +2836,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2791,8 +2854,15 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates a Route for an API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateRoute&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+
+  ## Optional parameters:
   """
-  @spec create_route(map(), String.t(), create_route_request(), list()) ::
+  @spec create_route(AWS.Client.t(), String.t(), create_route_request(), Keyword.t()) ::
           {:ok, create_route_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_route_errors()}
@@ -2801,7 +2871,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2818,13 +2889,21 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates a RouteResponse for a Route.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateRouteResponse&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:route_id` (`t:string`) The route ID.
+
+  ## Optional parameters:
   """
   @spec create_route_response(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           create_route_response_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_route_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2836,7 +2915,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2853,8 +2933,15 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates a Stage for an API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateStage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+
+  ## Optional parameters:
   """
-  @spec create_stage(map(), String.t(), create_stage_request(), list()) ::
+  @spec create_stage(AWS.Client.t(), String.t(), create_stage_request(), Keyword.t()) ::
           {:ok, create_stage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_stage_errors()}
@@ -2863,7 +2950,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2880,8 +2968,14 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates a VPC link.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateVpcLink&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_vpc_link(map(), create_vpc_link_request(), list()) ::
+  @spec create_vpc_link(AWS.Client.t(), create_vpc_link_request(), Keyword.t()) ::
           {:ok, create_vpc_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vpc_link_errors()}
@@ -2890,7 +2984,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2906,16 +3001,25 @@ defmodule AWS.ApiGatewayV2 do
   end
 
   @doc """
-  Deletes the AccessLogSettings for a Stage.
+  Deletes the AccessLogSettings for a Stage. To disable access logging for a
+  Stage, delete its AccessLogSettings.
 
-  To disable access logging for a Stage, delete its AccessLogSettings.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteAccessLogSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:stage_name` (`t:string`) The stage name. Stage names can only contain
+    alphanumeric characters, hyphens, and underscores. Maximum length is 128
+    characters.
+
+  ## Optional parameters:
   """
   @spec delete_access_log_settings(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_access_log_settings_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -2927,7 +3031,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2944,8 +3049,15 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes an Api resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteApi&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+
+  ## Optional parameters:
   """
-  @spec delete_api(map(), String.t(), delete_api_request(), list()) ::
+  @spec delete_api(AWS.Client.t(), String.t(), delete_api_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_api_errors()}
@@ -2954,7 +3066,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2971,8 +3084,22 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes an API mapping.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteApiMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_mapping_id` (`t:string`) The API mapping identifier.
+  * `:domain_name` (`t:string`) The domain name.
+
+  ## Optional parameters:
   """
-  @spec delete_api_mapping(map(), String.t(), String.t(), delete_api_mapping_request(), list()) ::
+  @spec delete_api_mapping(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_api_mapping_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_api_mapping_errors()}
@@ -2983,7 +3110,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3000,8 +3128,22 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes an Authorizer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteAuthorizer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:authorizer_id` (`t:string`) The authorizer identifier.
+
+  ## Optional parameters:
   """
-  @spec delete_authorizer(map(), String.t(), String.t(), delete_authorizer_request(), list()) ::
+  @spec delete_authorizer(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_authorizer_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_authorizer_errors()}
@@ -3012,7 +3154,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3029,8 +3172,20 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes a CORS configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteCorsConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+
+  ## Optional parameters:
   """
-  @spec delete_cors_configuration(map(), String.t(), delete_cors_configuration_request(), list()) ::
+  @spec delete_cors_configuration(
+          AWS.Client.t(),
+          String.t(),
+          delete_cors_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cors_configuration_errors()}
@@ -3039,7 +3194,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3056,8 +3212,22 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes a Deployment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:deployment_id` (`t:string`) The deployment ID.
+
+  ## Optional parameters:
   """
-  @spec delete_deployment(map(), String.t(), String.t(), delete_deployment_request(), list()) ::
+  @spec delete_deployment(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_deployment_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_deployment_errors()}
@@ -3068,7 +3238,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3085,8 +3256,15 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes a domain name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteDomainName&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The domain name.
+
+  ## Optional parameters:
   """
-  @spec delete_domain_name(map(), String.t(), delete_domain_name_request(), list()) ::
+  @spec delete_domain_name(AWS.Client.t(), String.t(), delete_domain_name_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_name_errors()}
@@ -3095,7 +3273,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3112,8 +3291,22 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes an Integration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteIntegration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:integration_id` (`t:string`) The integration ID.
+
+  ## Optional parameters:
   """
-  @spec delete_integration(map(), String.t(), String.t(), delete_integration_request(), list()) ::
+  @spec delete_integration(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_integration_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_integration_errors()}
@@ -3124,7 +3317,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3141,14 +3335,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes an IntegrationResponses.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteIntegrationResponse&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:integration_id` (`t:string`) The integration ID.
+  * `:integration_response_id` (`t:string`) The integration response ID.
+
+  ## Optional parameters:
   """
   @spec delete_integration_response(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_integration_response_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -3167,7 +3370,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3184,8 +3388,16 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes a Model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:model_id` (`t:string`) The model ID.
+
+  ## Optional parameters:
   """
-  @spec delete_model(map(), String.t(), String.t(), delete_model_request(), list()) ::
+  @spec delete_model(AWS.Client.t(), String.t(), String.t(), delete_model_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_model_errors()}
@@ -3194,7 +3406,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3211,8 +3424,16 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes a Route.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteRoute&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:route_id` (`t:string`) The route ID.
+
+  ## Optional parameters:
   """
-  @spec delete_route(map(), String.t(), String.t(), delete_route_request(), list()) ::
+  @spec delete_route(AWS.Client.t(), String.t(), String.t(), delete_route_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_route_errors()}
@@ -3221,7 +3442,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3237,17 +3459,24 @@ defmodule AWS.ApiGatewayV2 do
   end
 
   @doc """
-  Deletes a route request parameter.
+  Deletes a route request parameter. Supported only for WebSocket APIs.
 
-  Supported only for WebSocket APIs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteRouteRequestParameter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:request_parameter_key` (`t:string`) The route request parameter key.
+  * `:route_id` (`t:string`) The route ID.
+
+  ## Optional parameters:
   """
   @spec delete_route_request_parameter(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_route_request_parameter_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -3266,7 +3495,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3283,14 +3513,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes a RouteResponse.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteRouteResponse&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:route_id` (`t:string`) The route ID.
+  * `:route_response_id` (`t:string`) The route response ID.
+
+  ## Optional parameters:
   """
   @spec delete_route_response(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_route_response_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -3309,7 +3548,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3326,14 +3566,25 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes the RouteSettings for a stage.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteRouteSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:route_key` (`t:string`) The route key.
+  * `:stage_name` (`t:string`) The stage name. Stage names can only contain
+    alphanumeric characters, hyphens, and underscores. Maximum length is 128
+    characters.
+
+  ## Optional parameters:
   """
   @spec delete_route_settings(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_route_settings_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -3352,7 +3603,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3369,8 +3621,18 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes a Stage.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteStage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:stage_name` (`t:string`) The stage name. Stage names can only contain
+    alphanumeric characters, hyphens, and underscores. Maximum length is 128
+    characters.
+
+  ## Optional parameters:
   """
-  @spec delete_stage(map(), String.t(), String.t(), delete_stage_request(), list()) ::
+  @spec delete_stage(AWS.Client.t(), String.t(), String.t(), delete_stage_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_stage_errors()}
@@ -3379,7 +3641,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3396,8 +3659,15 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes a VPC link.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteVpcLink&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:vpc_link_id` (`t:string`) The ID of the VPC link.
+
+  ## Optional parameters:
   """
-  @spec delete_vpc_link(map(), String.t(), delete_vpc_link_request(), list()) ::
+  @spec delete_vpc_link(AWS.Client.t(), String.t(), delete_vpc_link_request(), Keyword.t()) ::
           {:ok, delete_vpc_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vpc_link_errors()}
@@ -3406,7 +3676,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3421,89 +3692,118 @@ defmodule AWS.ApiGatewayV2 do
     )
   end
 
-  @spec export_api(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          list()
-        ) ::
+  @spec export_api(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, export_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_api_errors()}
-  def export_api(
-        %Client{} = client,
-        api_id,
-        specification,
-        export_version \\ nil,
-        include_extensions \\ nil,
-        output_type,
-        stage_name \\ nil,
-        options \\ []
-      ) do
+  def export_api(%Client{} = client, api_id, specification, output_type, options \\ []) do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/exports/#{AWS.Util.encode_uri(specification)}"
 
+    # Validate optional parameters
+    optional_params = [export_version: nil, include_extensions: nil, stage_name: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"outputType", output_type}]
+
+    # Optional query params
     query_params =
-      if !is_nil(stage_name) do
-        [{"stageName", stage_name} | query_params]
+      if opt_val = Keyword.get(options, :stage_name) do
+        [{"stageName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(output_type) do
-        [{"outputType", output_type} | query_params]
+      if opt_val = Keyword.get(options, :include_extensions) do
+        [{"includeExtensions", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(include_extensions) do
-        [{"includeExtensions", include_extensions} | query_params]
+      if opt_val = Keyword.get(options, :export_version) do
+        [{"exportVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(export_version) do
-        [{"exportVersion", export_version} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:export_version, :include_extensions, :stage_name])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an Api resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetApi&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+
+  ## Optional parameters:
   """
-  @spec get_api(map(), String.t(), list()) ::
+  @spec get_api(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_api_errors()}
   def get_api(%Client{} = client, api_id, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an API mapping.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetApiMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_mapping_id` (`t:string`) The API mapping identifier.
+  * `:domain_name` (`t:string`) The domain name.
+
+  ## Optional parameters:
   """
-  @spec get_api_mapping(map(), String.t(), String.t(), list()) ::
+  @spec get_api_mapping(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_api_mapping_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_api_mapping_errors()}
@@ -3511,86 +3811,170 @@ defmodule AWS.ApiGatewayV2 do
     url_path =
       "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}/apimappings/#{AWS.Util.encode_uri(api_mapping_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets API mappings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetApiMappings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The domain name.
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
-  @spec get_api_mappings(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_api_mappings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_api_mappings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_api_mappings_errors()}
-  def get_api_mappings(
-        %Client{} = client,
-        domain_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_api_mappings(%Client{} = client, domain_name, options \\ []) do
     url_path = "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}/apimappings"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a collection of Api resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetApis&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
-  @spec get_apis(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_apis(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_apis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_apis_errors()}
-  def get_apis(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def get_apis(%Client{} = client, options \\ []) do
     url_path = "/v2/apis"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an Authorizer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetAuthorizer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:authorizer_id` (`t:string`) The authorizer identifier.
+
+  ## Optional parameters:
   """
-  @spec get_authorizer(map(), String.t(), String.t(), list()) ::
+  @spec get_authorizer(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_authorizer_errors()}
@@ -3598,55 +3982,107 @@ defmodule AWS.ApiGatewayV2 do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/authorizers/#{AWS.Util.encode_uri(authorizer_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the Authorizers for an API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetAuthorizers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
-  @spec get_authorizers(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_authorizers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_authorizers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_authorizers_errors()}
-  def get_authorizers(
-        %Client{} = client,
-        api_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_authorizers(%Client{} = client, api_id, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/authorizers"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a Deployment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:deployment_id` (`t:string`) The deployment ID.
+
+  ## Optional parameters:
   """
-  @spec get_deployment(map(), String.t(), String.t(), list()) ::
+  @spec get_deployment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_errors()}
@@ -3654,103 +4090,212 @@ defmodule AWS.ApiGatewayV2 do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/deployments/#{AWS.Util.encode_uri(deployment_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the Deployments for an API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetDeployments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
-  @spec get_deployments(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_deployments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployments_errors()}
-  def get_deployments(
-        %Client{} = client,
-        api_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_deployments(%Client{} = client, api_id, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/deployments"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a domain name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetDomainName&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The domain name.
+
+  ## Optional parameters:
   """
-  @spec get_domain_name(map(), String.t(), list()) ::
+  @spec get_domain_name(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_domain_name_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_name_errors()}
   def get_domain_name(%Client{} = client, domain_name, options \\ []) do
     url_path = "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the domain names for an AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetDomainNames&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
-  @spec get_domain_names(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_domain_names(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_domain_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_names_errors()}
-  def get_domain_names(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def get_domain_names(%Client{} = client, options \\ []) do
     url_path = "/v2/domainnames"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an Integration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetIntegration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:integration_id` (`t:string`) The integration ID.
+
+  ## Optional parameters:
   """
-  @spec get_integration(map(), String.t(), String.t(), list()) ::
+  @spec get_integration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_integration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_integration_errors()}
@@ -3758,18 +4303,44 @@ defmodule AWS.ApiGatewayV2 do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations/#{AWS.Util.encode_uri(integration_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an IntegrationResponses.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetIntegrationResponse&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:integration_id` (`t:string`) The integration ID.
+  * `:integration_response_id` (`t:string`) The integration response ID.
+
+  ## Optional parameters:
   """
-  @spec get_integration_response(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_integration_response(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_integration_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_integration_response_errors()}
@@ -3783,119 +4354,216 @@ defmodule AWS.ApiGatewayV2 do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations/#{AWS.Util.encode_uri(integration_id)}/integrationresponses/#{AWS.Util.encode_uri(integration_response_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the IntegrationResponses for an Integration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetIntegrationResponses&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:integration_id` (`t:string`) The integration ID.
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
-  @spec get_integration_responses(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_integration_responses(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_integration_responses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_integration_responses_errors()}
-  def get_integration_responses(
-        %Client{} = client,
-        api_id,
-        integration_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_integration_responses(%Client{} = client, api_id, integration_id, options \\ []) do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations/#{AWS.Util.encode_uri(integration_id)}/integrationresponses"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the Integrations for an API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetIntegrations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
-  @spec get_integrations(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_integrations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_integrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_integrations_errors()}
-  def get_integrations(
-        %Client{} = client,
-        api_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_integrations(%Client{} = client, api_id, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a Model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:model_id` (`t:string`) The model ID.
+
+  ## Optional parameters:
   """
-  @spec get_model(map(), String.t(), String.t(), list()) ::
+  @spec get_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_model_errors()}
   def get_model(%Client{} = client, api_id, model_id, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models/#{AWS.Util.encode_uri(model_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a model template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetModelTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:model_id` (`t:string`) The model ID.
+
+  ## Optional parameters:
   """
-  @spec get_model_template(map(), String.t(), String.t(), list()) ::
+  @spec get_model_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_model_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_model_template_errors()}
@@ -3903,66 +4571,151 @@ defmodule AWS.ApiGatewayV2 do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models/#{AWS.Util.encode_uri(model_id)}/template"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the Models for an API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetModels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
-  @spec get_models(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_models(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_models_errors()}
-  def get_models(%Client{} = client, api_id, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def get_models(%Client{} = client, api_id, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a Route.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetRoute&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:route_id` (`t:string`) The route ID.
+
+  ## Optional parameters:
   """
-  @spec get_route(map(), String.t(), String.t(), list()) ::
+  @spec get_route(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_route_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_route_errors()}
   def get_route(%Client{} = client, api_id, route_id, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a RouteResponse.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetRouteResponse&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:route_id` (`t:string`) The route ID.
+  * `:route_response_id` (`t:string`) The route response ID.
+
+  ## Optional parameters:
   """
-  @spec get_route_response(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_route_response(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_route_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_route_response_errors()}
@@ -3970,209 +4723,434 @@ defmodule AWS.ApiGatewayV2 do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}/routeresponses/#{AWS.Util.encode_uri(route_response_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the RouteResponses for a Route.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetRouteResponses&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:route_id` (`t:string`) The route ID.
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
-  @spec get_route_responses(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_route_responses(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_route_responses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_route_responses_errors()}
-  def get_route_responses(
-        %Client{} = client,
-        api_id,
-        route_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_route_responses(%Client{} = client, api_id, route_id, options \\ []) do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}/routeresponses"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the Routes for an API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetRoutes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
-  @spec get_routes(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_routes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_routes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_routes_errors()}
-  def get_routes(%Client{} = client, api_id, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def get_routes(%Client{} = client, api_id, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a Stage.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetStage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:stage_name` (`t:string`) The stage name. Stage names can only contain
+    alphanumeric characters, hyphens, and underscores. Maximum length is 128
+    characters.
+
+  ## Optional parameters:
   """
-  @spec get_stage(map(), String.t(), String.t(), list()) ::
+  @spec get_stage(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_stage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_stage_errors()}
   def get_stage(%Client{} = client, api_id, stage_name, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the Stages for an API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetStages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
-  @spec get_stages(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_stages(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_stages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_stages_errors()}
-  def get_stages(%Client{} = client, api_id, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def get_stages(%Client{} = client, api_id, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a collection of Tag resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource ARN for the tag.
+
+  ## Optional parameters:
   """
-  @spec get_tags(map(), String.t(), list()) ::
+  @spec get_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_tags_errors()}
   def get_tags(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v2/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a VPC link.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetVpcLink&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:vpc_link_id` (`t:string`) The ID of the VPC link.
+
+  ## Optional parameters:
   """
-  @spec get_vpc_link(map(), String.t(), list()) ::
+  @spec get_vpc_link(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_vpc_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_vpc_link_errors()}
   def get_vpc_link(%Client{} = client, vpc_link_id, options \\ []) do
     url_path = "/v2/vpclinks/#{AWS.Util.encode_uri(vpc_link_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a collection of VPC links.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetVpcLinks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
-  @spec get_vpc_links(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_vpc_links(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_vpc_links_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_vpc_links_errors()}
-  def get_vpc_links(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def get_vpc_links(%Client{} = client, options \\ []) do
     url_path = "/v2/vpclinks"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Imports an API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20ImportApi&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:basepath` (`t:string`) Specifies how to interpret the base path of the API
+    during import. Valid values are ignore, prepend, and split. The default
+    value is ignore. To learn more, see Set the OpenAPI basePath Property.
+    Supported only for HTTP APIs.
+  * `:fail_on_warnings` (`t:boolean`) Specifies whether to rollback the API
+    creation when a warning is encountered. By default, API creation continues
+    if a warning is encountered.
   """
-  @spec import_api(map(), import_api_request(), list()) ::
+  @spec import_api(AWS.Client.t(), import_api_request(), Keyword.t()) ::
           {:ok, import_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_api_errors()}
@@ -4194,15 +5172,35 @@ defmodule AWS.ApiGatewayV2 do
         true
       )
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:basepath, :fail_on_warnings])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
   end
 
   @doc """
   Puts an Api resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20ReimportApi&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+
+  ## Optional parameters:
+  * `:basepath` (`t:string`) Specifies how to interpret the base path of the API
+    during import. Valid values are ignore, prepend, and split. The default
+    value is ignore. To learn more, see Set the OpenAPI basePath Property.
+    Supported only for HTTP APIs.
+  * `:fail_on_warnings` (`t:boolean`) Specifies whether to rollback the API
+    creation when a warning is encountered. By default, API creation continues
+    if a warning is encountered.
   """
-  @spec reimport_api(map(), String.t(), reimport_api_request(), list()) ::
+  @spec reimport_api(AWS.Client.t(), String.t(), reimport_api_request(), Keyword.t()) ::
           {:ok, reimport_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reimport_api_errors()}
@@ -4224,22 +5222,36 @@ defmodule AWS.ApiGatewayV2 do
         true
       )
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:basepath, :fail_on_warnings])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
   end
 
   @doc """
-  Resets all authorizer cache entries on a stage.
+  Resets all authorizer cache entries on a stage. Supported only for HTTP APIs.
 
-  Supported only for HTTP APIs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20ResetAuthorizersCache&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:stage_name` (`t:string`) The stage name. Stage names can contain only
+    alphanumeric characters, hyphens, and underscores, or be $default. Maximum
+    length is 128 characters.
+
+  ## Optional parameters:
   """
   @spec reset_authorizers_cache(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           reset_authorizers_cache_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -4251,7 +5263,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4268,8 +5281,15 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates a new Tag resource to represent a tag.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource ARN for the tag.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -4278,7 +5298,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4295,8 +5316,17 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes a Tag.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource ARN for the tag.
+  * `:tag_keys` (`t:list[com.amazonaws.apigatewayv2#__string]`) The Tag keys to
+    delete
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -4310,7 +5340,8 @@ defmodule AWS.ApiGatewayV2 do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4327,8 +5358,15 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Updates an Api resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateApi&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+
+  ## Optional parameters:
   """
-  @spec update_api(map(), String.t(), update_api_request(), list()) ::
+  @spec update_api(AWS.Client.t(), String.t(), update_api_request(), Keyword.t()) ::
           {:ok, update_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_api_errors()}
@@ -4337,7 +5375,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4354,8 +5393,22 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   The API mapping.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateApiMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_mapping_id` (`t:string`) The API mapping identifier.
+  * `:domain_name` (`t:string`) The domain name.
+
+  ## Optional parameters:
   """
-  @spec update_api_mapping(map(), String.t(), String.t(), update_api_mapping_request(), list()) ::
+  @spec update_api_mapping(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_api_mapping_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_api_mapping_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_api_mapping_errors()}
@@ -4366,7 +5419,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4383,8 +5437,22 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Updates an Authorizer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateAuthorizer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:authorizer_id` (`t:string`) The authorizer identifier.
+
+  ## Optional parameters:
   """
-  @spec update_authorizer(map(), String.t(), String.t(), update_authorizer_request(), list()) ::
+  @spec update_authorizer(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_authorizer_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_authorizer_errors()}
@@ -4395,7 +5463,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4412,8 +5481,22 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Updates a Deployment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:deployment_id` (`t:string`) The deployment ID.
+
+  ## Optional parameters:
   """
-  @spec update_deployment(map(), String.t(), String.t(), update_deployment_request(), list()) ::
+  @spec update_deployment(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_deployment_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_deployment_errors()}
@@ -4424,7 +5507,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4441,8 +5525,15 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Updates a domain name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateDomainName&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The domain name.
+
+  ## Optional parameters:
   """
-  @spec update_domain_name(map(), String.t(), update_domain_name_request(), list()) ::
+  @spec update_domain_name(AWS.Client.t(), String.t(), update_domain_name_request(), Keyword.t()) ::
           {:ok, update_domain_name_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_domain_name_errors()}
@@ -4451,7 +5542,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4468,8 +5560,22 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Updates an Integration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateIntegration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:integration_id` (`t:string`) The integration ID.
+
+  ## Optional parameters:
   """
-  @spec update_integration(map(), String.t(), String.t(), update_integration_request(), list()) ::
+  @spec update_integration(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_integration_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_integration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_integration_errors()}
@@ -4480,7 +5586,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4497,14 +5604,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Updates an IntegrationResponses.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateIntegrationResponse&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:integration_id` (`t:string`) The integration ID.
+  * `:integration_response_id` (`t:string`) The integration response ID.
+
+  ## Optional parameters:
   """
   @spec update_integration_response(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           update_integration_response_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_integration_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4523,7 +5639,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4540,8 +5657,16 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Updates a Model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:model_id` (`t:string`) The model ID.
+
+  ## Optional parameters:
   """
-  @spec update_model(map(), String.t(), String.t(), update_model_request(), list()) ::
+  @spec update_model(AWS.Client.t(), String.t(), String.t(), update_model_request(), Keyword.t()) ::
           {:ok, update_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_model_errors()}
@@ -4550,7 +5675,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4567,8 +5693,16 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Updates a Route.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateRoute&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:route_id` (`t:string`) The route ID.
+
+  ## Optional parameters:
   """
-  @spec update_route(map(), String.t(), String.t(), update_route_request(), list()) ::
+  @spec update_route(AWS.Client.t(), String.t(), String.t(), update_route_request(), Keyword.t()) ::
           {:ok, update_route_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_route_errors()}
@@ -4577,7 +5711,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4594,14 +5729,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Updates a RouteResponse.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateRouteResponse&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:route_id` (`t:string`) The route ID.
+  * `:route_response_id` (`t:string`) The route response ID.
+
+  ## Optional parameters:
   """
   @spec update_route_response(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           update_route_response_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_route_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4620,7 +5764,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4637,8 +5782,18 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Updates a Stage.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateStage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:api_id` (`t:string`) The API identifier.
+  * `:stage_name` (`t:string`) The stage name. Stage names can contain only
+    alphanumeric characters, hyphens, and underscores, or be $default. Maximum
+    length is 128 characters.
+
+  ## Optional parameters:
   """
-  @spec update_stage(map(), String.t(), String.t(), update_stage_request(), list()) ::
+  @spec update_stage(AWS.Client.t(), String.t(), String.t(), update_stage_request(), Keyword.t()) ::
           {:ok, update_stage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_stage_errors()}
@@ -4647,7 +5802,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4664,8 +5820,15 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Updates a VPC link.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateVpcLink&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:vpc_link_id` (`t:string`) The ID of the VPC link.
+
+  ## Optional parameters:
   """
-  @spec update_vpc_link(map(), String.t(), update_vpc_link_request(), list()) ::
+  @spec update_vpc_link(AWS.Client.t(), String.t(), update_vpc_link_request(), Keyword.t()) ::
           {:ok, update_vpc_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_vpc_link_errors()}
@@ -4674,7 +5837,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

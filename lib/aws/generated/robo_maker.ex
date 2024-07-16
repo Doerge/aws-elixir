@@ -2756,8 +2756,14 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Deletes one or more worlds in a batch operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20BatchDeleteWorlds&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_delete_worlds(map(), batch_delete_worlds_request(), list()) ::
+  @spec batch_delete_worlds(AWS.Client.t(), batch_delete_worlds_request(), Keyword.t()) ::
           {:ok, batch_delete_worlds_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_worlds_errors()}
@@ -2766,7 +2772,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2783,8 +2790,18 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Describes one or more simulation jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20BatchDescribeSimulationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_describe_simulation_job(map(), batch_describe_simulation_job_request(), list()) ::
+  @spec batch_describe_simulation_job(
+          AWS.Client.t(),
+          batch_describe_simulation_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_describe_simulation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_describe_simulation_job_errors()}
@@ -2793,7 +2810,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2811,10 +2829,13 @@ defmodule AWS.RoboMaker do
   @doc """
   Cancels the specified deployment job.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CancelDeploymentJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec cancel_deployment_job(map(), cancel_deployment_job_request(), list()) ::
+  @spec cancel_deployment_job(AWS.Client.t(), cancel_deployment_job_request(), Keyword.t()) ::
           {:ok, cancel_deployment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_deployment_job_errors()}
@@ -2823,7 +2844,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2840,8 +2862,14 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Cancels the specified simulation job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CancelSimulationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec cancel_simulation_job(map(), cancel_simulation_job_request(), list()) ::
+  @spec cancel_simulation_job(AWS.Client.t(), cancel_simulation_job_request(), Keyword.t()) ::
           {:ok, cancel_simulation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_simulation_job_errors()}
@@ -2850,7 +2878,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2866,12 +2895,21 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Cancels a simulation job batch.
+  Cancels a simulation job batch. When you cancel a simulation job batch, you are
+  also cancelling all of the active simulation jobs created as part of the
+  batch.
 
-  When you cancel a simulation job batch, you are also
-  cancelling all of the active simulation jobs created as part of the batch.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CancelSimulationJobBatch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec cancel_simulation_job_batch(map(), cancel_simulation_job_batch_request(), list()) ::
+  @spec cancel_simulation_job_batch(
+          AWS.Client.t(),
+          cancel_simulation_job_batch_request(),
+          Keyword.t()
+        ) ::
           {:ok, cancel_simulation_job_batch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_simulation_job_batch_errors()}
@@ -2880,7 +2918,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2897,8 +2936,14 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Cancels the specified export job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CancelWorldExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec cancel_world_export_job(map(), cancel_world_export_job_request(), list()) ::
+  @spec cancel_world_export_job(AWS.Client.t(), cancel_world_export_job_request(), Keyword.t()) ::
           {:ok, cancel_world_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_world_export_job_errors()}
@@ -2907,7 +2952,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2924,8 +2970,18 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Cancels the specified world generator job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CancelWorldGenerationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec cancel_world_generation_job(map(), cancel_world_generation_job_request(), list()) ::
+  @spec cancel_world_generation_job(
+          AWS.Client.t(),
+          cancel_world_generation_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, cancel_world_generation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_world_generation_job_errors()}
@@ -2934,7 +2990,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2950,19 +3007,16 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Deploys a specific version of a robot application to robots in a fleet.
+  Deploys a specific version of a robot application to robots in a fleet. This API
+  is no longer supported and will throw an error if used.
 
-  This API is no longer supported and will throw an error if used.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateDeploymentJob&this_doc_guide=API%2520Reference)
 
-  The robot application must have a numbered `applicationVersion` for
-  consistency reasons. To create a new version, use
-  `CreateRobotApplicationVersion` or see [Creating a Robot Application Version](https://docs.aws.amazon.com/robomaker/latest/dg/create-robot-application-version.html).
+  ## Parameters:
 
-  After 90 days, deployment jobs expire and will be deleted. They will no longer
-  be
-  accessible.
+  ## Optional parameters:
   """
-  @spec create_deployment_job(map(), create_deployment_job_request(), list()) ::
+  @spec create_deployment_job(AWS.Client.t(), create_deployment_job_request(), Keyword.t()) ::
           {:ok, create_deployment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deployment_job_errors()}
@@ -2971,7 +3025,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2989,9 +3044,13 @@ defmodule AWS.RoboMaker do
   @doc """
   Creates a fleet, a logical group of robots running the same robot application.
 
-  This API is no longer supported and will throw an error if used.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_fleet(map(), create_fleet_request(), list()) ::
+  @spec create_fleet(AWS.Client.t(), create_fleet_request(), Keyword.t()) ::
           {:ok, create_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_fleet_errors()}
@@ -3000,7 +3059,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3018,9 +3078,13 @@ defmodule AWS.RoboMaker do
   @doc """
   Creates a robot.
 
-  This API is no longer supported and will throw an error if used.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateRobot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_robot(map(), create_robot_request(), list()) ::
+  @spec create_robot(AWS.Client.t(), create_robot_request(), Keyword.t()) ::
           {:ok, create_robot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_robot_errors()}
@@ -3029,7 +3093,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3046,8 +3111,14 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Creates a robot application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateRobotApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_robot_application(map(), create_robot_application_request(), list()) ::
+  @spec create_robot_application(AWS.Client.t(), create_robot_application_request(), Keyword.t()) ::
           {:ok, create_robot_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_robot_application_errors()}
@@ -3056,7 +3127,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3073,11 +3145,17 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Creates a version of a robot application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateRobotApplicationVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_robot_application_version(
-          map(),
+          AWS.Client.t(),
           create_robot_application_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_robot_application_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3087,7 +3165,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3104,8 +3183,18 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Creates a simulation application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateSimulationApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_simulation_application(map(), create_simulation_application_request(), list()) ::
+  @spec create_simulation_application(
+          AWS.Client.t(),
+          create_simulation_application_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_simulation_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_simulation_application_errors()}
@@ -3114,7 +3203,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3131,11 +3221,17 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Creates a simulation application with a specific revision id.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateSimulationApplicationVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_simulation_application_version(
-          map(),
+          AWS.Client.t(),
           create_simulation_application_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_simulation_application_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3145,7 +3241,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3163,11 +3260,13 @@ defmodule AWS.RoboMaker do
   @doc """
   Creates a simulation job.
 
-  After 90 days, simulation jobs expire and will be deleted. They will no longer
-  be
-  accessible.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateSimulationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_simulation_job(map(), create_simulation_job_request(), list()) ::
+  @spec create_simulation_job(AWS.Client.t(), create_simulation_job_request(), Keyword.t()) ::
           {:ok, create_simulation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_simulation_job_errors()}
@@ -3176,7 +3275,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3193,8 +3293,14 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Creates a world export job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateWorldExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_world_export_job(map(), create_world_export_job_request(), list()) ::
+  @spec create_world_export_job(AWS.Client.t(), create_world_export_job_request(), Keyword.t()) ::
           {:ok, create_world_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_world_export_job_errors()}
@@ -3203,7 +3309,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3220,8 +3327,18 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Creates worlds using the specified template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateWorldGenerationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_world_generation_job(map(), create_world_generation_job_request(), list()) ::
+  @spec create_world_generation_job(
+          AWS.Client.t(),
+          create_world_generation_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_world_generation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_world_generation_job_errors()}
@@ -3230,7 +3347,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3247,8 +3365,14 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Creates a world template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateWorldTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_world_template(map(), create_world_template_request(), list()) ::
+  @spec create_world_template(AWS.Client.t(), create_world_template_request(), Keyword.t()) ::
           {:ok, create_world_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_world_template_errors()}
@@ -3257,7 +3381,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3275,10 +3400,13 @@ defmodule AWS.RoboMaker do
   @doc """
   Deletes a fleet.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeleteFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_fleet(map(), delete_fleet_request(), list()) ::
+  @spec delete_fleet(AWS.Client.t(), delete_fleet_request(), Keyword.t()) ::
           {:ok, delete_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fleet_errors()}
@@ -3287,7 +3415,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3305,10 +3434,13 @@ defmodule AWS.RoboMaker do
   @doc """
   Deletes a robot.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeleteRobot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_robot(map(), delete_robot_request(), list()) ::
+  @spec delete_robot(AWS.Client.t(), delete_robot_request(), Keyword.t()) ::
           {:ok, delete_robot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_robot_errors()}
@@ -3317,7 +3449,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3334,8 +3467,14 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Deletes a robot application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeleteRobotApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_robot_application(map(), delete_robot_application_request(), list()) ::
+  @spec delete_robot_application(AWS.Client.t(), delete_robot_application_request(), Keyword.t()) ::
           {:ok, delete_robot_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_robot_application_errors()}
@@ -3344,7 +3483,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3361,8 +3501,18 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Deletes a simulation application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeleteSimulationApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_simulation_application(map(), delete_simulation_application_request(), list()) ::
+  @spec delete_simulation_application(
+          AWS.Client.t(),
+          delete_simulation_application_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_simulation_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_simulation_application_errors()}
@@ -3371,7 +3521,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3388,8 +3539,14 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Deletes a world template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeleteWorldTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_world_template(map(), delete_world_template_request(), list()) ::
+  @spec delete_world_template(AWS.Client.t(), delete_world_template_request(), Keyword.t()) ::
           {:ok, delete_world_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_world_template_errors()}
@@ -3398,7 +3555,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3416,10 +3574,13 @@ defmodule AWS.RoboMaker do
   @doc """
   Deregisters a robot.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeregisterRobot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec deregister_robot(map(), deregister_robot_request(), list()) ::
+  @spec deregister_robot(AWS.Client.t(), deregister_robot_request(), Keyword.t()) ::
           {:ok, deregister_robot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_robot_errors()}
@@ -3428,7 +3589,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3446,10 +3608,13 @@ defmodule AWS.RoboMaker do
   @doc """
   Describes a deployment job.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeDeploymentJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_deployment_job(map(), describe_deployment_job_request(), list()) ::
+  @spec describe_deployment_job(AWS.Client.t(), describe_deployment_job_request(), Keyword.t()) ::
           {:ok, describe_deployment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_deployment_job_errors()}
@@ -3458,7 +3623,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3476,10 +3642,13 @@ defmodule AWS.RoboMaker do
   @doc """
   Describes a fleet.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_fleet(map(), describe_fleet_request(), list()) ::
+  @spec describe_fleet(AWS.Client.t(), describe_fleet_request(), Keyword.t()) ::
           {:ok, describe_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleet_errors()}
@@ -3488,7 +3657,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3506,10 +3676,13 @@ defmodule AWS.RoboMaker do
   @doc """
   Describes a robot.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeRobot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_robot(map(), describe_robot_request(), list()) ::
+  @spec describe_robot(AWS.Client.t(), describe_robot_request(), Keyword.t()) ::
           {:ok, describe_robot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_robot_errors()}
@@ -3518,7 +3691,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3535,8 +3709,18 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Describes a robot application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeRobotApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_robot_application(map(), describe_robot_application_request(), list()) ::
+  @spec describe_robot_application(
+          AWS.Client.t(),
+          describe_robot_application_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_robot_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_robot_application_errors()}
@@ -3545,7 +3729,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3562,8 +3747,18 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Describes a simulation application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeSimulationApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_simulation_application(map(), describe_simulation_application_request(), list()) ::
+  @spec describe_simulation_application(
+          AWS.Client.t(),
+          describe_simulation_application_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_simulation_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_simulation_application_errors()}
@@ -3572,7 +3767,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3589,8 +3785,14 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Describes a simulation job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeSimulationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_simulation_job(map(), describe_simulation_job_request(), list()) ::
+  @spec describe_simulation_job(AWS.Client.t(), describe_simulation_job_request(), Keyword.t()) ::
           {:ok, describe_simulation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_simulation_job_errors()}
@@ -3599,7 +3801,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3616,8 +3819,18 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Describes a simulation job batch.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeSimulationJobBatch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_simulation_job_batch(map(), describe_simulation_job_batch_request(), list()) ::
+  @spec describe_simulation_job_batch(
+          AWS.Client.t(),
+          describe_simulation_job_batch_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_simulation_job_batch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_simulation_job_batch_errors()}
@@ -3626,7 +3839,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3643,8 +3857,14 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Describes a world.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeWorld&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_world(map(), describe_world_request(), list()) ::
+  @spec describe_world(AWS.Client.t(), describe_world_request(), Keyword.t()) ::
           {:ok, describe_world_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_world_errors()}
@@ -3653,7 +3873,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3670,8 +3891,18 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Describes a world export job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeWorldExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_world_export_job(map(), describe_world_export_job_request(), list()) ::
+  @spec describe_world_export_job(
+          AWS.Client.t(),
+          describe_world_export_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_world_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_world_export_job_errors()}
@@ -3680,7 +3911,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3697,8 +3929,18 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Describes a world generation job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeWorldGenerationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_world_generation_job(map(), describe_world_generation_job_request(), list()) ::
+  @spec describe_world_generation_job(
+          AWS.Client.t(),
+          describe_world_generation_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_world_generation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_world_generation_job_errors()}
@@ -3707,7 +3949,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3724,8 +3967,14 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Describes a world template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeWorldTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_world_template(map(), describe_world_template_request(), list()) ::
+  @spec describe_world_template(AWS.Client.t(), describe_world_template_request(), Keyword.t()) ::
           {:ok, describe_world_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_world_template_errors()}
@@ -3734,7 +3983,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3751,8 +4001,14 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Gets the world template body.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20GetWorldTemplateBody&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_world_template_body(map(), get_world_template_body_request(), list()) ::
+  @spec get_world_template_body(AWS.Client.t(), get_world_template_body_request(), Keyword.t()) ::
           {:ok, get_world_template_body_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_world_template_body_errors()}
@@ -3761,7 +4017,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3777,14 +4034,16 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of deployment jobs for a fleet.
+  Returns a list of deployment jobs for a fleet. You can optionally provide
+  filters to retrieve specific deployment jobs.
 
-  You can optionally provide filters to retrieve specific deployment jobs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListDeploymentJobs&this_doc_guide=API%2520Reference)
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_deployment_jobs(map(), list_deployment_jobs_request(), list()) ::
+  @spec list_deployment_jobs(AWS.Client.t(), list_deployment_jobs_request(), Keyword.t()) ::
           {:ok, list_deployment_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployment_jobs_errors()}
@@ -3793,7 +4052,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3809,14 +4069,16 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of fleets.
+  Returns a list of fleets. You can optionally provide filters to retrieve
+  specific fleets.
 
-  You can optionally provide filters to retrieve specific fleets.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListFleets&this_doc_guide=API%2520Reference)
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_fleets(map(), list_fleets_request(), list()) ::
+  @spec list_fleets(AWS.Client.t(), list_fleets_request(), Keyword.t()) ::
           {:ok, list_fleets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fleets_errors()}
@@ -3825,7 +4087,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3841,12 +4104,16 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of robot application.
+  Returns a list of robot application. You can optionally provide filters to
+  retrieve specific robot applications.
 
-  You can optionally provide filters to retrieve
-  specific robot applications.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListRobotApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_robot_applications(map(), list_robot_applications_request(), list()) ::
+  @spec list_robot_applications(AWS.Client.t(), list_robot_applications_request(), Keyword.t()) ::
           {:ok, list_robot_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_robot_applications_errors()}
@@ -3855,7 +4122,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3871,14 +4139,16 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of robots.
+  Returns a list of robots. You can optionally provide filters to retrieve
+  specific robots.
 
-  You can optionally provide filters to retrieve specific robots.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListRobots&this_doc_guide=API%2520Reference)
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_robots(map(), list_robots_request(), list()) ::
+  @spec list_robots(AWS.Client.t(), list_robots_request(), Keyword.t()) ::
           {:ok, list_robots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_robots_errors()}
@@ -3887,7 +4157,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3903,12 +4174,20 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of simulation applications.
-
-  You can optionally provide filters to
+  Returns a list of simulation applications. You can optionally provide filters to
   retrieve specific simulation applications.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListSimulationApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_simulation_applications(map(), list_simulation_applications_request(), list()) ::
+  @spec list_simulation_applications(
+          AWS.Client.t(),
+          list_simulation_applications_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_simulation_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_simulation_applications_errors()}
@@ -3917,7 +4196,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3933,12 +4213,20 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list simulation job batches.
+  Returns a list simulation job batches. You can optionally provide filters to
+  retrieve specific simulation batch jobs.
 
-  You can optionally provide filters to retrieve
-  specific simulation batch jobs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListSimulationJobBatches&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_simulation_job_batches(map(), list_simulation_job_batches_request(), list()) ::
+  @spec list_simulation_job_batches(
+          AWS.Client.t(),
+          list_simulation_job_batches_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_simulation_job_batches_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_simulation_job_batches_errors()}
@@ -3947,7 +4235,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3963,12 +4252,16 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of simulation jobs.
+  Returns a list of simulation jobs. You can optionally provide filters to
+  retrieve specific simulation jobs.
 
-  You can optionally provide filters to retrieve
-  specific simulation jobs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListSimulationJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_simulation_jobs(map(), list_simulation_jobs_request(), list()) ::
+  @spec list_simulation_jobs(AWS.Client.t(), list_simulation_jobs_request(), Keyword.t()) ::
           {:ok, list_simulation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_simulation_jobs_errors()}
@@ -3977,7 +4270,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3994,25 +4288,57 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Lists all tags on a AWS RoboMaker resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The AWS RoboMaker Amazon Resource Name (ARN) with
+    tags to be listed.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists world export jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListWorldExportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_world_export_jobs(map(), list_world_export_jobs_request(), list()) ::
+  @spec list_world_export_jobs(AWS.Client.t(), list_world_export_jobs_request(), Keyword.t()) ::
           {:ok, list_world_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_world_export_jobs_errors()}
@@ -4021,7 +4347,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4038,8 +4365,18 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Lists world generator jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListWorldGenerationJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_world_generation_jobs(map(), list_world_generation_jobs_request(), list()) ::
+  @spec list_world_generation_jobs(
+          AWS.Client.t(),
+          list_world_generation_jobs_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_world_generation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_world_generation_jobs_errors()}
@@ -4048,7 +4385,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4065,8 +4403,14 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Lists world templates.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListWorldTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_world_templates(map(), list_world_templates_request(), list()) ::
+  @spec list_world_templates(AWS.Client.t(), list_world_templates_request(), Keyword.t()) ::
           {:ok, list_world_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_world_templates_errors()}
@@ -4075,7 +4419,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4092,8 +4437,14 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Lists worlds.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListWorlds&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_worlds(map(), list_worlds_request(), list()) ::
+  @spec list_worlds(AWS.Client.t(), list_worlds_request(), Keyword.t()) ::
           {:ok, list_worlds_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_worlds_errors()}
@@ -4102,7 +4453,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4120,9 +4472,13 @@ defmodule AWS.RoboMaker do
   @doc """
   Registers a robot with a fleet.
 
-  This API is no longer supported and will throw an error if used.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20RegisterRobot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec register_robot(map(), register_robot_request(), list()) ::
+  @spec register_robot(AWS.Client.t(), register_robot_request(), Keyword.t()) ::
           {:ok, register_robot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_robot_errors()}
@@ -4131,7 +4487,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4148,8 +4505,14 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Restarts a running simulation job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20RestartSimulationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec restart_simulation_job(map(), restart_simulation_job_request(), list()) ::
+  @spec restart_simulation_job(AWS.Client.t(), restart_simulation_job_request(), Keyword.t()) ::
           {:ok, restart_simulation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restart_simulation_job_errors()}
@@ -4158,7 +4521,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4174,12 +4538,20 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Starts a new simulation job batch.
-
-  The batch is defined using one or more
+  Starts a new simulation job batch. The batch is defined using one or more
   `SimulationJobRequest` objects.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20StartSimulationJobBatch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_simulation_job_batch(map(), start_simulation_job_batch_request(), list()) ::
+  @spec start_simulation_job_batch(
+          AWS.Client.t(),
+          start_simulation_job_batch_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_simulation_job_batch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_simulation_job_batch_errors()}
@@ -4188,7 +4560,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4204,14 +4577,16 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Syncrhonizes robots in a fleet to the latest deployment.
+  Syncrhonizes robots in a fleet to the latest deployment. This is helpful if
+  robots were added after a deployment.
 
-  This is helpful if robots were added after a deployment.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20SyncDeploymentJob&this_doc_guide=API%2520Reference)
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec sync_deployment_job(map(), sync_deployment_job_request(), list()) ::
+  @spec sync_deployment_job(AWS.Client.t(), sync_deployment_job_request(), Keyword.t()) ::
           {:ok, sync_deployment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, sync_deployment_job_errors()}
@@ -4220,7 +4595,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4236,17 +4612,19 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Adds or edits tags for a AWS RoboMaker resource.
+  Adds or edits tags for a AWS RoboMaker resource. Each tag consists of a tag key
+  and a tag value. Tag keys and tag values are both required, but tag values can
+  be empty strings.
 
-  Each tag consists of a tag key and a tag value. Tag keys and tag values are both
-  required, but tag values can be empty strings.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20TagResource&this_doc_guide=API%2520Reference)
 
-  For information about the rules that apply to tag keys and tag values, see
-  [User-Defined Tag Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html)
-  in the *AWS Billing and Cost Management
-  User Guide*.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the AWS
+    RoboMaker resource you are tagging.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -4255,7 +4633,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4273,13 +4652,17 @@ defmodule AWS.RoboMaker do
   @doc """
   Removes the specified tags from the specified AWS RoboMaker resource.
 
-  To remove a tag, specify the tag key. To change the tag value of an existing tag
-  key,
-  use [
-  `TagResource`
-  ](https://docs.aws.amazon.com/robomaker/latest/dg/API_TagResource.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the AWS
+    RoboMaker resource you are removing tags.
+  * `:tag_keys` (`t:list[com.amazonaws.robomaker#TagKey]`) A map that contains tag
+    keys and tag values that will be unattached from the resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -4293,7 +4676,8 @@ defmodule AWS.RoboMaker do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4310,8 +4694,14 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Updates a robot application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20UpdateRobotApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_robot_application(map(), update_robot_application_request(), list()) ::
+  @spec update_robot_application(AWS.Client.t(), update_robot_application_request(), Keyword.t()) ::
           {:ok, update_robot_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_robot_application_errors()}
@@ -4320,7 +4710,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4337,8 +4728,18 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Updates a simulation application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20UpdateSimulationApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_simulation_application(map(), update_simulation_application_request(), list()) ::
+  @spec update_simulation_application(
+          AWS.Client.t(),
+          update_simulation_application_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_simulation_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_simulation_application_errors()}
@@ -4347,7 +4748,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4364,8 +4766,14 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Updates a world template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20UpdateWorldTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_world_template(map(), update_world_template_request(), list()) ::
+  @spec update_world_template(AWS.Client.t(), update_world_template_request(), Keyword.t()) ::
           {:ok, update_world_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_world_template_errors()}
@@ -4374,7 +4782,8 @@ defmodule AWS.RoboMaker do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

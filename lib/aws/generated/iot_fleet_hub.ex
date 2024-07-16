@@ -338,16 +338,13 @@ defmodule AWS.IoTFleetHub do
   @doc """
   Creates a Fleet Hub for IoT Device Management web application.
 
-  When creating a Fleet Hub application, you must create an organization instance
-  of
-  IAM Identity Center if you don't already have one. The Fleet Hub application you
-  create must also be in
-  the same Amazon Web Services Region of the organization instance of IAM Identity
-  Center. For more information see [Enabling IAM Identity
-  Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/get-set-up-for-idc.html)
-  and [Organization instances of IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/organization-instances-identity-center.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20CreateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_application(map(), create_application_request(), list()) ::
+  @spec create_application(AWS.Client.t(), create_application_request(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
@@ -356,7 +353,8 @@ defmodule AWS.IoTFleetHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -373,8 +371,18 @@ defmodule AWS.IoTFleetHub do
 
   @doc """
   Deletes a Fleet Hub for IoT Device Management web application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20DeleteApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique Id of the web application.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
-  @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
+  @spec delete_application(AWS.Client.t(), String.t(), delete_application_request(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
@@ -388,7 +396,13 @@ defmodule AWS.IoTFleetHub do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -405,17 +419,42 @@ defmodule AWS.IoTFleetHub do
 
   @doc """
   Gets information about a Fleet Hub for IoT Device Management web application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20DescribeApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique Id of the web application.
+
+  ## Optional parameters:
   """
-  @spec describe_application(map(), String.t(), list()) ::
+  @spec describe_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_application_errors()}
   def describe_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -423,51 +462,111 @@ defmodule AWS.IoTFleetHub do
   @doc """
   Gets a list of Fleet Hub for IoT Device Management web applications for the
   current account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20ListApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) A token used to get the next set of results.
   """
-  @spec list_applications(map(), String.t() | nil, list()) ::
+  @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
-  def list_applications(%Client{} = client, next_token \\ nil, options \\ []) do
+  def list_applications(%Client{} = client, options \\ []) do
     url_path = "/applications"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the tags for the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Adds to or modifies the tags of the specified resource.
+  Adds to or modifies the tags of the specified resource. Tags are metadata which
+  can be used to manage a resource.
 
-  Tags are metadata which can be used to manage a resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -476,7 +575,8 @@ defmodule AWS.IoTFleetHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -493,8 +593,17 @@ defmodule AWS.IoTFleetHub do
 
   @doc """
   Removes the specified tags (metadata) from the resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.iotfleethub#TagKey]`) A list of the keys of
+    the tags to be removed from the resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -508,7 +617,8 @@ defmodule AWS.IoTFleetHub do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -525,8 +635,15 @@ defmodule AWS.IoTFleetHub do
 
   @doc """
   Updates information about a Fleet Hub for IoT Device Management web application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20UpdateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique Id of the web application.
+
+  ## Optional parameters:
   """
-  @spec update_application(map(), String.t(), update_application_request(), list()) ::
+  @spec update_application(AWS.Client.t(), String.t(), update_application_request(), Keyword.t()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
@@ -535,7 +652,8 @@ defmodule AWS.IoTFleetHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

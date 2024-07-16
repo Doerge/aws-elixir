@@ -3,96 +3,7 @@
 
 defmodule AWS.Lambda do
   @moduledoc """
-  Lambda
-
-  ## Overview
-
-  Lambda is a compute service that lets you run code without provisioning or
-  managing servers.
-
-  Lambda runs your code on a high-availability compute infrastructure and performs
-  all of the
-  administration of the compute resources, including server and operating system
-  maintenance, capacity provisioning
-  and automatic scaling, code monitoring and logging. With Lambda, you can run
-  code for virtually any
-  type of application or backend service. For more information about the Lambda
-  service, see [What is Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) in the
-  **Lambda Developer Guide**.
-
-  The *Lambda API Reference* provides information about
-  each of the API methods, including details about the parameters in each API
-  request and
-  response.
-
-  You can use Software Development Kits (SDKs), Integrated Development Environment
-  (IDE) Toolkits, and command
-  line tools to access the API. For installation instructions, see [Tools for Amazon Web Services](http://aws.amazon.com/tools/).
-
-  For a list of Region-specific endpoints that Lambda supports,
-  see [Lambda endpoints and quotas
-  ](https://docs.aws.amazon.com/general/latest/gr/lambda-service.html/) in the
-  *Amazon Web Services General Reference.*.
-
-  When making the API calls, you will need to
-  authenticate your request by providing a signature. Lambda supports signature
-  version 4. For more information,
-  see [Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html)
-  in the
-  *Amazon Web Services General Reference.*.
-
-  ## CA certificates
-
-  Because Amazon Web Services SDKs use the CA certificates from your computer,
-  changes to the certificates on the Amazon Web Services servers
-  can cause connection failures when you attempt to use an SDK. You can prevent
-  these failures by keeping your
-  computer's CA certificates and operating system up-to-date. If you encounter
-  this issue in a corporate
-  environment and do not manage your own computer, you might need to ask an
-  administrator to assist with the
-  update process. The following list shows minimum operating system and Java
-  versions:
-
-    *
-  Microsoft Windows versions that have updates from January 2005 or later
-  installed contain at least one
-  of the required CAs in their trust list.
-
-    *
-  Mac OS X 10.4 with Java for Mac OS X 10.4 Release 5 (February 2007), Mac OS X
-  10.5 (October 2007), and
-  later versions contain at least one of the required CAs in their trust list.
-
-    *
-  Red Hat Enterprise Linux 5 (March 2007), 6, and 7 and CentOS 5, 6, and 7 all
-  contain at least one of the
-  required CAs in their default trusted CA list.
-
-    *
-  Java 1.4.2_12 (May 2006), 5 Update 2 (March 2005), and all later versions,
-  including Java 6 (December
-  2006), 7, and 8, contain at least one of the required CAs in their default
-  trusted CA list.
-
-  When accessing the Lambda management console or Lambda API endpoints, whether
-  through browsers or
-  programmatically, you will need to ensure your client machines support any of
-  the following CAs:
-
-    *
-  Amazon Root CA 1
-
-    *
-  Starfield Services Root Certificate Authority - G2
-
-    *
-  Starfield Class 2 Certification Authority
-
-  Root certificates from the first two authorities are available from [Amazon trust services](https://www.amazontrust.com/repository/), but keeping your
-  computer
-  up-to-date is the more straightforward solution. To learn more about
-  ACM-provided certificates, see [Amazon Web Services Certificate Manager FAQs.](http://aws.amazon.com/certificate-manager/faqs/#certificates)
+  Lambda **Overview**
   """
 
   alias AWS.Client
@@ -3108,23 +3019,30 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Adds permissions to the resource-based policy of a version of an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
+  Adds permissions to the resource-based policy of a version of an [Lambda
+  layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
+  Use this action to grant layer usage permission to other accounts. You can
+  grant permission to a single account, all accounts in an organization, or all
+  Amazon Web Services accounts.
 
-  Use this action to grant layer
-  usage permission to other accounts. You can grant permission to a single
-  account, all accounts in an organization,
-  or all Amazon Web Services accounts.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20AddLayerVersionPermission&this_doc_guide=API%2520Reference)
 
-  To revoke permission, call `RemoveLayerVersionPermission` with the statement ID
-  that you
-  specified when you added it.
+  ## Parameters:
+  * `:layer_name` (`t:string`) The name or Amazon Resource Name (ARN) of the
+    layer.
+  * `:version_number` (`t:long`) The version number.
+
+  ## Optional parameters:
+  * `:revision_id` (`t:string`) Only update the policy if the revision ID matches
+    the ID specified. Use this option to avoid modifying a policy that has
+    changed since you last read it.
   """
   @spec add_layer_version_permission(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           add_layer_version_permission_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, add_layer_version_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3147,7 +3065,13 @@ defmodule AWS.Lambda do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:revision_id])
 
     Request.request_rest(
       client,
@@ -3164,35 +3088,32 @@ defmodule AWS.Lambda do
 
   @doc """
   Grants an Amazon Web Service, Amazon Web Services account, or Amazon Web
-  Services organization
-  permission to use a function.
+  Services organization permission to use a function. You can apply the policy
+  at the function level, or specify a qualifier to restrict access to a single
+  version or alias. If you use a qualifier, the invoker must use the full Amazon
+  Resource Name (ARN) of that version or alias to invoke the function. Note:
+  Lambda does not support adding policies to version $LATEST. To grant
+  permission to another account, specify the account ID as the `Principal`. To
+  grant permission to an organization defined in Organizations, specify the
+  organization ID as the `PrincipalOrgID`. For Amazon Web Services, the
+  principal is a domain-style identifier that the service defines, such as
+  `s3.amazonaws.com` or `sns.amazonaws.com`. For Amazon Web Services, you can
+  also specify the ARN of the associated resource as the `SourceArn`. If you
+  grant permission to a service principal without specifying the source, other
+  accounts could potentially configure resources in their account to invoke your
+  Lambda function.
 
-  You can apply the policy at the function level, or specify a qualifier to
-  restrict
-  access to a single version or alias. If you use a qualifier, the invoker must
-  use the full Amazon Resource Name
-  (ARN) of that version or alias to invoke the function. Note: Lambda does not
-  support adding policies
-  to version $LATEST.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20AddPermission&this_doc_guide=API%2520Reference)
 
-  To grant permission to another account, specify the account ID as the
-  `Principal`. To grant
-  permission to an organization defined in Organizations, specify the organization
-  ID as the
-  `PrincipalOrgID`. For Amazon Web Services, the principal is a domain-style
-  identifier that
-  the service defines, such as `s3.amazonaws.com` or `sns.amazonaws.com`. For
-  Amazon Web Services, you can also specify the ARN of the associated resource as
-  the `SourceArn`. If
-  you grant permission to a service principal without specifying the source, other
-  accounts could potentially
-  configure resources in their account to invoke your Lambda function.
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version,
+    or alias.
 
-  This operation adds a statement to a resource-based permissions policy for the
-  function. For more information
-  about function policies, see [Using resource-based policies for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html).
+  ## Optional parameters:
+  * `:qualifier` (`t:string`) Specify a version or alias to add permissions to a
+    published version of the function.
   """
-  @spec add_permission(map(), String.t(), add_permission_request(), list()) ::
+  @spec add_permission(AWS.Client.t(), String.t(), add_permission_request(), Keyword.t()) ::
           {:ok, add_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_permission_errors()}
@@ -3206,7 +3127,13 @@ defmodule AWS.Lambda do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:qualifier])
 
     Request.request_rest(
       client,
@@ -3224,20 +3151,17 @@ defmodule AWS.Lambda do
   @doc """
   Creates an
   [alias](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html)
-  for a
-  Lambda function version.
+  for a Lambda function version. Use aliases to provide clients with a function
+  identifier that you can update to invoke a different version.
 
-  Use aliases to provide clients with a function identifier that you can update to
-  invoke a
-  different version.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20CreateAlias&this_doc_guide=API%2520Reference)
 
-  You can also map an alias to split invocation requests between two versions. Use
-  the
-  `RoutingConfig` parameter to specify a second version and the percentage of
-  invocation requests that
-  it receives.
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+
+  ## Optional parameters:
   """
-  @spec create_alias(map(), String.t(), create_alias_request(), list()) ::
+  @spec create_alias(AWS.Client.t(), String.t(), create_alias_request(), Keyword.t()) ::
           {:ok, alias_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_alias_errors()}
@@ -3246,7 +3170,8 @@ defmodule AWS.Lambda do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3262,15 +3187,22 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Creates a code signing configuration.
+  Creates a code signing configuration. A [code signing
+  configuration](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
+  defines a list of allowed signing profiles and defines the code-signing
+  validation policy (action to be taken if deployment validation checks fail).
 
-  A [code signing configuration](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
-  defines a list of
-  allowed signing profiles and defines the code-signing validation policy (action
-  to be taken if deployment
-  validation checks fail).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20CreateCodeSigningConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_code_signing_config(map(), create_code_signing_config_request(), list()) ::
+  @spec create_code_signing_config(
+          AWS.Client.t(),
+          create_code_signing_config_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_code_signing_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_code_signing_config_errors()}
@@ -3279,7 +3211,8 @@ defmodule AWS.Lambda do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3295,128 +3228,21 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Creates a mapping between an event source and an Lambda function.
+  Creates a mapping between an event source and an Lambda function. Lambda reads
+  items from the event source and invokes the function. For details about how to
+  configure different event sources, see the following topics.
 
-  Lambda reads items from the event source and invokes the function.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20CreateEventSourceMapping&this_doc_guide=API%2520Reference)
 
-  For details about how to configure different event sources, see the following
-  topics.
+  ## Parameters:
 
-    *
-
-  [
-  Amazon DynamoDB
-  Streams](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping)
-
-    *
-
-  [
-  Amazon
-  Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping)
-
-    *
-
-  [
-  Amazon
-  SQS](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource)
-
-    *
-
-  [
-  Amazon MQ and
-  RabbitMQ](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping)
-
-    *
-
-  [
-  Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
-
-    *
-
-  [
-  Apache Kafka](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
-
-    *
-
-  [
-  Amazon
-  DocumentDB](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
-
-  The following error handling options are available only for stream sources
-  (DynamoDB and Kinesis):
-
-    *
-
-  `BisectBatchOnFunctionError` – If the function returns an error, split the batch
-  in two and retry.
-
-    *
-
-  `DestinationConfig` – Send discarded records to an Amazon SQS queue or Amazon
-  SNS topic.
-
-    *
-
-  `MaximumRecordAgeInSeconds` – Discard records older than the specified age. The
-  default value is infinite (-1). When set to infinite (-1), failed records are
-  retried until the record expires
-
-    *
-
-  `MaximumRetryAttempts` – Discard records after the specified number of retries.
-  The default value is infinite (-1). When set to infinite (-1), failed records
-  are retried until the record expires.
-
-    *
-
-  `ParallelizationFactor` – Process multiple batches from each shard concurrently.
-
-  For information about which configuration parameters apply to each event source,
-  see the following topics.
-
-    *
-
-  [
-  Amazon DynamoDB
-  Streams](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params)
-
-    *
-
-  [
-  Amazon
-  Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params)
-
-    *
-
-  [
-  Amazon
-  SQS](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params)
-
-    *
-
-  [
-  Amazon MQ and
-  RabbitMQ](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params)
-
-    *
-
-  [
-  Amazon
-  MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms)
-
-    *
-
-  [
-  Apache
-  Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms)
-
-    *
-
-  [
-  Amazon
-  DocumentDB](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html#docdb-configuration)
+  ## Optional parameters:
   """
-  @spec create_event_source_mapping(map(), create_event_source_mapping_request(), list()) ::
+  @spec create_event_source_mapping(
+          AWS.Client.t(),
+          create_event_source_mapping_request(),
+          Keyword.t()
+        ) ::
           {:ok, event_source_mapping_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_event_source_mapping_errors()}
@@ -3425,7 +3251,8 @@ defmodule AWS.Lambda do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3441,84 +3268,41 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Creates a Lambda function.
-
-  To create a function, you need a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html)
-  and an [execution role](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role).
-  The
-  deployment package is a .zip file archive or container image that contains your
-  function code. The execution role
-  grants the function permission to use Amazon Web Services, such as Amazon
-  CloudWatch Logs for log
-  streaming and X-Ray for request tracing.
-
-  If the deployment package is a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html), then
+  Creates a Lambda function. To create a function, you need a [deployment
+  package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html)
+  and an [execution
+  role](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role).
+  The deployment package is a .zip file archive or container image that contains
+  your function code. The execution role grants the function permission to use
+  Amazon Web Services, such as Amazon CloudWatch Logs for log streaming and
+  X-Ray for request tracing. If the deployment package is a [container
+  image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html), then
   you set the package type to `Image`. For a container image, the code property
-  must include the URI of a container image in the Amazon ECR registry. You do not
-  need to specify the
-  handler and runtime properties.
+  must include the URI of a container image in the Amazon ECR registry. You do
+  not need to specify the handler and runtime properties. If the deployment
+  package is a [.zip file
+  archive](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip),
+  then you set the package type to `Zip`. For a .zip file archive, the code
+  property specifies the location of the .zip file. You must also specify the
+  handler and runtime properties. The code in the deployment package must be
+  compatible with the target instruction set architecture of the function
+  (`x86-64` or `arm64`). If you do not specify the architecture, then the
+  default value is `x86-64`. When you create a function, Lambda provisions an
+  instance of the function and its supporting resources. If your function
+  connects to a VPC, this process can take a minute or so. During this time, you
+  can't invoke or modify the function. The `State`, `StateReason`, and
+  `StateReasonCode` fields in the response from `GetFunctionConfiguration`
+  indicate when the function is ready to invoke. For more information, see
+  [Lambda function
+  states](https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html).
 
-  If the deployment package is a [.zip file archive](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip),
-  then
-  you set the package type to `Zip`. For a .zip file archive, the code property
-  specifies the location of
-  the .zip file. You must also specify the handler and runtime properties. The
-  code in the deployment package must
-  be compatible with the target instruction set architecture of the function
-  (`x86-64` or
-  `arm64`). If you do not specify the architecture, then the default value is
-  `x86-64`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20CreateFunction&this_doc_guide=API%2520Reference)
 
-  When you create a function, Lambda provisions an instance of the function and
-  its supporting
-  resources. If your function connects to a VPC, this process can take a minute or
-  so. During this time, you can't
-  invoke or modify the function. The `State`, `StateReason`, and `StateReasonCode`
-  fields in the response from `GetFunctionConfiguration` indicate when the
-  function is ready to
-  invoke. For more information, see [Lambda function states](https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html).
+  ## Parameters:
 
-  A function has an unpublished version, and can have published versions and
-  aliases. The unpublished version
-  changes when you update your function's code and configuration. A published
-  version is a snapshot of your function
-  code and configuration that can't be changed. An alias is a named resource that
-  maps to a version, and can be
-  changed to map to a different version. Use the `Publish` parameter to create
-  version `1` of
-  your function from its initial configuration.
-
-  The other parameters let you configure version-specific and function-level
-  settings. You can modify
-  version-specific settings later with `UpdateFunctionConfiguration`.
-  Function-level settings apply
-  to both the unpublished and published versions of the function, and include tags
-  (`TagResource`)
-  and per-function concurrency limits (`PutFunctionConcurrency`).
-
-  You can use code signing if your deployment package is a .zip file archive. To
-  enable code signing for this
-  function, specify the ARN of a code-signing configuration. When a user attempts
-  to deploy a code package with
-  `UpdateFunctionCode`, Lambda checks that the code package has a valid signature
-  from
-  a trusted publisher. The code-signing configuration includes set of signing
-  profiles, which define the trusted
-  publishers for this function.
-
-  If another Amazon Web Services account or an Amazon Web Service invokes your
-  function, use `AddPermission` to grant permission by creating a resource-based
-  Identity and Access Management (IAM) policy. You can grant permissions at the
-  function level, on a version, or on an alias.
-
-  To invoke your function directly, use `Invoke`. To invoke your function in
-  response to events
-  in other Amazon Web Services, create an event source mapping
-  (`CreateEventSourceMapping`),
-  or configure a function trigger in the other service. For more information, see
-  [Invoking Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html).
+  ## Optional parameters:
   """
-  @spec create_function(map(), create_function_request(), list()) ::
+  @spec create_function(AWS.Client.t(), create_function_request(), Keyword.t()) ::
           {:ok, function_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_function_errors()}
@@ -3527,7 +3311,8 @@ defmodule AWS.Lambda do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3543,16 +3328,23 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Creates a Lambda function URL with the specified configuration parameters.
+  Creates a Lambda function URL with the specified configuration parameters. A
+  function URL is a dedicated HTTP(S) endpoint that you can use to invoke your
+  function.
 
-  A function URL is
-  a dedicated HTTP(S) endpoint that you can use to invoke your function.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20CreateFunctionUrlConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+
+  ## Optional parameters:
+  * `:qualifier` (`t:string`) The alias name.
   """
   @spec create_function_url_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_function_url_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_function_url_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3567,7 +3359,13 @@ defmodule AWS.Lambda do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:qualifier])
 
     Request.request_rest(
       client,
@@ -3585,8 +3383,16 @@ defmodule AWS.Lambda do
   @doc """
   Deletes a Lambda function
   [alias](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20DeleteAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+  * `:name` (`t:string`) The name of the alias.
+
+  ## Optional parameters:
   """
-  @spec delete_alias(map(), String.t(), String.t(), delete_alias_request(), list()) ::
+  @spec delete_alias(AWS.Client.t(), String.t(), String.t(), delete_alias_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_alias_errors()}
@@ -3597,7 +3403,8 @@ defmodule AWS.Lambda do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3613,16 +3420,22 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Deletes the code signing configuration.
+  Deletes the code signing configuration. You can delete the code signing
+  configuration only if no function is using it.
 
-  You can delete the code signing configuration only if no function is
-  using it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20DeleteCodeSigningConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:code_signing_config_arn` (`t:string`) The The Amazon Resource Name (ARN) of
+    the code signing configuration.
+
+  ## Optional parameters:
   """
   @spec delete_code_signing_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_code_signing_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_code_signing_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3637,7 +3450,8 @@ defmodule AWS.Lambda do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3653,20 +3467,23 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Deletes an [event source mapping](https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html).
-
+  Deletes an [event source
+  mapping](https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html).
   You can get the identifier of a mapping from the output of
   `ListEventSourceMappings`.
 
-  When you delete an event source mapping, it enters a `Deleting` state and might
-  not be completely
-  deleted for several seconds.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20DeleteEventSourceMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:uuid` (`t:string`) The identifier of the event source mapping.
+
+  ## Optional parameters:
   """
   @spec delete_event_source_mapping(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_event_source_mapping_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, event_source_mapping_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3676,7 +3493,8 @@ defmodule AWS.Lambda do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3692,19 +3510,21 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Deletes a Lambda function.
+  Deletes a Lambda function. To delete a specific function version, use the
+  `Qualifier` parameter. Otherwise, all versions and aliases are deleted. This
+  doesn't require the user to have explicit permissions for `DeleteAlias`.
 
-  To delete a specific function version, use the `Qualifier` parameter.
-  Otherwise, all versions and aliases are deleted. This doesn't require the user
-  to have explicit
-  permissions for `DeleteAlias`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20DeleteFunction&this_doc_guide=API%2520Reference)
 
-  To delete Lambda event source mappings that invoke a function, use
-  `DeleteEventSourceMapping`. For Amazon Web Services and resources that invoke
-  your function
-  directly, delete the trigger in the service where you originally configured it.
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function or
+    version.
+
+  ## Optional parameters:
+  * `:qualifier` (`t:string`) Specify a version to delete. You can't delete a
+    version that an alias references.
   """
-  @spec delete_function(map(), String.t(), delete_function_request(), list()) ::
+  @spec delete_function(AWS.Client.t(), String.t(), delete_function_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_function_errors()}
@@ -3718,7 +3538,13 @@ defmodule AWS.Lambda do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:qualifier])
 
     Request.request_rest(
       client,
@@ -3735,12 +3561,19 @@ defmodule AWS.Lambda do
 
   @doc """
   Removes the code signing configuration from the function.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20DeleteFunctionCodeSigningConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+
+  ## Optional parameters:
   """
   @spec delete_function_code_signing_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_function_code_signing_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -3750,7 +3583,8 @@ defmodule AWS.Lambda do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3767,12 +3601,19 @@ defmodule AWS.Lambda do
 
   @doc """
   Removes a concurrent execution limit from a function.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20DeleteFunctionConcurrency&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+
+  ## Optional parameters:
   """
   @spec delete_function_concurrency(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_function_concurrency_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -3782,7 +3623,8 @@ defmodule AWS.Lambda do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3801,14 +3643,20 @@ defmodule AWS.Lambda do
   Deletes the configuration for asynchronous invocation for a function, version,
   or alias.
 
-  To configure options for asynchronous invocation, use
-  `PutFunctionEventInvokeConfig`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20DeleteFunctionEventInvokeConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version,
+    or alias.
+
+  ## Optional parameters:
+  * `:qualifier` (`t:string`) A version number or alias name.
   """
   @spec delete_function_event_invoke_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_function_event_invoke_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -3823,7 +3671,13 @@ defmodule AWS.Lambda do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:qualifier])
 
     Request.request_rest(
       client,
@@ -3839,17 +3693,22 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Deletes a Lambda function URL.
+  Deletes a Lambda function URL. When you delete a function URL, you can't recover
+  it. Creating a new function URL results in a different URL address.
 
-  When you delete a function URL, you
-  can't recover it. Creating a new function URL results in a different URL
-  address.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20DeleteFunctionUrlConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+
+  ## Optional parameters:
+  * `:qualifier` (`t:string`) The alias name.
   """
   @spec delete_function_url_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_function_url_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -3864,7 +3723,13 @@ defmodule AWS.Lambda do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:qualifier])
 
     Request.request_rest(
       client,
@@ -3880,18 +3745,27 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Deletes a version of an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
-
+  Deletes a version of an [Lambda
+  layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
   Deleted versions can no longer be viewed or added to functions. To avoid
   breaking functions, a copy of the version remains in Lambda until no functions
   refer to it.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20DeleteLayerVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:layer_name` (`t:string`) The name or Amazon Resource Name (ARN) of the
+    layer.
+  * `:version_number` (`t:long`) The version number.
+
+  ## Optional parameters:
   """
   @spec delete_layer_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_layer_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -3903,7 +3777,8 @@ defmodule AWS.Lambda do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3920,12 +3795,20 @@ defmodule AWS.Lambda do
 
   @doc """
   Deletes the provisioned concurrency configuration for a function.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20DeleteProvisionedConcurrencyConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+  * `:qualifier` (`t:string`) The version number or alias name.
+
+  ## Optional parameters:
   """
   @spec delete_provisioned_concurrency_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_provisioned_concurrency_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -3947,7 +3830,8 @@ defmodule AWS.Lambda do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3964,19 +3848,43 @@ defmodule AWS.Lambda do
 
   @doc """
   Retrieves details about your account's
-  [limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html) and usage in
-  an Amazon Web Services Region.
+  [limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html) and usage
+  in an Amazon Web Services Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetAccountSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_account_settings(map(), list()) ::
+  @spec get_account_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_settings_errors()}
   def get_account_settings(%Client{} = client, options \\ []) do
     url_path = "/2016-08-19/account-settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3984,8 +3892,16 @@ defmodule AWS.Lambda do
   @doc """
   Returns details about a Lambda function
   [alias](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+  * `:name` (`t:string`) The name of the alias.
+
+  ## Optional parameters:
   """
-  @spec get_alias(map(), String.t(), String.t(), list()) ::
+  @spec get_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, alias_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_alias_errors()}
@@ -3993,150 +3909,314 @@ defmodule AWS.Lambda do
     url_path =
       "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/aliases/#{AWS.Util.encode_uri(name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about the specified code signing configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetCodeSigningConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:code_signing_config_arn` (`t:string`) The The Amazon Resource Name (ARN) of
+    the code signing configuration.
+
+  ## Optional parameters:
   """
-  @spec get_code_signing_config(map(), String.t(), list()) ::
+  @spec get_code_signing_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_code_signing_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_code_signing_config_errors()}
   def get_code_signing_config(%Client{} = client, code_signing_config_arn, options \\ []) do
     url_path = "/2020-04-22/code-signing-configs/#{AWS.Util.encode_uri(code_signing_config_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns details about an event source mapping.
+  Returns details about an event source mapping. You can get the identifier of a
+  mapping from the output of `ListEventSourceMappings`.
 
-  You can get the identifier of a mapping from the output of
-  `ListEventSourceMappings`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetEventSourceMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:uuid` (`t:string`) The identifier of the event source mapping.
+
+  ## Optional parameters:
   """
-  @spec get_event_source_mapping(map(), String.t(), list()) ::
+  @spec get_event_source_mapping(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, event_source_mapping_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_event_source_mapping_errors()}
   def get_event_source_mapping(%Client{} = client, uuid, options \\ []) do
     url_path = "/2015-03-31/event-source-mappings/#{AWS.Util.encode_uri(uuid)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about the function or function version, with a link to
-  download the deployment package
-  that's valid for 10 minutes.
+  download the deployment package that's valid for 10 minutes. If you specify a
+  function version, only details that are specific to that version are returned.
 
-  If you specify a function version, only details that are specific to that
-  version are
-  returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetFunction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version,
+    or alias.
+
+  ## Optional parameters:
+  * `:qualifier` (`t:string`) Specify a version or alias to get details about a
+    published version of the function.
   """
-  @spec get_function(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_function(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_function_errors()}
-  def get_function(%Client{} = client, function_name, qualifier \\ nil, options \\ []) do
+  def get_function(%Client{} = client, function_name, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}"
+
+    # Validate optional parameters
+    optional_params = [qualifier: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(qualifier) do
-        [{"Qualifier", qualifier} | query_params]
+      if opt_val = Keyword.get(options, :qualifier) do
+        [{"Qualifier", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:qualifier])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the code signing configuration for the specified function.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetFunctionCodeSigningConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+
+  ## Optional parameters:
   """
-  @spec get_function_code_signing_config(map(), String.t(), list()) ::
+  @spec get_function_code_signing_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_code_signing_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_function_code_signing_config_errors()}
   def get_function_code_signing_config(%Client{} = client, function_name, options \\ []) do
     url_path = "/2020-06-30/functions/#{AWS.Util.encode_uri(function_name)}/code-signing-config"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns details about the reserved concurrency configuration for a function.
+  Returns details about the reserved concurrency configuration for a function. To
+  set a concurrency limit for a function, use `PutFunctionConcurrency`.
 
-  To set a concurrency limit for a
-  function, use `PutFunctionConcurrency`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetFunctionConcurrency&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+
+  ## Optional parameters:
   """
-  @spec get_function_concurrency(map(), String.t(), list()) ::
+  @spec get_function_concurrency(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_concurrency_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_function_concurrency_errors()}
   def get_function_concurrency(%Client{} = client, function_name, options \\ []) do
     url_path = "/2019-09-30/functions/#{AWS.Util.encode_uri(function_name)}/concurrency"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns the version-specific settings of a Lambda function or version.
+  Returns the version-specific settings of a Lambda function or version. The
+  output includes only options that can vary between versions of a function. To
+  modify these settings, use `UpdateFunctionConfiguration`.
 
-  The output includes only options that
-  can vary between versions of a function. To modify these settings, use
-  `UpdateFunctionConfiguration`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetFunctionConfiguration&this_doc_guide=API%2520Reference)
 
-  To get all of a function's details, including function-level settings, use
-  `GetFunction`.
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version,
+    or alias.
+
+  ## Optional parameters:
+  * `:qualifier` (`t:string`) Specify a version or alias to get details about a
+    published version of the function.
   """
-  @spec get_function_configuration(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_function_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, function_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_function_configuration_errors()}
-  def get_function_configuration(
-        %Client{} = client,
-        function_name,
-        qualifier \\ nil,
-        options \\ []
-      ) do
+  def get_function_configuration(%Client{} = client, function_name, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/configuration"
+
+    # Validate optional parameters
+    optional_params = [qualifier: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(qualifier) do
-        [{"Qualifier", qualifier} | query_params]
+      if opt_val = Keyword.get(options, :qualifier) do
+        [{"Qualifier", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:qualifier])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4145,65 +4225,127 @@ defmodule AWS.Lambda do
   Retrieves the configuration for asynchronous invocation for a function, version,
   or alias.
 
-  To configure options for asynchronous invocation, use
-  `PutFunctionEventInvokeConfig`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetFunctionEventInvokeConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version,
+    or alias.
+
+  ## Optional parameters:
+  * `:qualifier` (`t:string`) A version number or alias name.
   """
-  @spec get_function_event_invoke_config(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_function_event_invoke_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, function_event_invoke_config(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_function_event_invoke_config_errors()}
-  def get_function_event_invoke_config(
-        %Client{} = client,
-        function_name,
-        qualifier \\ nil,
-        options \\ []
-      ) do
+  def get_function_event_invoke_config(%Client{} = client, function_name, options \\ []) do
     url_path = "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config"
+
+    # Validate optional parameters
+    optional_params = [qualifier: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(qualifier) do
-        [{"Qualifier", qualifier} | query_params]
+      if opt_val = Keyword.get(options, :qualifier) do
+        [{"Qualifier", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:qualifier])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns details about a Lambda function URL.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetFunctionUrlConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+
+  ## Optional parameters:
+  * `:qualifier` (`t:string`) The alias name.
   """
-  @spec get_function_url_config(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_function_url_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_url_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_function_url_config_errors()}
-  def get_function_url_config(%Client{} = client, function_name, qualifier \\ nil, options \\ []) do
+  def get_function_url_config(%Client{} = client, function_name, options \\ []) do
     url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/url"
+
+    # Validate optional parameters
+    optional_params = [qualifier: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(qualifier) do
-        [{"Qualifier", qualifier} | query_params]
+      if opt_val = Keyword.get(options, :qualifier) do
+        [{"Qualifier", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:qualifier])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns information about a version of an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html),
-  with a link to download the layer archive
-  that's valid for 10 minutes.
+  Returns information about a version of an [Lambda
+  layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html),
+  with a link to download the layer archive that's valid for 10 minutes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetLayerVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:layer_name` (`t:string`) The name or Amazon Resource Name (ARN) of the
+    layer.
+  * `:version_number` (`t:long`) The version number.
+
+  ## Optional parameters:
   """
-  @spec get_layer_version(map(), String.t(), String.t(), list()) ::
+  @spec get_layer_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_layer_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_layer_version_errors()}
@@ -4211,46 +4353,90 @@ defmodule AWS.Lambda do
     url_path =
       "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions/#{AWS.Util.encode_uri(version_number)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns information about a version of an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html),
-  with a link to download the layer archive
-  that's valid for 10 minutes.
+  Returns information about a version of an [Lambda
+  layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html),
+  with a link to download the layer archive that's valid for 10 minutes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetLayerVersionByArn&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The ARN of the layer version.
+
+  ## Optional parameters:
   """
-  @spec get_layer_version_by_arn(map(), String.t(), list()) ::
+  @spec get_layer_version_by_arn(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_layer_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_layer_version_by_arn_errors()}
   def get_layer_version_by_arn(%Client{} = client, arn, options \\ []) do
     url_path = "/2018-10-31/layers?find=LayerVersion"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(arn) do
-        [{"Arn", arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"Arn", arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns the permission policy for a version of an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
-
+  Returns the permission policy for a version of an [Lambda
+  layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
   For more information, see `AddLayerVersionPermission`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetLayerVersionPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:layer_name` (`t:string`) The name or Amazon Resource Name (ARN) of the
+    layer.
+  * `:version_number` (`t:long`) The version number.
+
+  ## Optional parameters:
   """
-  @spec get_layer_version_policy(map(), String.t(), String.t(), list()) ::
+  @spec get_layer_version_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_layer_version_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_layer_version_policy_errors()}
@@ -4258,35 +4444,85 @@ defmodule AWS.Lambda do
     url_path =
       "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions/#{AWS.Util.encode_uri(version_number)}/policy"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns the [resource-based IAM policy](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html)
+  Returns the [resource-based IAM
+  policy](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html)
   for a function, version, or alias.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version,
+    or alias.
+
+  ## Optional parameters:
+  * `:qualifier` (`t:string`) Specify a version or alias to get the policy for
+    that resource.
   """
-  @spec get_policy(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_policy_errors()}
-  def get_policy(%Client{} = client, function_name, qualifier \\ nil, options \\ []) do
+  def get_policy(%Client{} = client, function_name, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/policy"
+
+    # Validate optional parameters
+    optional_params = [qualifier: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(qualifier) do
-        [{"Qualifier", qualifier} | query_params]
+      if opt_val = Keyword.get(options, :qualifier) do
+        [{"Qualifier", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:qualifier])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4294,8 +4530,16 @@ defmodule AWS.Lambda do
   @doc """
   Retrieves the provisioned concurrency configuration for a function's alias or
   version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetProvisionedConcurrencyConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+  * `:qualifier` (`t:string`) The version number or alias name.
+
+  ## Optional parameters:
   """
-  @spec get_provisioned_concurrency_config(map(), String.t(), String.t(), list()) ::
+  @spec get_provisioned_concurrency_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_provisioned_concurrency_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_provisioned_concurrency_config_errors()}
@@ -4308,118 +4552,145 @@ defmodule AWS.Lambda do
     url_path =
       "/2019-09-30/functions/#{AWS.Util.encode_uri(function_name)}/provisioned-concurrency"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(qualifier) do
-        [{"Qualifier", qualifier} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"Qualifier", qualifier}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves the runtime management configuration for a function's version.
+  Retrieves the runtime management configuration for a function's version. If the
+  runtime update mode is **Manual**, this includes the ARN of the runtime
+  version and the runtime update mode. If the runtime update mode is **Auto** or
+  **Function update**, this includes the runtime update mode and `null` is
+  returned for the ARN. For more information, see [Runtime
+  updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
 
-  If the runtime update mode is **Manual**, this includes the ARN of the
-  runtime version and the runtime update mode. If the runtime update mode is
-  **Auto** or **Function update**,
-  this includes the runtime update mode and `null` is returned for the ARN. For
-  more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetRuntimeManagementConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+
+  ## Optional parameters:
+  * `:qualifier` (`t:string`) Specify a version of the function. This can be
+    $LATEST or a published version number. If no value is specified, the
+    configuration for the $LATEST version is returned.
   """
-  @spec get_runtime_management_config(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_runtime_management_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_runtime_management_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_runtime_management_config_errors()}
-  def get_runtime_management_config(
-        %Client{} = client,
-        function_name,
-        qualifier \\ nil,
-        options \\ []
-      ) do
+  def get_runtime_management_config(%Client{} = client, function_name, options \\ []) do
     url_path =
       "/2021-07-20/functions/#{AWS.Util.encode_uri(function_name)}/runtime-management-config"
 
+    # Validate optional parameters
+    optional_params = [qualifier: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(qualifier) do
-        [{"Qualifier", qualifier} | query_params]
+      if opt_val = Keyword.get(options, :qualifier) do
+        [{"Qualifier", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:qualifier])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Invokes a Lambda function.
-
-  You can invoke a function synchronously (and wait for the response), or
-  asynchronously. By default, Lambda invokes your function synchronously (i.e.
-  the`InvocationType`
-  is `RequestResponse`). To invoke a function asynchronously, set `InvocationType`
-  to
-  `Event`. Lambda passes the `ClientContext` object to your function for
-  synchronous invocations only.
-
-  For [synchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-sync.html),
+  Invokes a Lambda function. You can invoke a function synchronously (and wait for
+  the response), or asynchronously. By default, Lambda invokes your function
+  synchronously (i.e. the`InvocationType` is `RequestResponse`). To invoke a
+  function asynchronously, set `InvocationType` to `Event`. Lambda passes the
+  `ClientContext` object to your function for synchronous invocations only. For
+  [synchronous
+  invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-sync.html),
   details about the function response, including errors, are included in the
-  response body and headers. For either
-  invocation type, you can find more information in the [execution log](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions.html) and
-  [trace](https://docs.aws.amazon.com/lambda/latest/dg/lambda-x-ray.html).   When an error occurs, your function may be invoked multiple times. Retry
-  behavior varies by error type,
-  client, event source, and invocation type. For example, if you invoke a function
-  asynchronously and it returns an
-  error, Lambda executes the function up to two more times. For more information,
-  see [Error handling and automatic retries in
+  response body and headers. For either invocation type, you can find more
+  information in the [execution
+  log](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions.html)
+  and [trace](https://docs.aws.amazon.com/lambda/latest/dg/lambda-x-ray.html).
+  When an error occurs, your function may be invoked multiple times. Retry
+  behavior varies by error type, client, event source, and invocation type. For
+  example, if you invoke a function asynchronously and it returns an error,
+  Lambda executes the function up to two more times. For more information, see
+  [Error handling and automatic retries in
   Lambda](https://docs.aws.amazon.com/lambda/latest/dg/invocation-retries.html).
 
-  For [asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html),
-  Lambda adds events to a queue before sending them to your function. If your
-  function does not have enough capacity
-  to keep up with the queue, events may be lost. Occasionally, your function may
-  receive the same event multiple
-  times, even if no error occurs. To retain events that were not processed,
-  configure your function with a [dead-letter queue](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20Invoke&this_doc_guide=API%2520Reference)
 
-  The status code in the API response doesn't reflect function errors. Error codes
-  are reserved for errors that
-  prevent your function from executing, such as permissions errors,
-  [quota](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html) errors, or issues with your function's code and
-  configuration. For example, Lambda returns `TooManyRequestsException` if running
-  the
-  function would cause you to exceed a concurrency limit at either the account
-  level
-  (`ConcurrentInvocationLimitExceeded`) or function level
-  (`ReservedFunctionConcurrentInvocationLimitExceeded`).
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version,
+    or alias.
 
-  For functions with a long timeout, your client might disconnect during
-  synchronous invocation while it waits
-  for a response. Configure your HTTP client, SDK, firewall, proxy, or operating
-  system to allow for long
-  connections with timeout or keep-alive settings.
-
-  This operation requires permission for the
-  [lambda:InvokeFunction](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html)
-  action. For details on how to set up
-  permissions for cross-account invocations, see [Granting function access to other
-  accounts](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke).
+  ## Optional parameters:
+  * `:qualifier` (`t:string`) Specify a version or alias to invoke a published
+    version of the function.
+  * `:client_context` (`t:string`) Up to 3,583 bytes of base64-encoded data about
+    the invoking client to pass to the function in the context object. Lambda
+    passes the ClientContext object to your function for synchronous invocations
+    only.
+  * `:invocation_type` (`t:enum["DryRun|Event|RequestResponse"]`) Choose from the
+    following options.
+  * `:log_type` (`t:enum["None|Tail"]`) Set to Tail to include the execution log
+    in the response. Applies to synchronously invoked functions only.
   """
-  @spec invoke(map(), String.t(), invocation_request(), list()) ::
+  @spec invoke(AWS.Client.t(), String.t(), invocation_request(), Keyword.t()) ::
           {:ok, invocation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invoke_errors()}
   def invoke(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/invocations"
+
+    optional_params = [qualifier: nil, client_context: nil, invocation_type: nil, log_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -4446,7 +4717,13 @@ defmodule AWS.Lambda do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:qualifier, :client_context, :invocation_type, :log_type])
 
     Request.request_rest(
       client,
@@ -4462,16 +4739,17 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+  For asynchronous function invocation, use `Invoke`. Invokes a function
+  asynchronously.
 
-  For asynchronous function invocation, use `Invoke`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20InvokeAsync&this_doc_guide=API%2520Reference)
 
-  Invokes a function asynchronously.
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
-  If you do use the InvokeAsync action, note that it doesn't support the use of
-  X-Ray active tracing. Trace ID is not
-  propagated to the function, even if X-Ray active tracing is turned on.
+  ## Optional parameters:
   """
-  @spec invoke_async(map(), String.t(), invoke_async_request(), list()) ::
+  @spec invoke_async(AWS.Client.t(), String.t(), invoke_async_request(), Keyword.t()) ::
           {:ok, invoke_async_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invoke_async_errors()}
@@ -4480,7 +4758,8 @@ defmodule AWS.Lambda do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4496,21 +4775,34 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Configure your Lambda functions to stream response payloads back to clients.
-
-  For more information, see [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
-
+  Configure your Lambda functions to stream response payloads back to clients. For
+  more information, see [Configuring a Lambda function to stream
+  responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
   This operation requires permission for the
-  [lambda:InvokeFunction](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html) action. For details on how to set up
-  permissions for cross-account invocations, see [Granting function
-  access to other
+  [lambda:InvokeFunction](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html)
+  action. For details on how to set up permissions for cross-account
+  invocations, see [Granting function access to other
   accounts](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20InvokeWithResponseStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+
+  ## Optional parameters:
+  * `:qualifier` (`t:string`) The alias name.
+  * `:client_context` (`t:string`) Up to 3,583 bytes of base64-encoded data about
+    the invoking client to pass to the function in the context object.
+  * `:invocation_type` (`t:enum["DryRun|RequestResponse"]`) Use one of the
+    following options:
+  * `:log_type` (`t:enum["None|Tail"]`) Set to Tail to include the execution log
+    in the response. Applies to synchronously invoked functions only.
   """
   @spec invoke_with_response_stream(
-          map(),
+          AWS.Client.t(),
           String.t(),
           invoke_with_response_stream_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, invoke_with_response_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4518,6 +4810,14 @@ defmodule AWS.Lambda do
   def invoke_with_response_stream(%Client{} = client, function_name, input, options \\ []) do
     url_path =
       "/2021-11-15/functions/#{AWS.Util.encode_uri(function_name)}/response-streaming-invocations"
+
+    optional_params = [qualifier: nil, client_context: nil, invocation_type: nil, log_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -4543,7 +4843,13 @@ defmodule AWS.Lambda do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:qualifier, :client_context, :invocation_type, :log_type])
 
     Request.request_rest(
       client,
@@ -4562,52 +4868,72 @@ defmodule AWS.Lambda do
   Returns a list of
   [aliases](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html)
   for a Lambda function.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListAliases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+
+  ## Optional parameters:
+  * `:function_version` (`t:string`) Specify a function version to only list
+    aliases that invoke that version.
+  * `:marker` (`t:string`) Specify the pagination token that's returned by a
+    previous request to retrieve the next page of results.
+  * `:max_items` (`t:integer`) Limit the number of aliases returned.
   """
-  @spec list_aliases(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_aliases(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_aliases_errors()}
-  def list_aliases(
-        %Client{} = client,
-        function_name,
-        function_version \\ nil,
-        marker \\ nil,
-        max_items \\ nil,
-        options \\ []
-      ) do
+  def list_aliases(%Client{} = client, function_name, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/aliases"
+
+    # Validate optional parameters
+    optional_params = [function_version: nil, marker: nil, max_items: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(max_items) do
-        [{"MaxItems", max_items} | query_params]
+      if opt_val = Keyword.get(options, :max_items) do
+        [{"MaxItems", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"Marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"Marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(function_version) do
-        [{"FunctionVersion", function_version} | query_params]
+      if opt_val = Keyword.get(options, :function_version) do
+        [{"FunctionVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:function_version, :marker, :max_items])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4615,102 +4941,145 @@ defmodule AWS.Lambda do
   @doc """
   Returns a list of [code signing
   configurations](https://docs.aws.amazon.com/lambda/latest/dg/configuring-codesigning.html).
+  A request returns up to 10,000 configurations per call. You can use the
+  `MaxItems` parameter to return fewer configurations per call.
 
-  A request returns up to 10,000 configurations per
-  call. You can use the `MaxItems` parameter to return fewer configurations per
-  call.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListCodeSigningConfigs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:marker` (`t:string`) Specify the pagination token that's returned by a
+    previous request to retrieve the next page of results.
+  * `:max_items` (`t:integer`) Maximum number of items to return.
   """
-  @spec list_code_signing_configs(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_code_signing_configs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_code_signing_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_code_signing_configs_errors()}
-  def list_code_signing_configs(
-        %Client{} = client,
-        marker \\ nil,
-        max_items \\ nil,
-        options \\ []
-      ) do
+  def list_code_signing_configs(%Client{} = client, options \\ []) do
     url_path = "/2020-04-22/code-signing-configs"
+
+    # Validate optional parameters
+    optional_params = [marker: nil, max_items: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(max_items) do
-        [{"MaxItems", max_items} | query_params]
+      if opt_val = Keyword.get(options, :max_items) do
+        [{"MaxItems", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"Marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"Marker", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:marker, :max_items])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists event source mappings.
+  Lists event source mappings. Specify an `EventSourceArn` to show only event
+  source mappings for a single event source.
 
-  Specify an `EventSourceArn` to show only event source mappings for a
-  single event source.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListEventSourceMappings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:event_source_arn` (`t:string`) The Amazon Resource Name (ARN) of the event
+    source.
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+  * `:marker` (`t:string`) A pagination token returned by a previous call.
+  * `:max_items` (`t:integer`) The maximum number of event source mappings to
+    return. Note that ListEventSourceMappings returns a maximum of 100 items in
+    each response, even if you set the number higher.
   """
-  @spec list_event_source_mappings(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_event_source_mappings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_event_source_mappings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_source_mappings_errors()}
-  def list_event_source_mappings(
-        %Client{} = client,
-        event_source_arn \\ nil,
-        function_name \\ nil,
-        marker \\ nil,
-        max_items \\ nil,
-        options \\ []
-      ) do
+  def list_event_source_mappings(%Client{} = client, options \\ []) do
     url_path = "/2015-03-31/event-source-mappings"
+
+    # Validate optional parameters
+    optional_params = [event_source_arn: nil, function_name: nil, marker: nil, max_items: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(max_items) do
-        [{"MaxItems", max_items} | query_params]
+      if opt_val = Keyword.get(options, :max_items) do
+        [{"MaxItems", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"Marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"Marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(function_name) do
-        [{"FunctionName", function_name} | query_params]
+      if opt_val = Keyword.get(options, :function_name) do
+        [{"FunctionName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(event_source_arn) do
-        [{"EventSourceArn", event_source_arn} | query_params]
+      if opt_val = Keyword.get(options, :event_source_arn) do
+        [{"EventSourceArn", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:event_source_arn, :function_name, :marker, :max_items])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4718,406 +5087,582 @@ defmodule AWS.Lambda do
   @doc """
   Retrieves a list of configurations for asynchronous invocation for a function.
 
-  To configure options for asynchronous invocation, use
-  `PutFunctionEventInvokeConfig`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListFunctionEventInvokeConfigs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+
+  ## Optional parameters:
+  * `:marker` (`t:string`) Specify the pagination token that's returned by a
+    previous request to retrieve the next page of results.
+  * `:max_items` (`t:integer`) The maximum number of configurations to return.
   """
-  @spec list_function_event_invoke_configs(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_function_event_invoke_configs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_function_event_invoke_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_function_event_invoke_configs_errors()}
-  def list_function_event_invoke_configs(
-        %Client{} = client,
-        function_name,
-        marker \\ nil,
-        max_items \\ nil,
-        options \\ []
-      ) do
+  def list_function_event_invoke_configs(%Client{} = client, function_name, options \\ []) do
     url_path =
       "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config/list"
 
+    # Validate optional parameters
+    optional_params = [marker: nil, max_items: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(max_items) do
-        [{"MaxItems", max_items} | query_params]
+      if opt_val = Keyword.get(options, :max_items) do
+        [{"MaxItems", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"Marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"Marker", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:marker, :max_items])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of Lambda function URLs for the specified function.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListFunctionUrlConfigs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+
+  ## Optional parameters:
+  * `:marker` (`t:string`) Specify the pagination token that's returned by a
+    previous request to retrieve the next page of results.
+  * `:max_items` (`t:integer`) The maximum number of function URLs to return in
+    the response. Note that ListFunctionUrlConfigs returns a maximum of 50 items
+    in each response, even if you set the number higher.
   """
-  @spec list_function_url_configs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_function_url_configs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_function_url_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_function_url_configs_errors()}
-  def list_function_url_configs(
-        %Client{} = client,
-        function_name,
-        marker \\ nil,
-        max_items \\ nil,
-        options \\ []
-      ) do
+  def list_function_url_configs(%Client{} = client, function_name, options \\ []) do
     url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/urls"
+
+    # Validate optional parameters
+    optional_params = [marker: nil, max_items: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(max_items) do
-        [{"MaxItems", max_items} | query_params]
+      if opt_val = Keyword.get(options, :max_items) do
+        [{"MaxItems", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"Marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"Marker", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:marker, :max_items])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of Lambda functions, with the version-specific configuration of
-  each.
+  each. Lambda returns up to 50 functions per call. Set `FunctionVersion` to
+  `ALL` to include all published versions of each function in addition to the
+  unpublished version.
 
-  Lambda returns up to 50
-  functions per call.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListFunctions&this_doc_guide=API%2520Reference)
 
-  Set `FunctionVersion` to `ALL` to include all published versions of each
-  function in
-  addition to the unpublished version.
+  ## Parameters:
 
-  The `ListFunctions` operation returns a subset of the `FunctionConfiguration`
-  fields.
-  To get the additional fields (State, StateReasonCode, StateReason,
-  LastUpdateStatus, LastUpdateStatusReason,
-  LastUpdateStatusReasonCode, RuntimeVersionConfig) for a function or version, use
-  `GetFunction`.
+  ## Optional parameters:
+  * `:function_version` (`t:enum["ALL"]`) Set to ALL to include entries for all
+    published versions of each function.
+  * `:marker` (`t:string`) Specify the pagination token that's returned by a
+    previous request to retrieve the next page of results.
+  * `:master_region` (`t:string`) For Lambda@Edge functions, the Amazon Web
+    Services Region of the master function. For example, us-east-1 filters the
+    list of functions to include only Lambda@Edge functions replicated from a
+    master function in US East (N. Virginia). If specified, you must set
+    FunctionVersion to ALL.
+  * `:max_items` (`t:integer`) The maximum number of functions to return in the
+    response. Note that ListFunctions returns a maximum of 50 items in each
+    response, even if you set the number higher.
   """
-  @spec list_functions(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_functions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_functions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_functions_errors()}
-  def list_functions(
-        %Client{} = client,
-        function_version \\ nil,
-        marker \\ nil,
-        master_region \\ nil,
-        max_items \\ nil,
-        options \\ []
-      ) do
+  def list_functions(%Client{} = client, options \\ []) do
     url_path = "/2015-03-31/functions"
+
+    # Validate optional parameters
+    optional_params = [function_version: nil, marker: nil, master_region: nil, max_items: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(max_items) do
-        [{"MaxItems", max_items} | query_params]
+      if opt_val = Keyword.get(options, :max_items) do
+        [{"MaxItems", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(master_region) do
-        [{"MasterRegion", master_region} | query_params]
+      if opt_val = Keyword.get(options, :master_region) do
+        [{"MasterRegion", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"Marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"Marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(function_version) do
-        [{"FunctionVersion", function_version} | query_params]
+      if opt_val = Keyword.get(options, :function_version) do
+        [{"FunctionVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:function_version, :marker, :master_region, :max_items])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  List the functions that use the specified code signing configuration.
+  List the functions that use the specified code signing configuration. You can
+  use this method prior to deleting a code signing configuration, to verify that
+  no functions are using it.
 
-  You can use this method prior to deleting a
-  code signing configuration, to verify that no functions are using it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListFunctionsByCodeSigningConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:code_signing_config_arn` (`t:string`) The The Amazon Resource Name (ARN) of
+    the code signing configuration.
+
+  ## Optional parameters:
+  * `:marker` (`t:string`) Specify the pagination token that's returned by a
+    previous request to retrieve the next page of results.
+  * `:max_items` (`t:integer`) Maximum number of items to return.
   """
-  @spec list_functions_by_code_signing_config(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_functions_by_code_signing_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_functions_by_code_signing_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_functions_by_code_signing_config_errors()}
   def list_functions_by_code_signing_config(
         %Client{} = client,
         code_signing_config_arn,
-        marker \\ nil,
-        max_items \\ nil,
         options \\ []
       ) do
     url_path =
       "/2020-04-22/code-signing-configs/#{AWS.Util.encode_uri(code_signing_config_arn)}/functions"
 
+    # Validate optional parameters
+    optional_params = [marker: nil, max_items: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(max_items) do
-        [{"MaxItems", max_items} | query_params]
+      if opt_val = Keyword.get(options, :max_items) do
+        [{"MaxItems", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"Marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"Marker", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:marker, :max_items])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the versions of an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
+  Lists the versions of an [Lambda
+  layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
+  Versions that have been deleted aren't listed. Specify a [runtime
+  identifier](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html)
+  to list only versions that indicate that they're compatible with that runtime.
+  Specify a compatible architecture to include only layer versions that are
+  compatible with that architecture.
 
-  Versions that have been deleted aren't listed. Specify a [runtime identifier](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html)
-  to list only
-  versions that indicate that they're compatible with that runtime. Specify a
-  compatible architecture to include only
-  layer versions that are compatible with that architecture.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListLayerVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:layer_name` (`t:string`) The name or Amazon Resource Name (ARN) of the
+    layer.
+
+  ## Optional parameters:
+  * `:compatible_architecture` (`t:enum["arm64|x86_64"]`) The compatible
+    instruction set architecture.
+  * `:compatible_runtime`
+    (`t:enum["nodejs14x|java8al2|nodejs18x|java8|go1x|python39|java17|ruby25|nodejs20x|nodejs12x|nodejs43|dotnetcore10|nodejs10x|ruby32|python310|java21|nodejs43edge|dotnetcore20|nodejs16x|java11|nodejs810|python27|nodejs|dotnet6|python311|dotnetcore21|nodejs610|providedal2|python37|providedal2023|python312|dotnet8|python38|provided|python36|ruby27|dotnetcore31|ruby33"]`)
+    A runtime identifier. For example, java21.
+  * `:marker` (`t:string`) A pagination token returned by a previous call.
+  * `:max_items` (`t:integer`) The maximum number of versions to return.
   """
-  @spec list_layer_versions(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_layer_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_layer_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_layer_versions_errors()}
-  def list_layer_versions(
-        %Client{} = client,
-        layer_name,
-        compatible_architecture \\ nil,
-        compatible_runtime \\ nil,
-        marker \\ nil,
-        max_items \\ nil,
-        options \\ []
-      ) do
+  def list_layer_versions(%Client{} = client, layer_name, options \\ []) do
     url_path = "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions"
+
+    # Validate optional parameters
+    optional_params = [
+      compatible_architecture: nil,
+      compatible_runtime: nil,
+      marker: nil,
+      max_items: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(max_items) do
-        [{"MaxItems", max_items} | query_params]
+      if opt_val = Keyword.get(options, :max_items) do
+        [{"MaxItems", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"Marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"Marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(compatible_runtime) do
-        [{"CompatibleRuntime", compatible_runtime} | query_params]
+      if opt_val = Keyword.get(options, :compatible_runtime) do
+        [{"CompatibleRuntime", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(compatible_architecture) do
-        [{"CompatibleArchitecture", compatible_architecture} | query_params]
+      if opt_val = Keyword.get(options, :compatible_architecture) do
+        [{"CompatibleArchitecture", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:compatible_architecture, :compatible_runtime, :marker, :max_items])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists [Lambda layers](https://docs.aws.amazon.com/lambda/latest/dg/invocation-layers.html) and
-  shows information about the latest version of each.
+  Lists [Lambda
+  layers](https://docs.aws.amazon.com/lambda/latest/dg/invocation-layers.html)
+  and shows information about the latest version of each. Specify a [runtime
+  identifier](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html)
+  to list only layers that indicate that they're compatible with that runtime.
+  Specify a compatible architecture to include only layers that are compatible
+  with that [instruction set
+  architecture](https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html).
 
-  Specify a
-  [runtime identifier](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html)
-  to list only layers that indicate that they're compatible with that
-  runtime. Specify a compatible architecture to include only layers that are
-  compatible with
-  that [instruction set architecture](https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListLayers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:compatible_architecture` (`t:enum["arm64|x86_64"]`) The compatible
+    instruction set architecture.
+  * `:compatible_runtime`
+    (`t:enum["nodejs14x|java8al2|nodejs18x|java8|go1x|python39|java17|ruby25|nodejs20x|nodejs12x|nodejs43|dotnetcore10|nodejs10x|ruby32|python310|java21|nodejs43edge|dotnetcore20|nodejs16x|java11|nodejs810|python27|nodejs|dotnet6|python311|dotnetcore21|nodejs610|providedal2|python37|providedal2023|python312|dotnet8|python38|provided|python36|ruby27|dotnetcore31|ruby33"]`)
+    A runtime identifier. For example, java21.
+  * `:marker` (`t:string`) A pagination token returned by a previous call.
+  * `:max_items` (`t:integer`) The maximum number of layers to return.
   """
-  @spec list_layers(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_layers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_layers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_layers_errors()}
-  def list_layers(
-        %Client{} = client,
-        compatible_architecture \\ nil,
-        compatible_runtime \\ nil,
-        marker \\ nil,
-        max_items \\ nil,
-        options \\ []
-      ) do
+  def list_layers(%Client{} = client, options \\ []) do
     url_path = "/2018-10-31/layers"
+
+    # Validate optional parameters
+    optional_params = [
+      compatible_architecture: nil,
+      compatible_runtime: nil,
+      marker: nil,
+      max_items: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(max_items) do
-        [{"MaxItems", max_items} | query_params]
+      if opt_val = Keyword.get(options, :max_items) do
+        [{"MaxItems", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"Marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"Marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(compatible_runtime) do
-        [{"CompatibleRuntime", compatible_runtime} | query_params]
+      if opt_val = Keyword.get(options, :compatible_runtime) do
+        [{"CompatibleRuntime", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(compatible_architecture) do
-        [{"CompatibleArchitecture", compatible_architecture} | query_params]
+      if opt_val = Keyword.get(options, :compatible_architecture) do
+        [{"CompatibleArchitecture", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:compatible_architecture, :compatible_runtime, :marker, :max_items])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of provisioned concurrency configurations for a function.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListProvisionedConcurrencyConfigs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+
+  ## Optional parameters:
+  * `:marker` (`t:string`) Specify the pagination token that's returned by a
+    previous request to retrieve the next page of results.
+  * `:max_items` (`t:integer`) Specify a number to limit the number of
+    configurations returned.
   """
-  @spec list_provisioned_concurrency_configs(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_provisioned_concurrency_configs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_provisioned_concurrency_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_provisioned_concurrency_configs_errors()}
-  def list_provisioned_concurrency_configs(
-        %Client{} = client,
-        function_name,
-        marker \\ nil,
-        max_items \\ nil,
-        options \\ []
-      ) do
+  def list_provisioned_concurrency_configs(%Client{} = client, function_name, options \\ []) do
     url_path =
       "/2019-09-30/functions/#{AWS.Util.encode_uri(function_name)}/provisioned-concurrency?List=ALL"
 
+    # Validate optional parameters
+    optional_params = [marker: nil, max_items: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(max_items) do
-        [{"MaxItems", max_items} | query_params]
+      if opt_val = Keyword.get(options, :max_items) do
+        [{"MaxItems", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"Marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"Marker", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:marker, :max_items])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a function's
-  [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html).
-
-  You can
+  [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html). You can
   also view tags with `GetFunction`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource` (`t:string`) The function's Amazon Resource Name (ARN). Note:
+    Lambda does not support adding tags to aliases or versions.
+
+  ## Optional parameters:
   """
-  @spec list_tags(map(), String.t(), list()) ::
+  @spec list_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, resource, options \\ []) do
     url_path = "/2017-03-31/tags/#{AWS.Util.encode_uri(resource)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5125,55 +5670,91 @@ defmodule AWS.Lambda do
   @doc """
   Returns a list of
   [versions](https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html),
-  with the version-specific configuration of each.
+  with the version-specific configuration of each. Lambda returns up to 50
+  versions per call.
 
-  Lambda returns up to 50 versions per call.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListVersionsByFunction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+
+  ## Optional parameters:
+  * `:marker` (`t:string`) Specify the pagination token that's returned by a
+    previous request to retrieve the next page of results.
+  * `:max_items` (`t:integer`) The maximum number of versions to return. Note that
+    ListVersionsByFunction returns a maximum of 50 items in each response, even
+    if you set the number higher.
   """
-  @spec list_versions_by_function(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_versions_by_function(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_versions_by_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_versions_by_function_errors()}
-  def list_versions_by_function(
-        %Client{} = client,
-        function_name,
-        marker \\ nil,
-        max_items \\ nil,
-        options \\ []
-      ) do
+  def list_versions_by_function(%Client{} = client, function_name, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/versions"
+
+    # Validate optional parameters
+    optional_params = [marker: nil, max_items: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(max_items) do
-        [{"MaxItems", max_items} | query_params]
+      if opt_val = Keyword.get(options, :max_items) do
+        [{"MaxItems", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"Marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"Marker", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:marker, :max_items])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Creates an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
-  from a ZIP archive.
-
-  Each time you call `PublishLayerVersion` with the same
+  Creates an [Lambda
+  layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+  from a ZIP archive. Each time you call `PublishLayerVersion` with the same
   layer name, a new version is created.
 
-  Add layers to your function with `CreateFunction` or
-  `UpdateFunctionConfiguration`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20PublishLayerVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:layer_name` (`t:string`) The name or Amazon Resource Name (ARN) of the
+    layer.
+
+  ## Optional parameters:
   """
-  @spec publish_layer_version(map(), String.t(), publish_layer_version_request(), list()) ::
+  @spec publish_layer_version(
+          AWS.Client.t(),
+          String.t(),
+          publish_layer_version_request(),
+          Keyword.t()
+        ) ::
           {:ok, publish_layer_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, publish_layer_version_errors()}
@@ -5182,7 +5763,8 @@ defmodule AWS.Lambda do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5200,21 +5782,21 @@ defmodule AWS.Lambda do
   @doc """
   Creates a
   [version](https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html)
-  from the
-  current code and configuration of a function.
+  from the current code and configuration of a function. Use versions to create
+  a snapshot of your function code and configuration that doesn't change. Lambda
+  doesn't publish a version if the function's configuration and code haven't
+  changed since the last version. Use `UpdateFunctionCode` or
+  `UpdateFunctionConfiguration` to update the function before publishing a
+  version.
 
-  Use versions to create a snapshot of your function code and
-  configuration that doesn't change.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20PublishVersion&this_doc_guide=API%2520Reference)
 
-  Lambda doesn't publish a version if the function's configuration and code
-  haven't changed since the last
-  version. Use `UpdateFunctionCode` or `UpdateFunctionConfiguration` to update the
-  function before publishing a version.
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
-  Clients can invoke versions directly or with an alias. To create an alias, use
-  `CreateAlias`.
+  ## Optional parameters:
   """
-  @spec publish_version(map(), String.t(), publish_version_request(), list()) ::
+  @spec publish_version(AWS.Client.t(), String.t(), publish_version_request(), Keyword.t()) ::
           {:ok, function_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, publish_version_errors()}
@@ -5223,7 +5805,8 @@ defmodule AWS.Lambda do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5239,16 +5822,22 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Update the code signing configuration for the function.
+  Update the code signing configuration for the function. Changes to the code
+  signing configuration take effect the next time a user tries to deploy a code
+  package to the function.
 
-  Changes to the code signing configuration take effect the
-  next time a user tries to deploy a code package to the function.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20PutFunctionCodeSigningConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+
+  ## Optional parameters:
   """
   @spec put_function_code_signing_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_function_code_signing_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_function_code_signing_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5258,32 +5847,34 @@ defmodule AWS.Lambda do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Sets the maximum number of simultaneous executions for a function, and reserves
-  capacity for that concurrency
-  level.
-
-  Concurrency settings apply to the function as a whole, including all published
-  versions and the unpublished
+  capacity for that concurrency level. Concurrency settings apply to the
+  function as a whole, including all published versions and the unpublished
   version. Reserving concurrency both ensures that your function has capacity to
-  process the specified number of
-  events simultaneously, and prevents it from scaling beyond that level. Use
-  `GetFunction` to see
-  the current setting for a function.
+  process the specified number of events simultaneously, and prevents it from
+  scaling beyond that level. Use `GetFunction` to see the current setting for a
+  function.
 
-  Use `GetAccountSettings` to see your Regional concurrency limit. You can reserve
-  concurrency
-  for as many functions as you like, as long as you leave at least 100
-  simultaneous executions unreserved for
-  functions that aren't configured with a per-function limit. For more
-  information, see [Lambda function scaling](https://docs.aws.amazon.com/lambda/latest/dg/invocation-scaling.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20PutFunctionConcurrency&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+
+  ## Optional parameters:
   """
-  @spec put_function_concurrency(map(), String.t(), put_function_concurrency_request(), list()) ::
+  @spec put_function_concurrency(
+          AWS.Client.t(),
+          String.t(),
+          put_function_concurrency_request(),
+          Keyword.t()
+        ) ::
           {:ok, concurrency(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_function_concurrency_errors()}
@@ -5292,43 +5883,39 @@ defmodule AWS.Lambda do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Configures options for [asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html)
-  on a function, version, or alias.
+  Configures options for [asynchronous
+  invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html)
+  on a function, version, or alias. If a configuration already exists for a
+  function, version, or alias, this operation overwrites it. If you exclude any
+  settings, they are removed. To set one option without affecting existing
+  settings for other options, use `UpdateFunctionEventInvokeConfig`. By default,
+  Lambda retries an asynchronous invocation twice if the function returns an
+  error. It retains events in a queue for up to six hours. When an event fails
+  all processing attempts or stays in the asynchronous invocation queue for too
+  long, Lambda discards it. To retain discarded events, configure a dead-letter
+  queue with `UpdateFunctionConfiguration`.
 
-  If a configuration already exists for a function, version,
-  or alias, this operation overwrites it. If you exclude any settings, they are
-  removed. To set one option without
-  affecting existing settings for other options, use
-  `UpdateFunctionEventInvokeConfig`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20PutFunctionEventInvokeConfig&this_doc_guide=API%2520Reference)
 
-  By default, Lambda retries an asynchronous invocation twice if the function
-  returns an error. It retains
-  events in a queue for up to six hours. When an event fails all processing
-  attempts or stays in the asynchronous
-  invocation queue for too long, Lambda discards it. To retain discarded events,
-  configure a dead-letter queue with
-  `UpdateFunctionConfiguration`.
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version,
+    or alias.
 
-  To send an invocation record to a queue, topic, function, or event bus, specify
-  a
-  [destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations).
-  You can configure separate destinations for successful invocations (on-success)
-  and events
-  that fail all processing attempts (on-failure). You can configure destinations
-  in addition to or instead of a
-  dead-letter queue.
+  ## Optional parameters:
+  * `:qualifier` (`t:string`) A version number or alias name.
   """
   @spec put_function_event_invoke_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_function_event_invoke_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, function_event_invoke_config(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5343,19 +5930,33 @@ defmodule AWS.Lambda do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:qualifier])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Adds a provisioned concurrency configuration to a function's alias or version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20PutProvisionedConcurrencyConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+  * `:qualifier` (`t:string`) The version number or alias name.
+
+  ## Optional parameters:
   """
   @spec put_provisioned_concurrency_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_provisioned_concurrency_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_provisioned_concurrency_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5372,22 +5973,32 @@ defmodule AWS.Lambda do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
-  Sets the runtime management configuration for a function's version.
+  Sets the runtime management configuration for a function's version. For more
+  information, see [Runtime
+  updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
 
-  For more information,
-  see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20PutRuntimeManagementConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+
+  ## Optional parameters:
+  * `:qualifier` (`t:string`) Specify a version of the function. This can be
+    $LATEST or a published version number. If no value is specified, the
+    configuration for the $LATEST version is returned.
   """
   @spec put_runtime_management_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_runtime_management_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_runtime_management_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5404,24 +6015,43 @@ defmodule AWS.Lambda do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:qualifier])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Removes a statement from the permissions policy for a version of an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
+  Removes a statement from the permissions policy for a version of an [Lambda
+  layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
+  For more information, see `AddLayerVersionPermission`.
 
-  For more information, see
-  `AddLayerVersionPermission`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20RemoveLayerVersionPermission&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:layer_name` (`t:string`) The name or Amazon Resource Name (ARN) of the
+    layer.
+  * `:statement_id` (`t:string`) The identifier that was specified when the
+    statement was added.
+  * `:version_number` (`t:long`) The version number.
+
+  ## Optional parameters:
+  * `:revision_id` (`t:string`) Only update the policy if the revision ID matches
+    the ID specified. Use this option to avoid modifying a policy that has
+    changed since you last read it.
   """
   @spec remove_layer_version_permission(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           remove_layer_version_permission_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -5445,7 +6075,13 @@ defmodule AWS.Lambda do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:revision_id])
 
     Request.request_rest(
       client,
@@ -5462,12 +6098,30 @@ defmodule AWS.Lambda do
 
   @doc """
   Revokes function-use permission from an Amazon Web Service or another Amazon Web
-  Services account.
+  Services account. You can get the ID of the statement from the output of
+  `GetPolicy`.
 
-  You
-  can get the ID of the statement from the output of `GetPolicy`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20RemovePermission&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version,
+    or alias.
+  * `:statement_id` (`t:string`) Statement ID of the permission to remove.
+
+  ## Optional parameters:
+  * `:qualifier` (`t:string`) Specify a version or alias to remove permissions
+    from a published version of the function.
+  * `:revision_id` (`t:string`) Update the policy only if the revision ID matches
+    the ID that's specified. Use this option to avoid modifying a policy that
+    has changed since you last read it.
   """
-  @spec remove_permission(map(), String.t(), String.t(), remove_permission_request(), list()) ::
+  @spec remove_permission(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          remove_permission_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_permission_errors()}
@@ -5484,7 +6138,13 @@ defmodule AWS.Lambda do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:qualifier, :revision_id])
 
     Request.request_rest(
       client,
@@ -5502,8 +6162,15 @@ defmodule AWS.Lambda do
   @doc """
   Adds [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to a
   function.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource` (`t:string`) The function's Amazon Resource Name (ARN).
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -5512,7 +6179,8 @@ defmodule AWS.Lambda do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5530,8 +6198,17 @@ defmodule AWS.Lambda do
   @doc """
   Removes [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) from a
   function.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource` (`t:string`) The function's Amazon Resource Name (ARN).
+  * `:tag_keys` (`t:list[com.amazonaws.lambda#TagKey]`) A list of tag keys to
+    remove from the function.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -5545,7 +6222,8 @@ defmodule AWS.Lambda do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5563,8 +6241,16 @@ defmodule AWS.Lambda do
   @doc """
   Updates the configuration of a Lambda function
   [alias](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20UpdateAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+  * `:name` (`t:string`) The name of the alias.
+
+  ## Optional parameters:
   """
-  @spec update_alias(map(), String.t(), String.t(), update_alias_request(), list()) ::
+  @spec update_alias(AWS.Client.t(), String.t(), String.t(), update_alias_request(), Keyword.t()) ::
           {:ok, alias_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_alias_errors()}
@@ -5575,22 +6261,30 @@ defmodule AWS.Lambda do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Update the code signing configuration.
+  Update the code signing configuration. Changes to the code signing configuration
+  take effect the next time a user tries to deploy a code package to the
+  function.
 
-  Changes to the code signing configuration take effect the next time a
-  user tries to deploy a code package to the function.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20UpdateCodeSigningConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:code_signing_config_arn` (`t:string`) The The Amazon Resource Name (ARN) of
+    the code signing configuration.
+
+  ## Optional parameters:
   """
   @spec update_code_signing_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_code_signing_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_code_signing_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5605,139 +6299,30 @@ defmodule AWS.Lambda do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Updates an event source mapping.
-
-  You can change the function that Lambda invokes, or pause
-  invocation and resume later from the same location.
-
-  For details about how to configure different event sources, see the following
+  Updates an event source mapping. You can change the function that Lambda
+  invokes, or pause invocation and resume later from the same location. For
+  details about how to configure different event sources, see the following
   topics.
 
-    *
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20UpdateEventSourceMapping&this_doc_guide=API%2520Reference)
 
-  [
-  Amazon DynamoDB
-  Streams](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping)
+  ## Parameters:
+  * `:uuid` (`t:string`) The identifier of the event source mapping.
 
-    *
-
-  [
-  Amazon
-  Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping)
-
-    *
-
-  [
-  Amazon
-  SQS](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource)
-
-    *
-
-  [
-  Amazon MQ and
-  RabbitMQ](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping)
-
-    *
-
-  [
-  Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
-
-    *
-
-  [
-  Apache Kafka](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
-
-    *
-
-  [
-  Amazon
-  DocumentDB](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
-
-  The following error handling options are available only for stream sources
-  (DynamoDB and Kinesis):
-
-    *
-
-  `BisectBatchOnFunctionError` – If the function returns an error, split the batch
-  in two and retry.
-
-    *
-
-  `DestinationConfig` – Send discarded records to an Amazon SQS queue or Amazon
-  SNS topic.
-
-    *
-
-  `MaximumRecordAgeInSeconds` – Discard records older than the specified age. The
-  default value is infinite (-1). When set to infinite (-1), failed records are
-  retried until the record expires
-
-    *
-
-  `MaximumRetryAttempts` – Discard records after the specified number of retries.
-  The default value is infinite (-1). When set to infinite (-1), failed records
-  are retried until the record expires.
-
-    *
-
-  `ParallelizationFactor` – Process multiple batches from each shard concurrently.
-
-  For information about which configuration parameters apply to each event source,
-  see the following topics.
-
-    *
-
-  [
-  Amazon DynamoDB
-  Streams](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params)
-
-    *
-
-  [
-  Amazon
-  Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params)
-
-    *
-
-  [
-  Amazon
-  SQS](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params)
-
-    *
-
-  [
-  Amazon MQ and
-  RabbitMQ](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params)
-
-    *
-
-  [
-  Amazon
-  MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms)
-
-    *
-
-  [
-  Apache
-  Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms)
-
-    *
-
-  [
-  Amazon
-  DocumentDB](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html#docdb-configuration)
+  ## Optional parameters:
   """
   @spec update_event_source_mapping(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_event_source_mapping_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, event_source_mapping_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5747,44 +6332,39 @@ defmodule AWS.Lambda do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
-  Updates a Lambda function's code.
-
-  If code signing is enabled for the function, the code package
-  must be signed by a trusted publisher. For more information, see [Configuring code signing for
+  Updates a Lambda function's code. If code signing is enabled for the function,
+  the code package must be signed by a trusted publisher. For more information,
+  see [Configuring code signing for
   Lambda](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html).
-
   If the function's package type is `Image`, then you must specify the code
-  package in
-  `ImageUri` as the URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the
-  Amazon ECR registry.
+  package in `ImageUri` as the URI of a [container
+  image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the
+  Amazon ECR registry. If the function's package type is `Zip`, then you must
+  specify the deployment package as a [.zip file
+  archive](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip).
+  Enter the Amazon S3 bucket and key of the code .zip file location. You can
+  also provide the function code inline using the `ZipFile` field.
 
-  If the function's package type is `Zip`, then you must specify the deployment
-  package as a [.zip file archive](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip).
-  Enter the Amazon S3 bucket and key of the code .zip file location. You can also
-  provide
-  the function code inline using the `ZipFile` field.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20UpdateFunctionCode&this_doc_guide=API%2520Reference)
 
-  The code in the deployment package must be compatible with the target
-  instruction set architecture of the
-  function (`x86-64` or `arm64`).
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
-  The function's code is locked when you publish a version. You can't modify the
-  code of a published version,
-  only the unpublished version.
-
-  For a function defined as a container image, Lambda resolves the image tag to an
-  image digest. In
-  Amazon ECR, if you update the image tag to a new image, Lambda does not
-  automatically
-  update the function.
+  ## Optional parameters:
   """
-  @spec update_function_code(map(), String.t(), update_function_code_request(), list()) ::
+  @spec update_function_code(
+          AWS.Client.t(),
+          String.t(),
+          update_function_code_request(),
+          Keyword.t()
+        ) ::
           {:ok, function_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_function_code_errors()}
@@ -5793,40 +6373,36 @@ defmodule AWS.Lambda do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Modify the version-specific settings of a Lambda function.
-
-  When you update a function, Lambda provisions an instance of the function and
-  its supporting
+  Modify the version-specific settings of a Lambda function. When you update a
+  function, Lambda provisions an instance of the function and its supporting
   resources. If your function connects to a VPC, this process can take a minute.
-  During this time, you can't modify
-  the function, but you can still invoke it. The `LastUpdateStatus`,
-  `LastUpdateStatusReason`,
-  and `LastUpdateStatusReasonCode` fields in the response from
-  `GetFunctionConfiguration`
-  indicate when the update is complete and the function is processing events with
-  the new configuration. For more
+  During this time, you can't modify the function, but you can still invoke it.
+  The `LastUpdateStatus`, `LastUpdateStatusReason`, and
+  `LastUpdateStatusReasonCode` fields in the response from
+  `GetFunctionConfiguration` indicate when the update is complete and the
+  function is processing events with the new configuration. For more
   information, see [Lambda function
   states](https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html).
 
-  These settings can vary between versions of a function and are locked when you
-  publish a version. You can't
-  modify the configuration of a published version, only the unpublished version.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20UpdateFunctionConfiguration&this_doc_guide=API%2520Reference)
 
-  To configure function concurrency, use `PutFunctionConcurrency`. To grant invoke
-  permissions
-  to an Amazon Web Services account or Amazon Web Service, use `AddPermission`.
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+
+  ## Optional parameters:
   """
   @spec update_function_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_function_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, function_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5836,7 +6412,8 @@ defmodule AWS.Lambda do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -5845,14 +6422,20 @@ defmodule AWS.Lambda do
   Updates the configuration for asynchronous invocation for a function, version,
   or alias.
 
-  To configure options for asynchronous invocation, use
-  `PutFunctionEventInvokeConfig`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20UpdateFunctionEventInvokeConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version,
+    or alias.
+
+  ## Optional parameters:
+  * `:qualifier` (`t:string`) A version number or alias name.
   """
   @spec update_function_event_invoke_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_function_event_invoke_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, function_event_invoke_config(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5867,7 +6450,13 @@ defmodule AWS.Lambda do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:qualifier])
 
     Request.request_rest(
       client,
@@ -5884,12 +6473,20 @@ defmodule AWS.Lambda do
 
   @doc """
   Updates the configuration for a Lambda function URL.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20UpdateFunctionUrlConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+
+  ## Optional parameters:
+  * `:qualifier` (`t:string`) The alias name.
   """
   @spec update_function_url_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_function_url_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_function_url_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5904,7 +6501,13 @@ defmodule AWS.Lambda do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:qualifier])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

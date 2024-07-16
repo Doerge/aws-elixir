@@ -950,15 +950,19 @@ defmodule AWS.Route53RecoveryControlConfig do
   end
 
   @doc """
-  Create a new cluster.
+  Create a new cluster. A cluster is a set of redundant Regional endpoints against
+  which you can run API calls to update or get the state of one or more routing
+  controls. Each cluster has a name, status, Amazon Resource Name (ARN), and an
+  array of the five cluster endpoints (one for each supported Amazon Web
+  Services Region) that you can use with API calls to the cluster data plane.
 
-  A cluster is a set of redundant Regional endpoints against which you can run API
-  calls to update or get the state of one or more routing controls. Each cluster
-  has a name, status, Amazon Resource Name (ARN), and an array of the five cluster
-  endpoints (one for each supported Amazon Web Services Region) that you can use
-  with API calls to the cluster data plane.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20CreateCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_cluster(map(), create_cluster_request(), list()) ::
+  @spec create_cluster(AWS.Client.t(), create_cluster_request(), Keyword.t()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_errors()}
@@ -967,7 +971,8 @@ defmodule AWS.Route53RecoveryControlConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -983,15 +988,19 @@ defmodule AWS.Route53RecoveryControlConfig do
   end
 
   @doc """
-  Creates a new control panel.
+  Creates a new control panel. A control panel represents a group of routing
+  controls that can be changed together in a single transaction. You can use a
+  control panel to centrally view the operational status of applications across
+  your organization, and trigger multi-app failovers in a single transaction,
+  for example, to fail over an Availability Zone or Amazon Web Services Region.
 
-  A control panel represents a group of routing controls that can be changed
-  together in a single transaction. You can use a control panel to centrally view
-  the operational status of applications across your organization, and trigger
-  multi-app failovers in a single transaction, for example, to fail over an
-  Availability Zone or Amazon Web Services Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20CreateControlPanel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_control_panel(map(), create_control_panel_request(), list()) ::
+  @spec create_control_panel(AWS.Client.t(), create_control_panel_request(), Keyword.t()) ::
           {:ok, create_control_panel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_control_panel_errors()}
@@ -1000,7 +1009,8 @@ defmodule AWS.Route53RecoveryControlConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1016,16 +1026,17 @@ defmodule AWS.Route53RecoveryControlConfig do
   end
 
   @doc """
-  Creates a new routing control.
+  Creates a new routing control. A routing control has one of two states: ON and
+  OFF. You can map the routing control state to the state of an Amazon Route 53
+  health check, which can be used to control traffic routing.
 
-  A routing control has one of two states: ON and OFF. You can map the routing
-  control state to the state of an Amazon Route 53 health check, which can be used
-  to control traffic routing.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20CreateRoutingControl&this_doc_guide=API%2520Reference)
 
-  To get or update the routing control state, see the Recovery Cluster (data
-  plane) API actions for Amazon Route 53 Application Recovery Controller.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_routing_control(map(), create_routing_control_request(), list()) ::
+  @spec create_routing_control(AWS.Client.t(), create_routing_control_request(), Keyword.t()) ::
           {:ok, create_routing_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_routing_control_errors()}
@@ -1034,7 +1045,8 @@ defmodule AWS.Route53RecoveryControlConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1050,29 +1062,18 @@ defmodule AWS.Route53RecoveryControlConfig do
   end
 
   @doc """
-  Creates a safety rule in a control panel.
+  Creates a safety rule in a control panel. Safety rules let you add safeguards
+  around changing routing control states, and for enabling and disabling routing
+  controls, to help prevent unexpected outcomes. There are two types of safety
+  rules: assertion rules and gating rules.
 
-  Safety rules let you add safeguards around changing routing control states, and
-  for enabling and disabling routing controls, to help prevent unexpected
-  outcomes.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20CreateSafetyRule&this_doc_guide=API%2520Reference)
 
-  There are two types of safety rules: assertion rules and gating rules.
+  ## Parameters:
 
-  Assertion rule: An assertion rule enforces that, when you change a routing
-  control state, that a certain criteria is met. For example, the criteria might
-  be that at least one routing control state is On after the transaction so that
-  traffic continues to flow to at least one cell for the application. This ensures
-  that you avoid a fail-open scenario.
-
-  Gating rule: A gating rule lets you configure a gating routing control as an
-  overall "on/off" switch for a group of routing controls. Or, you can configure
-  more complex gating scenarios, for example by configuring multiple gating
-  routing controls.
-
-  For more information, see [Safety rules](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.safety-rules.html)
-  in the Amazon Route 53 Application Recovery Controller Developer Guide.
+  ## Optional parameters:
   """
-  @spec create_safety_rule(map(), create_safety_rule_request(), list()) ::
+  @spec create_safety_rule(AWS.Client.t(), create_safety_rule_request(), Keyword.t()) ::
           {:ok, create_safety_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_safety_rule_errors()}
@@ -1081,7 +1082,8 @@ defmodule AWS.Route53RecoveryControlConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1098,8 +1100,16 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   @doc """
   Delete a cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DeleteCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster that
+    you're deleting.
+
+  ## Optional parameters:
   """
-  @spec delete_cluster(map(), String.t(), delete_cluster_request(), list()) ::
+  @spec delete_cluster(AWS.Client.t(), String.t(), delete_cluster_request(), Keyword.t()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_errors()}
@@ -1108,7 +1118,8 @@ defmodule AWS.Route53RecoveryControlConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1125,8 +1136,21 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   @doc """
   Deletes a control panel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DeleteControlPanel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    control panel.
+
+  ## Optional parameters:
   """
-  @spec delete_control_panel(map(), String.t(), delete_control_panel_request(), list()) ::
+  @spec delete_control_panel(
+          AWS.Client.t(),
+          String.t(),
+          delete_control_panel_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_control_panel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_control_panel_errors()}
@@ -1135,7 +1159,8 @@ defmodule AWS.Route53RecoveryControlConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1152,8 +1177,21 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   @doc """
   Deletes a routing control.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DeleteRoutingControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:routing_control_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    routing control that you're deleting.
+
+  ## Optional parameters:
   """
-  @spec delete_routing_control(map(), String.t(), delete_routing_control_request(), list()) ::
+  @spec delete_routing_control(
+          AWS.Client.t(),
+          String.t(),
+          delete_routing_control_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_routing_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_routing_control_errors()}
@@ -1162,7 +1200,8 @@ defmodule AWS.Route53RecoveryControlConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1180,9 +1219,14 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Deletes a safety rule.
 
-  />
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DeleteSafetyRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:safety_rule_arn` (`t:string`) The ARN of the safety rule.
+
+  ## Optional parameters:
   """
-  @spec delete_safety_rule(map(), String.t(), delete_safety_rule_request(), list()) ::
+  @spec delete_safety_rule(AWS.Client.t(), String.t(), delete_safety_rule_request(), Keyword.t()) ::
           {:ok, delete_safety_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_safety_rule_errors()}
@@ -1191,7 +1235,8 @@ defmodule AWS.Route53RecoveryControlConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1207,96 +1252,216 @@ defmodule AWS.Route53RecoveryControlConfig do
   end
 
   @doc """
-  Display the details about a cluster.
+  Display the details about a cluster. The response includes the cluster name,
+  endpoints, status, and Amazon Resource Name (ARN).
 
-  The response includes the cluster name, endpoints, status, and Amazon Resource
-  Name (ARN).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DescribeCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster.
+
+  ## Optional parameters:
   """
-  @spec describe_cluster(map(), String.t(), list()) ::
+  @spec describe_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_errors()}
   def describe_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Displays details about a control panel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DescribeControlPanel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    control panel.
+
+  ## Optional parameters:
   """
-  @spec describe_control_panel(map(), String.t(), list()) ::
+  @spec describe_control_panel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_control_panel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_control_panel_errors()}
   def describe_control_panel(%Client{} = client, control_panel_arn, options \\ []) do
     url_path = "/controlpanel/#{AWS.Util.encode_uri(control_panel_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Displays details about a routing control.
+  Displays details about a routing control. A routing control has one of two
+  states: ON and OFF. You can map the routing control state to the state of an
+  Amazon Route 53 health check, which can be used to control routing.
 
-  A routing control has one of two states: ON and OFF. You can map the routing
-  control state to the state of an Amazon Route 53 health check, which can be used
-  to control routing.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DescribeRoutingControl&this_doc_guide=API%2520Reference)
 
-  To get or update the routing control state, see the Recovery Cluster (data
-  plane) API actions for Amazon Route 53 Application Recovery Controller.
+  ## Parameters:
+  * `:routing_control_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    routing control.
+
+  ## Optional parameters:
   """
-  @spec describe_routing_control(map(), String.t(), list()) ::
+  @spec describe_routing_control(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_routing_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_routing_control_errors()}
   def describe_routing_control(%Client{} = client, routing_control_arn, options \\ []) do
     url_path = "/routingcontrol/#{AWS.Util.encode_uri(routing_control_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a safety rule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DescribeSafetyRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:safety_rule_arn` (`t:string`) The ARN of the safety rule.
+
+  ## Optional parameters:
   """
-  @spec describe_safety_rule(map(), String.t(), list()) ::
+  @spec describe_safety_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_safety_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_safety_rule_errors()}
   def describe_safety_rule(%Client{} = client, safety_rule_arn, options \\ []) do
     url_path = "/safetyrule/#{AWS.Util.encode_uri(safety_rule_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get information about the resource policy for a cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20GetResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec get_resource_policy(map(), String.t(), list()) ::
+  @spec get_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resourcePolicy/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1304,162 +1469,272 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Returns an array of all Amazon Route 53 health checks associated with a specific
   routing control.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20ListAssociatedRoute53HealthChecks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:routing_control_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    routing control.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
-  @spec list_associated_route53_health_checks(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_associated_route53_health_checks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_route53_health_checks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_associated_route53_health_checks_errors()}
   def list_associated_route53_health_checks(
         %Client{} = client,
         routing_control_arn,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/routingcontrol/#{AWS.Util.encode_uri(routing_control_arn)}/associatedRoute53HealthChecks"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns an array of all the clusters in an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20ListClusters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
-  @spec list_clusters(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_clusters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_clusters_errors()}
-  def list_clusters(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_clusters(%Client{} = client, options \\ []) do
     url_path = "/cluster"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns an array of control panels in an account or in a cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20ListControlPanels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of a cluster.
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
-  @spec list_control_panels(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_control_panels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_control_panels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_control_panels_errors()}
-  def list_control_panels(
-        %Client{} = client,
-        cluster_arn \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_control_panels(%Client{} = client, options \\ []) do
     url_path = "/controlpanels"
+
+    # Validate optional parameters
+    optional_params = [cluster_arn: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(cluster_arn) do
-        [{"ClusterArn", cluster_arn} | query_params]
+      if opt_val = Keyword.get(options, :cluster_arn) do
+        [{"ClusterArn", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:cluster_arn, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns an array of routing controls for a control panel.
+  Returns an array of routing controls for a control panel. A routing control is
+  an Amazon Route 53 Application Recovery Controller construct that has one of
+  two states: ON and OFF. You can map the routing control state to the state of
+  an Amazon Route 53 health check, which can be used to control routing.
 
-  A routing control is an Amazon Route 53 Application Recovery Controller
-  construct that has one of two states: ON and OFF. You can map the routing
-  control state to the state of an Amazon Route 53 health check, which can be used
-  to control routing.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20ListRoutingControls&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    control panel.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
-  @spec list_routing_controls(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_routing_controls(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_routing_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_routing_controls_errors()}
-  def list_routing_controls(
-        %Client{} = client,
-        control_panel_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_routing_controls(%Client{} = client, control_panel_arn, options \\ []) do
     url_path = "/controlpanel/#{AWS.Util.encode_uri(control_panel_arn)}/routingcontrols"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1467,62 +1742,124 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   List the safety rules (the assertion rules and gating rules) that you've defined
   for the routing controls in a control panel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20ListSafetyRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    control panel.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
-  @spec list_safety_rules(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_safety_rules(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_safety_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_safety_rules_errors()}
-  def list_safety_rules(
-        %Client{} = client,
-        control_panel_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_safety_rules(%Client{} = client, control_panel_arn, options \\ []) do
     url_path = "/controlpanel/#{AWS.Util.encode_uri(control_panel_arn)}/safetyrules"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the tags for a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
+    that's tagged.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Adds a tag to a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
+    that's tagged.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1531,7 +1868,8 @@ defmodule AWS.Route53RecoveryControlConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1548,8 +1886,18 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   @doc """
   Removes a tag from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
+    that's tagged.
+  * `:tag_keys` (`t:list[com.amazonaws.route53recoverycontrolconfig#__string]`)
+    Keys for the tags to be removed.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1563,7 +1911,8 @@ defmodule AWS.Route53RecoveryControlConfig do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1579,12 +1928,16 @@ defmodule AWS.Route53RecoveryControlConfig do
   end
 
   @doc """
-  Updates a control panel.
+  Updates a control panel. The only update you can make to a control panel is to
+  change the name of the control panel.
 
-  The only update you can make to a control panel is to change the name of the
-  control panel.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20UpdateControlPanel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_control_panel(map(), update_control_panel_request(), list()) ::
+  @spec update_control_panel(AWS.Client.t(), update_control_panel_request(), Keyword.t()) ::
           {:ok, update_control_panel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_control_panel_errors()}
@@ -1593,19 +1946,24 @@ defmodule AWS.Route53RecoveryControlConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Updates a routing control.
+  Updates a routing control. You can only update the name of the routing control.
+  To get or update the routing control state, see the Recovery Cluster (data
+  plane) API actions for Amazon Route 53 Application Recovery Controller.
 
-  You can only update the name of the routing control. To get or update the
-  routing control state, see the Recovery Cluster (data plane) API actions for
-  Amazon Route 53 Application Recovery Controller.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20UpdateRoutingControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_routing_control(map(), update_routing_control_request(), list()) ::
+  @spec update_routing_control(AWS.Client.t(), update_routing_control_request(), Keyword.t()) ::
           {:ok, update_routing_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_routing_control_errors()}
@@ -1614,18 +1972,24 @@ defmodule AWS.Route53RecoveryControlConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Update a safety rule (an assertion rule or gating rule).
+  Update a safety rule (an assertion rule or gating rule). You can only update the
+  name and the waiting period for a safety rule. To make other updates, delete
+  the safety rule and create a new one.
 
-  You can only update the name and the waiting period for a safety rule. To make
-  other updates, delete the safety rule and create a new one.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20UpdateSafetyRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_safety_rule(map(), update_safety_rule_request(), list()) ::
+  @spec update_safety_rule(AWS.Client.t(), update_safety_rule_request(), Keyword.t()) ::
           {:ok, update_safety_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_safety_rule_errors()}
@@ -1634,7 +1998,8 @@ defmodule AWS.Route53RecoveryControlConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

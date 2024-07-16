@@ -3,21 +3,11 @@
 
 defmodule AWS.CloudSearch do
   @moduledoc """
-  Amazon CloudSearch Configuration Service
-
-  You use the Amazon CloudSearch configuration service to create, configure, and
-  manage search domains.
-
+  Amazon CloudSearch Configuration Service You use the Amazon CloudSearch
+  configuration service to create, configure, and manage search domains.
   Configuration service requests are submitted using the AWS Query protocol. AWS
-  Query requests
-  are HTTP or HTTPS requests submitted via HTTP GET or POST with a query parameter
-  named Action.
-
-  The endpoint for configuration service requests is region-specific:
-  cloudsearch.*region*.amazonaws.com.
-  For example, cloudsearch.us-east-1.amazonaws.com. For a current list of
-  supported regions and endpoints,
-  see [Regions and Endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region).
+  Query requests are HTTP or HTTPS requests submitted via HTTP GET or POST with
+  a query parameter named Action.
   """
 
   alias AWS.Client
@@ -1313,387 +1303,408 @@ defmodule AWS.CloudSearch do
   end
 
   @doc """
-  Indexes the search suggestions.
-
-  For more information, see [Configuring Suggesters](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters)
+  Indexes the search suggestions. For more information, see [Configuring
+  Suggesters](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  @spec build_suggesters(map(), build_suggesters_request(), list()) ::
+  @spec build_suggesters(AWS.Client.t(), build_suggesters_request(), Keyword.t()) ::
           {:ok, build_suggesters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, build_suggesters_errors()}
   def build_suggesters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BuildSuggesters", input, options)
   end
 
   @doc """
-  Creates a new search domain.
-
-  For more information,
-  see [Creating a Search Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/creating-domains.html)
+  Creates a new search domain. For more information, see [Creating a Search
+  Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/creating-domains.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  @spec create_domain(map(), create_domain_request(), list()) ::
+  @spec create_domain(AWS.Client.t(), create_domain_request(), Keyword.t()) ::
           {:ok, create_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDomain", input, options)
   end
 
   @doc """
   Configures an analysis scheme that can be applied to a `text` or `text-array`
-  field to define language-specific text processing options.
-
-  For more information, see [Configuring Analysis Schemes](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html)
+  field to define language-specific text processing options. For more
+  information, see [Configuring Analysis
+  Schemes](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  @spec define_analysis_scheme(map(), define_analysis_scheme_request(), list()) ::
+  @spec define_analysis_scheme(AWS.Client.t(), define_analysis_scheme_request(), Keyword.t()) ::
           {:ok, define_analysis_scheme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, define_analysis_scheme_errors()}
   def define_analysis_scheme(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DefineAnalysisScheme", input, options)
   end
 
   @doc """
-  Configures an ``Expression`` for the search domain.
-
-  Used to create new expressions and modify existing ones. If the expression
-  exists, the new configuration replaces the old one. For more information, see
-  [Configuring Expressions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html)
+  Configures an ``Expression`` for the search domain. Used to create new
+  expressions and modify existing ones. If the expression exists, the new
+  configuration replaces the old one. For more information, see [Configuring
+  Expressions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  @spec define_expression(map(), define_expression_request(), list()) ::
+  @spec define_expression(AWS.Client.t(), define_expression_request(), Keyword.t()) ::
           {:ok, define_expression_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, define_expression_errors()}
   def define_expression(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DefineExpression", input, options)
   end
 
   @doc """
-  Configures an ``IndexField`` for the search domain.
-
-  Used to create new fields and modify existing ones. You must specify the name of
-  the domain you are configuring and an index field configuration. The index field
-  configuration specifies a unique name, the index field type, and the options you
-  want to configure for the field. The options you can specify depend on the
-  ``IndexFieldType``. If the field exists, the new configuration replaces the old
-  one. For more information, see [Configuring Index Fields](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html)
+  Configures an ``IndexField`` for the search domain. Used to create new fields
+  and modify existing ones. You must specify the name of the domain you are
+  configuring and an index field configuration. The index field configuration
+  specifies a unique name, the index field type, and the options you want to
+  configure for the field. The options you can specify depend on the
+  ``IndexFieldType``. If the field exists, the new configuration replaces the
+  old one. For more information, see [Configuring Index
+  Fields](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  @spec define_index_field(map(), define_index_field_request(), list()) ::
+  @spec define_index_field(AWS.Client.t(), define_index_field_request(), Keyword.t()) ::
           {:ok, define_index_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, define_index_field_errors()}
   def define_index_field(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DefineIndexField", input, options)
   end
 
   @doc """
-  Configures a suggester for a domain.
-
-  A suggester enables you to display possible matches before users finish typing
-  their queries. When you configure a suggester, you must specify the name of the
-  text field you want to search for possible matches and a unique name for the
-  suggester. For more information, see [Getting Search Suggestions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html)
+  Configures a suggester for a domain. A suggester enables you to display possible
+  matches before users finish typing their queries. When you configure a
+  suggester, you must specify the name of the text field you want to search for
+  possible matches and a unique name for the suggester. For more information,
+  see [Getting Search
+  Suggestions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  @spec define_suggester(map(), define_suggester_request(), list()) ::
+  @spec define_suggester(AWS.Client.t(), define_suggester_request(), Keyword.t()) ::
           {:ok, define_suggester_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, define_suggester_errors()}
   def define_suggester(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DefineSuggester", input, options)
   end
 
   @doc """
-  Deletes an analysis scheme.
-
-  For more information, see [Configuring Analysis Schemes](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html)
+  Deletes an analysis scheme. For more information, see [Configuring Analysis
+  Schemes](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  @spec delete_analysis_scheme(map(), delete_analysis_scheme_request(), list()) ::
+  @spec delete_analysis_scheme(AWS.Client.t(), delete_analysis_scheme_request(), Keyword.t()) ::
           {:ok, delete_analysis_scheme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_analysis_scheme_errors()}
   def delete_analysis_scheme(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAnalysisScheme", input, options)
   end
 
   @doc """
-  Permanently deletes a search domain and all of its data.
-
-  Once a domain has been deleted, it cannot be recovered. For more information,
-  see [Deleting a Search Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/deleting-domains.html)
+  Permanently deletes a search domain and all of its data. Once a domain has been
+  deleted, it cannot be recovered. For more information, see [Deleting a Search
+  Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/deleting-domains.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  @spec delete_domain(map(), delete_domain_request(), list()) ::
+  @spec delete_domain(AWS.Client.t(), delete_domain_request(), Keyword.t()) ::
           {:ok, delete_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDomain", input, options)
   end
 
   @doc """
-  Removes an ``Expression`` from the search domain.
-
-  For more information, see [Configuring Expressions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html)
+  Removes an ``Expression`` from the search domain. For more information, see
+  [Configuring
+  Expressions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  @spec delete_expression(map(), delete_expression_request(), list()) ::
+  @spec delete_expression(AWS.Client.t(), delete_expression_request(), Keyword.t()) ::
           {:ok, delete_expression_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_expression_errors()}
   def delete_expression(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteExpression", input, options)
   end
 
   @doc """
-  Removes an ``IndexField`` from the search domain.
-
-  For more information, see [Configuring Index Fields](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html)
+  Removes an ``IndexField`` from the search domain. For more information, see
+  [Configuring Index
+  Fields](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  @spec delete_index_field(map(), delete_index_field_request(), list()) ::
+  @spec delete_index_field(AWS.Client.t(), delete_index_field_request(), Keyword.t()) ::
           {:ok, delete_index_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_index_field_errors()}
   def delete_index_field(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIndexField", input, options)
   end
 
   @doc """
-  Deletes a suggester.
-
-  For more information, see [Getting Search Suggestions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html)
+  Deletes a suggester. For more information, see [Getting Search
+  Suggestions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  @spec delete_suggester(map(), delete_suggester_request(), list()) ::
+  @spec delete_suggester(AWS.Client.t(), delete_suggester_request(), Keyword.t()) ::
           {:ok, delete_suggester_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_suggester_errors()}
   def delete_suggester(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSuggester", input, options)
   end
 
   @doc """
-  Gets the analysis schemes configured for a domain.
-
-  An analysis scheme defines language-specific text processing options for a
-  `text` field. Can be limited to specific analysis schemes by name. By default,
-  shows all analysis schemes and includes any pending changes to the
-  configuration. Set the `Deployed` option to `true` to show the active
-  configuration and exclude pending changes. For more information, see
-  [Configuring Analysis Schemes](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html)
+  Gets the analysis schemes configured for a domain. An analysis scheme defines
+  language-specific text processing options for a `text` field. Can be limited
+  to specific analysis schemes by name. By default, shows all analysis schemes
+  and includes any pending changes to the configuration. Set the `Deployed`
+  option to `true` to show the active configuration and exclude pending changes.
+  For more information, see [Configuring Analysis
+  Schemes](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  @spec describe_analysis_schemes(map(), describe_analysis_schemes_request(), list()) ::
+  @spec describe_analysis_schemes(
+          AWS.Client.t(),
+          describe_analysis_schemes_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_analysis_schemes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_analysis_schemes_errors()}
   def describe_analysis_schemes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAnalysisSchemes", input, options)
   end
 
   @doc """
-  Gets the availability options configured for a domain.
-
-  By default, shows the configuration with any pending changes. Set the `Deployed`
-  option to `true` to show the active configuration and exclude pending changes.
-  For more information, see [Configuring Availability Options](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html)
+  Gets the availability options configured for a domain. By default, shows the
+  configuration with any pending changes. Set the `Deployed` option to `true` to
+  show the active configuration and exclude pending changes. For more
+  information, see [Configuring Availability
+  Options](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  @spec describe_availability_options(map(), describe_availability_options_request(), list()) ::
+  @spec describe_availability_options(
+          AWS.Client.t(),
+          describe_availability_options_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_availability_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_availability_options_errors()}
   def describe_availability_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAvailabilityOptions", input, options)
   end
 
   @doc """
   Returns the domain's endpoint options, specifically whether all requests to the
-  domain must arrive over HTTPS.
-
-  For more information, see [Configuring Domain Endpoint Options](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-domain-endpoint-options.html)
+  domain must arrive over HTTPS. For more information, see [Configuring Domain
+  Endpoint
+  Options](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-domain-endpoint-options.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
   @spec describe_domain_endpoint_options(
-          map(),
+          AWS.Client.t(),
           describe_domain_endpoint_options_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_domain_endpoint_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_endpoint_options_errors()}
   def describe_domain_endpoint_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDomainEndpointOptions", input, options)
   end
 
   @doc """
-  Gets information about the search domains owned by this account.
-
-  Can be limited to specific domains. Shows
-  all domains by default. To get the number of searchable documents in a domain,
-  use the console or submit a `matchall` request to your domain's search endpoint:
-  `q=matchall&q.parser=structured&size=0`. For more information,
-  see [Getting Information about a Search Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html)
+  Gets information about the search domains owned by this account. Can be limited
+  to specific domains. Shows all domains by default. To get the number of
+  searchable documents in a domain, use the console or submit a `matchall`
+  request to your domain's search endpoint:
+  `q=matchall&q.parser=structured&size=0`. For more information, see [Getting
+  Information about a Search
+  Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  @spec describe_domains(map(), describe_domains_request(), list()) ::
+  @spec describe_domains(AWS.Client.t(), describe_domains_request(), Keyword.t()) ::
           {:ok, describe_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domains_errors()}
   def describe_domains(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDomains", input, options)
   end
 
   @doc """
-  Gets the expressions configured for the search domain.
-
-  Can be limited to specific expressions by name. By default, shows all
-  expressions and includes any pending changes to the configuration. Set the
-  `Deployed` option to `true` to show the active configuration and exclude pending
-  changes. For more information, see [Configuring Expressions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html)
+  Gets the expressions configured for the search domain. Can be limited to
+  specific expressions by name. By default, shows all expressions and includes
+  any pending changes to the configuration. Set the `Deployed` option to `true`
+  to show the active configuration and exclude pending changes. For more
+  information, see [Configuring
+  Expressions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  @spec describe_expressions(map(), describe_expressions_request(), list()) ::
+  @spec describe_expressions(AWS.Client.t(), describe_expressions_request(), Keyword.t()) ::
           {:ok, describe_expressions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_expressions_errors()}
   def describe_expressions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExpressions", input, options)
   end
 
   @doc """
-  Gets information about the index fields configured for the search domain.
-
-  Can be limited to specific fields by name. By default, shows all fields and
-  includes any pending changes to the configuration. Set the `Deployed` option to
-  `true` to show the active configuration and exclude pending changes. For more
-  information,
-  see [Getting Domain Information](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html)
+  Gets information about the index fields configured for the search domain. Can be
+  limited to specific fields by name. By default, shows all fields and includes
+  any pending changes to the configuration. Set the `Deployed` option to `true`
+  to show the active configuration and exclude pending changes. For more
+  information, see [Getting Domain
+  Information](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  @spec describe_index_fields(map(), describe_index_fields_request(), list()) ::
+  @spec describe_index_fields(AWS.Client.t(), describe_index_fields_request(), Keyword.t()) ::
           {:ok, describe_index_fields_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_index_fields_errors()}
   def describe_index_fields(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIndexFields", input, options)
   end
 
   @doc """
-  Gets the scaling parameters configured for a domain.
-
-  A domain's scaling parameters specify the desired search instance type and
-  replication count. For more information, see [Configuring Scaling Options](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html)
+  Gets the scaling parameters configured for a domain. A domain's scaling
+  parameters specify the desired search instance type and replication count. For
+  more information, see [Configuring Scaling
+  Options](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  @spec describe_scaling_parameters(map(), describe_scaling_parameters_request(), list()) ::
+  @spec describe_scaling_parameters(
+          AWS.Client.t(),
+          describe_scaling_parameters_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_scaling_parameters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_scaling_parameters_errors()}
   def describe_scaling_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeScalingParameters", input, options)
   end
 
   @doc """
   Gets information about the access policies that control access to the domain's
-  document and search endpoints.
-
-  By default, shows the configuration with any pending changes. Set the `Deployed`
-  option to `true` to show the active configuration and exclude pending changes.
-  For more information,
-  see [Configuring Access for a Search Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html)
+  document and search endpoints. By default, shows the configuration with any
+  pending changes. Set the `Deployed` option to `true` to show the active
+  configuration and exclude pending changes. For more information, see
+  [Configuring Access for a Search
+  Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
   @spec describe_service_access_policies(
-          map(),
+          AWS.Client.t(),
           describe_service_access_policies_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_service_access_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_service_access_policies_errors()}
   def describe_service_access_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServiceAccessPolicies", input, options)
   end
 
   @doc """
-  Gets the suggesters configured for a domain.
-
-  A suggester enables you to display possible matches before users finish typing
-  their queries. Can be limited to specific suggesters by name. By default, shows
-  all suggesters and includes any pending changes to the configuration. Set the
-  `Deployed` option to `true` to show the active configuration and exclude pending
-  changes. For more information, see [Getting Search Suggestions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html)
+  Gets the suggesters configured for a domain. A suggester enables you to display
+  possible matches before users finish typing their queries. Can be limited to
+  specific suggesters by name. By default, shows all suggesters and includes any
+  pending changes to the configuration. Set the `Deployed` option to `true` to
+  show the active configuration and exclude pending changes. For more
+  information, see [Getting Search
+  Suggestions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  @spec describe_suggesters(map(), describe_suggesters_request(), list()) ::
+  @spec describe_suggesters(AWS.Client.t(), describe_suggesters_request(), Keyword.t()) ::
           {:ok, describe_suggesters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_suggesters_errors()}
   def describe_suggesters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSuggesters", input, options)
   end
 
   @doc """
   Tells the search domain to start indexing its documents using the latest
-  indexing options.
-
-  This operation must be invoked to activate options whose `OptionStatus` is
-  `RequiresIndexDocuments`.
+  indexing options. This operation must be invoked to activate options whose
+  `OptionStatus` is `RequiresIndexDocuments`.
   """
-  @spec index_documents(map(), index_documents_request(), list()) ::
+  @spec index_documents(AWS.Client.t(), index_documents_request(), Keyword.t()) ::
           {:ok, index_documents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, index_documents_errors()}
   def index_documents(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "IndexDocuments", input, options)
   end
@@ -1701,88 +1712,105 @@ defmodule AWS.CloudSearch do
   @doc """
   Lists all search domains owned by an account.
   """
-  @spec list_domain_names(map(), %{}, list()) ::
+  @spec list_domain_names(AWS.Client.t(), %{}, Keyword.t()) ::
           {:ok, list_domain_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domain_names_errors()}
   def list_domain_names(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDomainNames", input, options)
   end
 
   @doc """
-  Configures the availability options for a domain.
-
-  Enabling the Multi-AZ option expands an Amazon CloudSearch domain to an
-  additional Availability Zone in the same Region to increase fault tolerance in
-  the event of a service disruption. Changes to the Multi-AZ option can take about
-  half an hour to become active. For more information, see [Configuring Availability
+  Configures the availability options for a domain. Enabling the Multi-AZ option
+  expands an Amazon CloudSearch domain to an additional Availability Zone in the
+  same Region to increase fault tolerance in the event of a service disruption.
+  Changes to the Multi-AZ option can take about half an hour to become active.
+  For more information, see [Configuring Availability
   Options](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  @spec update_availability_options(map(), update_availability_options_request(), list()) ::
+  @spec update_availability_options(
+          AWS.Client.t(),
+          update_availability_options_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_availability_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_availability_options_errors()}
   def update_availability_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAvailabilityOptions", input, options)
   end
 
   @doc """
   Updates the domain's endpoint options, specifically whether all requests to the
-  domain must arrive over HTTPS.
-
-  For more information, see [Configuring Domain Endpoint Options](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-domain-endpoint-options.html)
+  domain must arrive over HTTPS. For more information, see [Configuring Domain
+  Endpoint
+  Options](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-domain-endpoint-options.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  @spec update_domain_endpoint_options(map(), update_domain_endpoint_options_request(), list()) ::
+  @spec update_domain_endpoint_options(
+          AWS.Client.t(),
+          update_domain_endpoint_options_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_domain_endpoint_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_domain_endpoint_options_errors()}
   def update_domain_endpoint_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDomainEndpointOptions", input, options)
   end
 
   @doc """
-  Configures scaling parameters for a domain.
-
-  A domain's scaling parameters specify the desired search instance type and
-  replication count. Amazon CloudSearch will still automatically scale your domain
-  based on the volume of data and traffic, but not below the desired instance type
-  and replication count. If the Multi-AZ option is enabled, these values control
-  the resources used per Availability Zone. For more information, see [Configuring Scaling
+  Configures scaling parameters for a domain. A domain's scaling parameters
+  specify the desired search instance type and replication count. Amazon
+  CloudSearch will still automatically scale your domain based on the volume of
+  data and traffic, but not below the desired instance type and replication
+  count. If the Multi-AZ option is enabled, these values control the resources
+  used per Availability Zone. For more information, see [Configuring Scaling
   Options](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  @spec update_scaling_parameters(map(), update_scaling_parameters_request(), list()) ::
+  @spec update_scaling_parameters(
+          AWS.Client.t(),
+          update_scaling_parameters_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_scaling_parameters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_scaling_parameters_errors()}
   def update_scaling_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateScalingParameters", input, options)
   end
 
   @doc """
   Configures the access rules that control access to the domain's document and
-  search endpoints.
-
-  For more information, see [
-  Configuring Access for an Amazon CloudSearch
+  search endpoints. For more information, see [ Configuring Access for an Amazon
+  CloudSearch
   Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html).
   """
-  @spec update_service_access_policies(map(), update_service_access_policies_request(), list()) ::
+  @spec update_service_access_policies(
+          AWS.Client.t(),
+          update_service_access_policies_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_service_access_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_access_policies_errors()}
   def update_service_access_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateServiceAccessPolicies", input, options)
   end

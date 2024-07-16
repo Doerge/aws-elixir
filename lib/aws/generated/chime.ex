@@ -3,68 +3,23 @@
 
 defmodule AWS.Chime do
   @moduledoc """
-
-
   **Most of these APIs are no longer supported and will not be updated.** We
-  recommend using the latest versions in the
-  [Amazon Chime SDK API reference](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/welcome.html),
-  in the Amazon Chime SDK.
-
-  Using the latest versions requires migrating to dedicated namespaces. For more
-  information, refer to
-  [Migrating from the Amazon Chime namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
-
-  The Amazon Chime application programming interface (API) is designed so
-  administrators can
-  perform key tasks, such as creating and managing Amazon Chime accounts, users,
-  and Voice
-  Connectors. This guide provides detailed information about the Amazon Chime API,
-  including operations, types, inputs and outputs, and error codes.
-
-  You can use an AWS SDK, the AWS Command Line Interface (AWS CLI), or the REST
-  API to make API calls for Amazon Chime. We recommend using an AWS SDK or the
-  AWS CLI. The page for each API action contains a *See Also* section that
-  includes links to information about using the action with a language-specific
-  AWS SDK or the AWS CLI.
-
-  ## Definitions
-
-  ### Using an AWS SDK
-
-  You don't need to write code to calculate a signature for request
-  authentication. The SDK clients authenticate your requests by using access keys
-  that you provide. For more information about AWS SDKs, see the
-  [AWS Developer Center](http://aws.amazon.com/developer/). 
-
-  ### Using the AWS CLI
-
-  Use your access keys with the AWS CLI to make API calls. For information about
-  setting up the AWS CLI, see
-  [Installing the AWS Command Line
-  Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html)
-  in the *AWS Command Line Interface User Guide*. For a list of available Amazon
-  Chime commands, see the
-  [Amazon Chime commands](https://docs.aws.amazon.com/cli/latest/reference/chime/index.html) in
-  the
-  *AWS CLI Command Reference*.
-
-  ### Using REST APIs
-
-  If you use REST to make API calls, you must authenticate your request by
-  providing a signature. Amazon Chime supports Signature Version 4. For more
-  information, see
-  [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html)
-  in the *Amazon Web Services General Reference*.
-
-  When making REST API calls, use the service name `chime` and REST endpoint
-  `https://service.chime.aws.amazon.com`.
-
-  Administrative permissions are controlled using AWS Identity and Access
-  Management (IAM). For more information, see
-  [Identity and Access Management for Amazon Chime](https://docs.aws.amazon.com/chime/latest/ag/security-iam.html)
-  in the *Amazon Chime Administration Guide*.
+  recommend using the latest versions in the [Amazon Chime SDK API
+  reference](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/welcome.html),
+  in the Amazon Chime SDK. Using the latest versions requires migrating to
+  dedicated namespaces. For more information, refer to [Migrating from the
+  Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*. The Amazon Chime application
+  programming interface (API) is designed so administrators can perform key
+  tasks, such as creating and managing Amazon Chime accounts, users, and Voice
+  Connectors. This guide provides detailed information about the Amazon Chime
+  API, including operations, types, inputs and outputs, and error codes. You can
+  use an AWS SDK, the AWS Command Line Interface (AWS CLI), or the REST API to
+  make API calls for Amazon Chime. We recommend using an AWS SDK or the AWS CLI.
+  The page for each API action contains a *See Also* section that includes links
+  to information about using the action with a language-specific AWS SDK or the
+  AWS CLI.
   """
 
   alias AWS.Client
@@ -7151,13 +7106,21 @@ defmodule AWS.Chime do
 
   @doc """
   Associates a phone number with the specified Amazon Chime user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20AssociatePhoneNumberWithUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:user_id` (`t:string`) The user ID.
+
+  ## Optional parameters:
   """
   @spec associate_phone_number_with_user(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           associate_phone_number_with_user_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_phone_number_with_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7175,7 +7138,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7193,22 +7157,18 @@ defmodule AWS.Chime do
   @doc """
   Associates phone numbers with the specified Amazon Chime Voice Connector.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [AssociatePhoneNumbersWithVoiceConnector](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_AssociatePhoneNumbersWithVoiceConnector.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20AssociatePhoneNumbersWithVoiceConnector&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec associate_phone_numbers_with_voice_connector(
-          map(),
+          AWS.Client.t(),
           String.t(),
           associate_phone_numbers_with_voice_connector_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_phone_numbers_with_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7225,7 +7185,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7243,22 +7204,19 @@ defmodule AWS.Chime do
   @doc """
   Associates phone numbers with the specified Amazon Chime Voice Connector group.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [AssociatePhoneNumbersWithVoiceConnectorGroup](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_AssociatePhoneNumbersWithVoiceConnectorGroup.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20AssociatePhoneNumbersWithVoiceConnectorGroup&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:voice_connector_group_id` (`t:string`) The Amazon Chime Voice Connector
+    group ID.
+
+  ## Optional parameters:
   """
   @spec associate_phone_numbers_with_voice_connector_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           associate_phone_numbers_with_voice_connector_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_phone_numbers_with_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7275,7 +7233,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7293,12 +7252,19 @@ defmodule AWS.Chime do
   @doc """
   Associates the specified sign-in delegate groups with the specified Amazon Chime
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20AssociateSigninDelegateGroupsWithAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+
+  ## Optional parameters:
   """
   @spec associate_signin_delegate_groups_with_account(
-          map(),
+          AWS.Client.t(),
           String.t(),
           associate_signin_delegate_groups_with_account_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_signin_delegate_groups_with_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7315,7 +7281,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7333,23 +7300,19 @@ defmodule AWS.Chime do
   @doc """
   Creates up to 100 new attendees for an active Amazon Chime SDK meeting.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [BatchCreateAttendee](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_BatchCreateAttendee.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20BatchCreateAttendee&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
 
-  For more information about the Amazon Chime SDK, see
-  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
   """
-  @spec batch_create_attendee(map(), String.t(), batch_create_attendee_request(), list()) ::
+  @spec batch_create_attendee(
+          AWS.Client.t(),
+          String.t(),
+          batch_create_attendee_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_create_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_create_attendee_errors()}
@@ -7358,7 +7321,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7376,28 +7340,35 @@ defmodule AWS.Chime do
   @doc """
   Adds a specified number of users to a channel.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [BatchCreateChannelMembership](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_BatchCreateChannelMembership.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20BatchCreateChannelMembership&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel to which you're adding
+    users.
+
+  ## Optional parameters:
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
   @spec batch_create_channel_membership(
-          map(),
+          AWS.Client.t(),
           String.t(),
           batch_create_channel_membership_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_create_channel_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_create_channel_membership_errors()}
   def batch_create_channel_membership(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships?operation=batch-create"
+
+    optional_params = [chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -7407,7 +7378,13 @@ defmodule AWS.Chime do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:chime_bearer])
 
     Request.request_rest(
       client,
@@ -7424,16 +7401,23 @@ defmodule AWS.Chime do
 
   @doc """
   Adds up to 50 members to a chat room in an Amazon Chime Enterprise account.
+  Members can be users or bots. The member role designates whether the member is
+  a chat room administrator or a general chat room member.
 
-  Members can be users or bots. The member role designates whether the member is a
-  chat room administrator or a general chat room member.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20BatchCreateRoomMembership&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:room_id` (`t:string`) The room ID.
+
+  ## Optional parameters:
   """
   @spec batch_create_room_membership(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           batch_create_room_membership_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_create_room_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7445,7 +7429,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7461,17 +7446,21 @@ defmodule AWS.Chime do
   end
 
   @doc """
+  Moves phone numbers into the **Deletion queue**. Phone numbers must be
+  disassociated from any users or Amazon Chime Voice Connectors before they can
+  be deleted.
 
-  Moves phone numbers into the
-  **Deletion queue**.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20BatchDeletePhoneNumber&this_doc_guide=API%2520Reference)
 
-  Phone numbers must be disassociated from any users or Amazon Chime Voice
-  Connectors before they can be deleted.
+  ## Parameters:
 
-  Phone numbers remain in the
-  **Deletion queue** for 7 days before they are deleted permanently.
+  ## Optional parameters:
   """
-  @spec batch_delete_phone_number(map(), batch_delete_phone_number_request(), list()) ::
+  @spec batch_delete_phone_number(
+          AWS.Client.t(),
+          batch_delete_phone_number_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_delete_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_phone_number_errors()}
@@ -7480,7 +7469,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7496,30 +7486,24 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Suspends up to 50 users from a `Team` or `EnterpriseLWA` Amazon Chime
-  account.
-
-  For more information about different account types, see [Managing Your Amazon Chime
+  Suspends up to 50 users from a `Team` or `EnterpriseLWA` Amazon Chime account.
+  For more information about different account types, see [Managing Your Amazon
+  Chime
   Accounts](https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html)
-  in the *Amazon Chime Administration
-  Guide*.
+  in the *Amazon Chime Administration Guide*. Users suspended from a `Team`
+  account are disassociated from the account,but they can continue to use Amazon
+  Chime as free users. To remove the suspension from suspended `Team` account
+  users, invite them to the `Team` account again. You can use the `InviteUsers`
+  action to do so.
 
-  Users suspended from a `Team` account are disassociated from the account,but
-  they
-  can continue to use Amazon Chime as free users. To remove the suspension from
-  suspended
-  `Team` account users, invite them to the `Team` account again.
-  You can use the `InviteUsers` action to do so.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20BatchSuspendUser&this_doc_guide=API%2520Reference)
 
-  Users suspended from an `EnterpriseLWA` account are immediately signed out of
-  Amazon Chime and can no longer sign in. To remove the suspension from suspended
-  `EnterpriseLWA` account users, use the
-  `BatchUnsuspendUser` action.
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
 
-  To sign out users without suspending them, use the
-  `LogoutUser` action.
+  ## Optional parameters:
   """
-  @spec batch_suspend_user(map(), String.t(), batch_suspend_user_request(), list()) ::
+  @spec batch_suspend_user(AWS.Client.t(), String.t(), batch_suspend_user_request(), Keyword.t()) ::
           {:ok, batch_suspend_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_suspend_user_errors()}
@@ -7528,7 +7512,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7545,22 +7530,25 @@ defmodule AWS.Chime do
 
   @doc """
   Removes the suspension from up to 50 previously suspended users for the
-  specified Amazon
-  Chime `EnterpriseLWA` account.
-
-  Only users on `EnterpriseLWA`
+  specified Amazon Chime `EnterpriseLWA` account. Only users on `EnterpriseLWA`
   accounts can be unsuspended using this action. For more information about
-  different account types, see
-  [
-  Managing Your Amazon Chime Accounts
-  ](https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html) in the
-  account types, in the *Amazon Chime Administration Guide*.
+  different account types, see [ Managing Your Amazon Chime Accounts
+  ](https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html) in
+  the account types, in the *Amazon Chime Administration Guide*.
 
-  Previously suspended users who are unsuspended using this action are returned to
-  `Registered`
-  status. Users who are not previously suspended are ignored.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20BatchUnsuspendUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+
+  ## Optional parameters:
   """
-  @spec batch_unsuspend_user(map(), String.t(), batch_unsuspend_user_request(), list()) ::
+  @spec batch_unsuspend_user(
+          AWS.Client.t(),
+          String.t(),
+          batch_unsuspend_user_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_unsuspend_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_unsuspend_user_errors()}
@@ -7569,7 +7557,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7585,20 +7574,24 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Updates phone number product types or calling names.
+  Updates phone number product types or calling names. You can update one
+  attribute at a time for each `UpdatePhoneNumberRequestItem`. For example, you
+  can update the product type or the calling name. For toll-free numbers, you
+  cannot use the Amazon Chime Business Calling product type. For numbers outside
+  the U.S., you must use the Amazon Chime SIP Media Application Dial-In product
+  type.
 
-  You can update one attribute at a time for each `UpdatePhoneNumberRequestItem`.
-  For example, you can update the product type or the calling name.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20BatchUpdatePhoneNumber&this_doc_guide=API%2520Reference)
 
-  For toll-free numbers, you cannot use the Amazon Chime Business Calling product
-  type. For numbers outside the U.S., you must use the Amazon Chime SIP Media
-  Application Dial-In product type.
+  ## Parameters:
 
-  Updates to outbound calling names can take up to 72 hours to complete. Pending
-  updates to outbound calling names must be complete before you can request
-  another update.
+  ## Optional parameters:
   """
-  @spec batch_update_phone_number(map(), batch_update_phone_number_request(), list()) ::
+  @spec batch_update_phone_number(
+          AWS.Client.t(),
+          batch_update_phone_number_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_phone_number_errors()}
@@ -7607,7 +7600,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7624,11 +7618,17 @@ defmodule AWS.Chime do
 
   @doc """
   Updates user details within the `UpdateUserRequestItem` object for up to 20
-  users for the specified Amazon Chime account.
+  users for the specified Amazon Chime account. Currently, only `LicenseType`
+  updates are supported for this action.
 
-  Currently, only `LicenseType` updates are supported for this action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20BatchUpdateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+
+  ## Optional parameters:
   """
-  @spec batch_update_user(map(), String.t(), batch_update_user_request(), list()) ::
+  @spec batch_update_user(AWS.Client.t(), String.t(), batch_update_user_request(), Keyword.t()) ::
           {:ok, batch_update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_user_errors()}
@@ -7637,7 +7637,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7653,16 +7654,19 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Creates an Amazon Chime account under the administrator's AWS account.
+  Creates an Amazon Chime account under the administrator's AWS account. Only
+  `Team` account types are currently supported for this action. For more
+  information about different account types, see [Managing Your Amazon Chime
+  Accounts](https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html)
+  in the *Amazon Chime Administration Guide*.
 
-  Only `Team`
-  account types are currently supported for this action. For more information
-  about different account types, see
-  [Managing Your Amazon Chime Accounts](https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html)
-  in the *Amazon Chime
-  Administration Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_account(map(), create_account_request(), list()) ::
+  @spec create_account(AWS.Client.t(), create_account_request(), Keyword.t()) ::
           {:ok, create_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_account_errors()}
@@ -7671,7 +7675,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7687,24 +7692,17 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Creates an Amazon Chime SDK messaging `AppInstance` under an AWS account.
+  Creates an Amazon Chime SDK messaging `AppInstance` under an AWS account. Only
+  SDK messaging customers use this API. `CreateAppInstance` supports idempotency
+  behavior as described in the AWS API Standard.
 
-  Only SDK messaging customers use this API.
-  `CreateAppInstance` supports idempotency behavior as described in the AWS API
-  Standard.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateAppInstance&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [CreateAppInstance](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstance.html), in the Amazon Chime SDK.
+  ## Parameters:
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
   """
-  @spec create_app_instance(map(), create_app_instance_request(), list()) ::
+  @spec create_app_instance(AWS.Client.t(), create_app_instance_request(), Keyword.t()) ::
           {:ok, create_app_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_instance_errors()}
@@ -7713,7 +7711,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "identity-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "identity-")
 
     Request.request_rest(
       client,
@@ -7729,32 +7728,29 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Promotes an `AppInstanceUser` to an `AppInstanceAdmin`.
-
-  The promoted user can perform the following actions.
-
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [CreateAppInstanceAdmin](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceAdmin.html), in the Amazon Chime SDK.
-
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
+  Promotes an `AppInstanceUser` to an `AppInstanceAdmin`. The promoted user can
+  perform the following actions. **This API is is no longer supported and will
+  not be updated.** We recommend using the latest version,
+  [CreateAppInstanceAdmin](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceAdmin.html),
+  in the Amazon Chime SDK. Using the latest version requires migrating to a
+  dedicated namespace. For more information, refer to [Migrating from the Amazon
+  Chime
   namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  in the *Amazon Chime SDK Developer Guide*.
 
-    *
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateAppInstanceAdmin&this_doc_guide=API%2520Reference)
 
-  `ChannelModerator` actions across all channels in the `AppInstance`.
+  ## Parameters:
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
 
-    *
-
-  `DeleteChannelMessage` actions.
-
-  Only an `AppInstanceUser` can be promoted to an `AppInstanceAdmin` role.
+  ## Optional parameters:
   """
-  @spec create_app_instance_admin(map(), String.t(), create_app_instance_admin_request(), list()) ::
+  @spec create_app_instance_admin(
+          AWS.Client.t(),
+          String.t(),
+          create_app_instance_admin_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_app_instance_admin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_instance_admin_errors()}
@@ -7763,7 +7759,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "identity-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "identity-")
 
     Request.request_rest(
       client,
@@ -7779,23 +7776,16 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Creates a user under an Amazon Chime `AppInstance`.
+  Creates a user under an Amazon Chime `AppInstance`. The request consists of a
+  unique `appInstanceUserId` and `Name` for that user.
 
-  The request consists of a unique `appInstanceUserId` and
-  `Name` for that user.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateAppInstanceUser&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [CreateAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceUser.html), in the Amazon Chime SDK.
+  ## Parameters:
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
   """
-  @spec create_app_instance_user(map(), create_app_instance_user_request(), list()) ::
+  @spec create_app_instance_user(AWS.Client.t(), create_app_instance_user_request(), Keyword.t()) ::
           {:ok, create_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_instance_user_errors()}
@@ -7804,7 +7794,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "identity-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "identity-")
 
     Request.request_rest(
       client,
@@ -7820,26 +7811,26 @@ defmodule AWS.Chime do
   end
 
   @doc """
-
-  Creates a new attendee for an active Amazon Chime SDK meeting.
-
-  For more information about the Amazon Chime SDK, see
-  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
-
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [CreateAttendee](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateAttendee.html), in the Amazon Chime SDK.
-
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
+  Creates a new attendee for an active Amazon Chime SDK meeting. For more
+  information about the Amazon Chime SDK, see [Using the Amazon Chime
+  SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
+  *Amazon Chime SDK Developer Guide*. **This API is is no longer supported and
+  will not be updated.** We recommend using the latest version,
+  [CreateAttendee](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateAttendee.html),
+  in the Amazon Chime SDK. Using the latest version requires migrating to a
+  dedicated namespace. For more information, refer to [Migrating from the Amazon
+  Chime
   namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  in the *Amazon Chime SDK Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateAttendee&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
+
+  ## Optional parameters:
   """
-  @spec create_attendee(map(), String.t(), create_attendee_request(), list()) ::
+  @spec create_attendee(AWS.Client.t(), String.t(), create_attendee_request(), Keyword.t()) ::
           {:ok, create_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_attendee_errors()}
@@ -7848,7 +7839,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7865,8 +7857,15 @@ defmodule AWS.Chime do
 
   @doc """
   Creates a bot for an Amazon Chime Enterprise account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateBot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+
+  ## Optional parameters:
   """
-  @spec create_bot(map(), String.t(), create_bot_request(), list()) ::
+  @spec create_bot(AWS.Client.t(), String.t(), create_bot_request(), Keyword.t()) ::
           {:ok, create_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bot_errors()}
@@ -7875,7 +7874,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7891,33 +7891,32 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Creates a channel to which you can add users and send messages.
+  Creates a channel to which you can add users and send messages. **Restriction**:
+  You can't change a channel's privacy.
 
-  **Restriction**: You can't change a channel's
-  privacy.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateChannel&this_doc_guide=API%2520Reference)
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  ## Parameters:
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [CreateChannel](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannel.html), in the Amazon Chime SDK.
-
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
-  @spec create_channel(map(), create_channel_request(), list()) ::
+  @spec create_channel(AWS.Client.t(), create_channel_request(), Keyword.t()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_channel_errors()}
   def create_channel(%Client{} = client, input, options \\ []) do
     url_path = "/channels"
 
+    optional_params = [chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"ChimeBearer", "x-amz-chime-bearer"}
@@ -7926,7 +7925,13 @@ defmodule AWS.Chime do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:chime_bearer])
 
     Request.request_rest(
       client,
@@ -7942,39 +7947,36 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Permanently bans a member from a channel.
-
-  Moderators can't add banned members to a
-  channel. To undo a ban, you first have to `DeleteChannelBan`, and then
+  Permanently bans a member from a channel. Moderators can't add banned members to
+  a channel. To undo a ban, you first have to `DeleteChannelBan`, and then
   `CreateChannelMembership`. Bans are cleaned up when you delete users or
-  channels.
+  channels. If you ban a user who is already part of a channel, that user is
+  automatically kicked from the channel.
 
-  If you ban a user who is already part of a channel, that user is automatically
-  kicked
-  from the channel.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateChannelBan&this_doc_guide=API%2520Reference)
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the ban request.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [CreateChannelBan](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelBan.html), in the Amazon Chime SDK.
-
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
-  @spec create_channel_ban(map(), String.t(), create_channel_ban_request(), list()) ::
+  @spec create_channel_ban(AWS.Client.t(), String.t(), create_channel_ban_request(), Keyword.t()) ::
           {:ok, create_channel_ban_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_channel_ban_errors()}
   def create_channel_ban(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans"
 
+    optional_params = [chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"ChimeBearer", "x-amz-chime-bearer"}
@@ -7983,7 +7985,13 @@ defmodule AWS.Chime do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:chime_bearer])
 
     Request.request_rest(
       client,
@@ -7999,58 +8007,39 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Adds a user to a channel.
-
-  The `InvitedBy` response field is derived from the
+  Adds a user to a channel. The `InvitedBy` response field is derived from the
   request header. A channel member can:
 
-    *
-  List messages
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateChannelMembership&this_doc_guide=API%2520Reference)
 
-    *
-  Send messages
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel to which you're adding
+    users.
 
-    *
-  Receive messages
-
-    *
-  Edit their own messages
-
-    *
-  Leave the channel
-
-  Privacy settings impact this action as follows:
-
-    *
-  Public Channels: You do not need to be a member to list messages, but you must
-  be
-  a member to send messages.
-
-    *
-  Private Channels: You must be a member to list or send messages.
-
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
-
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [CreateChannelMembership](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelMembership.html), in the Amazon Chime SDK.
-
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
-  @spec create_channel_membership(map(), String.t(), create_channel_membership_request(), list()) ::
+  @spec create_channel_membership(
+          AWS.Client.t(),
+          String.t(),
+          create_channel_membership_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_channel_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_channel_membership_errors()}
   def create_channel_membership(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships"
 
+    optional_params = [chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"ChimeBearer", "x-amz-chime-bearer"}
@@ -8059,7 +8048,13 @@ defmodule AWS.Chime do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:chime_bearer])
 
     Request.request_rest(
       client,
@@ -8075,46 +8070,36 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Creates a new `ChannelModerator`.
+  Creates a new `ChannelModerator`. A channel moderator can:
 
-  A channel moderator can:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateChannelModerator&this_doc_guide=API%2520Reference)
 
-    *
-  Add and remove other members of the channel.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel.
 
-    *
-  Add and remove other moderators of the channel.
-
-    *
-  Add and remove user bans for the channel.
-
-    *
-  Redact messages in the channel.
-
-    *
-  List messages in the channel.
-
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
-
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [CreateChannelModerator](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelModerator.html), in the Amazon Chime SDK.
-
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
-  @spec create_channel_moderator(map(), String.t(), create_channel_moderator_request(), list()) ::
+  @spec create_channel_moderator(
+          AWS.Client.t(),
+          String.t(),
+          create_channel_moderator_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_channel_moderator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_channel_moderator_errors()}
   def create_channel_moderator(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/moderators"
+
+    optional_params = [chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -8124,7 +8109,13 @@ defmodule AWS.Chime do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:chime_bearer])
 
     Request.request_rest(
       client,
@@ -8142,18 +8133,17 @@ defmodule AWS.Chime do
   @doc """
   Creates a media capture pipeline.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [CreateMediaCapturePipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaCapturePipeline), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateMediaCapturePipeline&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_media_capture_pipeline(map(), create_media_capture_pipeline_request(), list()) ::
+  @spec create_media_capture_pipeline(
+          AWS.Client.t(),
+          create_media_capture_pipeline_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_media_capture_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_media_capture_pipeline_errors()}
@@ -8162,7 +8152,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8179,27 +8170,28 @@ defmodule AWS.Chime do
 
   @doc """
   Creates a new Amazon Chime SDK meeting in the specified media Region with no
-  initial attendees.
-
-  For more information about specifying media Regions, see
-  [Amazon Chime SDK Media Regions](https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html)
-  in the *Amazon Chime SDK Developer Guide*
-  . For more information about the Amazon Chime SDK, see
-  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html)
+  initial attendees. For more information about specifying media Regions, see
+  [Amazon Chime SDK Media
+  Regions](https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html)
+  in the *Amazon Chime SDK Developer Guide* . For more information about the
+  Amazon Chime SDK, see [Using the Amazon Chime
+  SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
+  *Amazon Chime SDK Developer Guide*. **This API is is no longer supported and
+  will not be updated.** We recommend using the latest version,
+  [CreateMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html),
+  in the Amazon Chime SDK. Using the latest version requires migrating to a
+  dedicated namespace. For more information, refer to [Migrating from the Amazon
+  Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
   in the *Amazon Chime SDK Developer Guide*.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [CreateMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateMeeting&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_meeting(map(), create_meeting_request(), list()) ::
+  @spec create_meeting(AWS.Client.t(), create_meeting_request(), Keyword.t()) ::
           {:ok, create_meeting_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_meeting_errors()}
@@ -8208,7 +8200,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8225,18 +8218,25 @@ defmodule AWS.Chime do
 
   @doc """
   Uses the join token and call metadata in a meeting request (From number, To
-  number, and so forth) to initiate an outbound call to a public
-  switched telephone network (PSTN) and join them into a Chime meeting.
+  number, and so forth) to initiate an outbound call to a public switched
+  telephone network (PSTN) and join them into a Chime meeting. Also ensures that
+  the From number belongs to the customer. To play welcome audio or implement an
+  interactive voice response (IVR), use the `CreateSipMediaApplicationCall`
+  action with the corresponding SIP media application ID.
 
-  Also ensures that the From number belongs to the customer.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateMeetingDialOut&this_doc_guide=API%2520Reference)
 
-  To play welcome audio or implement an interactive voice response (IVR), use the
-  `CreateSipMediaApplicationCall` action with the corresponding SIP media
-  application ID.
+  ## Parameters:
+  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
 
-  ## This API is is not available in a dedicated namespace.
+  ## Optional parameters:
   """
-  @spec create_meeting_dial_out(map(), String.t(), create_meeting_dial_out_request(), list()) ::
+  @spec create_meeting_dial_out(
+          AWS.Client.t(),
+          String.t(),
+          create_meeting_dial_out_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_meeting_dial_out_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_meeting_dial_out_errors()}
@@ -8245,7 +8245,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8261,32 +8262,33 @@ defmodule AWS.Chime do
   end
 
   @doc """
-
   Creates a new Amazon Chime SDK meeting in the specified media Region, with
-  attendees.
-
-  For more information about specifying media Regions, see
-  [Amazon Chime SDK Media Regions](https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html)
-  in the
-  *Amazon Chime SDK Developer Guide*
-  . For more information about the Amazon Chime SDK, see
-  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html)
-  in the
-  *Amazon Chime SDK Developer Guide*
-  .
-
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [CreateMeetingWithAttendees](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeetingWithAttendees.html), in the Amazon Chime SDK.
-
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
+  attendees. For more information about specifying media Regions, see [Amazon
+  Chime SDK Media
+  Regions](https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html)
+  in the *Amazon Chime SDK Developer Guide* . For more information about the
+  Amazon Chime SDK, see [Using the Amazon Chime
+  SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
+  *Amazon Chime SDK Developer Guide* . **This API is is no longer supported and
+  will not be updated.** We recommend using the latest version,
+  [CreateMeetingWithAttendees](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeetingWithAttendees.html),
+  in the Amazon Chime SDK. Using the latest version requires migrating to a
+  dedicated namespace. For more information, refer to [Migrating from the Amazon
+  Chime
   namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  in the *Amazon Chime SDK Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateMeetingWithAttendees&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_meeting_with_attendees(map(), create_meeting_with_attendees_request(), list()) ::
+  @spec create_meeting_with_attendees(
+          AWS.Client.t(),
+          create_meeting_with_attendees_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_meeting_with_attendees_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_meeting_with_attendees_errors()}
@@ -8295,7 +8297,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8311,14 +8314,22 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Creates an order for phone numbers to be provisioned.
-
-  For toll-free numbers, you cannot use the Amazon Chime Business Calling product
+  Creates an order for phone numbers to be provisioned. For toll-free numbers, you
+  cannot use the Amazon Chime Business Calling product type. For numbers outside
+  the U.S., you must use the Amazon Chime SIP Media Application Dial-In product
   type.
-  For numbers outside the U.S., you must use the Amazon Chime SIP Media
-  Application Dial-In product type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreatePhoneNumberOrder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_phone_number_order(map(), create_phone_number_order_request(), list()) ::
+  @spec create_phone_number_order(
+          AWS.Client.t(),
+          create_phone_number_order_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_phone_number_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_phone_number_order_errors()}
@@ -8327,7 +8338,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8346,18 +8358,19 @@ defmodule AWS.Chime do
   Creates a proxy session on the specified Amazon Chime Voice Connector for the
   specified participant phone numbers.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [CreateProxySession](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateProxySession.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateProxySession&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime voice connector ID.
+
+  ## Optional parameters:
   """
-  @spec create_proxy_session(map(), String.t(), create_proxy_session_request(), list()) ::
+  @spec create_proxy_session(
+          AWS.Client.t(),
+          String.t(),
+          create_proxy_session_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_proxy_session_errors()}
@@ -8366,7 +8379,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8383,8 +8397,15 @@ defmodule AWS.Chime do
 
   @doc """
   Creates a chat room for the specified Amazon Chime Enterprise account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateRoom&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+
+  ## Optional parameters:
   """
-  @spec create_room(map(), String.t(), create_room_request(), list()) ::
+  @spec create_room(AWS.Client.t(), String.t(), create_room_request(), Keyword.t()) ::
           {:ok, create_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_room_errors()}
@@ -8393,7 +8414,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8409,17 +8431,24 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Adds a member to a chat room in an Amazon Chime Enterprise account.
+  Adds a member to a chat room in an Amazon Chime Enterprise account. A member can
+  be either a user or a bot. The member role designates whether the member is a
+  chat room administrator or a general chat room member.
 
-  A member can be either a user or a bot. The member role designates whether the
-  member is a chat room administrator or a general chat room member.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateRoomMembership&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:room_id` (`t:string`) The room ID.
+
+  ## Optional parameters:
   """
   @spec create_room_membership(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           create_room_membership_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_room_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -8431,7 +8460,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8449,18 +8479,17 @@ defmodule AWS.Chime do
   @doc """
   Creates a SIP media application.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [CreateSipMediaApplication](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateSipMediaApplication.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateSipMediaApplication&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_sip_media_application(map(), create_sip_media_application_request(), list()) ::
+  @spec create_sip_media_application(
+          AWS.Client.t(),
+          create_sip_media_application_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sip_media_application_errors()}
@@ -8469,7 +8498,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8489,22 +8519,18 @@ defmodule AWS.Chime do
   the request, and it invokes the endpoint of the specified
   `sipMediaApplicationId`.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [CreateSipMediaApplicationCall](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateSipMediaApplicationCall.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateSipMediaApplicationCall&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:sip_media_application_id` (`t:string`) The ID of the SIP media application.
+
+  ## Optional parameters:
   """
   @spec create_sip_media_application_call(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_sip_media_application_call_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_sip_media_application_call_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -8519,7 +8545,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8538,18 +8565,13 @@ defmodule AWS.Chime do
   Creates a SIP rule which can be used to run a SIP media application as a target
   for a specific trigger type.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [CreateSipRule](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateSipRule.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateSipRule&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_sip_rule(map(), create_sip_rule_request(), list()) ::
+  @spec create_sip_rule(AWS.Client.t(), create_sip_rule_request(), Keyword.t()) ::
           {:ok, create_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sip_rule_errors()}
@@ -8558,7 +8580,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8575,8 +8598,15 @@ defmodule AWS.Chime do
 
   @doc """
   Creates a user under the specified Amazon Chime account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+
+  ## Optional parameters:
   """
-  @spec create_user(map(), String.t(), create_user_request(), list()) ::
+  @spec create_user(AWS.Client.t(), String.t(), create_user_request(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
@@ -8585,7 +8615,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8602,27 +8633,19 @@ defmodule AWS.Chime do
 
   @doc """
   Creates an Amazon Chime Voice Connector under the administrator's AWS account.
-
   You can choose to create an Amazon Chime Voice Connector in a specific AWS
-  Region.
+  Region. Enabling `CreateVoiceConnectorRequest$RequireEncryption` configures
+  your Amazon Chime Voice Connector to use TLS transport for SIP signaling and
+  Secure RTP (SRTP) for media. Inbound calls use TLS transport, and unencrypted
+  outbound calls are blocked.
 
-  Enabling `CreateVoiceConnectorRequest$RequireEncryption`
-  configures your Amazon Chime Voice Connector to use TLS transport for SIP
-  signaling and Secure RTP (SRTP) for media. Inbound calls use TLS transport, and
-  unencrypted outbound calls are blocked.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateVoiceConnector&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [CreateVoiceConnector](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceConnector.html), in the Amazon Chime SDK.
+  ## Parameters:
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
   """
-  @spec create_voice_connector(map(), create_voice_connector_request(), list()) ::
+  @spec create_voice_connector(AWS.Client.t(), create_voice_connector_request(), Keyword.t()) ::
           {:ok, create_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_voice_connector_errors()}
@@ -8631,7 +8654,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8648,29 +8672,23 @@ defmodule AWS.Chime do
 
   @doc """
   Creates an Amazon Chime Voice Connector group under the administrator's AWS
-  account.
+  account. You can associate Amazon Chime Voice Connectors with the Amazon Chime
+  Voice Connector group by including `VoiceConnectorItems` in the request. You
+  can include Amazon Chime Voice Connectors from different AWS Regions in your
+  group. This creates a fault tolerant mechanism for fallback in case of
+  availability events.
 
-  You can
-  associate Amazon Chime Voice Connectors with the Amazon Chime Voice Connector
-  group by
-  including `VoiceConnectorItems` in the request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateVoiceConnectorGroup&this_doc_guide=API%2520Reference)
 
-  You can include Amazon Chime Voice Connectors from different AWS Regions in your
-  group. This
-  creates a fault tolerant mechanism for fallback in case of availability events.
+  ## Parameters:
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [CreateVoiceConnectorGroup](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceConnectorGroup.html), in the Amazon Chime SDK.
-
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
   """
-  @spec create_voice_connector_group(map(), create_voice_connector_group_request(), list()) ::
+  @spec create_voice_connector_group(
+          AWS.Client.t(),
+          create_voice_connector_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_voice_connector_group_errors()}
@@ -8679,7 +8697,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8695,25 +8714,20 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Deletes the specified Amazon Chime account.
-
-  You must suspend all users before deleting
-  `Team` account. You can use the `BatchSuspendUser` action
-  to dodo.
-
-  For `EnterpriseLWA` and `EnterpriseAD` accounts, you must release the
-  claimed domains for your Amazon Chime account before deletion. As soon as you
-  release
+  Deletes the specified Amazon Chime account. You must suspend all users before
+  deleting `Team` account. You can use the `BatchSuspendUser` action to dodo.
+  For `EnterpriseLWA` and `EnterpriseAD` accounts, you must release the claimed
+  domains for your Amazon Chime account before deletion. As soon as you release
   the domain, all users under that account are suspended.
 
-  Deleted accounts appear in your `Disabled` accounts list for 90 days. To restore
-  deleted account from your `Disabled` accounts list, you must contact AWS
-  Support.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteAccount&this_doc_guide=API%2520Reference)
 
-  After 90 days, deleted accounts are permanently removed from your
-  `Disabled` accounts list.
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+
+  ## Optional parameters:
   """
-  @spec delete_account(map(), String.t(), delete_account_request(), list()) ::
+  @spec delete_account(AWS.Client.t(), String.t(), delete_account_request(), Keyword.t()) ::
           {:ok, delete_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_account_errors()}
@@ -8722,7 +8736,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8740,18 +8755,19 @@ defmodule AWS.Chime do
   @doc """
   Deletes an `AppInstance` and all associated data asynchronously.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DeleteAppInstance](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstance.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteAppInstance&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
+
+  ## Optional parameters:
   """
-  @spec delete_app_instance(map(), String.t(), delete_app_instance_request(), list()) ::
+  @spec delete_app_instance(
+          AWS.Client.t(),
+          String.t(),
+          delete_app_instance_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_instance_errors()}
@@ -8760,7 +8776,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "identity-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "identity-")
 
     Request.request_rest(
       client,
@@ -8776,27 +8793,24 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Demotes an `AppInstanceAdmin` to an `AppInstanceUser`.
+  Demotes an `AppInstanceAdmin` to an `AppInstanceUser`. This action does not
+  delete the user.
 
-  This action does not delete the user.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteAppInstanceAdmin&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DeleteAppInstanceAdmin](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceAdmin.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:app_instance_admin_arn` (`t:string`) The ARN of the AppInstance's
+    administrator.
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
   """
   @spec delete_app_instance_admin(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_app_instance_admin_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -8814,7 +8828,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "identity-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "identity-")
 
     Request.request_rest(
       client,
@@ -8832,22 +8847,19 @@ defmodule AWS.Chime do
   @doc """
   Deletes the streaming configurations of an `AppInstance`.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DeleteAppInstanceStreamingConfigurations](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceStreamingConfigurations.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteAppInstanceStreamingConfigurations&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:app_instance_arn` (`t:string`) The ARN of the streaming configurations being
+    deleted.
+
+  ## Optional parameters:
   """
   @spec delete_app_instance_streaming_configurations(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_app_instance_streaming_configurations_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -8862,7 +8874,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8880,18 +8893,20 @@ defmodule AWS.Chime do
   @doc """
   Deletes an `AppInstanceUser`.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DeleteAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceUser.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteAppInstanceUser&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:app_instance_user_arn` (`t:string`) The ARN of the user request being
+    deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_app_instance_user(map(), String.t(), delete_app_instance_user_request(), list()) ::
+  @spec delete_app_instance_user(
+          AWS.Client.t(),
+          String.t(),
+          delete_app_instance_user_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_instance_user_errors()}
@@ -8900,7 +8915,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "identity-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "identity-")
 
     Request.request_rest(
       client,
@@ -8917,26 +8933,34 @@ defmodule AWS.Chime do
 
   @doc """
   Deletes an attendee from the specified Amazon Chime SDK meeting and deletes
-  their
-  `JoinToken`.
-
-  Attendees are automatically deleted when a Amazon Chime SDK meeting is deleted.
-  For more information about the Amazon Chime SDK, see
-  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html)
+  their `JoinToken`. Attendees are automatically deleted when a Amazon Chime SDK
+  meeting is deleted. For more information about the Amazon Chime SDK, see
+  [Using the Amazon Chime
+  SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
+  *Amazon Chime SDK Developer Guide*. **This API is is no longer supported and
+  will not be updated.** We recommend using the latest version,
+  [DeleteAttendee](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_DeleteAttendee.html),
+  in the Amazon Chime SDK. Using the latest version requires migrating to a
+  dedicated namespace. For more information, refer to [Migrating from the Amazon
+  Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
   in the *Amazon Chime SDK Developer Guide*.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DeleteAttendee](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_DeleteAttendee.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteAttendee&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:attendee_id` (`t:string`) The Amazon Chime SDK attendee ID.
+  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
+
+  ## Optional parameters:
   """
-  @spec delete_attendee(map(), String.t(), String.t(), delete_attendee_request(), list()) ::
+  @spec delete_attendee(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_attendee_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_attendee_errors()}
@@ -8947,7 +8971,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8964,31 +8989,33 @@ defmodule AWS.Chime do
 
   @doc """
   Immediately makes a channel and its memberships inaccessible and marks them for
-  deletion.
+  deletion. This is an irreversible process. The `x-amz-chime-bearer` request
+  header is mandatory. Use the `AppInstanceUserArn` of the user that makes the
+  API call as the value in the header.
 
-  This is an irreversible process.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteChannel&this_doc_guide=API%2520Reference)
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel being deleted.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DeleteChannel](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannel.html), in the Amazon Chime SDK.
-
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
-  @spec delete_channel(map(), String.t(), delete_channel_request(), list()) ::
+  @spec delete_channel(AWS.Client.t(), String.t(), delete_channel_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_errors()}
   def delete_channel(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
+
+    optional_params = [chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -8998,7 +9025,13 @@ defmodule AWS.Chime do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:chime_bearer])
 
     Request.request_rest(
       client,
@@ -9014,24 +9047,29 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Removes a user from a channel's ban list.
+  Removes a user from a channel's ban list. The `x-amz-chime-bearer` request
+  header is mandatory. Use the `AppInstanceUserArn` of the user that makes the
+  API call as the value in the header.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteChannelBan&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DeleteChannelBan](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelBan.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel from which the
+    AppInstanceUser was banned.
+  * `:member_arn` (`t:string`) The ARN of the AppInstanceUser that you want to
+    reinstate.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
-  @spec delete_channel_ban(map(), String.t(), String.t(), delete_channel_ban_request(), list()) ::
+  @spec delete_channel_ban(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_channel_ban_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_ban_errors()}
@@ -9039,6 +9077,14 @@ defmodule AWS.Chime do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans/#{AWS.Util.encode_uri(member_arn)}"
 
+    optional_params = [chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"ChimeBearer", "x-amz-chime-bearer"}
@@ -9047,7 +9093,13 @@ defmodule AWS.Chime do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:chime_bearer])
 
     Request.request_rest(
       client,
@@ -9063,29 +9115,28 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Removes a member from a channel.
+  Removes a member from a channel. The `x-amz-chime-bearer` request header is
+  mandatory. Use the `AppInstanceUserArn` of the user that makes the API call as
+  the value in the header.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteChannelMembership&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DeleteChannelMembership](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelMembership.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel from which you want to
+    remove the user.
+  * `:member_arn` (`t:string`) The ARN of the member that you're removing from the
+    channel.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
   @spec delete_channel_membership(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_channel_membership_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -9094,6 +9145,14 @@ defmodule AWS.Chime do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships/#{AWS.Util.encode_uri(member_arn)}"
 
+    optional_params = [chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"ChimeBearer", "x-amz-chime-bearer"}
@@ -9102,7 +9161,13 @@ defmodule AWS.Chime do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:chime_bearer])
 
     Request.request_rest(
       client,
@@ -9118,33 +9183,28 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Deletes a channel message.
+  Deletes a channel message. Only admins can perform this action. Deletion makes
+  messages inaccessible immediately. A background process deletes any revisions
+  created by `UpdateChannelMessage`. The `x-amz-chime-bearer` request header is
+  mandatory. Use the `AppInstanceUserArn` of the user that makes the API call as
+  the value in the header.
 
-  Only admins can perform this action. Deletion makes messages
-  inaccessible immediately. A background process deletes any revisions created by
-  `UpdateChannelMessage`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteChannelMessage&this_doc_guide=API%2520Reference)
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel.
+  * `:message_id` (`t:string`) The ID of the message being deleted.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DeleteChannelMessage](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelMessage.html), in the Amazon Chime SDK.
-
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
   @spec delete_channel_message(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_channel_message_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -9153,6 +9213,14 @@ defmodule AWS.Chime do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}"
 
+    optional_params = [chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"ChimeBearer", "x-amz-chime-bearer"}
@@ -9161,7 +9229,13 @@ defmodule AWS.Chime do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:chime_bearer])
 
     Request.request_rest(
       client,
@@ -9177,29 +9251,26 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Deletes a channel moderator.
+  Deletes a channel moderator. The `x-amz-chime-bearer` request header is
+  mandatory. Use the `AppInstanceUserArn` of the user that makes the API call as
+  the value in the header.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteChannelModerator&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DeleteChannelModerator](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelModerator.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel.
+  * `:channel_moderator_arn` (`t:string`) The ARN of the moderator being deleted.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
   @spec delete_channel_moderator(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_channel_moderator_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -9214,6 +9285,14 @@ defmodule AWS.Chime do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/moderators/#{AWS.Util.encode_uri(channel_moderator_arn)}"
 
+    optional_params = [chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"ChimeBearer", "x-amz-chime-bearer"}
@@ -9222,7 +9301,13 @@ defmodule AWS.Chime do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:chime_bearer])
 
     Request.request_rest(
       client,
@@ -9239,13 +9324,21 @@ defmodule AWS.Chime do
 
   @doc """
   Deletes the events configuration that allows a bot to receive outgoing events.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteEventsConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:bot_id` (`t:string`) The bot ID.
+
+  ## Optional parameters:
   """
   @spec delete_events_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_events_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -9257,7 +9350,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9275,22 +9369,19 @@ defmodule AWS.Chime do
   @doc """
   Deletes the media capture pipeline.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DeleteMediaCapturePipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_DeleteMediaCapturePipeline.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteMediaCapturePipeline&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:media_pipeline_id` (`t:string`) The ID of the media capture pipeline being
+    deleted.
+
+  ## Optional parameters:
   """
   @spec delete_media_capture_pipeline(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_media_capture_pipeline_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -9300,7 +9391,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9316,26 +9408,28 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Deletes the specified Amazon Chime SDK meeting.
-
-  The operation deletes all attendees, disconnects all clients, and prevents new
-  clients from
-  joining the meeting. For more information about the Amazon Chime SDK, see
-  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime SDK Developer Guide*.
-
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DeleteMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_DeleteMeeting.html), in the Amazon Chime SDK.
-
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
+  Deletes the specified Amazon Chime SDK meeting. The operation deletes all
+  attendees, disconnects all clients, and prevents new clients from joining the
+  meeting. For more information about the Amazon Chime SDK, see [Using the
+  Amazon Chime
+  SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
+  *Amazon Chime SDK Developer Guide*. **This API is is no longer supported and
+  will not be updated.** We recommend using the latest version,
+  [DeleteMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_DeleteMeeting.html),
+  in the Amazon Chime SDK. Using the latest version requires migrating to a
+  dedicated namespace. For more information, refer to [Migrating from the Amazon
+  Chime
   namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  in the *Amazon Chime SDK Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteMeeting&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
+
+  ## Optional parameters:
   """
-  @spec delete_meeting(map(), String.t(), delete_meeting_request(), list()) ::
+  @spec delete_meeting(AWS.Client.t(), String.t(), delete_meeting_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_meeting_errors()}
@@ -9344,7 +9438,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9360,18 +9455,23 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Moves the specified phone number into the **Deletion queue**.
+  Moves the specified phone number into the **Deletion queue**. A phone number
+  must be disassociated from any users or Amazon Chime Voice Connectors before
+  it can be deleted.
 
-  A
-  phone number must be disassociated from any users or Amazon Chime Voice
-  Connectors
-  before it can be deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeletePhoneNumber&this_doc_guide=API%2520Reference)
 
-  Deleted phone numbers remain in the
-  ## Deletion queue
-  for 7 days before they are deleted permanently.
+  ## Parameters:
+  * `:phone_number_id` (`t:string`) The phone number ID.
+
+  ## Optional parameters:
   """
-  @spec delete_phone_number(map(), String.t(), delete_phone_number_request(), list()) ::
+  @spec delete_phone_number(
+          AWS.Client.t(),
+          String.t(),
+          delete_phone_number_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_phone_number_errors()}
@@ -9380,7 +9480,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9399,23 +9500,20 @@ defmodule AWS.Chime do
   Deletes the specified proxy session from the specified Amazon Chime Voice
   Connector.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DeleteProxySession](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteProxySession.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteProxySession&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:proxy_session_id` (`t:string`) The proxy session ID.
+  * `:voice_connector_id` (`t:string`) The Amazon Chime voice connector ID.
+
+  ## Optional parameters:
   """
   @spec delete_proxy_session(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_proxy_session_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -9433,7 +9531,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9450,8 +9549,16 @@ defmodule AWS.Chime do
 
   @doc """
   Deletes a chat room in an Amazon Chime Enterprise account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteRoom&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:room_id` (`t:string`) The chat room ID.
+
+  ## Optional parameters:
   """
-  @spec delete_room(map(), String.t(), String.t(), delete_room_request(), list()) ::
+  @spec delete_room(AWS.Client.t(), String.t(), String.t(), delete_room_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_room_errors()}
@@ -9462,7 +9569,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9479,14 +9587,23 @@ defmodule AWS.Chime do
 
   @doc """
   Removes a member from a chat room in an Amazon Chime Enterprise account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteRoomMembership&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:member_id` (`t:string`) The member ID (user ID or bot ID).
+  * `:room_id` (`t:string`) The room ID.
+
+  ## Optional parameters:
   """
   @spec delete_room_membership(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_room_membership_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -9505,7 +9622,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9523,22 +9641,18 @@ defmodule AWS.Chime do
   @doc """
   Deletes a SIP media application.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DeleteSipMediaApplication](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteSipMediaApplication.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteSipMediaApplication&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
+
+  ## Optional parameters:
   """
   @spec delete_sip_media_application(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_sip_media_application_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -9553,7 +9667,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9569,22 +9684,16 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Deletes a SIP rule.
+  Deletes a SIP rule. You must disable a SIP rule before you can delete it.
 
-  You must disable a SIP rule before you can delete it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteSipRule&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DeleteSipRule](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteSipRule.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:sip_rule_id` (`t:string`) The SIP rule ID.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
   """
-  @spec delete_sip_rule(map(), String.t(), delete_sip_rule_request(), list()) ::
+  @spec delete_sip_rule(AWS.Client.t(), String.t(), delete_sip_rule_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sip_rule_errors()}
@@ -9593,7 +9702,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9609,24 +9719,23 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Deletes the specified Amazon Chime Voice Connector.
+  Deletes the specified Amazon Chime Voice Connector. Any phone numbers associated
+  with the Amazon Chime Voice Connector must be disassociated from it before it
+  can be deleted.
 
-  Any phone numbers associated with the
-  Amazon Chime Voice Connector must be disassociated from it before it can be
-  deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteVoiceConnector&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DeleteVoiceConnector](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnector.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
   """
-  @spec delete_voice_connector(map(), String.t(), delete_voice_connector_request(), list()) ::
+  @spec delete_voice_connector(
+          AWS.Client.t(),
+          String.t(),
+          delete_voice_connector_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_errors()}
@@ -9635,7 +9744,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9654,22 +9764,18 @@ defmodule AWS.Chime do
   Deletes the emergency calling configuration details from the specified Amazon
   Chime Voice Connector.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DeleteVoiceConnectorEmergencyCallingConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorEmergencyCallingConfiguration.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteVoiceConnectorEmergencyCallingConfiguration&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec delete_voice_connector_emergency_calling_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_voice_connector_emergency_calling_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -9686,7 +9792,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9702,29 +9809,23 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Deletes the specified Amazon Chime Voice Connector group.
+  Deletes the specified Amazon Chime Voice Connector group. Any
+  `VoiceConnectorItems` and phone numbers associated with the group must be
+  removed before it can be deleted.
 
-  Any
-  `VoiceConnectorItems`
-  and phone numbers associated with the group must be removed before it can be
-  deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteVoiceConnectorGroup&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DeleteVoiceConnectorGroup](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorGroup.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:voice_connector_group_id` (`t:string`) The Amazon Chime Voice Connector
+    group ID.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
   """
   @spec delete_voice_connector_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_voice_connector_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -9739,7 +9840,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9756,26 +9858,21 @@ defmodule AWS.Chime do
 
   @doc """
   Deletes the origination settings for the specified Amazon Chime Voice Connector.
+  If emergency calling is configured for the Amazon Chime Voice Connector, it
+  must be deleted prior to deleting the origination settings.
 
-  If emergency calling is configured for the Amazon Chime Voice Connector, it must
-  be deleted prior to deleting the origination settings.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteVoiceConnectorOrigination&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DeleteVoiceConnectorOrigination](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorOrigination.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
   """
   @spec delete_voice_connector_origination(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_voice_connector_origination_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -9790,7 +9887,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9808,22 +9906,18 @@ defmodule AWS.Chime do
   @doc """
   Deletes the proxy configuration from the specified Amazon Chime Voice Connector.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DeleteVoiceProxy](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorProxy.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteVoiceConnectorProxy&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec delete_voice_connector_proxy(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_voice_connector_proxy_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -9835,7 +9929,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9854,22 +9949,18 @@ defmodule AWS.Chime do
   Deletes the streaming configuration for the specified Amazon Chime Voice
   Connector.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DeleteVoiceConnectorStreamingConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorStreamingConfiguration.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteVoiceConnectorStreamingConfiguration&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec delete_voice_connector_streaming_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_voice_connector_streaming_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -9886,7 +9977,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9903,26 +9995,21 @@ defmodule AWS.Chime do
 
   @doc """
   Deletes the termination settings for the specified Amazon Chime Voice Connector.
+  If emergency calling is configured for the Amazon Chime Voice Connector, it
+  must be deleted prior to deleting the termination settings.
 
-  If emergency calling is configured for the Amazon Chime Voice Connector, it must
-  be deleted prior to deleting the termination settings.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteVoiceConnectorTermination&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DeleteVoiceConnectorTermination](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorTermination.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
   """
   @spec delete_voice_connector_termination(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_voice_connector_termination_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -9937,7 +10024,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9956,22 +10044,18 @@ defmodule AWS.Chime do
   Deletes the specified SIP credentials used by your equipment to authenticate
   during call termination.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DeleteVoiceConnectorTerminationCredentials](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorTerminationCredentials.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DeleteVoiceConnectorTerminationCredentials&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec delete_voice_connector_termination_credentials(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_voice_connector_termination_credentials_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -9988,7 +10072,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -10006,27 +10091,41 @@ defmodule AWS.Chime do
   @doc """
   Returns the full details of an `AppInstance`.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DescribeAppInstance](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstance.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DescribeAppInstance&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
+
+  ## Optional parameters:
   """
-  @spec describe_app_instance(map(), String.t(), list()) ::
+  @spec describe_app_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_instance_errors()}
   def describe_app_instance(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "identity-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "identity-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -10034,18 +10133,15 @@ defmodule AWS.Chime do
   @doc """
   Returns the full details of an `AppInstanceAdmin`.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DescribeAppInstanceAdmin](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstanceAdmin.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DescribeAppInstanceAdmin&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:app_instance_admin_arn` (`t:string`) The ARN of the AppInstanceAdmin.
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
+
+  ## Optional parameters:
   """
-  @spec describe_app_instance_admin(map(), String.t(), String.t(), list()) ::
+  @spec describe_app_instance_admin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_instance_admin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_instance_admin_errors()}
@@ -10058,10 +10154,27 @@ defmodule AWS.Chime do
     url_path =
       "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins/#{AWS.Util.encode_uri(app_instance_admin_arn)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "identity-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "identity-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -10069,193 +10182,242 @@ defmodule AWS.Chime do
   @doc """
   Returns the full details of an `AppInstanceUser`.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DescribeAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstanceUser.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DescribeAppInstanceUser&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUser.
+
+  ## Optional parameters:
   """
-  @spec describe_app_instance_user(map(), String.t(), list()) ::
+  @spec describe_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_instance_user_errors()}
   def describe_app_instance_user(%Client{} = client, app_instance_user_arn, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "identity-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "identity-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns the full details of a channel in an Amazon Chime
-  `AppInstance`.
+  Returns the full details of a channel in an Amazon Chime `AppInstance`. The
+  `x-amz-chime-bearer` request header is mandatory. Use the `AppInstanceUserArn`
+  of the user that makes the API call as the value in the header.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DescribeChannel&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DescribeChannel](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannel.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
-  @spec describe_channel(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_channel_errors()}
-  def describe_channel(%Client{} = client, channel_arn, chime_bearer \\ nil, options \\ []) do
+  def describe_channel(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
+
+    # Validate optional parameters
+    optional_params = [chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(chime_bearer) do
-        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:chime_bearer])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns the full details of a channel ban.
+  Returns the full details of a channel ban. The `x-amz-chime-bearer` request
+  header is mandatory. Use the `AppInstanceUserArn` of the user that makes the
+  API call as the value in the header.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DescribeChannelBan&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DescribeChannelBan](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelBan.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel from which the user is
+    banned.
+  * `:member_arn` (`t:string`) The ARN of the member being banned.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
-  @spec describe_channel_ban(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec describe_channel_ban(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_ban_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_channel_ban_errors()}
-  def describe_channel_ban(
-        %Client{} = client,
-        channel_arn,
-        member_arn,
-        chime_bearer \\ nil,
-        options \\ []
-      ) do
+  def describe_channel_ban(%Client{} = client, channel_arn, member_arn, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans/#{AWS.Util.encode_uri(member_arn)}"
 
+    # Validate optional parameters
+    optional_params = [chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(chime_bearer) do
-        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:chime_bearer])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns the full details of a user's channel membership.
+  Returns the full details of a user's channel membership. The
+  `x-amz-chime-bearer` request header is mandatory. Use the `AppInstanceUserArn`
+  of the user that makes the API call as the value in the header.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DescribeChannelMembership&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DescribeChannelMembership](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelMembership.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel.
+  * `:member_arn` (`t:string`) The ARN of the member.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
-  @spec describe_channel_membership(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec describe_channel_membership(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_channel_membership_errors()}
-  def describe_channel_membership(
-        %Client{} = client,
-        channel_arn,
-        member_arn,
-        chime_bearer \\ nil,
-        options \\ []
-      ) do
+  def describe_channel_membership(%Client{} = client, channel_arn, member_arn, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships/#{AWS.Util.encode_uri(member_arn)}"
 
+    # Validate optional parameters
+    optional_params = [chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(chime_bearer) do
-        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:chime_bearer])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the details of a channel based on the membership of the specified
-  `AppInstanceUser`.
-
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
+  `AppInstanceUser`. The `x-amz-chime-bearer` request header is mandatory. Use
+  the `AppInstanceUserArn` of the user that makes the API call as the value in
   the header.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DescribeChannelMembershipForAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelMembershipForAppInstanceUser.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DescribeChannelMembershipForAppInstanceUser&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel to which the user belongs.
+  * `:app_instance_user_arn` (`t:string`) The ARN of the user in a channel.
+
+  ## Optional parameters:
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
   @spec describe_channel_membership_for_app_instance_user(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
-          String.t() | nil,
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_channel_membership_for_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -10264,58 +10426,68 @@ defmodule AWS.Chime do
         %Client{} = client,
         channel_arn,
         app_instance_user_arn,
-        chime_bearer \\ nil,
         options \\ []
       ) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}?scope=app-instance-user-membership"
+
+    # Validate optional parameters
+    optional_params = [chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(chime_bearer) do
-        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
       else
         headers
       end
 
-    query_params = []
+    # Required query params
+    query_params = [{"app-instance-user-arn", app_instance_user_arn}]
 
-    query_params =
-      if !is_nil(app_instance_user_arn) do
-        [{"app-instance-user-arn", app_instance_user_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional query params
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:chime_bearer])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the full details of a channel moderated by the specified
-  `AppInstanceUser`.
-
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
+  `AppInstanceUser`. The `x-amz-chime-bearer` request header is mandatory. Use
+  the `AppInstanceUserArn` of the user that makes the API call as the value in
   the header.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DescribeChannelModeratedByAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelModeratedByAppInstanceUser.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DescribeChannelModeratedByAppInstanceUser&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the moderated channel.
+  * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUser in the
+    moderated channel.
+
+  ## Optional parameters:
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
   @spec describe_channel_moderated_by_app_instance_user(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
-          String.t() | nil,
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_channel_moderated_by_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -10324,54 +10496,63 @@ defmodule AWS.Chime do
         %Client{} = client,
         channel_arn,
         app_instance_user_arn,
-        chime_bearer \\ nil,
         options \\ []
       ) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}?scope=app-instance-user-moderated-channel"
 
+    # Validate optional parameters
+    optional_params = [chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(chime_bearer) do
-        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
       else
         headers
       end
 
-    query_params = []
+    # Required query params
+    query_params = [{"app-instance-user-arn", app_instance_user_arn}]
 
-    query_params =
-      if !is_nil(app_instance_user_arn) do
-        [{"app-instance-user-arn", app_instance_user_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional query params
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:chime_bearer])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns the full details of a single ChannelModerator.
+  Returns the full details of a single ChannelModerator. The `x-amz-chime-bearer`
+  request header is mandatory. Use the `AppInstanceUserArn` of the user that
+  makes the API call as the value in the header.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DescribeChannelModerator&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DescribeChannelModerator](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelModerator.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel.
+  * `:channel_moderator_arn` (`t:string`) The ARN of the channel moderator.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
-  @spec describe_channel_moderator(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec describe_channel_moderator(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_moderator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_channel_moderator_errors()}
@@ -10379,24 +10560,43 @@ defmodule AWS.Chime do
         %Client{} = client,
         channel_arn,
         channel_moderator_arn,
-        chime_bearer \\ nil,
         options \\ []
       ) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/moderators/#{AWS.Util.encode_uri(channel_moderator_arn)}"
 
+    # Validate optional parameters
+    optional_params = [chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(chime_bearer) do
-        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:chime_bearer])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -10404,13 +10604,21 @@ defmodule AWS.Chime do
   @doc """
   Disassociates the primary provisioned phone number from the specified Amazon
   Chime user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DisassociatePhoneNumberFromUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:user_id` (`t:string`) The user ID.
+
+  ## Optional parameters:
   """
   @spec disassociate_phone_number_from_user(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           disassociate_phone_number_from_user_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_phone_number_from_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -10428,7 +10636,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -10447,22 +10656,18 @@ defmodule AWS.Chime do
   Disassociates the specified phone numbers from the specified Amazon Chime Voice
   Connector.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DisassociatePhoneNumbersFromVoiceConnector](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DisassociatePhoneNumbersFromVoiceConnector.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DisassociatePhoneNumbersFromVoiceConnector&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec disassociate_phone_numbers_from_voice_connector(
-          map(),
+          AWS.Client.t(),
           String.t(),
           disassociate_phone_numbers_from_voice_connector_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_phone_numbers_from_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -10479,7 +10684,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -10498,22 +10704,19 @@ defmodule AWS.Chime do
   Disassociates the specified phone numbers from the specified Amazon Chime Voice
   Connector group.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [DisassociatePhoneNumbersFromVoiceConnectorGroup](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DisassociatePhoneNumbersFromVoiceConnectorGroup.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DisassociatePhoneNumbersFromVoiceConnectorGroup&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:voice_connector_group_id` (`t:string`) The Amazon Chime Voice Connector
+    group ID.
+
+  ## Optional parameters:
   """
   @spec disassociate_phone_numbers_from_voice_connector_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           disassociate_phone_numbers_from_voice_connector_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_phone_numbers_from_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -10530,7 +10733,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -10548,12 +10752,19 @@ defmodule AWS.Chime do
   @doc """
   Disassociates the specified sign-in delegate groups from the specified Amazon
   Chime account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20DisassociateSigninDelegateGroupsFromAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+
+  ## Optional parameters:
   """
   @spec disassociate_signin_delegate_groups_from_account(
-          map(),
+          AWS.Client.t(),
           String.t(),
           disassociate_signin_delegate_groups_from_account_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_signin_delegate_groups_from_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -10570,7 +10781,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -10587,42 +10799,89 @@ defmodule AWS.Chime do
 
   @doc """
   Retrieves details for the specified Amazon Chime account, such as account type
-  and supported
-  licenses.
+  and supported licenses.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+
+  ## Optional parameters:
   """
-  @spec get_account(map(), String.t(), list()) ::
+  @spec get_account(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_errors()}
   def get_account(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves account settings for the specified Amazon Chime account ID, such as
-  remote control
-  and dialout settings.
+  remote control and dialout settings. For more information about these
+  settings, see [Use the Policies
+  Page](https://docs.aws.amazon.com/chime/latest/ag/policies.html) in the
+  *Amazon Chime Administration Guide*.
 
-  For more information about these settings, see
-  [Use the Policies Page](https://docs.aws.amazon.com/chime/latest/ag/policies.html) in the *Amazon
-  Chime Administration Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetAccountSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+
+  ## Optional parameters:
   """
-  @spec get_account_settings(map(), String.t(), list()) ::
+  @spec get_account_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_settings_errors()}
   def get_account_settings(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -10630,27 +10889,41 @@ defmodule AWS.Chime do
   @doc """
   Gets the retention settings for an `AppInstance`.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [GetMessagingRetentionSettings](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_GetAppInstanceRetentionSettings.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetAppInstanceRetentionSettings&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
+
+  ## Optional parameters:
   """
-  @spec get_app_instance_retention_settings(map(), String.t(), list()) ::
+  @spec get_app_instance_retention_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_app_instance_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_instance_retention_settings_errors()}
   def get_app_instance_retention_settings(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/retention-settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "identity-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "identity-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -10658,18 +10931,14 @@ defmodule AWS.Chime do
   @doc """
   Gets the streaming settings for an `AppInstance`.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [GetMessagingStreamingConfigurations](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_GetMessagingStreamingConfigurations.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetAppInstanceStreamingConfigurations&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
+
+  ## Optional parameters:
   """
-  @spec get_app_instance_streaming_configurations(map(), String.t(), list()) ::
+  @spec get_app_instance_streaming_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_app_instance_streaming_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_instance_streaming_configurations_errors()}
@@ -10679,35 +10948,55 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/streaming-configurations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Gets the Amazon Chime SDK attendee details for a specified meeting ID and
-  attendee ID.
-
-  For more information about the Amazon Chime SDK, see
-  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html)
+  attendee ID. For more information about the Amazon Chime SDK, see [Using the
+  Amazon Chime
+  SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
+  *Amazon Chime SDK Developer Guide*. **This API is is no longer supported and
+  will not be updated.** We recommend using the latest version,
+  [GetAttendee](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_GetAttendee.html),
+  in the Amazon Chime SDK. Using the latest version requires migrating to a
+  dedicated namespace. For more information, refer to [Migrating from the Amazon
+  Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
   in the *Amazon Chime SDK Developer Guide*.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [GetAttendee](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_GetAttendee.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetAttendee&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:attendee_id` (`t:string`) The Amazon Chime SDK attendee ID.
+  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
+
+  ## Optional parameters:
   """
-  @spec get_attendee(map(), String.t(), String.t(), list()) ::
+  @spec get_attendee(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_attendee_errors()}
@@ -10715,10 +11004,27 @@ defmodule AWS.Chime do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -10726,65 +11032,102 @@ defmodule AWS.Chime do
   @doc """
   Retrieves details for the specified bot, such as bot email address, bot type,
   status, and display name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetBot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:bot_id` (`t:string`) The bot ID.
+
+  ## Optional parameters:
   """
-  @spec get_bot(map(), String.t(), String.t(), list()) ::
+  @spec get_bot(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bot_errors()}
   def get_bot(%Client{} = client, account_id, bot_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets the full details of a channel message.
+  Gets the full details of a channel message. The x-amz-chime-bearer request
+  header is mandatory. Use the `AppInstanceUserArn` of the user that makes the
+  API call as the value in the header.
 
-  The x-amz-chime-bearer request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetChannelMessage&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [GetChannelMessage](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_GetChannelMessage.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel.
+  * `:message_id` (`t:string`) The ID of the message.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
-  @spec get_channel_message(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_channel_message(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_channel_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_channel_message_errors()}
-  def get_channel_message(
-        %Client{} = client,
-        channel_arn,
-        message_id,
-        chime_bearer \\ nil,
-        options \\ []
-      ) do
+  def get_channel_message(%Client{} = client, channel_arn, message_id, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}"
 
+    # Validate optional parameters
+    optional_params = [chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(chime_bearer) do
-        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:chime_bearer])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -10792,8 +11135,16 @@ defmodule AWS.Chime do
   @doc """
   Gets details for an events configuration that allows a bot to receive outgoing
   events, such as an HTTPS endpoint or Lambda function ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetEventsConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:bot_id` (`t:string`) The bot ID.
+
+  ## Optional parameters:
   """
-  @spec get_events_configuration(map(), String.t(), String.t(), list()) ::
+  @spec get_events_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_events_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_events_configuration_errors()}
@@ -10801,29 +11152,69 @@ defmodule AWS.Chime do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}/events-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves global settings for the administrator's AWS account, such as Amazon
-  Chime Business
-  Calling and Amazon Chime Voice Connector settings.
+  Chime Business Calling and Amazon Chime Voice Connector settings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetGlobalSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_global_settings(map(), list()) ::
+  @spec get_global_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_global_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_global_settings_errors()}
   def get_global_settings(%Client{} = client, options \\ []) do
     url_path = "/settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -10831,62 +11222,94 @@ defmodule AWS.Chime do
   @doc """
   Gets an existing media capture pipeline.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [GetMediaCapturePipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_GetMediaCapturePipeline.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetMediaCapturePipeline&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:media_pipeline_id` (`t:string`) The ID of the pipeline that you want to get.
+
+  ## Optional parameters:
   """
-  @spec get_media_capture_pipeline(map(), String.t(), list()) ::
+  @spec get_media_capture_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_media_capture_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_media_capture_pipeline_errors()}
   def get_media_capture_pipeline(%Client{} = client, media_pipeline_id, options \\ []) do
     url_path = "/media-capture-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
-
   **This API is is no longer supported and will not be updated.** We recommend
   using the latest version,
-  [GetMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_GetMeeting.html), in the Amazon Chime SDK.
-
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
+  [GetMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_GetMeeting.html),
+  in the Amazon Chime SDK. Using the latest version requires migrating to a
+  dedicated namespace. For more information, refer to [Migrating from the Amazon
+  Chime
   namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  in the *Amazon Chime SDK Developer Guide*. Gets the Amazon Chime SDK meeting
+  details for the specified meeting ID. For more information about the Amazon
+  Chime SDK, see [Using the Amazon Chime
+  SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
+  *Amazon Chime SDK Developer Guide* .
 
-  Gets the Amazon Chime SDK meeting details for the specified meeting ID. For more
-  information about the Amazon Chime SDK, see
-  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html)
-  in the
-  *Amazon Chime SDK Developer Guide*
-  .
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetMeeting&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
+
+  ## Optional parameters:
   """
-  @spec get_meeting(map(), String.t(), list()) ::
+  @spec get_meeting(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_meeting_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_meeting_errors()}
   def get_meeting(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -10894,27 +11317,40 @@ defmodule AWS.Chime do
   @doc """
   The details of the endpoint for the messaging session.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [GetMessagingSessionEndpoint](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_GetMessagingSessionEndpoint.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetMessagingSessionEndpoint&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_messaging_session_endpoint(map(), list()) ::
+  @spec get_messaging_session_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_messaging_session_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_messaging_session_endpoint_errors()}
   def get_messaging_session_endpoint(%Client{} = client, options \\ []) do
     url_path = "/endpoints/messaging-session"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -10922,36 +11358,86 @@ defmodule AWS.Chime do
   @doc """
   Retrieves details for the specified phone number ID, such as associations,
   capabilities, and product type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetPhoneNumber&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:phone_number_id` (`t:string`) The phone number ID.
+
+  ## Optional parameters:
   """
-  @spec get_phone_number(map(), String.t(), list()) ::
+  @spec get_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_phone_number_errors()}
   def get_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves details for the specified phone number order, such as the order
-  creation timestamp, phone
-  numbers in E.164 format, product type, and order status.
+  creation timestamp, phone numbers in E.164 format, product type, and order
+  status.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetPhoneNumberOrder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:phone_number_order_id` (`t:string`) The ID for the phone number order.
+
+  ## Optional parameters:
   """
-  @spec get_phone_number_order(map(), String.t(), list()) ::
+  @spec get_phone_number_order(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_phone_number_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_phone_number_order_errors()}
   def get_phone_number_order(%Client{} = client, phone_number_order_id, options \\ []) do
     url_path = "/phone-number-orders/#{AWS.Util.encode_uri(phone_number_order_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -10959,17 +11445,41 @@ defmodule AWS.Chime do
   @doc """
   Retrieves the phone number settings for the administrator's AWS account, such as
   the default outbound calling name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetPhoneNumberSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_phone_number_settings(map(), list()) ::
+  @spec get_phone_number_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_phone_number_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_phone_number_settings_errors()}
   def get_phone_number_settings(%Client{} = client, options \\ []) do
     url_path = "/settings/phone-number"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -10978,18 +11488,15 @@ defmodule AWS.Chime do
   Gets the specified proxy session details for the specified Amazon Chime Voice
   Connector.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [GetProxySession](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetProxySession.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetProxySession&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:proxy_session_id` (`t:string`) The proxy session ID.
+  * `:voice_connector_id` (`t:string`) The Amazon Chime voice connector ID.
+
+  ## Optional parameters:
   """
-  @spec get_proxy_session(map(), String.t(), String.t(), list()) ::
+  @spec get_proxy_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_proxy_session_errors()}
@@ -10997,32 +11504,72 @@ defmodule AWS.Chime do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions/#{AWS.Util.encode_uri(proxy_session_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Gets the retention settings for the specified Amazon Chime Enterprise account.
-
-  For more information about retention settings, see
-  [Managing Chat Retention Policies](https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html) in
+  For more information about retention settings, see [Managing Chat Retention
+  Policies](https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html) in
   the *Amazon Chime Administration Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetRetentionSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+
+  ## Optional parameters:
   """
-  @spec get_retention_settings(map(), String.t(), list()) ::
+  @spec get_retention_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_retention_settings_errors()}
   def get_retention_settings(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/retention-settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -11030,8 +11577,16 @@ defmodule AWS.Chime do
   @doc """
   Retrieves room details, such as the room name, for a room in an Amazon Chime
   Enterprise account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetRoom&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:room_id` (`t:string`) The room ID.
+
+  ## Optional parameters:
   """
-  @spec get_room(map(), String.t(), String.t(), list()) ::
+  @spec get_room(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_room_errors()}
@@ -11039,10 +11594,27 @@ defmodule AWS.Chime do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -11051,27 +11623,41 @@ defmodule AWS.Chime do
   Retrieves the information for a SIP media application, including name, AWS
   Region, and endpoints.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [GetSipMediaApplication](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetSipMediaApplication.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetSipMediaApplication&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
+
+  ## Optional parameters:
   """
-  @spec get_sip_media_application(map(), String.t(), list()) ::
+  @spec get_sip_media_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sip_media_application_errors()}
   def get_sip_media_application(%Client{} = client, sip_media_application_id, options \\ []) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -11079,18 +11665,14 @@ defmodule AWS.Chime do
   @doc """
   Returns the logging configuration for the specified SIP media application.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [GetSipMediaApplicationLoggingConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetSipMediaApplicationLoggingConfiguration.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetSipMediaApplicationLoggingConfiguration&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
+
+  ## Optional parameters:
   """
-  @spec get_sip_media_application_logging_configuration(map(), String.t(), list()) ::
+  @spec get_sip_media_application_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sip_media_application_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sip_media_application_logging_configuration_errors()}
@@ -11102,10 +11684,27 @@ defmodule AWS.Chime do
     url_path =
       "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}/logging-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -11114,27 +11713,41 @@ defmodule AWS.Chime do
   Retrieves the details of a SIP rule, such as the rule ID, name, triggers, and
   target endpoints.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [GetSipRule](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetSipRule.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetSipRule&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:sip_rule_id` (`t:string`) The SIP rule ID.
+
+  ## Optional parameters:
   """
-  @spec get_sip_rule(map(), String.t(), list()) ::
+  @spec get_sip_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sip_rule_errors()}
   def get_sip_rule(%Client{} = client, sip_rule_id, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -11143,10 +11756,15 @@ defmodule AWS.Chime do
   Retrieves details for the specified user ID, such as primary email address,
   license type,and personal meeting PIN.
 
-  To retrieve user details with an email address instead of a user ID, use the
-  `ListUsers` action, and then filter by email address.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:user_id` (`t:string`) The user ID.
+
+  ## Optional parameters:
   """
-  @spec get_user(map(), String.t(), String.t(), list()) ::
+  @spec get_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_errors()}
@@ -11154,10 +11772,27 @@ defmodule AWS.Chime do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -11165,8 +11800,16 @@ defmodule AWS.Chime do
   @doc """
   Retrieves settings for the specified user ID, such as any associated phone
   number settings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetUserSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:user_id` (`t:string`) The user ID.
+
+  ## Optional parameters:
   """
-  @spec get_user_settings(map(), String.t(), String.t(), list()) ::
+  @spec get_user_settings(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_settings_errors()}
@@ -11174,10 +11817,27 @@ defmodule AWS.Chime do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}/settings"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -11186,27 +11846,41 @@ defmodule AWS.Chime do
   Retrieves details for the specified Amazon Chime Voice Connector, such as
   timestamps,name, outbound host, and encryption requirements.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [GetVoiceConnector](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnector.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetVoiceConnector&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
+
+  ## Optional parameters:
   """
-  @spec get_voice_connector(map(), String.t(), list()) ::
+  @spec get_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_errors()}
   def get_voice_connector(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -11215,18 +11889,18 @@ defmodule AWS.Chime do
   Gets the emergency calling configuration details for the specified Amazon Chime
   Voice Connector.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [GetVoiceConnectorEmergencyCallingConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorEmergencyCallingConfiguration.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetVoiceConnectorEmergencyCallingConfiguration&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
+
+  ## Optional parameters:
   """
-  @spec get_voice_connector_emergency_calling_configuration(map(), String.t(), list()) ::
+  @spec get_voice_connector_emergency_calling_configuration(
+          AWS.Client.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, get_voice_connector_emergency_calling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_emergency_calling_configuration_errors()}
@@ -11238,63 +11912,88 @@ defmodule AWS.Chime do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/emergency-calling-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Retrieves details for the specified Amazon Chime Voice Connector group, such as
   timestamps,name, and associated `VoiceConnectorItems`.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [GetVoiceConnectorGroup](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorGroup.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetVoiceConnectorGroup&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:voice_connector_group_id` (`t:string`) The Amazon Chime Voice Connector
+    group ID.
+
+  ## Optional parameters:
   """
-  @spec get_voice_connector_group(map(), String.t(), list()) ::
+  @spec get_voice_connector_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_group_errors()}
   def get_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
     url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the logging configuration details for the specified Amazon Chime Voice
-  Connector.
+  Connector. Shows whether SIP message logs are enabled for sending to Amazon
+  CloudWatch Logs.
 
-  Shows whether SIP message logs are enabled for sending to
-  Amazon CloudWatch Logs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetVoiceConnectorLoggingConfiguration&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [GetVoiceConnectorLoggingConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorLoggingConfiguration.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
   """
-  @spec get_voice_connector_logging_configuration(map(), String.t(), list()) ::
+  @spec get_voice_connector_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_logging_configuration_errors()}
@@ -11306,10 +12005,27 @@ defmodule AWS.Chime do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/logging-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -11318,27 +12034,41 @@ defmodule AWS.Chime do
   Retrieves origination setting details for the specified Amazon Chime Voice
   Connector.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [GetVoiceConnectorOrigination](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorOrigination.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetVoiceConnectorOrigination&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
+
+  ## Optional parameters:
   """
-  @spec get_voice_connector_origination(map(), String.t(), list()) ::
+  @spec get_voice_connector_origination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_origination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_origination_errors()}
   def get_voice_connector_origination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/origination"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -11347,18 +12077,14 @@ defmodule AWS.Chime do
   Gets the proxy configuration details for the specified Amazon Chime Voice
   Connector.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [GetVoiceConnectorProxy](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorProxy.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetVoiceConnectorProxy&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime voice connector ID.
+
+  ## Optional parameters:
   """
-  @spec get_voice_connector_proxy(map(), String.t(), list()) ::
+  @spec get_voice_connector_proxy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_proxy_errors()}
@@ -11366,34 +12092,45 @@ defmodule AWS.Chime do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the streaming configuration details for the specified Amazon Chime
-  Voice Connector.
+  Voice Connector. Shows whether media streaming is enabled for sending to
+  Amazon Kinesis. It also shows the retention period, in hours, for the Amazon
+  Kinesis data.
 
-  Shows whether media streaming is enabled for sending to Amazon Kinesis. It also
-  shows
-  the retention period, in hours, for the Amazon Kinesis data.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetVoiceConnectorStreamingConfiguration&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [GetVoiceConnectorStreamingConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorStreamingConfiguration.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
   """
-  @spec get_voice_connector_streaming_configuration(map(), String.t(), list()) ::
+  @spec get_voice_connector_streaming_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_streaming_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_streaming_configuration_errors()}
@@ -11405,10 +12142,27 @@ defmodule AWS.Chime do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/streaming-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -11417,49 +12171,63 @@ defmodule AWS.Chime do
   Retrieves termination setting details for the specified Amazon Chime Voice
   Connector.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [GetVoiceConnectorTermination](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorTermination.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetVoiceConnectorTermination&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
+
+  ## Optional parameters:
   """
-  @spec get_voice_connector_termination(map(), String.t(), list()) ::
+  @spec get_voice_connector_termination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_termination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_termination_errors()}
   def get_voice_connector_termination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
-
   **This API is is no longer supported and will not be updated.** We recommend
   using the latest version,
-  [GetVoiceConnectorTerminationHealth](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorTerminationHealth.html), in the Amazon Chime SDK.
-
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
+  [GetVoiceConnectorTerminationHealth](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorTerminationHealth.html),
+  in the Amazon Chime SDK. Using the latest version requires migrating to a
+  dedicated namespace. For more information, refer to [Migrating from the Amazon
+  Chime
   namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  in the *Amazon Chime SDK Developer Guide*.
 
-  Retrieves information about the last time a SIP `OPTIONS` ping was received from
-  your SIP infrastructure for the specified Amazon Chime Voice Connector.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetVoiceConnectorTerminationHealth&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
+
+  ## Optional parameters:
   """
-  @spec get_voice_connector_termination_health(map(), String.t(), list()) ::
+  @spec get_voice_connector_termination_health(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_termination_health_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_termination_health_errors()}
@@ -11469,23 +12237,45 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination/health"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Sends email to a maximum of 50 users, inviting them to the specified Amazon
-  Chime
-  `Team` account.
+  Chime `Team` account. Only `Team` account types are currently supported for
+  this action.
 
-  Only `Team` account types are currently
-  supported for this action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20InviteUsers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+
+  ## Optional parameters:
   """
-  @spec invite_users(map(), String.t(), invite_users_request(), list()) ::
+  @spec invite_users(AWS.Client.t(), String.t(), invite_users_request(), Keyword.t()) ::
           {:ok, invite_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invite_users_errors()}
@@ -11494,7 +12284,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -11510,65 +12301,84 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Lists the Amazon Chime accounts under the administrator's AWS account.
+  Lists the Amazon Chime accounts under the administrator's AWS account. You can
+  filter accounts by account name prefix. To find out which Amazon Chime account
+  a user belongs to, you can filter by the user's email address, which returns
+  one account result.
 
-  You can filter accounts
-  by account name prefix. To find out which Amazon Chime account a user belongs
-  to, you can
-  filter by the user's email address, which returns one account result.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListAccounts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call. Defaults to 100.
+  * `:name` (`t:string`) Amazon Chime account name prefix with which to filter
+    results.
+  * `:next_token` (`t:string`) The token to use to retrieve the next page of
+    results.
+  * `:user_email` (`t:string`) User email address with which to filter results.
   """
-  @spec list_accounts(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_accounts_errors()}
-  def list_accounts(
-        %Client{} = client,
-        max_results \\ nil,
-        name \\ nil,
-        next_token \\ nil,
-        user_email \\ nil,
-        options \\ []
-      ) do
+  def list_accounts(%Client{} = client, options \\ []) do
     url_path = "/accounts"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, name: nil, next_token: nil, user_email: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(user_email) do
-        [{"user-email", user_email} | query_params]
+      if opt_val = Keyword.get(options, :user_email) do
+        [{"user-email", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
+      if opt_val = Keyword.get(options, :name) do
+        [{"name", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :name, :next_token, :user_email])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -11576,103 +12386,127 @@ defmodule AWS.Chime do
   @doc """
   Returns a list of the administrators in the `AppInstance`.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [ListAppInstanceAdmins](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_ListAppInstanceAdmins.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListAppInstanceAdmins&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of administrators that you
+    want to return.
+  * `:next_token` (`t:string`) The token returned from previous API requests until
+    the number of administrators is reached.
   """
-  @spec list_app_instance_admins(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_app_instance_admins(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_admins_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_instance_admins_errors()}
-  def list_app_instance_admins(
-        %Client{} = client,
-        app_instance_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_app_instance_admins(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "identity-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "identity-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  List all `AppInstanceUsers`
-  created under a single `AppInstance`.
+  List all `AppInstanceUsers` created under a single `AppInstance`.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [ListAppInstanceUsers](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_ListAppInstanceUsers.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListAppInstanceUsers&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of requests that you want
+    returned.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all
+    requested users are returned.
   """
-  @spec list_app_instance_users(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_app_instance_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_instance_users_errors()}
-  def list_app_instance_users(
-        %Client{} = client,
-        app_instance_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_app_instance_users(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instance-users"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"app-instance-arn", app_instance_arn}]
+
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(app_instance_arn) do
-        [{"app-instance-arn", app_instance_arn} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "identity-")
 
-    meta = metadata() |> Map.put_new(:host_prefix, "identity-")
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -11680,41 +12514,62 @@ defmodule AWS.Chime do
   @doc """
   Lists all Amazon Chime `AppInstance`s created under a single AWS account.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [ListAppInstances](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_ListAppInstances.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListAppInstances&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of AppInstances that you want
+    to return.
+  * `:next_token` (`t:string`) The token passed by previous API requests until you
+    reach the maximum number of AppInstances.
   """
-  @spec list_app_instances(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_app_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_instances_errors()}
-  def list_app_instances(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_app_instances(%Client{} = client, options \\ []) do
     url_path = "/app-instances"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "identity-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "identity-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -11722,10 +12577,15 @@ defmodule AWS.Chime do
   @doc """
   Lists the tags applied to an Amazon Chime SDK attendee resource.
 
-  ListAttendeeTags is not supported in the Amazon Chime SDK Meetings Namespace.
-  Update your application to remove calls to this API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListAttendeeTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:attendee_id` (`t:string`) The Amazon Chime SDK attendee ID.
+  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
+
+  ## Optional parameters:
   """
-  @spec list_attendee_tags(map(), String.t(), String.t(), list()) ::
+  @spec list_attendee_tags(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_attendee_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attendee_tags_errors()}
@@ -11733,63 +12593,101 @@ defmodule AWS.Chime do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}/tags"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
-  Lists the attendees for the specified Amazon Chime SDK meeting.
-
-  For more information about the Amazon Chime SDK, see
-  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html)
+  Lists the attendees for the specified Amazon Chime SDK meeting. For more
+  information about the Amazon Chime SDK, see [Using the Amazon Chime
+  SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
+  *Amazon Chime SDK Developer Guide*. **This API is is no longer supported and
+  will not be updated.** We recommend using the latest version,
+  [ListAttendees](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_ListAttendees.html),
+  in the Amazon Chime SDK. Using the latest version requires migrating to a
+  dedicated namespace. For more information, refer to [Migrating from the Amazon
+  Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
   in the *Amazon Chime SDK Developer Guide*.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [ListAttendees](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_ListAttendees.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListAttendees&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
+  * `:next_token` (`t:string`) The token to use to retrieve the next page of
+    results.
   """
-  @spec list_attendees(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_attendees(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_attendees_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attendees_errors()}
-  def list_attendees(
-        %Client{} = client,
-        meeting_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_attendees(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -11797,605 +12695,674 @@ defmodule AWS.Chime do
   @doc """
   Lists the bots associated with the administrator's Amazon Chime Enterprise
   account ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListBots&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call. The default is 10.
+  * `:next_token` (`t:string`) The token to use to retrieve the next page of
+    results.
   """
-  @spec list_bots(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_bots(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bots_errors()}
-  def list_bots(
-        %Client{} = client,
-        account_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_bots(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists all the users banned from a particular channel.
+  Lists all the users banned from a particular channel. The `x-amz-chime-bearer`
+  request header is mandatory. Use the `AppInstanceUserArn` of the user that
+  makes the API call as the value in the header.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListChannelBans&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [ListChannelBans](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelBans.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of bans that you want
+    returned.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all
+    requested bans are returned.
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
-  @spec list_channel_bans(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_channel_bans(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_bans_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channel_bans_errors()}
-  def list_channel_bans(
-        %Client{} = client,
-        channel_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        chime_bearer \\ nil,
-        options \\ []
-      ) do
+  def list_channel_bans(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(chime_bearer) do
-        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :chime_bearer])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists all channel memberships in a channel.
+  Lists all channel memberships in a channel. The `x-amz-chime-bearer` request
+  header is mandatory. Use the `AppInstanceUserArn` of the user that makes the
+  API call as the value in the header.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListChannelMemberships&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [ListChannelMemberships](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMemberships.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The maximum number of channel memberships that you
+    want returned.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of channel memberships that
+    you want returned.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all
+    requested channel memberships are returned.
+  * `:type` (`t:enum["DEFAULT|HIDDEN"]`) The membership type of a user, DEFAULT or
+    HIDDEN. Default members are always returned as part of
+    ListChannelMemberships. Hidden members are only returned if the type filter
+    in ListChannelMemberships equals HIDDEN. Otherwise hidden members are not
+    returned.
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
-  @spec list_channel_memberships(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_channel_memberships(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_memberships_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channel_memberships_errors()}
-  def list_channel_memberships(
-        %Client{} = client,
-        channel_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        type \\ nil,
-        chime_bearer \\ nil,
-        options \\ []
-      ) do
+  def list_channel_memberships(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, type: nil, chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(chime_bearer) do
-        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
+      if opt_val = Keyword.get(options, :type) do
+        [{"type", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :type, :chime_bearer])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists all channels that a particular `AppInstanceUser` is a part of.
+  Lists all channels that a particular `AppInstanceUser` is a part of. Only an
+  `AppInstanceAdmin` can call the API with a user ARN that is not their own. The
+  `x-amz-chime-bearer` request header is mandatory. Use the `AppInstanceUserArn`
+  of the user that makes the API call as the value in the header.
 
-  Only an
-  `AppInstanceAdmin` can call the API with a user ARN that is not their own.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListChannelMembershipsForAppInstanceUser&this_doc_guide=API%2520Reference)
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  ## Parameters:
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [ListChannelMembershipsForAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html), in the Amazon Chime SDK.
-
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUsers
+  * `:max_results` (`t:integer`) The maximum number of users that you want
+    returned.
+  * `:next_token` (`t:string`) The token returned from previous API requests until
+    the number of channel memberships is reached.
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
-  @spec list_channel_memberships_for_app_instance_user(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_channel_memberships_for_app_instance_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channel_memberships_for_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channel_memberships_for_app_instance_user_errors()}
-  def list_channel_memberships_for_app_instance_user(
-        %Client{} = client,
-        app_instance_user_arn \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        chime_bearer \\ nil,
-        options \\ []
-      ) do
+  def list_channel_memberships_for_app_instance_user(%Client{} = client, options \\ []) do
     url_path = "/channels?scope=app-instance-user-memberships"
+
+    # Validate optional parameters
+    optional_params = [
+      app_instance_user_arn: nil,
+      max_results: nil,
+      next_token: nil,
+      chime_bearer: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(chime_bearer) do
-        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(app_instance_user_arn) do
-        [{"app-instance-user-arn", app_instance_user_arn} | query_params]
+      if opt_val = Keyword.get(options, :app_instance_user_arn) do
+        [{"app-instance-user-arn", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:app_instance_user_arn, :max_results, :next_token, :chime_bearer])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  List all the messages in a channel.
-
-  Returns a paginated list of
+  List all the messages in a channel. Returns a paginated list of
   `ChannelMessages`. By default, sorted by creation timestamp in descending
-  order.
+  order. Redacted messages appear in the results as empty, since they are only
+  redacted, not deleted. Deleted messages do not appear in the results. This
+  action always returns the latest version of an edited message. Also, the
+  x-amz-chime-bearer request header is mandatory. Use the `AppInstanceUserArn`
+  of the user that makes the API call as the value in the header.
 
-  Redacted messages appear in the results as empty, since they are only redacted,
-  not
-  deleted. Deleted messages do not appear in the results. This action always
-  returns the
-  latest version of an edited message.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListChannelMessages&this_doc_guide=API%2520Reference)
 
-  Also, the x-amz-chime-bearer request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [ListChannelMessages](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMessages.html), in the Amazon Chime SDK.
-
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of messages that you want
+    returned.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all
+    requested messages are returned.
+  * `:not_after` (`t:timestamp`) The final or ending time stamp for your requested
+    messages.
+  * `:not_before` (`t:timestamp`) The initial or starting time stamp for your
+    requested messages.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The order in which you want
+    messages sorted. Default is Descending, based on time created.
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
-  @spec list_channel_messages(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_channel_messages(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channel_messages_errors()}
-  def list_channel_messages(
-        %Client{} = client,
-        channel_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        not_after \\ nil,
-        not_before \\ nil,
-        sort_order \\ nil,
-        chime_bearer \\ nil,
-        options \\ []
-      ) do
+  def list_channel_messages(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages"
+
+    # Validate optional parameters
+    optional_params = [
+      max_results: nil,
+      next_token: nil,
+      not_after: nil,
+      not_before: nil,
+      sort_order: nil,
+      chime_bearer: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(chime_bearer) do
-        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(sort_order) do
-        [{"sort-order", sort_order} | query_params]
+      if opt_val = Keyword.get(options, :sort_order) do
+        [{"sort-order", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(not_before) do
-        [{"not-before", not_before} | query_params]
+      if opt_val = Keyword.get(options, :not_before) do
+        [{"not-before", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(not_after) do
-        [{"not-after", not_after} | query_params]
+      if opt_val = Keyword.get(options, :not_after) do
+        [{"not-after", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :max_results,
+        :next_token,
+        :not_after,
+        :not_before,
+        :sort_order,
+        :chime_bearer
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists all the moderators for a channel.
+  Lists all the moderators for a channel. The `x-amz-chime-bearer` request header
+  is mandatory. Use the `AppInstanceUserArn` of the user that makes the API call
+  as the value in the header.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListChannelModerators&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [ListChannelModerators](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelModerators.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of moderators that you want
+    returned.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all
+    requested moderators are returned.
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
-  @spec list_channel_moderators(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_channel_moderators(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_moderators_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channel_moderators_errors()}
-  def list_channel_moderators(
-        %Client{} = client,
-        channel_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        chime_bearer \\ nil,
-        options \\ []
-      ) do
+  def list_channel_moderators(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/moderators"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(chime_bearer) do
-        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :chime_bearer])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists all Channels created under a single Chime App as a paginated list.
+  Lists all Channels created under a single Chime App as a paginated list. You can
+  specify filters to narrow results. **Functionality & restrictions**
 
-  You can specify
-  filters to narrow results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListChannels&this_doc_guide=API%2520Reference)
 
-  ## Functionality & restrictions
+  ## Parameters:
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
 
-    *
-  Use privacy = `PUBLIC` to retrieve all public channels in the
-  account.
-
-    *
-  Only an `AppInstanceAdmin` can set privacy = `PRIVATE` to
-  list the private channels in an account.
-
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
-
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [ListChannels](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannels.html), in the Amazon Chime SDK.
-
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of channels that you want to
+    return.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all
+    requested channels are returned.
+  * `:privacy` (`t:enum["PRIVATE|PUBLIC"]`) The privacy setting. PUBLIC retrieves
+    all the public channels. PRIVATE retrieves private channels. Only an
+    AppInstanceAdmin can retrieve private channels.
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
-  @spec list_channels(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_channels(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channels_errors()}
-  def list_channels(
-        %Client{} = client,
-        app_instance_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        privacy \\ nil,
-        chime_bearer \\ nil,
-        options \\ []
-      ) do
+  def list_channels(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/channels"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, privacy: nil, chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(chime_bearer) do
-        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
       else
         headers
       end
 
-    query_params = []
+    # Required query params
+    query_params = [{"app-instance-arn", app_instance_arn}]
 
+    # Optional query params
     query_params =
-      if !is_nil(privacy) do
-        [{"privacy", privacy} | query_params]
+      if opt_val = Keyword.get(options, :privacy) do
+        [{"privacy", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(app_instance_arn) do
-        [{"app-instance-arn", app_instance_arn} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :privacy, :chime_bearer])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  A list of the channels moderated by an `AppInstanceUser`.
+  A list of the channels moderated by an `AppInstanceUser`. The
+  `x-amz-chime-bearer` request header is mandatory. Use the `AppInstanceUserArn`
+  of the user that makes the API call as the value in the header.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListChannelsModeratedByAppInstanceUser&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [ListChannelsModeratedByAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelsModeratedByAppInstanceUser.html), in the Amazon Chime SDK.
+  ## Parameters:
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:app_instance_user_arn` (`t:string`) The ARN of the user in the moderated
+    channel.
+  * `:max_results` (`t:integer`) The maximum number of channels in the request.
+  * `:next_token` (`t:string`) The token returned from previous API requests until
+    the number of channels moderated by the user is reached.
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
-  @spec list_channels_moderated_by_app_instance_user(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_channels_moderated_by_app_instance_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channels_moderated_by_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channels_moderated_by_app_instance_user_errors()}
-  def list_channels_moderated_by_app_instance_user(
-        %Client{} = client,
-        app_instance_user_arn \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        chime_bearer \\ nil,
-        options \\ []
-      ) do
+  def list_channels_moderated_by_app_instance_user(%Client{} = client, options \\ []) do
     url_path = "/channels?scope=app-instance-user-moderated-channels"
+
+    # Validate optional parameters
+    optional_params = [
+      app_instance_user_arn: nil,
+      max_results: nil,
+      next_token: nil,
+      chime_bearer: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(chime_bearer) do
-        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(app_instance_user_arn) do
-        [{"app-instance-user-arn", app_instance_user_arn} | query_params]
+      if opt_val = Keyword.get(options, :app_instance_user_arn) do
+        [{"app-instance-user-arn", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:app_instance_user_arn, :max_results, :next_token, :chime_bearer])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -12403,46 +13370,62 @@ defmodule AWS.Chime do
   @doc """
   Returns a list of media capture pipelines.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [ListMediaCapturePipelines](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaCapturePipelines.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListMediaCapturePipelines&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call. Valid Range: 1 - 99.
+  * `:next_token` (`t:string`) The token used to retrieve the next page of
+    results.
   """
-  @spec list_media_capture_pipelines(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_media_capture_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_media_capture_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_media_capture_pipelines_errors()}
-  def list_media_capture_pipelines(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_media_capture_pipelines(%Client{} = client, options \\ []) do
     url_path = "/media-capture-pipelines"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -12450,101 +13433,169 @@ defmodule AWS.Chime do
   @doc """
   Lists the tags applied to an Amazon Chime SDK meeting resource.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [ListTagsForResource](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_ListTagsForResource.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListMeetingTags&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
+
+  ## Optional parameters:
   """
-  @spec list_meeting_tags(map(), String.t(), list()) ::
+  @spec list_meeting_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_meeting_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_meeting_tags_errors()}
   def list_meeting_tags(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists up to 100 active Amazon Chime SDK meetings.
+  Lists up to 100 active Amazon Chime SDK meetings. ListMeetings is not supported
+  in the Amazon Chime SDK Meetings Namespace. Update your application to remove
+  calls to this API.
 
-  ListMeetings is not supported in the Amazon Chime SDK Meetings Namespace. Update
-  your application to remove calls to this API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListMeetings&this_doc_guide=API%2520Reference)
 
-  For more information about the Amazon Chime SDK, see
-  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html)
-  in the *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
+  * `:next_token` (`t:string`) The token to use to retrieve the next page of
+    results.
   """
-  @spec list_meetings(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_meetings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_meetings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_meetings_errors()}
-  def list_meetings(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_meetings(%Client{} = client, options \\ []) do
     url_path = "/meetings"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the phone number orders for the administrator's Amazon Chime account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListPhoneNumberOrders&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
+  * `:next_token` (`t:string`) The token to use to retrieve the next page of
+    results.
   """
-  @spec list_phone_number_orders(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_phone_number_orders(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_phone_number_orders_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_phone_number_orders_errors()}
-  def list_phone_number_orders(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_phone_number_orders(%Client{} = client, options \\ []) do
     url_path = "/phone-number-orders"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -12552,77 +13603,115 @@ defmodule AWS.Chime do
   @doc """
   Lists the phone numbers for the specified Amazon Chime account, Amazon Chime
   user, Amazon Chime Voice Connector, or Amazon Chime Voice Connector group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListPhoneNumbers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:filter_name`
+    (`t:enum["AccountId|SipRuleId|UserId|VoiceConnectorGroupId|VoiceConnectorId"]`)
+    The filter to use to limit the number of results.
+  * `:filter_value` (`t:string`) The value to use for the filter.
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
+  * `:next_token` (`t:string`) The token to use to retrieve the next page of
+    results.
+  * `:product_type`
+    (`t:enum["BusinessCalling|SipMediaApplicationDialIn|VoiceConnector"]`) The
+    phone number product type.
+  * `:status`
+    (`t:enum["AcquireFailed|AcquireInProgress|Assigned|DeleteFailed|DeleteInProgress|ReleaseFailed|ReleaseInProgress|Unassigned"]`)
+    The phone number status.
   """
-  @spec list_phone_numbers(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_phone_numbers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_phone_numbers_errors()}
-  def list_phone_numbers(
-        %Client{} = client,
-        filter_name \\ nil,
-        filter_value \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        product_type \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_phone_numbers(%Client{} = client, options \\ []) do
     url_path = "/phone-numbers"
+
+    # Validate optional parameters
+    optional_params = [
+      filter_name: nil,
+      filter_value: nil,
+      max_results: nil,
+      next_token: nil,
+      product_type: nil,
+      status: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(product_type) do
-        [{"product-type", product_type} | query_params]
+      if opt_val = Keyword.get(options, :product_type) do
+        [{"product-type", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(filter_value) do
-        [{"filter-value", filter_value} | query_params]
+      if opt_val = Keyword.get(options, :filter_value) do
+        [{"filter-value", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(filter_name) do
-        [{"filter-name", filter_name} | query_params]
+      if opt_val = Keyword.get(options, :filter_name) do
+        [{"filter-name", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :filter_name,
+        :filter_value,
+        :max_results,
+        :next_token,
+        :product_type,
+        :status
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -12630,166 +13719,212 @@ defmodule AWS.Chime do
   @doc """
   Lists the proxy sessions for the specified Amazon Chime Voice Connector.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [ListProxySessions](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListProxySessions.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListProxySessions&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime voice connector ID.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
+  * `:next_token` (`t:string`) The token to use to retrieve the next page of
+    results.
+  * `:status` (`t:enum["Closed|InProgress|Open"]`) The proxy session status.
   """
-  @spec list_proxy_sessions(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_proxy_sessions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_proxy_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_proxy_sessions_errors()}
-  def list_proxy_sessions(
-        %Client{} = client,
-        voice_connector_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_proxy_sessions(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the membership details for the specified room in an Amazon Chime
-  Enterprise account,
-  such as the members' IDs, email addresses, and names.
+  Enterprise account, such as the members' IDs, email addresses, and names.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListRoomMemberships&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:room_id` (`t:string`) The room ID.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
+  * `:next_token` (`t:string`) The token to use to retrieve the next page of
+    results.
   """
-  @spec list_room_memberships(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_room_memberships(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_room_memberships_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_room_memberships_errors()}
-  def list_room_memberships(
-        %Client{} = client,
-        account_id,
-        room_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_room_memberships(%Client{} = client, account_id, room_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the room details for the specified Amazon Chime Enterprise account.
+  Optionally, filter the results by a member ID (user ID or bot ID) to see a
+  list of rooms that the member belongs to.
 
-  Optionally, filter the results by a member ID (user ID or bot ID) to see a list
-  of rooms that the member belongs to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListRooms&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
+  * `:member_id` (`t:string`) The member ID (user ID or bot ID).
+  * `:next_token` (`t:string`) The token to use to retrieve the next page of
+    results.
   """
-  @spec list_rooms(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_rooms(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_rooms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rooms_errors()}
-  def list_rooms(
-        %Client{} = client,
-        account_id,
-        max_results \\ nil,
-        member_id \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_rooms(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, member_id: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(member_id) do
-        [{"member-id", member_id} | query_params]
+      if opt_val = Keyword.get(options, :member_id) do
+        [{"member-id", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :member_id, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -12797,46 +13932,62 @@ defmodule AWS.Chime do
   @doc """
   Lists the SIP media applications under the administrator's AWS account.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [ListSipMediaApplications](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListSipMediaApplications.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListSipMediaApplications&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call. Defaults to 100.
+  * `:next_token` (`t:string`) The token to use to retrieve the next page of
+    results.
   """
-  @spec list_sip_media_applications(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_sip_media_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sip_media_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sip_media_applications_errors()}
-  def list_sip_media_applications(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_sip_media_applications(%Client{} = client, options \\ []) do
     url_path = "/sip-media-applications"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -12844,78 +13995,114 @@ defmodule AWS.Chime do
   @doc """
   Lists the SIP rules under the administrator's AWS account.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [ListSipRules](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListSipRules.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListSipRules&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call. Defaults to 100.
+  * `:next_token` (`t:string`) The token to use to retrieve the next page of
+    results.
+  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
   """
-  @spec list_sip_rules(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_sip_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sip_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sip_rules_errors()}
-  def list_sip_rules(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        sip_media_application_id \\ nil,
-        options \\ []
-      ) do
+  def list_sip_rules(%Client{} = client, options \\ []) do
     url_path = "/sip-rules"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, sip_media_application_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(sip_media_application_id) do
-        [{"sip-media-application", sip_media_application_id} | query_params]
+      if opt_val = Keyword.get(options, :sip_media_application_id) do
+        [{"sip-media-application", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :sip_media_application_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists supported phone number countries.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListSupportedPhoneNumberCountries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:product_type`
+    (`t:enum["BusinessCalling|SipMediaApplicationDialIn|VoiceConnector"]`) The
+    phone number product type.
+
+  ## Optional parameters:
   """
-  @spec list_supported_phone_number_countries(map(), String.t(), list()) ::
+  @spec list_supported_phone_number_countries(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_supported_phone_number_countries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_supported_phone_number_countries_errors()}
   def list_supported_phone_number_countries(%Client{} = client, product_type, options \\ []) do
     url_path = "/phone-number-countries"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(product_type) do
-        [{"product-type", product_type} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"product-type", product_type}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -12923,103 +14110,124 @@ defmodule AWS.Chime do
   @doc """
   Lists the tags applied to an Amazon Chime SDK meeting and messaging resources.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the applicable latest version in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
-    
-  For meetings:
-  [ListTagsForResource](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_ListTagsForResource.html). 
-    
-  For messaging:
-  [ListTagsForResource](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListTagsForResource.html).
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource ARN.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(resource_arn) do
-        [{"arn", resource_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"arn", resource_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the users that belong to the specified Amazon Chime account.
+  Lists the users that belong to the specified Amazon Chime account. You can
+  specify an email address to list only the user that the email address belongs
+  to.
 
-  You can specify an email
-  address to list only the user that the email address belongs to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListUsers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call. Defaults to 100.
+  * `:next_token` (`t:string`) The token to use to retrieve the next page of
+    results.
+  * `:user_email` (`t:string`) Optional. The user email address used to filter
+    results. Maximum 1.
+  * `:user_type` (`t:enum["PrivateUser|SharedDevice"]`) The user type.
   """
-  @spec list_users(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_users_errors()}
-  def list_users(
-        %Client{} = client,
-        account_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        user_email \\ nil,
-        user_type \\ nil,
-        options \\ []
-      ) do
+  def list_users(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, user_email: nil, user_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(user_type) do
-        [{"user-type", user_type} | query_params]
+      if opt_val = Keyword.get(options, :user_type) do
+        [{"user-type", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(user_email) do
-        [{"user-email", user_email} | query_params]
+      if opt_val = Keyword.get(options, :user_email) do
+        [{"user-email", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :user_email, :user_type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -13028,46 +14236,62 @@ defmodule AWS.Chime do
   Lists the Amazon Chime Voice Connector groups for the administrator's AWS
   account.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [ListVoiceConnectorGroups](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListVoiceConnectorGroups.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListVoiceConnectorGroups&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
+  * `:next_token` (`t:string`) The token to use to retrieve the next page of
+    results.
   """
-  @spec list_voice_connector_groups(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_voice_connector_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_voice_connector_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_connector_groups_errors()}
-  def list_voice_connector_groups(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_voice_connector_groups(%Client{} = client, options \\ []) do
     url_path = "/voice-connector-groups"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -13075,18 +14299,14 @@ defmodule AWS.Chime do
   @doc """
   Lists the SIP credentials for the specified Amazon Chime Voice Connector.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [ListVoiceConnectorTerminationCredentials](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListVoiceConnectorTerminationCredentials.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListVoiceConnectorTerminationCredentials&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
+
+  ## Optional parameters:
   """
-  @spec list_voice_connector_termination_credentials(map(), String.t(), list()) ::
+  @spec list_voice_connector_termination_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_voice_connector_termination_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_connector_termination_credentials_errors()}
@@ -13098,10 +14318,27 @@ defmodule AWS.Chime do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination/credentials"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -13109,46 +14346,62 @@ defmodule AWS.Chime do
   @doc """
   Lists the Amazon Chime Voice Connectors for the administrator's AWS account.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [ListVoiceConnectors](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListVoiceConnectors.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListVoiceConnectors&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
+  * `:next_token` (`t:string`) The token to use to retrieve the next page of
+    results.
   """
-  @spec list_voice_connectors(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_voice_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_voice_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_connectors_errors()}
-  def list_voice_connectors(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_voice_connectors(%Client{} = client, options \\ []) do
     url_path = "/voice-connectors"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -13156,8 +14409,16 @@ defmodule AWS.Chime do
   @doc """
   Logs out the specified user from all of the devices they are currently logged
   into.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20LogoutUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:user_id` (`t:string`) The user ID.
+
+  ## Optional parameters:
   """
-  @spec logout_user(map(), String.t(), String.t(), logout_user_request(), list()) ::
+  @spec logout_user(AWS.Client.t(), String.t(), String.t(), logout_user_request(), Keyword.t()) ::
           {:ok, logout_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, logout_user_errors()}
@@ -13168,7 +14429,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13186,22 +14448,18 @@ defmodule AWS.Chime do
   @doc """
   Sets the amount of time in days that a given `AppInstance` retains data.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [PutAppInstanceRetentionSettings](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_PutAppInstanceRetentionSettings.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutAppInstanceRetentionSettings&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
+
+  ## Optional parameters:
   """
   @spec put_app_instance_retention_settings(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_app_instance_retention_settings_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_app_instance_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13216,7 +14474,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "identity-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "identity-")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -13224,22 +14483,18 @@ defmodule AWS.Chime do
   @doc """
   The data streaming configurations of an `AppInstance`.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [PutMessagingStreamingConfigurations](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_PutMessagingStreamingConfigurations.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutAppInstanceStreamingConfigurations&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
+
+  ## Optional parameters:
   """
   @spec put_app_instance_streaming_configurations(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_app_instance_streaming_configurations_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_app_instance_streaming_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13254,25 +14509,31 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates an events configuration that allows a bot to receive outgoing events
-  sent by Amazon
-  Chime.
+  sent by Amazon Chime. Choose either an HTTPS endpoint or a Lambda function
+  ARN. For more information, see `Bot`.
 
-  Choose either an HTTPS endpoint or a Lambda function ARN. For more information,
-  see `Bot`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutEventsConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:bot_id` (`t:string`) The bot ID.
+
+  ## Optional parameters:
   """
   @spec put_events_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           put_events_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_events_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13284,30 +14545,37 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
   end
 
   @doc """
+  Puts retention settings for the specified Amazon Chime Enterprise account. We
+  recommend using AWS CloudTrail to monitor usage of this API for your account.
+  For more information, see [Logging Amazon Chime API Calls with AWS
+  CloudTrail](https://docs.aws.amazon.com/chime/latest/ag/cloudtrail.html) in
+  the *Amazon Chime Administration Guide*. To turn off existing retention
+  settings, remove the number of days from the corresponding **RetentionDays**
+  field in the **RetentionSettings** object. For more information about
+  retention settings, see [Managing Chat Retention
+  Policies](https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html) in
+  the *Amazon Chime Administration Guide*.
 
-  Puts retention settings for the specified Amazon Chime Enterprise account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutRetentionSettings&this_doc_guide=API%2520Reference)
 
-  We recommend using AWS CloudTrail to monitor usage of this API for your account.
-  For more information, see
-  [Logging Amazon Chime API Calls with AWS CloudTrail](https://docs.aws.amazon.com/chime/latest/ag/cloudtrail.html)
-  in the *Amazon Chime Administration Guide*.
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
 
-  To turn off existing retention settings, remove the number of days from the
-  corresponding
-  ## RetentionDays
-  field in the
-  ## RetentionSettings
-  object. For more information about retention settings, see
-  [Managing Chat Retention Policies](https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html)
-  in the *Amazon Chime Administration Guide*.
+  ## Optional parameters:
   """
-  @spec put_retention_settings(map(), String.t(), put_retention_settings_request(), list()) ::
+  @spec put_retention_settings(
+          AWS.Client.t(),
+          String.t(),
+          put_retention_settings_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_retention_settings_errors()}
@@ -13316,7 +14584,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
   end
@@ -13324,22 +14593,18 @@ defmodule AWS.Chime do
   @doc """
   Updates the logging configuration for the specified SIP media application.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [PutSipMediaApplicationLoggingConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutSipMediaApplicationLoggingConfiguration.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutSipMediaApplicationLoggingConfiguration&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
+
+  ## Optional parameters:
   """
   @spec put_sip_media_application_logging_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_sip_media_application_logging_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_sip_media_application_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13356,34 +14621,30 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Puts emergency calling configuration details to the specified Amazon Chime Voice
-  Connector, such as emergency phone numbers and calling countries.
+  Connector, such as emergency phone numbers and calling countries. Origination
+  and termination settings must be enabled for the Amazon Chime Voice Connector
+  before emergency calling can be configured.
 
-  Origination and termination settings must be enabled for
-  the Amazon Chime Voice Connector before emergency calling can be configured.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutVoiceConnectorEmergencyCallingConfiguration&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [PutVoiceConnectorEmergencyCallingConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorEmergencyCallingConfiguration.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
   """
   @spec put_voice_connector_emergency_calling_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_voice_connector_emergency_calling_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_voice_connector_emergency_calling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13400,34 +14661,29 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Adds a logging configuration for the specified Amazon Chime Voice Connector.
+  Adds a logging configuration for the specified Amazon Chime Voice Connector. The
+  logging configuration specifies whether SIP message logs are enabled for
+  sending to Amazon CloudWatch Logs.
 
-  The logging configuration specifies whether SIP message logs are enabled for
-  sending to
-  Amazon CloudWatch Logs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutVoiceConnectorLoggingConfiguration&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [PutVoiceConnectorLoggingConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorLoggingConfiguration.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
   """
   @spec put_voice_connector_logging_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_voice_connector_logging_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_voice_connector_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13444,33 +14700,29 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Adds origination settings for the specified Amazon Chime Voice Connector.
-
-  If emergency calling is configured for the Amazon Chime Voice Connector, it must
+  Adds origination settings for the specified Amazon Chime Voice Connector. If
+  emergency calling is configured for the Amazon Chime Voice Connector, it must
   be deleted prior to turning off origination settings.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [PutVoiceConnectorOrigination](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorOrigination.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutVoiceConnectorOrigination&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec put_voice_connector_origination(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_voice_connector_origination_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_voice_connector_origination_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13485,7 +14737,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -13494,18 +14747,19 @@ defmodule AWS.Chime do
   Puts the specified proxy configuration to the specified Amazon Chime Voice
   Connector.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [PutVoiceConnectorProxy](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorProxy.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutVoiceConnectorProxy&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime voice connector ID.
+
+  ## Optional parameters:
   """
-  @spec put_voice_connector_proxy(map(), String.t(), put_voice_connector_proxy_request(), list()) ::
+  @spec put_voice_connector_proxy(
+          AWS.Client.t(),
+          String.t(),
+          put_voice_connector_proxy_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_voice_connector_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_proxy_errors()}
@@ -13516,35 +14770,30 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Adds a streaming configuration for the specified Amazon Chime Voice Connector.
+  The streaming configuration specifies whether media streaming is enabled for
+  sending to Kinesis. It also sets the retention period, in hours, for the
+  Amazon Kinesis data.
 
-  The streaming
-  configuration specifies whether media streaming is enabled for sending to
-  Kinesis.
-  It also sets the retention period, in hours, for the Amazon Kinesis data.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutVoiceConnectorStreamingConfiguration&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [PutVoiceConnectorStreamingConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorStreamingConfiguration.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
   """
   @spec put_voice_connector_streaming_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_voice_connector_streaming_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_voice_connector_streaming_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13561,33 +14810,29 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Adds termination settings for the specified Amazon Chime Voice Connector.
-
-  If emergency calling is configured for the Amazon Chime Voice Connector, it must
+  Adds termination settings for the specified Amazon Chime Voice Connector. If
+  emergency calling is configured for the Amazon Chime Voice Connector, it must
   be deleted prior to turning off termination settings.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [PutVoiceConnectorTermination](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorTermination.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutVoiceConnectorTermination&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec put_voice_connector_termination(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_voice_connector_termination_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_voice_connector_termination_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13602,7 +14847,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -13610,22 +14856,18 @@ defmodule AWS.Chime do
   @doc """
   Adds termination SIP credentials for the specified Amazon Chime Voice Connector.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [PutVoiceConnectorTerminationCredentials](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorTerminationCredentials.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20PutVoiceConnectorTerminationCredentials&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec put_voice_connector_termination_credentials(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_voice_connector_termination_credentials_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -13642,7 +14884,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13658,32 +14901,28 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Redacts message content, but not metadata.
+  Redacts message content, but not metadata. The message exists in the back end,
+  but the action returns null content, and the state shows as redacted. The
+  `x-amz-chime-bearer` request header is mandatory. Use the `AppInstanceUserArn`
+  of the user that makes the API call as the value in the header.
 
-  The message exists in the back end, but the
-  action returns null content, and the state shows as redacted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20RedactChannelMessage&this_doc_guide=API%2520Reference)
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel containing the messages
+    that you want to redact.
+  * `:message_id` (`t:string`) The ID of the message being redacted.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [RedactChannelMessage](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_RedactChannelMessage.html), in the Amazon Chime SDK.
-
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
   @spec redact_channel_message(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           redact_channel_message_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, redact_channel_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13691,6 +14930,14 @@ defmodule AWS.Chime do
   def redact_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}?operation=redact"
+
+    optional_params = [chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -13700,7 +14947,13 @@ defmodule AWS.Chime do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:chime_bearer])
 
     Request.request_rest(
       client,
@@ -13717,14 +14970,23 @@ defmodule AWS.Chime do
 
   @doc """
   Redacts the specified message from the specified Amazon Chime conversation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20RedactConversationMessage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:conversation_id` (`t:string`) The conversation ID.
+  * `:message_id` (`t:string`) The message ID.
+
+  ## Optional parameters:
   """
   @spec redact_conversation_message(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           redact_conversation_message_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, redact_conversation_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13743,7 +15005,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13760,14 +15023,23 @@ defmodule AWS.Chime do
 
   @doc """
   Redacts the specified message from the specified Amazon Chime channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20RedactRoomMessage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:message_id` (`t:string`) The message ID.
+  * `:room_id` (`t:string`) The room ID.
+
+  ## Optional parameters:
   """
   @spec redact_room_message(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           redact_room_message_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, redact_room_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13786,7 +15058,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13803,13 +15076,21 @@ defmodule AWS.Chime do
 
   @doc """
   Regenerates the security token for a bot.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20RegenerateSecurityToken&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:bot_id` (`t:string`) The bot ID.
+
+  ## Optional parameters:
   """
   @spec regenerate_security_token(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           regenerate_security_token_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, regenerate_security_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13821,7 +15102,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13838,12 +15120,23 @@ defmodule AWS.Chime do
 
   @doc """
   Resets the personal meeting PIN for the specified user on an Amazon Chime
-  account.
+  account. Returns the `User` object with the updated personal meeting PIN.
 
-  Returns
-  the `User` object with the updated personal meeting PIN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ResetPersonalPIN&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:user_id` (`t:string`) The user ID.
+
+  ## Optional parameters:
   """
-  @spec reset_personal_pin(map(), String.t(), String.t(), reset_personal_pin_request(), list()) ::
+  @spec reset_personal_pin(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          reset_personal_pin_request(),
+          Keyword.t()
+        ) ::
           {:ok, reset_personal_pin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_personal_pin_errors()}
@@ -13854,7 +15147,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13870,10 +15164,22 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Moves a phone number from the **Deletion queue** back into the
-  phone number **Inventory**.
+  Moves a phone number from the **Deletion queue** back into the phone number
+  **Inventory**.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20RestorePhoneNumber&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:phone_number_id` (`t:string`) The phone number.
+
+  ## Optional parameters:
   """
-  @spec restore_phone_number(map(), String.t(), restore_phone_number_request(), list()) ::
+  @spec restore_phone_number(
+          AWS.Client.t(),
+          String.t(),
+          restore_phone_number_request(),
+          Keyword.t()
+        ) ::
           {:ok, restore_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_phone_number_errors()}
@@ -13882,7 +15188,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13898,133 +15205,178 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Searches for phone numbers that can be ordered.
+  Searches for phone numbers that can be ordered. For US numbers, provide at least
+  one of the following search filters: `AreaCode`, `City`, `State`, or
+  `TollFreePrefix`. If you provide `City`, you must also provide `State`.
+  Numbers outside the US only support the `PhoneNumberType` filter, which you
+  must use.
 
-  For US numbers, provide at least one of
-  the following search filters: `AreaCode`, `City`,
-  `State`, or `TollFreePrefix`. If you provide
-  `City`, you must also provide `State`. Numbers outside the US only
-  support the `PhoneNumberType` filter, which you must use.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20SearchAvailablePhoneNumbers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:area_code` (`t:string`) The area code used to filter results. Only applies
+    to the US.
+  * `:city` (`t:string`) The city used to filter results. Only applies to the US.
+  * `:country` (`t:string`) The country used to filter results. Defaults to the US
+    Format: ISO 3166-1 alpha-2.
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
+  * `:next_token` (`t:string`) The token used to retrieve the next page of
+    results.
+  * `:phone_number_type` (`t:enum["Local|TollFree"]`) The phone number type used
+    to filter results. Required for non-US numbers.
+  * `:state` (`t:string`) The state used to filter results. Required only if you
+    provide City. Only applies to the US.
+  * `:toll_free_prefix` (`t:string`) The toll-free prefix that you use to filter
+    results. Only applies to the US.
   """
-  @spec search_available_phone_numbers(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec search_available_phone_numbers(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_available_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_available_phone_numbers_errors()}
-  def search_available_phone_numbers(
-        %Client{} = client,
-        area_code \\ nil,
-        city \\ nil,
-        country \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        phone_number_type \\ nil,
-        state \\ nil,
-        toll_free_prefix \\ nil,
-        options \\ []
-      ) do
+  def search_available_phone_numbers(%Client{} = client, options \\ []) do
     url_path = "/search?type=phone-numbers"
+
+    # Validate optional parameters
+    optional_params = [
+      area_code: nil,
+      city: nil,
+      country: nil,
+      max_results: nil,
+      next_token: nil,
+      phone_number_type: nil,
+      state: nil,
+      toll_free_prefix: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(toll_free_prefix) do
-        [{"toll-free-prefix", toll_free_prefix} | query_params]
+      if opt_val = Keyword.get(options, :toll_free_prefix) do
+        [{"toll-free-prefix", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(state) do
-        [{"state", state} | query_params]
+      if opt_val = Keyword.get(options, :state) do
+        [{"state", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(phone_number_type) do
-        [{"phone-number-type", phone_number_type} | query_params]
+      if opt_val = Keyword.get(options, :phone_number_type) do
+        [{"phone-number-type", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(country) do
-        [{"country", country} | query_params]
+      if opt_val = Keyword.get(options, :country) do
+        [{"country", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(city) do
-        [{"city", city} | query_params]
+      if opt_val = Keyword.get(options, :city) do
+        [{"city", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(area_code) do
-        [{"area-code", area_code} | query_params]
+      if opt_val = Keyword.get(options, :area_code) do
+        [{"area-code", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :area_code,
+        :city,
+        :country,
+        :max_results,
+        :next_token,
+        :phone_number_type,
+        :state,
+        :toll_free_prefix
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Sends a message to a particular channel that the member is a part of.
+  Sends a message to a particular channel that the member is a part of. The
+  `x-amz-chime-bearer` request header is mandatory. Use the `AppInstanceUserArn`
+  of the user that makes the API call as the value in the header. Also,
+  `STANDARD` messages can contain 4KB of data and the 1KB of metadata. `CONTROL`
+  messages can contain 30 bytes of data and no metadata.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20SendChannelMessage&this_doc_guide=API%2520Reference)
 
-  Also, `STANDARD` messages can contain 4KB of data and the 1KB of metadata.
-  `CONTROL` messages can contain 30 bytes of data and no metadata.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [SendChannelMessage](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_SendChannelMessage.html), in the Amazon Chime SDK.
-
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
-  @spec send_channel_message(map(), String.t(), send_channel_message_request(), list()) ::
+  @spec send_channel_message(
+          AWS.Client.t(),
+          String.t(),
+          send_channel_message_request(),
+          Keyword.t()
+        ) ::
           {:ok, send_channel_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_channel_message_errors()}
   def send_channel_message(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages"
+
+    optional_params = [chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -14034,7 +15386,13 @@ defmodule AWS.Chime do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:chime_bearer])
 
     Request.request_rest(
       client,
@@ -14050,42 +15408,28 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Starts transcription for the specified `meetingId`.
+  Starts transcription for the specified `meetingId`. For more information, refer
+  to [ Using Amazon Chime SDK live transcription
+  ](https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html)
+  in the *Amazon Chime SDK Developer Guide*. If you specify an invalid
+  configuration, a `TranscriptFailed` event will be sent with the contents of
+  the `BadRequestException` generated by Amazon Transcribe. For more information
+  on each parameter and which combinations are valid, refer to the
+  [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html)
+  API in the *Amazon Transcribe Developer Guide*.
 
-  For more information, refer to [
-  Using Amazon Chime SDK live transcription
-  ](https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html) in
-  the *Amazon Chime SDK Developer Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20StartMeetingTranscription&this_doc_guide=API%2520Reference)
 
-  If you specify an invalid configuration, a `TranscriptFailed` event will be sent
-  with the contents of the `BadRequestException` generated by Amazon Transcribe.
-  For more information on each parameter and which combinations are valid, refer
-  to the
-  [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) API in the
-  *Amazon Transcribe Developer Guide*.
+  ## Parameters:
+  * `:meeting_id` (`t:string`) The unique ID of the meeting being transcribed.
 
-  Amazon Chime SDK live transcription is powered by Amazon Transcribe. Use of
-  Amazon Transcribe is subject to the
-  [AWS Service Terms](https://aws.amazon.com/service-terms/), including the terms
-  specific to the AWS Machine Learning and Artificial
-  Intelligence Services.
-
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [StartMeetingTranscription](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_StartMeetingTranscription.html), in the Amazon Chime SDK.
-
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
   """
   @spec start_meeting_transcription(
-          map(),
+          AWS.Client.t(),
           String.t(),
           start_meeting_transcription_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_meeting_transcription_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -14095,7 +15439,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14113,22 +15458,19 @@ defmodule AWS.Chime do
   @doc """
   Stops transcription for the specified `meetingId`.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [StopMeetingTranscription](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_StopMeetingTranscription.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20StopMeetingTranscription&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:meeting_id` (`t:string`) The unique ID of the meeting for which you stop
+    transcription.
+
+  ## Optional parameters:
   """
   @spec stop_meeting_transcription(
-          map(),
+          AWS.Client.t(),
           String.t(),
           stop_meeting_transcription_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, stop_meeting_transcription_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -14138,7 +15480,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14156,10 +15499,15 @@ defmodule AWS.Chime do
   @doc """
   Applies the specified tags to the specified Amazon Chime attendee.
 
-  TagAttendee is not supported in the Amazon Chime SDK Meetings Namespace. Update
-  your application to remove calls to this API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20TagAttendee&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:attendee_id` (`t:string`) The Amazon Chime SDK attendee ID.
+  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
+
+  ## Optional parameters:
   """
-  @spec tag_attendee(map(), String.t(), String.t(), tag_attendee_request(), list()) ::
+  @spec tag_attendee(AWS.Client.t(), String.t(), String.t(), tag_attendee_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_attendee_errors()}
@@ -14170,7 +15518,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14188,18 +15537,14 @@ defmodule AWS.Chime do
   @doc """
   Applies the specified tags to the specified Amazon Chime SDK meeting.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [TagResource](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_TagResource.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20TagMeeting&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
+
+  ## Optional parameters:
   """
-  @spec tag_meeting(map(), String.t(), tag_meeting_request(), list()) ::
+  @spec tag_meeting(AWS.Client.t(), String.t(), tag_meeting_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_meeting_errors()}
@@ -14208,7 +15553,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14226,18 +15572,13 @@ defmodule AWS.Chime do
   @doc """
   Applies the specified tags to the specified Amazon Chime SDK meeting resource.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [TagResource](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_TagResource.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20TagResource&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -14246,7 +15587,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14264,10 +15606,21 @@ defmodule AWS.Chime do
   @doc """
   Untags the specified tags from the specified Amazon Chime SDK attendee.
 
-  UntagAttendee is not supported in the Amazon Chime SDK Meetings Namespace.
-  Update your application to remove calls to this API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UntagAttendee&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:attendee_id` (`t:string`) The Amazon Chime SDK attendee ID.
+  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
+
+  ## Optional parameters:
   """
-  @spec untag_attendee(map(), String.t(), String.t(), untag_attendee_request(), list()) ::
+  @spec untag_attendee(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          untag_attendee_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_attendee_errors()}
@@ -14278,7 +15631,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14296,18 +15650,14 @@ defmodule AWS.Chime do
   @doc """
   Untags the specified tags from the specified Amazon Chime SDK meeting.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [UntagResource](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_UntagResource.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UntagMeeting&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
+
+  ## Optional parameters:
   """
-  @spec untag_meeting(map(), String.t(), untag_meeting_request(), list()) ::
+  @spec untag_meeting(AWS.Client.t(), String.t(), untag_meeting_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_meeting_errors()}
@@ -14316,7 +15666,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14333,21 +15684,15 @@ defmodule AWS.Chime do
 
   @doc """
   Untags the specified tags from the specified Amazon Chime SDK meeting resource.
-
   Applies the specified tags to the specified Amazon Chime SDK meeting resource.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [UntagResource](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_UntagResource.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UntagResource&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -14356,7 +15701,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14372,12 +15718,17 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Updates account details for the specified Amazon Chime account.
+  Updates account details for the specified Amazon Chime account. Currently, only
+  account name and default license updates are supported for this action.
 
-  Currently, only account name and default license updates are supported for this
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+
+  ## Optional parameters:
   """
-  @spec update_account(map(), String.t(), update_account_request(), list()) ::
+  @spec update_account(AWS.Client.t(), String.t(), update_account_request(), Keyword.t()) ::
           {:ok, update_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_errors()}
@@ -14386,7 +15737,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14402,16 +15754,25 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Updates the settings for the specified Amazon Chime account.
+  Updates the settings for the specified Amazon Chime account. You can update
+  settings for remote control of shared screens, or for the dial-out option. For
+  more information about these settings, see [Use the Policies
+  Page](https://docs.aws.amazon.com/chime/latest/ag/policies.html) in the
+  *Amazon Chime Administration Guide*.
 
-  You can update settings for
-  remote control of shared screens, or for the dial-out option. For more
-  information about
-  these settings, see [Use the Policies Page](https://docs.aws.amazon.com/chime/latest/ag/policies.html) in
-  the *Amazon Chime Administration
-  Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateAccountSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+
+  ## Optional parameters:
   """
-  @spec update_account_settings(map(), String.t(), update_account_settings_request(), list()) ::
+  @spec update_account_settings(
+          AWS.Client.t(),
+          String.t(),
+          update_account_settings_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_settings_errors()}
@@ -14420,7 +15781,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
   end
@@ -14428,18 +15790,19 @@ defmodule AWS.Chime do
   @doc """
   Updates `AppInstance` metadata.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [UpdateAppInstance](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstance.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateAppInstance&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
+
+  ## Optional parameters:
   """
-  @spec update_app_instance(map(), String.t(), update_app_instance_request(), list()) ::
+  @spec update_app_instance(
+          AWS.Client.t(),
+          String.t(),
+          update_app_instance_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_app_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_instance_errors()}
@@ -14448,28 +15811,28 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "identity-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "identity-")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Updates the details of an `AppInstanceUser`.
+  Updates the details of an `AppInstanceUser`. You can update names and metadata.
 
-  You can update names and metadata.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateAppInstanceUser&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [UpdateAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstanceUser.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUser.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
   """
-  @spec update_app_instance_user(map(), String.t(), update_app_instance_user_request(), list()) ::
+  @spec update_app_instance_user(
+          AWS.Client.t(),
+          String.t(),
+          update_app_instance_user_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_instance_user_errors()}
@@ -14478,7 +15841,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "identity-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "identity-")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -14486,8 +15850,16 @@ defmodule AWS.Chime do
   @doc """
   Updates the status of the specified bot, such as starting or stopping the bot
   from running in your Amazon Chime Enterprise account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateBot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:bot_id` (`t:string`) The bot ID.
+
+  ## Optional parameters:
   """
-  @spec update_bot(map(), String.t(), String.t(), update_bot_request(), list()) ::
+  @spec update_bot(AWS.Client.t(), String.t(), String.t(), update_bot_request(), Keyword.t()) ::
           {:ok, update_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_bot_errors()}
@@ -14496,7 +15868,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14512,31 +15885,32 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Update a channel's attributes.
+  Update a channel's attributes. **Restriction**: You can't change a channel's
+  privacy.
 
-  **Restriction**: You can't change a channel's privacy.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateChannel&this_doc_guide=API%2520Reference)
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [UpdateChannel](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannel.html), in the Amazon Chime SDK.
-
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
-  @spec update_channel(map(), String.t(), update_channel_request(), list()) ::
+  @spec update_channel(AWS.Client.t(), String.t(), update_channel_request(), Keyword.t()) ::
           {:ok, update_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_channel_errors()}
   def update_channel(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
+
+    optional_params = [chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -14546,35 +15920,38 @@ defmodule AWS.Chime do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:chime_bearer])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Updates the content of a message.
+  Updates the content of a message. The `x-amz-chime-bearer` request header is
+  mandatory. Use the `AppInstanceUserArn` of the user that makes the API call as
+  the value in the header.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateChannelMessage&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [UpdateChannelMessage](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannelMessage.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel.
+  * `:message_id` (`t:string`) The ID string of the message being updated.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
   @spec update_channel_message(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_channel_message_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_channel_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -14583,6 +15960,14 @@ defmodule AWS.Chime do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}"
 
+    optional_params = [chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"ChimeBearer", "x-amz-chime-bearer"}
@@ -14591,34 +15976,36 @@ defmodule AWS.Chime do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:chime_bearer])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  The details of the time when a user last read messages in a channel.
+  The details of the time when a user last read messages in a channel. The
+  `x-amz-chime-bearer` request header is mandatory. Use the `AppInstanceUserArn`
+  of the user that makes the API call as the value in the header.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateChannelReadMarker&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [UpdateChannelReadMarker](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannelReadMarker.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
+    API call.
   """
   @spec update_channel_read_marker(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_channel_read_marker_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_channel_read_marker_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -14626,6 +16013,14 @@ defmodule AWS.Chime do
   def update_channel_read_marker(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/readMarker"
 
+    optional_params = [chime_bearer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"ChimeBearer", "x-amz-chime-bearer"}
@@ -14634,7 +16029,13 @@ defmodule AWS.Chime do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "messaging-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:chime_bearer])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -14642,8 +16043,14 @@ defmodule AWS.Chime do
   @doc """
   Updates global settings for the administrator's AWS account, such as Amazon
   Chime Business Calling and Amazon Chime Voice Connector settings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateGlobalSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_global_settings(map(), update_global_settings_request(), list()) ::
+  @spec update_global_settings(AWS.Client.t(), update_global_settings_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_global_settings_errors()}
@@ -14652,27 +16059,33 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
   end
 
   @doc """
   Updates phone number details, such as product type or calling name, for the
-  specified phone number ID.
+  specified phone number ID. You can update one phone number detail at a time.
+  For example, you can update either the product type or the calling name in one
+  action. For toll-free numbers, you cannot use the Amazon Chime Business
+  Calling product type. For numbers outside the U.S., you must use the Amazon
+  Chime SIP Media Application Dial-In product type.
 
-  You can update one phone number detail at a time. For example, you can update
-  either the product type or the calling name in one action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdatePhoneNumber&this_doc_guide=API%2520Reference)
 
-  For toll-free numbers, you cannot use the Amazon Chime Business Calling product
-  type. For numbers outside the U.S., you must use the Amazon Chime SIP Media
-  Application Dial-In product type.
+  ## Parameters:
+  * `:phone_number_id` (`t:string`) The phone number ID.
 
-  Updates to outbound calling names can take 72 hours to complete. Pending updates
-  to outbound calling names must be complete before you can request another
-  update.
+  ## Optional parameters:
   """
-  @spec update_phone_number(map(), String.t(), update_phone_number_request(), list()) ::
+  @spec update_phone_number(
+          AWS.Client.t(),
+          String.t(),
+          update_phone_number_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_phone_number_errors()}
@@ -14681,7 +16094,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14698,13 +16112,21 @@ defmodule AWS.Chime do
 
   @doc """
   Updates the phone number settings for the administrator's AWS account, such as
-  the default
-  outbound calling name.
+  the default outbound calling name. You can update the default outbound calling
+  name once every seven days. Outbound calling names can take up to 72 hours to
+  update.
 
-  You can update the default outbound calling name once every seven
-  days. Outbound calling names can take up to 72 hours to update.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdatePhoneNumberSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_phone_number_settings(map(), update_phone_number_settings_request(), list()) ::
+  @spec update_phone_number_settings(
+          AWS.Client.t(),
+          update_phone_number_settings_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_phone_number_settings_errors()}
@@ -14713,7 +16135,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
   end
@@ -14721,23 +16144,20 @@ defmodule AWS.Chime do
   @doc """
   Updates the specified proxy session details, such as voice or SMS capabilities.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [UpdateProxySession](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateProxySession.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateProxySession&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:proxy_session_id` (`t:string`) The proxy session ID.
+  * `:voice_connector_id` (`t:string`) The Amazon Chime voice connector ID.
+
+  ## Optional parameters:
   """
   @spec update_proxy_session(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_proxy_session_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -14755,7 +16175,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14773,8 +16194,16 @@ defmodule AWS.Chime do
   @doc """
   Updates room details, such as the room name, for a room in an Amazon Chime
   Enterprise account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateRoom&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:room_id` (`t:string`) The room ID.
+
+  ## Optional parameters:
   """
-  @spec update_room(map(), String.t(), String.t(), update_room_request(), list()) ::
+  @spec update_room(AWS.Client.t(), String.t(), String.t(), update_room_request(), Keyword.t()) ::
           {:ok, update_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_room_errors()}
@@ -14785,7 +16214,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14802,21 +16232,26 @@ defmodule AWS.Chime do
 
   @doc """
   Updates room membership details, such as the member role, for a room in an
-  Amazon Chime
-  Enterprise account.
+  Amazon Chime Enterprise account. The member role designates whether the member
+  is a chat room administrator or a general chat room member. The member role
+  can be updated only for user IDs.
 
-  The member role designates whether the member is a chat room
-  administrator or a general chat room member. The member role can be updated only
-  for
-  user IDs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateRoomMembership&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:member_id` (`t:string`) The member ID.
+  * `:room_id` (`t:string`) The room ID.
+
+  ## Optional parameters:
   """
   @spec update_room_membership(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           update_room_membership_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_room_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -14835,7 +16270,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14853,22 +16289,18 @@ defmodule AWS.Chime do
   @doc """
   Updates the details of the specified SIP media application.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [UpdateSipMediaApplication](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateSipMediaApplication.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateSipMediaApplication&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
+
+  ## Optional parameters:
   """
   @spec update_sip_media_application(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_sip_media_application_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -14883,34 +16315,32 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Invokes the AWS Lambda function associated with the SIP media application and
-  transaction ID in an update request.
+  transaction ID in an update request. The Lambda function can then return a new
+  set of actions.
 
-  The Lambda function can then return a new set of actions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateSipMediaApplicationCall&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [UpdateSipMediaApplicationCall](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateSipMediaApplicationCall.html), in the Amazon Chime SDK.
+  ## Parameters:
+  * `:sip_media_application_id` (`t:string`) The ID of the SIP media application
+    handling the call.
+  * `:transaction_id` (`t:string`) The ID of the call transaction.
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
   """
   @spec update_sip_media_application_call(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_sip_media_application_call_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_sip_media_application_call_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -14928,7 +16358,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14946,18 +16377,14 @@ defmodule AWS.Chime do
   @doc """
   Updates the details of the specified SIP rule.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [UpdateSipRule](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateSipRule.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateSipRule&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:sip_rule_id` (`t:string`) The SIP rule ID.
+
+  ## Optional parameters:
   """
-  @spec update_sip_rule(map(), String.t(), update_sip_rule_request(), list()) ::
+  @spec update_sip_rule(AWS.Client.t(), String.t(), update_sip_rule_request(), Keyword.t()) ::
           {:ok, update_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sip_rule_errors()}
@@ -14966,17 +16393,25 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
-  Updates user details for a specified user ID.
+  Updates user details for a specified user ID. Currently, only `LicenseType`
+  updates are supported for this action.
 
-  Currently, only `LicenseType` updates are supported for this action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:user_id` (`t:string`) The user ID.
+
+  ## Optional parameters:
   """
-  @spec update_user(map(), String.t(), String.t(), update_user_request(), list()) ::
+  @spec update_user(AWS.Client.t(), String.t(), String.t(), update_user_request(), Keyword.t()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_errors()}
@@ -14987,7 +16422,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -15004,13 +16440,21 @@ defmodule AWS.Chime do
 
   @doc """
   Updates the settings for the specified user, such as phone number settings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateUserSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Chime account ID.
+  * `:user_id` (`t:string`) The user ID.
+
+  ## Optional parameters:
   """
   @spec update_user_settings(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_user_settings_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -15022,7 +16466,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
   end
@@ -15030,18 +16475,19 @@ defmodule AWS.Chime do
   @doc """
   Updates details for the specified Amazon Chime Voice Connector.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [UpdateVoiceConnector](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateVoiceConnector.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateVoiceConnector&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Amazon Chime Voice Connector ID.
+
+  ## Optional parameters:
   """
-  @spec update_voice_connector(map(), String.t(), update_voice_connector_request(), list()) ::
+  @spec update_voice_connector(
+          AWS.Client.t(),
+          String.t(),
+          update_voice_connector_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_voice_connector_errors()}
@@ -15050,32 +16496,29 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates details of the specified Amazon Chime Voice Connector group, such as the
-  name and
-  Amazon Chime Voice Connector priority ranking.
+  name and Amazon Chime Voice Connector priority ranking.
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [UpdateVoiceConnectorGroup](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateVoiceConnectorGroup.html), in the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateVoiceConnectorGroup&this_doc_guide=API%2520Reference)
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+  * `:voice_connector_group_id` (`t:string`) The Amazon Chime Voice Connector
+    group ID.
+
+  ## Optional parameters:
   """
   @spec update_voice_connector_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_voice_connector_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -15090,33 +16533,26 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
-  Validates an address to be used for 911 calls made with Amazon
-  Chime Voice Connectors.
+  Validates an address to be used for 911 calls made with Amazon Chime Voice
+  Connectors. You can use validated addresses in a Presence Information Data
+  Format Location Object file that you include in SIP requests. That helps
+  ensure that addresses are routed to the appropriate Public Safety Answering
+  Point.
 
-  You can use validated addresses
-  in a Presence Information Data Format Location Object file that you include in
-  SIP requests.
-  That helps ensure that addresses are routed to the appropriate Public Safety
-  Answering Point.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ValidateE911Address&this_doc_guide=API%2520Reference)
 
-  **This API is is no longer supported and will not be updated.** We recommend
-  using the latest version,
-  [ValidateE911Address](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ValidateE911Address.html), in the Amazon Chime SDK.
+  ## Parameters:
 
-  Using the latest version requires migrating to a dedicated namespace. For more
-  information, refer to
-  [Migrating from the Amazon Chime
-  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
-  in the
-  *Amazon Chime SDK Developer Guide*.
+  ## Optional parameters:
   """
-  @spec validate_e911_address(map(), validate_e911_address_request(), list()) ::
+  @spec validate_e911_address(AWS.Client.t(), validate_e911_address_request(), Keyword.t()) ::
           {:ok, validate_e911_address_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_e911_address_errors()}
@@ -15125,7 +16561,8 @@ defmodule AWS.Chime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

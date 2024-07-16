@@ -182,17 +182,21 @@ defmodule AWS.PersonalizeRuntime do
 
   @doc """
   Returns a list of recommended actions in sorted in descending order by
-  prediction score.
-
-  Use the `GetActionRecommendations` API if you have a custom
+  prediction score. Use the `GetActionRecommendations` API if you have a custom
   campaign that deploys a solution version trained with a PERSONALIZED_ACTIONS
   recipe.
 
-  For more information about PERSONALIZED_ACTIONS recipes, see
-  [PERSONALIZED_ACTIONS recipes](https://docs.aws.amazon.com/personalize/latest/dg/nexts-best-action-recipes.html).
-  For more information about getting action recommendations, see [Getting action recommendations](https://docs.aws.amazon.com/personalize/latest/dg/get-action-recommendations.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalizeruntime%20GetActionRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_action_recommendations(map(), get_action_recommendations_request(), list()) ::
+  @spec get_action_recommendations(
+          AWS.Client.t(),
+          get_action_recommendations_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_action_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_action_recommendations_errors()}
@@ -201,7 +205,8 @@ defmodule AWS.PersonalizeRuntime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -217,15 +222,16 @@ defmodule AWS.PersonalizeRuntime do
   end
 
   @doc """
-  Re-ranks a list of recommended items for the given user.
+  Re-ranks a list of recommended items for the given user. The first item in the
+  list is deemed the most likely item to be of interest to the user.
 
-  The first item in the list is
-  deemed the most likely item to be of interest to the user.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalizeruntime%20GetPersonalizedRanking&this_doc_guide=API%2520Reference)
 
-  The solution backing the campaign must have been created using a recipe of type
-  PERSONALIZED_RANKING.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_personalized_ranking(map(), get_personalized_ranking_request(), list()) ::
+  @spec get_personalized_ranking(AWS.Client.t(), get_personalized_ranking_request(), Keyword.t()) ::
           {:ok, get_personalized_ranking_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_personalized_ranking_errors()}
@@ -234,7 +240,8 @@ defmodule AWS.PersonalizeRuntime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -250,27 +257,18 @@ defmodule AWS.PersonalizeRuntime do
   end
 
   @doc """
-  Returns a list of recommended items.
+  Returns a list of recommended items. For campaigns, the campaign's Amazon
+  Resource Name (ARN) is required and the required user and item input depends
+  on the recipe type used to create the solution backing the campaign as
+  follows:
 
-  For campaigns, the campaign's Amazon Resource Name (ARN) is required and the
-  required user and item input depends on the recipe type used to
-  create the solution backing the campaign as follows:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalizeruntime%20GetRecommendations&this_doc_guide=API%2520Reference)
 
-    *
-  USER_PERSONALIZATION - `userId` required, `itemId` not used
+  ## Parameters:
 
-    *
-  RELATED_ITEMS - `itemId` required, `userId` not used
-
-  Campaigns that are backed by a solution created using a recipe of type
-  PERSONALIZED_RANKING use the API.
-
-  For recommenders, the recommender's ARN is required and the required item and
-  user input depends on the use case (domain-based recipe) backing the
-  recommender.
-  For information on use case requirements see [Choosing recommender use cases](https://docs.aws.amazon.com/personalize/latest/dg/domain-use-cases.html).
+  ## Optional parameters:
   """
-  @spec get_recommendations(map(), get_recommendations_request(), list()) ::
+  @spec get_recommendations(AWS.Client.t(), get_recommendations_request(), Keyword.t()) ::
           {:ok, get_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recommendations_errors()}
@@ -279,7 +277,8 @@ defmodule AWS.PersonalizeRuntime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

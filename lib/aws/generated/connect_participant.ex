@@ -5,19 +5,9 @@ defmodule AWS.ConnectParticipant do
   @moduledoc """
   Amazon Connect is an easy-to-use omnichannel cloud contact center service that
   enables companies of any size to deliver superior customer service at a lower
-  cost.
-
-  Amazon Connect communications capabilities make it easy for companies to deliver
-  personalized interactions across communication channels, including chat.
-
-  Use the Amazon Connect Participant Service to manage participants (for example,
-  agents, customers, and managers listening in), and to send messages and events
-  within a
-  chat contact. The APIs in the service enable the following: sending chat
-  messages,
-  attachment sharing, managing a participant's connection state and message
-  events, and
-  retrieving chat transcripts.
+  cost. Amazon Connect communications capabilities make it easy for companies to
+  deliver personalized interactions across communication channels, including
+  chat.
   """
 
   alias AWS.Client
@@ -541,23 +531,36 @@ defmodule AWS.ConnectParticipant do
 
   @doc """
   Allows you to confirm that the attachment has been uploaded using the pre-signed
-  URL
-  provided in StartAttachmentUpload API.
+  URL provided in StartAttachmentUpload API. A conflict exception is thrown when
+  an attachment with that identifier is already being uploaded.
+  `ConnectionToken` is used for invoking this API instead of `ParticipantToken`.
 
-  A conflict exception is thrown when an attachment
-  with that identifier is already being uploaded.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectparticipant%20CompleteAttachmentUpload&this_doc_guide=API%2520Reference)
 
-  `ConnectionToken` is used for invoking this API instead of
-  `ParticipantToken`.
+  ## Parameters:
+  * `:connection_token` (`t:string`) The authentication token associated with the
+    participant's connection.
 
-  The Amazon Connect Participant Service APIs do not use [Signature Version 4 authentication](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
+  ## Optional parameters:
   """
-  @spec complete_attachment_upload(map(), complete_attachment_upload_request(), list()) ::
+  @spec complete_attachment_upload(
+          AWS.Client.t(),
+          complete_attachment_upload_request(),
+          Keyword.t()
+        ) ::
           {:ok, complete_attachment_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, complete_attachment_upload_errors()}
   def complete_attachment_upload(%Client{} = client, input, options \\ []) do
     url_path = "/participant/complete-attachment-upload"
+
+    optional_params = [connection_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -567,7 +570,8 @@ defmodule AWS.ConnectParticipant do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -583,55 +587,34 @@ defmodule AWS.ConnectParticipant do
   end
 
   @doc """
-  Creates the participant's connection.
+  Creates the participant's connection. `ParticipantToken` is used for invoking
+  this API instead of `ConnectionToken`.
 
-  `ParticipantToken` is used for invoking this API instead of
-  `ConnectionToken`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectparticipant%20CreateParticipantConnection&this_doc_guide=API%2520Reference)
 
-  The participant token is valid for the lifetime of the participant – until they
-  are
-  part of a contact.
+  ## Parameters:
+  * `:participant_token` (`t:string`) This is a header parameter.
 
-  The response URL for `WEBSOCKET` Type has a connect expiry timeout of 100s.
-  Clients must manually connect to the returned websocket URL and subscribe to the
-  desired
-  topic.
-
-  For chat, you need to publish the following on the established websocket
-  connection:
-
-  `{"topic":"aws/subscribe","content":{"topics":["aws/chat"]}}` 
-  Upon websocket URL expiry, as specified in the response ConnectionExpiry
-  parameter,
-  clients need to call this API again to obtain a new websocket URL and perform
-  the same
-  steps as before.
-
-  **Message streaming support**: This API can also be used
-  together with the
-  [StartContactStreaming](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html)
-  API to create a participant connection for chat
-  contacts that are not using a websocket. For more information about message
-  streaming,
-  [Enable real-time chat message
-  streaming](https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html)
-  in the *Amazon Connect Administrator
-  Guide*.
-
-  **Feature specifications**: For information about feature
-  specifications, such as the allowed number of open websocket connections per
-  participant, see [Feature specifications](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits)
-  in the *Amazon Connect Administrator
-  Guide*.
-
-  The Amazon Connect Participant Service APIs do not use [Signature Version 4 authentication](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
+  ## Optional parameters:
   """
-  @spec create_participant_connection(map(), create_participant_connection_request(), list()) ::
+  @spec create_participant_connection(
+          AWS.Client.t(),
+          create_participant_connection_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_participant_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_participant_connection_errors()}
   def create_participant_connection(%Client{} = client, input, options \\ []) do
     url_path = "/participant/connection"
+
+    optional_params = [participant_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -641,7 +624,8 @@ defmodule AWS.ConnectParticipant do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -658,43 +642,74 @@ defmodule AWS.ConnectParticipant do
 
   @doc """
   Retrieves the view for the specified view token.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectparticipant%20DescribeView&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:view_token` (`t:string`) An encrypted token originating from the interactive
+    message of a ShowView block operation. Represents the desired view.
+  * `:connection_token` (`t:string`) The connection token.
+
+  ## Optional parameters:
   """
-  @spec describe_view(map(), String.t(), String.t(), list()) ::
+  @spec describe_view(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_view_errors()}
   def describe_view(%Client{} = client, view_token, connection_token, options \\ []) do
     url_path = "/participant/views/#{AWS.Util.encode_uri(view_token)}"
-    headers = []
 
-    headers =
-      if !is_nil(connection_token) do
-        [{"X-Amz-Bearer", connection_token} | headers]
-      else
-        headers
-      end
+    # Validate optional parameters
+    optional_params = []
 
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = [{"X-Amz-Bearer", connection_token}]
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Disconnects a participant.
+  Disconnects a participant. `ConnectionToken` is used for invoking this API
+  instead of `ParticipantToken`.
 
-  `ConnectionToken` is used for invoking this API instead of
-  `ParticipantToken`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectparticipant%20DisconnectParticipant&this_doc_guide=API%2520Reference)
 
-  The Amazon Connect Participant Service APIs do not use [Signature Version 4 authentication](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
+  ## Parameters:
+  * `:connection_token` (`t:string`) The authentication token associated with the
+    participant's connection.
+
+  ## Optional parameters:
   """
-  @spec disconnect_participant(map(), disconnect_participant_request(), list()) ::
+  @spec disconnect_participant(AWS.Client.t(), disconnect_participant_request(), Keyword.t()) ::
           {:ok, disconnect_participant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disconnect_participant_errors()}
   def disconnect_participant(%Client{} = client, input, options \\ []) do
     url_path = "/participant/disconnect"
+
+    optional_params = [connection_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -704,7 +719,8 @@ defmodule AWS.ConnectParticipant do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -720,22 +736,32 @@ defmodule AWS.ConnectParticipant do
   end
 
   @doc """
-  Provides a pre-signed URL for download of a completed attachment.
+  Provides a pre-signed URL for download of a completed attachment. This is an
+  asynchronous API for use with active contacts. `ConnectionToken` is used for
+  invoking this API instead of `ParticipantToken`.
 
-  This is an
-  asynchronous API for use with active contacts.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectparticipant%20GetAttachment&this_doc_guide=API%2520Reference)
 
-  `ConnectionToken` is used for invoking this API instead of
-  `ParticipantToken`.
+  ## Parameters:
+  * `:connection_token` (`t:string`) The authentication token associated with the
+    participant's connection.
 
-  The Amazon Connect Participant Service APIs do not use [Signature Version 4 authentication](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
+  ## Optional parameters:
   """
-  @spec get_attachment(map(), get_attachment_request(), list()) ::
+  @spec get_attachment(AWS.Client.t(), get_attachment_request(), Keyword.t()) ::
           {:ok, get_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_attachment_errors()}
   def get_attachment(%Client{} = client, input, options \\ []) do
     url_path = "/participant/attachment"
+
+    optional_params = [connection_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -745,7 +771,8 @@ defmodule AWS.ConnectParticipant do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -762,49 +789,36 @@ defmodule AWS.ConnectParticipant do
 
   @doc """
   Retrieves a transcript of the session, including details about any attachments.
+  For information about accessing past chat contact transcripts for a persistent
+  chat, see [Enable persistent
+  chat](https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html).
+  If you have a process that consumes events in the transcript of an chat that
+  has ended, note that chat transcripts contain the following event content
+  types if the event has occurred during the chat session:
 
-  For
-  information about accessing past chat contact transcripts for a persistent chat,
-  see
-  [Enable persistent chat](https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectparticipant%20GetTranscript&this_doc_guide=API%2520Reference)
 
-  If you have a process that consumes events in the transcript of an chat that has
-  ended, note that chat
-  transcripts contain the following event content types if the event has occurred
-  during the chat session:
+  ## Parameters:
+  * `:connection_token` (`t:string`) The authentication token associated with the
+    participant's connection.
 
-    *
-
-  `application/vnd.amazonaws.connect.event.participant.left`
-
-    *
-
-  `application/vnd.amazonaws.connect.event.participant.joined`
-
-    *
-
-  `application/vnd.amazonaws.connect.event.chat.ended`
-
-    *
-
-  `application/vnd.amazonaws.connect.event.transfer.succeeded`
-
-    *
-
-  `application/vnd.amazonaws.connect.event.transfer.failed`
-
-  `ConnectionToken` is used for invoking this API instead of
-  `ParticipantToken`.
-
-  The Amazon Connect Participant Service APIs do not use [Signature Version 4 authentication](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
+  ## Optional parameters:
   """
-  @spec get_transcript(map(), get_transcript_request(), list()) ::
+  @spec get_transcript(AWS.Client.t(), get_transcript_request(), Keyword.t()) ::
           {:ok, get_transcript_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_transcript_errors()}
   def get_transcript(%Client{} = client, input, options \\ []) do
     url_path = "/participant/transcript"
 
+    optional_params = [connection_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"ConnectionToken", "X-Amz-Bearer"}
@@ -813,7 +827,8 @@ defmodule AWS.ConnectParticipant do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -829,34 +844,39 @@ defmodule AWS.ConnectParticipant do
   end
 
   @doc """
-
   The `application/vnd.amazonaws.connect.event.connection.acknowledged`
-  ContentType will no longer be supported starting December 31, 2024.
+  ContentType will no longer be supported starting December 31, 2024. This event
+  has been migrated to the
+  [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html)
+  API using the `ConnectParticipant` field. Sends an event. Message receipts are
+  not supported when there are more than two active participants in the chat.
+  Using the SendEvent API for message receipts when a supervisor is barged-in
+  will result in a conflict exception. `ConnectionToken` is used for invoking
+  this API instead of `ParticipantToken`.
 
-  This event has
-  been migrated to the
-  [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html) API using the
-  `ConnectParticipant` field.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectparticipant%20SendEvent&this_doc_guide=API%2520Reference)
 
-  Sends an event. Message receipts are not supported when there are more than two
-  active
-  participants in the chat. Using the SendEvent API for message receipts when a
-  supervisor
-  is barged-in will result in a conflict exception.
+  ## Parameters:
+  * `:connection_token` (`t:string`) The authentication token associated with the
+    participant's connection.
 
-  `ConnectionToken` is used for invoking this API instead of
-  `ParticipantToken`.
-
-  The Amazon Connect Participant Service APIs do not use [Signature Version 4
-  authentication](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
+  ## Optional parameters:
   """
-  @spec send_event(map(), send_event_request(), list()) ::
+  @spec send_event(AWS.Client.t(), send_event_request(), Keyword.t()) ::
           {:ok, send_event_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_event_errors()}
   def send_event(%Client{} = client, input, options \\ []) do
     url_path = "/participant/event"
 
+    optional_params = [connection_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"ConnectionToken", "X-Amz-Bearer"}
@@ -865,7 +885,8 @@ defmodule AWS.ConnectParticipant do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -881,19 +902,31 @@ defmodule AWS.ConnectParticipant do
   end
 
   @doc """
-  Sends a message.
-
-  `ConnectionToken` is used for invoking this API instead of
+  Sends a message. `ConnectionToken` is used for invoking this API instead of
   `ParticipantToken`.
 
-  The Amazon Connect Participant Service APIs do not use [Signature Version 4 authentication](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectparticipant%20SendMessage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connection_token` (`t:string`) The authentication token associated with the
+    connection.
+
+  ## Optional parameters:
   """
-  @spec send_message(map(), send_message_request(), list()) ::
+  @spec send_message(AWS.Client.t(), send_message_request(), Keyword.t()) ::
           {:ok, send_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_message_errors()}
   def send_message(%Client{} = client, input, options \\ []) do
     url_path = "/participant/message"
+
+    optional_params = [connection_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -903,7 +936,8 @@ defmodule AWS.ConnectParticipant do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -920,20 +954,31 @@ defmodule AWS.ConnectParticipant do
 
   @doc """
   Provides a pre-signed Amazon S3 URL in response for uploading the file directly
-  to
-  S3.
-
-  `ConnectionToken` is used for invoking this API instead of
+  to S3. `ConnectionToken` is used for invoking this API instead of
   `ParticipantToken`.
 
-  The Amazon Connect Participant Service APIs do not use [Signature Version 4 authentication](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectparticipant%20StartAttachmentUpload&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connection_token` (`t:string`) The authentication token associated with the
+    participant's connection.
+
+  ## Optional parameters:
   """
-  @spec start_attachment_upload(map(), start_attachment_upload_request(), list()) ::
+  @spec start_attachment_upload(AWS.Client.t(), start_attachment_upload_request(), Keyword.t()) ::
           {:ok, start_attachment_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_attachment_upload_errors()}
   def start_attachment_upload(%Client{} = client, input, options \\ []) do
     url_path = "/participant/start-attachment-upload"
+
+    optional_params = [connection_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -943,7 +988,8 @@ defmodule AWS.ConnectParticipant do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

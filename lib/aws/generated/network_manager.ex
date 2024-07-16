@@ -3836,11 +3836,14 @@ defmodule AWS.NetworkManager do
   @doc """
   Accepts a core network attachment request.
 
-  Once the attachment request is accepted by a core network owner, the attachment
-  is
-  created and connected to a core network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20AcceptAttachment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:attachment_id` (`t:string`) The ID of the attachment.
+
+  ## Optional parameters:
   """
-  @spec accept_attachment(map(), String.t(), accept_attachment_request(), list()) ::
+  @spec accept_attachment(AWS.Client.t(), String.t(), accept_attachment_request(), Keyword.t()) ::
           {:ok, accept_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_attachment_errors()}
@@ -3849,7 +3852,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3868,13 +3872,19 @@ defmodule AWS.NetworkManager do
   Associates a core network Connect peer with a device and optionally, with a
   link.
 
-  If you specify a link, it must be associated with the specified device. You can
-  only
-  associate core network Connect peers that have been created on a core network
-  Connect
-  attachment on a core network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20AssociateConnectPeer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of your global network.
+
+  ## Optional parameters:
   """
-  @spec associate_connect_peer(map(), String.t(), associate_connect_peer_request(), list()) ::
+  @spec associate_connect_peer(
+          AWS.Client.t(),
+          String.t(),
+          associate_connect_peer_request(),
+          Keyword.t()
+        ) ::
           {:ok, associate_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_connect_peer_errors()}
@@ -3885,7 +3895,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3901,31 +3912,29 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Associates a customer gateway with a device and optionally, with a link.
-
-  If you
-  specify a link, it must be associated with the specified device.
-
-  You can only associate customer gateways that are connected to a VPN attachment
-  on a
+  Associates a customer gateway with a device and optionally, with a link. If you
+  specify a link, it must be associated with the specified device. You can only
+  associate customer gateways that are connected to a VPN attachment on a
   transit gateway or core network registered in your global network. When you
-  register a
-  transit gateway or core network, customer gateways that are connected to the
-  transit
-  gateway are automatically included in the global network. To list customer
-  gateways
-  that are connected to a transit gateway, use the
+  register a transit gateway or core network, customer gateways that are
+  connected to the transit gateway are automatically included in the global
+  network. To list customer gateways that are connected to a transit gateway,
+  use the
   [DescribeVpnConnections](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html)
-  EC2 API and filter by
-  `transit-gateway-id`.
+  EC2 API and filter by `transit-gateway-id`.
 
-  You cannot associate a customer gateway with more than one device and link.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20AssociateCustomerGateway&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
   """
   @spec associate_customer_gateway(
-          map(),
+          AWS.Client.t(),
           String.t(),
           associate_customer_gateway_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_customer_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3937,7 +3946,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3953,13 +3963,18 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Associates a link to a device.
+  Associates a link to a device. A device can be associated to multiple links and
+  a link can be associated to multiple devices. The device and link must be in
+  the same global network and the same site.
 
-  A device can be associated to multiple links and a link can be associated to
-  multiple devices. The device and link must be in the same global network and the
-  same site.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20AssociateLink&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
   """
-  @spec associate_link(map(), String.t(), associate_link_request(), list()) ::
+  @spec associate_link(AWS.Client.t(), String.t(), associate_link_request(), Keyword.t()) ::
           {:ok, associate_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_link_errors()}
@@ -3968,7 +3983,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3985,22 +4001,22 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Associates a transit gateway Connect peer with a device, and optionally, with a
-  link.
+  link. If you specify a link, it must be associated with the specified device.
+  You can only associate transit gateway Connect peers that have been created on
+  a transit gateway that's registered in your global network.
 
-  If you
-  specify a link, it must be associated with the specified device.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20AssociateTransitGatewayConnectPeer&this_doc_guide=API%2520Reference)
 
-  You can only associate transit gateway Connect peers that have been created on a
-  transit gateway that's registered in your global network.
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
-  You cannot associate a transit gateway Connect peer with more than one device
-  and link.
+  ## Optional parameters:
   """
   @spec associate_transit_gateway_connect_peer(
-          map(),
+          AWS.Client.t(),
           String.t(),
           associate_transit_gateway_connect_peer_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_transit_gateway_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4017,7 +4033,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4036,14 +4053,17 @@ defmodule AWS.NetworkManager do
   Creates a core network Connect attachment from a specified core network
   attachment.
 
-  A core network Connect attachment is a GRE-based tunnel attachment that you can
-  use to
-  establish a connection between a core network and an appliance. A core network
-  Connect
-  attachment uses an existing VPC attachment as the underlying transport
-  mechanism.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateConnectAttachment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_connect_attachment(map(), create_connect_attachment_request(), list()) ::
+  @spec create_connect_attachment(
+          AWS.Client.t(),
+          create_connect_attachment_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_connect_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connect_attachment_errors()}
@@ -4052,7 +4072,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4069,12 +4090,16 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Creates a core network Connect peer for a specified core network connect
-  attachment between a core network and an appliance.
+  attachment between a core network and an appliance. The peer address and
+  transit gateway address must be the same IP address family (IPv4 or IPv6).
 
-  The peer address and transit gateway address must be the same IP address family
-  (IPv4 or IPv6).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateConnectPeer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_connect_peer(map(), create_connect_peer_request(), list()) ::
+  @spec create_connect_peer(AWS.Client.t(), create_connect_peer_request(), Keyword.t()) ::
           {:ok, create_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connect_peer_errors()}
@@ -4083,7 +4108,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4099,13 +4125,19 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Creates a connection between two devices.
+  Creates a connection between two devices. The devices can be a physical or
+  virtual appliance that connects to a third-party appliance in a VPC, or a
+  physical appliance that connects to another physical appliance in an
+  on-premises network.
 
-  The devices can be a physical or virtual appliance that connects to a
-  third-party appliance in a VPC, or a physical appliance that connects to another
-  physical appliance in an on-premises network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
   """
-  @spec create_connection(map(), String.t(), create_connection_request(), list()) ::
+  @spec create_connection(AWS.Client.t(), String.t(), create_connection_request(), Keyword.t()) ::
           {:ok, create_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connection_errors()}
@@ -4114,7 +4146,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4132,8 +4165,14 @@ defmodule AWS.NetworkManager do
   @doc """
   Creates a core network as part of your global network, and optionally, with a
   core network policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateCoreNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_core_network(map(), create_core_network_request(), list()) ::
+  @spec create_core_network(AWS.Client.t(), create_core_network_request(), Keyword.t()) ::
           {:ok, create_core_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_core_network_errors()}
@@ -4142,7 +4181,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4158,13 +4198,18 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Creates a new device in a global network.
-
-  If you specify both a site ID and a
+  Creates a new device in a global network. If you specify both a site ID and a
   location, the location of the site is used for visualization in the Network
   Manager console.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
   """
-  @spec create_device(map(), String.t(), create_device_request(), list()) ::
+  @spec create_device(AWS.Client.t(), String.t(), create_device_request(), Keyword.t()) ::
           {:ok, create_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_device_errors()}
@@ -4173,7 +4218,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4190,8 +4236,14 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Creates a new, empty global network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateGlobalNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_global_network(map(), create_global_network_request(), list()) ::
+  @spec create_global_network(AWS.Client.t(), create_global_network_request(), Keyword.t()) ::
           {:ok, create_global_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_global_network_errors()}
@@ -4200,7 +4252,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4217,8 +4270,15 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Creates a new link for a specified site.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateLink&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
   """
-  @spec create_link(map(), String.t(), create_link_request(), list()) ::
+  @spec create_link(AWS.Client.t(), String.t(), create_link_request(), Keyword.t()) ::
           {:ok, create_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_link_errors()}
@@ -4227,7 +4287,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4244,8 +4305,15 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Creates a new site in a global network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateSite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
   """
-  @spec create_site(map(), String.t(), create_site_request(), list()) ::
+  @spec create_site(AWS.Client.t(), String.t(), create_site_request(), Keyword.t()) ::
           {:ok, create_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_site_errors()}
@@ -4254,7 +4322,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4272,11 +4341,17 @@ defmodule AWS.NetworkManager do
   @doc """
   Creates an Amazon Web Services site-to-site VPN attachment on an edge location
   of a core network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateSiteToSiteVpnAttachment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_site_to_site_vpn_attachment(
-          map(),
+          AWS.Client.t(),
           create_site_to_site_vpn_attachment_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_site_to_site_vpn_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4286,7 +4361,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4303,8 +4379,18 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Creates a transit gateway peering connection.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateTransitGatewayPeering&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_transit_gateway_peering(map(), create_transit_gateway_peering_request(), list()) ::
+  @spec create_transit_gateway_peering(
+          AWS.Client.t(),
+          create_transit_gateway_peering_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_transit_gateway_peering_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_transit_gateway_peering_errors()}
@@ -4313,7 +4399,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4330,11 +4417,17 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Creates a transit gateway route table attachment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateTransitGatewayRouteTableAttachment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_transit_gateway_route_table_attachment(
-          map(),
+          AWS.Client.t(),
           create_transit_gateway_route_table_attachment_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_transit_gateway_route_table_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4344,7 +4437,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4361,8 +4455,14 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Creates a VPC attachment on an edge location of a core network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateVpcAttachment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_vpc_attachment(map(), create_vpc_attachment_request(), list()) ::
+  @spec create_vpc_attachment(AWS.Client.t(), create_vpc_attachment_request(), Keyword.t()) ::
           {:ok, create_vpc_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vpc_attachment_errors()}
@@ -4371,7 +4471,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4387,11 +4488,16 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Deletes an attachment.
+  Deletes an attachment. Supports all attachment types.
 
-  Supports all attachment types.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteAttachment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:attachment_id` (`t:string`) The ID of the attachment to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_attachment(map(), String.t(), delete_attachment_request(), list()) ::
+  @spec delete_attachment(AWS.Client.t(), String.t(), delete_attachment_request(), Keyword.t()) ::
           {:ok, delete_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_attachment_errors()}
@@ -4400,7 +4506,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4417,8 +4524,20 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Deletes a Connect peer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteConnectPeer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connect_peer_id` (`t:string`) The ID of the deleted Connect peer.
+
+  ## Optional parameters:
   """
-  @spec delete_connect_peer(map(), String.t(), delete_connect_peer_request(), list()) ::
+  @spec delete_connect_peer(
+          AWS.Client.t(),
+          String.t(),
+          delete_connect_peer_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connect_peer_errors()}
@@ -4427,7 +4546,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4444,8 +4564,22 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Deletes the specified connection in your global network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connection_id` (`t:string`) The ID of the connection.
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
   """
-  @spec delete_connection(map(), String.t(), String.t(), delete_connection_request(), list()) ::
+  @spec delete_connection(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_connection_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connection_errors()}
@@ -4462,7 +4596,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4478,11 +4613,22 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Deletes a core network along with all core network policies.
+  Deletes a core network along with all core network policies. This can only be
+  done if there are no attachments on a core network.
 
-  This can only be done if there are no attachments on a core network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteCoreNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_network_id` (`t:string`) The network ID of the deleted core network.
+
+  ## Optional parameters:
   """
-  @spec delete_core_network(map(), String.t(), delete_core_network_request(), list()) ::
+  @spec delete_core_network(
+          AWS.Client.t(),
+          String.t(),
+          delete_core_network_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_core_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_core_network_errors()}
@@ -4491,7 +4637,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4507,16 +4654,24 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Deletes a policy version from a core network.
+  Deletes a policy version from a core network. You can't delete the current LIVE
+  policy.
 
-  You can't delete the current LIVE policy.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteCoreNetworkPolicyVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_network_id` (`t:string`) The ID of a core network for the deleted
+    policy.
+  * `:policy_version_id` (`t:integer`) The version ID of the deleted policy.
+
+  ## Optional parameters:
   """
   @spec delete_core_network_policy_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_core_network_policy_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_core_network_policy_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4534,7 +4689,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4550,12 +4706,24 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Deletes an existing device.
+  Deletes an existing device. You must first disassociate the device from any
+  links and customer gateways.
 
-  You must first disassociate the device from any links and
-  customer gateways.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_id` (`t:string`) The ID of the device.
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
   """
-  @spec delete_device(map(), String.t(), String.t(), delete_device_request(), list()) ::
+  @spec delete_device(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_device_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_device_errors()}
@@ -4566,7 +4734,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4582,13 +4751,23 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Deletes an existing global network.
+  Deletes an existing global network. You must first delete all global network
+  objects (devices, links, and sites), deregister all transit gateways, and
+  delete any core networks.
 
-  You must first delete all global network objects
-  (devices, links, and sites), deregister all transit gateways, and delete any
-  core networks.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteGlobalNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
   """
-  @spec delete_global_network(map(), String.t(), delete_global_network_request(), list()) ::
+  @spec delete_global_network(
+          AWS.Client.t(),
+          String.t(),
+          delete_global_network_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_global_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_global_network_errors()}
@@ -4597,7 +4776,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4613,12 +4793,18 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Deletes an existing link.
+  Deletes an existing link. You must first disassociate the link from any devices
+  and customer gateways.
 
-  You must first disassociate the link from any devices and
-  customer gateways.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteLink&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+  * `:link_id` (`t:string`) The ID of the link.
+
+  ## Optional parameters:
   """
-  @spec delete_link(map(), String.t(), String.t(), delete_link_request(), list()) ::
+  @spec delete_link(AWS.Client.t(), String.t(), String.t(), delete_link_request(), Keyword.t()) ::
           {:ok, delete_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_link_errors()}
@@ -4629,7 +4815,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4646,8 +4833,15 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Deletes an existing peering connection.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeletePeering&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:peering_id` (`t:string`) The ID of the peering connection to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_peering(map(), String.t(), delete_peering_request(), list()) ::
+  @spec delete_peering(AWS.Client.t(), String.t(), delete_peering_request(), Keyword.t()) ::
           {:ok, delete_peering_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_peering_errors()}
@@ -4656,7 +4850,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4672,11 +4867,22 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Deletes a resource policy for the specified resource.
+  Deletes a resource policy for the specified resource. This revokes the access of
+  the principals specified in the resource policy.
 
-  This revokes the access of the principals specified in the resource policy.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the policy to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_resource_policy(map(), String.t(), delete_resource_policy_request(), list()) ::
+  @spec delete_resource_policy(
+          AWS.Client.t(),
+          String.t(),
+          delete_resource_policy_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
@@ -4685,7 +4891,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4701,11 +4908,17 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Deletes an existing site.
+  Deletes an existing site. The site cannot be associated with any device or link.
 
-  The site cannot be associated with any device or link.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteSite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+  * `:site_id` (`t:string`) The ID of the site.
+
+  ## Optional parameters:
   """
-  @spec delete_site(map(), String.t(), String.t(), delete_site_request(), list()) ::
+  @spec delete_site(AWS.Client.t(), String.t(), String.t(), delete_site_request(), Keyword.t()) ::
           {:ok, delete_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_site_errors()}
@@ -4716,7 +4929,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4732,18 +4946,25 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Deregisters a transit gateway from your global network.
+  Deregisters a transit gateway from your global network. This action does not
+  delete your transit gateway, or modify any of its attachments. This action
+  removes any customer gateway associations.
 
-  This action does not delete
-  your transit gateway, or modify any of its attachments. This action removes any
-  customer gateway associations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeregisterTransitGateway&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+  * `:transit_gateway_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    transit gateway.
+
+  ## Optional parameters:
   """
   @spec deregister_transit_gateway(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           deregister_transit_gateway_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, deregister_transit_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4761,7 +4982,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4777,70 +4999,96 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Describes one or more global networks.
-
-  By default, all global networks are
+  Describes one or more global networks. By default, all global networks are
   described. To describe the objects in your global network, you must use the
-  appropriate
-  `Get*` action. For example, to list the transit gateways in your global
-  network, use `GetTransitGatewayRegistrations`.
+  appropriate `Get*` action. For example, to list the transit gateways in your
+  global network, use `GetTransitGatewayRegistrations`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DescribeGlobalNetworks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:global_network_ids` (`t:list[com.amazonaws.networkmanager#GlobalNetworkId]`)
+    The IDs of one or more global networks. The maximum is 10.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
-  @spec describe_global_networks(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec describe_global_networks(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_global_networks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_global_networks_errors()}
-  def describe_global_networks(
-        %Client{} = client,
-        global_network_ids \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def describe_global_networks(%Client{} = client, options \\ []) do
     url_path = "/global-networks"
+
+    # Validate optional parameters
+    optional_params = [global_network_ids: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(global_network_ids) do
-        [{"globalNetworkIds", global_network_ids} | query_params]
+      if opt_val = Keyword.get(options, :global_network_ids) do
+        [{"globalNetworkIds", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:global_network_ids, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Disassociates a core network Connect peer from a device and a link.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DisassociateConnectPeer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connect_peer_id` (`t:string`) The ID of the Connect peer to disassociate
+    from a device.
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
   """
   @spec disassociate_connect_peer(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           disassociate_connect_peer_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4858,7 +5106,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4875,13 +5124,22 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Disassociates a customer gateway from a device and a link.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DisassociateCustomerGateway&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:customer_gateway_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    customer gateway.
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
   """
   @spec disassociate_customer_gateway(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           disassociate_customer_gateway_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_customer_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4899,7 +5157,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4915,12 +5174,19 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Disassociates an existing device from a link.
+  Disassociates an existing device from a link. You must first disassociate any
+  customer gateways that are associated with the link.
 
-  You must first disassociate any customer
-  gateways that are associated with the link.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DisassociateLink&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+  * `:device_id` (`t:string`) The ID of the device.
+  * `:link_id` (`t:string`) The ID of the link.
+
+  ## Optional parameters:
   """
-  @spec disassociate_link(map(), String.t(), disassociate_link_request(), list()) ::
+  @spec disassociate_link(AWS.Client.t(), String.t(), disassociate_link_request(), Keyword.t()) ::
           {:ok, disassociate_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_link_errors()}
@@ -4935,7 +5201,8 @@ defmodule AWS.NetworkManager do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4952,13 +5219,22 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Disassociates a transit gateway Connect peer from a device and link.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DisassociateTransitGatewayConnectPeer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+  * `:transit_gateway_connect_peer_arn` (`t:string`) The Amazon Resource Name
+    (ARN) of the transit gateway Connect peer.
+
+  ## Optional parameters:
   """
   @spec disassociate_transit_gateway_connect_peer(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           disassociate_transit_gateway_connect_peer_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_transit_gateway_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4976,7 +5252,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4992,16 +5269,23 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Executes a change set on your core network.
+  Executes a change set on your core network. Deploys changes globally based on
+  the policy submitted..
 
-  Deploys changes globally based on the policy submitted..
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ExecuteCoreNetworkChangeSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_network_id` (`t:string`) The ID of a core network.
+  * `:policy_version_id` (`t:integer`) The ID of the policy version.
+
+  ## Optional parameters:
   """
   @spec execute_core_network_change_set(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           execute_core_network_change_set_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, execute_core_network_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5019,7 +5303,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5036,181 +5321,295 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Returns information about a core network Connect attachment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetConnectAttachment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:attachment_id` (`t:string`) The ID of the attachment.
+
+  ## Optional parameters:
   """
-  @spec get_connect_attachment(map(), String.t(), list()) ::
+  @spec get_connect_attachment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connect_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connect_attachment_errors()}
   def get_connect_attachment(%Client{} = client, attachment_id, options \\ []) do
     url_path = "/connect-attachments/#{AWS.Util.encode_uri(attachment_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a core network Connect peer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetConnectPeer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connect_peer_id` (`t:string`) The ID of the Connect peer.
+
+  ## Optional parameters:
   """
-  @spec get_connect_peer(map(), String.t(), list()) ::
+  @spec get_connect_peer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connect_peer_errors()}
   def get_connect_peer(%Client{} = client, connect_peer_id, options \\ []) do
     url_path = "/connect-peers/#{AWS.Util.encode_uri(connect_peer_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a core network Connect peer associations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetConnectPeerAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
+  * `:connect_peer_ids` (`t:list[com.amazonaws.networkmanager#ConnectPeerId]`) The
+    IDs of the Connect peers.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
-  @spec get_connect_peer_associations(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_connect_peer_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connect_peer_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connect_peer_associations_errors()}
-  def get_connect_peer_associations(
-        %Client{} = client,
-        global_network_id,
-        connect_peer_ids \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_connect_peer_associations(%Client{} = client, global_network_id, options \\ []) do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/connect-peer-associations"
 
+    # Validate optional parameters
+    optional_params = [connect_peer_ids: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(connect_peer_ids) do
-        [{"connectPeerIds", connect_peer_ids} | query_params]
+      if opt_val = Keyword.get(options, :connect_peer_ids) do
+        [{"connectPeerIds", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:connect_peer_ids, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about one or more of your connections in a global network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetConnections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
+  * `:connection_ids` (`t:list[com.amazonaws.networkmanager#ConnectionId]`) One or
+    more connection IDs.
+  * `:device_id` (`t:string`) The ID of the device.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
-  @spec get_connections(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_connections(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connections_errors()}
-  def get_connections(
-        %Client{} = client,
-        global_network_id,
-        connection_ids \\ nil,
-        device_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_connections(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/connections"
+
+    # Validate optional parameters
+    optional_params = [connection_ids: nil, device_id: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(device_id) do
-        [{"deviceId", device_id} | query_params]
+      if opt_val = Keyword.get(options, :device_id) do
+        [{"deviceId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(connection_ids) do
-        [{"connectionIds", connection_ids} | query_params]
+      if opt_val = Keyword.get(options, :connection_ids) do
+        [{"connectionIds", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:connection_ids, :device_id, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about the LIVE policy for a core network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetCoreNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_network_id` (`t:string`) The ID of a core network.
+
+  ## Optional parameters:
   """
-  @spec get_core_network(map(), String.t(), list()) ::
+  @spec get_core_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_core_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_core_network_errors()}
   def get_core_network(%Client{} = client, core_network_id, options \\ []) do
     url_path = "/core-networks/#{AWS.Util.encode_uri(core_network_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a core network change event.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetCoreNetworkChangeEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_network_id` (`t:string`) The ID of a core network.
+  * `:policy_version_id` (`t:integer`) The ID of the policy version.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
-  @spec get_core_network_change_events(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_core_network_change_events(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_core_network_change_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_core_network_change_events_errors()}
@@ -5218,31 +5617,50 @@ defmodule AWS.NetworkManager do
         %Client{} = client,
         core_network_id,
         policy_version_id,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/core-networks/#{AWS.Util.encode_uri(core_network_id)}/core-network-change-events/#{AWS.Util.encode_uri(policy_version_id)}"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5250,15 +5668,18 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns a change set between the LIVE core network policy and a submitted
   policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetCoreNetworkChangeSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_network_id` (`t:string`) The ID of a core network.
+  * `:policy_version_id` (`t:integer`) The ID of the policy version.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
-  @spec get_core_network_change_set(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_core_network_change_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_core_network_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_core_network_change_set_errors()}
@@ -5266,71 +5687,113 @@ defmodule AWS.NetworkManager do
         %Client{} = client,
         core_network_id,
         policy_version_id,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/core-networks/#{AWS.Util.encode_uri(core_network_id)}/core-network-change-sets/#{AWS.Util.encode_uri(policy_version_id)}"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns details about a core network policy.
+  Returns details about a core network policy. You can get details about your
+  current live policy or any previous policy version.
 
-  You can get details about your current live policy or any previous policy
-  version.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetCoreNetworkPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_network_id` (`t:string`) The ID of a core network.
+
+  ## Optional parameters:
+  * `:alias` (`t:enum["LATEST|LIVE"]`) The alias of a core network policy
+  * `:policy_version_id` (`t:integer`) The ID of a core network policy version.
   """
-  @spec get_core_network_policy(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_core_network_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_core_network_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_core_network_policy_errors()}
-  def get_core_network_policy(
-        %Client{} = client,
-        core_network_id,
-        alias \\ nil,
-        policy_version_id \\ nil,
-        options \\ []
-      ) do
+  def get_core_network_policy(%Client{} = client, core_network_id, options \\ []) do
     url_path = "/core-networks/#{AWS.Util.encode_uri(core_network_id)}/core-network-policy"
+
+    # Validate optional parameters
+    optional_params = [alias: nil, policy_version_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(policy_version_id) do
-        [{"policyVersionId", policy_version_id} | query_params]
+      if opt_val = Keyword.get(options, :policy_version_id) do
+        [{"policyVersionId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(alias) do
-        [{"alias", alias} | query_params]
+      if opt_val = Keyword.get(options, :alias) do
+        [{"alias", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:alias, :policy_version_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5338,179 +5801,231 @@ defmodule AWS.NetworkManager do
   @doc """
   Gets the association information for customer gateways that are associated with
   devices and links in your global network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetCustomerGatewayAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
+  * `:customer_gateway_arns`
+    (`t:list[com.amazonaws.networkmanager#CustomerGatewayArn]`) One or more
+    customer gateway Amazon Resource Names (ARNs). The maximum is 10.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
-  @spec get_customer_gateway_associations(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_customer_gateway_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_customer_gateway_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_customer_gateway_associations_errors()}
-  def get_customer_gateway_associations(
-        %Client{} = client,
-        global_network_id,
-        customer_gateway_arns \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_customer_gateway_associations(%Client{} = client, global_network_id, options \\ []) do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/customer-gateway-associations"
 
+    # Validate optional parameters
+    optional_params = [customer_gateway_arns: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(customer_gateway_arns) do
-        [{"customerGatewayArns", customer_gateway_arns} | query_params]
+      if opt_val = Keyword.get(options, :customer_gateway_arns) do
+        [{"customerGatewayArns", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:customer_gateway_arns, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about one or more of your devices in a global network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetDevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
+  * `:device_ids` (`t:list[com.amazonaws.networkmanager#DeviceId]`) One or more
+    device IDs. The maximum is 10.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:site_id` (`t:string`) The ID of the site.
   """
-  @spec get_devices(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_devices(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_devices_errors()}
-  def get_devices(
-        %Client{} = client,
-        global_network_id,
-        device_ids \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        site_id \\ nil,
-        options \\ []
-      ) do
+  def get_devices(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/devices"
+
+    # Validate optional parameters
+    optional_params = [device_ids: nil, max_results: nil, next_token: nil, site_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(site_id) do
-        [{"siteId", site_id} | query_params]
+      if opt_val = Keyword.get(options, :site_id) do
+        [{"siteId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(device_ids) do
-        [{"deviceIds", device_ids} | query_params]
+      if opt_val = Keyword.get(options, :device_ids) do
+        [{"deviceIds", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:device_ids, :max_results, :next_token, :site_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets the link associations for a device or a link.
+  Gets the link associations for a device or a link. Either the device ID or the
+  link ID must be specified.
 
-  Either the device ID or the link ID
-  must be specified.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetLinkAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
+  * `:device_id` (`t:string`) The ID of the device.
+  * `:link_id` (`t:string`) The ID of the link.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
-  @spec get_link_associations(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_link_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_link_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_link_associations_errors()}
-  def get_link_associations(
-        %Client{} = client,
-        global_network_id,
-        device_id \\ nil,
-        link_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_link_associations(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/link-associations"
+
+    # Validate optional parameters
+    optional_params = [device_id: nil, link_id: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(link_id) do
-        [{"linkId", link_id} | query_params]
+      if opt_val = Keyword.get(options, :link_id) do
+        [{"linkId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(device_id) do
-        [{"deviceId", device_id} | query_params]
+      if opt_val = Keyword.get(options, :device_id) do
+        [{"deviceId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:device_id, :link_id, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5518,81 +6033,101 @@ defmodule AWS.NetworkManager do
   @doc """
   Gets information about one or more links in a specified global network.
 
-  If you specify the site ID, you cannot specify the type or provider in the same
-  request. You can specify the type and provider in the same request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetLinks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
+  * `:link_ids` (`t:list[com.amazonaws.networkmanager#LinkId]`) One or more link
+    IDs. The maximum is 10.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:provider` (`t:string`) The link provider.
+  * `:site_id` (`t:string`) The ID of the site.
+  * `:type` (`t:string`) The link type.
   """
-  @spec get_links(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_links(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_links_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_links_errors()}
-  def get_links(
-        %Client{} = client,
-        global_network_id,
-        link_ids \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        provider \\ nil,
-        site_id \\ nil,
-        type \\ nil,
-        options \\ []
-      ) do
+  def get_links(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/links"
+
+    # Validate optional parameters
+    optional_params = [
+      link_ids: nil,
+      max_results: nil,
+      next_token: nil,
+      provider: nil,
+      site_id: nil,
+      type: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
+      if opt_val = Keyword.get(options, :type) do
+        [{"type", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(site_id) do
-        [{"siteId", site_id} | query_params]
+      if opt_val = Keyword.get(options, :site_id) do
+        [{"siteId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(provider) do
-        [{"provider", provider} | query_params]
+      if opt_val = Keyword.get(options, :provider) do
+        [{"provider", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(link_ids) do
-        [{"linkIds", link_ids} | query_params]
+      if opt_val = Keyword.get(options, :link_ids) do
+        [{"linkIds", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:link_ids, :max_results, :next_token, :provider, :site_id, :type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5600,151 +6135,199 @@ defmodule AWS.NetworkManager do
   @doc """
   Gets the count of network resources, by resource type, for the specified global
   network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetNetworkResourceCounts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:resource_type` (`t:string`) The resource type.
   """
-  @spec get_network_resource_counts(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_network_resource_counts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_resource_counts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_resource_counts_errors()}
-  def get_network_resource_counts(
-        %Client{} = client,
-        global_network_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        resource_type \\ nil,
-        options \\ []
-      ) do
+  def get_network_resource_counts(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/network-resource-count"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, resource_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(resource_type) do
-        [{"resourceType", resource_type} | query_params]
+      if opt_val = Keyword.get(options, :resource_type) do
+        [{"resourceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :resource_type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the network resource relationships for the specified global network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetNetworkResourceRelationships&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
+  * `:account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:aws_region` (`t:string`) The Amazon Web Services Region.
+  * `:core_network_id` (`t:string`) The ID of a core network.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:registered_gateway_arn` (`t:string`) The ARN of the registered gateway.
+  * `:resource_arn` (`t:string`) The ARN of the gateway.
+  * `:resource_type` (`t:string`) The resource type.
   """
-  @spec get_network_resource_relationships(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_network_resource_relationships(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_resource_relationships_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_resource_relationships_errors()}
-  def get_network_resource_relationships(
-        %Client{} = client,
-        global_network_id,
-        account_id \\ nil,
-        aws_region \\ nil,
-        core_network_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        registered_gateway_arn \\ nil,
-        resource_arn \\ nil,
-        resource_type \\ nil,
-        options \\ []
-      ) do
+  def get_network_resource_relationships(%Client{} = client, global_network_id, options \\ []) do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/network-resource-relationships"
 
+    # Validate optional parameters
+    optional_params = [
+      account_id: nil,
+      aws_region: nil,
+      core_network_id: nil,
+      max_results: nil,
+      next_token: nil,
+      registered_gateway_arn: nil,
+      resource_arn: nil,
+      resource_type: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(resource_type) do
-        [{"resourceType", resource_type} | query_params]
+      if opt_val = Keyword.get(options, :resource_type) do
+        [{"resourceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(resource_arn) do
-        [{"resourceArn", resource_arn} | query_params]
+      if opt_val = Keyword.get(options, :resource_arn) do
+        [{"resourceArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(registered_gateway_arn) do
-        [{"registeredGatewayArn", registered_gateway_arn} | query_params]
+      if opt_val = Keyword.get(options, :registered_gateway_arn) do
+        [{"registeredGatewayArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(core_network_id) do
-        [{"coreNetworkId", core_network_id} | query_params]
+      if opt_val = Keyword.get(options, :core_network_id) do
+        [{"coreNetworkId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(aws_region) do
-        [{"awsRegion", aws_region} | query_params]
+      if opt_val = Keyword.get(options, :aws_region) do
+        [{"awsRegion", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(account_id) do
-        [{"accountId", account_id} | query_params]
+      if opt_val = Keyword.get(options, :account_id) do
+        [{"accountId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :account_id,
+        :aws_region,
+        :core_network_id,
+        :max_results,
+        :next_token,
+        :registered_gateway_arn,
+        :resource_arn,
+        :resource_type
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5752,107 +6335,142 @@ defmodule AWS.NetworkManager do
   @doc """
   Describes the network resources for the specified global network.
 
-  The results include information from the corresponding Describe call for the
-  resource, minus any sensitive information such as pre-shared keys.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetNetworkResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
+  * `:account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:aws_region` (`t:string`) The Amazon Web Services Region.
+  * `:core_network_id` (`t:string`) The ID of a core network.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:registered_gateway_arn` (`t:string`) The ARN of the gateway.
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+  * `:resource_type` (`t:string`) The resource type.
   """
-  @spec get_network_resources(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_network_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_resources_errors()}
-  def get_network_resources(
-        %Client{} = client,
-        global_network_id,
-        account_id \\ nil,
-        aws_region \\ nil,
-        core_network_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        registered_gateway_arn \\ nil,
-        resource_arn \\ nil,
-        resource_type \\ nil,
-        options \\ []
-      ) do
+  def get_network_resources(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/network-resources"
+
+    # Validate optional parameters
+    optional_params = [
+      account_id: nil,
+      aws_region: nil,
+      core_network_id: nil,
+      max_results: nil,
+      next_token: nil,
+      registered_gateway_arn: nil,
+      resource_arn: nil,
+      resource_type: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(resource_type) do
-        [{"resourceType", resource_type} | query_params]
+      if opt_val = Keyword.get(options, :resource_type) do
+        [{"resourceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(resource_arn) do
-        [{"resourceArn", resource_arn} | query_params]
+      if opt_val = Keyword.get(options, :resource_arn) do
+        [{"resourceArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(registered_gateway_arn) do
-        [{"registeredGatewayArn", registered_gateway_arn} | query_params]
+      if opt_val = Keyword.get(options, :registered_gateway_arn) do
+        [{"registeredGatewayArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(core_network_id) do
-        [{"coreNetworkId", core_network_id} | query_params]
+      if opt_val = Keyword.get(options, :core_network_id) do
+        [{"coreNetworkId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(aws_region) do
-        [{"awsRegion", aws_region} | query_params]
+      if opt_val = Keyword.get(options, :aws_region) do
+        [{"awsRegion", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(account_id) do
-        [{"accountId", account_id} | query_params]
+      if opt_val = Keyword.get(options, :account_id) do
+        [{"accountId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :account_id,
+        :aws_region,
+        :core_network_id,
+        :max_results,
+        :next_token,
+        :registered_gateway_arn,
+        :resource_arn,
+        :resource_type
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the network routes of the specified global network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetNetworkRoutes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
   """
-  @spec get_network_routes(map(), String.t(), get_network_routes_request(), list()) ::
+  @spec get_network_routes(AWS.Client.t(), String.t(), get_network_routes_request(), Keyword.t()) ::
           {:ok, get_network_routes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_routes_errors()}
@@ -5861,7 +6479,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5878,122 +6497,187 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Gets the network telemetry of the specified global network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetNetworkTelemetry&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
+  * `:account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:aws_region` (`t:string`) The Amazon Web Services Region.
+  * `:core_network_id` (`t:string`) The ID of a core network.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:registered_gateway_arn` (`t:string`) The ARN of the gateway.
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+  * `:resource_type` (`t:string`) The resource type. The following are the
+    supported resource types:
   """
-  @spec get_network_telemetry(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_network_telemetry(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_telemetry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_telemetry_errors()}
-  def get_network_telemetry(
-        %Client{} = client,
-        global_network_id,
-        account_id \\ nil,
-        aws_region \\ nil,
-        core_network_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        registered_gateway_arn \\ nil,
-        resource_arn \\ nil,
-        resource_type \\ nil,
-        options \\ []
-      ) do
+  def get_network_telemetry(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/network-telemetry"
+
+    # Validate optional parameters
+    optional_params = [
+      account_id: nil,
+      aws_region: nil,
+      core_network_id: nil,
+      max_results: nil,
+      next_token: nil,
+      registered_gateway_arn: nil,
+      resource_arn: nil,
+      resource_type: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(resource_type) do
-        [{"resourceType", resource_type} | query_params]
+      if opt_val = Keyword.get(options, :resource_type) do
+        [{"resourceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(resource_arn) do
-        [{"resourceArn", resource_arn} | query_params]
+      if opt_val = Keyword.get(options, :resource_arn) do
+        [{"resourceArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(registered_gateway_arn) do
-        [{"registeredGatewayArn", registered_gateway_arn} | query_params]
+      if opt_val = Keyword.get(options, :registered_gateway_arn) do
+        [{"registeredGatewayArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(core_network_id) do
-        [{"coreNetworkId", core_network_id} | query_params]
+      if opt_val = Keyword.get(options, :core_network_id) do
+        [{"coreNetworkId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(aws_region) do
-        [{"awsRegion", aws_region} | query_params]
+      if opt_val = Keyword.get(options, :aws_region) do
+        [{"awsRegion", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(account_id) do
-        [{"accountId", account_id} | query_params]
+      if opt_val = Keyword.get(options, :account_id) do
+        [{"accountId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :account_id,
+        :aws_region,
+        :core_network_id,
+        :max_results,
+        :next_token,
+        :registered_gateway_arn,
+        :resource_arn,
+        :resource_type
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a resource policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+
+  ## Optional parameters:
   """
-  @spec get_resource_policy(map(), String.t(), list()) ::
+  @spec get_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resource-policy/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about the specified route analysis.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetRouteAnalysis&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+  * `:route_analysis_id` (`t:string`) The ID of the route analysis.
+
+  ## Optional parameters:
   """
-  @spec get_route_analysis(map(), String.t(), String.t(), list()) ::
+  @spec get_route_analysis(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_route_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_route_analysis_errors()}
@@ -6001,72 +6685,140 @@ defmodule AWS.NetworkManager do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/route-analyses/#{AWS.Util.encode_uri(route_analysis_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a site-to-site VPN attachment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetSiteToSiteVpnAttachment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:attachment_id` (`t:string`) The ID of the attachment.
+
+  ## Optional parameters:
   """
-  @spec get_site_to_site_vpn_attachment(map(), String.t(), list()) ::
+  @spec get_site_to_site_vpn_attachment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_site_to_site_vpn_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_site_to_site_vpn_attachment_errors()}
   def get_site_to_site_vpn_attachment(%Client{} = client, attachment_id, options \\ []) do
     url_path = "/site-to-site-vpn-attachments/#{AWS.Util.encode_uri(attachment_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about one or more of your sites in a global network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetSites&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:site_ids` (`t:list[com.amazonaws.networkmanager#SiteId]`) One or more site
+    IDs. The maximum is 10.
   """
-  @spec get_sites(map(), String.t(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec get_sites(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sites_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sites_errors()}
-  def get_sites(
-        %Client{} = client,
-        global_network_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        site_ids \\ nil,
-        options \\ []
-      ) do
+  def get_sites(%Client{} = client, global_network_id, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/sites"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, site_ids: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(site_ids) do
-        [{"siteIds", site_ids} | query_params]
+      if opt_val = Keyword.get(options, :site_ids) do
+        [{"siteIds", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :site_ids])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -6074,372 +6826,595 @@ defmodule AWS.NetworkManager do
   @doc """
   Gets information about one or more of your transit gateway Connect peer
   associations in a global network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetTransitGatewayConnectPeerAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:transit_gateway_connect_peer_arns`
+    (`t:list[com.amazonaws.networkmanager#TransitGatewayConnectPeerArn]`) One or
+    more transit gateway Connect peer Amazon Resource Names (ARNs).
   """
-  @spec get_transit_gateway_connect_peer_associations(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_transit_gateway_connect_peer_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_transit_gateway_connect_peer_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_transit_gateway_connect_peer_associations_errors()}
   def get_transit_gateway_connect_peer_associations(
         %Client{} = client,
         global_network_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        transit_gateway_connect_peer_arns \\ nil,
         options \\ []
       ) do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/transit-gateway-connect-peer-associations"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, transit_gateway_connect_peer_arns: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(transit_gateway_connect_peer_arns) do
-        [{"transitGatewayConnectPeerArns", transit_gateway_connect_peer_arns} | query_params]
+      if opt_val = Keyword.get(options, :transit_gateway_connect_peer_arns) do
+        [{"transitGatewayConnectPeerArns", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :transit_gateway_connect_peer_arns])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a transit gateway peer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetTransitGatewayPeering&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:peering_id` (`t:string`) The ID of the peering request.
+
+  ## Optional parameters:
   """
-  @spec get_transit_gateway_peering(map(), String.t(), list()) ::
+  @spec get_transit_gateway_peering(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_transit_gateway_peering_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_transit_gateway_peering_errors()}
   def get_transit_gateway_peering(%Client{} = client, peering_id, options \\ []) do
     url_path = "/transit-gateway-peerings/#{AWS.Util.encode_uri(peering_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets information about the transit gateway registrations in a specified
-  global network.
+  Gets information about the transit gateway registrations in a specified global
+  network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetTransitGatewayRegistrations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:transit_gateway_arns`
+    (`t:list[com.amazonaws.networkmanager#TransitGatewayArn]`) The Amazon
+    Resource Names (ARNs) of one or more transit gateways. The maximum is 10.
   """
-  @spec get_transit_gateway_registrations(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_transit_gateway_registrations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_transit_gateway_registrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_transit_gateway_registrations_errors()}
-  def get_transit_gateway_registrations(
-        %Client{} = client,
-        global_network_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        transit_gateway_arns \\ nil,
-        options \\ []
-      ) do
+  def get_transit_gateway_registrations(%Client{} = client, global_network_id, options \\ []) do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/transit-gateway-registrations"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, transit_gateway_arns: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(transit_gateway_arns) do
-        [{"transitGatewayArns", transit_gateway_arns} | query_params]
+      if opt_val = Keyword.get(options, :transit_gateway_arns) do
+        [{"transitGatewayArns", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :transit_gateway_arns])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a transit gateway route table attachment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetTransitGatewayRouteTableAttachment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:attachment_id` (`t:string`) The ID of the transit gateway route table
+    attachment.
+
+  ## Optional parameters:
   """
-  @spec get_transit_gateway_route_table_attachment(map(), String.t(), list()) ::
+  @spec get_transit_gateway_route_table_attachment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_transit_gateway_route_table_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_transit_gateway_route_table_attachment_errors()}
   def get_transit_gateway_route_table_attachment(%Client{} = client, attachment_id, options \\ []) do
     url_path = "/transit-gateway-route-table-attachments/#{AWS.Util.encode_uri(attachment_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a VPC attachment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetVpcAttachment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:attachment_id` (`t:string`) The ID of the attachment.
+
+  ## Optional parameters:
   """
-  @spec get_vpc_attachment(map(), String.t(), list()) ::
+  @spec get_vpc_attachment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_vpc_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_vpc_attachment_errors()}
   def get_vpc_attachment(%Client{} = client, attachment_id, options \\ []) do
     url_path = "/vpc-attachments/#{AWS.Util.encode_uri(attachment_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of core network attachments.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListAttachments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:attachment_type`
+    (`t:enum["CONNECT|SITE_TO_SITE_VPN|TRANSIT_GATEWAY_ROUTE_TABLE|VPC"]`) The
+    type of attachment.
+  * `:core_network_id` (`t:string`) The ID of a core network.
+  * `:edge_location` (`t:string`) The Region where the edge is located.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:state`
+    (`t:enum["AVAILABLE|CREATING|DELETING|FAILED|PENDING_ATTACHMENT_ACCEPTANCE|PENDING_NETWORK_UPDATE|PENDING_TAG_ACCEPTANCE|REJECTED|UPDATING"]`)
+    The state of the attachment.
   """
-  @spec list_attachments(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_attachments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_attachments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attachments_errors()}
-  def list_attachments(
-        %Client{} = client,
-        attachment_type \\ nil,
-        core_network_id \\ nil,
-        edge_location \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        state \\ nil,
-        options \\ []
-      ) do
+  def list_attachments(%Client{} = client, options \\ []) do
     url_path = "/attachments"
+
+    # Validate optional parameters
+    optional_params = [
+      attachment_type: nil,
+      core_network_id: nil,
+      edge_location: nil,
+      max_results: nil,
+      next_token: nil,
+      state: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(state) do
-        [{"state", state} | query_params]
+      if opt_val = Keyword.get(options, :state) do
+        [{"state", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(edge_location) do
-        [{"edgeLocation", edge_location} | query_params]
+      if opt_val = Keyword.get(options, :edge_location) do
+        [{"edgeLocation", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(core_network_id) do
-        [{"coreNetworkId", core_network_id} | query_params]
+      if opt_val = Keyword.get(options, :core_network_id) do
+        [{"coreNetworkId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(attachment_type) do
-        [{"attachmentType", attachment_type} | query_params]
+      if opt_val = Keyword.get(options, :attachment_type) do
+        [{"attachmentType", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :attachment_type,
+        :core_network_id,
+        :edge_location,
+        :max_results,
+        :next_token,
+        :state
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of core network Connect peers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListConnectPeers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:connect_attachment_id` (`t:string`) The ID of the attachment.
+  * `:core_network_id` (`t:string`) The ID of a core network.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
-  @spec list_connect_peers(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_connect_peers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connect_peers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_connect_peers_errors()}
-  def list_connect_peers(
-        %Client{} = client,
-        connect_attachment_id \\ nil,
-        core_network_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_connect_peers(%Client{} = client, options \\ []) do
     url_path = "/connect-peers"
+
+    # Validate optional parameters
+    optional_params = [
+      connect_attachment_id: nil,
+      core_network_id: nil,
+      max_results: nil,
+      next_token: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(core_network_id) do
-        [{"coreNetworkId", core_network_id} | query_params]
+      if opt_val = Keyword.get(options, :core_network_id) do
+        [{"coreNetworkId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(connect_attachment_id) do
-        [{"connectAttachmentId", connect_attachment_id} | query_params]
+      if opt_val = Keyword.get(options, :connect_attachment_id) do
+        [{"connectAttachmentId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:connect_attachment_id, :core_network_id, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of core network policy versions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListCoreNetworkPolicyVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_network_id` (`t:string`) The ID of a core network.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
-  @spec list_core_network_policy_versions(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_core_network_policy_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_core_network_policy_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_core_network_policy_versions_errors()}
-  def list_core_network_policy_versions(
-        %Client{} = client,
-        core_network_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_core_network_policy_versions(%Client{} = client, core_network_id, options \\ []) do
     url_path =
       "/core-networks/#{AWS.Util.encode_uri(core_network_id)}/core-network-policy-versions"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of owned and shared core networks.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListCoreNetworks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
-  @spec list_core_networks(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_core_networks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_core_networks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_core_networks_errors()}
-  def list_core_networks(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_core_networks(%Client{} = client, options \\ []) do
     url_path = "/core-networks"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -6447,140 +7422,233 @@ defmodule AWS.NetworkManager do
   @doc """
   Gets the status of the Service Linked Role (SLR) deployment for the accounts in
   a given Amazon Web Services Organization.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListOrganizationServiceAccessStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
-  @spec list_organization_service_access_status(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_organization_service_access_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_organization_service_access_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_organization_service_access_status(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_organization_service_access_status(%Client{} = client, options \\ []) do
     url_path = "/organizations/service-access"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the peerings for a core network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListPeerings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:core_network_id` (`t:string`) The ID of a core network.
+  * `:edge_location` (`t:string`) Returns a list edge locations for the
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:peering_type` (`t:enum["TRANSIT_GATEWAY"]`) Returns a list of a peering
+    requests.
+  * `:state` (`t:enum["AVAILABLE|CREATING|DELETING|FAILED"]`) Returns a list of
+    the peering request states.
   """
-  @spec list_peerings(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_peerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_peerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_peerings_errors()}
-  def list_peerings(
-        %Client{} = client,
-        core_network_id \\ nil,
-        edge_location \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        peering_type \\ nil,
-        state \\ nil,
-        options \\ []
-      ) do
+  def list_peerings(%Client{} = client, options \\ []) do
     url_path = "/peerings"
+
+    # Validate optional parameters
+    optional_params = [
+      core_network_id: nil,
+      edge_location: nil,
+      max_results: nil,
+      next_token: nil,
+      peering_type: nil,
+      state: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(state) do
-        [{"state", state} | query_params]
+      if opt_val = Keyword.get(options, :state) do
+        [{"state", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(peering_type) do
-        [{"peeringType", peering_type} | query_params]
+      if opt_val = Keyword.get(options, :peering_type) do
+        [{"peeringType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(edge_location) do
-        [{"edgeLocation", edge_location} | query_params]
+      if opt_val = Keyword.get(options, :edge_location) do
+        [{"edgeLocation", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(core_network_id) do
-        [{"coreNetworkId", core_network_id} | query_params]
+      if opt_val = Keyword.get(options, :core_network_id) do
+        [{"coreNetworkId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :core_network_id,
+        :edge_location,
+        :max_results,
+        :next_token,
+        :peering_type,
+        :state
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the tags for a specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Creates a new, immutable version of a core network policy.
+  Creates a new, immutable version of a core network policy. A subsequent change
+  set is created showing the differences between the LIVE policy and the
+  submitted policy.
 
-  A subsequent change set is created showing the differences between the LIVE
-  policy and the submitted policy.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20PutCoreNetworkPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_network_id` (`t:string`) The ID of a core network.
+
+  ## Optional parameters:
   """
-  @spec put_core_network_policy(map(), String.t(), put_core_network_policy_request(), list()) ::
+  @spec put_core_network_policy(
+          AWS.Client.t(),
+          String.t(),
+          put_core_network_policy_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_core_network_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_core_network_policy_errors()}
@@ -6589,7 +7657,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6606,8 +7675,20 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Creates or updates a resource policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20PutResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource policy.
+
+  ## Optional parameters:
   """
-  @spec put_resource_policy(map(), String.t(), put_resource_policy_request(), list()) ::
+  @spec put_resource_policy(
+          AWS.Client.t(),
+          String.t(),
+          put_resource_policy_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
@@ -6616,7 +7697,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6632,17 +7714,29 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Registers a transit gateway in your global network.
+  Registers a transit gateway in your global network. Not all Regions support
+  transit gateways for global networks. For a list of the supported Regions, see
+  [Region
+  Availability](https://docs.aws.amazon.com/network-manager/latest/tgwnm/what-are-global-networks.html#nm-available-regions)
+  in the *Amazon Web Services Transit Gateways for Global Networks User Guide*.
+  The transit gateway can be in any of the supported Amazon Web Services
+  Regions, but it must be owned by the same Amazon Web Services account that
+  owns the global network. You cannot register a transit gateway in more than
+  one global network.
 
-  Not all Regions support transit
-  gateways for global networks. For a list of the supported Regions, see [Region Availability](https://docs.aws.amazon.com/network-manager/latest/tgwnm/what-are-global-networks.html#nm-available-regions)
-  in the *Amazon Web Services Transit Gateways for Global
-  Networks User Guide*. The transit gateway can be in any of the supported
-  Amazon Web Services Regions, but it must be owned by the same Amazon Web
-  Services account that owns the global
-  network. You cannot register a transit gateway in more than one global network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20RegisterTransitGateway&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
   """
-  @spec register_transit_gateway(map(), String.t(), register_transit_gateway_request(), list()) ::
+  @spec register_transit_gateway(
+          AWS.Client.t(),
+          String.t(),
+          register_transit_gateway_request(),
+          Keyword.t()
+        ) ::
           {:ok, register_transit_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_transit_gateway_errors()}
@@ -6653,7 +7747,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6670,8 +7765,15 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Rejects a core network attachment request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20RejectAttachment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:attachment_id` (`t:string`) The ID of the attachment.
+
+  ## Optional parameters:
   """
-  @spec reject_attachment(map(), String.t(), reject_attachment_request(), list()) ::
+  @spec reject_attachment(AWS.Client.t(), String.t(), reject_attachment_request(), Keyword.t()) ::
           {:ok, reject_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_attachment_errors()}
@@ -6680,7 +7782,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6697,17 +7800,23 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Restores a previous policy version as a new, immutable version of a core network
-  policy.
+  policy. A subsequent change set is created showing the differences between the
+  LIVE policy and restored policy.
 
-  A subsequent change set is created showing the differences between the LIVE
-  policy and restored policy.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20RestoreCoreNetworkPolicyVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_network_id` (`t:string`) The ID of a core network.
+  * `:policy_version_id` (`t:integer`) The ID of the policy version to restore.
+
+  ## Optional parameters:
   """
   @spec restore_core_network_policy_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           restore_core_network_policy_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, restore_core_network_policy_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6725,7 +7834,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6742,13 +7852,18 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Enables the Network Manager service for an Amazon Web Services Organization.
-
   This can only be called by a management account within the organization.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20StartOrganizationServiceAccessUpdate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec start_organization_service_access_update(
-          map(),
+          AWS.Client.t(),
           start_organization_service_access_update_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_organization_service_access_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6758,7 +7873,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6775,11 +7891,22 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Starts analyzing the routing path between the specified source and destination.
+  For more information, see [Route
+  Analyzer](https://docs.aws.amazon.com/vpc/latest/tgw/route-analyzer.html).
 
-  For more information,
-  see [Route Analyzer](https://docs.aws.amazon.com/vpc/latest/tgw/route-analyzer.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20StartRouteAnalysis&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
   """
-  @spec start_route_analysis(map(), String.t(), start_route_analysis_request(), list()) ::
+  @spec start_route_analysis(
+          AWS.Client.t(),
+          String.t(),
+          start_route_analysis_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_route_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_route_analysis_errors()}
@@ -6788,7 +7915,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6805,8 +7933,15 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Tags a specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -6815,7 +7950,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6832,8 +7968,17 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Removes tags from a specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.networkmanager#TagKey]`) The tag keys to
+    remove from the specified resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -6847,7 +7992,8 @@ defmodule AWS.NetworkManager do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6863,12 +8009,24 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Updates the information for an existing connection.
+  Updates the information for an existing connection. To remove information for
+  any of the parameters, specify an empty string.
 
-  To remove information for any of the parameters,
-  specify an empty string.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connection_id` (`t:string`) The ID of the connection.
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
   """
-  @spec update_connection(map(), String.t(), String.t(), update_connection_request(), list()) ::
+  @spec update_connection(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_connection_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connection_errors()}
@@ -6885,7 +8043,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6902,8 +8061,20 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Updates the description of a core network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateCoreNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_network_id` (`t:string`) The ID of a core network.
+
+  ## Optional parameters:
   """
-  @spec update_core_network(map(), String.t(), update_core_network_request(), list()) ::
+  @spec update_core_network(
+          AWS.Client.t(),
+          String.t(),
+          update_core_network_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_core_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_core_network_errors()}
@@ -6912,7 +8083,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6928,12 +8100,24 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Updates the details for an existing device.
-
-  To remove information for any of the
+  Updates the details for an existing device. To remove information for any of the
   parameters, specify an empty string.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_id` (`t:string`) The ID of the device.
+  * `:global_network_id` (`t:string`) The ID of the global network.
+
+  ## Optional parameters:
   """
-  @spec update_device(map(), String.t(), String.t(), update_device_request(), list()) ::
+  @spec update_device(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_device_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_device_errors()}
@@ -6944,7 +8128,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6960,12 +8145,22 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Updates an existing global network.
+  Updates an existing global network. To remove information for any of the
+  parameters, specify an empty string.
 
-  To remove information for any of the parameters,
-  specify an empty string.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateGlobalNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of your global network.
+
+  ## Optional parameters:
   """
-  @spec update_global_network(map(), String.t(), update_global_network_request(), list()) ::
+  @spec update_global_network(
+          AWS.Client.t(),
+          String.t(),
+          update_global_network_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_global_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_global_network_errors()}
@@ -6974,7 +8169,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6990,12 +8186,18 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Updates the details for an existing link.
-
-  To remove information for any of the
+  Updates the details for an existing link. To remove information for any of the
   parameters, specify an empty string.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateLink&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+  * `:link_id` (`t:string`) The ID of the link.
+
+  ## Optional parameters:
   """
-  @spec update_link(map(), String.t(), String.t(), update_link_request(), list()) ::
+  @spec update_link(AWS.Client.t(), String.t(), String.t(), update_link_request(), Keyword.t()) ::
           {:ok, update_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_link_errors()}
@@ -7006,7 +8208,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7023,13 +8226,21 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Updates the resource metadata for the specified global network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateNetworkResourceMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+
+  ## Optional parameters:
   """
   @spec update_network_resource_metadata(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_network_resource_metadata_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_network_resource_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7047,7 +8258,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7063,12 +8275,18 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Updates the information for an existing site.
+  Updates the information for an existing site. To remove information for any of
+  the parameters, specify an empty string.
 
-  To remove information for any of the
-  parameters, specify an empty string.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateSite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:global_network_id` (`t:string`) The ID of the global network.
+  * `:site_id` (`t:string`) The ID of your site.
+
+  ## Optional parameters:
   """
-  @spec update_site(map(), String.t(), String.t(), update_site_request(), list()) ::
+  @spec update_site(AWS.Client.t(), String.t(), String.t(), update_site_request(), Keyword.t()) ::
           {:ok, update_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_site_errors()}
@@ -7079,7 +8297,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7096,8 +8315,20 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Updates a VPC attachment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateVpcAttachment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:attachment_id` (`t:string`) The ID of the attachment.
+
+  ## Optional parameters:
   """
-  @spec update_vpc_attachment(map(), String.t(), update_vpc_attachment_request(), list()) ::
+  @spec update_vpc_attachment(
+          AWS.Client.t(),
+          String.t(),
+          update_vpc_attachment_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_vpc_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_vpc_attachment_errors()}
@@ -7106,7 +8337,8 @@ defmodule AWS.NetworkManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

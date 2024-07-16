@@ -3,22 +3,13 @@
 
 defmodule AWS.DatabaseMigration do
   @moduledoc """
-  Database Migration Service
-
-  Database Migration Service (DMS) can migrate your data to and from the most
-  widely used commercial and open-source databases such as Oracle, PostgreSQL,
-  Microsoft SQL
-  Server, Amazon Redshift, MariaDB, Amazon Aurora, MySQL, and SAP Adaptive Server
-  Enterprise
-  (ASE).
-
-  The service supports homogeneous migrations such as Oracle to Oracle, as well as
-  heterogeneous migrations between different database platforms, such as Oracle to
-  MySQL or
-  SQL Server to PostgreSQL.
-
-  For more information about DMS, see [What Is Database Migration Service?](https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html)
-  in the *Database Migration Service User Guide.*
+  Database Migration Service Database Migration Service (DMS) can migrate your
+  data to and from the most widely used commercial and open-source databases
+  such as Oracle, PostgreSQL, Microsoft SQL Server, Amazon Redshift, MariaDB,
+  Amazon Aurora, MySQL, and SAP Adaptive Server Enterprise (ASE). The service
+  supports homogeneous migrations such as Oracle to Oracle, as well as
+  heterogeneous migrations between different database platforms, such as Oracle
+  to MySQL or SQL Server to PostgreSQL.
   """
 
   alias AWS.Client
@@ -5141,22 +5132,19 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   Adds metadata tags to an DMS resource, including replication instance, endpoint,
-  subnet group, and migration task.
-
-  These tags can also be used with cost allocation
-  reporting to track cost associated with DMS resources, or used in a Condition
-  statement in
-  an IAM policy for DMS. For more information, see [
-  `Tag`
-  ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html) data type
-  description.
+  subnet group, and migration task. These tags can also be used with cost
+  allocation reporting to track cost associated with DMS resources, or used in a
+  Condition statement in an IAM policy for DMS. For more information, see [
+  `Tag` ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html) data
+  type description.
   """
-  @spec add_tags_to_resource(map(), add_tags_to_resource_message(), list()) ::
+  @spec add_tags_to_resource(AWS.Client.t(), add_tags_to_resource_message(), Keyword.t()) ::
           {:ok, add_tags_to_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
@@ -5166,135 +5154,112 @@ defmodule AWS.DatabaseMigration do
   replication instance).
   """
   @spec apply_pending_maintenance_action(
-          map(),
+          AWS.Client.t(),
           apply_pending_maintenance_action_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, apply_pending_maintenance_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, apply_pending_maintenance_action_errors()}
   def apply_pending_maintenance_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ApplyPendingMaintenanceAction", input, options)
   end
 
   @doc """
   Starts the analysis of up to 20 source databases to recommend target engines for
-  each
-  source database.
-
-  This is a batch version of
+  each source database. This is a batch version of
   [StartRecommendations](https://docs.aws.amazon.com/dms/latest/APIReference/API_StartRecommendations.html).
-
-  The result of analysis of each source database is reported individually in the
-  response. Because the batch request can result in a combination of successful
-  and
-  unsuccessful actions, you should check for batch errors even when the call
-  returns an
-  HTTP status code of `200`.
   """
-  @spec batch_start_recommendations(map(), batch_start_recommendations_request(), list()) ::
+  @spec batch_start_recommendations(
+          AWS.Client.t(),
+          batch_start_recommendations_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_start_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_start_recommendations_errors()}
   def batch_start_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchStartRecommendations", input, options)
   end
 
   @doc """
   Cancels a single premigration assessment run.
-
-  This operation prevents any individual assessments from running if they haven't
-  started
-  running. It also attempts to cancel any individual assessments that are
-  currently
-  running.
   """
   @spec cancel_replication_task_assessment_run(
-          map(),
+          AWS.Client.t(),
           cancel_replication_task_assessment_run_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, cancel_replication_task_assessment_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_replication_task_assessment_run_errors()}
   def cancel_replication_task_assessment_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelReplicationTaskAssessmentRun", input, options)
   end
 
   @doc """
-  Creates a data provider using the provided settings.
-
-  A data provider stores
-  a data store type and location information about your database.
+  Creates a data provider using the provided settings. A data provider stores a
+  data store type and location information about your database.
   """
-  @spec create_data_provider(map(), create_data_provider_message(), list()) ::
+  @spec create_data_provider(AWS.Client.t(), create_data_provider_message(), Keyword.t()) ::
           {:ok, create_data_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_provider_errors()}
   def create_data_provider(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataProvider", input, options)
   end
 
   @doc """
   Creates an endpoint using the provided settings.
-
-  For a MySQL source or target endpoint, don't explicitly specify the database
-  using
-  the `DatabaseName` request parameter on the `CreateEndpoint` API call.
-  Specifying `DatabaseName` when you create a MySQL endpoint replicates all the
-  task tables to this single database. For MySQL endpoints, you specify the
-  database only when
-  you specify the schema in the table-mapping rules of the DMS task.
   """
-  @spec create_endpoint(map(), create_endpoint_message(), list()) ::
+  @spec create_endpoint(AWS.Client.t(), create_endpoint_message(), Keyword.t()) ::
           {:ok, create_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_endpoint_errors()}
   def create_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEndpoint", input, options)
   end
 
   @doc """
-  Creates an DMS event notification subscription.
-
-  You can specify the type of source (`SourceType`) you want to be notified of,
-  provide a list of DMS source IDs (`SourceIds`) that triggers the events, and
-  provide a list of event categories (`EventCategories`) for events you want to be
-  notified of. If you specify both the `SourceType` and `SourceIds`,
-  such as `SourceType = replication-instance` and
-
-  ```
-  SourceIdentifier =
-  my-replinstance
-  ```
-
-  , you will be notified of all the replication instance events for
-  the specified source. If you specify a `SourceType` but don't specify a
-  `SourceIdentifier`, you receive notice of the events for that source type for
-  all your DMS sources. If you don't specify either `SourceType` nor
-  `SourceIdentifier`, you will be notified of events generated from all DMS
-  sources belonging to your customer account.
-
-  For more information about DMS events, see [Working with Events and Notifications](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html)
-  in the *Database Migration Service User
-  Guide.*
+  Creates an DMS event notification subscription. You can specify the type of
+  source (`SourceType`) you want to be notified of, provide a list of DMS source
+  IDs (`SourceIds`) that triggers the events, and provide a list of event
+  categories (`EventCategories`) for events you want to be notified of. If you
+  specify both the `SourceType` and `SourceIds`, such as `SourceType =
+  replication-instance` and ``` SourceIdentifier = my-replinstance ``` , you
+  will be notified of all the replication instance events for the specified
+  source. If you specify a `SourceType` but don't specify a `SourceIdentifier`,
+  you receive notice of the events for that source type for all your DMS
+  sources. If you don't specify either `SourceType` nor `SourceIdentifier`, you
+  will be notified of events generated from all DMS sources belonging to your
+  customer account.
   """
-  @spec create_event_subscription(map(), create_event_subscription_message(), list()) ::
+  @spec create_event_subscription(
+          AWS.Client.t(),
+          create_event_subscription_message(),
+          Keyword.t()
+        ) ::
           {:ok, create_event_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_event_subscription_errors()}
   def create_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEventSubscription", input, options)
   end
@@ -5302,12 +5267,17 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Creates a Fleet Advisor collector using the specified parameters.
   """
-  @spec create_fleet_advisor_collector(map(), create_fleet_advisor_collector_request(), list()) ::
+  @spec create_fleet_advisor_collector(
+          AWS.Client.t(),
+          create_fleet_advisor_collector_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_fleet_advisor_collector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_fleet_advisor_collector_errors()}
   def create_fleet_advisor_collector(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFleetAdvisorCollector", input, options)
   end
@@ -5315,102 +5285,86 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Creates the instance profile using the specified parameters.
   """
-  @spec create_instance_profile(map(), create_instance_profile_message(), list()) ::
+  @spec create_instance_profile(AWS.Client.t(), create_instance_profile_message(), Keyword.t()) ::
           {:ok, create_instance_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_instance_profile_errors()}
   def create_instance_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInstanceProfile", input, options)
   end
 
   @doc """
   Creates the migration project using the specified parameters.
-
-  You can run this action only after you create an instance profile and data
-  providers
-  using
-  [CreateInstanceProfile](https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateInstanceProfile.html) and
-  [CreateDataProvider](https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateDataProvider.html).
   """
-  @spec create_migration_project(map(), create_migration_project_message(), list()) ::
+  @spec create_migration_project(AWS.Client.t(), create_migration_project_message(), Keyword.t()) ::
           {:ok, create_migration_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_migration_project_errors()}
   def create_migration_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMigrationProject", input, options)
   end
 
   @doc """
   Creates a configuration that you can later provide to configure and start an DMS
-  Serverless
-  replication.
-
-  You can also provide options to validate the configuration inputs before you
-  start the
-  replication.
+  Serverless replication. You can also provide options to validate the
+  configuration inputs before you start the replication.
   """
-  @spec create_replication_config(map(), create_replication_config_message(), list()) ::
+  @spec create_replication_config(
+          AWS.Client.t(),
+          create_replication_config_message(),
+          Keyword.t()
+        ) ::
           {:ok, create_replication_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_replication_config_errors()}
   def create_replication_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReplicationConfig", input, options)
   end
 
   @doc """
   Creates the replication instance using the specified parameters.
-
-  DMS requires that your account have certain roles with appropriate permissions
-  before you can create a replication instance. For information on the required
-  roles, see
-  [Creating the IAM Roles to Use With the CLI and DMS API](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole).
-  For
-  information on the required permissions, see
-  [IAM Permissions Needed to Use DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions).
-
-  If you don't specify a version when creating a replication instance, DMS will
-  create the instance using the
-  default engine version. For information about the default engine version, see
-  [Release Notes](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReleaseNotes.html).
   """
-  @spec create_replication_instance(map(), create_replication_instance_message(), list()) ::
+  @spec create_replication_instance(
+          AWS.Client.t(),
+          create_replication_instance_message(),
+          Keyword.t()
+        ) ::
           {:ok, create_replication_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_replication_instance_errors()}
   def create_replication_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReplicationInstance", input, options)
   end
 
   @doc """
-  Creates a replication subnet group given a list of the subnet IDs in a VPC.
-
-  The VPC needs to have at least one subnet in at least two availability zones in
-  the Amazon Web Services Region, otherwise the
-  service will throw a `ReplicationSubnetGroupDoesNotCoverEnoughAZs` exception.
-
-  If a replication subnet group exists in your Amazon Web Services account, the
-  CreateReplicationSubnetGroup action
-  returns the following error message: The Replication Subnet Group already
-  exists. In this case, delete
-  the existing replication subnet group. To do so, use the
-  [DeleteReplicationSubnetGroup](https://docs.aws.amazon.com/en_us/dms/latest/APIReference/API_DeleteReplicationSubnetGroup.html)
-  action. Optionally, choose Subnet groups in the DMS console,
-  then choose your subnet group. Next, choose Delete from Actions.
+  Creates a replication subnet group given a list of the subnet IDs in a VPC. The
+  VPC needs to have at least one subnet in at least two availability zones in
+  the Amazon Web Services Region, otherwise the service will throw a
+  `ReplicationSubnetGroupDoesNotCoverEnoughAZs` exception.
   """
-  @spec create_replication_subnet_group(map(), create_replication_subnet_group_message(), list()) ::
+  @spec create_replication_subnet_group(
+          AWS.Client.t(),
+          create_replication_subnet_group_message(),
+          Keyword.t()
+        ) ::
           {:ok, create_replication_subnet_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_replication_subnet_group_errors()}
   def create_replication_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReplicationSubnetGroup", input, options)
   end
@@ -5418,12 +5372,13 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Creates a replication task using the specified parameters.
   """
-  @spec create_replication_task(map(), create_replication_task_message(), list()) ::
+  @spec create_replication_task(AWS.Client.t(), create_replication_task_message(), Keyword.t()) ::
           {:ok, create_replication_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_replication_task_errors()}
   def create_replication_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReplicationTask", input, options)
   end
@@ -5431,12 +5386,13 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Deletes the specified certificate.
   """
-  @spec delete_certificate(map(), delete_certificate_message(), list()) ::
+  @spec delete_certificate(AWS.Client.t(), delete_certificate_message(), Keyword.t()) ::
           {:ok, delete_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_certificate_errors()}
   def delete_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCertificate", input, options)
   end
@@ -5444,45 +5400,41 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Deletes the connection between a replication instance and an endpoint.
   """
-  @spec delete_connection(map(), delete_connection_message(), list()) ::
+  @spec delete_connection(AWS.Client.t(), delete_connection_message(), Keyword.t()) ::
           {:ok, delete_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connection_errors()}
   def delete_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConnection", input, options)
   end
 
   @doc """
   Deletes the specified data provider.
-
-  All migration projects associated with the data provider must be deleted or
-  modified
-  before you can delete the data provider.
   """
-  @spec delete_data_provider(map(), delete_data_provider_message(), list()) ::
+  @spec delete_data_provider(AWS.Client.t(), delete_data_provider_message(), Keyword.t()) ::
           {:ok, delete_data_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_provider_errors()}
   def delete_data_provider(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDataProvider", input, options)
   end
 
   @doc """
   Deletes the specified endpoint.
-
-  All tasks associated with the endpoint must be deleted before you can delete the
-  endpoint.
   """
-  @spec delete_endpoint(map(), delete_endpoint_message(), list()) ::
+  @spec delete_endpoint(AWS.Client.t(), delete_endpoint_message(), Keyword.t()) ::
           {:ok, delete_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_endpoint_errors()}
   def delete_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEndpoint", input, options)
   end
@@ -5490,12 +5442,17 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Deletes an DMS event subscription.
   """
-  @spec delete_event_subscription(map(), delete_event_subscription_message(), list()) ::
+  @spec delete_event_subscription(
+          AWS.Client.t(),
+          delete_event_subscription_message(),
+          Keyword.t()
+        ) ::
           {:ok, delete_event_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_subscription_errors()}
   def delete_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEventSubscription", input, options)
   end
@@ -5503,12 +5460,13 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Deletes the specified Fleet Advisor collector.
   """
-  @spec delete_fleet_advisor_collector(map(), delete_collector_request(), list()) ::
+  @spec delete_fleet_advisor_collector(AWS.Client.t(), delete_collector_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fleet_advisor_collector_errors()}
   def delete_fleet_advisor_collector(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFleetAdvisorCollector", input, options)
   end
@@ -5516,80 +5474,85 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Deletes the specified Fleet Advisor collector databases.
   """
-  @spec delete_fleet_advisor_databases(map(), delete_fleet_advisor_databases_request(), list()) ::
+  @spec delete_fleet_advisor_databases(
+          AWS.Client.t(),
+          delete_fleet_advisor_databases_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_fleet_advisor_databases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fleet_advisor_databases_errors()}
   def delete_fleet_advisor_databases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFleetAdvisorDatabases", input, options)
   end
 
   @doc """
   Deletes the specified instance profile.
-
-  All migration projects associated with the instance profile must be deleted or
-  modified
-  before you can delete the instance profile.
   """
-  @spec delete_instance_profile(map(), delete_instance_profile_message(), list()) ::
+  @spec delete_instance_profile(AWS.Client.t(), delete_instance_profile_message(), Keyword.t()) ::
           {:ok, delete_instance_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_instance_profile_errors()}
   def delete_instance_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInstanceProfile", input, options)
   end
 
   @doc """
   Deletes the specified migration project.
-
-  The migration project must be closed before you can delete it.
   """
-  @spec delete_migration_project(map(), delete_migration_project_message(), list()) ::
+  @spec delete_migration_project(AWS.Client.t(), delete_migration_project_message(), Keyword.t()) ::
           {:ok, delete_migration_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_migration_project_errors()}
   def delete_migration_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMigrationProject", input, options)
   end
 
   @doc """
-  Deletes an DMS Serverless replication configuration.
-
-  This effectively deprovisions any and all
-  replications that use this configuration. You can't delete the configuration for
-  an DMS Serverless replication
-  that is ongoing. You can delete the configuration when the replication is in a
-  non-RUNNING and non-STARTING state.
+  Deletes an DMS Serverless replication configuration. This effectively
+  deprovisions any and all replications that use this configuration. You can't
+  delete the configuration for an DMS Serverless replication that is ongoing.
+  You can delete the configuration when the replication is in a non-RUNNING and
+  non-STARTING state.
   """
-  @spec delete_replication_config(map(), delete_replication_config_message(), list()) ::
+  @spec delete_replication_config(
+          AWS.Client.t(),
+          delete_replication_config_message(),
+          Keyword.t()
+        ) ::
           {:ok, delete_replication_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replication_config_errors()}
   def delete_replication_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReplicationConfig", input, options)
   end
 
   @doc """
   Deletes the specified replication instance.
-
-  You must delete any migration tasks that are associated with the replication
-  instance
-  before you can delete it.
   """
-  @spec delete_replication_instance(map(), delete_replication_instance_message(), list()) ::
+  @spec delete_replication_instance(
+          AWS.Client.t(),
+          delete_replication_instance_message(),
+          Keyword.t()
+        ) ::
           {:ok, delete_replication_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replication_instance_errors()}
   def delete_replication_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReplicationInstance", input, options)
   end
@@ -5597,12 +5560,17 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Deletes a subnet group.
   """
-  @spec delete_replication_subnet_group(map(), delete_replication_subnet_group_message(), list()) ::
+  @spec delete_replication_subnet_group(
+          AWS.Client.t(),
+          delete_replication_subnet_group_message(),
+          Keyword.t()
+        ) ::
           {:ok, delete_replication_subnet_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replication_subnet_group_errors()}
   def delete_replication_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReplicationSubnetGroup", input, options)
   end
@@ -5610,105 +5578,77 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Deletes the specified replication task.
   """
-  @spec delete_replication_task(map(), delete_replication_task_message(), list()) ::
+  @spec delete_replication_task(AWS.Client.t(), delete_replication_task_message(), Keyword.t()) ::
           {:ok, delete_replication_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replication_task_errors()}
   def delete_replication_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReplicationTask", input, options)
   end
 
   @doc """
   Deletes the record of a single premigration assessment run.
-
-  This operation removes all metadata that DMS maintains about this assessment
-  run.
-  However, the operation leaves untouched all information about this assessment
-  run that is
-  stored in your Amazon S3 bucket.
   """
   @spec delete_replication_task_assessment_run(
-          map(),
+          AWS.Client.t(),
           delete_replication_task_assessment_run_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_replication_task_assessment_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replication_task_assessment_run_errors()}
   def delete_replication_task_assessment_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReplicationTaskAssessmentRun", input, options)
   end
 
   @doc """
-  Lists all of the DMS attributes for a customer account.
-
-  These attributes include DMS
-  quotas for the account and a unique account identifier in a particular DMS
-  region. DMS
-  quotas include a list of resource quotas supported by the account, such as the
-  number of
-  replication instances allowed. The description for each resource quota, includes
-  the quota
-  name, current usage toward that quota, and the quota's maximum value. DMS uses
-  the unique
-  account identifier to name each artifact used by DMS in the given region.
-
-  This command does not take any parameters.
+  Lists all of the DMS attributes for a customer account. These attributes include
+  DMS quotas for the account and a unique account identifier in a particular DMS
+  region. DMS quotas include a list of resource quotas supported by the account,
+  such as the number of replication instances allowed. The description for each
+  resource quota, includes the quota name, current usage toward that quota, and
+  the quota's maximum value. DMS uses the unique account identifier to name each
+  artifact used by DMS in the given region.
   """
-  @spec describe_account_attributes(map(), describe_account_attributes_message(), list()) ::
+  @spec describe_account_attributes(
+          AWS.Client.t(),
+          describe_account_attributes_message(),
+          Keyword.t()
+        ) ::
           {:ok, describe_account_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccountAttributes", input, options)
   end
 
   @doc """
   Provides a list of individual assessments that you can specify for a new
-  premigration
-  assessment run, given one or more parameters.
-
-  If you specify an existing migration task, this operation provides the default
-  individual
+  premigration assessment run, given one or more parameters. If you specify an
+  existing migration task, this operation provides the default individual
   assessments you can specify for that task. Otherwise, the specified parameters
-  model elements
-  of a possible migration task on which to base a premigration assessment run.
-
-  To use these migration task modeling parameters, you must specify an existing
-  replication instance,
-  a source database engine, a target database engine, and a migration type. This
-  combination of
-  parameters potentially limits the default individual assessments available for
-  an assessment run
-  created for a corresponding migration task.
-
-  If you specify no parameters, this operation provides a list of all possible
-  individual assessments
-  that you can specify for an assessment run. If you specify any one of the task
-  modeling parameters, you must
-  specify all of them or the operation cannot provide a list of individual
-  assessments.
-  The only parameter that you can specify alone is for an existing migration task.
-  The specified task
-  definition then determines the default list of individual assessments that you
-  can specify in an
-  assessment run for the task.
+  model elements of a possible migration task on which to base a premigration
+  assessment run.
   """
   @spec describe_applicable_individual_assessments(
-          map(),
+          AWS.Client.t(),
           describe_applicable_individual_assessments_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_applicable_individual_assessments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_applicable_individual_assessments_errors()}
   def describe_applicable_individual_assessments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplicableIndividualAssessments", input, options)
   end
@@ -5716,29 +5656,29 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Provides a description of the certificate.
   """
-  @spec describe_certificates(map(), describe_certificates_message(), list()) ::
+  @spec describe_certificates(AWS.Client.t(), describe_certificates_message(), Keyword.t()) ::
           {:ok, describe_certificates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_certificates_errors()}
   def describe_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCertificates", input, options)
   end
 
   @doc """
   Describes the status of the connections that have been made between the
-  replication
-  instance and an endpoint.
-
-  Connections are created when you test an endpoint.
+  replication instance and an endpoint. Connections are created when you test an
+  endpoint.
   """
-  @spec describe_connections(map(), describe_connections_message(), list()) ::
+  @spec describe_connections(AWS.Client.t(), describe_connections_message(), Keyword.t()) ::
           {:ok, describe_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connections_errors()}
   def describe_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConnections", input, options)
   end
@@ -5747,15 +5687,16 @@ defmodule AWS.DatabaseMigration do
   Returns configuration parameters for a schema conversion project.
   """
   @spec describe_conversion_configuration(
-          map(),
+          AWS.Client.t(),
           describe_conversion_configuration_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_conversion_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_conversion_configuration_errors()}
   def describe_conversion_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConversionConfiguration", input, options)
   end
@@ -5764,25 +5705,31 @@ defmodule AWS.DatabaseMigration do
   Returns a paginated list of data providers for your account in the current
   region.
   """
-  @spec describe_data_providers(map(), describe_data_providers_message(), list()) ::
+  @spec describe_data_providers(AWS.Client.t(), describe_data_providers_message(), Keyword.t()) ::
           {:ok, describe_data_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_providers_errors()}
   def describe_data_providers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataProviders", input, options)
   end
 
   @doc """
-  Returns information about the possible endpoint settings available
-  when you create an endpoint for a specific database engine.
+  Returns information about the possible endpoint settings available when you
+  create an endpoint for a specific database engine.
   """
-  @spec describe_endpoint_settings(map(), describe_endpoint_settings_message(), list()) ::
+  @spec describe_endpoint_settings(
+          AWS.Client.t(),
+          describe_endpoint_settings_message(),
+          Keyword.t()
+        ) ::
           {:ok, describe_endpoint_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_endpoint_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEndpointSettings", input, options)
   end
@@ -5790,11 +5737,12 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Returns information about the type of endpoints available.
   """
-  @spec describe_endpoint_types(map(), describe_endpoint_types_message(), list()) ::
+  @spec describe_endpoint_types(AWS.Client.t(), describe_endpoint_types_message(), Keyword.t()) ::
           {:ok, describe_endpoint_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_endpoint_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEndpointTypes", input, options)
   end
@@ -5802,12 +5750,13 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Returns information about the endpoints for your account in the current region.
   """
-  @spec describe_endpoints(map(), describe_endpoints_message(), list()) ::
+  @spec describe_endpoints(AWS.Client.t(), describe_endpoints_message(), Keyword.t()) ::
           {:ok, describe_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_endpoints_errors()}
   def describe_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEndpoints", input, options)
   end
@@ -5815,92 +5764,90 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Returns information about the replication instance versions used in the project.
   """
-  @spec describe_engine_versions(map(), describe_engine_versions_message(), list()) ::
+  @spec describe_engine_versions(AWS.Client.t(), describe_engine_versions_message(), Keyword.t()) ::
           {:ok, describe_engine_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_engine_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEngineVersions", input, options)
   end
 
   @doc """
   Lists categories for all event source types, or, if specified, for a specified
-  source
-  type.
-
-  You can see a list of the event categories and source types in [Working with Events
-  and
+  source type. You can see a list of the event categories and source types in
+  [Working with Events and
   Notifications](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html)
-  in the *Database Migration Service User
-  Guide.*
+  in the *Database Migration Service User Guide.*
   """
-  @spec describe_event_categories(map(), describe_event_categories_message(), list()) ::
+  @spec describe_event_categories(
+          AWS.Client.t(),
+          describe_event_categories_message(),
+          Keyword.t()
+        ) ::
           {:ok, describe_event_categories_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_event_categories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventCategories", input, options)
   end
 
   @doc """
-  Lists all the event subscriptions for a customer account.
-
-  The description of a
-  subscription includes `SubscriptionName`, `SNSTopicARN`,
-  `CustomerID`, `SourceType`, `SourceID`,
-  `CreationTime`, and `Status`.
-
-  If you specify `SubscriptionName`, this action lists the description for that
-  subscription.
+  Lists all the event subscriptions for a customer account. The description of a
+  subscription includes `SubscriptionName`, `SNSTopicARN`, `CustomerID`,
+  `SourceType`, `SourceID`, `CreationTime`, and `Status`.
   """
-  @spec describe_event_subscriptions(map(), describe_event_subscriptions_message(), list()) ::
+  @spec describe_event_subscriptions(
+          AWS.Client.t(),
+          describe_event_subscriptions_message(),
+          Keyword.t()
+        ) ::
           {:ok, describe_event_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_subscriptions_errors()}
   def describe_event_subscriptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventSubscriptions", input, options)
   end
 
   @doc """
-  Lists events for a given source identifier and source type.
-
-  You can also specify a
-  start and end time. For more information on DMS events, see [Working with Events and
+  Lists events for a given source identifier and source type. You can also specify
+  a start and end time. For more information on DMS events, see [Working with
+  Events and
   Notifications](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html)
-  in the *Database Migration Service User
-  Guide.*
+  in the *Database Migration Service User Guide.*
   """
-  @spec describe_events(map(), describe_events_message(), list()) ::
+  @spec describe_events(AWS.Client.t(), describe_events_message(), Keyword.t()) ::
           {:ok, describe_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
 
   @doc """
   Returns a paginated list of extension pack associations for the specified
-  migration project.
-
-  An extension pack is an add-on module
-  that emulates functions present in a source database that are required when
-  converting objects
-  to the target database.
+  migration project. An extension pack is an add-on module that emulates
+  functions present in a source database that are required when converting
+  objects to the target database.
   """
   @spec describe_extension_pack_associations(
-          map(),
+          AWS.Client.t(),
           describe_extension_pack_associations_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_extension_pack_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_extension_pack_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExtensionPackAssociations", input, options)
   end
@@ -5909,15 +5856,16 @@ defmodule AWS.DatabaseMigration do
   Returns a list of the Fleet Advisor collectors in your account.
   """
   @spec describe_fleet_advisor_collectors(
-          map(),
+          AWS.Client.t(),
           describe_fleet_advisor_collectors_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_fleet_advisor_collectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleet_advisor_collectors_errors()}
   def describe_fleet_advisor_collectors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetAdvisorCollectors", input, options)
   end
@@ -5926,34 +5874,35 @@ defmodule AWS.DatabaseMigration do
   Returns a list of Fleet Advisor databases in your account.
   """
   @spec describe_fleet_advisor_databases(
-          map(),
+          AWS.Client.t(),
           describe_fleet_advisor_databases_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_fleet_advisor_databases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleet_advisor_databases_errors()}
   def describe_fleet_advisor_databases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetAdvisorDatabases", input, options)
   end
 
   @doc """
   Provides descriptions of large-scale assessment (LSA) analyses produced by your
-  Fleet
-  Advisor collectors.
+  Fleet Advisor collectors.
   """
   @spec describe_fleet_advisor_lsa_analysis(
-          map(),
+          AWS.Client.t(),
           describe_fleet_advisor_lsa_analysis_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_fleet_advisor_lsa_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleet_advisor_lsa_analysis_errors()}
   def describe_fleet_advisor_lsa_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetAdvisorLsaAnalysis", input, options)
   end
@@ -5963,15 +5912,16 @@ defmodule AWS.DatabaseMigration do
   collectors.
   """
   @spec describe_fleet_advisor_schema_object_summary(
-          map(),
+          AWS.Client.t(),
           describe_fleet_advisor_schema_object_summary_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_fleet_advisor_schema_object_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleet_advisor_schema_object_summary_errors()}
   def describe_fleet_advisor_schema_object_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetAdvisorSchemaObjectSummary", input, options)
   end
@@ -5979,12 +5929,17 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Returns a list of schemas detected by Fleet Advisor Collectors in your account.
   """
-  @spec describe_fleet_advisor_schemas(map(), describe_fleet_advisor_schemas_request(), list()) ::
+  @spec describe_fleet_advisor_schemas(
+          AWS.Client.t(),
+          describe_fleet_advisor_schemas_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_fleet_advisor_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleet_advisor_schemas_errors()}
   def describe_fleet_advisor_schemas(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetAdvisorSchemas", input, options)
   end
@@ -5993,12 +5948,17 @@ defmodule AWS.DatabaseMigration do
   Returns a paginated list of instance profiles for your account in the current
   region.
   """
-  @spec describe_instance_profiles(map(), describe_instance_profiles_message(), list()) ::
+  @spec describe_instance_profiles(
+          AWS.Client.t(),
+          describe_instance_profiles_message(),
+          Keyword.t()
+        ) ::
           {:ok, describe_instance_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instance_profiles_errors()}
   def describe_instance_profiles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstanceProfiles", input, options)
   end
@@ -6008,15 +5968,16 @@ defmodule AWS.DatabaseMigration do
   current region.
   """
   @spec describe_metadata_model_assessments(
-          map(),
+          AWS.Client.t(),
           describe_metadata_model_assessments_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_metadata_model_assessments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_metadata_model_assessments_errors()}
   def describe_metadata_model_assessments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMetadataModelAssessments", input, options)
   end
@@ -6025,15 +5986,16 @@ defmodule AWS.DatabaseMigration do
   Returns a paginated list of metadata model conversions for a migration project.
   """
   @spec describe_metadata_model_conversions(
-          map(),
+          AWS.Client.t(),
           describe_metadata_model_conversions_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_metadata_model_conversions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_metadata_model_conversions_errors()}
   def describe_metadata_model_conversions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMetadataModelConversions", input, options)
   end
@@ -6042,15 +6004,16 @@ defmodule AWS.DatabaseMigration do
   Returns a paginated list of metadata model exports.
   """
   @spec describe_metadata_model_exports_as_script(
-          map(),
+          AWS.Client.t(),
           describe_metadata_model_exports_as_script_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_metadata_model_exports_as_script_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_metadata_model_exports_as_script_errors()}
   def describe_metadata_model_exports_as_script(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMetadataModelExportsAsScript", input, options)
   end
@@ -6059,15 +6022,16 @@ defmodule AWS.DatabaseMigration do
   Returns a paginated list of metadata model exports.
   """
   @spec describe_metadata_model_exports_to_target(
-          map(),
+          AWS.Client.t(),
           describe_metadata_model_exports_to_target_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_metadata_model_exports_to_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_metadata_model_exports_to_target_errors()}
   def describe_metadata_model_exports_to_target(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMetadataModelExportsToTarget", input, options)
   end
@@ -6075,12 +6039,17 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Returns a paginated list of metadata model imports.
   """
-  @spec describe_metadata_model_imports(map(), describe_metadata_model_imports_message(), list()) ::
+  @spec describe_metadata_model_imports(
+          AWS.Client.t(),
+          describe_metadata_model_imports_message(),
+          Keyword.t()
+        ) ::
           {:ok, describe_metadata_model_imports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_metadata_model_imports_errors()}
   def describe_metadata_model_imports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMetadataModelImports", input, options)
   end
@@ -6089,30 +6058,35 @@ defmodule AWS.DatabaseMigration do
   Returns a paginated list of migration projects for your account in the current
   region.
   """
-  @spec describe_migration_projects(map(), describe_migration_projects_message(), list()) ::
+  @spec describe_migration_projects(
+          AWS.Client.t(),
+          describe_migration_projects_message(),
+          Keyword.t()
+        ) ::
           {:ok, describe_migration_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_migration_projects_errors()}
   def describe_migration_projects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMigrationProjects", input, options)
   end
 
   @doc """
   Returns information about the replication instance types that can be created in
-  the
-  specified region.
+  the specified region.
   """
   @spec describe_orderable_replication_instances(
-          map(),
+          AWS.Client.t(),
           describe_orderable_replication_instances_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_orderable_replication_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_orderable_replication_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOrderableReplicationInstances", input, options)
   end
@@ -6121,34 +6095,35 @@ defmodule AWS.DatabaseMigration do
   For internal use only
   """
   @spec describe_pending_maintenance_actions(
-          map(),
+          AWS.Client.t(),
           describe_pending_maintenance_actions_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_pending_maintenance_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_pending_maintenance_actions_errors()}
   def describe_pending_maintenance_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePendingMaintenanceActions", input, options)
   end
 
   @doc """
   Returns a paginated list of limitations for recommendations of target Amazon Web
-  Services
-  engines.
+  Services engines.
   """
   @spec describe_recommendation_limitations(
-          map(),
+          AWS.Client.t(),
           describe_recommendation_limitations_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_recommendation_limitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_recommendation_limitations_errors()}
   def describe_recommendation_limitations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRecommendationLimitations", input, options)
   end
@@ -6157,12 +6132,13 @@ defmodule AWS.DatabaseMigration do
   Returns a paginated list of target engine recommendations for your source
   databases.
   """
-  @spec describe_recommendations(map(), describe_recommendations_request(), list()) ::
+  @spec describe_recommendations(AWS.Client.t(), describe_recommendations_request(), Keyword.t()) ::
           {:ok, describe_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_recommendations_errors()}
   def describe_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRecommendations", input, options)
   end
@@ -6170,12 +6146,17 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Returns the status of the RefreshSchemas operation.
   """
-  @spec describe_refresh_schemas_status(map(), describe_refresh_schemas_status_message(), list()) ::
+  @spec describe_refresh_schemas_status(
+          AWS.Client.t(),
+          describe_refresh_schemas_status_message(),
+          Keyword.t()
+        ) ::
           {:ok, describe_refresh_schemas_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_refresh_schemas_status_errors()}
   def describe_refresh_schemas_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRefreshSchemasStatus", input, options)
   end
@@ -6184,12 +6165,17 @@ defmodule AWS.DatabaseMigration do
   Returns one or more existing DMS Serverless replication configurations as a list
   of structures.
   """
-  @spec describe_replication_configs(map(), describe_replication_configs_message(), list()) ::
+  @spec describe_replication_configs(
+          AWS.Client.t(),
+          describe_replication_configs_message(),
+          Keyword.t()
+        ) ::
           {:ok, describe_replication_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_configs_errors()}
   def describe_replication_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReplicationConfigs", input, options)
   end
@@ -6198,15 +6184,16 @@ defmodule AWS.DatabaseMigration do
   Returns information about the task logs for the specified task.
   """
   @spec describe_replication_instance_task_logs(
-          map(),
+          AWS.Client.t(),
           describe_replication_instance_task_logs_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_replication_instance_task_logs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_instance_task_logs_errors()}
   def describe_replication_instance_task_logs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReplicationInstanceTaskLogs", input, options)
   end
@@ -6215,12 +6202,17 @@ defmodule AWS.DatabaseMigration do
   Returns information about replication instances for your account in the current
   region.
   """
-  @spec describe_replication_instances(map(), describe_replication_instances_message(), list()) ::
+  @spec describe_replication_instances(
+          AWS.Client.t(),
+          describe_replication_instances_message(),
+          Keyword.t()
+        ) ::
           {:ok, describe_replication_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_instances_errors()}
   def describe_replication_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReplicationInstances", input, options)
   end
@@ -6229,105 +6221,94 @@ defmodule AWS.DatabaseMigration do
   Returns information about the replication subnet groups.
   """
   @spec describe_replication_subnet_groups(
-          map(),
+          AWS.Client.t(),
           describe_replication_subnet_groups_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_replication_subnet_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_subnet_groups_errors()}
   def describe_replication_subnet_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReplicationSubnetGroups", input, options)
   end
 
   @doc """
   Returns table and schema statistics for one or more provisioned replications
-  that use a
-  given DMS Serverless replication configuration.
+  that use a given DMS Serverless replication configuration.
   """
   @spec describe_replication_table_statistics(
-          map(),
+          AWS.Client.t(),
           describe_replication_table_statistics_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_replication_table_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_table_statistics_errors()}
   def describe_replication_table_statistics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReplicationTableStatistics", input, options)
   end
 
   @doc """
   Returns the task assessment results from the Amazon S3 bucket that DMS creates
-  in your
-  Amazon Web Services account.
-
-  This action always returns the
-  latest results.
-
-  For more information about DMS task assessments, see
-  [Creating a task assessment report](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html)
-  in the *Database Migration Service User Guide*.
+  in your Amazon Web Services account. This action always returns the latest
+  results.
   """
   @spec describe_replication_task_assessment_results(
-          map(),
+          AWS.Client.t(),
           describe_replication_task_assessment_results_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_replication_task_assessment_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_task_assessment_results_errors()}
   def describe_replication_task_assessment_results(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReplicationTaskAssessmentResults", input, options)
   end
 
   @doc """
   Returns a paginated list of premigration assessment runs based on filter
-  settings.
-
-  These filter settings can specify a combination of premigration assessment runs,
-  migration tasks, replication instances, and assessment run status values.
-
-  This operation doesn't return information about individual assessments. For this
-  information, see the `DescribeReplicationTaskIndividualAssessments`
-  operation.
+  settings. These filter settings can specify a combination of premigration
+  assessment runs, migration tasks, replication instances, and assessment run
+  status values.
   """
   @spec describe_replication_task_assessment_runs(
-          map(),
+          AWS.Client.t(),
           describe_replication_task_assessment_runs_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_replication_task_assessment_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_task_assessment_runs_errors()}
   def describe_replication_task_assessment_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReplicationTaskAssessmentRuns", input, options)
   end
 
   @doc """
   Returns a paginated list of individual assessments based on filter settings.
-
-  These filter settings can specify a combination of premigration assessment runs,
-  migration tasks, and assessment status values.
   """
   @spec describe_replication_task_individual_assessments(
-          map(),
+          AWS.Client.t(),
           describe_replication_task_individual_assessments_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_replication_task_individual_assessments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_task_individual_assessments_errors()}
   def describe_replication_task_individual_assessments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -6342,27 +6323,32 @@ defmodule AWS.DatabaseMigration do
   Returns information about replication tasks for your account in the current
   region.
   """
-  @spec describe_replication_tasks(map(), describe_replication_tasks_message(), list()) ::
+  @spec describe_replication_tasks(
+          AWS.Client.t(),
+          describe_replication_tasks_message(),
+          Keyword.t()
+        ) ::
           {:ok, describe_replication_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_tasks_errors()}
   def describe_replication_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReplicationTasks", input, options)
   end
 
   @doc """
   Provides details on replication progress by returning status information for one
-  or more
-  provisioned DMS Serverless replications.
+  or more provisioned DMS Serverless replications.
   """
-  @spec describe_replications(map(), describe_replications_message(), list()) ::
+  @spec describe_replications(AWS.Client.t(), describe_replications_message(), Keyword.t()) ::
           {:ok, describe_replications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replications_errors()}
   def describe_replications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReplications", input, options)
   end
@@ -6370,53 +6356,52 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Returns information about the schema for the specified endpoint.
   """
-  @spec describe_schemas(map(), describe_schemas_message(), list()) ::
+  @spec describe_schemas(AWS.Client.t(), describe_schemas_message(), Keyword.t()) ::
           {:ok, describe_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_schemas_errors()}
   def describe_schemas(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSchemas", input, options)
   end
 
   @doc """
   Returns table statistics on the database migration task, including table name,
-  rows
-  inserted, rows updated, and rows deleted.
-
-  Note that the "last updated" column the DMS console only indicates the time that
-  DMS
-  last updated the table statistics record for a table. It does not indicate the
-  time of the
-  last update to the table.
+  rows inserted, rows updated, and rows deleted.
   """
-  @spec describe_table_statistics(map(), describe_table_statistics_message(), list()) ::
+  @spec describe_table_statistics(
+          AWS.Client.t(),
+          describe_table_statistics_message(),
+          Keyword.t()
+        ) ::
           {:ok, describe_table_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_table_statistics_errors()}
   def describe_table_statistics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTableStatistics", input, options)
   end
 
   @doc """
   Saves a copy of a database migration assessment report to your Amazon S3 bucket.
-
-  DMS can save
-  your assessment report as a comma-separated value (CSV) or a PDF file.
+  DMS can save your assessment report as a comma-separated value (CSV) or a PDF
+  file.
   """
   @spec export_metadata_model_assessment(
-          map(),
+          AWS.Client.t(),
           export_metadata_model_assessment_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, export_metadata_model_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_metadata_model_assessment_errors()}
   def export_metadata_model_assessment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExportMetadataModelAssessment", input, options)
   end
@@ -6424,31 +6409,31 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Uploads the specified certificate.
   """
-  @spec import_certificate(map(), import_certificate_message(), list()) ::
+  @spec import_certificate(AWS.Client.t(), import_certificate_message(), Keyword.t()) ::
           {:ok, import_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_certificate_errors()}
   def import_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportCertificate", input, options)
   end
 
   @doc """
-  Lists all metadata tags attached to an DMS resource, including
-  replication instance, endpoint, subnet group, and migration task.
-
-  For more information, see [
-  `Tag`
+  Lists all metadata tags attached to an DMS resource, including replication
+  instance, endpoint, subnet group, and migration task. For more information,
+  see [ `Tag`
   ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html) data type
   description.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_message(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_message(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -6457,49 +6442,45 @@ defmodule AWS.DatabaseMigration do
   Modifies the specified schema conversion configuration using the provided
   parameters.
   """
-  @spec modify_conversion_configuration(map(), modify_conversion_configuration_message(), list()) ::
+  @spec modify_conversion_configuration(
+          AWS.Client.t(),
+          modify_conversion_configuration_message(),
+          Keyword.t()
+        ) ::
           {:ok, modify_conversion_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_conversion_configuration_errors()}
   def modify_conversion_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyConversionConfiguration", input, options)
   end
 
   @doc """
   Modifies the specified data provider using the provided settings.
-
-  You must remove the data provider from all migration projects before you can
-  modify it.
   """
-  @spec modify_data_provider(map(), modify_data_provider_message(), list()) ::
+  @spec modify_data_provider(AWS.Client.t(), modify_data_provider_message(), Keyword.t()) ::
           {:ok, modify_data_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_data_provider_errors()}
   def modify_data_provider(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDataProvider", input, options)
   end
 
   @doc """
   Modifies the specified endpoint.
-
-  For a MySQL source or target endpoint, don't explicitly specify the database
-  using
-  the `DatabaseName` request parameter on the `ModifyEndpoint` API call.
-  Specifying `DatabaseName` when you modify a MySQL endpoint replicates all the
-  task tables to this single database. For MySQL endpoints, you specify the
-  database only when
-  you specify the schema in the table-mapping rules of the DMS task.
   """
-  @spec modify_endpoint(map(), modify_endpoint_message(), list()) ::
+  @spec modify_endpoint(AWS.Client.t(), modify_endpoint_message(), Keyword.t()) ::
           {:ok, modify_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_endpoint_errors()}
   def modify_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyEndpoint", input, options)
   end
@@ -6507,88 +6488,88 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Modifies an existing DMS event notification subscription.
   """
-  @spec modify_event_subscription(map(), modify_event_subscription_message(), list()) ::
+  @spec modify_event_subscription(
+          AWS.Client.t(),
+          modify_event_subscription_message(),
+          Keyword.t()
+        ) ::
           {:ok, modify_event_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_event_subscription_errors()}
   def modify_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyEventSubscription", input, options)
   end
 
   @doc """
   Modifies the specified instance profile using the provided parameters.
-
-  All migration projects associated with the instance profile must be deleted
-  or modified before you can modify the instance profile.
   """
-  @spec modify_instance_profile(map(), modify_instance_profile_message(), list()) ::
+  @spec modify_instance_profile(AWS.Client.t(), modify_instance_profile_message(), Keyword.t()) ::
           {:ok, modify_instance_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_instance_profile_errors()}
   def modify_instance_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyInstanceProfile", input, options)
   end
 
   @doc """
   Modifies the specified migration project using the provided parameters.
-
-  The migration project must be closed before you can modify it.
   """
-  @spec modify_migration_project(map(), modify_migration_project_message(), list()) ::
+  @spec modify_migration_project(AWS.Client.t(), modify_migration_project_message(), Keyword.t()) ::
           {:ok, modify_migration_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_migration_project_errors()}
   def modify_migration_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyMigrationProject", input, options)
   end
 
   @doc """
   Modifies an existing DMS Serverless replication configuration that you can use
-  to start a replication.
-
-  This command includes input validation and logic to check
-  the state of any replication that uses this configuration. You can only modify a
-  replication
-  configuration before any replication that uses it has started. As soon as you
-  have initially
-  started a replication with a given configuiration, you can't modify that
-  configuration,
-  even if you stop it.
-
-  Other run statuses that allow you to run this command include FAILED and
-  CREATED.
-  A provisioning state that allows you to run this command is FAILED_PROVISION.
+  to start a replication. This command includes input validation and logic to
+  check the state of any replication that uses this configuration. You can only
+  modify a replication configuration before any replication that uses it has
+  started. As soon as you have initially started a replication with a given
+  configuiration, you can't modify that configuration, even if you stop it.
   """
-  @spec modify_replication_config(map(), modify_replication_config_message(), list()) ::
+  @spec modify_replication_config(
+          AWS.Client.t(),
+          modify_replication_config_message(),
+          Keyword.t()
+        ) ::
           {:ok, modify_replication_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_replication_config_errors()}
   def modify_replication_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyReplicationConfig", input, options)
   end
 
   @doc """
-  Modifies the replication instance to apply new settings.
-
-  You can change one or more
-  parameters by specifying these parameters and the new values in the request.
-
-  Some settings are applied during the maintenance window.
+  Modifies the replication instance to apply new settings. You can change one or
+  more parameters by specifying these parameters and the new values in the
+  request.
   """
-  @spec modify_replication_instance(map(), modify_replication_instance_message(), list()) ::
+  @spec modify_replication_instance(
+          AWS.Client.t(),
+          modify_replication_instance_message(),
+          Keyword.t()
+        ) ::
           {:ok, modify_replication_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_replication_instance_errors()}
   def modify_replication_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyReplicationInstance", input, options)
   end
@@ -6596,140 +6577,138 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Modifies the settings for the specified replication subnet group.
   """
-  @spec modify_replication_subnet_group(map(), modify_replication_subnet_group_message(), list()) ::
+  @spec modify_replication_subnet_group(
+          AWS.Client.t(),
+          modify_replication_subnet_group_message(),
+          Keyword.t()
+        ) ::
           {:ok, modify_replication_subnet_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_replication_subnet_group_errors()}
   def modify_replication_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyReplicationSubnetGroup", input, options)
   end
 
   @doc """
-  Modifies the specified replication task.
-
-  You can't modify the task endpoints. The task must be stopped before you can
-  modify it.
-
-  For more information about DMS tasks, see [Working with Migration Tasks](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html) in the
-  *Database Migration Service User Guide*.
+  Modifies the specified replication task. You can't modify the task endpoints.
+  The task must be stopped before you can modify it.
   """
-  @spec modify_replication_task(map(), modify_replication_task_message(), list()) ::
+  @spec modify_replication_task(AWS.Client.t(), modify_replication_task_message(), Keyword.t()) ::
           {:ok, modify_replication_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_replication_task_errors()}
   def modify_replication_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyReplicationTask", input, options)
   end
 
   @doc """
   Moves a replication task from its current replication instance to a different
-  target
-  replication instance using the specified parameters.
-
-  The target replication instance must
-  be created with the same or later DMS version as the current replication
-  instance.
+  target replication instance using the specified parameters. The target
+  replication instance must be created with the same or later DMS version as the
+  current replication instance.
   """
-  @spec move_replication_task(map(), move_replication_task_message(), list()) ::
+  @spec move_replication_task(AWS.Client.t(), move_replication_task_message(), Keyword.t()) ::
           {:ok, move_replication_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, move_replication_task_errors()}
   def move_replication_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "MoveReplicationTask", input, options)
   end
 
   @doc """
-  Reboots a replication instance.
-
-  Rebooting results in a momentary outage, until the
-  replication instance becomes available again.
+  Reboots a replication instance. Rebooting results in a momentary outage, until
+  the replication instance becomes available again.
   """
-  @spec reboot_replication_instance(map(), reboot_replication_instance_message(), list()) ::
+  @spec reboot_replication_instance(
+          AWS.Client.t(),
+          reboot_replication_instance_message(),
+          Keyword.t()
+        ) ::
           {:ok, reboot_replication_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_replication_instance_errors()}
   def reboot_replication_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootReplicationInstance", input, options)
   end
 
   @doc """
-  Populates the schema for the specified endpoint.
-
-  This is an asynchronous operation and
-  can take several minutes. You can check the status of this operation by calling
-  the
-  DescribeRefreshSchemasStatus operation.
+  Populates the schema for the specified endpoint. This is an asynchronous
+  operation and can take several minutes. You can check the status of this
+  operation by calling the DescribeRefreshSchemasStatus operation.
   """
-  @spec refresh_schemas(map(), refresh_schemas_message(), list()) ::
+  @spec refresh_schemas(AWS.Client.t(), refresh_schemas_message(), Keyword.t()) ::
           {:ok, refresh_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, refresh_schemas_errors()}
   def refresh_schemas(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RefreshSchemas", input, options)
   end
 
   @doc """
   Reloads the target database table with the source data for a given DMS
-  Serverless
-  replication configuration.
-
-  You can only use this operation with a task in the RUNNING state, otherwise the
-  service
-  will throw an `InvalidResourceStateFault` exception.
+  Serverless replication configuration.
   """
-  @spec reload_replication_tables(map(), reload_replication_tables_message(), list()) ::
+  @spec reload_replication_tables(
+          AWS.Client.t(),
+          reload_replication_tables_message(),
+          Keyword.t()
+        ) ::
           {:ok, reload_replication_tables_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reload_replication_tables_errors()}
   def reload_replication_tables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReloadReplicationTables", input, options)
   end
 
   @doc """
   Reloads the target database table with the source data.
-
-  You can only use this operation with a task in the `RUNNING` state, otherwise
-  the service
-  will throw an `InvalidResourceStateFault` exception.
   """
-  @spec reload_tables(map(), reload_tables_message(), list()) ::
+  @spec reload_tables(AWS.Client.t(), reload_tables_message(), Keyword.t()) ::
           {:ok, reload_tables_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reload_tables_errors()}
   def reload_tables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReloadTables", input, options)
   end
 
   @doc """
   Removes metadata tags from an DMS resource, including replication instance,
-  endpoint, subnet group, and migration task.
-
-  For more information, see
-  [
-  `Tag`
-  ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html)
-  data type description.
+  endpoint, subnet group, and migration task. For more information, see [ `Tag`
+  ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html) data type
+  description.
   """
-  @spec remove_tags_from_resource(map(), remove_tags_from_resource_message(), list()) ::
+  @spec remove_tags_from_resource(
+          AWS.Client.t(),
+          remove_tags_from_resource_message(),
+          Keyword.t()
+        ) ::
           {:ok, remove_tags_from_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
@@ -6738,54 +6717,55 @@ defmodule AWS.DatabaseMigration do
   Runs large-scale assessment (LSA) analysis on every Fleet Advisor collector in
   your account.
   """
-  @spec run_fleet_advisor_lsa_analysis(map(), %{}, list()) ::
+  @spec run_fleet_advisor_lsa_analysis(AWS.Client.t(), %{}, Keyword.t()) ::
           {:ok, run_fleet_advisor_lsa_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, run_fleet_advisor_lsa_analysis_errors()}
   def run_fleet_advisor_lsa_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RunFleetAdvisorLsaAnalysis", input, options)
   end
 
   @doc """
-  Applies the extension pack to your target database.
-
-  An extension pack is an add-on
-  module that emulates functions present in a source database that are required
-  when
-  converting objects to the target database.
+  Applies the extension pack to your target database. An extension pack is an
+  add-on module that emulates functions present in a source database that are
+  required when converting objects to the target database.
   """
   @spec start_extension_pack_association(
-          map(),
+          AWS.Client.t(),
           start_extension_pack_association_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_extension_pack_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_extension_pack_association_errors()}
   def start_extension_pack_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartExtensionPackAssociation", input, options)
   end
 
   @doc """
   Creates a database migration assessment report by assessing the migration
-  complexity for
-  your source database.
-
-  A database migration assessment report summarizes all of the schema
-  conversion tasks. It also details the action items for database objects that
-  can't be converted
-  to the database engine of your target database instance.
+  complexity for your source database. A database migration assessment report
+  summarizes all of the schema conversion tasks. It also details the action
+  items for database objects that can't be converted to the database engine of
+  your target database instance.
   """
-  @spec start_metadata_model_assessment(map(), start_metadata_model_assessment_message(), list()) ::
+  @spec start_metadata_model_assessment(
+          AWS.Client.t(),
+          start_metadata_model_assessment_message(),
+          Keyword.t()
+        ) ::
           {:ok, start_metadata_model_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_metadata_model_assessment_errors()}
   def start_metadata_model_assessment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMetadataModelAssessment", input, options)
   end
@@ -6794,12 +6774,17 @@ defmodule AWS.DatabaseMigration do
   Converts your source database objects to a format compatible with the target
   database.
   """
-  @spec start_metadata_model_conversion(map(), start_metadata_model_conversion_message(), list()) ::
+  @spec start_metadata_model_conversion(
+          AWS.Client.t(),
+          start_metadata_model_conversion_message(),
+          Keyword.t()
+        ) ::
           {:ok, start_metadata_model_conversion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_metadata_model_conversion_errors()}
   def start_metadata_model_conversion(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMetadataModelConversion", input, options)
   end
@@ -6809,15 +6794,16 @@ defmodule AWS.DatabaseMigration do
   your Amazon S3 bucket.
   """
   @spec start_metadata_model_export_as_script(
-          map(),
+          AWS.Client.t(),
           start_metadata_model_export_as_script_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_metadata_model_export_as_script_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_metadata_model_export_as_script_errors()}
   def start_metadata_model_export_as_script(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMetadataModelExportAsScript", input, options)
   end
@@ -6826,31 +6812,34 @@ defmodule AWS.DatabaseMigration do
   Applies converted database objects to your target database.
   """
   @spec start_metadata_model_export_to_target(
-          map(),
+          AWS.Client.t(),
           start_metadata_model_export_to_target_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_metadata_model_export_to_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_metadata_model_export_to_target_errors()}
   def start_metadata_model_export_to_target(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMetadataModelExportToTarget", input, options)
   end
 
   @doc """
   Loads the metadata for all the dependent database objects of the parent object.
-
-  This operation uses your project's Amazon S3 bucket as a metadata cache to
-  improve performance.
   """
-  @spec start_metadata_model_import(map(), start_metadata_model_import_message(), list()) ::
+  @spec start_metadata_model_import(
+          AWS.Client.t(),
+          start_metadata_model_import_message(),
+          Keyword.t()
+        ) ::
           {:ok, start_metadata_model_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_metadata_model_import_errors()}
   def start_metadata_model_import(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMetadataModelImport", input, options)
   end
@@ -6858,87 +6847,66 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Starts the analysis of your source database to provide recommendations of target
   engines.
-
-  You can create recommendations for multiple source databases using
-  [BatchStartRecommendations](https://docs.aws.amazon.com/dms/latest/APIReference/API_BatchStartRecommendations.html).
   """
-  @spec start_recommendations(map(), start_recommendations_request(), list()) ::
+  @spec start_recommendations(AWS.Client.t(), start_recommendations_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_recommendations_errors()}
   def start_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartRecommendations", input, options)
   end
 
   @doc """
   For a given DMS Serverless replication configuration, DMS connects to the source
-  endpoint and
-  collects the metadata to analyze the replication workload.
-
-  Using this metadata, DMS then
-  computes and provisions the required capacity and starts replicating to the
-  target endpoint
-  using the server resources that DMS has provisioned for the DMS Serverless
-  replication.
+  endpoint and collects the metadata to analyze the replication workload. Using
+  this metadata, DMS then computes and provisions the required capacity and
+  starts replicating to the target endpoint using the server resources that DMS
+  has provisioned for the DMS Serverless replication.
   """
-  @spec start_replication(map(), start_replication_message(), list()) ::
+  @spec start_replication(AWS.Client.t(), start_replication_message(), Keyword.t()) ::
           {:ok, start_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_replication_errors()}
   def start_replication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartReplication", input, options)
   end
 
   @doc """
   Starts the replication task.
-
-  For more information about DMS tasks, see [Working with Migration Tasks
-  ](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html) in the
-  *Database Migration Service User Guide.*
   """
-  @spec start_replication_task(map(), start_replication_task_message(), list()) ::
+  @spec start_replication_task(AWS.Client.t(), start_replication_task_message(), Keyword.t()) ::
           {:ok, start_replication_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_replication_task_errors()}
   def start_replication_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartReplicationTask", input, options)
   end
 
   @doc """
   Starts the replication task assessment for unsupported data types in the source
-  database.
-
-  You can only use this operation for a task if the following conditions are true:
-
-    *
-  The task must be in the `stopped` state.
-
-    *
-  The task must have successful connections to the source and target.
-
-  If either of these conditions are not met, an `InvalidResourceStateFault` error
-  will result.
-
-  For information about DMS task assessments, see
-  [Creating a task assessment report](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html)
-  in the *Database Migration Service User Guide*.
+  database. You can only use this operation for a task if the following
+  conditions are true:
   """
   @spec start_replication_task_assessment(
-          map(),
+          AWS.Client.t(),
           start_replication_task_assessment_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_replication_task_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_replication_task_assessment_errors()}
   def start_replication_task_assessment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartReplicationTaskAssessment", input, options)
   end
@@ -6946,43 +6914,34 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Starts a new premigration assessment run for one or more individual assessments
   of a migration task.
-
-  The assessments that you can specify depend on the source and target database
-  engine and
-  the migration type defined for the given task. To run this operation, your
-  migration task
-  must already be created. After you run this operation, you can review the status
-  of each
-  individual assessment. You can also run the migration task manually after the
-  assessment
-  run and its individual assessments complete.
   """
   @spec start_replication_task_assessment_run(
-          map(),
+          AWS.Client.t(),
           start_replication_task_assessment_run_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_replication_task_assessment_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_replication_task_assessment_run_errors()}
   def start_replication_task_assessment_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartReplicationTaskAssessmentRun", input, options)
   end
 
   @doc """
   For a given DMS Serverless replication configuration, DMS stops any and all
-  ongoing DMS Serverless replications.
-
-  This command doesn't deprovision the stopped replications.
+  ongoing DMS Serverless replications. This command doesn't deprovision the
+  stopped replications.
   """
-  @spec stop_replication(map(), stop_replication_message(), list()) ::
+  @spec stop_replication(AWS.Client.t(), stop_replication_message(), Keyword.t()) ::
           {:ok, stop_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_replication_errors()}
   def stop_replication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopReplication", input, options)
   end
@@ -6990,12 +6949,13 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Stops the replication task.
   """
-  @spec stop_replication_task(map(), stop_replication_task_message(), list()) ::
+  @spec stop_replication_task(AWS.Client.t(), stop_replication_task_message(), Keyword.t()) ::
           {:ok, stop_replication_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_replication_task_errors()}
   def stop_replication_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopReplicationTask", input, options)
   end
@@ -7003,45 +6963,39 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Tests the connection between the replication instance and the endpoint.
   """
-  @spec test_connection(map(), test_connection_message(), list()) ::
+  @spec test_connection(AWS.Client.t(), test_connection_message(), Keyword.t()) ::
           {:ok, test_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_connection_errors()}
   def test_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TestConnection", input, options)
   end
 
   @doc """
   Migrates 10 active and enabled Amazon SNS subscriptions at a time and converts
-  them to corresponding Amazon EventBridge rules.
-
-  By default, this operation migrates subscriptions only when all your replication
-  instance versions are 3.4.5 or higher.
-  If any replication instances are from versions earlier than 3.4.5, the operation
-  raises an error and tells you
-  to upgrade these instances to version 3.4.5 or higher. To enable migration
-  regardless of version, set the `Force`
-  option to true. However, if you don't upgrade instances earlier than version
-  3.4.5, some types of events might not be
-  available when you use Amazon EventBridge.
-
-  To call this operation, make sure that you have certain permissions added to
-  your user account.
-  For more information, see [Migrating event subscriptions to Amazon EventBridge](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html#CHAP_Events-migrate-to-eventbridge)
-  in the *Amazon Web Services Database Migration Service User Guide*.
+  them to corresponding Amazon EventBridge rules. By default, this operation
+  migrates subscriptions only when all your replication instance versions are
+  3.4.5 or higher. If any replication instances are from versions earlier than
+  3.4.5, the operation raises an error and tells you to upgrade these instances
+  to version 3.4.5 or higher. To enable migration regardless of version, set the
+  `Force` option to true. However, if you don't upgrade instances earlier than
+  version 3.4.5, some types of events might not be available when you use Amazon
+  EventBridge.
   """
   @spec update_subscriptions_to_event_bridge(
-          map(),
+          AWS.Client.t(),
           update_subscriptions_to_event_bridge_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_subscriptions_to_event_bridge_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_subscriptions_to_event_bridge_errors()}
   def update_subscriptions_to_event_bridge(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSubscriptionsToEventBridge", input, options)
   end

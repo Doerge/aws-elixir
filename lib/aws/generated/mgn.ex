@@ -2870,8 +2870,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Archive application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ArchiveApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec archive_application(map(), archive_application_request(), list()) ::
+  @spec archive_application(AWS.Client.t(), archive_application_request(), Keyword.t()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, archive_application_errors()}
@@ -2880,7 +2886,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2897,8 +2904,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Archive wave.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ArchiveWave&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec archive_wave(map(), archive_wave_request(), list()) ::
+  @spec archive_wave(AWS.Client.t(), archive_wave_request(), Keyword.t()) ::
           {:ok, wave(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, archive_wave_errors()}
@@ -2907,7 +2920,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2924,8 +2938,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Associate applications to wave.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20AssociateApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec associate_applications(map(), associate_applications_request(), list()) ::
+  @spec associate_applications(AWS.Client.t(), associate_applications_request(), Keyword.t()) ::
           {:ok, associate_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_applications_errors()}
@@ -2934,7 +2954,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2951,8 +2972,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Associate source servers to application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20AssociateSourceServers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec associate_source_servers(map(), associate_source_servers_request(), list()) ::
+  @spec associate_source_servers(AWS.Client.t(), associate_source_servers_request(), Keyword.t()) ::
           {:ok, associate_source_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_source_servers_errors()}
@@ -2961,7 +2988,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2978,12 +3006,21 @@ defmodule AWS.Mgn do
 
   @doc """
   Allows the user to set the SourceServer.LifeCycle.state property for specific
-  Source Server IDs to one of the following: READY_FOR_TEST or READY_FOR_CUTOVER.
+  Source Server IDs to one of the following: READY_FOR_TEST or
+  READY_FOR_CUTOVER. This command only works if the Source Server is already
+  launchable (dataReplicationInfo.lagDuration is not null.)
 
-  This command only works if the Source Server is already launchable
-  (dataReplicationInfo.lagDuration is not null.)
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ChangeServerLifeCycleState&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec change_server_life_cycle_state(map(), change_server_life_cycle_state_request(), list()) ::
+  @spec change_server_life_cycle_state(
+          AWS.Client.t(),
+          change_server_life_cycle_state_request(),
+          Keyword.t()
+        ) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, change_server_life_cycle_state_errors()}
@@ -2992,7 +3029,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3009,8 +3047,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Create application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20CreateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_application(map(), create_application_request(), list()) ::
+  @spec create_application(AWS.Client.t(), create_application_request(), Keyword.t()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
@@ -3019,7 +3063,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3036,8 +3081,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Create Connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20CreateConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_connector(map(), create_connector_request(), list()) ::
+  @spec create_connector(AWS.Client.t(), create_connector_request(), Keyword.t()) ::
           {:ok, connector(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connector_errors()}
@@ -3046,7 +3097,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3063,11 +3115,17 @@ defmodule AWS.Mgn do
 
   @doc """
   Creates a new Launch Configuration Template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20CreateLaunchConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_launch_configuration_template(
-          map(),
+          AWS.Client.t(),
           create_launch_configuration_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, launch_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3077,7 +3135,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3094,11 +3153,17 @@ defmodule AWS.Mgn do
 
   @doc """
   Creates a new ReplicationConfigurationTemplate.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20CreateReplicationConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_replication_configuration_template(
-          map(),
+          AWS.Client.t(),
           create_replication_configuration_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, replication_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3108,7 +3173,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3125,8 +3191,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Create wave.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20CreateWave&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_wave(map(), create_wave_request(), list()) ::
+  @spec create_wave(AWS.Client.t(), create_wave_request(), Keyword.t()) ::
           {:ok, wave(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_wave_errors()}
@@ -3135,7 +3207,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3152,8 +3225,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Delete application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_application(map(), delete_application_request(), list()) ::
+  @spec delete_application(AWS.Client.t(), delete_application_request(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
@@ -3162,7 +3241,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3179,8 +3259,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Delete Connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_connector(map(), delete_connector_request(), list()) ::
+  @spec delete_connector(AWS.Client.t(), delete_connector_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connector_errors()}
@@ -3189,7 +3275,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3206,8 +3293,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Deletes a single Job by ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_job(map(), delete_job_request(), list()) ::
+  @spec delete_job(AWS.Client.t(), delete_job_request(), Keyword.t()) ::
           {:ok, delete_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_job_errors()}
@@ -3216,7 +3309,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3233,11 +3327,17 @@ defmodule AWS.Mgn do
 
   @doc """
   Deletes a single Launch Configuration Template by ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteLaunchConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec delete_launch_configuration_template(
-          map(),
+          AWS.Client.t(),
           delete_launch_configuration_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_launch_configuration_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3247,7 +3347,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3264,11 +3365,17 @@ defmodule AWS.Mgn do
 
   @doc """
   Deletes a single Replication Configuration Template by ID
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteReplicationConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec delete_replication_configuration_template(
-          map(),
+          AWS.Client.t(),
           delete_replication_configuration_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_replication_configuration_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3278,7 +3385,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3295,8 +3403,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Deletes a single source server by ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteSourceServer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_source_server(map(), delete_source_server_request(), list()) ::
+  @spec delete_source_server(AWS.Client.t(), delete_source_server_request(), Keyword.t()) ::
           {:ok, delete_source_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_source_server_errors()}
@@ -3305,7 +3419,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3322,8 +3437,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Deletes a given vCenter client by ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteVcenterClient&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_vcenter_client(map(), delete_vcenter_client_request(), list()) ::
+  @spec delete_vcenter_client(AWS.Client.t(), delete_vcenter_client_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vcenter_client_errors()}
@@ -3332,7 +3453,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3349,8 +3471,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Delete wave.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteWave&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_wave(map(), delete_wave_request(), list()) ::
+  @spec delete_wave(AWS.Client.t(), delete_wave_request(), Keyword.t()) ::
           {:ok, delete_wave_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_wave_errors()}
@@ -3359,7 +3487,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3376,8 +3505,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Retrieves detailed job log items with paging.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeJobLogItems&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_job_log_items(map(), describe_job_log_items_request(), list()) ::
+  @spec describe_job_log_items(AWS.Client.t(), describe_job_log_items_request(), Keyword.t()) ::
           {:ok, describe_job_log_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_log_items_errors()}
@@ -3386,7 +3521,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3402,16 +3538,20 @@ defmodule AWS.Mgn do
   end
 
   @doc """
-  Returns a list of Jobs.
-
-  Use the JobsID and fromDate and toData filters to limit which jobs are returned.
-  The response is sorted by creationDataTime - latest date first. Jobs are
-  normally created by the StartTest, StartCutover, and TerminateTargetInstances
-  APIs. Jobs are also created by DiagnosticLaunch and
+  Returns a list of Jobs. Use the JobsID and fromDate and toData filters to limit
+  which jobs are returned. The response is sorted by creationDataTime - latest
+  date first. Jobs are normally created by the StartTest, StartCutover, and
+  TerminateTargetInstances APIs. Jobs are also created by DiagnosticLaunch and
   TerminateDiagnosticInstances, which are APIs available only to *Support* and
   only used in response to relevant support tickets.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_jobs(map(), describe_jobs_request(), list()) ::
+  @spec describe_jobs(AWS.Client.t(), describe_jobs_request(), Keyword.t()) ::
           {:ok, describe_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_jobs_errors()}
@@ -3420,7 +3560,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3438,11 +3579,17 @@ defmodule AWS.Mgn do
   @doc """
   Lists all Launch Configuration Templates, filtered by Launch Configuration
   Template IDs
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeLaunchConfigurationTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec describe_launch_configuration_templates(
-          map(),
+          AWS.Client.t(),
           describe_launch_configuration_templates_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_launch_configuration_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3452,7 +3599,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3469,11 +3617,17 @@ defmodule AWS.Mgn do
 
   @doc """
   Lists all ReplicationConfigurationTemplates, filtered by Source Server IDs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeReplicationConfigurationTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec describe_replication_configuration_templates(
-          map(),
+          AWS.Client.t(),
           describe_replication_configuration_templates_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_replication_configuration_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3483,7 +3637,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3500,8 +3655,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Retrieves all SourceServers or multiple SourceServers by ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeSourceServers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_source_servers(map(), describe_source_servers_request(), list()) ::
+  @spec describe_source_servers(AWS.Client.t(), describe_source_servers_request(), Keyword.t()) ::
           {:ok, describe_source_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_source_servers_errors()}
@@ -3510,7 +3671,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3527,44 +3689,81 @@ defmodule AWS.Mgn do
 
   @doc """
   Returns a list of the installed vCenter clients.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeVcenterClients&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Maximum results to be returned in
+    DescribeVcenterClients.
+  * `:next_token` (`t:string`) Next pagination token to be provided for
+    DescribeVcenterClients.
   """
-  @spec describe_vcenter_clients(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec describe_vcenter_clients(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_vcenter_clients_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_vcenter_clients_errors()}
-  def describe_vcenter_clients(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def describe_vcenter_clients(%Client{} = client, options \\ []) do
     url_path = "/DescribeVcenterClients"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Disassociate applications from wave.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DisassociateApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec disassociate_applications(map(), disassociate_applications_request(), list()) ::
+  @spec disassociate_applications(
+          AWS.Client.t(),
+          disassociate_applications_request(),
+          Keyword.t()
+        ) ::
           {:ok, disassociate_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_applications_errors()}
@@ -3573,7 +3772,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3590,8 +3790,18 @@ defmodule AWS.Mgn do
 
   @doc """
   Disassociate source servers from application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DisassociateSourceServers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec disassociate_source_servers(map(), disassociate_source_servers_request(), list()) ::
+  @spec disassociate_source_servers(
+          AWS.Client.t(),
+          disassociate_source_servers_request(),
+          Keyword.t()
+        ) ::
           {:ok, disassociate_source_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_source_servers_errors()}
@@ -3600,7 +3810,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3616,12 +3827,11 @@ defmodule AWS.Mgn do
   end
 
   @doc """
-  Disconnects specific Source Servers from Application Migration Service.
-
-  Data replication is stopped immediately. All AWS resources created by
-  Application Migration Service for enabling the replication of these source
-  servers will be terminated / deleted within 90 minutes. Launched Test or Cutover
-  instances will NOT be terminated. If the agent on the source server has not been
+  Disconnects specific Source Servers from Application Migration Service. Data
+  replication is stopped immediately. All AWS resources created by Application
+  Migration Service for enabling the replication of these source servers will be
+  terminated / deleted within 90 minutes. Launched Test or Cutover instances
+  will NOT be terminated. If the agent on the source server has not been
   prevented from communicating with the Application Migration Service service,
   then it will receive a command to uninstall itself (within approximately 10
   minutes). The following properties of the SourceServer will be changed
@@ -3630,8 +3840,14 @@ defmodule AWS.Mgn do
   dataReplicationInfo.replicatedDisks will be set to zero;
   dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be
   nullified.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DisconnectFromService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec disconnect_from_service(map(), disconnect_from_service_request(), list()) ::
+  @spec disconnect_from_service(AWS.Client.t(), disconnect_from_service_request(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disconnect_from_service_errors()}
@@ -3640,7 +3856,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3656,20 +3873,25 @@ defmodule AWS.Mgn do
   end
 
   @doc """
-  Finalizes the cutover immediately for specific Source Servers.
+  Finalizes the cutover immediately for specific Source Servers. All AWS resources
+  created by Application Migration Service for enabling the replication of these
+  source servers will be terminated / deleted within 90 minutes. Launched Test
+  or Cutover instances will NOT be terminated. The AWS Replication Agent will
+  receive a command to uninstall itself (within 10 minutes). The following
+  properties of the SourceServer will be changed immediately:
+  dataReplicationInfo.dataReplicationState will be changed to DISCONNECTED; The
+  SourceServer.lifeCycle.state will be changed to CUTOVER; The totalStorageBytes
+  property fo each of dataReplicationInfo.replicatedDisks will be set to zero;
+  dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be
+  nullified.
 
-  All AWS resources created by Application Migration Service for enabling the
-  replication of these source servers will be terminated / deleted within 90
-  minutes. Launched Test or Cutover instances will NOT be terminated. The AWS
-  Replication Agent will receive a command to uninstall itself (within 10
-  minutes). The following properties of the SourceServer will be changed
-  immediately: dataReplicationInfo.dataReplicationState will be changed to
-  DISCONNECTED; The SourceServer.lifeCycle.state will be changed to CUTOVER; The
-  totalStorageBytes property fo each of dataReplicationInfo.replicatedDisks will
-  be set to zero; dataReplicationInfo.lagDuration and
-  dataReplicationInfo.lagDuration will be nullified.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20FinalizeCutover&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec finalize_cutover(map(), finalize_cutover_request(), list()) ::
+  @spec finalize_cutover(AWS.Client.t(), finalize_cutover_request(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, finalize_cutover_errors()}
@@ -3678,7 +3900,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3695,8 +3918,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Lists all LaunchConfigurations available, filtered by Source Server IDs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20GetLaunchConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_launch_configuration(map(), get_launch_configuration_request(), list()) ::
+  @spec get_launch_configuration(AWS.Client.t(), get_launch_configuration_request(), Keyword.t()) ::
           {:ok, launch_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_launch_configuration_errors()}
@@ -3705,7 +3934,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3722,8 +3952,18 @@ defmodule AWS.Mgn do
 
   @doc """
   Lists all ReplicationConfigurations, filtered by Source Server ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20GetReplicationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_replication_configuration(map(), get_replication_configuration_request(), list()) ::
+  @spec get_replication_configuration(
+          AWS.Client.t(),
+          get_replication_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, replication_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_replication_configuration_errors()}
@@ -3732,7 +3972,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3749,8 +3990,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Initialize Application Migration Service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20InitializeService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec initialize_service(map(), initialize_service_request(), list()) ::
+  @spec initialize_service(AWS.Client.t(), initialize_service_request(), Keyword.t()) ::
           {:ok, initialize_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, initialize_service_errors()}
@@ -3759,7 +4006,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3776,8 +4024,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Retrieves all applications or multiple applications by ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_applications(map(), list_applications_request(), list()) ::
+  @spec list_applications(AWS.Client.t(), list_applications_request(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
@@ -3786,7 +4040,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3803,8 +4058,14 @@ defmodule AWS.Mgn do
 
   @doc """
   List Connectors.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListConnectors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_connectors(map(), list_connectors_request(), list()) ::
+  @spec list_connectors(AWS.Client.t(), list_connectors_request(), Keyword.t()) ::
           {:ok, list_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_connectors_errors()}
@@ -3813,7 +4074,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3830,8 +4092,14 @@ defmodule AWS.Mgn do
 
   @doc """
   List export errors.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListExportErrors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_export_errors(map(), list_export_errors_request(), list()) ::
+  @spec list_export_errors(AWS.Client.t(), list_export_errors_request(), Keyword.t()) ::
           {:ok, list_export_errors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_export_errors_errors()}
@@ -3840,7 +4108,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3857,8 +4126,14 @@ defmodule AWS.Mgn do
 
   @doc """
   List exports.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListExports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_exports(map(), list_exports_request(), list()) ::
+  @spec list_exports(AWS.Client.t(), list_exports_request(), Keyword.t()) ::
           {:ok, list_exports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_exports_errors()}
@@ -3867,7 +4142,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3884,8 +4160,14 @@ defmodule AWS.Mgn do
 
   @doc """
   List import errors.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListImportErrors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_import_errors(map(), list_import_errors_request(), list()) ::
+  @spec list_import_errors(AWS.Client.t(), list_import_errors_request(), Keyword.t()) ::
           {:ok, list_import_errors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_import_errors_errors()}
@@ -3894,7 +4176,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3911,8 +4194,14 @@ defmodule AWS.Mgn do
 
   @doc """
   List imports.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListImports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_imports(map(), list_imports_request(), list()) ::
+  @spec list_imports(AWS.Client.t(), list_imports_request(), Keyword.t()) ::
           {:ok, list_imports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_imports_errors()}
@@ -3921,7 +4210,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3938,8 +4228,14 @@ defmodule AWS.Mgn do
 
   @doc """
   List Managed Accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListManagedAccounts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_managed_accounts(map(), list_managed_accounts_request(), list()) ::
+  @spec list_managed_accounts(AWS.Client.t(), list_managed_accounts_request(), Keyword.t()) ::
           {:ok, list_managed_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_managed_accounts_errors()}
@@ -3948,7 +4244,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3965,8 +4262,18 @@ defmodule AWS.Mgn do
 
   @doc """
   List source server post migration custom actions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListSourceServerActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_source_server_actions(map(), list_source_server_actions_request(), list()) ::
+  @spec list_source_server_actions(
+          AWS.Client.t(),
+          list_source_server_actions_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_source_server_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_source_server_actions_errors()}
@@ -3975,7 +4282,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3992,25 +4300,56 @@ defmodule AWS.Mgn do
 
   @doc """
   List all tags for your Application Migration Service resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) List tags for resource request by ARN.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List template post migration custom actions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListTemplateActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_template_actions(map(), list_template_actions_request(), list()) ::
+  @spec list_template_actions(AWS.Client.t(), list_template_actions_request(), Keyword.t()) ::
           {:ok, list_template_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_template_actions_errors()}
@@ -4019,7 +4358,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4036,8 +4376,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Retrieves all waves or multiple waves by ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListWaves&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_waves(map(), list_waves_request(), list()) ::
+  @spec list_waves(AWS.Client.t(), list_waves_request(), Keyword.t()) ::
           {:ok, list_waves_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_waves_errors()}
@@ -4046,7 +4392,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4063,12 +4410,16 @@ defmodule AWS.Mgn do
 
   @doc """
   Archives specific Source Servers by setting the SourceServer.isArchived property
-  to true for specified SourceServers by ID.
+  to true for specified SourceServers by ID. This command only works for
+  SourceServers with a lifecycle. state which equals DISCONNECTED or CUTOVER.
 
-  This command only works for SourceServers with a lifecycle. state which equals
-  DISCONNECTED or CUTOVER.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20MarkAsArchived&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec mark_as_archived(map(), mark_as_archived_request(), list()) ::
+  @spec mark_as_archived(AWS.Client.t(), mark_as_archived_request(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, mark_as_archived_errors()}
@@ -4077,7 +4428,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4094,8 +4446,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Pause Replication.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20PauseReplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec pause_replication(map(), pause_replication_request(), list()) ::
+  @spec pause_replication(AWS.Client.t(), pause_replication_request(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, pause_replication_errors()}
@@ -4104,7 +4462,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4121,8 +4480,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Put source server post migration custom action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20PutSourceServerAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_source_server_action(map(), put_source_server_action_request(), list()) ::
+  @spec put_source_server_action(AWS.Client.t(), put_source_server_action_request(), Keyword.t()) ::
           {:ok, source_server_action_document(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_source_server_action_errors()}
@@ -4131,7 +4496,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4148,8 +4514,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Put template post migration custom action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20PutTemplateAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_template_action(map(), put_template_action_request(), list()) ::
+  @spec put_template_action(AWS.Client.t(), put_template_action_request(), Keyword.t()) ::
           {:ok, template_action_document(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_template_action_errors()}
@@ -4158,7 +4530,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4175,8 +4548,18 @@ defmodule AWS.Mgn do
 
   @doc """
   Remove source server post migration custom action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20RemoveSourceServerAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec remove_source_server_action(map(), remove_source_server_action_request(), list()) ::
+  @spec remove_source_server_action(
+          AWS.Client.t(),
+          remove_source_server_action_request(),
+          Keyword.t()
+        ) ::
           {:ok, remove_source_server_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_source_server_action_errors()}
@@ -4185,7 +4568,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4202,8 +4586,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Remove template post migration custom action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20RemoveTemplateAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec remove_template_action(map(), remove_template_action_request(), list()) ::
+  @spec remove_template_action(AWS.Client.t(), remove_template_action_request(), Keyword.t()) ::
           {:ok, remove_template_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_template_action_errors()}
@@ -4212,7 +4602,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4229,8 +4620,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Resume Replication.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ResumeReplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec resume_replication(map(), resume_replication_request(), list()) ::
+  @spec resume_replication(AWS.Client.t(), resume_replication_request(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resume_replication_errors()}
@@ -4239,7 +4636,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4257,12 +4655,16 @@ defmodule AWS.Mgn do
   @doc """
   Causes the data replication initiation sequence to begin immediately upon next
   Handshake for specified SourceServer IDs, regardless of when the previous
-  initiation started.
+  initiation started. This command will not work if the SourceServer is not
+  stalled or is in a DISCONNECTED or STOPPED state.
 
-  This command will not work if the SourceServer is not stalled or is in a
-  DISCONNECTED or STOPPED state.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20RetryDataReplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec retry_data_replication(map(), retry_data_replication_request(), list()) ::
+  @spec retry_data_replication(AWS.Client.t(), retry_data_replication_request(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retry_data_replication_errors()}
@@ -4271,7 +4673,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4287,12 +4690,17 @@ defmodule AWS.Mgn do
   end
 
   @doc """
-  Launches a Cutover Instance for specific Source Servers.
+  Launches a Cutover Instance for specific Source Servers. This command starts a
+  LAUNCH job whose initiatedBy property is StartCutover and changes the
+  SourceServer.lifeCycle.state property to CUTTING_OVER.
 
-  This command starts a LAUNCH job whose initiatedBy property is StartCutover and
-  changes the SourceServer.lifeCycle.state property to CUTTING_OVER.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StartCutover&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_cutover(map(), start_cutover_request(), list()) ::
+  @spec start_cutover(AWS.Client.t(), start_cutover_request(), Keyword.t()) ::
           {:ok, start_cutover_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_cutover_errors()}
@@ -4301,7 +4709,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4318,8 +4727,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Start export.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StartExport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_export(map(), start_export_request(), list()) ::
+  @spec start_export(AWS.Client.t(), start_export_request(), Keyword.t()) ::
           {:ok, start_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_export_errors()}
@@ -4328,7 +4743,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4345,8 +4761,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Start import.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StartImport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_import(map(), start_import_request(), list()) ::
+  @spec start_import(AWS.Client.t(), start_import_request(), Keyword.t()) ::
           {:ok, start_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_import_errors()}
@@ -4355,7 +4777,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4372,8 +4795,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Starts replication for SNAPSHOT_SHIPPING agents.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StartReplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_replication(map(), start_replication_request(), list()) ::
+  @spec start_replication(AWS.Client.t(), start_replication_request(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_replication_errors()}
@@ -4382,7 +4811,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4398,12 +4828,17 @@ defmodule AWS.Mgn do
   end
 
   @doc """
-  Launches a Test Instance for specific Source Servers.
+  Launches a Test Instance for specific Source Servers. This command starts a
+  LAUNCH job whose initiatedBy property is StartTest and changes the
+  SourceServer.lifeCycle.state property to TESTING.
 
-  This command starts a LAUNCH job whose initiatedBy property is StartTest and
-  changes the SourceServer.lifeCycle.state property to TESTING.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StartTest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_test(map(), start_test_request(), list()) ::
+  @spec start_test(AWS.Client.t(), start_test_request(), Keyword.t()) ::
           {:ok, start_test_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_test_errors()}
@@ -4412,7 +4847,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4429,8 +4865,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Stop Replication.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StopReplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec stop_replication(map(), stop_replication_request(), list()) ::
+  @spec stop_replication(AWS.Client.t(), stop_replication_request(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_replication_errors()}
@@ -4439,7 +4881,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4456,13 +4899,18 @@ defmodule AWS.Mgn do
 
   @doc """
   Adds or overwrites only the specified tags for the specified Application
-  Migration Service resource or resources.
+  Migration Service resource or resources. When you specify an existing tag key,
+  the value is overwritten with the new value. Each resource can have a maximum
+  of 50 tags. Each tag consists of a key and optional value.
 
-  When you specify an existing tag key, the value is overwritten with the new
-  value. Each resource can have a maximum of 50 tags. Each tag consists of a key
-  and optional value.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) Tag resource by ARN.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -4471,7 +4919,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4488,11 +4937,20 @@ defmodule AWS.Mgn do
 
   @doc """
   Starts a job that terminates specific launched EC2 Test and Cutover instances.
-
   This command will not work for any Source Server with a lifecycle.state of
   TESTING, CUTTING_OVER, or CUTOVER.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20TerminateTargetInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec terminate_target_instances(map(), terminate_target_instances_request(), list()) ::
+  @spec terminate_target_instances(
+          AWS.Client.t(),
+          terminate_target_instances_request(),
+          Keyword.t()
+        ) ::
           {:ok, terminate_target_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, terminate_target_instances_errors()}
@@ -4501,7 +4959,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4518,8 +4977,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Unarchive application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UnarchiveApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec unarchive_application(map(), unarchive_application_request(), list()) ::
+  @spec unarchive_application(AWS.Client.t(), unarchive_application_request(), Keyword.t()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unarchive_application_errors()}
@@ -4528,7 +4993,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4545,8 +5011,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Unarchive wave.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UnarchiveWave&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec unarchive_wave(map(), unarchive_wave_request(), list()) ::
+  @spec unarchive_wave(AWS.Client.t(), unarchive_wave_request(), Keyword.t()) ::
           {:ok, wave(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unarchive_wave_errors()}
@@ -4555,7 +5027,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4573,8 +5046,16 @@ defmodule AWS.Mgn do
   @doc """
   Deletes the specified set of tags from the specified set of Application
   Migration Service resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) Untag resource by ARN.
+  * `:tag_keys` (`t:list[com.amazonaws.mgn#TagKey]`) Untag resource by Keys.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -4588,7 +5069,8 @@ defmodule AWS.Mgn do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4605,8 +5087,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Update application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_application(map(), update_application_request(), list()) ::
+  @spec update_application(AWS.Client.t(), update_application_request(), Keyword.t()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
@@ -4615,7 +5103,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4632,8 +5121,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Update Connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_connector(map(), update_connector_request(), list()) ::
+  @spec update_connector(AWS.Client.t(), update_connector_request(), Keyword.t()) ::
           {:ok, connector(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connector_errors()}
@@ -4642,7 +5137,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4660,9 +5156,17 @@ defmodule AWS.Mgn do
   @doc """
   Updates multiple LaunchConfigurations by Source Server ID.
 
-  bootMode valid values are `LEGACY_BIOS | UEFI`
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateLaunchConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_launch_configuration(map(), update_launch_configuration_request(), list()) ::
+  @spec update_launch_configuration(
+          AWS.Client.t(),
+          update_launch_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, launch_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_launch_configuration_errors()}
@@ -4671,7 +5175,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4688,11 +5193,17 @@ defmodule AWS.Mgn do
 
   @doc """
   Updates an existing Launch Configuration Template by ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateLaunchConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec update_launch_configuration_template(
-          map(),
+          AWS.Client.t(),
           update_launch_configuration_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, launch_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4702,7 +5213,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4719,11 +5231,17 @@ defmodule AWS.Mgn do
 
   @doc """
   Allows you to update multiple ReplicationConfigurations by Source Server ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateReplicationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec update_replication_configuration(
-          map(),
+          AWS.Client.t(),
           update_replication_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, replication_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4733,7 +5251,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4750,11 +5269,17 @@ defmodule AWS.Mgn do
 
   @doc """
   Updates multiple ReplicationConfigurationTemplates by ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateReplicationConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec update_replication_configuration_template(
-          map(),
+          AWS.Client.t(),
           update_replication_configuration_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, replication_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4764,7 +5289,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4781,8 +5307,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Update Source Server.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateSourceServer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_source_server(map(), update_source_server_request(), list()) ::
+  @spec update_source_server(AWS.Client.t(), update_source_server_request(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_source_server_errors()}
@@ -4791,7 +5323,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4809,11 +5342,17 @@ defmodule AWS.Mgn do
   @doc """
   Allows you to change between the AGENT_BASED replication type and the
   SNAPSHOT_SHIPPING replication type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateSourceServerReplicationType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec update_source_server_replication_type(
-          map(),
+          AWS.Client.t(),
           update_source_server_replication_type_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4823,7 +5362,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4840,8 +5380,14 @@ defmodule AWS.Mgn do
 
   @doc """
   Update wave.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateWave&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_wave(map(), update_wave_request(), list()) ::
+  @spec update_wave(AWS.Client.t(), update_wave_request(), Keyword.t()) ::
           {:ok, wave(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_wave_errors()}
@@ -4850,7 +5396,8 @@ defmodule AWS.Mgn do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

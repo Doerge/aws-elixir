@@ -4,8 +4,7 @@
 defmodule AWS.LicenseManagerUserSubscriptions do
   @moduledoc """
   With License Manager, you can create user-based subscriptions to utilize
-  licensed software with
-  a per user subscription fee on Amazon EC2 instances.
+  licensed software with a per user subscription fee on Amazon EC2 instances.
   """
 
   alias AWS.Client
@@ -592,15 +591,13 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @doc """
   Associates the user to an EC2 instance to utilize user-based subscriptions.
 
-  Your estimated bill for charges on the number of users and related costs will
-  take 48
-  hours to appear for billing periods that haven't closed (marked as ## Pending
-  billing status) in Amazon Web Services Billing. For more information, see
-  [Viewing your monthly
-  charges](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html)
-  in the *Amazon Web Services Billing User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20AssociateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec associate_user(map(), associate_user_request(), list()) ::
+  @spec associate_user(AWS.Client.t(), associate_user_request(), Keyword.t()) ::
           {:ok, associate_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_user_errors()}
@@ -609,7 +606,8 @@ defmodule AWS.LicenseManagerUserSubscriptions do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -626,8 +624,18 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
   @doc """
   Deregisters the identity provider from providing user-based subscriptions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20DeregisterIdentityProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec deregister_identity_provider(map(), deregister_identity_provider_request(), list()) ::
+  @spec deregister_identity_provider(
+          AWS.Client.t(),
+          deregister_identity_provider_request(),
+          Keyword.t()
+        ) ::
           {:ok, deregister_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_identity_provider_errors()}
@@ -636,7 +644,8 @@ defmodule AWS.LicenseManagerUserSubscriptions do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -653,8 +662,14 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
   @doc """
   Disassociates the user from an EC2 instance providing user-based subscriptions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20DisassociateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec disassociate_user(map(), disassociate_user_request(), list()) ::
+  @spec disassociate_user(AWS.Client.t(), disassociate_user_request(), Keyword.t()) ::
           {:ok, disassociate_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_user_errors()}
@@ -663,7 +678,8 @@ defmodule AWS.LicenseManagerUserSubscriptions do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -680,8 +696,14 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
   @doc """
   Lists the identity providers for user-based subscriptions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20ListIdentityProviders&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_identity_providers(map(), list_identity_providers_request(), list()) ::
+  @spec list_identity_providers(AWS.Client.t(), list_identity_providers_request(), Keyword.t()) ::
           {:ok, list_identity_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_identity_providers_errors()}
@@ -690,7 +712,8 @@ defmodule AWS.LicenseManagerUserSubscriptions do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -707,8 +730,14 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
   @doc """
   Lists the EC2 instances providing user-based subscriptions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20ListInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_instances(map(), list_instances_request(), list()) ::
+  @spec list_instances(AWS.Client.t(), list_instances_request(), Keyword.t()) ::
           {:ok, list_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instances_errors()}
@@ -717,7 +746,8 @@ defmodule AWS.LicenseManagerUserSubscriptions do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -734,8 +764,18 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
   @doc """
   Lists the user-based subscription products available from an identity provider.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20ListProductSubscriptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_product_subscriptions(map(), list_product_subscriptions_request(), list()) ::
+  @spec list_product_subscriptions(
+          AWS.Client.t(),
+          list_product_subscriptions_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_product_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_product_subscriptions_errors()}
@@ -744,7 +784,8 @@ defmodule AWS.LicenseManagerUserSubscriptions do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -761,8 +802,14 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
   @doc """
   Lists user associations for an identity provider.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20ListUserAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_user_associations(map(), list_user_associations_request(), list()) ::
+  @spec list_user_associations(AWS.Client.t(), list_user_associations_request(), Keyword.t()) ::
           {:ok, list_user_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_user_associations_errors()}
@@ -771,7 +818,8 @@ defmodule AWS.LicenseManagerUserSubscriptions do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -788,8 +836,18 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
   @doc """
   Registers an identity provider for user-based subscriptions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20RegisterIdentityProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec register_identity_provider(map(), register_identity_provider_request(), list()) ::
+  @spec register_identity_provider(
+          AWS.Client.t(),
+          register_identity_provider_request(),
+          Keyword.t()
+        ) ::
           {:ok, register_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_identity_provider_errors()}
@@ -798,7 +856,8 @@ defmodule AWS.LicenseManagerUserSubscriptions do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -816,15 +875,17 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @doc """
   Starts a product subscription for a user with the specified identity provider.
 
-  Your estimated bill for charges on the number of users and related costs will
-  take 48
-  hours to appear for billing periods that haven't closed (marked as ## Pending
-  billing status) in Amazon Web Services Billing. For more information, see
-  [Viewing your monthly
-  charges](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html)
-  in the *Amazon Web Services Billing User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20StartProductSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_product_subscription(map(), start_product_subscription_request(), list()) ::
+  @spec start_product_subscription(
+          AWS.Client.t(),
+          start_product_subscription_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_product_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_product_subscription_errors()}
@@ -833,7 +894,8 @@ defmodule AWS.LicenseManagerUserSubscriptions do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -850,8 +912,18 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
   @doc """
   Stops a product subscription for a user with the specified identity provider.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20StopProductSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec stop_product_subscription(map(), stop_product_subscription_request(), list()) ::
+  @spec stop_product_subscription(
+          AWS.Client.t(),
+          stop_product_subscription_request(),
+          Keyword.t()
+        ) ::
           {:ok, stop_product_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_product_subscription_errors()}
@@ -860,7 +932,8 @@ defmodule AWS.LicenseManagerUserSubscriptions do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -878,11 +951,17 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @doc """
   Updates additional product configuration settings for the registered identity
   provider.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20UpdateIdentityProviderSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec update_identity_provider_settings(
-          map(),
+          AWS.Client.t(),
           update_identity_provider_settings_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_identity_provider_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -892,7 +971,8 @@ defmodule AWS.LicenseManagerUserSubscriptions do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

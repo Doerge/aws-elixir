@@ -3,144 +3,20 @@
 
 defmodule AWS.MedicalImaging do
   @moduledoc """
-  This is the *AWS HealthImaging API Reference*.
-
-  AWS HealthImaging is a HIPAA eligible service
-  that empowers healthcare providers, life science organizations, and their
-  software partners to store,
-  analyze, and share medical images in the cloud at petabyte scale. For an
-  introduction to the service, see the
-  [
-  *AWS HealthImaging Developer Guide*
-  ](https://docs.aws.amazon.com/healthimaging/latest/devguide/what-is.html).
-
-  We recommend using one of the AWS Software Development Kits (SDKs) for your
-  programming language, as
-  they take care of request authentication, serialization, and connection
-  management. For more information,
-  see [Tools to build on AWS](http://aws.amazon.com/developer/tools). 
-
-  The following sections list AWS HealthImaging API actions categorized according
-  to functionality. Links are
-  provided to actions within this Reference, along with links back to
-  corresponding sections in the
-  *AWS HealthImaging Developer Guide* where you can view tested code examples.
-
-  ## Data store actions
-
-    *
-
-  [CreateDatastore](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_CreateDatastore.html)
-
-  – See
-  [Creating a data store](https://docs.aws.amazon.com/healthimaging/latest/devguide/create-data-store.html).
-
-    *
-
-  [GetDatastore](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_GetDatastore.html)  – See
-  [Getting data store
-  properties](https://docs.aws.amazon.com/healthimaging/latest/devguide/get-data-store.html).
-
-    *
-
-  [ListDatastores](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_ListDatastores.html)  – See
-  [Listing data
-  stores](https://docs.aws.amazon.com/healthimaging/latest/devguide/list-data-stores.html).
-
-    *
-
-  [DeleteDatastore](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_DeleteDatastore.html)  – See
-  [Deleting a data
-  store](https://docs.aws.amazon.com/healthimaging/latest/devguide/delete-data-store.html).
-
-  ## Import job actions
-
-    *
-
-  [StartDICOMImportJob](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_StartDICOMImportJob.html)  – See
-  [Starting an import
-  job](https://docs.aws.amazon.com/healthimaging/latest/devguide/start-dicom-import-job.html).
-
-    *
-
-  [GetDICOMImportJob](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_GetDICOMImportJob.html)  – See
-  [Getting import job
-  properties](https://docs.aws.amazon.com/healthimaging/latest/devguide/get-dicom-import-job.html).
-
-    *
-
-  [ListDICOMImportJobs](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_ListDICOMImportJobs.html)  – See
-  [Listing import
-  jobs](https://docs.aws.amazon.com/healthimaging/latest/devguide/list-dicom-import-jobs.html).
-
-  ## Image set access actions
-
-    *
-
-  [SearchImageSets](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_SearchImageSets.html)  – See
-  [Searching image
-  sets](https://docs.aws.amazon.com/healthimaging/latest/devguide/search-image-sets.html).
-
-    *
-
-  [GetImageSet](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_GetImageSet.html)  – See
-  [Getting image set
-  properties](https://docs.aws.amazon.com/healthimaging/latest/devguide/get-image-set-properties.html).
-
-    *
-
-  [GetImageSetMetadata](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_GetImageSetMetadata.html)  – See
-  [Getting image set
-  metadata](https://docs.aws.amazon.com/healthimaging/latest/devguide/get-image-set-metadata.html).
-
-    *
-
-  [GetImageFrame](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_GetImageFrame.html)  – See
-  [Getting image set pixel
-  data](https://docs.aws.amazon.com/healthimaging/latest/devguide/get-image-frame.html).
-
-  ## Image set modification actions
-
-    *
-
-  [ListImageSetVersions](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_ListImageSetVersions.html)  – See
-  [Listing image set
-  versions](https://docs.aws.amazon.com/healthimaging/latest/devguide/list-image-set-versions.html).
-
-    *
-
-  [UpdateImageSetMetadata](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_UpdateImageSetMetadata.html)  – See
-  [Updating image set
-  metadata](https://docs.aws.amazon.com/healthimaging/latest/devguide/update-image-set-metadata.html).
-
-    *
-
-  [CopyImageSet](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_CopyImageSet.html)  – See
-  [Copying an image
-  set](https://docs.aws.amazon.com/healthimaging/latest/devguide/copy-image-set.html).
-
-    *
-
-  [DeleteImageSet](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_DeleteImageSet.html)  – See
-  [Deleting an image
-  set](https://docs.aws.amazon.com/healthimaging/latest/devguide/delete-image-set.html).
-
-  ## Tagging actions
-
-    *
-
-  [TagResource](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_TagResource.html)  – See [Tagging a
-  resource](https://docs.aws.amazon.com/healthimaging/latest/devguide/tag-resource.html).
-
-    *
-
-  [ListTagsForResource](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_ListTagsForResource.html)  – See [Listing tags for a
-  resource](https://docs.aws.amazon.com/healthimaging/latest/devguide/list-tag-resource.html).
-
-    *
-
-  [UntagResource](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_UntagResource.html)  – See [Untagging a
-  resource](https://docs.aws.amazon.com/healthimaging/latest/devguide/untag-resource.html).
+  This is the *AWS HealthImaging API Reference*. AWS HealthImaging is a HIPAA
+  eligible service that empowers healthcare providers, life science
+  organizations, and their software partners to store, analyze, and share
+  medical images in the cloud at petabyte scale. For an introduction to the
+  service, see the [ *AWS HealthImaging Developer Guide*
+  ](https://docs.aws.amazon.com/healthimaging/latest/devguide/what-is.html). We
+  recommend using one of the AWS Software Development Kits (SDKs) for your
+  programming language, as they take care of request authentication,
+  serialization, and connection management. For more information, see [Tools to
+  build on AWS](http://aws.amazon.com/developer/tools). The following sections
+  list AWS HealthImaging API actions categorized according to functionality.
+  Links are provided to actions within this Reference, along with links back to
+  corresponding sections in the *AWS HealthImaging Developer Guide* where you
+  can view tested code examples.
   """
 
   alias AWS.Client
@@ -1084,8 +960,22 @@ defmodule AWS.MedicalImaging do
 
   @doc """
   Copy an image set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20CopyImageSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:datastore_id` (`t:string`) The data store identifier.
+  * `:source_image_set_id` (`t:string`) The source image set identifier.
+
+  ## Optional parameters:
   """
-  @spec copy_image_set(map(), String.t(), String.t(), copy_image_set_request(), list()) ::
+  @spec copy_image_set(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          copy_image_set_request(),
+          Keyword.t()
+        ) ::
           {:ok, copy_image_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_image_set_errors()}
@@ -1096,7 +986,8 @@ defmodule AWS.MedicalImaging do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "runtime-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "runtime-")
 
     Request.request_rest(
       client,
@@ -1113,8 +1004,14 @@ defmodule AWS.MedicalImaging do
 
   @doc """
   Create a data store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20CreateDatastore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_datastore(map(), create_datastore_request(), list()) ::
+  @spec create_datastore(AWS.Client.t(), create_datastore_request(), Keyword.t()) ::
           {:ok, create_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_datastore_errors()}
@@ -1123,7 +1020,8 @@ defmodule AWS.MedicalImaging do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1141,10 +1039,14 @@ defmodule AWS.MedicalImaging do
   @doc """
   Delete a data store.
 
-  Before a data store can be deleted, you must first delete all image sets within
-  it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20DeleteDatastore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:datastore_id` (`t:string`) The data store identifier.
+
+  ## Optional parameters:
   """
-  @spec delete_datastore(map(), String.t(), delete_datastore_request(), list()) ::
+  @spec delete_datastore(AWS.Client.t(), String.t(), delete_datastore_request(), Keyword.t()) ::
           {:ok, delete_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_datastore_errors()}
@@ -1153,7 +1055,8 @@ defmodule AWS.MedicalImaging do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1170,8 +1073,22 @@ defmodule AWS.MedicalImaging do
 
   @doc """
   Delete an image set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20DeleteImageSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:datastore_id` (`t:string`) The data store identifier.
+  * `:image_set_id` (`t:string`) The image set identifier.
+
+  ## Optional parameters:
   """
-  @spec delete_image_set(map(), String.t(), String.t(), delete_image_set_request(), list()) ::
+  @spec delete_image_set(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_image_set_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_image_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_image_set_errors()}
@@ -1182,7 +1099,8 @@ defmodule AWS.MedicalImaging do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "runtime-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "runtime-")
 
     Request.request_rest(
       client,
@@ -1200,15 +1118,15 @@ defmodule AWS.MedicalImaging do
   @doc """
   Get the import job properties to learn more about the job or job progress.
 
-  The `jobStatus` refers to the execution of the import job. Therefore, an import
-  job can return a `jobStatus` as
-  `COMPLETED` even if validation issues are discovered during the import process.
-  If a `jobStatus` returns
-  as `COMPLETED`, we still recommend you review the output manifests written to
-  S3, as they provide details on the success
-  or failure of individual P10 object imports.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20GetDICOMImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:datastore_id` (`t:string`) The data store identifier.
+  * `:job_id` (`t:string`) The import job identifier.
+
+  ## Optional parameters:
   """
-  @spec get_d_i_c_o_m_import_job(map(), String.t(), String.t(), list()) ::
+  @spec get_d_i_c_o_m_import_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_d_i_c_o_m_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_d_i_c_o_m_import_job_errors()}
@@ -1216,35 +1134,91 @@ defmodule AWS.MedicalImaging do
     url_path =
       "/getDICOMImportJob/datastore/#{AWS.Util.encode_uri(datastore_id)}/job/#{AWS.Util.encode_uri(job_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get data store properties.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20GetDatastore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:datastore_id` (`t:string`) The data store identifier.
+
+  ## Optional parameters:
   """
-  @spec get_datastore(map(), String.t(), list()) ::
+  @spec get_datastore(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_datastore_errors()}
   def get_datastore(%Client{} = client, datastore_id, options \\ []) do
     url_path = "/datastore/#{AWS.Util.encode_uri(datastore_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get an image frame (pixel data) for an image set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20GetImageFrame&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:datastore_id` (`t:string`) The data store identifier.
+  * `:image_set_id` (`t:string`) The image set identifier.
+
+  ## Optional parameters:
   """
-  @spec get_image_frame(map(), String.t(), String.t(), get_image_frame_request(), list()) ::
+  @spec get_image_frame(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          get_image_frame_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_image_frame_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_image_frame_errors()}
@@ -1262,7 +1236,8 @@ defmodule AWS.MedicalImaging do
         [{"Content-Type", "contentType"}]
       )
 
-    meta = metadata() |> Map.put_new(:host_prefix, "runtime-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "runtime-")
 
     Request.request_rest(
       client,
@@ -1279,8 +1254,23 @@ defmodule AWS.MedicalImaging do
 
   @doc """
   Get image set properties.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20GetImageSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:datastore_id` (`t:string`) The data store identifier.
+  * `:image_set_id` (`t:string`) The image set identifier.
+
+  ## Optional parameters:
+  * `:version_id` (`t:string`) The image set version identifier.
   """
-  @spec get_image_set(map(), String.t(), String.t(), get_image_set_request(), list()) ::
+  @spec get_image_set(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          get_image_set_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_image_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_image_set_errors()}
@@ -1296,7 +1286,13 @@ defmodule AWS.MedicalImaging do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "runtime-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "runtime-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:version_id])
 
     Request.request_rest(
       client,
@@ -1313,13 +1309,22 @@ defmodule AWS.MedicalImaging do
 
   @doc """
   Get metadata attributes for an image set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20GetImageSetMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:datastore_id` (`t:string`) The data store identifier.
+  * `:image_set_id` (`t:string`) The image set identifier.
+
+  ## Optional parameters:
+  * `:version_id` (`t:string`) The image set version identifier.
   """
   @spec get_image_set_metadata(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           get_image_set_metadata_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_image_set_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1343,7 +1348,13 @@ defmodule AWS.MedicalImaging do
         [{"Content-Encoding", "contentEncoding"}, {"Content-Type", "contentType"}]
       )
 
-    meta = metadata() |> Map.put_new(:host_prefix, "runtime-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "runtime-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:version_id])
 
     Request.request_rest(
       client,
@@ -1360,109 +1371,169 @@ defmodule AWS.MedicalImaging do
 
   @doc """
   List import jobs created for a specific data store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20ListDICOMImportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:datastore_id` (`t:string`) The data store identifier.
+
+  ## Optional parameters:
+  * `:job_status` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|SUBMITTED"]`) The filters
+    for listing import jobs based on status.
+  * `:max_results` (`t:`) The max results count. The upper bound is determined by
+    load testing.
+  * `:next_token` (`t:string`) The pagination token used to request the list of
+    import jobs on the next page.
   """
-  @spec list_d_i_c_o_m_import_jobs(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_d_i_c_o_m_import_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_d_i_c_o_m_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_d_i_c_o_m_import_jobs_errors()}
-  def list_d_i_c_o_m_import_jobs(
-        %Client{} = client,
-        datastore_id,
-        job_status \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_d_i_c_o_m_import_jobs(%Client{} = client, datastore_id, options \\ []) do
     url_path = "/listDICOMImportJobs/datastore/#{AWS.Util.encode_uri(datastore_id)}"
+
+    # Validate optional parameters
+    optional_params = [job_status: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(job_status) do
-        [{"jobStatus", job_status} | query_params]
+      if opt_val = Keyword.get(options, :job_status) do
+        [{"jobStatus", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:job_status, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List data stores.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20ListDatastores&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:datastore_status`
+    (`t:enum["ACTIVE|CREATE_FAILED|CREATING|DELETED|DELETING"]`) The data store
+    status.
+  * `:max_results` (`t:`) Valid Range: Minimum value of 1. Maximum value of 50.
+  * `:next_token` (`t:string`) The pagination token used to request the list of
+    data stores on the next page.
   """
-  @spec list_datastores(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_datastores(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_datastores_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_datastores_errors()}
-  def list_datastores(
-        %Client{} = client,
-        datastore_status \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_datastores(%Client{} = client, options \\ []) do
     url_path = "/datastore"
+
+    # Validate optional parameters
+    optional_params = [datastore_status: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(datastore_status) do
-        [{"datastoreStatus", datastore_status} | query_params]
+      if opt_val = Keyword.get(options, :datastore_status) do
+        [{"datastoreStatus", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:datastore_status, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List image set versions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20ListImageSetVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:datastore_id` (`t:string`) The data store identifier.
+  * `:image_set_id` (`t:string`) The image set identifier.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The max results count.
+  * `:next_token` (`t:string`) The pagination token used to request the list of
+    image set versions on the next page.
   """
   @spec list_image_set_versions(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           list_image_set_versions_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_image_set_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1486,7 +1557,13 @@ defmodule AWS.MedicalImaging do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "runtime-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "runtime-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -1503,17 +1580,43 @@ defmodule AWS.MedicalImaging do
 
   @doc """
   Lists all tags associated with a medical imaging resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the medical
+    imaging resource to list tags for.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1521,16 +1624,20 @@ defmodule AWS.MedicalImaging do
   @doc """
   Search image sets based on defined input attributes.
 
-  `SearchImageSets` accepts a single search query parameter and returns a
-  paginated
-  response of all image sets that have the matching criteria. All date range
-  queries must be input
-  as `(lowerBound, upperBound)`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20SearchImageSets&this_doc_guide=API%2520Reference)
 
-  By default, `SearchImageSets` uses the `updatedAt` field for sorting
-  in descending order from newest to oldest.
+  ## Parameters:
+  * `:datastore_id` (`t:string`) The identifier of the data store where the image
+    sets reside.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of results that can be returned in a
+    search.
+  * `:next_token` (`t:string`) The token used for pagination of results returned
+    in the response. Use the token returned from the previous request to
+    continue results where the previous request ended.
   """
-  @spec search_image_sets(map(), String.t(), search_image_sets_request(), list()) ::
+  @spec search_image_sets(AWS.Client.t(), String.t(), search_image_sets_request(), Keyword.t()) ::
           {:ok, search_image_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_image_sets_errors()}
@@ -1545,7 +1652,13 @@ defmodule AWS.MedicalImaging do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "runtime-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "runtime-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -1561,18 +1674,23 @@ defmodule AWS.MedicalImaging do
   end
 
   @doc """
-  Start importing bulk data into an `ACTIVE` data store.
+  Start importing bulk data into an `ACTIVE` data store. The import job imports
+  DICOM P10 files found in the S3 prefix specified by the `inputS3Uri`
+  parameter. The import job stores processing results in the file specified by
+  the `outputS3Uri` parameter.
 
-  The import job imports DICOM P10 files
-  found in the S3 prefix specified by the `inputS3Uri` parameter. The import job
-  stores
-  processing results in the file specified by the `outputS3Uri` parameter.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20StartDICOMImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:datastore_id` (`t:string`) The data store identifier.
+
+  ## Optional parameters:
   """
   @spec start_d_i_c_o_m_import_job(
-          map(),
+          AWS.Client.t(),
           String.t(),
           start_d_i_c_o_m_import_job_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_d_i_c_o_m_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1582,7 +1700,8 @@ defmodule AWS.MedicalImaging do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1599,8 +1718,16 @@ defmodule AWS.MedicalImaging do
 
   @doc """
   Adds a user-specifed key and value tag to a medical imaging resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the medical
+    imaging resource that tags are being added to.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1609,7 +1736,8 @@ defmodule AWS.MedicalImaging do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1626,8 +1754,18 @@ defmodule AWS.MedicalImaging do
 
   @doc """
   Removes tags from a medical imaging resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the medical
+    imaging resource that tags are being removed from.
+  * `:tag_keys` (`t:list[com.amazonaws.medicalimaging#TagKey]`) The keys for the
+    tags to be removed from the medical imaging resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1641,7 +1779,8 @@ defmodule AWS.MedicalImaging do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1658,13 +1797,22 @@ defmodule AWS.MedicalImaging do
 
   @doc """
   Update image set metadata attributes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20UpdateImageSetMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:datastore_id` (`t:string`) The data store identifier.
+  * `:image_set_id` (`t:string`) The image set identifier.
+  * `:latest_version_id` (`t:string`) The latest image set version identifier.
+
+  ## Optional parameters:
   """
   @spec update_image_set_metadata(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_image_set_metadata_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_image_set_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1687,7 +1835,8 @@ defmodule AWS.MedicalImaging do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "runtime-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "runtime-")
 
     Request.request_rest(
       client,

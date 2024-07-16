@@ -3,46 +3,10 @@
 
 defmodule AWS.PI do
   @moduledoc """
-  Amazon RDS Performance Insights
-
-  Amazon RDS Performance Insights enables you to monitor and explore different
-  dimensions of database load based on data captured from a running DB instance.
-
-  The guide
-  provides detailed information about Performance Insights data types, parameters
-  and errors.
-
-  When Performance Insights is enabled, the Amazon RDS Performance Insights API
-  provides visibility into the performance of your DB instance. Amazon CloudWatch
-  provides the
-  authoritative source for Amazon Web Services service-vended monitoring metrics.
-  Performance Insights offers a domain-specific view of DB load.
-
-  DB load is measured as average active sessions. Performance Insights provides
-  the data to API consumers as a two-dimensional time-series dataset. The time
-  dimension
-  provides DB load data for each time point in the queried time range. Each time
-  point decomposes overall load in relation to the requested
-  dimensions, measured at that time point. Examples include SQL, Wait event, User,
-  and Host.
-
-    *
-  To learn more about Performance Insights and Amazon Aurora DB instances, go to
-  the *
-  [ Amazon Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.html)
-  *.
-
-    *
-  To learn more about Performance Insights and Amazon RDS DB instances, go to the
-  *
-  [ Amazon RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html)
-  *.
-
-    *
-  To learn more about Performance Insights and Amazon DocumentDB clusters, go to
-  the *
-  [ Amazon DocumentDB Developer Guide](https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html)
-  *.
+  Amazon RDS Performance Insights Amazon RDS Performance Insights enables you to
+  monitor and explore different dimensions of database load based on data
+  captured from a running DB instance. The guide provides detailed information
+  about Performance Insights data types, parameters and errors.
   """
 
   alias AWS.Client
@@ -744,19 +708,20 @@ defmodule AWS.PI do
   end
 
   @doc """
-  Creates a new performance analysis report for a specific time period for the
-  DB instance.
+  Creates a new performance analysis report for a specific time period for the DB
+  instance.
   """
   @spec create_performance_analysis_report(
-          map(),
+          AWS.Client.t(),
           create_performance_analysis_report_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_performance_analysis_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_performance_analysis_report_errors()}
   def create_performance_analysis_report(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePerformanceAnalysisReport", input, options)
   end
@@ -765,111 +730,105 @@ defmodule AWS.PI do
   Deletes a performance analysis report.
   """
   @spec delete_performance_analysis_report(
-          map(),
+          AWS.Client.t(),
           delete_performance_analysis_report_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_performance_analysis_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_performance_analysis_report_errors()}
   def delete_performance_analysis_report(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePerformanceAnalysisReport", input, options)
   end
 
   @doc """
   For a specific time period, retrieve the top `N` dimension keys for a metric.
-
-  Each response element returns a maximum of 500 bytes. For larger elements, such
-  as SQL statements,
-  only the first 500 bytes are returned.
   """
-  @spec describe_dimension_keys(map(), describe_dimension_keys_request(), list()) ::
+  @spec describe_dimension_keys(AWS.Client.t(), describe_dimension_keys_request(), Keyword.t()) ::
           {:ok, describe_dimension_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dimension_keys_errors()}
   def describe_dimension_keys(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDimensionKeys", input, options)
   end
 
   @doc """
   Get the attributes of the specified dimension group for a DB instance or data
-  source.
-
-  For example, if you specify a SQL ID,
-  `GetDimensionKeyDetails` retrieves the full text of the dimension
-  `db.sql.statement` associated with this ID.
-  This operation is useful because `GetResourceMetrics` and
-  `DescribeDimensionKeys` don't support retrieval of large
-  SQL statement text.
+  source. For example, if you specify a SQL ID, `GetDimensionKeyDetails`
+  retrieves the full text of the dimension `db.sql.statement` associated with
+  this ID. This operation is useful because `GetResourceMetrics` and
+  `DescribeDimensionKeys` don't support retrieval of large SQL statement text.
   """
-  @spec get_dimension_key_details(map(), get_dimension_key_details_request(), list()) ::
+  @spec get_dimension_key_details(
+          AWS.Client.t(),
+          get_dimension_key_details_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_dimension_key_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dimension_key_details_errors()}
   def get_dimension_key_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDimensionKeyDetails", input, options)
   end
 
   @doc """
   Retrieves the report including the report ID, status, time details, and the
-  insights
-  with recommendations.
-
-  The report status can be `RUNNING`,
-  `SUCCEEDED`, or `FAILED`. The insights include the
-  `description` and `recommendation` fields.
+  insights with recommendations. The report status can be `RUNNING`,
+  `SUCCEEDED`, or `FAILED`. The insights include the `description` and
+  `recommendation` fields.
   """
-  @spec get_performance_analysis_report(map(), get_performance_analysis_report_request(), list()) ::
+  @spec get_performance_analysis_report(
+          AWS.Client.t(),
+          get_performance_analysis_report_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_performance_analysis_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_performance_analysis_report_errors()}
   def get_performance_analysis_report(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPerformanceAnalysisReport", input, options)
   end
 
   @doc """
-  Retrieve the metadata for different features.
-
-  For example, the metadata might indicate
-  that a feature is turned on or off on a specific DB instance.
+  Retrieve the metadata for different features. For example, the metadata might
+  indicate that a feature is turned on or off on a specific DB instance.
   """
-  @spec get_resource_metadata(map(), get_resource_metadata_request(), list()) ::
+  @spec get_resource_metadata(AWS.Client.t(), get_resource_metadata_request(), Keyword.t()) ::
           {:ok, get_resource_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_metadata_errors()}
   def get_resource_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourceMetadata", input, options)
   end
 
   @doc """
   Retrieve Performance Insights metrics for a set of data sources over a time
-  period.
-
-  You can provide
-  specific dimension groups and dimensions, and provide filtering criteria for
-  each group. You must specify an aggregate function for
+  period. You can provide specific dimension groups and dimensions, and provide
+  filtering criteria for each group. You must specify an aggregate function for
   each metric.
-
-  Each response element returns a maximum of 500 bytes. For larger elements, such
-  as SQL statements,
-  only the first 500 bytes are returned.
   """
-  @spec get_resource_metrics(map(), get_resource_metrics_request(), list()) ::
+  @spec get_resource_metrics(AWS.Client.t(), get_resource_metrics_request(), Keyword.t()) ::
           {:ok, get_resource_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_metrics_errors()}
   def get_resource_metrics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourceMetrics", input, options)
   end
@@ -879,15 +838,16 @@ defmodule AWS.PI do
   specified DB instance.
   """
   @spec list_available_resource_dimensions(
-          map(),
+          AWS.Client.t(),
           list_available_resource_dimensions_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_available_resource_dimensions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_available_resource_dimensions_errors()}
   def list_available_resource_dimensions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAvailableResourceDimensions", input, options)
   end
@@ -896,31 +856,36 @@ defmodule AWS.PI do
   Retrieve metrics of the specified types that can be queried for a specified DB
   instance.
   """
-  @spec list_available_resource_metrics(map(), list_available_resource_metrics_request(), list()) ::
+  @spec list_available_resource_metrics(
+          AWS.Client.t(),
+          list_available_resource_metrics_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_available_resource_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_available_resource_metrics_errors()}
   def list_available_resource_metrics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAvailableResourceMetrics", input, options)
   end
 
   @doc """
-  Lists all the analysis reports created for the DB instance.
-
-  The reports are sorted based on the start time of each report.
+  Lists all the analysis reports created for the DB instance. The reports are
+  sorted based on the start time of each report.
   """
   @spec list_performance_analysis_reports(
-          map(),
+          AWS.Client.t(),
           list_performance_analysis_reports_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_performance_analysis_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_performance_analysis_reports_errors()}
   def list_performance_analysis_reports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPerformanceAnalysisReports", input, options)
   end
@@ -929,12 +894,13 @@ defmodule AWS.PI do
   Retrieves all the metadata tags associated with Amazon RDS Performance Insights
   resource.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -942,12 +908,13 @@ defmodule AWS.PI do
   @doc """
   Adds metadata tags to the Amazon RDS Performance Insights resource.
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -955,12 +922,13 @@ defmodule AWS.PI do
   @doc """
   Deletes the metadata tags from the Amazon RDS Performance Insights resource.
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

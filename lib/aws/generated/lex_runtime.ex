@@ -3,20 +3,17 @@
 
 defmodule AWS.LexRuntime do
   @moduledoc """
-  Amazon Lex provides both build and runtime endpoints.
-
-  Each endpoint
-  provides a set of operations (API). Your conversational bot uses the
-  runtime API to understand user utterances (user input text or voice). For
-  example, suppose a user says "I want pizza", your bot sends this input to
-  Amazon Lex using the runtime API. Amazon Lex recognizes that the user
-  request is for the OrderPizza intent (one of the intents defined in the
-  bot). Then Amazon Lex engages in user conversation on behalf of the bot to
-  elicit required information (slot values, such as pizza size and crust
-  type), and then performs fulfillment activity (that you configured when
-  you created the bot). You use the build-time API to create and manage your
-  Amazon Lex bot. For a list of build-time operations, see the build-time
-  API, .
+  Amazon Lex provides both build and runtime endpoints. Each endpoint provides a
+  set of operations (API). Your conversational bot uses the runtime API to
+  understand user utterances (user input text or voice). For example, suppose a
+  user says "I want pizza", your bot sends this input to Amazon Lex using the
+  runtime API. Amazon Lex recognizes that the user request is for the OrderPizza
+  intent (one of the intents defined in the bot). Then Amazon Lex engages in
+  user conversation on behalf of the bot to elicit required information (slot
+  values, such as pizza size and crust type), and then performs fulfillment
+  activity (that you configured when you created the bot). You use the
+  build-time API to create and manage your Amazon Lex bot. For a list of
+  build-time operations, see the build-time API, .
   """
 
   alias AWS.Client
@@ -511,14 +508,25 @@ defmodule AWS.LexRuntime do
 
   @doc """
   Removes session information for a specified bot, alias, and user ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexruntimeservice%20DeleteSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bot_alias` (`t:string`) The alias in use for the bot that contains the
+    session data.
+  * `:bot_name` (`t:string`) The name of the bot that contains the session data.
+  * `:user_id` (`t:string`) The identifier of the user associated with the session
+    data.
+
+  ## Optional parameters:
   """
   @spec delete_session(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_session_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -530,7 +538,8 @@ defmodule AWS.LexRuntime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -546,123 +555,122 @@ defmodule AWS.LexRuntime do
   end
 
   @doc """
-  Returns session information for a specified bot, alias, and user
-  ID.
+  Returns session information for a specified bot, alias, and user ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexruntimeservice%20GetSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bot_alias` (`t:string`) The alias in use for the bot that contains the
+    session data.
+  * `:bot_name` (`t:string`) The name of the bot that contains the session data.
+  * `:user_id` (`t:string`) The ID of the client application user. Amazon Lex uses
+    this to identify a user's conversation with your bot.
+
+  ## Optional parameters:
+  * `:checkpoint_label_filter` (`t:string`) A string used to filter the intents
+    returned in the recentIntentSummaryView structure.
   """
-  @spec get_session(map(), String.t(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_session(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_session_errors()}
-  def get_session(
-        %Client{} = client,
-        bot_alias,
-        bot_name,
-        user_id,
-        checkpoint_label_filter \\ nil,
-        options \\ []
-      ) do
+  def get_session(%Client{} = client, bot_alias, bot_name, user_id, options \\ []) do
     url_path =
       "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/session"
 
+    # Validate optional parameters
+    optional_params = [checkpoint_label_filter: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(checkpoint_label_filter) do
-        [{"checkpointLabelFilter", checkpoint_label_filter} | query_params]
+      if opt_val = Keyword.get(options, :checkpoint_label_filter) do
+        [{"checkpointLabelFilter", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:checkpoint_label_filter])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Sends user input (text or speech) to Amazon Lex.
+  Sends user input (text or speech) to Amazon Lex. Clients use this API to send
+  text and audio requests to Amazon Lex at runtime. Amazon Lex interprets the
+  user input using the machine learning model that it built for the bot. The
+  `PostContent` operation supports audio input at 8kHz and 16kHz. You can use
+  8kHz audio to achieve higher speech recognition accuracy in telephone audio
+  applications.
 
-  Clients use this API to
-  send text and audio requests to Amazon Lex at runtime. Amazon Lex interprets the
-  user input using the machine learning model that it built for the bot.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexruntimeservice%20PostContent&this_doc_guide=API%2520Reference)
 
-  The `PostContent` operation supports audio input at 8kHz
-  and 16kHz. You can use 8kHz audio to achieve higher speech recognition
-  accuracy in telephone audio applications.
+  ## Parameters:
+  * `:bot_alias` (`t:string`) Alias of the Amazon Lex bot.
+  * `:bot_name` (`t:string`) Name of the Amazon Lex bot.
+  * `:user_id` (`t:string`) The ID of the client application user. Amazon Lex uses
+    this to identify a user's conversation with your bot. At runtime, each
+    request must contain the userID field.
+  * `:content_type` (`t:string`) You pass this value as the Content-Type HTTP
+    header.
 
-  In response, Amazon Lex returns the next message to convey to the user.
-  Consider the following example messages:
-
-    *
-  For a user input "I would like a pizza," Amazon Lex might return a
-  response with a message eliciting slot data (for example,
-  `PizzaSize`): "What size pizza would you like?".
-
-    *
-  After the user provides all of the pizza order information, Amazon Lex
-  might return a response with a message to get user confirmation:
-  "Order the pizza?".
-
-    *
-  After the user replies "Yes" to the confirmation prompt, Amazon Lex
-  might return a conclusion statement: "Thank you, your cheese pizza has
-  been ordered.".
-
-  Not all Amazon Lex messages require a response from the user. For example,
-  conclusion statements do not require a response. Some messages require
-  only a yes or no response. In addition to the `message`, Amazon Lex
-  provides additional context about the message in the response that you can
-  use to enhance client behavior, such as displaying the appropriate client
-  user interface. Consider the following examples:
-
-    *
-  If the message is to elicit slot data, Amazon Lex returns the
-  following context information:
-
-      *
-
-  `x-amz-lex-dialog-state` header set to
-  `ElicitSlot`
-
-      *
-
-  `x-amz-lex-intent-name` header set to the intent name
-  in the current context
-
-      *
-
-  `x-amz-lex-slot-to-elicit` header set to the slot name
-  for which the `message` is eliciting information
-
-      *
-
-  `x-amz-lex-slots` header set to a map of slots
-  configured for the intent with their current values
-
-    *
-  If the message is a confirmation prompt, the
-  `x-amz-lex-dialog-state` header is set to
-  `Confirmation` and the
-  `x-amz-lex-slot-to-elicit` header is omitted.
-
-    *
-  If the message is a clarification prompt configured for the
-  intent, indicating that the user intent is not understood, the
-  `x-amz-dialog-state` header is set to
-  `ElicitIntent` and the `x-amz-slot-to-elicit`
-  header is omitted.
-
-  In addition, Amazon Lex also returns your application-specific
-  `sessionAttributes`. For more information, see [Managing Conversation
-  Context](https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html).
+  ## Optional parameters:
+  * `:accept` (`t:string`) You pass this value as the Accept HTTP header.
+  * `:active_contexts` (`t:string`) A list of contexts active for the request. A
+    context can be activated when a previous intent is fulfilled, or by
+    including the context in the request,
+  * `:request_attributes` (`t:string`) You pass this value as the
+    x-amz-lex-request-attributes HTTP header.
+  * `:session_attributes` (`t:string`) You pass this value as the
+    x-amz-lex-session-attributes HTTP header.
   """
-  @spec post_content(map(), String.t(), String.t(), String.t(), post_content_request(), list()) ::
+  @spec post_content(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          post_content_request(),
+          Keyword.t()
+        ) ::
           {:ok, post_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, post_content_errors()}
   def post_content(%Client{} = client, bot_alias, bot_name, user_id, input, options \\ []) do
     url_path =
       "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/content"
+
+    optional_params = [
+      accept: nil,
+      active_contexts: nil,
+      content_type: nil,
+      request_attributes: nil,
+      session_attributes: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -701,7 +709,13 @@ defmodule AWS.LexRuntime do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:accept, :active_contexts, :request_attributes, :session_attributes])
 
     Request.request_rest(
       client,
@@ -717,81 +731,31 @@ defmodule AWS.LexRuntime do
   end
 
   @doc """
-  Sends user input to Amazon Lex.
+  Sends user input to Amazon Lex. Client applications can use this API to send
+  requests to Amazon Lex at runtime. Amazon Lex then interprets the user input
+  using the machine learning model it built for the bot. In response, Amazon Lex
+  returns the next `message` to convey to the user an optional `responseCard` to
+  display. Consider the following example messages:
 
-  Client applications can use this API to
-  send requests to Amazon Lex at runtime. Amazon Lex then interprets the user
-  input
-  using the machine learning model it built for the bot.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexruntimeservice%20PostText&this_doc_guide=API%2520Reference)
 
-  In response, Amazon Lex returns the next `message` to convey to
-  the user an optional `responseCard` to display. Consider the
-  following example messages:
+  ## Parameters:
+  * `:bot_alias` (`t:string`) The alias of the Amazon Lex bot.
+  * `:bot_name` (`t:string`) The name of the Amazon Lex bot.
+  * `:user_id` (`t:string`) The ID of the client application user. Amazon Lex uses
+    this to identify a user's conversation with your bot. At runtime, each
+    request must contain the userID field.
 
-    *
-  For a user input "I would like a pizza", Amazon Lex might return a
-  response with a message eliciting slot data (for example, PizzaSize):
-  "What size pizza would you like?"
-
-    *
-  After the user provides all of the pizza order information,
-  Amazon Lex might return a response with a message to obtain user
-  confirmation "Proceed with the pizza order?".
-
-    *
-  After the user replies to a confirmation prompt with a "yes",
-  Amazon Lex might return a conclusion statement: "Thank you, your cheese
-  pizza has been ordered.".
-
-  Not all Amazon Lex messages require a user response. For example, a
-  conclusion statement does not require a response. Some messages require
-  only a "yes" or "no" user response. In addition to the
-  `message`, Amazon Lex provides additional context about the
-  message in the response that you might use to enhance client behavior, for
-  example, to display the appropriate client user interface. These are the
-  `slotToElicit`, `dialogState`,
-  `intentName`, and `slots` fields in the response.
-  Consider the following examples:
-
-    *
-  If the message is to elicit slot data, Amazon Lex returns the
-  following context information:
-
-      *
-
-  `dialogState` set to ElicitSlot
-
-      *
-
-  `intentName` set to the intent name in the current
-  context
-
-      *
-
-  `slotToElicit` set to the slot name for which the
-  `message` is eliciting information
-
-      *
-
-  `slots` set to a map of slots, configured for the
-  intent, with currently known values
-
-    *
-  If the message is a confirmation prompt, the
-  `dialogState` is set to ConfirmIntent and
-  `SlotToElicit` is set to null.
-
-    *
-  If the message is a clarification prompt (configured for the
-  intent) that indicates that user intent is not understood, the
-  `dialogState` is set to ElicitIntent and
-  `slotToElicit` is set to null.
-
-  In addition, Amazon Lex also returns your application-specific
-  `sessionAttributes`. For more information, see [Managing Conversation
-  Context](https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html).
+  ## Optional parameters:
   """
-  @spec post_text(map(), String.t(), String.t(), String.t(), post_text_request(), list()) ::
+  @spec post_text(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          post_text_request(),
+          Keyword.t()
+        ) ::
           {:ok, post_text_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, post_text_errors()}
@@ -802,7 +766,8 @@ defmodule AWS.LexRuntime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -818,21 +783,44 @@ defmodule AWS.LexRuntime do
   end
 
   @doc """
-  Creates a new session or modifies an existing session with an Amazon Lex
-  bot.
+  Creates a new session or modifies an existing session with an Amazon Lex bot.
+  Use this operation to enable your application to set the state of the bot.
 
-  Use this operation to enable your application to set the state of the
-  bot.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexruntimeservice%20PutSession&this_doc_guide=API%2520Reference)
 
-  For more information, see [Managing Sessions](https://docs.aws.amazon.com/lex/latest/dg/how-session-api.html).
+  ## Parameters:
+  * `:bot_alias` (`t:string`) The alias in use for the bot that contains the
+    session data.
+  * `:bot_name` (`t:string`) The name of the bot that contains the session data.
+  * `:user_id` (`t:string`) The ID of the client application user. Amazon Lex uses
+    this to identify a user's conversation with your bot.
+
+  ## Optional parameters:
+  * `:accept` (`t:string`) The message that Amazon Lex returns in the response can
+    be either text or speech based depending on the value of this field.
   """
-  @spec put_session(map(), String.t(), String.t(), String.t(), put_session_request(), list()) ::
+  @spec put_session(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          put_session_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_session_errors()}
   def put_session(%Client{} = client, bot_alias, bot_name, user_id, input, options \\ []) do
     url_path =
       "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/session"
+
+    optional_params = [accept: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -861,7 +849,13 @@ defmodule AWS.LexRuntime do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:accept])
 
     Request.request_rest(
       client,

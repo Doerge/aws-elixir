@@ -4426,92 +4426,86 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Grants users or groups in your IAM Identity Center identity source access
-  to your Amazon Kendra experience.
-
-  You can create an Amazon Kendra experience such as a
-  search application. For more information on creating a search application
+  Grants users or groups in your IAM Identity Center identity source access to
+  your Amazon Kendra experience. You can create an Amazon Kendra experience such
+  as a search application. For more information on creating a search application
   experience, see [Building a search experience with no
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
   """
   @spec associate_entities_to_experience(
-          map(),
+          AWS.Client.t(),
           associate_entities_to_experience_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_entities_to_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_entities_to_experience_errors()}
   def associate_entities_to_experience(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateEntitiesToExperience", input, options)
   end
 
   @doc """
   Defines the specific permissions of users or groups in your IAM Identity Center
-  identity source with access to your Amazon Kendra experience.
-
-  You can create an Amazon Kendra
-  experience such as a search application. For more information on creating a
-  search application experience, see [Building a search experience with no
+  identity source with access to your Amazon Kendra experience. You can create
+  an Amazon Kendra experience such as a search application. For more information
+  on creating a search application experience, see [Building a search experience
+  with no
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
   """
-  @spec associate_personas_to_entities(map(), associate_personas_to_entities_request(), list()) ::
+  @spec associate_personas_to_entities(
+          AWS.Client.t(),
+          associate_personas_to_entities_request(),
+          Keyword.t()
+        ) ::
           {:ok, associate_personas_to_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_personas_to_entities_errors()}
   def associate_personas_to_entities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociatePersonasToEntities", input, options)
   end
 
   @doc """
-  Removes one or more documents from an index.
-
-  The documents must have been added with
-  the `BatchPutDocument` API.
-
-  The documents are deleted asynchronously. You can see the progress of the
-  deletion by
-  using Amazon Web Services
-  CloudWatch. Any error messages related to the processing of the batch are sent
-  to
-  your Amazon Web Services
-  CloudWatch log. You can also use the `BatchGetDocumentStatus` API to
-  monitor the progress of deleting your documents.
-
-  Deleting documents from an index using `BatchDeleteDocument` could take up
-  to an hour or more, depending on the number of documents you want to delete.
+  Removes one or more documents from an index. The documents must have been added
+  with the `BatchPutDocument` API. The documents are deleted asynchronously. You
+  can see the progress of the deletion by using Amazon Web Services CloudWatch.
+  Any error messages related to the processing of the batch are sent to your
+  Amazon Web Services CloudWatch log. You can also use the
+  `BatchGetDocumentStatus` API to monitor the progress of deleting your
+  documents.
   """
-  @spec batch_delete_document(map(), batch_delete_document_request(), list()) ::
+  @spec batch_delete_document(AWS.Client.t(), batch_delete_document_request(), Keyword.t()) ::
           {:ok, batch_delete_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_document_errors()}
   def batch_delete_document(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteDocument", input, options)
   end
 
   @doc """
-  Removes one or more sets of featured results.
-
-  Features results are placed
-  above all other results for certain queries. If there's an exact match of a
-  query, then one or more specific documents are featured in the search results.
+  Removes one or more sets of featured results. Features results are placed above
+  all other results for certain queries. If there's an exact match of a query,
+  then one or more specific documents are featured in the search results.
   """
   @spec batch_delete_featured_results_set(
-          map(),
+          AWS.Client.t(),
           batch_delete_featured_results_set_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_delete_featured_results_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_featured_results_set_errors()}
   def batch_delete_featured_results_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteFeaturedResultsSet", input, options)
   end
@@ -4519,366 +4513,270 @@ defmodule AWS.Kendra do
   @doc """
   Returns the indexing status for one or more documents submitted with the [
   BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html)
-  API.
-
-  When you use the `BatchPutDocument` API, documents are indexed
+  API. When you use the `BatchPutDocument` API, documents are indexed
   asynchronously. You can use the `BatchGetDocumentStatus` API to get the
   current status of a list of documents so that you can determine if they have
-  been
-  successfully indexed.
-
-  You can also use the `BatchGetDocumentStatus` API to check the status of
-  the [
-  BatchDeleteDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html)
-  API. When a document is deleted from the index, Amazon Kendra returns
-  `NOT_FOUND` as the status.
+  been successfully indexed.
   """
-  @spec batch_get_document_status(map(), batch_get_document_status_request(), list()) ::
+  @spec batch_get_document_status(
+          AWS.Client.t(),
+          batch_get_document_status_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_get_document_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_document_status_errors()}
   def batch_get_document_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetDocumentStatus", input, options)
   end
 
   @doc """
-  Adds one or more documents to an index.
-
-  The `BatchPutDocument` API enables you to ingest inline documents or a set
-  of documents stored in an Amazon S3 bucket. Use this API to ingest your text and
-  unstructured text into an index, add custom attributes to the documents, and to
-  attach
-  an access control list to the documents added to the index.
-
-  The documents are indexed asynchronously. You can see the progress of the batch
-  using
-  Amazon Web Services
-  CloudWatch. Any error messages related to processing the batch are sent to your
-  Amazon Web Services
-  CloudWatch log. You can also use the `BatchGetDocumentStatus` API to
-  monitor the progress of indexing your documents.
-
-  For an example of ingesting inline documents using Python and Java SDKs, see
-  [Adding files directly to an
-  index](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-binary-doc.html).
+  Adds one or more documents to an index. The `BatchPutDocument` API enables you
+  to ingest inline documents or a set of documents stored in an Amazon S3
+  bucket. Use this API to ingest your text and unstructured text into an index,
+  add custom attributes to the documents, and to attach an access control list
+  to the documents added to the index.
   """
-  @spec batch_put_document(map(), batch_put_document_request(), list()) ::
+  @spec batch_put_document(AWS.Client.t(), batch_put_document_request(), Keyword.t()) ::
           {:ok, batch_put_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_put_document_errors()}
   def batch_put_document(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchPutDocument", input, options)
   end
 
   @doc """
-  Clears existing query suggestions from an index.
-
-  This deletes existing suggestions only, not the queries
-  in the query log. After you clear suggestions, Amazon Kendra learns
-  new suggestions based on new queries added to the query log
-  from the time you cleared suggestions. If you do not see any
-  new suggestions, then please allow Amazon Kendra to collect
-  enough queries to learn new suggestions.
-
-  `ClearQuerySuggestions` is currently not supported in the
-  Amazon Web Services GovCloud (US-West) region.
+  Clears existing query suggestions from an index. This deletes existing
+  suggestions only, not the queries in the query log. After you clear
+  suggestions, Amazon Kendra learns new suggestions based on new queries added
+  to the query log from the time you cleared suggestions. If you do not see any
+  new suggestions, then please allow Amazon Kendra to collect enough queries to
+  learn new suggestions.
   """
-  @spec clear_query_suggestions(map(), clear_query_suggestions_request(), list()) ::
+  @spec clear_query_suggestions(AWS.Client.t(), clear_query_suggestions_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, clear_query_suggestions_errors()}
   def clear_query_suggestions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ClearQuerySuggestions", input, options)
   end
 
   @doc """
-  Creates an access configuration for your documents.
-
-  This includes user and group
+  Creates an access configuration for your documents. This includes user and group
   access information for your documents. This is useful for user context
-  filtering, where
-  search results are filtered based on the user or their group access to
-  documents.
-
-  You can use this to re-configure your existing document level access control
-  without
-  indexing all of your documents again. For example, your index contains
-  top-secret
-  company documents that only certain employees or users should access. One of
-  these users
-  leaves the company or switches to a team that should be blocked from accessing
-  top-secret documents. The user still has access to top-secret documents because
-  the user
-  had access when your documents were previously indexed. You can create a
-  specific access
+  filtering, where search results are filtered based on the user or their group
+  access to documents. You can use this to re-configure your existing document
+  level access control without indexing all of your documents again. For
+  example, your index contains top-secret company documents that only certain
+  employees or users should access. One of these users leaves the company or
+  switches to a team that should be blocked from accessing top-secret documents.
+  The user still has access to top-secret documents because the user had access
+  when your documents were previously indexed. You can create a specific access
   control configuration for the user with deny access. You can later update the
-  access
-  control configuration to allow access if the user returns to the company and
-  re-joins
-  the 'top-secret' team. You can re-configure access control for your documents as
-  circumstances change.
-
-  To apply your access control configuration to certain documents, you call the
-  [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) API with the `AccessControlConfigurationId`
-  included in the
-  [Document](https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html)
-  object. If you use an S3 bucket as a data source, you update the
-  `.metadata.json` with the `AccessControlConfigurationId` and
-  synchronize your data source. Amazon Kendra currently only supports access
-  control
-  configuration for S3 data sources and documents indexed using the
-  `BatchPutDocument` API.
+  access control configuration to allow access if the user returns to the
+  company and re-joins the 'top-secret' team. You can re-configure access
+  control for your documents as circumstances change.
   """
   @spec create_access_control_configuration(
-          map(),
+          AWS.Client.t(),
           create_access_control_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_access_control_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_access_control_configuration_errors()}
   def create_access_control_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAccessControlConfiguration", input, options)
   end
 
   @doc """
   Creates a data source connector that you want to use with an Amazon Kendra
-  index.
-
-  You specify a name, data source connector type and description for your data
-  source. You
-  also specify configuration information for the data source connector.
-
-  `CreateDataSource` is a synchronous operation. The operation returns 200 if the
-  data source was successfully created. Otherwise, an exception is raised.
-
-  For an example of creating an index and data source using the Python SDK, see
-  [Getting started with Python SDK](https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html). For an
-  example of creating an index and data source using the Java SDK, see
-  [Getting started with Java SDK](https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html).
+  index. You specify a name, data source connector type and description for your
+  data source. You also specify configuration information for the data source
+  connector.
   """
-  @spec create_data_source(map(), create_data_source_request(), list()) ::
+  @spec create_data_source(AWS.Client.t(), create_data_source_request(), Keyword.t()) ::
           {:ok, create_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_source_errors()}
   def create_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataSource", input, options)
   end
 
   @doc """
-  Creates an Amazon Kendra experience such as a search application.
-
-  For more information
-  on creating a search application experience, including using the Python and Java
-  SDKs,
-  see [Building a search experience with no
+  Creates an Amazon Kendra experience such as a search application. For more
+  information on creating a search application experience, including using the
+  Python and Java SDKs, see [Building a search experience with no
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
   """
-  @spec create_experience(map(), create_experience_request(), list()) ::
+  @spec create_experience(AWS.Client.t(), create_experience_request(), Keyword.t()) ::
           {:ok, create_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_experience_errors()}
   def create_experience(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateExperience", input, options)
   end
 
   @doc """
   Creates a set of frequently ask questions (FAQs) using a specified FAQ file
-  stored
-  in an Amazon S3 bucket.
-
-  Adding FAQs to an index is an asynchronous operation.
-
-  For an example of adding an FAQ to an index using Python and Java SDKs, see
-  [Using your FAQ file](https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html#using-faq-file).
+  stored in an Amazon S3 bucket. Adding FAQs to an index is an asynchronous
+  operation.
   """
-  @spec create_faq(map(), create_faq_request(), list()) ::
+  @spec create_faq(AWS.Client.t(), create_faq_request(), Keyword.t()) ::
           {:ok, create_faq_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_faq_errors()}
   def create_faq(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFaq", input, options)
   end
 
   @doc """
   Creates a set of featured results to display at the top of the search results
-  page.
-
-  Featured results are placed above all other results for certain queries. You map
-  specific queries to specific documents for featuring in the results. If a query
-  contains an exact match, then one or more specific documents are featured in the
-  search results.
-
-  You can create up to 50 sets of featured results per index. You can request to
-  increase this limit by contacting [Support](http://aws.amazon.com/contact-us/).
+  page. Featured results are placed above all other results for certain queries.
+  You map specific queries to specific documents for featuring in the results.
+  If a query contains an exact match, then one or more specific documents are
+  featured in the search results.
   """
-  @spec create_featured_results_set(map(), create_featured_results_set_request(), list()) ::
+  @spec create_featured_results_set(
+          AWS.Client.t(),
+          create_featured_results_set_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_featured_results_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_featured_results_set_errors()}
   def create_featured_results_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFeaturedResultsSet", input, options)
   end
 
   @doc """
-  Creates an Amazon Kendra index.
-
-  Index creation is an asynchronous API. To determine
-  if index creation has completed, check the `Status` field returned from a call
-  to
-  `DescribeIndex`. The `Status` field is set to `ACTIVE` when
-  the index is ready to use.
-
-  Once the index is active, you can index your documents using the
-  `BatchPutDocument` API or using one of the supported [data sources](https://docs.aws.amazon.com/kendra/latest/dg/data-sources.html).
-
-  For an example of creating an index and data source using the Python SDK, see
-  [Getting started with Python SDK](https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html). For an
-  example of creating an index and data source using the Java SDK, see
-  [Getting started with Java SDK](https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html).
+  Creates an Amazon Kendra index. Index creation is an asynchronous API. To
+  determine if index creation has completed, check the `Status` field returned
+  from a call to `DescribeIndex`. The `Status` field is set to `ACTIVE` when the
+  index is ready to use.
   """
-  @spec create_index(map(), create_index_request(), list()) ::
+  @spec create_index(AWS.Client.t(), create_index_request(), Keyword.t()) ::
           {:ok, create_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_index_errors()}
   def create_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIndex", input, options)
   end
 
   @doc """
-  Creates a block list to exlcude certain queries from suggestions.
-
-  Any query that contains words or phrases specified in the block
-  list is blocked or filtered out from being shown as a suggestion.
-
-  You need to provide the file location of your block list text file
-  in your S3 bucket. In your text file, enter each block word or phrase
-  on a separate line.
-
-  For information on the current quota limits for block lists, see
-  [Quotas for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/quotas.html).
-
-  `CreateQuerySuggestionsBlockList` is currently not supported in the
-  Amazon Web Services GovCloud (US-West) region.
-
-  For an example of creating a block list for query suggestions using the
-  Python SDK, see [Query suggestions block
-  list](https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html#query-suggestions-blocklist).
+  Creates a block list to exlcude certain queries from suggestions. Any query that
+  contains words or phrases specified in the block list is blocked or filtered
+  out from being shown as a suggestion.
   """
   @spec create_query_suggestions_block_list(
-          map(),
+          AWS.Client.t(),
           create_query_suggestions_block_list_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_query_suggestions_block_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_query_suggestions_block_list_errors()}
   def create_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateQuerySuggestionsBlockList", input, options)
   end
 
   @doc """
-  Creates a thesaurus for an index.
-
-  The thesaurus
-  contains a list of synonyms in Solr format.
-
-  For an example of adding a thesaurus file to an index, see
-  [Adding custom synonyms to an
-  index](https://docs.aws.amazon.com/kendra/latest/dg/index-synonyms-adding-thesaurus-file.html).
+  Creates a thesaurus for an index. The thesaurus contains a list of synonyms in
+  Solr format.
   """
-  @spec create_thesaurus(map(), create_thesaurus_request(), list()) ::
+  @spec create_thesaurus(AWS.Client.t(), create_thesaurus_request(), Keyword.t()) ::
           {:ok, create_thesaurus_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_thesaurus_errors()}
   def create_thesaurus(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateThesaurus", input, options)
   end
 
   @doc """
   Deletes an access control configuration that you created for your documents in
-  an
-  index.
-
-  This includes user and group access information for your documents. This is
-  useful for user context filtering, where search results are filtered based on
-  the user
-  or their group access to documents.
+  an index. This includes user and group access information for your documents.
+  This is useful for user context filtering, where search results are filtered
+  based on the user or their group access to documents.
   """
   @spec delete_access_control_configuration(
-          map(),
+          AWS.Client.t(),
           delete_access_control_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_access_control_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_access_control_configuration_errors()}
   def delete_access_control_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAccessControlConfiguration", input, options)
   end
 
   @doc """
-  Deletes an Amazon Kendra data source connector.
-
-  An exception is not thrown if the
-  data source is already being deleted. While the data source is being deleted,
-  the
-  `Status` field returned by a call to the `DescribeDataSource` API is
-  set to `DELETING`. For more information, see [Deleting Data Sources](https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html).
-
-  Deleting an entire data source or re-syncing your index after deleting specific
-  documents
-  from a data source could take up to an hour or more, depending on the number of
-  documents you
-  want to delete.
+  Deletes an Amazon Kendra data source connector. An exception is not thrown if
+  the data source is already being deleted. While the data source is being
+  deleted, the `Status` field returned by a call to the `DescribeDataSource` API
+  is set to `DELETING`. For more information, see [Deleting Data
+  Sources](https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html).
   """
-  @spec delete_data_source(map(), delete_data_source_request(), list()) ::
+  @spec delete_data_source(AWS.Client.t(), delete_data_source_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_source_errors()}
   def delete_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDataSource", input, options)
   end
 
   @doc """
-  Deletes your Amazon Kendra experience such as a search application.
-
-  For more information on
-  creating a search application experience, see [Building a search experience with no
+  Deletes your Amazon Kendra experience such as a search application. For more
+  information on creating a search application experience, see [Building a
+  search experience with no
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
   """
-  @spec delete_experience(map(), delete_experience_request(), list()) ::
+  @spec delete_experience(AWS.Client.t(), delete_experience_request(), Keyword.t()) ::
           {:ok, delete_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_experience_errors()}
   def delete_experience(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteExperience", input, options)
   end
@@ -4886,86 +4784,66 @@ defmodule AWS.Kendra do
   @doc """
   Removes an FAQ from an index.
   """
-  @spec delete_faq(map(), delete_faq_request(), list()) ::
+  @spec delete_faq(AWS.Client.t(), delete_faq_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_faq_errors()}
   def delete_faq(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFaq", input, options)
   end
 
   @doc """
-  Deletes an Amazon Kendra index.
-
-  An exception is not thrown if the index is
+  Deletes an Amazon Kendra index. An exception is not thrown if the index is
   already being deleted. While the index is being deleted, the `Status` field
-  returned by a call to the `DescribeIndex` API is set to
-  `DELETING`.
+  returned by a call to the `DescribeIndex` API is set to `DELETING`.
   """
-  @spec delete_index(map(), delete_index_request(), list()) ::
+  @spec delete_index(AWS.Client.t(), delete_index_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_index_errors()}
   def delete_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIndex", input, options)
   end
 
   @doc """
   Deletes a group so that all users and sub groups that belong to the group can no
-  longer access documents only available to that group.
-
-  For example, after deleting the group "Summer Interns", all interns who belonged
-  to
-  that group no longer see intern-only documents in their search results.
-
-  If you want to delete or replace users or sub groups of a group, you need to use
-  the
-  `PutPrincipalMapping` operation. For example, if a user in the group
-  "Engineering" leaves the engineering team and another user takes their place,
-  you
-  provide an updated list of users or sub groups that belong to the "Engineering"
-  group
-  when calling `PutPrincipalMapping`. You can update your internal list of
-  users or sub groups and input this list when calling
-  `PutPrincipalMapping`.
-
-  `DeletePrincipalMapping` is currently not supported in the Amazon Web Services
-  GovCloud (US-West) region.
+  longer access documents only available to that group. For example, after
+  deleting the group "Summer Interns", all interns who belonged to that group no
+  longer see intern-only documents in their search results.
   """
-  @spec delete_principal_mapping(map(), delete_principal_mapping_request(), list()) ::
+  @spec delete_principal_mapping(AWS.Client.t(), delete_principal_mapping_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_principal_mapping_errors()}
   def delete_principal_mapping(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePrincipalMapping", input, options)
   end
 
   @doc """
-  Deletes a block list used for query suggestions for an index.
-
-  A deleted block list might not take effect right away. Amazon Kendra
-  needs to refresh the entire suggestions list to add back the
-  queries that were previously blocked.
-
-  `DeleteQuerySuggestionsBlockList` is currently not supported in the
-  Amazon Web Services GovCloud (US-West) region.
+  Deletes a block list used for query suggestions for an index. A deleted block
+  list might not take effect right away. Amazon Kendra needs to refresh the
+  entire suggestions list to add back the queries that were previously blocked.
   """
   @spec delete_query_suggestions_block_list(
-          map(),
+          AWS.Client.t(),
           delete_query_suggestions_block_list_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_query_suggestions_block_list_errors()}
   def delete_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteQuerySuggestionsBlockList", input, options)
   end
@@ -4973,35 +4851,34 @@ defmodule AWS.Kendra do
   @doc """
   Deletes an Amazon Kendra thesaurus.
   """
-  @spec delete_thesaurus(map(), delete_thesaurus_request(), list()) ::
+  @spec delete_thesaurus(AWS.Client.t(), delete_thesaurus_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_thesaurus_errors()}
   def delete_thesaurus(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteThesaurus", input, options)
   end
 
   @doc """
   Gets information about an access control configuration that you created for your
-  documents in an index.
-
-  This includes user and group access information for your
-  documents. This is useful for user context filtering, where search results are
-  filtered
-  based on the user or their group access to documents.
+  documents in an index. This includes user and group access information for
+  your documents. This is useful for user context filtering, where search
+  results are filtered based on the user or their group access to documents.
   """
   @spec describe_access_control_configuration(
-          map(),
+          AWS.Client.t(),
           describe_access_control_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_access_control_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_access_control_configuration_errors()}
   def describe_access_control_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccessControlConfiguration", input, options)
   end
@@ -5009,30 +4886,30 @@ defmodule AWS.Kendra do
   @doc """
   Gets information about an Amazon Kendra data source connector.
   """
-  @spec describe_data_source(map(), describe_data_source_request(), list()) ::
+  @spec describe_data_source(AWS.Client.t(), describe_data_source_request(), Keyword.t()) ::
           {:ok, describe_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_source_errors()}
   def describe_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataSource", input, options)
   end
 
   @doc """
   Gets information about your Amazon Kendra experience such as a search
-  application.
-
-  For more information on creating a search application experience,
+  application. For more information on creating a search application experience,
   see [Building a search experience with no
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
   """
-  @spec describe_experience(map(), describe_experience_request(), list()) ::
+  @spec describe_experience(AWS.Client.t(), describe_experience_request(), Keyword.t()) ::
           {:ok, describe_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_experience_errors()}
   def describe_experience(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExperience", input, options)
   end
@@ -5040,30 +4917,33 @@ defmodule AWS.Kendra do
   @doc """
   Gets information about an FAQ list.
   """
-  @spec describe_faq(map(), describe_faq_request(), list()) ::
+  @spec describe_faq(AWS.Client.t(), describe_faq_request(), Keyword.t()) ::
           {:ok, describe_faq_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_faq_errors()}
   def describe_faq(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFaq", input, options)
   end
 
   @doc """
-  Gets information about a set of featured results.
-
-  Features results are placed
+  Gets information about a set of featured results. Features results are placed
   above all other results for certain queries. If there's an exact match of a
-  query,
-  then one or more specific documents are featured in the search results.
+  query, then one or more specific documents are featured in the search results.
   """
-  @spec describe_featured_results_set(map(), describe_featured_results_set_request(), list()) ::
+  @spec describe_featured_results_set(
+          AWS.Client.t(),
+          describe_featured_results_set_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_featured_results_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_featured_results_set_errors()}
   def describe_featured_results_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFeaturedResultsSet", input, options)
   end
@@ -5071,84 +4951,74 @@ defmodule AWS.Kendra do
   @doc """
   Gets information about an Amazon Kendra index.
   """
-  @spec describe_index(map(), describe_index_request(), list()) ::
+  @spec describe_index(AWS.Client.t(), describe_index_request(), Keyword.t()) ::
           {:ok, describe_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_index_errors()}
   def describe_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIndex", input, options)
   end
 
   @doc """
-  Describes the processing of `PUT` and `DELETE` actions for
-  mapping users to their groups.
-
-  This includes information on the status of actions
-  currently processing or yet to be processed, when actions were last updated,
-  when
+  Describes the processing of `PUT` and `DELETE` actions for mapping users to
+  their groups. This includes information on the status of actions currently
+  processing or yet to be processed, when actions were last updated, when
   actions were received by Amazon Kendra, the latest action that should process
-  and
-  apply after other actions, and useful error messages if an action could not be
-  processed.
-
-  `DescribePrincipalMapping` is currently not supported in the Amazon Web Services
-  GovCloud (US-West) region.
+  and apply after other actions, and useful error messages if an action could
+  not be processed.
   """
-  @spec describe_principal_mapping(map(), describe_principal_mapping_request(), list()) ::
+  @spec describe_principal_mapping(
+          AWS.Client.t(),
+          describe_principal_mapping_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_principal_mapping_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_principal_mapping_errors()}
   def describe_principal_mapping(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePrincipalMapping", input, options)
   end
 
   @doc """
-  Gets information about a block list used for query suggestions for
-  an index.
-
-  This is used to check the current settings that are applied to a
-  block list.
-
-  `DescribeQuerySuggestionsBlockList` is currently not supported in the
-  Amazon Web Services GovCloud (US-West) region.
+  Gets information about a block list used for query suggestions for an index.
+  This is used to check the current settings that are applied to a block list.
   """
   @spec describe_query_suggestions_block_list(
-          map(),
+          AWS.Client.t(),
           describe_query_suggestions_block_list_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_query_suggestions_block_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_query_suggestions_block_list_errors()}
   def describe_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeQuerySuggestionsBlockList", input, options)
   end
 
   @doc """
-  Gets information on the settings of query suggestions for an index.
-
-  This is used to check the current settings applied
-  to query suggestions.
-
-  `DescribeQuerySuggestionsConfig` is currently not supported in the
-  Amazon Web Services GovCloud (US-West) region.
+  Gets information on the settings of query suggestions for an index. This is used
+  to check the current settings applied to query suggestions.
   """
   @spec describe_query_suggestions_config(
-          map(),
+          AWS.Client.t(),
           describe_query_suggestions_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_query_suggestions_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_query_suggestions_config_errors()}
   def describe_query_suggestions_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeQuerySuggestionsConfig", input, options)
   end
@@ -5156,113 +5026,108 @@ defmodule AWS.Kendra do
   @doc """
   Gets information about an Amazon Kendra thesaurus.
   """
-  @spec describe_thesaurus(map(), describe_thesaurus_request(), list()) ::
+  @spec describe_thesaurus(AWS.Client.t(), describe_thesaurus_request(), Keyword.t()) ::
           {:ok, describe_thesaurus_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_thesaurus_errors()}
   def describe_thesaurus(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeThesaurus", input, options)
   end
 
   @doc """
-  Prevents users or groups in your IAM Identity Center identity source
-  from accessing your Amazon Kendra experience.
-
-  You can create an Amazon Kendra experience
-  such as a search application. For more information on creating a search
-  application experience, see [Building a search experience with no
+  Prevents users or groups in your IAM Identity Center identity source from
+  accessing your Amazon Kendra experience. You can create an Amazon Kendra
+  experience such as a search application. For more information on creating a
+  search application experience, see [Building a search experience with no
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
   """
   @spec disassociate_entities_from_experience(
-          map(),
+          AWS.Client.t(),
           disassociate_entities_from_experience_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_entities_from_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_entities_from_experience_errors()}
   def disassociate_entities_from_experience(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateEntitiesFromExperience", input, options)
   end
 
   @doc """
   Removes the specific permissions of users or groups in your IAM Identity Center
-  identity source with access to your Amazon Kendra experience.
-
-  You can create an Amazon Kendra
-  experience such as a search application. For more information on creating a
-  search application experience, see [Building a search experience with no
+  identity source with access to your Amazon Kendra experience. You can create
+  an Amazon Kendra experience such as a search application. For more information
+  on creating a search application experience, see [Building a search experience
+  with no
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
   """
   @spec disassociate_personas_from_entities(
-          map(),
+          AWS.Client.t(),
           disassociate_personas_from_entities_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_personas_from_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_personas_from_entities_errors()}
   def disassociate_personas_from_entities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociatePersonasFromEntities", input, options)
   end
 
   @doc """
   Fetches the queries that are suggested to your users.
-
-  `GetQuerySuggestions` is currently not supported in the
-  Amazon Web Services GovCloud (US-West) region.
   """
-  @spec get_query_suggestions(map(), get_query_suggestions_request(), list()) ::
+  @spec get_query_suggestions(AWS.Client.t(), get_query_suggestions_request(), Keyword.t()) ::
           {:ok, get_query_suggestions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_query_suggestions_errors()}
   def get_query_suggestions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetQuerySuggestions", input, options)
   end
 
   @doc """
-  Retrieves search metrics data.
-
-  The data provides a snapshot of how your users interact
-  with your search application and how effective the application is.
+  Retrieves search metrics data. The data provides a snapshot of how your users
+  interact with your search application and how effective the application is.
   """
-  @spec get_snapshots(map(), get_snapshots_request(), list()) ::
+  @spec get_snapshots(AWS.Client.t(), get_snapshots_request(), Keyword.t()) ::
           {:ok, get_snapshots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_snapshots_errors()}
   def get_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSnapshots", input, options)
   end
 
   @doc """
-  Lists one or more access control configurations for an index.
-
-  This includes user and
-  group access information for your documents. This is useful for user context
-  filtering,
-  where search results are filtered based on the user or their group access to
-  documents.
+  Lists one or more access control configurations for an index. This includes user
+  and group access information for your documents. This is useful for user
+  context filtering, where search results are filtered based on the user or
+  their group access to documents.
   """
   @spec list_access_control_configurations(
-          map(),
+          AWS.Client.t(),
           list_access_control_configurations_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_access_control_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_access_control_configurations_errors()}
   def list_access_control_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAccessControlConfigurations", input, options)
   end
@@ -5270,12 +5135,17 @@ defmodule AWS.Kendra do
   @doc """
   Gets statistics about synchronizing a data source connector.
   """
-  @spec list_data_source_sync_jobs(map(), list_data_source_sync_jobs_request(), list()) ::
+  @spec list_data_source_sync_jobs(
+          AWS.Client.t(),
+          list_data_source_sync_jobs_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_data_source_sync_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_source_sync_jobs_errors()}
   def list_data_source_sync_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataSourceSyncJobs", input, options)
   end
@@ -5283,63 +5153,64 @@ defmodule AWS.Kendra do
   @doc """
   Lists the data source connectors that you have created.
   """
-  @spec list_data_sources(map(), list_data_sources_request(), list()) ::
+  @spec list_data_sources(AWS.Client.t(), list_data_sources_request(), Keyword.t()) ::
           {:ok, list_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_sources_errors()}
   def list_data_sources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataSources", input, options)
   end
 
   @doc """
-  Lists specific permissions of users and groups with access to your
-  Amazon Kendra experience.
+  Lists specific permissions of users and groups with access to your Amazon Kendra
+  experience.
   """
-  @spec list_entity_personas(map(), list_entity_personas_request(), list()) ::
+  @spec list_entity_personas(AWS.Client.t(), list_entity_personas_request(), Keyword.t()) ::
           {:ok, list_entity_personas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_entity_personas_errors()}
   def list_entity_personas(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEntityPersonas", input, options)
   end
 
   @doc """
   Lists users or groups in your IAM Identity Center identity source that are
-  granted access to your Amazon Kendra experience.
-
-  You can create an Amazon Kendra experience
-  such as a search application. For more information on creating a search
-  application experience, see [Building a search experience with no
+  granted access to your Amazon Kendra experience. You can create an Amazon
+  Kendra experience such as a search application. For more information on
+  creating a search application experience, see [Building a search experience
+  with no
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
   """
-  @spec list_experience_entities(map(), list_experience_entities_request(), list()) ::
+  @spec list_experience_entities(AWS.Client.t(), list_experience_entities_request(), Keyword.t()) ::
           {:ok, list_experience_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_experience_entities_errors()}
   def list_experience_entities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListExperienceEntities", input, options)
   end
 
   @doc """
-  Lists one or more Amazon Kendra experiences.
-
-  You can create an Amazon Kendra experience such
-  as a search application. For more information on creating a search application
-  experience, see [Building a search experience with no
+  Lists one or more Amazon Kendra experiences. You can create an Amazon Kendra
+  experience such as a search application. For more information on creating a
+  search application experience, see [Building a search experience with no
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
   """
-  @spec list_experiences(map(), list_experiences_request(), list()) ::
+  @spec list_experiences(AWS.Client.t(), list_experiences_request(), Keyword.t()) ::
           {:ok, list_experiences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_experiences_errors()}
   def list_experiences(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListExperiences", input, options)
   end
@@ -5347,31 +5218,34 @@ defmodule AWS.Kendra do
   @doc """
   Gets a list of FAQ lists associated with an index.
   """
-  @spec list_faqs(map(), list_faqs_request(), list()) ::
+  @spec list_faqs(AWS.Client.t(), list_faqs_request(), Keyword.t()) ::
           {:ok, list_faqs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_faqs_errors()}
   def list_faqs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFaqs", input, options)
   end
 
   @doc """
-  Lists all your sets of featured results for a given index.
-
-  Features results
-  are placed above all other results for certain queries. If there's an exact
-  match
+  Lists all your sets of featured results for a given index. Features results are
+  placed above all other results for certain queries. If there's an exact match
   of a query, then one or more specific documents are featured in the search
   results.
   """
-  @spec list_featured_results_sets(map(), list_featured_results_sets_request(), list()) ::
+  @spec list_featured_results_sets(
+          AWS.Client.t(),
+          list_featured_results_sets_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_featured_results_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_featured_results_sets_errors()}
   def list_featured_results_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFeaturedResultsSets", input, options)
   end
@@ -5379,20 +5253,18 @@ defmodule AWS.Kendra do
   @doc """
   Provides a list of groups that are mapped to users before a given ordering or
   timestamp identifier.
-
-  `ListGroupsOlderThanOrderingId` is currently not supported in the Amazon Web
-  Services GovCloud (US-West) region.
   """
   @spec list_groups_older_than_ordering_id(
-          map(),
+          AWS.Client.t(),
           list_groups_older_than_ordering_id_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_groups_older_than_ordering_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_groups_older_than_ordering_id_errors()}
   def list_groups_older_than_ordering_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGroupsOlderThanOrderingId", input, options)
   end
@@ -5400,51 +5272,48 @@ defmodule AWS.Kendra do
   @doc """
   Lists the Amazon Kendra indexes that you created.
   """
-  @spec list_indices(map(), list_indices_request(), list()) ::
+  @spec list_indices(AWS.Client.t(), list_indices_request(), Keyword.t()) ::
           {:ok, list_indices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_indices_errors()}
   def list_indices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListIndices", input, options)
   end
 
   @doc """
-  Lists the block lists used for query suggestions for an index.
-
-  For information on the current quota limits for block lists, see
-  [Quotas for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/quotas.html).
-
-  `ListQuerySuggestionsBlockLists` is currently not supported in the
-  Amazon Web Services GovCloud (US-West) region.
+  Lists the block lists used for query suggestions for an index. For information
+  on the current quota limits for block lists, see [Quotas for Amazon
+  Kendra](https://docs.aws.amazon.com/kendra/latest/dg/quotas.html).
   """
   @spec list_query_suggestions_block_lists(
-          map(),
+          AWS.Client.t(),
           list_query_suggestions_block_lists_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_query_suggestions_block_lists_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_query_suggestions_block_lists_errors()}
   def list_query_suggestions_block_lists(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListQuerySuggestionsBlockLists", input, options)
   end
 
   @doc """
-  Gets a list of tags associated with a specified resource.
-
-  Indexes, FAQs, and data sources
-  can have tags associated with them.
+  Gets a list of tags associated with a specified resource. Indexes, FAQs, and
+  data sources can have tags associated with them.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -5452,221 +5321,147 @@ defmodule AWS.Kendra do
   @doc """
   Lists the thesauri for an index.
   """
-  @spec list_thesauri(map(), list_thesauri_request(), list()) ::
+  @spec list_thesauri(AWS.Client.t(), list_thesauri_request(), Keyword.t()) ::
           {:ok, list_thesauri_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_thesauri_errors()}
   def list_thesauri(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListThesauri", input, options)
   end
 
   @doc """
   Maps users to their groups so that you only need to provide the user ID when you
-  issue
-  the query.
-
-  You can also map sub groups to groups. For example, the group "Company
-  Intellectual
-  Property Teams" includes sub groups "Research" and "Engineering". These sub
-  groups
-  include their own list of users or people who work in these teams. Only users
-  who work
-  in research and engineering, and therefore belong in the intellectual property
-  group,
-  can see top-secret company documents in their search results.
-
-  This is useful for user context filtering, where search results are filtered
-  based on
-  the user or their group access to documents. For more information, see
-  [Filtering on user
-  context](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html).
-
-  If more than five `PUT` actions for a group are currently processing, a
-  validation exception is thrown.
+  issue the query. You can also map sub groups to groups. For example, the group
+  "Company Intellectual Property Teams" includes sub groups "Research" and
+  "Engineering". These sub groups include their own list of users or people who
+  work in these teams. Only users who work in research and engineering, and
+  therefore belong in the intellectual property group, can see top-secret
+  company documents in their search results.
   """
-  @spec put_principal_mapping(map(), put_principal_mapping_request(), list()) ::
+  @spec put_principal_mapping(AWS.Client.t(), put_principal_mapping_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_principal_mapping_errors()}
   def put_principal_mapping(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutPrincipalMapping", input, options)
   end
 
   @doc """
-  Searches an index given an input query.
-
-  If you are working with large language models (LLMs) or implementing retrieval
-  augmented generation (RAG) systems, you can use Amazon Kendra's
+  Searches an index given an input query. If you are working with large language
+  models (LLMs) or implementing retrieval augmented generation (RAG) systems,
+  you can use Amazon Kendra's
   [Retrieve](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Retrieve.html)
-  API, which can return longer semantically relevant passages. We
-  recommend using the `Retrieve` API instead of filing a service limit increase
-  to increase the `Query` API document excerpt length.
-
-  You can configure boosting or relevance tuning at the query level to override
-  boosting
-  at the index level, filter based on document fields/attributes and faceted
-  search, and
-  filter based on the user or their group access to documents. You can also
-  include certain
-  fields in the response that might provide useful additional information.
-
-  A query response contains three types of results.
-
-    *
-  Relevant suggested answers. The answers can be either a text excerpt or table
-  excerpt. The answer can be highlighted in the excerpt.
-
-    *
-  Matching FAQs or questions-answer from your FAQ file.
-
-    *
-  Relevant documents. This result type includes an excerpt of the document with
-  the
-  document title. The searched terms can be highlighted in the excerpt.
-
-  You can specify that the query return only one type of result using the
-  `QueryResultTypeFilter` parameter. Each query returns the 100 most relevant
-  results. If you filter result type to only question-answers, a maximum of four
-  results are
-  returned. If you filter result type to only answers, a maximum of three results
-  are
-  returned.
+  API, which can return longer semantically relevant passages. We recommend
+  using the `Retrieve` API instead of filing a service limit increase to
+  increase the `Query` API document excerpt length.
   """
-  @spec query(map(), query_request(), list()) ::
+  @spec query(AWS.Client.t(), query_request(), Keyword.t()) ::
           {:ok, query_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, query_errors()}
   def query(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Query", input, options)
   end
 
   @doc """
-  Retrieves relevant passages or text excerpts given an input query.
-
-  This API is similar to the
-  [Query](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Query.html) API. However, by
-  default, the `Query` API only returns excerpt passages of up to 100 token
-  words. With the `Retrieve` API, you can retrieve longer passages of up to 200
-  token words and up to 100 semantically relevant passages. This doesn't include
-  question-answer or FAQ type responses from your index. The passages are text
-  excerpts
-  that can be semantically extracted from multiple documents and multiple parts of
-  the
-  same document. If in extreme cases your documents produce zero passages using
-  the
-  `Retrieve` API, you can alternatively use the `Query` API and
-  its types of responses.
-
-  You can also do the following:
-
-    *
-  Override boosting at the index level
-
-    *
-  Filter based on document fields or attributes
-
-    *
-  Filter based on the user or their group access to documents
-
-    *
-  View the confidence score bucket for a retrieved passage result. The
-  confidence bucket provides a relative ranking that indicates how confident
-  Amazon Kendra is that the response is relevant to the query.
-
-  Confidence score buckets are currently available only for English.
-
-  You can also include certain fields in the response that might provide useful
-  additional information.
-
-  The `Retrieve` API shares the number of [query capacity
-  units](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html)
-  that you set for your index. For more information on what's included
-  in a single capacity unit and the default base capacity for an index, see
-  [Adjusting capacity](https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html).
+  Retrieves relevant passages or text excerpts given an input query. This API is
+  similar to the
+  [Query](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Query.html)
+  API. However, by default, the `Query` API only returns excerpt passages of up
+  to 100 token words. With the `Retrieve` API, you can retrieve longer passages
+  of up to 200 token words and up to 100 semantically relevant passages. This
+  doesn't include question-answer or FAQ type responses from your index. The
+  passages are text excerpts that can be semantically extracted from multiple
+  documents and multiple parts of the same document. If in extreme cases your
+  documents produce zero passages using the `Retrieve` API, you can
+  alternatively use the `Query` API and its types of responses. You can also do
+  the following:
   """
-  @spec retrieve(map(), retrieve_request(), list()) ::
+  @spec retrieve(AWS.Client.t(), retrieve_request(), Keyword.t()) ::
           {:ok, retrieve_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retrieve_errors()}
   def retrieve(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Retrieve", input, options)
   end
 
   @doc """
-  Starts a synchronization job for a data source connector.
-
-  If a synchronization job is
-  already in progress, Amazon Kendra returns a `ResourceInUseException`
+  Starts a synchronization job for a data source connector. If a synchronization
+  job is already in progress, Amazon Kendra returns a `ResourceInUseException`
   exception.
-
-  Re-syncing your data source with your index after modifying, adding, or deleting
-  documents from your data source respository could take up to an hour or more,
-  depending on
-  the number of documents to sync.
   """
-  @spec start_data_source_sync_job(map(), start_data_source_sync_job_request(), list()) ::
+  @spec start_data_source_sync_job(
+          AWS.Client.t(),
+          start_data_source_sync_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_data_source_sync_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_data_source_sync_job_errors()}
   def start_data_source_sync_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDataSourceSyncJob", input, options)
   end
 
   @doc """
-  Stops a synchronization job that is currently running.
-
-  You can't stop a scheduled
-  synchronization job.
+  Stops a synchronization job that is currently running. You can't stop a
+  scheduled synchronization job.
   """
-  @spec stop_data_source_sync_job(map(), stop_data_source_sync_job_request(), list()) ::
+  @spec stop_data_source_sync_job(
+          AWS.Client.t(),
+          stop_data_source_sync_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_data_source_sync_job_errors()}
   def stop_data_source_sync_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopDataSourceSyncJob", input, options)
   end
 
   @doc """
-  Enables you to provide feedback to Amazon Kendra to improve the
-  performance of your index.
-
-  `SubmitFeedback` is currently not supported in the
-  Amazon Web Services GovCloud (US-West) region.
+  Enables you to provide feedback to Amazon Kendra to improve the performance of
+  your index.
   """
-  @spec submit_feedback(map(), submit_feedback_request(), list()) ::
+  @spec submit_feedback(AWS.Client.t(), submit_feedback_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, submit_feedback_errors()}
   def submit_feedback(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SubmitFeedback", input, options)
   end
 
   @doc """
-  Adds the specified tag to the specified index, FAQ, or data source resource.
-
-  If the tag
-  already exists, the existing value is replaced with the new value.
+  Adds the specified tag to the specified index, FAQ, or data source resource. If
+  the tag already exists, the existing value is replaced with the new value.
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -5674,62 +5469,42 @@ defmodule AWS.Kendra do
   @doc """
   Removes a tag from an index, FAQ, or a data source.
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
-  Updates an access control configuration for your documents in an index.
-
-  This includes
-  user and group access information for your documents. This is useful for user
-  context
-  filtering, where search results are filtered based on the user or their group
-  access to
-  documents.
-
-  You can update an access control configuration you created without indexing all
-  of
-  your documents again. For example, your index contains top-secret company
-  documents that
-  only certain employees or users should access. You created an 'allow' access
-  control
-  configuration for one user who recently joined the 'top-secret' team, switching
-  from a
-  team with 'deny' access to top-secret documents. However, the user suddenly
-  returns to
-  their previous team and should no longer have access to top secret documents.
-  You can
-  update the access control configuration to re-configure access control for your
-  documents as circumstances change.
-
-  You call the
-  [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) API to
-  apply the updated access control configuration, with the
-  `AccessControlConfigurationId` included in the
-  [Document](https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html)
-  object. If you use an S3 bucket as a data source, you synchronize your data
-  source to
-  apply the `AccessControlConfigurationId` in the `.metadata.json`
-  file. Amazon Kendra currently only supports access control configuration for S3
-  data sources and documents indexed using the `BatchPutDocument` API.
+  Updates an access control configuration for your documents in an index. This
+  includes user and group access information for your documents. This is useful
+  for user context filtering, where search results are filtered based on the
+  user or their group access to documents. You can update an access control
+  configuration you created without indexing all of your documents again. For
+  example, your index contains top-secret company documents that only certain
+  employees or users should access. You created an 'allow' access control
+  configuration for one user who recently joined the 'top-secret' team,
+  switching from a team with 'deny' access to top-secret documents. However, the
+  user suddenly returns to their previous team and should no longer have access
+  to top secret documents. You can update the access control configuration to
+  re-configure access control for your documents as circumstances change.
   """
   @spec update_access_control_configuration(
-          map(),
+          AWS.Client.t(),
           update_access_control_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_access_control_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_access_control_configuration_errors()}
   def update_access_control_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAccessControlConfiguration", input, options)
   end
@@ -5737,50 +5512,51 @@ defmodule AWS.Kendra do
   @doc """
   Updates an Amazon Kendra data source connector.
   """
-  @spec update_data_source(map(), update_data_source_request(), list()) ::
+  @spec update_data_source(AWS.Client.t(), update_data_source_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_source_errors()}
   def update_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDataSource", input, options)
   end
 
   @doc """
-  Updates your Amazon Kendra experience such as a search application.
-
-  For more information on
-  creating a search application experience, see [Building a search experience with no
+  Updates your Amazon Kendra experience such as a search application. For more
+  information on creating a search application experience, see [Building a
+  search experience with no
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
   """
-  @spec update_experience(map(), update_experience_request(), list()) ::
+  @spec update_experience(AWS.Client.t(), update_experience_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_experience_errors()}
   def update_experience(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateExperience", input, options)
   end
 
   @doc """
-  Updates a set of featured results.
-
-  Features results are placed
-  above
-  all other results for certain queries. You map specific queries to specific
-  documents
+  Updates a set of featured results. Features results are placed above all other
+  results for certain queries. You map specific queries to specific documents
   for featuring in the results. If a query contains an exact match of a query,
-  then one
-  or more specific documents are featured in the search results.
+  then one or more specific documents are featured in the search results.
   """
-  @spec update_featured_results_set(map(), update_featured_results_set_request(), list()) ::
+  @spec update_featured_results_set(
+          AWS.Client.t(),
+          update_featured_results_set_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_featured_results_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_featured_results_set_errors()}
   def update_featured_results_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFeaturedResultsSet", input, options)
   end
@@ -5788,70 +5564,53 @@ defmodule AWS.Kendra do
   @doc """
   Updates an Amazon Kendra index.
   """
-  @spec update_index(map(), update_index_request(), list()) ::
+  @spec update_index(AWS.Client.t(), update_index_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_index_errors()}
   def update_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateIndex", input, options)
   end
 
   @doc """
-  Updates a block list used for query suggestions for an index.
-
-  Updates to a block list might not take effect right away. Amazon Kendra
-  needs to refresh the entire suggestions list to apply any updates to the
-  block list. Other changes not related to the block list apply immediately.
-
-  If a block list is updating, then you need to wait for the first update to
-  finish before submitting another update.
-
-  Amazon Kendra supports partial updates, so you only need to provide the fields
-  you want to update.
-
-  `UpdateQuerySuggestionsBlockList` is currently not supported in the
-  Amazon Web Services GovCloud (US-West) region.
+  Updates a block list used for query suggestions for an index. Updates to a block
+  list might not take effect right away. Amazon Kendra needs to refresh the
+  entire suggestions list to apply any updates to the block list. Other changes
+  not related to the block list apply immediately.
   """
   @spec update_query_suggestions_block_list(
-          map(),
+          AWS.Client.t(),
           update_query_suggestions_block_list_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_query_suggestions_block_list_errors()}
   def update_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateQuerySuggestionsBlockList", input, options)
   end
 
   @doc """
-  Updates the settings of query suggestions for an index.
-
-  Amazon Kendra supports partial updates, so you only need to provide
-  the fields you want to update.
-
-  If an update is currently processing, you
-  need to wait for the update to finish before making another update.
-
-  Updates to query suggestions settings might not take effect right away.
-  The time for your updated settings to take effect depends on the updates
-  made and the number of search queries in your index.
-
-  You can still enable/disable query suggestions at any time.
-
-  `UpdateQuerySuggestionsConfig` is currently not supported in the
-  Amazon Web Services GovCloud (US-West) region.
+  Updates the settings of query suggestions for an index. Amazon Kendra supports
+  partial updates, so you only need to provide the fields you want to update.
   """
-  @spec update_query_suggestions_config(map(), update_query_suggestions_config_request(), list()) ::
+  @spec update_query_suggestions_config(
+          AWS.Client.t(),
+          update_query_suggestions_config_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_query_suggestions_config_errors()}
   def update_query_suggestions_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateQuerySuggestionsConfig", input, options)
   end
@@ -5859,12 +5618,13 @@ defmodule AWS.Kendra do
   @doc """
   Updates a thesaurus for an index.
   """
-  @spec update_thesaurus(map(), update_thesaurus_request(), list()) ::
+  @spec update_thesaurus(AWS.Client.t(), update_thesaurus_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_thesaurus_errors()}
   def update_thesaurus(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateThesaurus", input, options)
   end

@@ -3,107 +3,15 @@
 
 defmodule AWS.CodeDeploy do
   @moduledoc """
-  CodeDeploy is a deployment service that automates application deployments
-  to Amazon EC2 instances, on-premises instances running in your own facility,
-  serverless Lambda functions, or applications in an Amazon ECS
-  service.
-
-  You can deploy a nearly unlimited variety of application content, such as an
-  updated
-  Lambda function, updated applications in an Amazon ECS service,
-  code, web and configuration files, executables, packages, scripts, multimedia
-  files, and
-  so on. CodeDeploy can deploy application content stored in Amazon S3
-  buckets, GitHub repositories, or Bitbucket repositories. You do not need to make
-  changes
-  to your existing code before you can use CodeDeploy.
-
-  CodeDeploy makes it easier for you to rapidly release new features, helps
-  you avoid downtime during application deployment, and handles the complexity of
-  updating
-  your applications, without many of the risks associated with error-prone manual
-  deployments.
-
-  ## CodeDeploy Components
-
-  Use the information in this guide to help you work with the following CodeDeploy
-  components:
-
-    *
-
-  **Application**: A name that uniquely identifies
-  the application you want to deploy. CodeDeploy uses this name, which
-  functions as a container, to ensure the correct combination of revision,
-  deployment configuration, and deployment group are referenced during a
-  deployment.
-
-    *
-
-  **Deployment group**: A set of individual
-  instances, CodeDeploy
-  Lambda deployment configuration settings, or an Amazon ECS
-  service and network details. A Lambda deployment group specifies how
-  to route traffic to a new version of a Lambda function. An Amazon ECS deployment
-  group specifies the service created in Amazon ECS to deploy, a load balancer,
-  and a listener to reroute production
-  traffic to an updated containerized application. An Amazon EC2/On-premises
-  deployment group contains individually tagged instances, Amazon EC2 instances in
-  Amazon EC2 Auto Scaling groups, or both. All
-  deployment groups can specify optional trigger, alarm, and rollback
-  settings.
-
-    *
-
-  **Deployment configuration**: A set of deployment
-  rules and deployment success and failure conditions used by CodeDeploy during a
-  deployment.
-
-    *
-
-  **Deployment**: The process and the components used
-  when updating a Lambda function, a containerized application in an
-  Amazon ECS service, or of installing content on one or more
-  instances.
-
-    *
-
-  **Application revisions**: For an Lambda deployment, this is an AppSpec file
-  that specifies the
-  Lambda function to be updated and one or more functions to
-  validate deployment lifecycle events. For an Amazon ECS deployment, this
-  is an AppSpec file that specifies the Amazon ECS task definition,
-  container, and port where production traffic is rerouted. For an EC2/On-premises
-  deployment, this is an archive file that contains source content—source code,
-  webpages, executable files, and deployment scripts—along with an AppSpec file.
-  Revisions are stored in Amazon S3 buckets or GitHub repositories. For
-  Amazon S3, a revision is uniquely identified by its Amazon S3 object key and its
-  ETag, version, or both. For GitHub, a revision is uniquely
-  identified by its commit ID.
-
-  This guide also contains information to help you get details about the instances
-  in
-  your deployments, to make on-premises instances available for CodeDeploy
-  deployments, to get details about a Lambda function deployment, and to get
-  details about Amazon ECS service deployments.
-
-  ## CodeDeploy Information Resources
-
-    *
-
-  [CodeDeploy User Guide](https://docs.aws.amazon.com/codedeploy/latest/userguide) 
-
-    *
-
-  [CodeDeploy API Reference
-  Guide](https://docs.aws.amazon.com/codedeploy/latest/APIReference/)
-
-    *
-
-  [CLI Reference for CodeDeploy](https://docs.aws.amazon.com/cli/latest/reference/deploy/index.html)
-
-    *
-
-  [CodeDeploy Developer Forum](https://forums.aws.amazon.com/forum.jspa?forumID=179)
+  CodeDeploy is a deployment service that automates application deployments to
+  Amazon EC2 instances, on-premises instances running in your own facility,
+  serverless Lambda functions, or applications in an Amazon ECS service. You can
+  deploy a nearly unlimited variety of application content, such as an updated
+  Lambda function, updated applications in an Amazon ECS service, code, web and
+  configuration files, executables, packages, scripts, multimedia files, and so
+  on. CodeDeploy can deploy application content stored in Amazon S3 buckets,
+  GitHub repositories, or Bitbucket repositories. You do not need to make
+  changes to your existing code before you can use CodeDeploy.
   """
 
   alias AWS.Client
@@ -3589,47 +3497,50 @@ defmodule AWS.CodeDeploy do
   Adds tags to on-premises instances.
   """
   @spec add_tags_to_on_premises_instances(
-          map(),
+          AWS.Client.t(),
           add_tags_to_on_premises_instances_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_to_on_premises_instances_errors()}
   def add_tags_to_on_premises_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTagsToOnPremisesInstances", input, options)
   end
 
   @doc """
-  Gets information about one or more application revisions.
-
-  The maximum number of
+  Gets information about one or more application revisions. The maximum number of
   application revisions that can be returned is 25.
   """
-  @spec batch_get_application_revisions(map(), batch_get_application_revisions_input(), list()) ::
+  @spec batch_get_application_revisions(
+          AWS.Client.t(),
+          batch_get_application_revisions_input(),
+          Keyword.t()
+        ) ::
           {:ok, batch_get_application_revisions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_application_revisions_errors()}
   def batch_get_application_revisions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetApplicationRevisions", input, options)
   end
 
   @doc """
-  Gets information about one or more applications.
-
-  The maximum number of applications
-  that can be returned is 100.
+  Gets information about one or more applications. The maximum number of
+  applications that can be returned is 100.
   """
-  @spec batch_get_applications(map(), batch_get_applications_input(), list()) ::
+  @spec batch_get_applications(AWS.Client.t(), batch_get_applications_input(), Keyword.t()) ::
           {:ok, batch_get_applications_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_applications_errors()}
   def batch_get_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetApplications", input, options)
   end
@@ -3637,129 +3548,110 @@ defmodule AWS.CodeDeploy do
   @doc """
   Gets information about one or more deployment groups.
   """
-  @spec batch_get_deployment_groups(map(), batch_get_deployment_groups_input(), list()) ::
+  @spec batch_get_deployment_groups(
+          AWS.Client.t(),
+          batch_get_deployment_groups_input(),
+          Keyword.t()
+        ) ::
           {:ok, batch_get_deployment_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_deployment_groups_errors()}
   def batch_get_deployment_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetDeploymentGroups", input, options)
   end
 
   @doc """
-
-  This method works, but is deprecated.
-
-  Use `BatchGetDeploymentTargets`
-  instead.
-
-  Returns an array of one or more instances associated with a deployment. This
-  method
-  works with EC2/On-premises and Lambda compute platforms. The newer
-  `BatchGetDeploymentTargets` works with all compute platforms. The maximum
-  number of instances that can be returned is 25.
+  This method works, but is deprecated. Use `BatchGetDeploymentTargets` instead.
   """
-  @spec batch_get_deployment_instances(map(), batch_get_deployment_instances_input(), list()) ::
+  @spec batch_get_deployment_instances(
+          AWS.Client.t(),
+          batch_get_deployment_instances_input(),
+          Keyword.t()
+        ) ::
           {:ok, batch_get_deployment_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_deployment_instances_errors()}
   def batch_get_deployment_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetDeploymentInstances", input, options)
   end
 
   @doc """
-  Returns an array of one or more targets associated with a deployment.
-
-  This method
-  works with all compute types and should be used instead of the deprecated
-  `BatchGetDeploymentInstances`. The maximum number of targets that can be
-  returned is 25.
-
-  The type of targets returned depends on the deployment's compute platform or
-  deployment method:
-
-    *
-
-  **EC2/On-premises**: Information about Amazon EC2 instance targets.
-
-    *
-
-  **Lambda**: Information about
-  Lambda functions targets.
-
-    *
-
-  **Amazon ECS**: Information about Amazon ECS service targets.
-
-    *
-
-  **CloudFormation**: Information about
-  targets of blue/green deployments initiated by a CloudFormation stack
-  update.
+  Returns an array of one or more targets associated with a deployment. This
+  method works with all compute types and should be used instead of the
+  deprecated `BatchGetDeploymentInstances`. The maximum number of targets that
+  can be returned is 25. The type of targets returned depends on the
+  deployment's compute platform or deployment method:
   """
-  @spec batch_get_deployment_targets(map(), batch_get_deployment_targets_input(), list()) ::
+  @spec batch_get_deployment_targets(
+          AWS.Client.t(),
+          batch_get_deployment_targets_input(),
+          Keyword.t()
+        ) ::
           {:ok, batch_get_deployment_targets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_deployment_targets_errors()}
   def batch_get_deployment_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetDeploymentTargets", input, options)
   end
 
   @doc """
-  Gets information about one or more deployments.
-
-  The maximum number of deployments that
-  can be returned is 25.
+  Gets information about one or more deployments. The maximum number of
+  deployments that can be returned is 25.
   """
-  @spec batch_get_deployments(map(), batch_get_deployments_input(), list()) ::
+  @spec batch_get_deployments(AWS.Client.t(), batch_get_deployments_input(), Keyword.t()) ::
           {:ok, batch_get_deployments_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_deployments_errors()}
   def batch_get_deployments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetDeployments", input, options)
   end
 
   @doc """
-  Gets information about one or more on-premises instances.
-
-  The maximum number of
+  Gets information about one or more on-premises instances. The maximum number of
   on-premises instances that can be returned is 25.
   """
-  @spec batch_get_on_premises_instances(map(), batch_get_on_premises_instances_input(), list()) ::
+  @spec batch_get_on_premises_instances(
+          AWS.Client.t(),
+          batch_get_on_premises_instances_input(),
+          Keyword.t()
+        ) ::
           {:ok, batch_get_on_premises_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_on_premises_instances_errors()}
   def batch_get_on_premises_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetOnPremisesInstances", input, options)
   end
 
   @doc """
   For a blue/green deployment, starts the process of rerouting traffic from
-  instances in
-  the original environment to instances in the replacement environment without
-  waiting for
-  a specified wait time to elapse.
-
-  (Traffic rerouting, which is achieved by registering
-  instances in the replacement environment with the load balancer, can start as
-  soon as
-  all instances have a status of Ready.)
+  instances in the original environment to instances in the replacement
+  environment without waiting for a specified wait time to elapse. (Traffic
+  rerouting, which is achieved by registering instances in the replacement
+  environment with the load balancer, can start as soon as all instances have a
+  status of Ready.)
   """
-  @spec continue_deployment(map(), continue_deployment_input(), list()) ::
+  @spec continue_deployment(AWS.Client.t(), continue_deployment_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, continue_deployment_errors()}
   def continue_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ContinueDeployment", input, options)
   end
@@ -3767,12 +3659,13 @@ defmodule AWS.CodeDeploy do
   @doc """
   Creates an application.
   """
-  @spec create_application(map(), create_application_input(), list()) ::
+  @spec create_application(AWS.Client.t(), create_application_input(), Keyword.t()) ::
           {:ok, create_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApplication", input, options)
   end
@@ -3780,12 +3673,13 @@ defmodule AWS.CodeDeploy do
   @doc """
   Deploys an application revision through the specified deployment group.
   """
-  @spec create_deployment(map(), create_deployment_input(), list()) ::
+  @spec create_deployment(AWS.Client.t(), create_deployment_input(), Keyword.t()) ::
           {:ok, create_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deployment_errors()}
   def create_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDeployment", input, options)
   end
@@ -3793,12 +3687,13 @@ defmodule AWS.CodeDeploy do
   @doc """
   Creates a deployment configuration.
   """
-  @spec create_deployment_config(map(), create_deployment_config_input(), list()) ::
+  @spec create_deployment_config(AWS.Client.t(), create_deployment_config_input(), Keyword.t()) ::
           {:ok, create_deployment_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deployment_config_errors()}
   def create_deployment_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDeploymentConfig", input, options)
   end
@@ -3806,12 +3701,13 @@ defmodule AWS.CodeDeploy do
   @doc """
   Creates a deployment group to which application revisions are deployed.
   """
-  @spec create_deployment_group(map(), create_deployment_group_input(), list()) ::
+  @spec create_deployment_group(AWS.Client.t(), create_deployment_group_input(), Keyword.t()) ::
           {:ok, create_deployment_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deployment_group_errors()}
   def create_deployment_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDeploymentGroup", input, options)
   end
@@ -3819,29 +3715,27 @@ defmodule AWS.CodeDeploy do
   @doc """
   Deletes an application.
   """
-  @spec delete_application(map(), delete_application_input(), list()) ::
+  @spec delete_application(AWS.Client.t(), delete_application_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplication", input, options)
   end
 
   @doc """
   Deletes a deployment configuration.
-
-  A deployment configuration cannot be deleted if it is currently in use.
-  Predefined
-  configurations cannot be deleted.
   """
-  @spec delete_deployment_config(map(), delete_deployment_config_input(), list()) ::
+  @spec delete_deployment_config(AWS.Client.t(), delete_deployment_config_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_deployment_config_errors()}
   def delete_deployment_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDeploymentConfig", input, options)
   end
@@ -3849,12 +3743,13 @@ defmodule AWS.CodeDeploy do
   @doc """
   Deletes a deployment group.
   """
-  @spec delete_deployment_group(map(), delete_deployment_group_input(), list()) ::
+  @spec delete_deployment_group(AWS.Client.t(), delete_deployment_group_input(), Keyword.t()) ::
           {:ok, delete_deployment_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_deployment_group_errors()}
   def delete_deployment_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDeploymentGroup", input, options)
   end
@@ -3862,33 +3757,35 @@ defmodule AWS.CodeDeploy do
   @doc """
   Deletes a GitHub account connection.
   """
-  @spec delete_git_hub_account_token(map(), delete_git_hub_account_token_input(), list()) ::
+  @spec delete_git_hub_account_token(
+          AWS.Client.t(),
+          delete_git_hub_account_token_input(),
+          Keyword.t()
+        ) ::
           {:ok, delete_git_hub_account_token_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_git_hub_account_token_errors()}
   def delete_git_hub_account_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGitHubAccountToken", input, options)
   end
 
   @doc """
-  Deletes resources linked to an external ID.
-
-  This action only applies if you have
+  Deletes resources linked to an external ID. This action only applies if you have
   configured blue/green deployments through CloudFormation.
-
-  It is not necessary to call this action directly. CloudFormation calls it
-  on your behalf when it needs to delete stack resources. This action is offered
-  publicly in case you need to delete resources to comply with General Data
-  Protection
-  Regulation (GDPR) requirements.
   """
-  @spec delete_resources_by_external_id(map(), delete_resources_by_external_id_input(), list()) ::
+  @spec delete_resources_by_external_id(
+          AWS.Client.t(),
+          delete_resources_by_external_id_input(),
+          Keyword.t()
+        ) ::
           {:ok, delete_resources_by_external_id_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def delete_resources_by_external_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcesByExternalId", input, options)
   end
@@ -3896,12 +3793,17 @@ defmodule AWS.CodeDeploy do
   @doc """
   Deregisters an on-premises instance.
   """
-  @spec deregister_on_premises_instance(map(), deregister_on_premises_instance_input(), list()) ::
+  @spec deregister_on_premises_instance(
+          AWS.Client.t(),
+          deregister_on_premises_instance_input(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_on_premises_instance_errors()}
   def deregister_on_premises_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterOnPremisesInstance", input, options)
   end
@@ -3909,12 +3811,13 @@ defmodule AWS.CodeDeploy do
   @doc """
   Gets information about an application.
   """
-  @spec get_application(map(), get_application_input(), list()) ::
+  @spec get_application(AWS.Client.t(), get_application_input(), Keyword.t()) ::
           {:ok, get_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_errors()}
   def get_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetApplication", input, options)
   end
@@ -3922,30 +3825,27 @@ defmodule AWS.CodeDeploy do
   @doc """
   Gets information about an application revision.
   """
-  @spec get_application_revision(map(), get_application_revision_input(), list()) ::
+  @spec get_application_revision(AWS.Client.t(), get_application_revision_input(), Keyword.t()) ::
           {:ok, get_application_revision_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_revision_errors()}
   def get_application_revision(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetApplicationRevision", input, options)
   end
 
   @doc """
   Gets information about a deployment.
-
-  The `content` property of the `appSpecContent` object in
-  the returned revision is always null. Use `GetApplicationRevision` and
-  the `sha256` property of the returned `appSpecContent` object
-  to get the content of the deployment’s AppSpec file.
   """
-  @spec get_deployment(map(), get_deployment_input(), list()) ::
+  @spec get_deployment(AWS.Client.t(), get_deployment_input(), Keyword.t()) ::
           {:ok, get_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_errors()}
   def get_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeployment", input, options)
   end
@@ -3953,12 +3853,13 @@ defmodule AWS.CodeDeploy do
   @doc """
   Gets information about a deployment configuration.
   """
-  @spec get_deployment_config(map(), get_deployment_config_input(), list()) ::
+  @spec get_deployment_config(AWS.Client.t(), get_deployment_config_input(), Keyword.t()) ::
           {:ok, get_deployment_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_config_errors()}
   def get_deployment_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeploymentConfig", input, options)
   end
@@ -3966,12 +3867,13 @@ defmodule AWS.CodeDeploy do
   @doc """
   Gets information about a deployment group.
   """
-  @spec get_deployment_group(map(), get_deployment_group_input(), list()) ::
+  @spec get_deployment_group(AWS.Client.t(), get_deployment_group_input(), Keyword.t()) ::
           {:ok, get_deployment_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_group_errors()}
   def get_deployment_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeploymentGroup", input, options)
   end
@@ -3979,12 +3881,13 @@ defmodule AWS.CodeDeploy do
   @doc """
   Gets information about an instance as part of a deployment.
   """
-  @spec get_deployment_instance(map(), get_deployment_instance_input(), list()) ::
+  @spec get_deployment_instance(AWS.Client.t(), get_deployment_instance_input(), Keyword.t()) ::
           {:ok, get_deployment_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_instance_errors()}
   def get_deployment_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeploymentInstance", input, options)
   end
@@ -3992,12 +3895,13 @@ defmodule AWS.CodeDeploy do
   @doc """
   Returns information about a deployment target.
   """
-  @spec get_deployment_target(map(), get_deployment_target_input(), list()) ::
+  @spec get_deployment_target(AWS.Client.t(), get_deployment_target_input(), Keyword.t()) ::
           {:ok, get_deployment_target_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_target_errors()}
   def get_deployment_target(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeploymentTarget", input, options)
   end
@@ -4005,12 +3909,13 @@ defmodule AWS.CodeDeploy do
   @doc """
   Gets information about an on-premises instance.
   """
-  @spec get_on_premises_instance(map(), get_on_premises_instance_input(), list()) ::
+  @spec get_on_premises_instance(AWS.Client.t(), get_on_premises_instance_input(), Keyword.t()) ::
           {:ok, get_on_premises_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_on_premises_instance_errors()}
   def get_on_premises_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOnPremisesInstance", input, options)
   end
@@ -4018,12 +3923,17 @@ defmodule AWS.CodeDeploy do
   @doc """
   Lists information about revisions for an application.
   """
-  @spec list_application_revisions(map(), list_application_revisions_input(), list()) ::
+  @spec list_application_revisions(
+          AWS.Client.t(),
+          list_application_revisions_input(),
+          Keyword.t()
+        ) ::
           {:ok, list_application_revisions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_revisions_errors()}
   def list_application_revisions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApplicationRevisions", input, options)
   end
@@ -4031,12 +3941,13 @@ defmodule AWS.CodeDeploy do
   @doc """
   Lists the applications registered with the user or Amazon Web Services account.
   """
-  @spec list_applications(map(), list_applications_input(), list()) ::
+  @spec list_applications(AWS.Client.t(), list_applications_input(), Keyword.t()) ::
           {:ok, list_applications_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApplications", input, options)
   end
@@ -4045,49 +3956,44 @@ defmodule AWS.CodeDeploy do
   Lists the deployment configurations with the user or Amazon Web Services
   account.
   """
-  @spec list_deployment_configs(map(), list_deployment_configs_input(), list()) ::
+  @spec list_deployment_configs(AWS.Client.t(), list_deployment_configs_input(), Keyword.t()) ::
           {:ok, list_deployment_configs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployment_configs_errors()}
   def list_deployment_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeploymentConfigs", input, options)
   end
 
   @doc """
   Lists the deployment groups for an application registered with the Amazon Web
-  Services
-  user or Amazon Web Services account.
+  Services user or Amazon Web Services account.
   """
-  @spec list_deployment_groups(map(), list_deployment_groups_input(), list()) ::
+  @spec list_deployment_groups(AWS.Client.t(), list_deployment_groups_input(), Keyword.t()) ::
           {:ok, list_deployment_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployment_groups_errors()}
   def list_deployment_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeploymentGroups", input, options)
   end
 
   @doc """
-
-  The newer `BatchGetDeploymentTargets` should be used instead because
-  it works with all compute types.
-
-  `ListDeploymentInstances` throws an
-  exception if it is used with a compute platform other than EC2/On-premises or
-  Lambda.
-
-  Lists the instance for a deployment associated with the user or Amazon Web
-  Services account.
+  The newer `BatchGetDeploymentTargets` should be used instead because it works
+  with all compute types. `ListDeploymentInstances` throws an exception if it is
+  used with a compute platform other than EC2/On-premises or Lambda.
   """
-  @spec list_deployment_instances(map(), list_deployment_instances_input(), list()) ::
+  @spec list_deployment_instances(AWS.Client.t(), list_deployment_instances_input(), Keyword.t()) ::
           {:ok, list_deployment_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployment_instances_errors()}
   def list_deployment_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeploymentInstances", input, options)
   end
@@ -4095,27 +4001,28 @@ defmodule AWS.CodeDeploy do
   @doc """
   Returns an array of target IDs that are associated a deployment.
   """
-  @spec list_deployment_targets(map(), list_deployment_targets_input(), list()) ::
+  @spec list_deployment_targets(AWS.Client.t(), list_deployment_targets_input(), Keyword.t()) ::
           {:ok, list_deployment_targets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployment_targets_errors()}
   def list_deployment_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeploymentTargets", input, options)
   end
 
   @doc """
   Lists the deployments in a deployment group for an application registered with
-  the
-  user or Amazon Web Services account.
+  the user or Amazon Web Services account.
   """
-  @spec list_deployments(map(), list_deployments_input(), list()) ::
+  @spec list_deployments(AWS.Client.t(), list_deployments_input(), Keyword.t()) ::
           {:ok, list_deployments_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployments_errors()}
   def list_deployments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeployments", input, options)
   end
@@ -4123,78 +4030,79 @@ defmodule AWS.CodeDeploy do
   @doc """
   Lists the names of stored connections to GitHub accounts.
   """
-  @spec list_git_hub_account_token_names(map(), list_git_hub_account_token_names_input(), list()) ::
+  @spec list_git_hub_account_token_names(
+          AWS.Client.t(),
+          list_git_hub_account_token_names_input(),
+          Keyword.t()
+        ) ::
           {:ok, list_git_hub_account_token_names_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_git_hub_account_token_names_errors()}
   def list_git_hub_account_token_names(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGitHubAccountTokenNames", input, options)
   end
 
   @doc """
   Gets a list of names for one or more on-premises instances.
-
-  Unless otherwise specified, both registered and deregistered on-premises
-  instance
-  names are listed. To list only registered or deregistered on-premises instance
-  names,
-  use the registration status parameter.
   """
-  @spec list_on_premises_instances(map(), list_on_premises_instances_input(), list()) ::
+  @spec list_on_premises_instances(
+          AWS.Client.t(),
+          list_on_premises_instances_input(),
+          Keyword.t()
+        ) ::
           {:ok, list_on_premises_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_on_premises_instances_errors()}
   def list_on_premises_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOnPremisesInstances", input, options)
   end
 
   @doc """
   Returns a list of tags for the resource identified by a specified Amazon
-  Resource
-  Name (ARN).
-
-  Tags are used to organize and categorize your CodeDeploy resources.
+  Resource Name (ARN). Tags are used to organize and categorize your CodeDeploy
+  resources.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_input(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
-  Sets the result of a Lambda validation function.
-
-  The function validates
+  Sets the result of a Lambda validation function. The function validates
   lifecycle hooks during a deployment that uses the Lambda or Amazon ECS compute
-  platform. For Lambda deployments, the available
-  lifecycle hooks are `BeforeAllowTraffic` and `AfterAllowTraffic`.
-  For Amazon ECS deployments, the available lifecycle hooks are
-  `BeforeInstall`, `AfterInstall`,
-  `AfterAllowTestTraffic`, `BeforeAllowTraffic`, and
-  `AfterAllowTraffic`. Lambda validation functions return
-  `Succeeded` or `Failed`. For more information, see [AppSpec 'hooks' Section for an Lambda Deployment
+  platform. For Lambda deployments, the available lifecycle hooks are
+  `BeforeAllowTraffic` and `AfterAllowTraffic`. For Amazon ECS deployments, the
+  available lifecycle hooks are `BeforeInstall`, `AfterInstall`,
+  `AfterAllowTestTraffic`, `BeforeAllowTraffic`, and `AfterAllowTraffic`. Lambda
+  validation functions return `Succeeded` or `Failed`. For more information, see
+  [AppSpec 'hooks' Section for an Lambda Deployment
   ](https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-lambda)
-  and
-  [AppSpec 'hooks' Section for an Amazon ECS Deployment](https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-ecs).
+  and [AppSpec 'hooks' Section for an Amazon ECS
+  Deployment](https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-ecs).
   """
   @spec put_lifecycle_event_hook_execution_status(
-          map(),
+          AWS.Client.t(),
           put_lifecycle_event_hook_execution_status_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_lifecycle_event_hook_execution_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_lifecycle_event_hook_execution_status_errors()}
   def put_lifecycle_event_hook_execution_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutLifecycleEventHookExecutionStatus", input, options)
   end
@@ -4202,28 +4110,35 @@ defmodule AWS.CodeDeploy do
   @doc """
   Registers with CodeDeploy a revision for the specified application.
   """
-  @spec register_application_revision(map(), register_application_revision_input(), list()) ::
+  @spec register_application_revision(
+          AWS.Client.t(),
+          register_application_revision_input(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_application_revision_errors()}
   def register_application_revision(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterApplicationRevision", input, options)
   end
 
   @doc """
   Registers an on-premises instance.
-
-  Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported in the
-  request. You cannot use both.
   """
-  @spec register_on_premises_instance(map(), register_on_premises_instance_input(), list()) ::
+  @spec register_on_premises_instance(
+          AWS.Client.t(),
+          register_on_premises_instance_input(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_on_premises_instance_errors()}
   def register_on_premises_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterOnPremisesInstance", input, options)
   end
@@ -4232,34 +4147,35 @@ defmodule AWS.CodeDeploy do
   Removes one or more tags from one or more on-premises instances.
   """
   @spec remove_tags_from_on_premises_instances(
-          map(),
+          AWS.Client.t(),
           remove_tags_from_on_premises_instances_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_from_on_premises_instances_errors()}
   def remove_tags_from_on_premises_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromOnPremisesInstances", input, options)
   end
 
   @doc """
   In a blue/green deployment, overrides any specified wait time and starts
-  terminating
-  instances immediately after the traffic routing is complete.
+  terminating instances immediately after the traffic routing is complete.
   """
   @spec skip_wait_time_for_instance_termination(
-          map(),
+          AWS.Client.t(),
           skip_wait_time_for_instance_termination_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, skip_wait_time_for_instance_termination_errors()}
   def skip_wait_time_for_instance_termination(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SkipWaitTimeForInstanceTermination", input, options)
   end
@@ -4267,43 +4183,44 @@ defmodule AWS.CodeDeploy do
   @doc """
   Attempts to stop an ongoing deployment.
   """
-  @spec stop_deployment(map(), stop_deployment_input(), list()) ::
+  @spec stop_deployment(AWS.Client.t(), stop_deployment_input(), Keyword.t()) ::
           {:ok, stop_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_deployment_errors()}
   def stop_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopDeployment", input, options)
   end
 
   @doc """
-  Associates the list of tags in the input `Tags` parameter with the
-  resource identified by the `ResourceArn` input parameter.
+  Associates the list of tags in the input `Tags` parameter with the resource
+  identified by the `ResourceArn` input parameter.
   """
-  @spec tag_resource(map(), tag_resource_input(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_input(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
-  Disassociates a resource from a list of tags.
-
-  The resource is identified by the
-  `ResourceArn` input parameter. The tags are identified by the list of
-  keys in the `TagKeys` input parameter.
+  Disassociates a resource from a list of tags. The resource is identified by the
+  `ResourceArn` input parameter. The tags are identified by the list of keys in
+  the `TagKeys` input parameter.
   """
-  @spec untag_resource(map(), untag_resource_input(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4311,12 +4228,13 @@ defmodule AWS.CodeDeploy do
   @doc """
   Changes the name of an application.
   """
-  @spec update_application(map(), update_application_input(), list()) ::
+  @spec update_application(AWS.Client.t(), update_application_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApplication", input, options)
   end
@@ -4324,12 +4242,13 @@ defmodule AWS.CodeDeploy do
   @doc """
   Changes information about a deployment group.
   """
-  @spec update_deployment_group(map(), update_deployment_group_input(), list()) ::
+  @spec update_deployment_group(AWS.Client.t(), update_deployment_group_input(), Keyword.t()) ::
           {:ok, update_deployment_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_deployment_group_errors()}
   def update_deployment_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDeploymentGroup", input, options)
   end

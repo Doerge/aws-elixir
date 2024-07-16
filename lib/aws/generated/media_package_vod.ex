@@ -897,8 +897,15 @@ defmodule AWS.MediaPackageVod do
 
   @doc """
   Changes the packaging group's properities to configure log subscription
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20ConfigureLogs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec configure_logs(map(), String.t(), configure_logs_request(), list()) ::
+  @spec configure_logs(AWS.Client.t(), String.t(), configure_logs_request(), Keyword.t()) ::
           {:ok, configure_logs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, configure_logs_errors()}
@@ -907,15 +914,22 @@ defmodule AWS.MediaPackageVod do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a new MediaPackage VOD Asset resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20CreateAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_asset(map(), create_asset_request(), list()) ::
+  @spec create_asset(AWS.Client.t(), create_asset_request(), Keyword.t()) ::
           {:ok, create_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_asset_errors()}
@@ -924,7 +938,8 @@ defmodule AWS.MediaPackageVod do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -941,8 +956,18 @@ defmodule AWS.MediaPackageVod do
 
   @doc """
   Creates a new MediaPackage VOD PackagingConfiguration resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20CreatePackagingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_packaging_configuration(map(), create_packaging_configuration_request(), list()) ::
+  @spec create_packaging_configuration(
+          AWS.Client.t(),
+          create_packaging_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_packaging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_packaging_configuration_errors()}
@@ -951,7 +976,8 @@ defmodule AWS.MediaPackageVod do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -968,8 +994,14 @@ defmodule AWS.MediaPackageVod do
 
   @doc """
   Creates a new MediaPackage VOD PackagingGroup resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20CreatePackagingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_packaging_group(map(), create_packaging_group_request(), list()) ::
+  @spec create_packaging_group(AWS.Client.t(), create_packaging_group_request(), Keyword.t()) ::
           {:ok, create_packaging_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_packaging_group_errors()}
@@ -978,7 +1010,8 @@ defmodule AWS.MediaPackageVod do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -995,8 +1028,15 @@ defmodule AWS.MediaPackageVod do
 
   @doc """
   Deletes an existing MediaPackage VOD Asset resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20DeleteAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_asset(map(), String.t(), delete_asset_request(), list()) ::
+  @spec delete_asset(AWS.Client.t(), String.t(), delete_asset_request(), Keyword.t()) ::
           {:ok, delete_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_asset_errors()}
@@ -1005,7 +1045,8 @@ defmodule AWS.MediaPackageVod do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1022,12 +1063,19 @@ defmodule AWS.MediaPackageVod do
 
   @doc """
   Deletes a MediaPackage VOD PackagingConfiguration resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20DeletePackagingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec delete_packaging_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_packaging_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_packaging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1037,7 +1085,8 @@ defmodule AWS.MediaPackageVod do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1054,8 +1103,20 @@ defmodule AWS.MediaPackageVod do
 
   @doc """
   Deletes a MediaPackage VOD PackagingGroup resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20DeletePackagingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_packaging_group(map(), String.t(), delete_packaging_group_request(), list()) ::
+  @spec delete_packaging_group(
+          AWS.Client.t(),
+          String.t(),
+          delete_packaging_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_packaging_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_packaging_group_errors()}
@@ -1064,7 +1125,8 @@ defmodule AWS.MediaPackageVod do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1081,207 +1143,381 @@ defmodule AWS.MediaPackageVod do
 
   @doc """
   Returns a description of a MediaPackage VOD Asset resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20DescribeAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_asset(map(), String.t(), list()) ::
+  @spec describe_asset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_asset_errors()}
   def describe_asset(%Client{} = client, id, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a description of a MediaPackage VOD PackagingConfiguration resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20DescribePackagingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_packaging_configuration(map(), String.t(), list()) ::
+  @spec describe_packaging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_packaging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_packaging_configuration_errors()}
   def describe_packaging_configuration(%Client{} = client, id, options \\ []) do
     url_path = "/packaging_configurations/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a description of a MediaPackage VOD PackagingGroup resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20DescribePackagingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_packaging_group(map(), String.t(), list()) ::
+  @spec describe_packaging_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_packaging_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_packaging_group_errors()}
   def describe_packaging_group(%Client{} = client, id, options \\ []) do
     url_path = "/packaging_groups/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a collection of MediaPackage VOD Asset resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20ListAssets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:packaging_group_id` (`t:string`)
   """
-  @spec list_assets(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_assets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assets_errors()}
-  def list_assets(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        packaging_group_id \\ nil,
-        options \\ []
-      ) do
+  def list_assets(%Client{} = client, options \\ []) do
     url_path = "/assets"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, packaging_group_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(packaging_group_id) do
-        [{"packagingGroupId", packaging_group_id} | query_params]
+      if opt_val = Keyword.get(options, :packaging_group_id) do
+        [{"packagingGroupId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :packaging_group_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a collection of MediaPackage VOD PackagingConfiguration resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20ListPackagingConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:packaging_group_id` (`t:string`)
   """
-  @spec list_packaging_configurations(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_packaging_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_packaging_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_packaging_configurations_errors()}
-  def list_packaging_configurations(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        packaging_group_id \\ nil,
-        options \\ []
-      ) do
+  def list_packaging_configurations(%Client{} = client, options \\ []) do
     url_path = "/packaging_configurations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, packaging_group_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(packaging_group_id) do
-        [{"packagingGroupId", packaging_group_id} | query_params]
+      if opt_val = Keyword.get(options, :packaging_group_id) do
+        [{"packagingGroupId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :packaging_group_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a collection of MediaPackage VOD PackagingGroup resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20ListPackagingGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_packaging_groups(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_packaging_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_packaging_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_packaging_groups_errors()}
-  def list_packaging_groups(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_packaging_groups(%Client{} = client, options \\ []) do
     url_path = "/packaging_groups"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of the tags assigned to the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Adds tags to the specified resource.
+  Adds tags to the specified resource. You can specify one or more tags to add.
 
-  You can specify one or more tags to add.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
@@ -1289,7 +1525,8 @@ defmodule AWS.MediaPackageVod do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1305,11 +1542,18 @@ defmodule AWS.MediaPackageVod do
   end
 
   @doc """
-  Removes tags from the specified resource.
+  Removes tags from the specified resource. You can specify one or more tags to
+  remove.
 
-  You can specify one or more tags to remove.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
+  * `:tag_keys` (`t:list[com.amazonaws.mediapackagevod#__string]`)
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
@@ -1322,7 +1566,8 @@ defmodule AWS.MediaPackageVod do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1338,11 +1583,22 @@ defmodule AWS.MediaPackageVod do
   end
 
   @doc """
-  Updates a specific packaging group.
+  Updates a specific packaging group. You can't change the id attribute or any
+  other system-generated attributes.
 
-  You can't change the id attribute or any other system-generated attributes.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20UpdatePackagingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_packaging_group(map(), String.t(), update_packaging_group_request(), list()) ::
+  @spec update_packaging_group(
+          AWS.Client.t(),
+          String.t(),
+          update_packaging_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_packaging_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_packaging_group_errors()}
@@ -1351,7 +1607,8 @@ defmodule AWS.MediaPackageVod do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

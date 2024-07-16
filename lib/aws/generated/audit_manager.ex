@@ -3,55 +3,12 @@
 
 defmodule AWS.AuditManager do
   @moduledoc """
-  Welcome to the Audit Manager API reference.
-
-  This guide is for developers who
+  Welcome to the Audit Manager API reference. This guide is for developers who
   need detailed information about the Audit Manager API operations, data types,
-  and
-  errors.
-
-  Audit Manager is a service that provides automated evidence collection so that
-  you
-  can continually audit your Amazon Web Services usage. You can use it to assess
-  the
-  effectiveness of your controls, manage risk, and simplify compliance.
-
-  Audit Manager provides prebuilt frameworks that structure and automate
-  assessments
-  for a given compliance standard. Frameworks include a prebuilt collection of
-  controls with
-  descriptions and testing procedures. These controls are grouped according to the
-  requirements of the specified compliance standard or regulation. You can also
-  customize
-  frameworks and controls to support internal audits with specific requirements.
-
-  Use the following links to get started with the Audit Manager API:
-
-    *
-
-  [Actions](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Operations.html): An
-  alphabetical list of all Audit Manager API operations.
-
-    *
-
-  [Data
-  types](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Types.html):
-  An alphabetical list of all Audit Manager data
-  types.
-
-    *
-
-  [Common parameters](https://docs.aws.amazon.com/audit-manager/latest/APIReference/CommonParameters.html):
-  Parameters that all operations can use.
-
-    *
-
-  [Common errors](https://docs.aws.amazon.com/audit-manager/latest/APIReference/CommonErrors.html):
-  Client and server errors that all operations can return.
-
-  If you're new to Audit Manager, we recommend that you review the [
-  Audit Manager User
-  Guide](https://docs.aws.amazon.com/audit-manager/latest/userguide/what-is.html).
+  and errors. Audit Manager is a service that provides automated evidence
+  collection so that you can continually audit your Amazon Web Services usage.
+  You can use it to assess the effectiveness of your controls, manage risk, and
+  simplify compliance.
   """
 
   alias AWS.Client
@@ -2720,12 +2677,19 @@ defmodule AWS.AuditManager do
   @doc """
   Associates an evidence folder to an assessment report in an Audit Manager
   assessment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20AssociateAssessmentReportEvidenceFolder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The identifier for the assessment.
+
+  ## Optional parameters:
   """
   @spec associate_assessment_report_evidence_folder(
-          map(),
+          AWS.Client.t(),
           String.t(),
           associate_assessment_report_evidence_folder_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_assessment_report_evidence_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2740,7 +2704,8 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -2748,12 +2713,19 @@ defmodule AWS.AuditManager do
   @doc """
   Associates a list of evidence to an assessment report in an Audit Manager
   assessment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20BatchAssociateAssessmentReportEvidence&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The identifier for the assessment.
+
+  ## Optional parameters:
   """
   @spec batch_associate_assessment_report_evidence(
-          map(),
+          AWS.Client.t(),
           String.t(),
           batch_associate_assessment_report_evidence_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_associate_assessment_report_evidence_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2770,19 +2742,27 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a batch of delegations for an assessment in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20BatchCreateDelegationByAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The identifier for the assessment.
+
+  ## Optional parameters:
   """
   @spec batch_create_delegation_by_assessment(
-          map(),
+          AWS.Client.t(),
           String.t(),
           batch_create_delegation_by_assessment_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_create_delegation_by_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2797,7 +2777,8 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2814,12 +2795,19 @@ defmodule AWS.AuditManager do
 
   @doc """
   Deletes a batch of delegations for an assessment in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20BatchDeleteDelegationByAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The identifier for the assessment.
+
+  ## Optional parameters:
   """
   @spec batch_delete_delegation_by_assessment(
-          map(),
+          AWS.Client.t(),
           String.t(),
           batch_delete_delegation_by_assessment_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_delete_delegation_by_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2834,19 +2822,27 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Disassociates a list of evidence from an assessment report in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20BatchDisassociateAssessmentReportEvidence&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The identifier for the assessment.
+
+  ## Optional parameters:
   """
   @spec batch_disassociate_assessment_report_evidence(
-          map(),
+          AWS.Client.t(),
           String.t(),
           batch_disassociate_assessment_report_evidence_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_disassociate_assessment_report_evidence_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2863,48 +2859,34 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Adds one or more pieces of evidence to a control in an Audit Manager assessment.
-
   You can import manual evidence from any S3 bucket by specifying the S3 URI of
-  the
-  object. You can also upload a file from your browser, or enter plain text in
-  response to a
-  risk assessment question.
+  the object. You can also upload a file from your browser, or enter plain text
+  in response to a risk assessment question.
 
-  The following restrictions apply to this action:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20BatchImportEvidenceToAssessmentControl&this_doc_guide=API%2520Reference)
 
-    *
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The identifier for the assessment.
+  * `:control_id` (`t:string`) The identifier for the control.
+  * `:control_set_id` (`t:string`) The identifier for the control set.
 
-  `manualEvidence` can be only one of the following:
-  `evidenceFileName`, `s3ResourcePath`, or
-  `textResponse`
-
-    *
-  Maximum size of an individual evidence file: 100 MB
-
-    *
-  Number of daily manual evidence uploads per control: 100
-
-    *
-  Supported file formats: See [Supported file types for manual evidence](https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files)
-  in the *Audit Manager User Guide*
-
-  For more information about Audit Manager service restrictions, see [Quotas and restrictions for Audit
-  Manager](https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html).
+  ## Optional parameters:
   """
   @spec batch_import_evidence_to_assessment_control(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           batch_import_evidence_to_assessment_control_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_import_evidence_to_assessment_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2923,7 +2905,8 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2940,8 +2923,14 @@ defmodule AWS.AuditManager do
 
   @doc """
   Creates an assessment in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20CreateAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_assessment(map(), create_assessment_request(), list()) ::
+  @spec create_assessment(AWS.Client.t(), create_assessment_request(), Keyword.t()) ::
           {:ok, create_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_assessment_errors()}
@@ -2950,7 +2939,8 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2967,8 +2957,18 @@ defmodule AWS.AuditManager do
 
   @doc """
   Creates a custom framework in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20CreateAssessmentFramework&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_assessment_framework(map(), create_assessment_framework_request(), list()) ::
+  @spec create_assessment_framework(
+          AWS.Client.t(),
+          create_assessment_framework_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_assessment_framework_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_assessment_framework_errors()}
@@ -2977,7 +2977,8 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2994,8 +2995,20 @@ defmodule AWS.AuditManager do
 
   @doc """
   Creates an assessment report for the specified assessment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20CreateAssessmentReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The identifier for the assessment.
+
+  ## Optional parameters:
   """
-  @spec create_assessment_report(map(), String.t(), create_assessment_report_request(), list()) ::
+  @spec create_assessment_report(
+          AWS.Client.t(),
+          String.t(),
+          create_assessment_report_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_assessment_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_assessment_report_errors()}
@@ -3004,7 +3017,8 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3021,8 +3035,14 @@ defmodule AWS.AuditManager do
 
   @doc """
   Creates a new custom control in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20CreateControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_control(map(), create_control_request(), list()) ::
+  @spec create_control(AWS.Client.t(), create_control_request(), Keyword.t()) ::
           {:ok, create_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_control_errors()}
@@ -3031,7 +3051,8 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3048,8 +3069,15 @@ defmodule AWS.AuditManager do
 
   @doc """
   Deletes an assessment in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DeleteAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The identifier for the assessment.
+
+  ## Optional parameters:
   """
-  @spec delete_assessment(map(), String.t(), delete_assessment_request(), list()) ::
+  @spec delete_assessment(AWS.Client.t(), String.t(), delete_assessment_request(), Keyword.t()) ::
           {:ok, delete_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_assessment_errors()}
@@ -3058,7 +3086,8 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3075,12 +3104,19 @@ defmodule AWS.AuditManager do
 
   @doc """
   Deletes a custom framework in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DeleteAssessmentFramework&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:framework_id` (`t:string`) The identifier for the custom framework.
+
+  ## Optional parameters:
   """
   @spec delete_assessment_framework(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_assessment_framework_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_assessment_framework_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3090,7 +3126,8 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3107,12 +3144,22 @@ defmodule AWS.AuditManager do
 
   @doc """
   Deletes a share request for a custom framework in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DeleteAssessmentFrameworkShare&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:request_id` (`t:string`) The unique identifier for the share request to be
+    deleted.
+  * `:request_type` (`t:enum["RECEIVED|SENT"]`) Specifies whether the share
+    request is a sent request or a received request.
+
+  ## Optional parameters:
   """
   @spec delete_assessment_framework_share(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_assessment_framework_share_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_assessment_framework_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3127,7 +3174,8 @@ defmodule AWS.AuditManager do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3143,49 +3191,25 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Deletes an assessment report in Audit Manager.
+  Deletes an assessment report in Audit Manager. When you run the
+  `DeleteAssessmentReport` operation, Audit Manager attempts to delete the
+  following data:
 
-  When you run the `DeleteAssessmentReport` operation, Audit Manager
-  attempts to delete the following data:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DeleteAssessmentReport&this_doc_guide=API%2520Reference)
 
-    1.
-  The specified assessment report that’s stored in your S3 bucket
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
+  * `:assessment_report_id` (`t:string`) The unique identifier for the assessment
+    report.
 
-    2.
-  The associated metadata that’s stored in Audit Manager
-
-  If Audit Manager can’t access the assessment report in your S3 bucket, the
-  report
-  isn’t deleted. In this event, the `DeleteAssessmentReport` operation doesn’t
-  fail. Instead, it proceeds to delete the associated metadata only. You must then
-  delete the
-  assessment report from the S3 bucket yourself.
-
-  This scenario happens when Audit Manager receives a `403 (Forbidden)` or
-  `404 (Not Found)` error from Amazon S3. To avoid this, make sure that
-  your S3 bucket is available, and that you configured the correct permissions for
-  Audit Manager to delete resources in your S3 bucket. For an example permissions
-  policy that
-  you can use, see [Assessment report destination permissions](https://docs.aws.amazon.com/audit-manager/latest/userguide/security_iam_id-based-policy-examples.html#full-administrator-access-assessment-report-destination)
-  in the *Audit Manager User Guide*. For information about the issues that could
-  cause a
-
-  ```
-  403
-  (Forbidden)
-  ```
-
-  or `404 (Not Found`) error from Amazon S3, see
-  [List of Error Codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList)
-  in the *Amazon Simple Storage Service API
-  Reference*.
+  ## Optional parameters:
   """
   @spec delete_assessment_report(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_assessment_report_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_assessment_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3203,7 +3227,8 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3221,14 +3246,14 @@ defmodule AWS.AuditManager do
   @doc """
   Deletes a custom control in Audit Manager.
 
-  When you invoke this operation, the custom control is deleted from any
-  frameworks or
-  assessments that it’s currently part of. As a result, Audit Manager will stop
-  collecting evidence for that custom control in all of your assessments. This
-  includes
-  assessments that you previously created before you deleted the custom control.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DeleteControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:control_id` (`t:string`) The unique identifier for the control.
+
+  ## Optional parameters:
   """
-  @spec delete_control(map(), String.t(), delete_control_request(), list()) ::
+  @spec delete_control(AWS.Client.t(), String.t(), delete_control_request(), Keyword.t()) ::
           {:ok, delete_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_control_errors()}
@@ -3237,7 +3262,8 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3255,18 +3281,13 @@ defmodule AWS.AuditManager do
   @doc """
   Deregisters an account in Audit Manager.
 
-  Before you deregister, you can use the
-  [UpdateSettings](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateSettings.html) API operation to set your preferred data retention policy. By
-  default, Audit Manager retains your data. If you want to delete your data, you
-  can
-  use the `DeregistrationPolicy` attribute to request the deletion of your
-  data.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DeregisterAccount&this_doc_guide=API%2520Reference)
 
-  For more information about data retention, see [Data
-  Protection](https://docs.aws.amazon.com/audit-manager/latest/userguide/data-protection.html)
-  in the *Audit Manager User Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec deregister_account(map(), deregister_account_request(), list()) ::
+  @spec deregister_account(AWS.Client.t(), deregister_account_request(), Keyword.t()) ::
           {:ok, deregister_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_account_errors()}
@@ -3275,7 +3296,8 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3292,97 +3314,23 @@ defmodule AWS.AuditManager do
 
   @doc """
   Removes the specified Amazon Web Services account as a delegated administrator
-  for
-  Audit Manager.
+  for Audit Manager. When you remove a delegated administrator from your Audit
+  Manager settings, you continue to have access to the evidence that you
+  previously collected under that account. This is also the case when you
+  deregister a delegated administrator from Organizations. However, Audit
+  Manager stops collecting and attaching evidence to that delegated
+  administrator account moving forward.
 
-  When you remove a delegated administrator from your Audit Manager settings, you
-  continue to have access to the evidence that you previously collected under that
-  account.
-  This is also the case when you deregister a delegated administrator from
-  Organizations. However, Audit Manager stops collecting and attaching evidence to
-  that delegated administrator account moving forward.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DeregisterOrganizationAdminAccount&this_doc_guide=API%2520Reference)
 
-  Keep in mind the following cleanup task if you use evidence finder:
+  ## Parameters:
 
-  Before you use your management account to remove a delegated administrator, make
-  sure
-  that the current delegated administrator account signs in to Audit Manager and
-  disables evidence finder first. Disabling evidence finder automatically deletes
-  the
-  event data store that was created in their account when they enabled evidence
-  finder. If
-  this task isn’t completed, the event data store remains in their account. In
-  this case,
-  we recommend that the original delegated administrator goes to CloudTrail Lake
-  and manually [deletes the event data
-  store](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-eds-disable-termination.html).
-
-  This cleanup task is necessary to ensure that you don't end up with multiple
-  event
-  data stores. Audit Manager ignores an unused event data store after you remove
-  or
-  change a delegated administrator account. However, the unused event data store
-  continues
-  to incur storage costs from CloudTrail Lake if you don't delete it.
-
-  When you deregister a delegated administrator account for Audit Manager, the
-  data
-  for that account isn’t deleted. If you want to delete resource data for a
-  delegated
-  administrator account, you must perform that task separately before you
-  deregister the
-  account. Either, you can do this in the Audit Manager console. Or, you can use
-  one of
-  the delete API operations that are provided by Audit Manager.
-
-  To delete your Audit Manager resource data, see the following instructions:
-
-    *
-
-  [DeleteAssessment](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessment.html) (see also: [Deleting an
-  assessment](https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-assessment.html)
-  in the *Audit Manager User
-  Guide*)
-
-    *
-
-  [DeleteAssessmentFramework](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html) (see also: [Deleting a
-  custom
-  framework](https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-custom-framework.html)
-  in the *Audit Manager User
-  Guide*)
-
-    *
-
-  [DeleteAssessmentFrameworkShare](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.html) (see also: [Deleting a share
-  request](https://docs.aws.amazon.com/audit-manager/latest/userguide/deleting-shared-framework-requests.html)
-  in the *Audit Manager User
-  Guide*)
-
-    *
-
-  [DeleteAssessmentReport](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html) (see also: [Deleting an assessment
-  report](https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#delete-assessment-report-steps)
-  in the *Audit Manager User
-  Guide*)
-
-    *
-
-  [DeleteControl](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteControl.html) (see also: [Deleting a custom
-  control](https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-controls.html)
-  in the *Audit Manager User
-  Guide*)
-
-  At this time, Audit Manager doesn't provide an option to delete evidence for a
-  specific delegated administrator. Instead, when your management account
-  deregisters Audit Manager, we perform a cleanup for the current delegated
-  administrator account at the
-  time of deregistration.
+  ## Optional parameters:
   """
   @spec deregister_organization_admin_account(
-          map(),
+          AWS.Client.t(),
           deregister_organization_admin_account_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, deregister_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3392,7 +3340,8 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3410,12 +3359,19 @@ defmodule AWS.AuditManager do
   @doc """
   Disassociates an evidence folder from the specified assessment report in Audit
   Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DisassociateAssessmentReportEvidenceFolder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
+
+  ## Optional parameters:
   """
   @spec disassociate_assessment_report_evidence_folder(
-          map(),
+          AWS.Client.t(),
           String.t(),
           disassociate_assessment_report_evidence_folder_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_assessment_report_evidence_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3432,66 +3388,150 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Gets the registration status of an account in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetAccountStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_account_status(map(), list()) ::
+  @spec get_account_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_status_errors()}
   def get_account_status(%Client{} = client, options \\ []) do
     url_path = "/account/status"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a specified assessment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
+
+  ## Optional parameters:
   """
-  @spec get_assessment(map(), String.t(), list()) ::
+  @spec get_assessment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_assessment_errors()}
   def get_assessment(%Client{} = client, assessment_id, options \\ []) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a specified framework.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetAssessmentFramework&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:framework_id` (`t:string`) The identifier for the framework.
+
+  ## Optional parameters:
   """
-  @spec get_assessment_framework(map(), String.t(), list()) ::
+  @spec get_assessment_framework(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_assessment_framework_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_assessment_framework_errors()}
   def get_assessment_framework(%Client{} = client, framework_id, options \\ []) do
     url_path = "/assessmentFrameworks/#{AWS.Util.encode_uri(framework_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the URL of an assessment report in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetAssessmentReportUrl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
+  * `:assessment_report_id` (`t:string`) The unique identifier for the assessment
+    report.
+
+  ## Optional parameters:
   """
-  @spec get_assessment_report_url(map(), String.t(), String.t(), list()) ::
+  @spec get_assessment_report_url(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_assessment_report_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_assessment_report_url_errors()}
@@ -3504,127 +3544,231 @@ defmodule AWS.AuditManager do
     url_path =
       "/assessments/#{AWS.Util.encode_uri(assessment_id)}/reports/#{AWS.Util.encode_uri(assessment_report_id)}/url"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a list of changelogs from Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetChangeLogs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
+
+  ## Optional parameters:
+  * `:control_id` (`t:string`) The unique identifier for the control.
+  * `:control_set_id` (`t:string`) The unique identifier for the control set.
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
-  @spec get_change_logs(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_change_logs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_change_logs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_change_logs_errors()}
-  def get_change_logs(
-        %Client{} = client,
-        assessment_id,
-        control_id \\ nil,
-        control_set_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_change_logs(%Client{} = client, assessment_id, options \\ []) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}/changelogs"
+
+    # Validate optional parameters
+    optional_params = [control_id: nil, control_set_id: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(control_set_id) do
-        [{"controlSetId", control_set_id} | query_params]
+      if opt_val = Keyword.get(options, :control_set_id) do
+        [{"controlSetId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(control_id) do
-        [{"controlId", control_id} | query_params]
+      if opt_val = Keyword.get(options, :control_id) do
+        [{"controlId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:control_id, :control_set_id, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a specified control.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:control_id` (`t:string`) The identifier for the control.
+
+  ## Optional parameters:
   """
-  @spec get_control(map(), String.t(), list()) ::
+  @spec get_control(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_control_errors()}
   def get_control(%Client{} = client, control_id, options \\ []) do
     url_path = "/controls/#{AWS.Util.encode_uri(control_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a list of delegations from an audit owner to a delegate.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetDelegations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
-  @spec get_delegations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_delegations(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_delegations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_delegations_errors()}
-  def get_delegations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def get_delegations(%Client{} = client, options \\ []) do
     url_path = "/delegations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a specified evidence item.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetEvidence&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
+  * `:control_set_id` (`t:string`) The unique identifier for the control set.
+  * `:evidence_folder_id` (`t:string`) The unique identifier for the folder that
+    the evidence is stored in.
+  * `:evidence_id` (`t:string`) The unique identifier for the evidence.
+
+  ## Optional parameters:
   """
-  @spec get_evidence(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_evidence(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_evidence_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_evidence_errors()}
@@ -3639,25 +3783,54 @@ defmodule AWS.AuditManager do
     url_path =
       "/assessments/#{AWS.Util.encode_uri(assessment_id)}/controlSets/#{AWS.Util.encode_uri(control_set_id)}/evidenceFolders/#{AWS.Util.encode_uri(evidence_folder_id)}/evidence/#{AWS.Util.encode_uri(evidence_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets all evidence from a specified evidence folder in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetEvidenceByEvidenceFolder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The identifier for the assessment.
+  * `:control_set_id` (`t:string`) The identifier for the control set.
+  * `:evidence_folder_id` (`t:string`) The unique identifier for the folder that
+    the evidence is stored in.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
   @spec get_evidence_by_evidence_folder(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_evidence_by_evidence_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3667,84 +3840,117 @@ defmodule AWS.AuditManager do
         assessment_id,
         control_set_id,
         evidence_folder_id,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/assessments/#{AWS.Util.encode_uri(assessment_id)}/controlSets/#{AWS.Util.encode_uri(control_set_id)}/evidenceFolders/#{AWS.Util.encode_uri(evidence_folder_id)}/evidence"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Creates a presigned Amazon S3 URL that can be used to upload a file as manual
-  evidence.
-
-  For instructions on how to use this operation, see [Upload a file from your browser
+  evidence. For instructions on how to use this operation, see [Upload a file
+  from your browser
   ](https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#how-to-upload-manual-evidence-files)
-  in the *Audit Manager User
-  Guide*.
+  in the *Audit Manager User Guide*. The following restrictions apply to this
+  operation:
 
-  The following restrictions apply to this operation:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetEvidenceFileUploadUrl&this_doc_guide=API%2520Reference)
 
-    *
-  Maximum size of an individual evidence file: 100 MB
+  ## Parameters:
+  * `:file_name` (`t:string`) The file that you want to upload. For a list of
+    supported file formats, see Supported file types for manual evidence in the
+    Audit Manager User Guide.
 
-    *
-  Number of daily manual evidence uploads per control: 100
-
-    *
-  Supported file formats: See [Supported file types for manual evidence](https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files)
-  in the *Audit Manager User Guide*
-
-  For more information about Audit Manager service restrictions, see [Quotas and restrictions for Audit
-  Manager](https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html).
+  ## Optional parameters:
   """
-  @spec get_evidence_file_upload_url(map(), String.t(), list()) ::
+  @spec get_evidence_file_upload_url(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_evidence_file_upload_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_evidence_file_upload_url_errors()}
   def get_evidence_file_upload_url(%Client{} = client, file_name, options \\ []) do
     url_path = "/evidenceFileUploadUrl"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(file_name) do
-        [{"fileName", file_name} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"fileName", file_name}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an evidence folder from a specified assessment in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetEvidenceFolder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
+  * `:control_set_id` (`t:string`) The unique identifier for the control set.
+  * `:evidence_folder_id` (`t:string`) The unique identifier for the folder that
+    the evidence is stored in.
+
+  ## Optional parameters:
   """
-  @spec get_evidence_folder(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_evidence_folder(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_evidence_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_evidence_folder_errors()}
@@ -3758,70 +3964,118 @@ defmodule AWS.AuditManager do
     url_path =
       "/assessments/#{AWS.Util.encode_uri(assessment_id)}/controlSets/#{AWS.Util.encode_uri(control_set_id)}/evidenceFolders/#{AWS.Util.encode_uri(evidence_folder_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the evidence folders from a specified assessment in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetEvidenceFoldersByAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
-  @spec get_evidence_folders_by_assessment(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_evidence_folders_by_assessment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_evidence_folders_by_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_evidence_folders_by_assessment_errors()}
-  def get_evidence_folders_by_assessment(
-        %Client{} = client,
-        assessment_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_evidence_folders_by_assessment(%Client{} = client, assessment_id, options \\ []) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}/evidenceFolders"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a list of evidence folders that are associated with a specified control in
-  an
-  Audit Manager assessment.
+  an Audit Manager assessment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetEvidenceFoldersByAssessmentControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The identifier for the assessment.
+  * `:control_id` (`t:string`) The identifier for the control.
+  * `:control_set_id` (`t:string`) The identifier for the control set.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
   @spec get_evidence_folders_by_assessment_control(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_evidence_folders_by_assessment_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3831,156 +4085,290 @@ defmodule AWS.AuditManager do
         assessment_id,
         control_id,
         control_set_id,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/assessments/#{AWS.Util.encode_uri(assessment_id)}/evidenceFolders-by-assessment-control/#{AWS.Util.encode_uri(control_set_id)}/#{AWS.Util.encode_uri(control_id)}"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the latest analytics data for all your current active assessments.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetInsights&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_insights(map(), list()) ::
+  @spec get_insights(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insights_errors()}
   def get_insights(%Client{} = client, options \\ []) do
     url_path = "/insights"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the latest analytics data for a specific active assessment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetInsightsByAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
+
+  ## Optional parameters:
   """
-  @spec get_insights_by_assessment(map(), String.t(), list()) ::
+  @spec get_insights_by_assessment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_insights_by_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insights_by_assessment_errors()}
   def get_insights_by_assessment(%Client{} = client, assessment_id, options \\ []) do
     url_path = "/insights/assessments/#{AWS.Util.encode_uri(assessment_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the name of the delegated Amazon Web Services administrator account for a
-  specified
-  organization.
+  specified organization.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetOrganizationAdminAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_organization_admin_account(map(), list()) ::
+  @spec get_organization_admin_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_organization_admin_account_errors()}
   def get_organization_admin_account(%Client{} = client, options \\ []) do
     url_path = "/account/organizationAdminAccount"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a list of the Amazon Web Services from which Audit Manager can collect
-  evidence.
-
-  Audit Manager defines which Amazon Web Services are in scope for an
+  evidence. Audit Manager defines which Amazon Web Services are in scope for an
   assessment. Audit Manager infers this scope by examining the assessment’s
-  controls and
-  their data sources, and then mapping this information to one or more of the
-  corresponding
-  Amazon Web Services that are in this list.
+  controls and their data sources, and then mapping this information to one or
+  more of the corresponding Amazon Web Services that are in this list.
 
-  For information about why it's no longer possible to specify services in scope
-  manually, see
-  [I can't edit the services in scope for my assessment](https://docs.aws.amazon.com/audit-manager/latest/userguide/evidence-collection-issues.html#unable-to-edit-services)
-  in
-  the *Troubleshooting* section of the Audit Manager user
-  guide.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetServicesInScope&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_services_in_scope(map(), list()) ::
+  @spec get_services_in_scope(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_services_in_scope_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_services_in_scope_errors()}
   def get_services_in_scope(%Client{} = client, options \\ []) do
     url_path = "/services"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the settings for a specified Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:attribute`
+    (`t:enum["ALL|DEFAULT_ASSESSMENT_REPORTS_DESTINATION|DEFAULT_EXPORT_DESTINATION|DEFAULT_PROCESS_OWNERS|DEREGISTRATION_POLICY|EVIDENCE_FINDER_ENABLEMENT|IS_AWS_ORG_ENABLED|SNS_TOPIC"]`)
+    The list of setting attribute enum values.
+
+  ## Optional parameters:
   """
-  @spec get_settings(map(), String.t(), list()) ::
+  @spec get_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_settings_errors()}
   def get_settings(%Client{} = client, attribute, options \\ []) do
     url_path = "/settings/#{AWS.Util.encode_uri(attribute)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the latest analytics data for controls within a specific control domain
-  and a
-  specific active assessment.
+  and a specific active assessment.
 
-  Control insights are listed only if the control belongs to the control domain
-  and
-  assessment that was specified. Moreover, the control must have collected
-  evidence on the
-  `lastUpdated` date of `controlInsightsByAssessment`. If neither
-  of these conditions are met, no data is listed for that control.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListAssessmentControlInsightsByControlDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the active assessment.
+  * `:control_domain_id` (`t:string`) The unique identifier for the control
+    domain.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
   @spec list_assessment_control_insights_by_control_domain(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_assessment_control_insights_by_control_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3989,43 +4377,49 @@ defmodule AWS.AuditManager do
         %Client{} = client,
         assessment_id,
         control_domain_id,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path = "/insights/controls-by-assessment"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"assessmentId", assessment_id}, {"controlDomainId", control_domain_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(control_domain_id) do
-        [{"controlDomainId", control_domain_id} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    query_params =
-      if !is_nil(assessment_id) do
-        [{"assessmentId", assessment_id} | query_params]
-      else
-        query_params
-      end
-
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4033,412 +4427,546 @@ defmodule AWS.AuditManager do
   @doc """
   Returns a list of sent or received share requests for custom frameworks in Audit
   Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListAssessmentFrameworkShareRequests&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:request_type` (`t:enum["RECEIVED|SENT"]`) Specifies whether the share
+    request is a sent request or a received request.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
-  @spec list_assessment_framework_share_requests(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          list()
-        ) ::
+  @spec list_assessment_framework_share_requests(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_assessment_framework_share_requests_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assessment_framework_share_requests_errors()}
-  def list_assessment_framework_share_requests(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        request_type,
-        options \\ []
-      ) do
+  def list_assessment_framework_share_requests(%Client{} = client, request_type, options \\ []) do
     url_path = "/assessmentFrameworkShareRequests"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"requestType", request_type}]
+
+    # Optional query params
     query_params =
-      if !is_nil(request_type) do
-        [{"requestType", request_type} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of the frameworks that are available in the Audit Manager
-  framework
-  library.
+  framework library.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListAssessmentFrameworks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:framework_type` (`t:enum["CUSTOM|STANDARD"]`) The type of framework, such as
+    a standard framework or a custom framework.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
-  @spec list_assessment_frameworks(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_assessment_frameworks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_assessment_frameworks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assessment_frameworks_errors()}
-  def list_assessment_frameworks(
-        %Client{} = client,
-        framework_type,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_assessment_frameworks(%Client{} = client, framework_type, options \\ []) do
     url_path = "/assessmentFrameworks"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"frameworkType", framework_type}]
+
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(framework_type) do
-        [{"frameworkType", framework_type} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of assessment reports created in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListAssessmentReports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
-  @spec list_assessment_reports(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_assessment_reports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_assessment_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assessment_reports_errors()}
-  def list_assessment_reports(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_assessment_reports(%Client{} = client, options \\ []) do
     url_path = "/assessmentReports"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of current and past assessments from Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListAssessments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
+  * `:status` (`t:enum["ACTIVE|INACTIVE"]`) The current status of the assessment.
   """
-  @spec list_assessments(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_assessments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_assessments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assessments_errors()}
-  def list_assessments(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_assessments(%Client{} = client, options \\ []) do
     url_path = "/assessments"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the latest analytics data for control domains across all of your active
-  assessments.
-
-  Audit Manager supports the control domains that are provided by Amazon Web
-  Services
-  Control Catalog. For information about how to find a list of available control
-  domains, see
-  [
-  `ListDomains`
+  assessments. Audit Manager supports the control domains that are provided by
+  Amazon Web Services Control Catalog. For information about how to find a list
+  of available control domains, see [ `ListDomains`
   ](https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html)
-  in the Amazon Web Services Control
-  Catalog API Reference.
+  in the Amazon Web Services Control Catalog API Reference.
 
-  A control domain is listed only if at least one of the controls within that
-  domain
-  collected evidence on the `lastUpdated` date of
-  `controlDomainInsights`. If this condition isn’t met, no data is listed
-  for that control domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListControlDomainInsights&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
-  @spec list_control_domain_insights(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_control_domain_insights(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_control_domain_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_control_domain_insights_errors()}
-  def list_control_domain_insights(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_control_domain_insights(%Client{} = client, options \\ []) do
     url_path = "/insights/control-domains"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists analytics data for control domains within a specified active assessment.
-
   Audit Manager supports the control domains that are provided by Amazon Web
-  Services
-  Control Catalog. For information about how to find a list of available control
-  domains, see
-  [
-  `ListDomains`
+  Services Control Catalog. For information about how to find a list of
+  available control domains, see [ `ListDomains`
   ](https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html)
-  in the Amazon Web Services Control
-  Catalog API Reference.
+  in the Amazon Web Services Control Catalog API Reference.
 
-  A control domain is listed only if at least one of the controls within that
-  domain
-  collected evidence on the `lastUpdated` date of
-  `controlDomainInsights`. If this condition isn’t met, no data is listed
-  for that domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListControlDomainInsightsByAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the active assessment.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
-  @spec list_control_domain_insights_by_assessment(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_control_domain_insights_by_assessment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_control_domain_insights_by_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_control_domain_insights_by_assessment_errors()}
-  def list_control_domain_insights_by_assessment(
-        %Client{} = client,
-        assessment_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_control_domain_insights_by_assessment(%Client{} = client, assessment_id, options \\ []) do
     url_path = "/insights/control-domains-by-assessment"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"assessmentId", assessment_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(assessment_id) do
-        [{"assessmentId", assessment_id} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the latest analytics data for controls within a specific control domain
-  across all
-  active assessments.
+  across all active assessments.
 
-  Control insights are listed only if the control belongs to the control domain
-  that
-  was specified and the control collected evidence on the `lastUpdated` date of
-  `controlInsightsMetadata`. If neither of these conditions are met, no data
-  is listed for that control.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListControlInsightsByControlDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:control_domain_id` (`t:string`) The unique identifier for the control
+    domain.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
-  @spec list_control_insights_by_control_domain(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_control_insights_by_control_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_control_insights_by_control_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_control_insights_by_control_domain_errors()}
   def list_control_insights_by_control_domain(
         %Client{} = client,
         control_domain_id,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path = "/insights/controls"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"controlDomainId", control_domain_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(control_domain_id) do
-        [{"controlDomainId", control_domain_id} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of controls from Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListControls&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:control_type` (`t:enum["CORE|CUSTOM|STANDARD"]`) A filter that narrows the
+    list of controls to a specific type.
+
+  ## Optional parameters:
+  * `:control_catalog_id` (`t:string`) A filter that narrows the list of controls
+    to a specific resource from the Amazon Web Services Control Catalog.
+  * `:max_results` (`t:integer`) The maximum number of results on a page or for an
+    API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
-  @spec list_controls(
-          map(),
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_controls(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_controls_errors()}
-  def list_controls(
-        %Client{} = client,
-        control_catalog_id \\ nil,
-        control_type,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_controls(%Client{} = client, control_type, options \\ []) do
     url_path = "/controls"
+
+    # Validate optional parameters
+    optional_params = [control_catalog_id: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"controlType", control_type}]
+
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(control_type) do
-        [{"controlType", control_type} | query_params]
+      if opt_val = Keyword.get(options, :control_catalog_id) do
+        [{"controlCatalogId", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(control_catalog_id) do
-        [{"controlCatalogId", control_catalog_id} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:control_catalog_id, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4446,106 +4974,185 @@ defmodule AWS.AuditManager do
   @doc """
   Returns a list of keywords that are pre-mapped to the specified control data
   source.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListKeywordsForDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:source`
+    (`t:enum["AWS_API_CALL|AWS_CLOUDTRAIL|AWS_CONFIG|AWS_SECURITY_HUB|MANUAL"]`)
+    The control mapping data source that the keywords apply to.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
-  @spec list_keywords_for_data_source(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          list()
-        ) ::
+  @spec list_keywords_for_data_source(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_keywords_for_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_keywords_for_data_source_errors()}
-  def list_keywords_for_data_source(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        source,
-        options \\ []
-      ) do
+  def list_keywords_for_data_source(%Client{} = client, source, options \\ []) do
     url_path = "/dataSourceKeywords"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"source", source}]
+
+    # Optional query params
     query_params =
-      if !is_nil(source) do
-        [{"source", source} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all Audit Manager notifications.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListNotifications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
-  @spec list_notifications(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_notifications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_notifications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_notifications_errors()}
-  def list_notifications(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_notifications(%Client{} = client, options \\ []) do
     url_path = "/notifications"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of tags for the specified resource in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Enables Audit Manager for the specified Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20RegisterAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec register_account(map(), register_account_request(), list()) ::
+  @spec register_account(AWS.Client.t(), register_account_request(), Keyword.t()) ::
           {:ok, register_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_account_errors()}
@@ -4554,7 +5161,8 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4572,11 +5180,17 @@ defmodule AWS.AuditManager do
   @doc """
   Enables an Amazon Web Services account within the organization as the delegated
   administrator for Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20RegisterOrganizationAdminAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec register_organization_admin_account(
-          map(),
+          AWS.Client.t(),
           register_organization_admin_account_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, register_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4586,7 +5200,8 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4602,64 +5217,24 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Creates a share request for a custom framework in Audit Manager.
-
-  The share request specifies a recipient and notifies them that a custom
-  framework is
+  Creates a share request for a custom framework in Audit Manager. The share
+  request specifies a recipient and notifies them that a custom framework is
   available. Recipients have 120 days to accept or decline the request. If no
-  action is
-  taken, the share request expires.
+  action is taken, the share request expires.
 
-  When you create a share request, Audit Manager stores a snapshot of your custom
-  framework in the US East (N. Virginia) Amazon Web Services Region. Audit Manager
-  also
-  stores a backup of the same snapshot in the US West (Oregon) Amazon Web Services
-  Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20StartAssessmentFrameworkShare&this_doc_guide=API%2520Reference)
 
-  Audit Manager deletes the snapshot and the backup snapshot when one of the
-  following
-  events occurs:
+  ## Parameters:
+  * `:framework_id` (`t:string`) The unique identifier for the custom framework to
+    be shared.
 
-    *
-  The sender revokes the share request.
-
-    *
-  The recipient declines the share request.
-
-    *
-  The recipient encounters an error and doesn't successfully accept the share
-  request.
-
-    *
-  The share request expires before the recipient responds to the request.
-
-  When a sender [resends a share request](https://docs.aws.amazon.com/audit-manager/latest/userguide/framework-sharing.html#framework-sharing-resend),
-  the snapshot is replaced with an updated version that
-  corresponds with the latest version of the custom framework.
-
-  When a recipient accepts a share request, the snapshot is replicated into their
-  Amazon Web Services account under the Amazon Web Services Region that was
-  specified in the share
-  request.
-
-  When you invoke the `StartAssessmentFrameworkShare` API, you are about to
-  share a custom framework with another Amazon Web Services account. You may not
-  share a
-  custom framework that is derived from a standard framework if the standard
-  framework is
-  designated as not eligible for sharing by Amazon Web Services, unless you have
-  obtained
-  permission to do so from the owner of the standard framework. To learn more
-  about which
-  standard frameworks are eligible for sharing, see [Framework sharing eligibility](https://docs.aws.amazon.com/audit-manager/latest/userguide/share-custom-framework-concepts-and-terminology.html#eligibility)
-  in the *Audit Manager User
-  Guide*.
+  ## Optional parameters:
   """
   @spec start_assessment_framework_share(
-          map(),
+          AWS.Client.t(),
           String.t(),
           start_assessment_framework_share_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_assessment_framework_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4669,7 +5244,8 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4686,8 +5262,15 @@ defmodule AWS.AuditManager do
 
   @doc """
   Tags the specified resource in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -4696,7 +5279,8 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4713,8 +5297,18 @@ defmodule AWS.AuditManager do
 
   @doc """
   Removes a tag from a resource in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the specified
+    resource.
+  * `:tag_keys` (`t:list[com.amazonaws.auditmanager#TagKey]`) The name or key of
+    the tag.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -4728,7 +5322,8 @@ defmodule AWS.AuditManager do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4745,8 +5340,15 @@ defmodule AWS.AuditManager do
 
   @doc """
   Edits an Audit Manager assessment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
+
+  ## Optional parameters:
   """
-  @spec update_assessment(map(), String.t(), update_assessment_request(), list()) ::
+  @spec update_assessment(AWS.Client.t(), String.t(), update_assessment_request(), Keyword.t()) ::
           {:ok, update_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_assessment_errors()}
@@ -4755,21 +5357,31 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a control within an assessment in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateAssessmentControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
+  * `:control_id` (`t:string`) The unique identifier for the control.
+  * `:control_set_id` (`t:string`) The unique identifier for the control set.
+
+  ## Optional parameters:
   """
   @spec update_assessment_control(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           update_assessment_control_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_assessment_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4788,20 +5400,29 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the status of a control set in an Audit Manager assessment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateAssessmentControlSetStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
+  * `:control_set_id` (`t:string`) The unique identifier for the control set.
+
+  ## Optional parameters:
   """
   @spec update_assessment_control_set_status(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_assessment_control_set_status_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_assessment_control_set_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4819,19 +5440,27 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a custom framework in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateAssessmentFramework&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:framework_id` (`t:string`) The unique identifier for the framework.
+
+  ## Optional parameters:
   """
   @spec update_assessment_framework(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_assessment_framework_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_assessment_framework_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4841,19 +5470,27 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a share request for a custom framework in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateAssessmentFrameworkShare&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:request_id` (`t:string`) The unique identifier for the share request.
+
+  ## Optional parameters:
   """
   @spec update_assessment_framework_share(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_assessment_framework_share_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_assessment_framework_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4863,15 +5500,28 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the status of an assessment in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateAssessmentStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
+
+  ## Optional parameters:
   """
-  @spec update_assessment_status(map(), String.t(), update_assessment_status_request(), list()) ::
+  @spec update_assessment_status(
+          AWS.Client.t(),
+          String.t(),
+          update_assessment_status_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_assessment_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_assessment_status_errors()}
@@ -4880,15 +5530,23 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a custom control in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:control_id` (`t:string`) The identifier for the control.
+
+  ## Optional parameters:
   """
-  @spec update_control(map(), String.t(), update_control_request(), list()) ::
+  @spec update_control(AWS.Client.t(), String.t(), update_control_request(), Keyword.t()) ::
           {:ok, update_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_control_errors()}
@@ -4897,15 +5555,22 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates Audit Manager settings for the current account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_settings(map(), update_settings_request(), list()) ::
+  @spec update_settings(AWS.Client.t(), update_settings_request(), Keyword.t()) ::
           {:ok, update_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_settings_errors()}
@@ -4914,18 +5579,25 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Validates the integrity of an assessment report in Audit Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ValidateAssessmentReportIntegrity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec validate_assessment_report_integrity(
-          map(),
+          AWS.Client.t(),
           validate_assessment_report_integrity_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, validate_assessment_report_integrity_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4935,7 +5607,8 @@ defmodule AWS.AuditManager do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

@@ -4,16 +4,11 @@
 defmodule AWS.M2 do
   @moduledoc """
   Amazon Web Services Mainframe Modernization provides tools and resources to help
-  you plan and implement migration and
-  modernization from mainframes to Amazon Web Services managed runtime
-  environments.
-
-  It provides tools for
-  analyzing existing mainframe applications, developing or updating mainframe
-  applications
+  you plan and implement migration and modernization from mainframes to Amazon
+  Web Services managed runtime environments. It provides tools for analyzing
+  existing mainframe applications, developing or updating mainframe applications
   using COBOL or PL/I, and implementing an automated pipeline for continuous
-  integration and
-  continuous delivery (CI/CD) of the applications.
+  integration and continuous delivery (CI/CD) of the applications.
   """
 
   alias AWS.Client
@@ -1750,13 +1745,21 @@ defmodule AWS.M2 do
 
   @doc """
   Cancels the running of a specific batch job execution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20CancelBatchJobExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application.
+  * `:execution_id` (`t:string`) The unique identifier of the batch job execution.
+
+  ## Optional parameters:
   """
   @spec cancel_batch_job_execution(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           cancel_batch_job_execution_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, cancel_batch_job_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1774,7 +1777,8 @@ defmodule AWS.M2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1790,12 +1794,16 @@ defmodule AWS.M2 do
   end
 
   @doc """
-  Creates a new application with given parameters.
-
-  Requires an existing runtime
+  Creates a new application with given parameters. Requires an existing runtime
   environment and application definition file.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20CreateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_application(map(), create_application_request(), list()) ::
+  @spec create_application(AWS.Client.t(), create_application_request(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
@@ -1804,7 +1812,8 @@ defmodule AWS.M2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1821,12 +1830,20 @@ defmodule AWS.M2 do
 
   @doc """
   Starts a data set import task for a specific application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20CreateDataSetImportTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application for
+    which you want to import data sets.
+
+  ## Optional parameters:
   """
   @spec create_data_set_import_task(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_data_set_import_task_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_data_set_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1836,7 +1853,8 @@ defmodule AWS.M2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1854,8 +1872,15 @@ defmodule AWS.M2 do
   @doc """
   Creates and starts a deployment to deploy an application into a runtime
   environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20CreateDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The application identifier.
+
+  ## Optional parameters:
   """
-  @spec create_deployment(map(), String.t(), create_deployment_request(), list()) ::
+  @spec create_deployment(AWS.Client.t(), String.t(), create_deployment_request(), Keyword.t()) ::
           {:ok, create_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deployment_errors()}
@@ -1864,7 +1889,8 @@ defmodule AWS.M2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1881,8 +1907,14 @@ defmodule AWS.M2 do
 
   @doc """
   Creates a runtime environment for a given runtime engine.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20CreateEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_environment(map(), create_environment_request(), list()) ::
+  @spec create_environment(AWS.Client.t(), create_environment_request(), Keyword.t()) ::
           {:ok, create_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_errors()}
@@ -1891,7 +1923,8 @@ defmodule AWS.M2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1907,11 +1940,17 @@ defmodule AWS.M2 do
   end
 
   @doc """
-  Deletes a specific application.
+  Deletes a specific application. You cannot delete a running application.
 
-  You cannot delete a running application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20DeleteApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application you
+    want to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
+  @spec delete_application(AWS.Client.t(), String.t(), delete_application_request(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
@@ -1920,7 +1959,8 @@ defmodule AWS.M2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1937,21 +1977,27 @@ defmodule AWS.M2 do
 
   @doc """
   Deletes a specific application from the specific runtime environment where it
-  was
-  previously deployed.
+  was previously deployed. You cannot delete a runtime environment using
+  DeleteEnvironment if any application has ever been deployed to it. This API
+  removes the association of the application with the runtime environment so you
+  can delete the environment smoothly.
 
-  You cannot delete a runtime environment using DeleteEnvironment if any
-  application has ever been deployed to it. This API removes the association of
-  the
-  application with the runtime environment so you can delete the environment
-  smoothly.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20DeleteApplicationFromEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application you
+    want to delete.
+  * `:environment_id` (`t:string`) The unique identifier of the runtime
+    environment where the application was previously deployed.
+
+  ## Optional parameters:
   """
   @spec delete_application_from_environment(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_application_from_environment_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_application_from_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1969,7 +2015,8 @@ defmodule AWS.M2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1985,14 +2032,19 @@ defmodule AWS.M2 do
   end
 
   @doc """
-  Deletes a specific runtime environment.
-
-  The environment cannot contain deployed
+  Deletes a specific runtime environment. The environment cannot contain deployed
   applications. If it does, you must delete those applications before you delete
-  the
-  environment.
+  the environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20DeleteEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:environment_id` (`t:string`) The unique identifier of the runtime
+    environment you want to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_environment(map(), String.t(), delete_environment_request(), list()) ::
+  @spec delete_environment(AWS.Client.t(), String.t(), delete_environment_request(), Keyword.t()) ::
           {:ok, delete_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_errors()}
@@ -2001,7 +2053,8 @@ defmodule AWS.M2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2018,25 +2071,58 @@ defmodule AWS.M2 do
 
   @doc """
   Describes the details of a specific application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20GetApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the application.
+
+  ## Optional parameters:
   """
-  @spec get_application(map(), String.t(), list()) ::
+  @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_errors()}
   def get_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns details about a specific version of a specific application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20GetApplicationVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application.
+  * `:application_version` (`t:integer`) The specific version of the application.
+
+  ## Optional parameters:
   """
-  @spec get_application_version(map(), String.t(), String.t(), list()) ::
+  @spec get_application_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_version_errors()}
@@ -2049,18 +2135,43 @@ defmodule AWS.M2 do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/versions/#{AWS.Util.encode_uri(application_version)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the details of a specific batch job execution for a specific application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20GetBatchJobExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the application.
+  * `:execution_id` (`t:string`) The unique identifier of the batch job execution.
+
+  ## Optional parameters:
   """
-  @spec get_batch_job_execution(map(), String.t(), String.t(), list()) ::
+  @spec get_batch_job_execution(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_batch_job_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_batch_job_execution_errors()}
@@ -2068,18 +2179,44 @@ defmodule AWS.M2 do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/batch-job-executions/#{AWS.Util.encode_uri(execution_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the details of a specific data set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20GetDataSetDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application that
+    this data set is associated with.
+  * `:data_set_name` (`t:string`) The name of the data set.
+
+  ## Optional parameters:
   """
-  @spec get_data_set_details(map(), String.t(), String.t(), list()) ::
+  @spec get_data_set_details(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_set_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_set_details_errors()}
@@ -2087,10 +2224,27 @@ defmodule AWS.M2 do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/datasets/#{AWS.Util.encode_uri(data_set_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2098,8 +2252,17 @@ defmodule AWS.M2 do
   @doc """
   Gets the status of a data set import task initiated with the
   `CreateDataSetImportTask` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20GetDataSetImportTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The application identifier.
+  * `:task_id` (`t:string`) The task identifier returned by the
+    CreateDataSetImportTask operation.
+
+  ## Optional parameters:
   """
-  @spec get_data_set_import_task(map(), String.t(), String.t(), list()) ::
+  @spec get_data_set_import_task(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_set_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_set_import_task_errors()}
@@ -2107,18 +2270,43 @@ defmodule AWS.M2 do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/dataset-import-tasks/#{AWS.Util.encode_uri(task_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets details of a specific deployment with a given deployment identifier.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20GetDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application.
+  * `:deployment_id` (`t:string`) The unique identifier for the deployment.
+
+  ## Optional parameters:
   """
-  @spec get_deployment(map(), String.t(), String.t(), list()) ::
+  @spec get_deployment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_errors()}
@@ -2126,202 +2314,334 @@ defmodule AWS.M2 do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/deployments/#{AWS.Util.encode_uri(deployment_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes a specific runtime environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20GetEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:environment_id` (`t:string`) The unique identifier of the runtime
+    environment.
+
+  ## Optional parameters:
   """
-  @spec get_environment(map(), String.t(), list()) ::
+  @spec get_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_errors()}
   def get_environment(%Client{} = client, environment_id, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a single sign-on URL that can be used to connect to AWS Blu Insights.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20GetSignedBluinsightsUrl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_signed_bluinsights_url(map(), list()) ::
+  @spec get_signed_bluinsights_url(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_signed_bluinsights_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_signed_bluinsights_url_errors()}
   def get_signed_bluinsights_url(%Client{} = client, options \\ []) do
     url_path = "/signed-bi-url"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of the application versions for a specific application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListApplicationVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of application versions to
+    return.
+  * `:next_token` (`t:string`) A pagination token returned from a previous call to
+    this operation. This specifies the next item to return. To return to the
+    beginning of the list, exclude this parameter.
   """
-  @spec list_application_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_application_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_versions_errors()}
-  def list_application_versions(
-        %Client{} = client,
-        application_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_application_versions(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/versions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the applications associated with a specific Amazon Web Services account.
+  You can provide the unique identifier of a specific runtime environment in a
+  query parameter to see all applications associated with that environment.
 
-  You can provide the
-  unique identifier of a specific runtime environment in a query parameter to see
-  all
-  applications associated with that environment.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:environment_id` (`t:string`) The unique identifier of the runtime
+    environment where the applications are deployed.
+  * `:max_results` (`t:integer`) The maximum number of applications to return.
+  * `:names` (`t:list[com.amazonaws.m2#EntityName]`) The names of the
+    applications.
+  * `:next_token` (`t:string`) A pagination token to control the number of
+    applications displayed in the list.
   """
-  @spec list_applications(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
-  def list_applications(
-        %Client{} = client,
-        environment_id \\ nil,
-        max_results \\ nil,
-        names \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_applications(%Client{} = client, options \\ []) do
     url_path = "/applications"
+
+    # Validate optional parameters
+    optional_params = [environment_id: nil, max_results: nil, names: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(names) do
-        [{"names", names} | query_params]
+      if opt_val = Keyword.get(options, :names) do
+        [{"names", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(environment_id) do
-        [{"environmentId", environment_id} | query_params]
+      if opt_val = Keyword.get(options, :environment_id) do
+        [{"environmentId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:environment_id, :max_results, :names, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all the available batch job definitions based on the batch job resources
-  uploaded
-  during the application creation.
+  uploaded during the application creation. You can use the batch job
+  definitions in the list to start a batch job.
 
-  You can use the batch job definitions in the list to start
-  a batch job.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListBatchJobDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the application.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of batch job definitions to
+    return.
+  * `:next_token` (`t:string`) A pagination token returned from a previous call to
+    this operation. This specifies the next item to return. To return to the
+    beginning of the list, exclude this parameter.
+  * `:prefix` (`t:`) If the batch job definition is a FileBatchJobDefinition, the
+    prefix allows you to search on the file names of FileBatchJobDefinitions.
   """
-  @spec list_batch_job_definitions(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_batch_job_definitions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_batch_job_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_batch_job_definitions_errors()}
-  def list_batch_job_definitions(
-        %Client{} = client,
-        application_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        prefix \\ nil,
-        options \\ []
-      ) do
+  def list_batch_job_definitions(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/batch-job-definitions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, prefix: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(prefix) do
-        [{"prefix", prefix} | query_params]
+      if opt_val = Keyword.get(options, :prefix) do
+        [{"prefix", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :prefix])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2329,98 +2649,141 @@ defmodule AWS.M2 do
   @doc """
   Lists historical, current, and scheduled batch job executions for a specific
   application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListBatchJobExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application.
+
+  ## Optional parameters:
+  * `:execution_ids` (`t:list[com.amazonaws.m2#Identifier]`) The unique identifier
+    of each batch job execution.
+  * `:job_name` (`t:string`) The name of each batch job execution.
+  * `:max_results` (`t:integer`) The maximum number of batch job executions to
+    return.
+  * `:next_token` (`t:string`) A pagination token to control the number of batch
+    job executions displayed in the list.
+  * `:started_after` (`t:timestamp`) The time after which the batch job executions
+    started.
+  * `:started_before` (`t:timestamp`) The time before the batch job executions
+    started.
+  * `:status` (`t:string`) The status of the batch job executions.
   """
-  @spec list_batch_job_executions(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_batch_job_executions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_batch_job_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_batch_job_executions_errors()}
-  def list_batch_job_executions(
-        %Client{} = client,
-        application_id,
-        execution_ids \\ nil,
-        job_name \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        started_after \\ nil,
-        started_before \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_batch_job_executions(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/batch-job-executions"
+
+    # Validate optional parameters
+    optional_params = [
+      execution_ids: nil,
+      job_name: nil,
+      max_results: nil,
+      next_token: nil,
+      started_after: nil,
+      started_before: nil,
+      status: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(started_before) do
-        [{"startedBefore", started_before} | query_params]
+      if opt_val = Keyword.get(options, :started_before) do
+        [{"startedBefore", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(started_after) do
-        [{"startedAfter", started_after} | query_params]
+      if opt_val = Keyword.get(options, :started_after) do
+        [{"startedAfter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(job_name) do
-        [{"jobName", job_name} | query_params]
+      if opt_val = Keyword.get(options, :job_name) do
+        [{"jobName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(execution_ids) do
-        [{"executionIds", execution_ids} | query_params]
+      if opt_val = Keyword.get(options, :execution_ids) do
+        [{"executionIds", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :execution_ids,
+        :job_name,
+        :max_results,
+        :next_token,
+        :started_after,
+        :started_before,
+        :status
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists all the job steps for JCL files to restart a batch job.
+  Lists all the job steps for JCL files to restart a batch job. This is only
+  applicable for Micro Focus engine with versions 8.0.6 and above.
 
-  This is only applicable for Micro Focus engine with versions 8.0.6 and above.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListBatchJobRestartPoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application.
+  * `:execution_id` (`t:string`) The unique identifier of each batch job
+    execution.
+
+  ## Optional parameters:
   """
-  @spec list_batch_job_restart_points(map(), String.t(), String.t(), list()) ::
+  @spec list_batch_job_restart_points(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_batch_job_restart_points_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_batch_job_restart_points_errors()}
@@ -2433,291 +2796,454 @@ defmodule AWS.M2 do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/batch-job-executions/#{AWS.Util.encode_uri(execution_id)}/steps"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the data set imports for the specified application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListDataSetImportHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of objects to return.
+  * `:next_token` (`t:string`) A pagination token returned from a previous call to
+    this operation. This specifies the next item to return. To return to the
+    beginning of the list, exclude this parameter.
   """
-  @spec list_data_set_import_history(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_data_set_import_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_set_import_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_set_import_history_errors()}
-  def list_data_set_import_history(
-        %Client{} = client,
-        application_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_data_set_import_history(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/dataset-import-tasks"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the data sets imported for a specific application.
-
-  In Amazon Web Services Mainframe Modernization, data sets are
-  associated with applications deployed on runtime environments. This is known as
-  importing
-  data sets. Currently, Amazon Web Services Mainframe Modernization can import
-  data sets into catalogs using
+  Lists the data sets imported for a specific application. In Amazon Web Services
+  Mainframe Modernization, data sets are associated with applications deployed
+  on runtime environments. This is known as importing data sets. Currently,
+  Amazon Web Services Mainframe Modernization can import data sets into catalogs
+  using
   [CreateDataSetImportTask](https://docs.aws.amazon.com/m2/latest/APIReference/API_CreateDataSetImportTask.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListDataSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application for
+    which you want to list the associated data sets.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of objects to return.
+  * `:name_filter` (`t:string`) Filter dataset name matching the specified
+    pattern. Can use * and % as wild cards.
+  * `:next_token` (`t:string`) A pagination token returned from a previous call to
+    this operation. This specifies the next item to return. To return to the
+    beginning of the list, exclude this parameter.
+  * `:prefix` (`t:string`) The prefix of the data set name, which you can use to
+    filter the list of data sets.
   """
-  @spec list_data_sets(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_data_sets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_sets_errors()}
-  def list_data_sets(
-        %Client{} = client,
-        application_id,
-        max_results \\ nil,
-        name_filter \\ nil,
-        next_token \\ nil,
-        prefix \\ nil,
-        options \\ []
-      ) do
+  def list_data_sets(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/datasets"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, name_filter: nil, next_token: nil, prefix: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(prefix) do
-        [{"prefix", prefix} | query_params]
+      if opt_val = Keyword.get(options, :prefix) do
+        [{"prefix", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name_filter) do
-        [{"nameFilter", name_filter} | query_params]
+      if opt_val = Keyword.get(options, :name_filter) do
+        [{"nameFilter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :name_filter, :next_token, :prefix])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns a list of all deployments of a specific application.
-
-  A deployment is a
+  Returns a list of all deployments of a specific application. A deployment is a
   combination of a specific application and a specific version of that
-  application. Each
-  deployment is mapped to a particular application version.
+  application. Each deployment is mapped to a particular application version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListDeployments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The application identifier.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of objects to return.
+  * `:next_token` (`t:string`) A pagination token returned from a previous call to
+    this operation. This specifies the next item to return. To return to the
+    beginning of the list, exclude this parameter.
   """
-  @spec list_deployments(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_deployments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployments_errors()}
-  def list_deployments(
-        %Client{} = client,
-        application_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_deployments(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/deployments"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the available engine versions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListEngineVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:engine_type` (`t:string`) The type of target platform.
+  * `:max_results` (`t:integer`) The maximum number of objects to return.
+  * `:next_token` (`t:string`) A pagination token returned from a previous call to
+    this operation. This specifies the next item to return. To return to the
+    beginning of the list, exclude this parameter.
   """
-  @spec list_engine_versions(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_engine_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_engine_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_engine_versions_errors()}
-  def list_engine_versions(
-        %Client{} = client,
-        engine_type \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_engine_versions(%Client{} = client, options \\ []) do
     url_path = "/engine-versions"
+
+    # Validate optional parameters
+    optional_params = [engine_type: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(engine_type) do
-        [{"engineType", engine_type} | query_params]
+      if opt_val = Keyword.get(options, :engine_type) do
+        [{"engineType", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:engine_type, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the runtime environments.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListEnvironments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:engine_type` (`t:string`) The engine type for the runtime environment.
+  * `:max_results` (`t:integer`) The maximum number of runtime environments to
+    return.
+  * `:names` (`t:list[com.amazonaws.m2#EntityName]`) The names of the runtime
+    environments. Must be unique within the account.
+  * `:next_token` (`t:string`) A pagination token to control the number of runtime
+    environments displayed in the list.
   """
-  @spec list_environments(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_environments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environments_errors()}
-  def list_environments(
-        %Client{} = client,
-        engine_type \\ nil,
-        max_results \\ nil,
-        names \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_environments(%Client{} = client, options \\ []) do
     url_path = "/environments"
+
+    # Validate optional parameters
+    optional_params = [engine_type: nil, max_results: nil, names: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(names) do
-        [{"names", names} | query_params]
+      if opt_val = Keyword.get(options, :names) do
+        [{"names", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(engine_type) do
-        [{"engineType", engine_type} | query_params]
+      if opt_val = Keyword.get(options, :engine_type) do
+        [{"engineType", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:engine_type, :max_results, :names, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the tags for the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Starts an application that is currently stopped.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20StartApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application you
+    want to start.
+
+  ## Optional parameters:
   """
-  @spec start_application(map(), String.t(), start_application_request(), list()) ::
+  @spec start_application(AWS.Client.t(), String.t(), start_application_request(), Keyword.t()) ::
           {:ok, start_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_application_errors()}
@@ -2726,7 +3252,8 @@ defmodule AWS.M2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2743,11 +3270,18 @@ defmodule AWS.M2 do
 
   @doc """
   Starts a batch job and returns the unique identifier of this execution of the
+  batch job. The associated application must be running in order to start the
   batch job.
 
-  The associated application must be running in order to start the batch job.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20StartBatchJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application
+    associated with this batch job.
+
+  ## Optional parameters:
   """
-  @spec start_batch_job(map(), String.t(), start_batch_job_request(), list()) ::
+  @spec start_batch_job(AWS.Client.t(), String.t(), start_batch_job_request(), Keyword.t()) ::
           {:ok, start_batch_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_batch_job_errors()}
@@ -2756,7 +3290,8 @@ defmodule AWS.M2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2773,8 +3308,16 @@ defmodule AWS.M2 do
 
   @doc """
   Stops a running application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20StopApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application you
+    want to stop.
+
+  ## Optional parameters:
   """
-  @spec stop_application(map(), String.t(), stop_application_request(), list()) ::
+  @spec stop_application(AWS.Client.t(), String.t(), stop_application_request(), Keyword.t()) ::
           {:ok, stop_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_application_errors()}
@@ -2783,7 +3326,8 @@ defmodule AWS.M2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2800,8 +3344,15 @@ defmodule AWS.M2 do
 
   @doc """
   Adds one or more tags to the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2810,7 +3361,8 @@ defmodule AWS.M2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2827,8 +3379,17 @@ defmodule AWS.M2 do
 
   @doc """
   Removes one or more tags from the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.m2#TagKey]`) The keys of the tags to
+    remove.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2842,7 +3403,8 @@ defmodule AWS.M2 do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2859,8 +3421,16 @@ defmodule AWS.M2 do
 
   @doc """
   Updates an application and creates a new version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20UpdateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application you
+    want to update.
+
+  ## Optional parameters:
   """
-  @spec update_application(map(), String.t(), update_application_request(), list()) ::
+  @spec update_application(AWS.Client.t(), String.t(), update_application_request(), Keyword.t()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
@@ -2869,7 +3439,8 @@ defmodule AWS.M2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2886,8 +3457,16 @@ defmodule AWS.M2 do
 
   @doc """
   Updates the configuration details for a specific runtime environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20UpdateEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:environment_id` (`t:string`) The unique identifier of the runtime
+    environment that you want to update.
+
+  ## Optional parameters:
   """
-  @spec update_environment(map(), String.t(), update_environment_request(), list()) ::
+  @spec update_environment(AWS.Client.t(), String.t(), update_environment_request(), Keyword.t()) ::
           {:ok, update_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_environment_errors()}
@@ -2896,7 +3475,8 @@ defmodule AWS.M2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

@@ -1201,8 +1201,14 @@ defmodule AWS.Route53RecoveryReadiness do
 
   @doc """
   Creates a cell in an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20CreateCell&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_cell(map(), create_cell_request(), list()) ::
+  @spec create_cell(AWS.Client.t(), create_cell_request(), Keyword.t()) ::
           {:ok, create_cell_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cell_errors()}
@@ -1211,7 +1217,8 @@ defmodule AWS.Route53RecoveryReadiness do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1227,16 +1234,20 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Creates a cross-account readiness authorization.
+  Creates a cross-account readiness authorization. This lets you authorize another
+  account to work with Route 53 Application Recovery Controller, for example, to
+  check the readiness status of resources in a separate account.
 
-  This lets you authorize another account to work with Route 53 Application
-  Recovery Controller, for example, to check the readiness status of resources in
-  a separate account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20CreateCrossAccountAuthorization&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_cross_account_authorization(
-          map(),
+          AWS.Client.t(),
           create_cross_account_authorization_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_cross_account_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1246,7 +1257,8 @@ defmodule AWS.Route53RecoveryReadiness do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1262,14 +1274,19 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Creates a readiness check in an account.
+  Creates a readiness check in an account. A readiness check monitors a resource
+  set in your application, such as a set of Amazon Aurora instances, that
+  Application Recovery Controller is auditing recovery readiness for. The audits
+  run once every minute on every resource that's associated with a readiness
+  check.
 
-  A readiness check monitors a resource set in your application, such as a set of
-  Amazon Aurora instances, that Application Recovery Controller is auditing
-  recovery readiness for. The audits run once every minute on every resource
-  that's associated with a readiness check.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20CreateReadinessCheck&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_readiness_check(map(), create_readiness_check_request(), list()) ::
+  @spec create_readiness_check(AWS.Client.t(), create_readiness_check_request(), Keyword.t()) ::
           {:ok, create_readiness_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_readiness_check_errors()}
@@ -1278,7 +1295,8 @@ defmodule AWS.Route53RecoveryReadiness do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1294,12 +1312,16 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Creates a recovery group in an account.
+  Creates a recovery group in an account. A recovery group corresponds to an
+  application and includes a list of the cells that make up the application.
 
-  A recovery group corresponds to an application and includes a list of the cells
-  that make up the application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20CreateRecoveryGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_recovery_group(map(), create_recovery_group_request(), list()) ::
+  @spec create_recovery_group(AWS.Client.t(), create_recovery_group_request(), Keyword.t()) ::
           {:ok, create_recovery_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_recovery_group_errors()}
@@ -1308,7 +1330,8 @@ defmodule AWS.Route53RecoveryReadiness do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1324,13 +1347,17 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Creates a resource set.
+  Creates a resource set. A resource set is a set of resources of one type that
+  span multiple cells. You can associate a resource set with a readiness check
+  to monitor the resources for failover readiness.
 
-  A resource set is a set of resources of one type that span multiple cells. You
-  can associate a resource set with a readiness check to monitor the resources for
-  failover readiness.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20CreateResourceSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_resource_set(map(), create_resource_set_request(), list()) ::
+  @spec create_resource_set(AWS.Client.t(), create_resource_set_request(), Keyword.t()) ::
           {:ok, create_resource_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_resource_set_errors()}
@@ -1339,7 +1366,8 @@ defmodule AWS.Route53RecoveryReadiness do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1355,11 +1383,16 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Delete a cell.
+  Delete a cell. When successful, the response code is 204, with no response body.
 
-  When successful, the response code is 204, with no response body.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20DeleteCell&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cell_name` (`t:string`) The name of the cell.
+
+  ## Optional parameters:
   """
-  @spec delete_cell(map(), String.t(), delete_cell_request(), list()) ::
+  @spec delete_cell(AWS.Client.t(), String.t(), delete_cell_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cell_errors()}
@@ -1368,7 +1401,8 @@ defmodule AWS.Route53RecoveryReadiness do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1385,12 +1419,19 @@ defmodule AWS.Route53RecoveryReadiness do
 
   @doc """
   Deletes cross account readiness authorization.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20DeleteCrossAccountAuthorization&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cross_account_authorization` (`t:string`) The cross-account authorization.
+
+  ## Optional parameters:
   """
   @spec delete_cross_account_authorization(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_cross_account_authorization_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_cross_account_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1405,7 +1446,8 @@ defmodule AWS.Route53RecoveryReadiness do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1422,8 +1464,20 @@ defmodule AWS.Route53RecoveryReadiness do
 
   @doc """
   Deletes a readiness check.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20DeleteReadinessCheck&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:readiness_check_name` (`t:string`) Name of a readiness check.
+
+  ## Optional parameters:
   """
-  @spec delete_readiness_check(map(), String.t(), delete_readiness_check_request(), list()) ::
+  @spec delete_readiness_check(
+          AWS.Client.t(),
+          String.t(),
+          delete_readiness_check_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_readiness_check_errors()}
@@ -1432,7 +1486,8 @@ defmodule AWS.Route53RecoveryReadiness do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1449,8 +1504,20 @@ defmodule AWS.Route53RecoveryReadiness do
 
   @doc """
   Deletes a recovery group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20DeleteRecoveryGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:recovery_group_name` (`t:string`) The name of a recovery group.
+
+  ## Optional parameters:
   """
-  @spec delete_recovery_group(map(), String.t(), delete_recovery_group_request(), list()) ::
+  @spec delete_recovery_group(
+          AWS.Client.t(),
+          String.t(),
+          delete_recovery_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_recovery_group_errors()}
@@ -1459,7 +1526,8 @@ defmodule AWS.Route53RecoveryReadiness do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1476,8 +1544,20 @@ defmodule AWS.Route53RecoveryReadiness do
 
   @doc """
   Deletes a resource set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20DeleteResourceSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_set_name` (`t:string`) Name of a resource set.
+
+  ## Optional parameters:
   """
-  @spec delete_resource_set(map(), String.t(), delete_resource_set_request(), list()) ::
+  @spec delete_resource_set(
+          AWS.Client.t(),
+          String.t(),
+          delete_resource_set_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_set_errors()}
@@ -1486,7 +1566,8 @@ defmodule AWS.Route53RecoveryReadiness do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1504,45 +1585,65 @@ defmodule AWS.Route53RecoveryReadiness do
   @doc """
   Gets recommendations about architecture designs for improving resiliency for an
   application, based on a recovery group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetArchitectureRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:recovery_group_name` (`t:string`) The name of a recovery group.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
-  @spec get_architecture_recommendations(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_architecture_recommendations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_architecture_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_architecture_recommendations_errors()}
-  def get_architecture_recommendations(
-        %Client{} = client,
-        recovery_group_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_architecture_recommendations(%Client{} = client, recovery_group_name, options \\ []) do
     url_path =
       "/recoverygroups/#{AWS.Util.encode_uri(recovery_group_name)}/architectureRecommendations"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1551,93 +1652,174 @@ defmodule AWS.Route53RecoveryReadiness do
   Gets information about a cell including cell name, cell Amazon Resource Name
   (ARN), ARNs of nested cells for this cell, and a list of those cell ARNs with
   their associated recovery group ARNs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetCell&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cell_name` (`t:string`) The name of the cell.
+
+  ## Optional parameters:
   """
-  @spec get_cell(map(), String.t(), list()) ::
+  @spec get_cell(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cell_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cell_errors()}
   def get_cell(%Client{} = client, cell_name, options \\ []) do
     url_path = "/cells/#{AWS.Util.encode_uri(cell_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets readiness for a cell.
+  Gets readiness for a cell. Aggregates the readiness of all the resources that
+  are associated with the cell into a single value.
 
-  Aggregates the readiness of all the resources that are associated with the cell
-  into a single value.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetCellReadinessSummary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cell_name` (`t:string`) The name of the cell.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
-  @spec get_cell_readiness_summary(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_cell_readiness_summary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cell_readiness_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cell_readiness_summary_errors()}
-  def get_cell_readiness_summary(
-        %Client{} = client,
-        cell_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_cell_readiness_summary(%Client{} = client, cell_name, options \\ []) do
     url_path = "/cellreadiness/#{AWS.Util.encode_uri(cell_name)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets details about a readiness check.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetReadinessCheck&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:readiness_check_name` (`t:string`) Name of a readiness check.
+
+  ## Optional parameters:
   """
-  @spec get_readiness_check(map(), String.t(), list()) ::
+  @spec get_readiness_check(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_readiness_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_readiness_check_errors()}
   def get_readiness_check(%Client{} = client, readiness_check_name, options \\ []) do
     url_path = "/readinesschecks/#{AWS.Util.encode_uri(readiness_check_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets individual readiness status for a readiness check.
-
-  To see the overall readiness status for a recovery group, that considers the
-  readiness status for all the readiness checks in the recovery group, use
+  Gets individual readiness status for a readiness check. To see the overall
+  readiness status for a recovery group, that considers the readiness status for
+  all the readiness checks in the recovery group, use
   GetRecoveryGroupReadinessSummary.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetReadinessCheckResourceStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:readiness_check_name` (`t:string`) Name of a readiness check.
+  * `:resource_identifier` (`t:string`) The resource identifier, which is the
+    Amazon Resource Name (ARN) or the identifier generated for the resource by
+    Application Recovery Controller (for example, for a DNS target resource).
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
-  @spec get_readiness_check_resource_status(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_readiness_check_resource_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_readiness_check_resource_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_readiness_check_resource_status_errors()}
@@ -1645,72 +1827,117 @@ defmodule AWS.Route53RecoveryReadiness do
         %Client{} = client,
         readiness_check_name,
         resource_identifier,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/readinesschecks/#{AWS.Util.encode_uri(readiness_check_name)}/resource/#{AWS.Util.encode_uri(resource_identifier)}/status"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets the readiness status for an individual readiness check.
-
-  To see the overall readiness status for a recovery group, that considers the
-  readiness status for all the readiness checks in a recovery group, use
+  Gets the readiness status for an individual readiness check. To see the overall
+  readiness status for a recovery group, that considers the readiness status for
+  all the readiness checks in a recovery group, use
   GetRecoveryGroupReadinessSummary.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetReadinessCheckStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:readiness_check_name` (`t:string`) Name of a readiness check.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
-  @spec get_readiness_check_status(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_readiness_check_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_readiness_check_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_readiness_check_status_errors()}
-  def get_readiness_check_status(
-        %Client{} = client,
-        readiness_check_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_readiness_check_status(%Client{} = client, readiness_check_name, options \\ []) do
     url_path = "/readinesschecks/#{AWS.Util.encode_uri(readiness_check_name)}/status"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1718,63 +1945,108 @@ defmodule AWS.Route53RecoveryReadiness do
   @doc """
   Gets details about a recovery group, including a list of the cells that are
   included in it.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetRecoveryGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:recovery_group_name` (`t:string`) The name of a recovery group.
+
+  ## Optional parameters:
   """
-  @spec get_recovery_group(map(), String.t(), list()) ::
+  @spec get_recovery_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_recovery_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recovery_group_errors()}
   def get_recovery_group(%Client{} = client, recovery_group_name, options \\ []) do
     url_path = "/recoverygroups/#{AWS.Util.encode_uri(recovery_group_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Displays a summary of information about a recovery group's readiness status.
-
   Includes the readiness checks for resources in the recovery group and the
   readiness status of each one.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetRecoveryGroupReadinessSummary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:recovery_group_name` (`t:string`) The name of a recovery group.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
-  @spec get_recovery_group_readiness_summary(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_recovery_group_readiness_summary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_recovery_group_readiness_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recovery_group_readiness_summary_errors()}
-  def get_recovery_group_readiness_summary(
-        %Client{} = client,
-        recovery_group_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_recovery_group_readiness_summary(%Client{} = client, recovery_group_name, options \\ []) do
     url_path = "/recoverygroupreadiness/#{AWS.Util.encode_uri(recovery_group_name)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1782,48 +2054,105 @@ defmodule AWS.Route53RecoveryReadiness do
   @doc """
   Displays the details about a resource set, including a list of the resources in
   the set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetResourceSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_set_name` (`t:string`) Name of a resource set.
+
+  ## Optional parameters:
   """
-  @spec get_resource_set(map(), String.t(), list()) ::
+  @spec get_resource_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_set_errors()}
   def get_resource_set(%Client{} = client, resource_set_name, options \\ []) do
     url_path = "/resourcesets/#{AWS.Util.encode_uri(resource_set_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the cells for an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20ListCells&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
-  @spec list_cells(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_cells(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cells_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cells_errors()}
-  def list_cells(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_cells(%Client{} = client, options \\ []) do
     url_path = "/cells"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1831,139 +2160,252 @@ defmodule AWS.Route53RecoveryReadiness do
   @doc """
   Lists the cross-account readiness authorizations that are in place for an
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20ListCrossAccountAuthorizations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
-  @spec list_cross_account_authorizations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_cross_account_authorizations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cross_account_authorizations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cross_account_authorizations_errors()}
-  def list_cross_account_authorizations(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_cross_account_authorizations(%Client{} = client, options \\ []) do
     url_path = "/crossaccountauthorizations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the readiness checks for an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20ListReadinessChecks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
-  @spec list_readiness_checks(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_readiness_checks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_readiness_checks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_readiness_checks_errors()}
-  def list_readiness_checks(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_readiness_checks(%Client{} = client, options \\ []) do
     url_path = "/readinesschecks"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the recovery groups in an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20ListRecoveryGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
-  @spec list_recovery_groups(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_recovery_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_recovery_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recovery_groups_errors()}
-  def list_recovery_groups(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_recovery_groups(%Client{} = client, options \\ []) do
     url_path = "/recoverygroups"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the resource sets in an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20ListResourceSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
-  @spec list_resource_sets(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_resource_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resource_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_sets_errors()}
-  def list_resource_sets(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_resource_sets(%Client{} = client, options \\ []) do
     url_path = "/resourcesets"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1971,69 +2413,129 @@ defmodule AWS.Route53RecoveryReadiness do
   @doc """
   Lists all readiness rules, or lists the readiness rules for a specific resource
   type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20ListRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
+  * `:resource_type` (`t:string`) The resource type that a readiness rule applies
+    to.
   """
-  @spec list_rules(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rules_errors()}
-  def list_rules(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        resource_type \\ nil,
-        options \\ []
-      ) do
+  def list_rules(%Client{} = client, options \\ []) do
     url_path = "/rules"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, resource_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(resource_type) do
-        [{"resourceType", resource_type} | query_params]
+      if opt_val = Keyword.get(options, :resource_type) do
+        [{"resourceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :resource_type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the tags for a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20ListTagsForResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resources(map(), String.t(), list()) ::
+  @spec list_tags_for_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resources_errors()}
   def list_tags_for_resources(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Adds a tag to a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2042,7 +2544,8 @@ defmodule AWS.Route53RecoveryReadiness do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2059,8 +2562,17 @@ defmodule AWS.Route53RecoveryReadiness do
 
   @doc """
   Removes a tag from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a resource.
+  * `:tag_keys` (`t:list[com.amazonaws.route53recoveryreadiness#__string]`) The
+    keys for tags you add to resources.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2074,7 +2586,8 @@ defmodule AWS.Route53RecoveryReadiness do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2092,8 +2605,15 @@ defmodule AWS.Route53RecoveryReadiness do
   @doc """
   Updates a cell to replace the list of nested cells with a new list of nested
   cells.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20UpdateCell&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cell_name` (`t:string`) The name of the cell.
+
+  ## Optional parameters:
   """
-  @spec update_cell(map(), String.t(), update_cell_request(), list()) ::
+  @spec update_cell(AWS.Client.t(), String.t(), update_cell_request(), Keyword.t()) ::
           {:ok, update_cell_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cell_errors()}
@@ -2102,15 +2622,28 @@ defmodule AWS.Route53RecoveryReadiness do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a readiness check.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20UpdateReadinessCheck&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:readiness_check_name` (`t:string`) Name of a readiness check.
+
+  ## Optional parameters:
   """
-  @spec update_readiness_check(map(), String.t(), update_readiness_check_request(), list()) ::
+  @spec update_readiness_check(
+          AWS.Client.t(),
+          String.t(),
+          update_readiness_check_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_readiness_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_readiness_check_errors()}
@@ -2119,15 +2652,28 @@ defmodule AWS.Route53RecoveryReadiness do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a recovery group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20UpdateRecoveryGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:recovery_group_name` (`t:string`) The name of a recovery group.
+
+  ## Optional parameters:
   """
-  @spec update_recovery_group(map(), String.t(), update_recovery_group_request(), list()) ::
+  @spec update_recovery_group(
+          AWS.Client.t(),
+          String.t(),
+          update_recovery_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_recovery_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_recovery_group_errors()}
@@ -2136,15 +2682,28 @@ defmodule AWS.Route53RecoveryReadiness do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a resource set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20UpdateResourceSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_set_name` (`t:string`) Name of a resource set.
+
+  ## Optional parameters:
   """
-  @spec update_resource_set(map(), String.t(), update_resource_set_request(), list()) ::
+  @spec update_resource_set(
+          AWS.Client.t(),
+          String.t(),
+          update_resource_set_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_resource_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resource_set_errors()}
@@ -2153,7 +2712,8 @@ defmodule AWS.Route53RecoveryReadiness do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

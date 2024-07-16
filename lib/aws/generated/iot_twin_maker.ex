@@ -3,16 +3,12 @@
 
 defmodule AWS.IoTTwinMaker do
   @moduledoc """
-  IoT TwinMaker is a service with which you can
-  build operational digital twins of physical systems.
-
-  IoT TwinMaker overlays measurements
-  and analysis from real-world sensors, cameras, and enterprise applications so
-  you can
-  create data visualizations to monitor your physical factory, building, or
-  industrial plant.
-  You can use this real-world data to monitor operations and diagnose and repair
-  errors.
+  IoT TwinMaker is a service with which you can build operational digital twins of
+  physical systems. IoT TwinMaker overlays measurements and analysis from
+  real-world sensors, cameras, and enterprise applications so you can create
+  data visualizations to monitor your physical factory, building, or industrial
+  plant. You can use this real-world data to monitor operations and diagnose and
+  repair errors.
   """
 
   alias AWS.Client
@@ -2368,8 +2364,21 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Sets values for multiple time series properties.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20BatchPutPropertyValues&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the
+    properties to set.
+
+  ## Optional parameters:
   """
-  @spec batch_put_property_values(map(), String.t(), batch_put_property_values_request(), list()) ::
+  @spec batch_put_property_values(
+          AWS.Client.t(),
+          String.t(),
+          batch_put_property_values_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_put_property_values_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_put_property_values_errors()}
@@ -2378,7 +2387,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "data.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "data.")
 
     Request.request_rest(
       client,
@@ -2395,12 +2405,19 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Cancels the metadata transfer job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20CancelMetadataTransferJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:metadata_transfer_job_id` (`t:string`) The metadata transfer job Id.
+
+  ## Optional parameters:
   """
   @spec cancel_metadata_transfer_job(
-          map(),
+          AWS.Client.t(),
           String.t(),
           cancel_metadata_transfer_job_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, cancel_metadata_transfer_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2415,20 +2432,30 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a component type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20CreateComponentType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:component_type_id` (`t:string`) The ID of the component type.
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the
+    component type.
+
+  ## Optional parameters:
   """
   @spec create_component_type(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           create_component_type_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_component_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2446,7 +2473,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -2463,8 +2491,15 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Creates an entity.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20CreateEntity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the entity.
+
+  ## Optional parameters:
   """
-  @spec create_entity(map(), String.t(), create_entity_request(), list()) ::
+  @spec create_entity(AWS.Client.t(), String.t(), create_entity_request(), Keyword.t()) ::
           {:ok, create_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_entity_errors()}
@@ -2473,7 +2508,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -2490,8 +2526,18 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Creates a new metadata transfer job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20CreateMetadataTransferJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_metadata_transfer_job(map(), create_metadata_transfer_job_request(), list()) ::
+  @spec create_metadata_transfer_job(
+          AWS.Client.t(),
+          create_metadata_transfer_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_metadata_transfer_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_metadata_transfer_job_errors()}
@@ -2500,7 +2546,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -2517,8 +2564,15 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Creates a scene.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20CreateScene&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the scene.
+
+  ## Optional parameters:
   """
-  @spec create_scene(map(), String.t(), create_scene_request(), list()) ::
+  @spec create_scene(AWS.Client.t(), String.t(), create_scene_request(), Keyword.t()) ::
           {:ok, create_scene_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_scene_errors()}
@@ -2527,7 +2581,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -2544,8 +2599,22 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   This action creates a SyncJob.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20CreateSyncJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sync_source` (`t:string`) The sync source.
+  * `:workspace_id` (`t:string`) The workspace ID.
+
+  ## Optional parameters:
   """
-  @spec create_sync_job(map(), String.t(), String.t(), create_sync_job_request(), list()) ::
+  @spec create_sync_job(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          create_sync_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_sync_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sync_job_errors()}
@@ -2556,7 +2625,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -2573,8 +2643,15 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Creates a workplace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20CreateWorkspace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace.
+
+  ## Optional parameters:
   """
-  @spec create_workspace(map(), String.t(), create_workspace_request(), list()) ::
+  @spec create_workspace(AWS.Client.t(), String.t(), create_workspace_request(), Keyword.t()) ::
           {:ok, create_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workspace_errors()}
@@ -2583,7 +2660,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -2600,13 +2678,22 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Deletes a component type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20DeleteComponentType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:component_type_id` (`t:string`) The ID of the component type to delete.
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the
+    component type.
+
+  ## Optional parameters:
   """
   @spec delete_component_type(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_component_type_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_component_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2624,7 +2711,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -2641,8 +2729,25 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Deletes an entity.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20DeleteEntity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:entity_id` (`t:string`) The ID of the entity to delete.
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the entity
+    to delete.
+
+  ## Optional parameters:
+  * `:is_recursive` (`t:boolean`) A Boolean value that specifies whether the
+    operation deletes child entities.
   """
-  @spec delete_entity(map(), String.t(), String.t(), delete_entity_request(), list()) ::
+  @spec delete_entity(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_entity_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_entity_errors()}
@@ -2658,7 +2763,13 @@ defmodule AWS.IoTTwinMaker do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:is_recursive])
 
     Request.request_rest(
       client,
@@ -2675,8 +2786,16 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Deletes a scene.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20DeleteScene&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:scene_id` (`t:string`) The ID of the scene to delete.
+  * `:workspace_id` (`t:string`) The ID of the workspace.
+
+  ## Optional parameters:
   """
-  @spec delete_scene(map(), String.t(), String.t(), delete_scene_request(), list()) ::
+  @spec delete_scene(AWS.Client.t(), String.t(), String.t(), delete_scene_request(), Keyword.t()) ::
           {:ok, delete_scene_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_scene_errors()}
@@ -2687,7 +2806,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -2704,8 +2824,22 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Delete the SyncJob.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20DeleteSyncJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sync_source` (`t:string`) The sync source.
+  * `:workspace_id` (`t:string`) The workspace ID.
+
+  ## Optional parameters:
   """
-  @spec delete_sync_job(map(), String.t(), String.t(), delete_sync_job_request(), list()) ::
+  @spec delete_sync_job(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_sync_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_sync_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sync_job_errors()}
@@ -2716,7 +2850,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -2733,8 +2868,15 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Deletes a workspace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20DeleteWorkspace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_workspace(map(), String.t(), delete_workspace_request(), list()) ::
+  @spec delete_workspace(AWS.Client.t(), String.t(), delete_workspace_request(), Keyword.t()) ::
           {:ok, delete_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workspace_errors()}
@@ -2743,7 +2885,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -2762,10 +2905,13 @@ defmodule AWS.IoTTwinMaker do
   Run queries to access information from your knowledge graph of entities within
   individual workspaces.
 
-  The ExecuteQuery action only works with [Amazon Web Services Java SDK2](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/home.html).
-  ExecuteQuery will not work with any Amazon Web Services Java SDK version < 2.x.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20ExecuteQuery&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec execute_query(map(), execute_query_request(), list()) ::
+  @spec execute_query(AWS.Client.t(), execute_query_request(), Keyword.t()) ::
           {:ok, execute_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_query_errors()}
@@ -2774,7 +2920,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -2791,8 +2938,17 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Retrieves information about a component type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20GetComponentType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:component_type_id` (`t:string`) The ID of the component type.
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the
+    component type.
+
+  ## Optional parameters:
   """
-  @spec get_component_type(map(), String.t(), String.t(), list()) ::
+  @spec get_component_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_component_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_component_type_errors()}
@@ -2800,18 +2956,43 @@ defmodule AWS.IoTTwinMaker do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/component-types/#{AWS.Util.encode_uri(component_type_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about an entity.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20GetEntity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:entity_id` (`t:string`) The ID of the entity.
+  * `:workspace_id` (`t:string`) The ID of the workspace.
+
+  ## Optional parameters:
   """
-  @spec get_entity(map(), String.t(), String.t(), list()) ::
+  @spec get_entity(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_entity_errors()}
@@ -2819,44 +3000,110 @@ defmodule AWS.IoTTwinMaker do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entities/#{AWS.Util.encode_uri(entity_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a nmetadata transfer job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20GetMetadataTransferJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:metadata_transfer_job_id` (`t:string`) The metadata transfer job Id.
+
+  ## Optional parameters:
   """
-  @spec get_metadata_transfer_job(map(), String.t(), list()) ::
+  @spec get_metadata_transfer_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_metadata_transfer_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_metadata_transfer_job_errors()}
   def get_metadata_transfer_job(%Client{} = client, metadata_transfer_job_id, options \\ []) do
     url_path = "/metadata-transfer-jobs/#{AWS.Util.encode_uri(metadata_transfer_job_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the pricing plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20GetPricingPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_pricing_plan(map(), list()) ::
+  @spec get_pricing_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_pricing_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_pricing_plan_errors()}
   def get_pricing_plan(%Client{} = client, options \\ []) do
     url_path = "/pricingplan"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2864,10 +3111,15 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Gets the property values for a component, component type, entity, or workspace.
 
-  You must specify a value for either `componentName`,
-  `componentTypeId`, `entityId`, or `workspaceId`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20GetPropertyValue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace whose values the
+    operation returns.
+
+  ## Optional parameters:
   """
-  @spec get_property_value(map(), String.t(), get_property_value_request(), list()) ::
+  @spec get_property_value(AWS.Client.t(), String.t(), get_property_value_request(), Keyword.t()) ::
           {:ok, get_property_value_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_property_value_errors()}
@@ -2876,7 +3128,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "data.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "data.")
 
     Request.request_rest(
       client,
@@ -2893,18 +3146,20 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Retrieves information about the history of a time series property value for a
-  component,
-  component type, entity, or workspace.
+  component, component type, entity, or workspace.
 
-  You must specify a value for `workspaceId`. For entity-specific queries,
-  specify values for `componentName` and `entityId`. For cross-entity
-  quries, specify a value for `componentTypeId`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20GetPropertyValueHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace.
+
+  ## Optional parameters:
   """
   @spec get_property_value_history(
-          map(),
+          AWS.Client.t(),
           String.t(),
           get_property_value_history_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_property_value_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2914,7 +3169,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "data.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "data.")
 
     Request.request_rest(
       client,
@@ -2931,8 +3187,16 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Retrieves information about a scene.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20GetScene&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:scene_id` (`t:string`) The ID of the scene.
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the scene.
+
+  ## Optional parameters:
   """
-  @spec get_scene(map(), String.t(), String.t(), list()) ::
+  @spec get_scene(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_scene_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_scene_errors()}
@@ -2940,59 +3204,143 @@ defmodule AWS.IoTTwinMaker do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/scenes/#{AWS.Util.encode_uri(scene_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the SyncJob.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20GetSyncJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sync_source` (`t:string`) The sync source.
+
+  ## Optional parameters:
+  * `:workspace_id` (`t:string`) The workspace ID.
   """
-  @spec get_sync_job(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_sync_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sync_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sync_job_errors()}
-  def get_sync_job(%Client{} = client, sync_source, workspace_id \\ nil, options \\ []) do
+  def get_sync_job(%Client{} = client, sync_source, options \\ []) do
     url_path = "/sync-jobs/#{AWS.Util.encode_uri(sync_source)}"
+
+    # Validate optional parameters
+    optional_params = [workspace_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(workspace_id) do
-        [{"workspace", workspace_id} | query_params]
+      if opt_val = Keyword.get(options, :workspace_id) do
+        [{"workspace", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:workspace_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a workspace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20GetWorkspace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace.
+
+  ## Optional parameters:
   """
-  @spec get_workspace(map(), String.t(), list()) ::
+  @spec get_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workspace_errors()}
   def get_workspace(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all component types in a workspace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20ListComponentTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace.
+
+  ## Optional parameters:
   """
-  @spec list_component_types(map(), String.t(), list_component_types_request(), list()) ::
+  @spec list_component_types(
+          AWS.Client.t(),
+          String.t(),
+          list_component_types_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_component_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_component_types_errors()}
@@ -3001,7 +3349,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -3018,8 +3367,23 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   This API lists the components of an entity.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20ListComponents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:entity_id` (`t:string`) The ID for the entity whose metadata
+    (component/properties) is returned by the operation.
+  * `:workspace_id` (`t:string`) The workspace ID.
+
+  ## Optional parameters:
   """
-  @spec list_components(map(), String.t(), String.t(), list_components_request(), list()) ::
+  @spec list_components(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          list_components_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_components_errors()}
@@ -3030,7 +3394,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -3047,8 +3412,15 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Lists all entities in a workspace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20ListEntities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace.
+
+  ## Optional parameters:
   """
-  @spec list_entities(map(), String.t(), list_entities_request(), list()) ::
+  @spec list_entities(AWS.Client.t(), String.t(), list_entities_request(), Keyword.t()) ::
           {:ok, list_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_entities_errors()}
@@ -3057,7 +3429,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -3074,8 +3447,18 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Lists the metadata transfer jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20ListMetadataTransferJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_metadata_transfer_jobs(map(), list_metadata_transfer_jobs_request(), list()) ::
+  @spec list_metadata_transfer_jobs(
+          AWS.Client.t(),
+          list_metadata_transfer_jobs_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_metadata_transfer_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_metadata_transfer_jobs_errors()}
@@ -3084,7 +3467,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -3101,8 +3485,15 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   This API lists the properties of a component.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20ListProperties&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The workspace ID.
+
+  ## Optional parameters:
   """
-  @spec list_properties(map(), String.t(), list_properties_request(), list()) ::
+  @spec list_properties(AWS.Client.t(), String.t(), list_properties_request(), Keyword.t()) ::
           {:ok, list_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_properties_errors()}
@@ -3111,7 +3502,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -3128,8 +3520,15 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Lists all scenes in a workspace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20ListScenes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the scenes.
+
+  ## Optional parameters:
   """
-  @spec list_scenes(map(), String.t(), list_scenes_request(), list()) ::
+  @spec list_scenes(AWS.Client.t(), String.t(), list_scenes_request(), Keyword.t()) ::
           {:ok, list_scenes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_scenes_errors()}
@@ -3138,7 +3537,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -3155,8 +3555,16 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   List all SyncJobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20ListSyncJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the sync
+    job.
+
+  ## Optional parameters:
   """
-  @spec list_sync_jobs(map(), String.t(), list_sync_jobs_request(), list()) ::
+  @spec list_sync_jobs(AWS.Client.t(), String.t(), list_sync_jobs_request(), Keyword.t()) ::
           {:ok, list_sync_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sync_jobs_errors()}
@@ -3165,7 +3573,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -3182,8 +3591,23 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Lists the sync resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20ListSyncResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sync_source` (`t:string`) The sync source.
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the sync
+    job.
+
+  ## Optional parameters:
   """
-  @spec list_sync_resources(map(), String.t(), String.t(), list_sync_resources_request(), list()) ::
+  @spec list_sync_resources(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          list_sync_resources_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_sync_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sync_resources_errors()}
@@ -3194,7 +3618,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -3211,8 +3636,14 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Lists all tags associated with a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
@@ -3221,7 +3652,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -3238,8 +3670,14 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Retrieves information about workspaces in the current account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20ListWorkspaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_workspaces(map(), list_workspaces_request(), list()) ::
+  @spec list_workspaces(AWS.Client.t(), list_workspaces_request(), Keyword.t()) ::
           {:ok, list_workspaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workspaces_errors()}
@@ -3248,7 +3686,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -3265,8 +3704,14 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Adds tags to a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -3275,7 +3720,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -3292,8 +3738,18 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Removes tags from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.iottwinmaker#TagKey]`) A list of tag key
+    names to remove from the resource. You don't specify the value. Both the key
+    and its associated value are removed.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -3308,7 +3764,8 @@ defmodule AWS.IoTTwinMaker do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -3325,13 +3782,21 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Updates information in a component type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20UpdateComponentType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:component_type_id` (`t:string`) The ID of the component type.
+  * `:workspace_id` (`t:string`) The ID of the workspace.
+
+  ## Optional parameters:
   """
   @spec update_component_type(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_component_type_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_component_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3349,15 +3814,30 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates an entity.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20UpdateEntity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:entity_id` (`t:string`) The ID of the entity.
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the entity.
+
+  ## Optional parameters:
   """
-  @spec update_entity(map(), String.t(), String.t(), update_entity_request(), list()) ::
+  @spec update_entity(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_entity_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_entity_errors()}
@@ -3368,15 +3848,22 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Update the pricing plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20UpdatePricingPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_pricing_plan(map(), update_pricing_plan_request(), list()) ::
+  @spec update_pricing_plan(AWS.Client.t(), update_pricing_plan_request(), Keyword.t()) ::
           {:ok, update_pricing_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pricing_plan_errors()}
@@ -3385,7 +3872,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -3402,8 +3890,16 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Updates a scene.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20UpdateScene&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:scene_id` (`t:string`) The ID of the scene.
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the scene.
+
+  ## Optional parameters:
   """
-  @spec update_scene(map(), String.t(), String.t(), update_scene_request(), list()) ::
+  @spec update_scene(AWS.Client.t(), String.t(), String.t(), update_scene_request(), Keyword.t()) ::
           {:ok, update_scene_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_scene_errors()}
@@ -3414,15 +3910,23 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a workspace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20UpdateWorkspace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace.
+
+  ## Optional parameters:
   """
-  @spec update_workspace(map(), String.t(), update_workspace_request(), list()) ::
+  @spec update_workspace(AWS.Client.t(), String.t(), update_workspace_request(), Keyword.t()) ::
           {:ok, update_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workspace_errors()}
@@ -3431,7 +3935,8 @@ defmodule AWS.IoTTwinMaker do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

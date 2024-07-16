@@ -4,13 +4,6 @@
 defmodule AWS.Backup do
   @moduledoc """
   Backup
-
-  Backup is a unified backup service designed to protect Amazon Web Services
-  services and their associated data.
-
-  Backup simplifies the creation, migration,
-  restoration, and deletion of backups, while also providing reporting and
-  auditing.
   """
 
   alias AWS.Client
@@ -3585,11 +3578,22 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  This action removes the specified legal hold on a recovery point.
+  This action removes the specified legal hold on a recovery point. This action
+  can only be performed by a user with sufficient permissions.
 
-  This action can only be performed by a user with sufficient permissions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20CancelLegalHold&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:legal_hold_id` (`t:string`) Legal hold ID required to remove the specified
+    legal hold on a recovery point.
+  * `:cancel_description` (`t:string`) String describing the reason for removing
+    the legal hold.
+
+  ## Optional parameters:
+  * `:retain_record_in_days` (`t:long`) The integer amount in days specifying
+    amount of days after this API operation to remove legal hold.
   """
-  @spec cancel_legal_hold(map(), String.t(), cancel_legal_hold_input(), list()) ::
+  @spec cancel_legal_hold(AWS.Client.t(), String.t(), cancel_legal_hold_input(), Keyword.t()) ::
           {:ok, cancel_legal_hold_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_legal_hold_errors()}
@@ -3604,7 +3608,13 @@ defmodule AWS.Backup do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:retain_record_in_days])
 
     Request.request_rest(
       client,
@@ -3620,16 +3630,17 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Creates a backup plan using a backup plan name and backup rules.
+  Creates a backup plan using a backup plan name and backup rules. A backup plan
+  is a document that contains information that Backup uses to schedule tasks
+  that create recovery points for resources.
 
-  A backup plan is a
-  document that contains information that Backup uses to schedule tasks that
-  create recovery points for resources.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20CreateBackupPlan&this_doc_guide=API%2520Reference)
 
-  If you call `CreateBackupPlan` with a plan that already exists, you receive
-  an `AlreadyExistsException` exception.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_backup_plan(map(), create_backup_plan_input(), list()) ::
+  @spec create_backup_plan(AWS.Client.t(), create_backup_plan_input(), Keyword.t()) ::
           {:ok, create_backup_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_backup_plan_errors()}
@@ -3638,18 +3649,31 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a JSON document that specifies a set of resources to assign to a backup
-  plan.
+  plan. For examples, see [Assigning resources
+  programmatically](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-json).
 
-  For examples, see [Assigning resources programmatically](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-json).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20CreateBackupSelection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_plan_id` (`t:string`) Uniquely identifies the backup plan to be
+    associated with the selection of resources.
+
+  ## Optional parameters:
   """
-  @spec create_backup_selection(map(), String.t(), create_backup_selection_input(), list()) ::
+  @spec create_backup_selection(
+          AWS.Client.t(),
+          String.t(),
+          create_backup_selection_input(),
+          Keyword.t()
+        ) ::
           {:ok, create_backup_selection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_backup_selection_errors()}
@@ -3658,23 +3682,28 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Creates a logical container where backups are stored.
-
-  A `CreateBackupVault`
+  Creates a logical container where backups are stored. A `CreateBackupVault`
   request includes a name, optionally one or more resource tags, an encryption
-  key, and a
-  request ID.
+  key, and a request ID.
 
-  Do not include sensitive data, such as passport numbers, in the name of a backup
-  vault.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20CreateBackupVault&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_vault_name` (`t:string`) The name of a logical container where
+    backups are stored. Backup vaults are identified by names that are unique to
+    the account used to create them and the Amazon Web Services Region where
+    they are created. They consist of letters, numbers, and hyphens.
+
+  ## Optional parameters:
   """
-  @spec create_backup_vault(map(), String.t(), create_backup_vault_input(), list()) ::
+  @spec create_backup_vault(AWS.Client.t(), String.t(), create_backup_vault_input(), Keyword.t()) ::
           {:ok, create_backup_vault_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_backup_vault_errors()}
@@ -3683,22 +3712,26 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Creates a framework with one or more controls.
+  Creates a framework with one or more controls. A framework is a collection of
+  controls that you can use to evaluate your backup practices. By using
+  pre-built customizable controls to define your policies, you can evaluate
+  whether your backup practices comply with your policies and which resources
+  are not yet in compliance.
 
-  A framework is a collection of controls
-  that you can use to evaluate your backup practices. By using pre-built
-  customizable
-  controls to define your policies, you can evaluate whether your backup practices
-  comply
-  with your policies and which resources are not yet in compliance.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20CreateFramework&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_framework(map(), create_framework_input(), list()) ::
+  @spec create_framework(AWS.Client.t(), create_framework_input(), Keyword.t()) ::
           {:ok, create_framework_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_framework_errors()}
@@ -3707,7 +3740,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3723,16 +3757,19 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  This action creates a legal hold on a recovery point (backup).
+  This action creates a legal hold on a recovery point (backup). A legal hold is a
+  restraint on altering or deleting a backup until an authorized user cancels
+  the legal hold. Any actions to delete or disassociate a recovery point will
+  fail with an error if one or more active legal holds are on the recovery
+  point.
 
-  A legal hold
-  is a restraint on altering or deleting a backup until an authorized user cancels
-  the
-  legal hold. Any actions to delete or disassociate a recovery point will fail
-  with
-  an error if one or more active legal holds are on the recovery point.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20CreateLegalHold&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_legal_hold(map(), create_legal_hold_input(), list()) ::
+  @spec create_legal_hold(AWS.Client.t(), create_legal_hold_input(), Keyword.t()) ::
           {:ok, create_legal_hold_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_legal_hold_errors()}
@@ -3741,7 +3778,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3757,22 +3795,24 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  This request creates a logical container to where backups may be copied.
+  This request creates a logical container to where backups may be copied. This
+  request includes a name, the Region, the maximum number of retention days, the
+  minimum number of retention days, and optionally can include tags and a
+  creator request ID.
 
-  This request includes a name, the Region, the maximum number of retention days,
-  the
-  minimum number of retention days, and optionally can include tags and a creator
-  request
-  ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20CreateLogicallyAirGappedBackupVault&this_doc_guide=API%2520Reference)
 
-  Do not include sensitive data, such as passport numbers, in the name of a backup
-  vault.
+  ## Parameters:
+  * `:backup_vault_name` (`t:string`) This is the name of the vault that is being
+    created.
+
+  ## Optional parameters:
   """
   @spec create_logically_air_gapped_backup_vault(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_logically_air_gapped_backup_vault_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_logically_air_gapped_backup_vault_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3787,21 +3827,23 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Creates a report plan.
+  Creates a report plan. A report plan is a document that contains information
+  about the contents of the report and where Backup will deliver it.
 
-  A report plan is a document that contains information about the
-  contents of the report and where Backup will deliver it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20CreateReportPlan&this_doc_guide=API%2520Reference)
 
-  If you call `CreateReportPlan` with a plan that already exists, you receive
-  an `AlreadyExistsException` exception.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_report_plan(map(), create_report_plan_input(), list()) ::
+  @spec create_report_plan(AWS.Client.t(), create_report_plan_input(), Keyword.t()) ::
           {:ok, create_report_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_report_plan_errors()}
@@ -3810,7 +3852,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3826,14 +3869,21 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  This is the first of two steps to create a restore testing
-  plan; once this request is successful, finish the procedure with
-  request CreateRestoreTestingSelection.
+  This is the first of two steps to create a restore testing plan; once this
+  request is successful, finish the procedure with request
+  CreateRestoreTestingSelection.
 
-  You must include the parameter RestoreTestingPlan. You may
-  optionally include CreatorRequestId and Tags.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20CreateRestoreTestingPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_restore_testing_plan(map(), create_restore_testing_plan_input(), list()) ::
+  @spec create_restore_testing_plan(
+          AWS.Client.t(),
+          create_restore_testing_plan_input(),
+          Keyword.t()
+        ) ::
           {:ok, create_restore_testing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_restore_testing_plan_errors()}
@@ -3842,44 +3892,32 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
   end
 
   @doc """
-  This request can be sent after CreateRestoreTestingPlan request
-  returns successfully.
+  This request can be sent after CreateRestoreTestingPlan request returns
+  successfully. This is the second part of creating a resource testing plan, and
+  it must be completed sequentially. This consists of
+  `RestoreTestingSelectionName`, `ProtectedResourceType`, and one of the
+  following:
 
-  This is the second part of creating a resource testing
-  plan, and it must be completed sequentially.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20CreateRestoreTestingSelection&this_doc_guide=API%2520Reference)
 
-  This consists of `RestoreTestingSelectionName`,
-  `ProtectedResourceType`, and one of the following:
+  ## Parameters:
+  * `:restore_testing_plan_name` (`t:`) Input the restore testing plan name that
+    was returned from the related CreateRestoreTestingPlan request.
 
-    *
-
-  `ProtectedResourceArns`
-
-    *
-
-  `ProtectedResourceConditions`
-
-  Each protected resource type can have one single value.
-
-  A restore testing selection can include a wildcard value ("*") for
-  `ProtectedResourceArns` along with `ProtectedResourceConditions`.
-  Alternatively, you can include up to 30 specific protected resource ARNs in
-  `ProtectedResourceArns`.
-
-  Cannot select by both protected resource types AND specific ARNs.
-  Request will fail if both are included.
+  ## Optional parameters:
   """
   @spec create_restore_testing_selection(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_restore_testing_selection_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_restore_testing_selection_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3896,20 +3934,25 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
   end
 
   @doc """
-  Deletes a backup plan.
+  Deletes a backup plan. A backup plan can only be deleted after all associated
+  selections of resources have been deleted. Deleting a backup plan deletes the
+  current version of a backup plan. Previous versions, if any, will still exist.
 
-  A backup plan can only be deleted after all associated selections
-  of resources have been deleted. Deleting a backup plan deletes the current
-  version of a
-  backup plan. Previous versions, if any, will still exist.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DeleteBackupPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
+
+  ## Optional parameters:
   """
-  @spec delete_backup_plan(map(), String.t(), delete_backup_plan_input(), list()) ::
+  @spec delete_backup_plan(AWS.Client.t(), String.t(), delete_backup_plan_input(), Keyword.t()) ::
           {:ok, delete_backup_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_backup_plan_errors()}
@@ -3918,7 +3961,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3935,15 +3979,23 @@ defmodule AWS.Backup do
 
   @doc """
   Deletes the resource selection associated with a backup plan that is specified
-  by the
-  `SelectionId`.
+  by the `SelectionId`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DeleteBackupSelection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
+  * `:selection_id` (`t:string`) Uniquely identifies the body of a request to
+    assign a set of resources to a backup plan.
+
+  ## Optional parameters:
   """
   @spec delete_backup_selection(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_backup_selection_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -3961,7 +4013,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3977,12 +4030,20 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Deletes the backup vault identified by its name.
+  Deletes the backup vault identified by its name. A vault can be deleted only if
+  it is empty.
 
-  A vault can be deleted only if it is
-  empty.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DeleteBackupVault&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_vault_name` (`t:string`) The name of a logical container where
+    backups are stored. Backup vaults are identified by names that are unique to
+    the account used to create them and the Amazon Web Services Region where
+    they are created. They consist of lowercase letters, numbers, and hyphens.
+
+  ## Optional parameters:
   """
-  @spec delete_backup_vault(map(), String.t(), delete_backup_vault_input(), list()) ::
+  @spec delete_backup_vault(AWS.Client.t(), String.t(), delete_backup_vault_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_backup_vault_errors()}
@@ -3991,7 +4052,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4008,12 +4070,22 @@ defmodule AWS.Backup do
 
   @doc """
   Deletes the policy document that manages permissions on a backup vault.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DeleteBackupVaultAccessPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_vault_name` (`t:string`) The name of a logical container where
+    backups are stored. Backup vaults are identified by names that are unique to
+    the account used to create them and the Amazon Web Services Region where
+    they are created. They consist of lowercase letters, numbers, and hyphens.
+
+  ## Optional parameters:
   """
   @spec delete_backup_vault_access_policy(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_backup_vault_access_policy_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -4028,7 +4100,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4044,21 +4117,21 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Deletes Backup Vault Lock from a backup vault specified by a backup vault
-  name.
+  Deletes Backup Vault Lock from a backup vault specified by a backup vault name.
 
-  If the Vault Lock configuration is immutable, then you cannot delete Vault Lock
-  using
-  API operations, and you will receive an `InvalidRequestException` if you attempt
-  to do so. For more information, see [Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) in
-  the
-  *Backup Developer Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DeleteBackupVaultLockConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_vault_name` (`t:string`) The name of the backup vault from which to
+    delete Backup Vault Lock.
+
+  ## Optional parameters:
   """
   @spec delete_backup_vault_lock_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_backup_vault_lock_configuration_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -4073,7 +4146,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4090,12 +4164,22 @@ defmodule AWS.Backup do
 
   @doc """
   Deletes event notifications for the specified backup vault.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DeleteBackupVaultNotifications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_vault_name` (`t:string`) The name of a logical container where
+    backups are stored. Backup vaults are identified by names that are unique to
+    the account used to create them and the Region where they are created. They
+    consist of lowercase letters, numbers, and hyphens.
+
+  ## Optional parameters:
   """
   @spec delete_backup_vault_notifications(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_backup_vault_notifications_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -4112,7 +4196,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4129,8 +4214,15 @@ defmodule AWS.Backup do
 
   @doc """
   Deletes the framework specified by a framework name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DeleteFramework&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:framework_name` (`t:string`) The unique name of a framework.
+
+  ## Optional parameters:
   """
-  @spec delete_framework(map(), String.t(), delete_framework_input(), list()) ::
+  @spec delete_framework(AWS.Client.t(), String.t(), delete_framework_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_framework_errors()}
@@ -4139,7 +4231,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4155,34 +4248,29 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Deletes the recovery point specified by a recovery point ID.
+  Deletes the recovery point specified by a recovery point ID. If the recovery
+  point ID belongs to a continuous backup, calling this endpoint deletes the
+  existing continuous backup and stops future continuous backup.
 
-  If the recovery point ID belongs to a continuous backup, calling this endpoint
-  deletes
-  the existing continuous backup and stops future continuous backup.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DeleteRecoveryPoint&this_doc_guide=API%2520Reference)
 
-  When an IAM role's permissions are insufficient to call this API, the service
-  sends back
-  an HTTP 200 response with an empty HTTP body, but the recovery point is not
-  deleted.
-  Instead, it enters an `EXPIRED` state.
+  ## Parameters:
+  * `:backup_vault_name` (`t:string`) The name of a logical container where
+    backups are stored. Backup vaults are identified by names that are unique to
+    the account used to create them and the Amazon Web Services Region where
+    they are created. They consist of lowercase letters, numbers, and hyphens.
+  * `:recovery_point_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
+    identifies a recovery point; for example,
+    arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.
 
-  `EXPIRED` recovery points can be deleted with this API once the IAM role
-  has the `iam:CreateServiceLinkedRole` action. To learn more about adding this
-  role, see
-  [
-  Troubleshooting manual
-  deletions](https://docs.aws.amazon.com/aws-backup/latest/devguide/deleting-backups.html#deleting-backups-troubleshooting).
-
-  If the user or role is deleted or the permission within the role is removed,
-  the deletion will not be successful and will enter an `EXPIRED` state.
+  ## Optional parameters:
   """
   @spec delete_recovery_point(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_recovery_point_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -4200,7 +4288,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4217,8 +4306,15 @@ defmodule AWS.Backup do
 
   @doc """
   Deletes the report plan specified by a report plan name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DeleteReportPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:report_plan_name` (`t:string`) The unique name of a report plan.
+
+  ## Optional parameters:
   """
-  @spec delete_report_plan(map(), String.t(), delete_report_plan_input(), list()) ::
+  @spec delete_report_plan(AWS.Client.t(), String.t(), delete_report_plan_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_report_plan_errors()}
@@ -4227,7 +4323,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4245,14 +4342,19 @@ defmodule AWS.Backup do
   @doc """
   This request deletes the specified restore testing plan.
 
-  Deletion can only successfully occur if all associated
-  restore testing selections are deleted first.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DeleteRestoreTestingPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:restore_testing_plan_name` (`t:`) Required unique name of the restore
+    testing plan you wish to delete.
+
+  ## Optional parameters:
   """
   @spec delete_restore_testing_plan(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_restore_testing_plan_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -4267,7 +4369,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4283,18 +4386,24 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Input the Restore Testing Plan name and Restore Testing Selection
-  name.
+  Input the Restore Testing Plan name and Restore Testing Selection name.
 
-  All testing selections associated with a restore testing plan must
-  be deleted before the restore testing plan can be deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DeleteRestoreTestingSelection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:restore_testing_plan_name` (`t:`) Required unique name of the restore
+    testing plan that contains the restore testing selection you wish to delete.
+  * `:restore_testing_selection_name` (`t:`) Required unique name of the restore
+    testing selection you wish to delete.
+
+  ## Optional parameters:
   """
   @spec delete_restore_testing_selection(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_restore_testing_selection_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -4312,7 +4421,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4329,133 +4439,297 @@ defmodule AWS.Backup do
 
   @doc """
   Returns backup job details for the specified `BackupJobId`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DescribeBackupJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_job_id` (`t:string`) Uniquely identifies a request to Backup to back
+    up a resource.
+
+  ## Optional parameters:
   """
-  @spec describe_backup_job(map(), String.t(), list()) ::
+  @spec describe_backup_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_backup_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_backup_job_errors()}
   def describe_backup_job(%Client{} = client, backup_job_id, options \\ []) do
     url_path = "/backup-jobs/#{AWS.Util.encode_uri(backup_job_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns metadata about a backup vault specified by its name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DescribeBackupVault&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_vault_name` (`t:string`) The name of a logical container where
+    backups are stored. Backup vaults are identified by names that are unique to
+    the account used to create them and the Amazon Web Services Region where
+    they are created. They consist of lowercase letters, numbers, and hyphens.
+
+  ## Optional parameters:
+  * `:backup_vault_account_id` (`t:string`) This is the account ID of the
+    specified backup vault.
   """
-  @spec describe_backup_vault(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_backup_vault(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_backup_vault_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_backup_vault_errors()}
-  def describe_backup_vault(
-        %Client{} = client,
-        backup_vault_name,
-        backup_vault_account_id \\ nil,
-        options \\ []
-      ) do
+  def describe_backup_vault(%Client{} = client, backup_vault_name, options \\ []) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}"
+
+    # Validate optional parameters
+    optional_params = [backup_vault_account_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(backup_vault_account_id) do
-        [{"backupVaultAccountId", backup_vault_account_id} | query_params]
+      if opt_val = Keyword.get(options, :backup_vault_account_id) do
+        [{"backupVaultAccountId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:backup_vault_account_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns metadata associated with creating a copy of a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DescribeCopyJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:copy_job_id` (`t:string`) Uniquely identifies a copy job.
+
+  ## Optional parameters:
   """
-  @spec describe_copy_job(map(), String.t(), list()) ::
+  @spec describe_copy_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_copy_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_copy_job_errors()}
   def describe_copy_job(%Client{} = client, copy_job_id, options \\ []) do
     url_path = "/copy-jobs/#{AWS.Util.encode_uri(copy_job_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the framework details for the specified `FrameworkName`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DescribeFramework&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:framework_name` (`t:string`) The unique name of a framework.
+
+  ## Optional parameters:
   """
-  @spec describe_framework(map(), String.t(), list()) ::
+  @spec describe_framework(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_framework_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_framework_errors()}
   def describe_framework(%Client{} = client, framework_name, options \\ []) do
     url_path = "/audit/frameworks/#{AWS.Util.encode_uri(framework_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes whether the Amazon Web Services account is opted in to cross-account
-  backup.
+  backup. Returns an error if the account is not a member of an Organizations
+  organization. Example: `describe-global-settings --region us-west-2`
 
-  Returns an error if the account is not a member of an Organizations
-  organization.
-  Example: `describe-global-settings --region us-west-2`
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DescribeGlobalSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_global_settings(map(), list()) ::
+  @spec describe_global_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_global_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_global_settings_errors()}
   def describe_global_settings(%Client{} = client, options \\ []) do
     url_path = "/global-settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a saved resource, including the last time it was
-  backed up,
-  its Amazon Resource Name (ARN), and the Amazon Web Services service type of the
-  saved
-  resource.
+  backed up, its Amazon Resource Name (ARN), and the Amazon Web Services service
+  type of the saved resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DescribeProtectedResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
+    identifies a resource. The format of the ARN depends on the resource type.
+
+  ## Optional parameters:
   """
-  @spec describe_protected_resource(map(), String.t(), list()) ::
+  @spec describe_protected_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_protected_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_protected_resource_errors()}
   def describe_protected_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns metadata associated with a recovery point, including ID, status,
-  encryption, and
-  lifecycle.
+  encryption, and lifecycle.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DescribeRecoveryPoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_vault_name` (`t:string`) The name of a logical container where
+    backups are stored. Backup vaults are identified by names that are unique to
+    the account used to create them and the Amazon Web Services Region where
+    they are created. They consist of lowercase letters, numbers, and hyphens.
+  * `:recovery_point_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
+    identifies a recovery point; for example,
+    arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.
+
+  ## Optional parameters:
+  * `:backup_vault_account_id` (`t:string`) This is the account ID of the
+    specified backup vault.
   """
-  @spec describe_recovery_point(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec describe_recovery_point(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_recovery_point_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_recovery_point_errors()}
@@ -4463,47 +4737,88 @@ defmodule AWS.Backup do
         %Client{} = client,
         backup_vault_name,
         recovery_point_arn,
-        backup_vault_account_id \\ nil,
         options \\ []
       ) do
     url_path =
       "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/recovery-points/#{AWS.Util.encode_uri(recovery_point_arn)}"
 
+    # Validate optional parameters
+    optional_params = [backup_vault_account_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(backup_vault_account_id) do
-        [{"backupVaultAccountId", backup_vault_account_id} | query_params]
+      if opt_val = Keyword.get(options, :backup_vault_account_id) do
+        [{"backupVaultAccountId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:backup_vault_account_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns the current service opt-in settings for the Region.
+  Returns the current service opt-in settings for the Region. If service opt-in is
+  enabled for a service, Backup tries to protect that service's resources in
+  this Region, when the resource is included in an on-demand backup or scheduled
+  backup plan. Otherwise, Backup does not try to protect that service's
+  resources in this Region.
 
-  If service opt-in is enabled
-  for a service, Backup tries to protect that service's resources in this Region,
-  when the resource is included in an on-demand backup or scheduled backup plan.
-  Otherwise,
-  Backup does not try to protect that service's resources in this
-  Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DescribeRegionSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_region_settings(map(), list()) ::
+  @spec describe_region_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_region_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_region_settings_errors()}
   def describe_region_settings(%Client{} = client, options \\ []) do
     url_path = "/account-settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4511,17 +4826,44 @@ defmodule AWS.Backup do
   @doc """
   Returns the details associated with creating a report as specified by its
   `ReportJobId`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DescribeReportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:report_job_id` (`t:string`) The identifier of the report job. A unique,
+    randomly generated, Unicode, UTF-8 encoded string that is at most 1,024
+    bytes long. The report job ID cannot be edited.
+
+  ## Optional parameters:
   """
-  @spec describe_report_job(map(), String.t(), list()) ::
+  @spec describe_report_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_report_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_report_job_errors()}
   def describe_report_job(%Client{} = client, report_job_id, options \\ []) do
     url_path = "/audit/report-jobs/#{AWS.Util.encode_uri(report_job_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4529,55 +4871,110 @@ defmodule AWS.Backup do
   @doc """
   Returns a list of all report plans for an Amazon Web Services account and Amazon
   Web Services Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DescribeReportPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:report_plan_name` (`t:string`) The unique name of a report plan.
+
+  ## Optional parameters:
   """
-  @spec describe_report_plan(map(), String.t(), list()) ::
+  @spec describe_report_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_report_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_report_plan_errors()}
   def describe_report_plan(%Client{} = client, report_plan_name, options \\ []) do
     url_path = "/audit/report-plans/#{AWS.Util.encode_uri(report_plan_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns metadata associated with a restore job that is specified by a job ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DescribeRestoreJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:restore_job_id` (`t:string`) Uniquely identifies the job that restores a
+    recovery point.
+
+  ## Optional parameters:
   """
-  @spec describe_restore_job(map(), String.t(), list()) ::
+  @spec describe_restore_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_restore_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_restore_job_errors()}
   def describe_restore_job(%Client{} = client, restore_job_id, options \\ []) do
     url_path = "/restore-jobs/#{AWS.Util.encode_uri(restore_job_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Deletes the specified continuous backup recovery point from Backup and
-  releases control of that continuous backup to the source service, such as Amazon
-  RDS.
-
+  Deletes the specified continuous backup recovery point from Backup and releases
+  control of that continuous backup to the source service, such as Amazon RDS.
   The source service will continue to create and retain continuous backups using
-  the
-  lifecycle that you specified in your original backup plan.
+  the lifecycle that you specified in your original backup plan.
 
-  Does not support snapshot backup recovery points.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DisassociateRecoveryPoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_vault_name` (`t:string`) The unique name of an Backup vault.
+  * `:recovery_point_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
+    identifies an Backup recovery point.
+
+  ## Optional parameters:
   """
   @spec disassociate_recovery_point(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           disassociate_recovery_point_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -4595,7 +4992,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4612,14 +5010,29 @@ defmodule AWS.Backup do
 
   @doc """
   This action to a specific child (nested) recovery point removes the relationship
-  between the specified recovery point and its parent (composite) recovery point.
+  between the specified recovery point and its parent (composite) recovery
+  point.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20DisassociateRecoveryPointFromParent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_vault_name` (`t:string`) This is the name of a logical container
+    where the child (nested) recovery point is stored. Backup vaults are
+    identified by names that are unique to the account used to create them and
+    the Amazon Web Services Region where they are created. They consist of
+    lowercase letters, numbers, and hyphens.
+  * `:recovery_point_arn` (`t:string`) This is the Amazon Resource Name (ARN) that
+    uniquely identifies the child (nested) recovery point; for example,
+    arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.
+
+  ## Optional parameters:
   """
   @spec disassociate_recovery_point_from_parent(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           disassociate_recovery_point_from_parent_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -4637,7 +5050,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4654,53 +5068,112 @@ defmodule AWS.Backup do
 
   @doc """
   Returns the backup plan that is specified by the plan ID as a backup template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ExportBackupPlanTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
+
+  ## Optional parameters:
   """
-  @spec export_backup_plan_template(map(), String.t(), list()) ::
+  @spec export_backup_plan_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, export_backup_plan_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_backup_plan_template_errors()}
   def export_backup_plan_template(%Client{} = client, backup_plan_id, options \\ []) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/toTemplate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns `BackupPlan` details for the specified `BackupPlanId`.
+  Returns `BackupPlan` details for the specified `BackupPlanId`. The details are
+  the body of a backup plan in JSON format, in addition to plan metadata.
 
-  The
-  details are the body of a backup plan in JSON format, in addition to plan
-  metadata.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetBackupPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
+
+  ## Optional parameters:
+  * `:version_id` (`t:string`) Unique, randomly generated, Unicode, UTF-8 encoded
+    strings that are at most 1,024 bytes long. Version IDs cannot be edited.
   """
-  @spec get_backup_plan(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_backup_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_backup_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_backup_plan_errors()}
-  def get_backup_plan(%Client{} = client, backup_plan_id, version_id \\ nil, options \\ []) do
+  def get_backup_plan(%Client{} = client, backup_plan_id, options \\ []) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}"
+
+    # Validate optional parameters
+    optional_params = [version_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(version_id) do
-        [{"versionId", version_id} | query_params]
+      if opt_val = Keyword.get(options, :version_id) do
+        [{"versionId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:version_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a valid JSON document specifying a backup plan or an error.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetBackupPlanFromJSON&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_backup_plan_from_json(map(), get_backup_plan_from_json_input(), list()) ::
+  @spec get_backup_plan_from_json(AWS.Client.t(), get_backup_plan_from_json_input(), Keyword.t()) ::
           {:ok, get_backup_plan_from_json_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_backup_plan_from_json_errors()}
@@ -4709,7 +5182,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4726,27 +5200,61 @@ defmodule AWS.Backup do
 
   @doc """
   Returns the template specified by its `templateId` as a backup plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetBackupPlanFromTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_plan_template_id` (`t:string`) Uniquely identifies a stored backup
+    plan template.
+
+  ## Optional parameters:
   """
-  @spec get_backup_plan_from_template(map(), String.t(), list()) ::
+  @spec get_backup_plan_from_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_backup_plan_from_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_backup_plan_from_template_errors()}
   def get_backup_plan_from_template(%Client{} = client, backup_plan_template_id, options \\ []) do
     url_path = "/backup/template/plans/#{AWS.Util.encode_uri(backup_plan_template_id)}/toPlan"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns selection metadata and a document in JSON format that specifies a list
-  of
-  resources that are associated with a backup plan.
+  of resources that are associated with a backup plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetBackupSelection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
+  * `:selection_id` (`t:string`) Uniquely identifies the body of a request to
+    assign a set of resources to a backup plan.
+
+  ## Optional parameters:
   """
-  @spec get_backup_selection(map(), String.t(), String.t(), list()) ::
+  @spec get_backup_selection(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_backup_selection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_backup_selection_errors()}
@@ -4754,10 +5262,27 @@ defmodule AWS.Backup do
     url_path =
       "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/selections/#{AWS.Util.encode_uri(selection_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4765,25 +5290,63 @@ defmodule AWS.Backup do
   @doc """
   Returns the access policy document that is associated with the named backup
   vault.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetBackupVaultAccessPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_vault_name` (`t:string`) The name of a logical container where
+    backups are stored. Backup vaults are identified by names that are unique to
+    the account used to create them and the Amazon Web Services Region where
+    they are created. They consist of lowercase letters, numbers, and hyphens.
+
+  ## Optional parameters:
   """
-  @spec get_backup_vault_access_policy(map(), String.t(), list()) ::
+  @spec get_backup_vault_access_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_backup_vault_access_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_backup_vault_access_policy_errors()}
   def get_backup_vault_access_policy(%Client{} = client, backup_vault_name, options \\ []) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/access-policy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns event notifications for the specified backup vault.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetBackupVaultNotifications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_vault_name` (`t:string`) The name of a logical container where
+    backups are stored. Backup vaults are identified by names that are unique to
+    the account used to create them and the Amazon Web Services Region where
+    they are created. They consist of lowercase letters, numbers, and hyphens.
+
+  ## Optional parameters:
   """
-  @spec get_backup_vault_notifications(map(), String.t(), list()) ::
+  @spec get_backup_vault_notifications(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_backup_vault_notifications_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_backup_vault_notifications_errors()}
@@ -4791,44 +5354,94 @@ defmodule AWS.Backup do
     url_path =
       "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/notification-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  This action returns details for a specified legal hold.
+  This action returns details for a specified legal hold. The details are the body
+  of a legal hold in JSON format, in addition to metadata.
 
-  The details are the
-  body of a legal hold in JSON format, in addition to metadata.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetLegalHold&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:legal_hold_id` (`t:string`) This is the ID required to use GetLegalHold.
+    This unique ID is associated with a specific legal hold.
+
+  ## Optional parameters:
   """
-  @spec get_legal_hold(map(), String.t(), list()) ::
+  @spec get_legal_hold(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_legal_hold_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_legal_hold_errors()}
   def get_legal_hold(%Client{} = client, legal_hold_id, options \\ []) do
     url_path = "/legal-holds/#{AWS.Util.encode_uri(legal_hold_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a set of metadata key-value pairs that were used to create the backup.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetRecoveryPointRestoreMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_vault_name` (`t:string`) The name of a logical container where
+    backups are stored. Backup vaults are identified by names that are unique to
+    the account used to create them and the Amazon Web Services Region where
+    they are created. They consist of lowercase letters, numbers, and hyphens.
+  * `:recovery_point_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
+    identifies a recovery point; for example,
+    arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.
+
+  ## Optional parameters:
+  * `:backup_vault_account_id` (`t:string`) This is the account ID of the
+    specified backup vault.
   """
-  @spec get_recovery_point_restore_metadata(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_recovery_point_restore_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_recovery_point_restore_metadata_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recovery_point_restore_metadata_errors()}
@@ -4836,125 +5449,222 @@ defmodule AWS.Backup do
         %Client{} = client,
         backup_vault_name,
         recovery_point_arn,
-        backup_vault_account_id \\ nil,
         options \\ []
       ) do
     url_path =
       "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/recovery-points/#{AWS.Util.encode_uri(recovery_point_arn)}/restore-metadata"
 
+    # Validate optional parameters
+    optional_params = [backup_vault_account_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(backup_vault_account_id) do
-        [{"backupVaultAccountId", backup_vault_account_id} | query_params]
+      if opt_val = Keyword.get(options, :backup_vault_account_id) do
+        [{"backupVaultAccountId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:backup_vault_account_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   This request returns the metadata for the specified restore job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetRestoreJobMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:restore_job_id` (`t:string`) This is a unique identifier of a restore job
+    within Backup.
+
+  ## Optional parameters:
   """
-  @spec get_restore_job_metadata(map(), String.t(), list()) ::
+  @spec get_restore_job_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_restore_job_metadata_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_restore_job_metadata_errors()}
   def get_restore_job_metadata(%Client{} = client, restore_job_id, options \\ []) do
     url_path = "/restore-jobs/#{AWS.Util.encode_uri(restore_job_id)}/metadata"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  This request returns the minimal required set of metadata needed to
-  start a restore job with secure default settings.
+  This request returns the minimal required set of metadata needed to start a
+  restore job with secure default settings. `BackupVaultName` and
+  `RecoveryPointArn` are required parameters. `BackupVaultAccountId` is an
+  optional parameter.
 
-  `BackupVaultName`
-  and `RecoveryPointArn` are required parameters.
-  `BackupVaultAccountId` is an optional parameter.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetRestoreTestingInferredMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_vault_name` (`t:`) The name of a logical container where backups are
+    stored. Backup vaults are identified by names that are unique to the account
+    used to create them and the Amazon Web ServicesRegion where they are
+    created. They consist of letters, numbers, and hyphens.
+  * `:recovery_point_arn` (`t:`) An Amazon Resource Name (ARN) that uniquely
+    identifies a recovery point; for example,
+    arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.
+
+  ## Optional parameters:
+  * `:backup_vault_account_id` (`t:`) This is the account ID of the specified
+    backup vault.
   """
-  @spec get_restore_testing_inferred_metadata(
-          map(),
-          String.t() | nil,
-          String.t(),
-          String.t(),
-          list()
-        ) ::
+  @spec get_restore_testing_inferred_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_restore_testing_inferred_metadata_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_restore_testing_inferred_metadata_errors()}
   def get_restore_testing_inferred_metadata(
         %Client{} = client,
-        backup_vault_account_id \\ nil,
         backup_vault_name,
         recovery_point_arn,
         options \\ []
       ) do
     url_path = "/restore-testing/inferred-metadata"
+
+    # Validate optional parameters
+    optional_params = [backup_vault_account_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [
+      {"BackupVaultName", backup_vault_name},
+      {"RecoveryPointArn", recovery_point_arn}
+    ]
+
+    # Optional query params
     query_params =
-      if !is_nil(recovery_point_arn) do
-        [{"RecoveryPointArn", recovery_point_arn} | query_params]
+      if opt_val = Keyword.get(options, :backup_vault_account_id) do
+        [{"BackupVaultAccountId", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(backup_vault_name) do
-        [{"BackupVaultName", backup_vault_name} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    query_params =
-      if !is_nil(backup_vault_account_id) do
-        [{"BackupVaultAccountId", backup_vault_account_id} | query_params]
-      else
-        query_params
-      end
-
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:backup_vault_account_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns `RestoreTestingPlan` details for the specified
-  `RestoreTestingPlanName`.
+  Returns `RestoreTestingPlan` details for the specified `RestoreTestingPlanName`.
+  The details are the body of a restore testing plan in JSON format, in addition
+  to plan metadata.
 
-  The details are the body of a restore testing plan
-  in JSON format, in addition to plan metadata.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetRestoreTestingPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:restore_testing_plan_name` (`t:`) Required unique name of the restore
+    testing plan.
+
+  ## Optional parameters:
   """
-  @spec get_restore_testing_plan(map(), String.t(), list()) ::
+  @spec get_restore_testing_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_restore_testing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_restore_testing_plan_errors()}
   def get_restore_testing_plan(%Client{} = client, restore_testing_plan_name, options \\ []) do
     url_path = "/restore-testing/plans/#{AWS.Util.encode_uri(restore_testing_plan_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns RestoreTestingSelection, which displays resources
-  and elements of the restore testing plan.
+  Returns RestoreTestingSelection, which displays resources and elements of the
+  restore testing plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetRestoreTestingSelection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:restore_testing_plan_name` (`t:`) Required unique name of the restore
+    testing plan.
+  * `:restore_testing_selection_name` (`t:`) Required unique name of the restore
+    testing selection.
+
+  ## Optional parameters:
   """
-  @spec get_restore_testing_selection(map(), String.t(), String.t(), list()) ::
+  @spec get_restore_testing_selection(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_restore_testing_selection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_restore_testing_selection_errors()}
@@ -4967,432 +5677,669 @@ defmodule AWS.Backup do
     url_path =
       "/restore-testing/plans/#{AWS.Util.encode_uri(restore_testing_plan_name)}/selections/#{AWS.Util.encode_uri(restore_testing_selection_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the Amazon Web Services resource types supported by Backup.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20GetSupportedResourceTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_supported_resource_types(map(), list()) ::
+  @spec get_supported_resource_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_supported_resource_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_supported_resource_types_errors()}
   def get_supported_resource_types(%Client{} = client, options \\ []) do
     url_path = "/supported-resource-types"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  This is a request for a summary of backup jobs created
-  or running within the most recent 30 days.
+  This is a request for a summary of backup jobs created or running within the
+  most recent 30 days. You can include parameters AccountID, State,
+  ResourceType, MessageCategory, AggregationPeriod, MaxResults, or NextToken to
+  filter results.
 
-  You can
-  include parameters AccountID, State, ResourceType, MessageCategory,
-  AggregationPeriod, MaxResults, or NextToken to filter
-  results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListBackupJobSummaries&this_doc_guide=API%2520Reference)
 
-  This request returns a summary that contains
-  Region, Account, State, ResourceType, MessageCategory,
-  StartTime, EndTime, and Count of included jobs.
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:account_id` (`t:string`) Returns the job count for the specified account.
+  * `:aggregation_period` (`t:enum["FOURTEEN_DAYS|ONE_DAY|SEVEN_DAYS"]`) This is
+    the period that sets the boundaries for returned results.
+  * `:max_results` (`t:integer`) This parameter sets the maximum number of items
+    to be returned.
+  * `:message_category` (`t:string`) This parameter returns the job count for the
+    specified message category.
+  * `:next_token` (`t:string`) The next item following a partial list of returned
+    resources. For example, if a request is made to return MaxResults number of
+    resources, NextToken allows you to return more items in your list starting
+    at the location pointed to by the next token.
+  * `:resource_type` (`t:string`) Returns the job count for the specified resource
+    type. Use request GetSupportedResourceTypes to obtain strings for supported
+    resource types.
+  * `:state`
+    (`t:enum["ABORTED|ABORTING|AGGREGATE_ALL|ANY|COMPLETED|CREATED|EXPIRED|FAILED|PARTIAL|PENDING|RUNNING"]`)
+    This parameter returns the job count for jobs with the specified state.
   """
-  @spec list_backup_job_summaries(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_backup_job_summaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_backup_job_summaries_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_backup_job_summaries_errors()}
-  def list_backup_job_summaries(
-        %Client{} = client,
-        account_id \\ nil,
-        aggregation_period \\ nil,
-        max_results \\ nil,
-        message_category \\ nil,
-        next_token \\ nil,
-        resource_type \\ nil,
-        state \\ nil,
-        options \\ []
-      ) do
+  def list_backup_job_summaries(%Client{} = client, options \\ []) do
     url_path = "/audit/backup-job-summaries"
+
+    # Validate optional parameters
+    optional_params = [
+      account_id: nil,
+      aggregation_period: nil,
+      max_results: nil,
+      message_category: nil,
+      next_token: nil,
+      resource_type: nil,
+      state: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(state) do
-        [{"State", state} | query_params]
+      if opt_val = Keyword.get(options, :state) do
+        [{"State", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(resource_type) do
-        [{"ResourceType", resource_type} | query_params]
+      if opt_val = Keyword.get(options, :resource_type) do
+        [{"ResourceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(message_category) do
-        [{"MessageCategory", message_category} | query_params]
+      if opt_val = Keyword.get(options, :message_category) do
+        [{"MessageCategory", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(aggregation_period) do
-        [{"AggregationPeriod", aggregation_period} | query_params]
+      if opt_val = Keyword.get(options, :aggregation_period) do
+        [{"AggregationPeriod", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(account_id) do
-        [{"AccountId", account_id} | query_params]
+      if opt_val = Keyword.get(options, :account_id) do
+        [{"AccountId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :account_id,
+        :aggregation_period,
+        :max_results,
+        :message_category,
+        :next_token,
+        :resource_type,
+        :state
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of existing backup jobs for an authenticated account for the last
-  30
-  days.
+  30 days. For a longer period of time, consider using these [monitoring
+  tools](https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html).
 
-  For a longer period of time, consider using these [monitoring tools](https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListBackupJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:by_account_id` (`t:string`) The account ID to list the jobs from. Returns
+    only backup jobs associated with the specified account ID.
+  * `:by_backup_vault_name` (`t:string`) Returns only backup jobs that will be
+    stored in the specified backup vault. Backup vaults are identified by names
+    that are unique to the account used to create them and the Amazon Web
+    Services Region where they are created. They consist of lowercase letters,
+    numbers, and hyphens.
+  * `:by_complete_after` (`t:timestamp`) Returns only backup jobs completed after
+    a date expressed in Unix format and Coordinated Universal Time (UTC).
+  * `:by_complete_before` (`t:timestamp`) Returns only backup jobs completed
+    before a date expressed in Unix format and Coordinated Universal Time (UTC).
+  * `:by_created_after` (`t:timestamp`) Returns only backup jobs that were created
+    after the specified date.
+  * `:by_created_before` (`t:timestamp`) Returns only backup jobs that were
+    created before the specified date.
+  * `:by_message_category` (`t:string`) This is an optional parameter that can be
+    used to filter out jobs with a MessageCategory which matches the value you
+    input.
+  * `:by_parent_job_id` (`t:string`) This is a filter to list child (nested) jobs
+    based on parent job ID.
+  * `:by_resource_arn` (`t:string`) Returns only backup jobs that match the
+    specified resource Amazon Resource Name (ARN).
+  * `:by_resource_type` (`t:string`) Returns only backup jobs for the specified
+    resources:
+  * `:by_state`
+    (`t:enum["ABORTED|ABORTING|COMPLETED|CREATED|EXPIRED|FAILED|PARTIAL|PENDING|RUNNING"]`)
+    Returns only backup jobs that are in the specified state.
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned
+    items. For example, if a request is made to return MaxResults number of
+    items, NextToken allows you to return more items in your list starting at
+    the location pointed to by the next token.
   """
-  @spec list_backup_jobs(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_backup_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_backup_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_backup_jobs_errors()}
-  def list_backup_jobs(
-        %Client{} = client,
-        by_account_id \\ nil,
-        by_backup_vault_name \\ nil,
-        by_complete_after \\ nil,
-        by_complete_before \\ nil,
-        by_created_after \\ nil,
-        by_created_before \\ nil,
-        by_message_category \\ nil,
-        by_parent_job_id \\ nil,
-        by_resource_arn \\ nil,
-        by_resource_type \\ nil,
-        by_state \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_backup_jobs(%Client{} = client, options \\ []) do
     url_path = "/backup-jobs"
+
+    # Validate optional parameters
+    optional_params = [
+      by_account_id: nil,
+      by_backup_vault_name: nil,
+      by_complete_after: nil,
+      by_complete_before: nil,
+      by_created_after: nil,
+      by_created_before: nil,
+      by_message_category: nil,
+      by_parent_job_id: nil,
+      by_resource_arn: nil,
+      by_resource_type: nil,
+      by_state: nil,
+      max_results: nil,
+      next_token: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_state) do
-        [{"state", by_state} | query_params]
+      if opt_val = Keyword.get(options, :by_state) do
+        [{"state", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_resource_type) do
-        [{"resourceType", by_resource_type} | query_params]
+      if opt_val = Keyword.get(options, :by_resource_type) do
+        [{"resourceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_resource_arn) do
-        [{"resourceArn", by_resource_arn} | query_params]
+      if opt_val = Keyword.get(options, :by_resource_arn) do
+        [{"resourceArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_parent_job_id) do
-        [{"parentJobId", by_parent_job_id} | query_params]
+      if opt_val = Keyword.get(options, :by_parent_job_id) do
+        [{"parentJobId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_message_category) do
-        [{"messageCategory", by_message_category} | query_params]
+      if opt_val = Keyword.get(options, :by_message_category) do
+        [{"messageCategory", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_created_before) do
-        [{"createdBefore", by_created_before} | query_params]
+      if opt_val = Keyword.get(options, :by_created_before) do
+        [{"createdBefore", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_created_after) do
-        [{"createdAfter", by_created_after} | query_params]
+      if opt_val = Keyword.get(options, :by_created_after) do
+        [{"createdAfter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_complete_before) do
-        [{"completeBefore", by_complete_before} | query_params]
+      if opt_val = Keyword.get(options, :by_complete_before) do
+        [{"completeBefore", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_complete_after) do
-        [{"completeAfter", by_complete_after} | query_params]
+      if opt_val = Keyword.get(options, :by_complete_after) do
+        [{"completeAfter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_backup_vault_name) do
-        [{"backupVaultName", by_backup_vault_name} | query_params]
+      if opt_val = Keyword.get(options, :by_backup_vault_name) do
+        [{"backupVaultName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_account_id) do
-        [{"accountId", by_account_id} | query_params]
+      if opt_val = Keyword.get(options, :by_account_id) do
+        [{"accountId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :by_account_id,
+        :by_backup_vault_name,
+        :by_complete_after,
+        :by_complete_before,
+        :by_created_after,
+        :by_created_before,
+        :by_message_category,
+        :by_parent_job_id,
+        :by_resource_arn,
+        :by_resource_type,
+        :by_state,
+        :max_results,
+        :next_token
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns metadata of your saved backup plan templates, including the template ID,
-  name,
-  and the creation and deletion dates.
+  name, and the creation and deletion dates.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListBackupPlanTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned
+    items. For example, if a request is made to return MaxResults number of
+    items, NextToken allows you to return more items in your list starting at
+    the location pointed to by the next token.
   """
-  @spec list_backup_plan_templates(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_backup_plan_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_backup_plan_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_backup_plan_templates_errors()}
-  def list_backup_plan_templates(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_backup_plan_templates(%Client{} = client, options \\ []) do
     url_path = "/backup/template/plans"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns version metadata of your backup plans, including Amazon Resource Names
-  (ARNs),
-  backup plan IDs, creation and deletion dates, plan names, and version IDs.
+  (ARNs), backup plan IDs, creation and deletion dates, plan names, and version
+  IDs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListBackupPlanVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned
+    items. For example, if a request is made to return MaxResults number of
+    items, NextToken allows you to return more items in your list starting at
+    the location pointed to by the next token.
   """
-  @spec list_backup_plan_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_backup_plan_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_backup_plan_versions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_backup_plan_versions_errors()}
-  def list_backup_plan_versions(
-        %Client{} = client,
-        backup_plan_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_backup_plan_versions(%Client{} = client, backup_plan_id, options \\ []) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/versions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns a list of all active backup plans for an authenticated account.
-
-  The list
+  Returns a list of all active backup plans for an authenticated account. The list
   contains information such as Amazon Resource Names (ARNs), plan IDs, creation
-  and deletion
-  dates, version IDs, plan names, and creator request IDs.
+  and deletion dates, version IDs, plan names, and creator request IDs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListBackupPlans&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:include_deleted` (`t:boolean`) A Boolean value with a default value of FALSE
+    that returns deleted backup plans when set to TRUE.
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned
+    items. For example, if a request is made to return MaxResults number of
+    items, NextToken allows you to return more items in your list starting at
+    the location pointed to by the next token.
   """
-  @spec list_backup_plans(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_backup_plans(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_backup_plans_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_backup_plans_errors()}
-  def list_backup_plans(
-        %Client{} = client,
-        include_deleted \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_backup_plans(%Client{} = client, options \\ []) do
     url_path = "/backup/plans"
+
+    # Validate optional parameters
+    optional_params = [include_deleted: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(include_deleted) do
-        [{"includeDeleted", include_deleted} | query_params]
+      if opt_val = Keyword.get(options, :include_deleted) do
+        [{"includeDeleted", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:include_deleted, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns an array containing metadata of the resources associated with the target
-  backup
-  plan.
+  backup plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListBackupSelections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned
+    items. For example, if a request is made to return MaxResults number of
+    items, NextToken allows you to return more items in your list starting at
+    the location pointed to by the next token.
   """
-  @spec list_backup_selections(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_backup_selections(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_backup_selections_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_backup_selections_errors()}
-  def list_backup_selections(
-        %Client{} = client,
-        backup_plan_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_backup_selections(%Client{} = client, backup_plan_id, options \\ []) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/selections"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5400,295 +6347,405 @@ defmodule AWS.Backup do
   @doc """
   Returns a list of recovery point storage containers along with information about
   them.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListBackupVaults&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:by_shared` (`t:boolean`) This parameter will sort the list of vaults by
+    shared vaults.
+  * `:by_vault_type` (`t:enum["BACKUP_VAULT|LOGICALLY_AIR_GAPPED_BACKUP_VAULT"]`)
+    This parameter will sort the list of vaults by vault type.
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned
+    items. For example, if a request is made to return MaxResults number of
+    items, NextToken allows you to return more items in your list starting at
+    the location pointed to by the next token.
   """
-  @spec list_backup_vaults(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_backup_vaults(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_backup_vaults_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_backup_vaults_errors()}
-  def list_backup_vaults(
-        %Client{} = client,
-        by_shared \\ nil,
-        by_vault_type \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_backup_vaults(%Client{} = client, options \\ []) do
     url_path = "/backup-vaults"
+
+    # Validate optional parameters
+    optional_params = [by_shared: nil, by_vault_type: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_vault_type) do
-        [{"vaultType", by_vault_type} | query_params]
+      if opt_val = Keyword.get(options, :by_vault_type) do
+        [{"vaultType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_shared) do
-        [{"shared", by_shared} | query_params]
+      if opt_val = Keyword.get(options, :by_shared) do
+        [{"shared", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:by_shared, :by_vault_type, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  This request obtains a list of copy jobs created
-  or running within the the most recent 30 days.
-
-  You can
-  include parameters AccountID, State, ResourceType, MessageCategory,
-  AggregationPeriod, MaxResults, or NextToken to filter
+  This request obtains a list of copy jobs created or running within the the most
+  recent 30 days. You can include parameters AccountID, State, ResourceType,
+  MessageCategory, AggregationPeriod, MaxResults, or NextToken to filter
   results.
 
-  This request returns a summary that contains
-  Region, Account, State, RestourceType, MessageCategory,
-  StartTime, EndTime, and Count of included jobs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListCopyJobSummaries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:account_id` (`t:string`) Returns the job count for the specified account.
+  * `:aggregation_period` (`t:enum["FOURTEEN_DAYS|ONE_DAY|SEVEN_DAYS"]`) This is
+    the period that sets the boundaries for returned results.
+  * `:max_results` (`t:integer`) This parameter sets the maximum number of items
+    to be returned.
+  * `:message_category` (`t:string`) This parameter returns the job count for the
+    specified message category.
+  * `:next_token` (`t:string`) The next item following a partial list of returned
+    resources. For example, if a request is made to return MaxResults number of
+    resources, NextToken allows you to return more items in your list starting
+    at the location pointed to by the next token.
+  * `:resource_type` (`t:string`) Returns the job count for the specified resource
+    type. Use request GetSupportedResourceTypes to obtain strings for supported
+    resource types.
+  * `:state`
+    (`t:enum["ABORTED|ABORTING|AGGREGATE_ALL|ANY|COMPLETED|COMPLETING|CREATED|FAILED|FAILING|PARTIAL|RUNNING"]`)
+    This parameter returns the job count for jobs with the specified state.
   """
-  @spec list_copy_job_summaries(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_copy_job_summaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_copy_job_summaries_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_copy_job_summaries_errors()}
-  def list_copy_job_summaries(
-        %Client{} = client,
-        account_id \\ nil,
-        aggregation_period \\ nil,
-        max_results \\ nil,
-        message_category \\ nil,
-        next_token \\ nil,
-        resource_type \\ nil,
-        state \\ nil,
-        options \\ []
-      ) do
+  def list_copy_job_summaries(%Client{} = client, options \\ []) do
     url_path = "/audit/copy-job-summaries"
+
+    # Validate optional parameters
+    optional_params = [
+      account_id: nil,
+      aggregation_period: nil,
+      max_results: nil,
+      message_category: nil,
+      next_token: nil,
+      resource_type: nil,
+      state: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(state) do
-        [{"State", state} | query_params]
+      if opt_val = Keyword.get(options, :state) do
+        [{"State", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(resource_type) do
-        [{"ResourceType", resource_type} | query_params]
+      if opt_val = Keyword.get(options, :resource_type) do
+        [{"ResourceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(message_category) do
-        [{"MessageCategory", message_category} | query_params]
+      if opt_val = Keyword.get(options, :message_category) do
+        [{"MessageCategory", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(aggregation_period) do
-        [{"AggregationPeriod", aggregation_period} | query_params]
+      if opt_val = Keyword.get(options, :aggregation_period) do
+        [{"AggregationPeriod", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(account_id) do
-        [{"AccountId", account_id} | query_params]
+      if opt_val = Keyword.get(options, :account_id) do
+        [{"AccountId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :account_id,
+        :aggregation_period,
+        :max_results,
+        :message_category,
+        :next_token,
+        :resource_type,
+        :state
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns metadata about your copy jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListCopyJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:by_account_id` (`t:string`) The account ID to list the jobs from. Returns
+    only copy jobs associated with the specified account ID.
+  * `:by_complete_after` (`t:timestamp`) Returns only copy jobs completed after a
+    date expressed in Unix format and Coordinated Universal Time (UTC).
+  * `:by_complete_before` (`t:timestamp`) Returns only copy jobs completed before
+    a date expressed in Unix format and Coordinated Universal Time (UTC).
+  * `:by_created_after` (`t:timestamp`) Returns only copy jobs that were created
+    after the specified date.
+  * `:by_created_before` (`t:timestamp`) Returns only copy jobs that were created
+    before the specified date.
+  * `:by_destination_vault_arn` (`t:string`) An Amazon Resource Name (ARN) that
+    uniquely identifies a source backup vault to copy from; for example,
+    arn:aws:backup:us-east-1:123456789012:vault:aBackupVault.
+  * `:by_message_category` (`t:string`) This is an optional parameter that can be
+    used to filter out jobs with a MessageCategory which matches the value you
+    input.
+  * `:by_parent_job_id` (`t:string`) This is a filter to list child (nested) jobs
+    based on parent job ID.
+  * `:by_resource_arn` (`t:string`) Returns only copy jobs that match the
+    specified resource Amazon Resource Name (ARN).
+  * `:by_resource_type` (`t:string`) Returns only backup jobs for the specified
+    resources:
+  * `:by_state` (`t:enum["COMPLETED|CREATED|FAILED|PARTIAL|RUNNING"]`) Returns
+    only copy jobs that are in the specified state.
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned
+    items. For example, if a request is made to return MaxResults number of
+    items, NextToken allows you to return more items in your list starting at
+    the location pointed to by the next token.
   """
-  @spec list_copy_jobs(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_copy_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_copy_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_copy_jobs_errors()}
-  def list_copy_jobs(
-        %Client{} = client,
-        by_account_id \\ nil,
-        by_complete_after \\ nil,
-        by_complete_before \\ nil,
-        by_created_after \\ nil,
-        by_created_before \\ nil,
-        by_destination_vault_arn \\ nil,
-        by_message_category \\ nil,
-        by_parent_job_id \\ nil,
-        by_resource_arn \\ nil,
-        by_resource_type \\ nil,
-        by_state \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_copy_jobs(%Client{} = client, options \\ []) do
     url_path = "/copy-jobs"
+
+    # Validate optional parameters
+    optional_params = [
+      by_account_id: nil,
+      by_complete_after: nil,
+      by_complete_before: nil,
+      by_created_after: nil,
+      by_created_before: nil,
+      by_destination_vault_arn: nil,
+      by_message_category: nil,
+      by_parent_job_id: nil,
+      by_resource_arn: nil,
+      by_resource_type: nil,
+      by_state: nil,
+      max_results: nil,
+      next_token: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_state) do
-        [{"state", by_state} | query_params]
+      if opt_val = Keyword.get(options, :by_state) do
+        [{"state", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_resource_type) do
-        [{"resourceType", by_resource_type} | query_params]
+      if opt_val = Keyword.get(options, :by_resource_type) do
+        [{"resourceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_resource_arn) do
-        [{"resourceArn", by_resource_arn} | query_params]
+      if opt_val = Keyword.get(options, :by_resource_arn) do
+        [{"resourceArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_parent_job_id) do
-        [{"parentJobId", by_parent_job_id} | query_params]
+      if opt_val = Keyword.get(options, :by_parent_job_id) do
+        [{"parentJobId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_message_category) do
-        [{"messageCategory", by_message_category} | query_params]
+      if opt_val = Keyword.get(options, :by_message_category) do
+        [{"messageCategory", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_destination_vault_arn) do
-        [{"destinationVaultArn", by_destination_vault_arn} | query_params]
+      if opt_val = Keyword.get(options, :by_destination_vault_arn) do
+        [{"destinationVaultArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_created_before) do
-        [{"createdBefore", by_created_before} | query_params]
+      if opt_val = Keyword.get(options, :by_created_before) do
+        [{"createdBefore", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_created_after) do
-        [{"createdAfter", by_created_after} | query_params]
+      if opt_val = Keyword.get(options, :by_created_after) do
+        [{"createdAfter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_complete_before) do
-        [{"completeBefore", by_complete_before} | query_params]
+      if opt_val = Keyword.get(options, :by_complete_before) do
+        [{"completeBefore", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_complete_after) do
-        [{"completeAfter", by_complete_after} | query_params]
+      if opt_val = Keyword.get(options, :by_complete_after) do
+        [{"completeAfter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_account_id) do
-        [{"accountId", by_account_id} | query_params]
+      if opt_val = Keyword.get(options, :by_account_id) do
+        [{"accountId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :by_account_id,
+        :by_complete_after,
+        :by_complete_before,
+        :by_created_after,
+        :by_created_before,
+        :by_destination_vault_arn,
+        :by_message_category,
+        :by_parent_job_id,
+        :by_resource_arn,
+        :by_resource_type,
+        :by_state,
+        :max_results,
+        :next_token
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5696,558 +6753,870 @@ defmodule AWS.Backup do
   @doc """
   Returns a list of all frameworks for an Amazon Web Services account and Amazon
   Web Services Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListFrameworks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The number of desired results from 1 to 1000.
+    Optional. If unspecified, the query will return 1 MB of data.
+  * `:next_token` (`t:string`) An identifier that was returned from the previous
+    call to this operation, which can be used to return the next set of items in
+    the list.
   """
-  @spec list_frameworks(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_frameworks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_frameworks_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_frameworks_errors()}
-  def list_frameworks(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_frameworks(%Client{} = client, options \\ []) do
     url_path = "/audit/frameworks"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   This action returns metadata about active and previous legal holds.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListLegalHolds&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of resource list items to be
+    returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned
+    resources. For example, if a request is made to return MaxResults number of
+    resources, NextToken allows you to return more items in your list starting
+    at the location pointed to by the next token.
   """
-  @spec list_legal_holds(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_legal_holds(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_legal_holds_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_legal_holds_errors()}
-  def list_legal_holds(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_legal_holds(%Client{} = client, options \\ []) do
     url_path = "/legal-holds"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns an array of resources successfully backed up by Backup, including
-  the time the resource was saved, an Amazon Resource Name (ARN) of the resource,
-  and a
-  resource type.
+  Returns an array of resources successfully backed up by Backup, including the
+  time the resource was saved, an Amazon Resource Name (ARN) of the resource,
+  and a resource type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListProtectedResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned
+    items. For example, if a request is made to return MaxResults number of
+    items, NextToken allows you to return more items in your list starting at
+    the location pointed to by the next token.
   """
-  @spec list_protected_resources(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_protected_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_protected_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_protected_resources_errors()}
-  def list_protected_resources(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_protected_resources(%Client{} = client, options \\ []) do
     url_path = "/resources"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   This request lists the protected resources corresponding to each backup vault.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListProtectedResourcesByBackupVault&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_vault_name` (`t:string`) This is the list of protected resources by
+    backup vault within the vault(s) you specify by name.
+
+  ## Optional parameters:
+  * `:backup_vault_account_id` (`t:string`) This is the list of protected
+    resources by backup vault within the vault(s) you specify by account ID.
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned
+    items. For example, if a request is made to return MaxResults number of
+    items, NextToken allows you to return more items in your list starting at
+    the location pointed to by the next token.
   """
-  @spec list_protected_resources_by_backup_vault(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_protected_resources_by_backup_vault(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_protected_resources_by_backup_vault_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_protected_resources_by_backup_vault_errors()}
   def list_protected_resources_by_backup_vault(
         %Client{} = client,
         backup_vault_name,
-        backup_vault_account_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/resources"
+
+    # Validate optional parameters
+    optional_params = [backup_vault_account_id: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(backup_vault_account_id) do
-        [{"backupVaultAccountId", backup_vault_account_id} | query_params]
+      if opt_val = Keyword.get(options, :backup_vault_account_id) do
+        [{"backupVaultAccountId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:backup_vault_account_id, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns detailed information about the recovery points stored in a backup vault.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListRecoveryPointsByBackupVault&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_vault_name` (`t:string`) The name of a logical container where
+    backups are stored. Backup vaults are identified by names that are unique to
+    the account used to create them and the Amazon Web Services Region where
+    they are created. They consist of lowercase letters, numbers, and hyphens.
+
+  ## Optional parameters:
+  * `:backup_vault_account_id` (`t:string`) This parameter will sort the list of
+    recovery points by account ID.
+  * `:by_backup_plan_id` (`t:string`) Returns only recovery points that match the
+    specified backup plan ID.
+  * `:by_created_after` (`t:timestamp`) Returns only recovery points that were
+    created after the specified timestamp.
+  * `:by_created_before` (`t:timestamp`) Returns only recovery points that were
+    created before the specified timestamp.
+  * `:by_parent_recovery_point_arn` (`t:string`) This returns only recovery points
+    that match the specified parent (composite) recovery point Amazon Resource
+    Name (ARN).
+  * `:by_resource_arn` (`t:string`) Returns only recovery points that match the
+    specified resource Amazon Resource Name (ARN).
+  * `:by_resource_type` (`t:string`) Returns only recovery points that match the
+    specified resource type(s):
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned
+    items. For example, if a request is made to return MaxResults number of
+    items, NextToken allows you to return more items in your list starting at
+    the location pointed to by the next token.
   """
-  @spec list_recovery_points_by_backup_vault(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_recovery_points_by_backup_vault(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recovery_points_by_backup_vault_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recovery_points_by_backup_vault_errors()}
-  def list_recovery_points_by_backup_vault(
-        %Client{} = client,
-        backup_vault_name,
-        backup_vault_account_id \\ nil,
-        by_backup_plan_id \\ nil,
-        by_created_after \\ nil,
-        by_created_before \\ nil,
-        by_parent_recovery_point_arn \\ nil,
-        by_resource_arn \\ nil,
-        by_resource_type \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_recovery_points_by_backup_vault(%Client{} = client, backup_vault_name, options \\ []) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/recovery-points"
+
+    # Validate optional parameters
+    optional_params = [
+      backup_vault_account_id: nil,
+      by_backup_plan_id: nil,
+      by_created_after: nil,
+      by_created_before: nil,
+      by_parent_recovery_point_arn: nil,
+      by_resource_arn: nil,
+      by_resource_type: nil,
+      max_results: nil,
+      next_token: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_resource_type) do
-        [{"resourceType", by_resource_type} | query_params]
+      if opt_val = Keyword.get(options, :by_resource_type) do
+        [{"resourceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_resource_arn) do
-        [{"resourceArn", by_resource_arn} | query_params]
+      if opt_val = Keyword.get(options, :by_resource_arn) do
+        [{"resourceArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_parent_recovery_point_arn) do
-        [{"parentRecoveryPointArn", by_parent_recovery_point_arn} | query_params]
+      if opt_val = Keyword.get(options, :by_parent_recovery_point_arn) do
+        [{"parentRecoveryPointArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_created_before) do
-        [{"createdBefore", by_created_before} | query_params]
+      if opt_val = Keyword.get(options, :by_created_before) do
+        [{"createdBefore", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_created_after) do
-        [{"createdAfter", by_created_after} | query_params]
+      if opt_val = Keyword.get(options, :by_created_after) do
+        [{"createdAfter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_backup_plan_id) do
-        [{"backupPlanId", by_backup_plan_id} | query_params]
+      if opt_val = Keyword.get(options, :by_backup_plan_id) do
+        [{"backupPlanId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(backup_vault_account_id) do
-        [{"backupVaultAccountId", backup_vault_account_id} | query_params]
+      if opt_val = Keyword.get(options, :backup_vault_account_id) do
+        [{"backupVaultAccountId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :backup_vault_account_id,
+        :by_backup_plan_id,
+        :by_created_after,
+        :by_created_before,
+        :by_parent_recovery_point_arn,
+        :by_resource_arn,
+        :by_resource_type,
+        :max_results,
+        :next_token
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  This action returns recovery point ARNs (Amazon Resource Names) of the
-  specified legal hold.
+  This action returns recovery point ARNs (Amazon Resource Names) of the specified
+  legal hold.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListRecoveryPointsByLegalHold&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:legal_hold_id` (`t:string`) This is the ID of the legal hold.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) This is the maximum number of resource list items
+    to be returned.
+  * `:next_token` (`t:string`) This is the next item following a partial list of
+    returned resources. For example, if a request is made to return MaxResults
+    number of resources, NextToken allows you to return more items in your list
+    starting at the location pointed to by the next token.
   """
-  @spec list_recovery_points_by_legal_hold(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_recovery_points_by_legal_hold(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recovery_points_by_legal_hold_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recovery_points_by_legal_hold_errors()}
-  def list_recovery_points_by_legal_hold(
-        %Client{} = client,
-        legal_hold_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_recovery_points_by_legal_hold(%Client{} = client, legal_hold_id, options \\ []) do
     url_path = "/legal-holds/#{AWS.Util.encode_uri(legal_hold_id)}/recovery-points"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns detailed information about all the recovery points of the type specified
-  by a
-  resource Amazon Resource Name (ARN).
+  by a resource Amazon Resource Name (ARN).
 
-  For Amazon EFS and Amazon EC2, this action only lists recovery points
-  created by Backup.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListRecoveryPointsByResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) An ARN that uniquely identifies a resource. The
+    format of the ARN depends on the resource type.
+
+  ## Optional parameters:
+  * `:managed_by_aws_backup_only` (`t:boolean`) This attribute filters recovery
+    points based on ownership.
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned
+    items. For example, if a request is made to return MaxResults number of
+    items, NextToken allows you to return more items in your list starting at
+    the location pointed to by the next token.
   """
-  @spec list_recovery_points_by_resource(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_recovery_points_by_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recovery_points_by_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recovery_points_by_resource_errors()}
-  def list_recovery_points_by_resource(
-        %Client{} = client,
-        resource_arn,
-        managed_by_aws_backup_only \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_recovery_points_by_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/recovery-points"
+
+    # Validate optional parameters
+    optional_params = [managed_by_aws_backup_only: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(managed_by_aws_backup_only) do
-        [{"managedByAWSBackupOnly", managed_by_aws_backup_only} | query_params]
+      if opt_val = Keyword.get(options, :managed_by_aws_backup_only) do
+        [{"managedByAWSBackupOnly", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:managed_by_aws_backup_only, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns details about your report jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListReportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:by_creation_after` (`t:timestamp`) Returns only report jobs that were
+    created after the date and time specified in Unix format and Coordinated
+    Universal Time (UTC). For example, the value 1516925490 represents Friday,
+    January 26, 2018 12:11:30 AM.
+  * `:by_creation_before` (`t:timestamp`) Returns only report jobs that were
+    created before the date and time specified in Unix format and Coordinated
+    Universal Time (UTC). For example, the value 1516925490 represents Friday,
+    January 26, 2018 12:11:30 AM.
+  * `:by_report_plan_name` (`t:string`) Returns only report jobs with the
+    specified report plan name.
+  * `:by_status` (`t:string`) Returns only report jobs that are in the specified
+    status. The statuses are:
+  * `:max_results` (`t:integer`) The number of desired results from 1 to 1000.
+    Optional. If unspecified, the query will return 1 MB of data.
+  * `:next_token` (`t:string`) An identifier that was returned from the previous
+    call to this operation, which can be used to return the next set of items in
+    the list.
   """
-  @spec list_report_jobs(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_report_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_report_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_report_jobs_errors()}
-  def list_report_jobs(
-        %Client{} = client,
-        by_creation_after \\ nil,
-        by_creation_before \\ nil,
-        by_report_plan_name \\ nil,
-        by_status \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_report_jobs(%Client{} = client, options \\ []) do
     url_path = "/audit/report-jobs"
+
+    # Validate optional parameters
+    optional_params = [
+      by_creation_after: nil,
+      by_creation_before: nil,
+      by_report_plan_name: nil,
+      by_status: nil,
+      max_results: nil,
+      next_token: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_status) do
-        [{"Status", by_status} | query_params]
+      if opt_val = Keyword.get(options, :by_status) do
+        [{"Status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_report_plan_name) do
-        [{"ReportPlanName", by_report_plan_name} | query_params]
+      if opt_val = Keyword.get(options, :by_report_plan_name) do
+        [{"ReportPlanName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_creation_before) do
-        [{"CreationBefore", by_creation_before} | query_params]
+      if opt_val = Keyword.get(options, :by_creation_before) do
+        [{"CreationBefore", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_creation_after) do
-        [{"CreationAfter", by_creation_after} | query_params]
+      if opt_val = Keyword.get(options, :by_creation_after) do
+        [{"CreationAfter", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :by_creation_after,
+        :by_creation_before,
+        :by_report_plan_name,
+        :by_status,
+        :max_results,
+        :next_token
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns a list of your report plans.
+  Returns a list of your report plans. For detailed information about a single
+  report plan, use `DescribeReportPlan`.
 
-  For detailed information about a single report
-  plan, use `DescribeReportPlan`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListReportPlans&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The number of desired results from 1 to 1000.
+    Optional. If unspecified, the query will return 1 MB of data.
+  * `:next_token` (`t:string`) An identifier that was returned from the previous
+    call to this operation, which can be used to return the next set of items in
+    the list.
   """
-  @spec list_report_plans(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_report_plans(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_report_plans_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_report_plans_errors()}
-  def list_report_plans(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_report_plans(%Client{} = client, options \\ []) do
     url_path = "/audit/report-plans"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  This request obtains a summary of restore jobs created
-  or running within the the most recent 30 days.
+  This request obtains a summary of restore jobs created or running within the the
+  most recent 30 days. You can include parameters AccountID, State,
+  ResourceType, AggregationPeriod, MaxResults, or NextToken to filter results.
 
-  You can
-  include parameters AccountID, State, ResourceType,
-  AggregationPeriod, MaxResults, or NextToken to filter
-  results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListRestoreJobSummaries&this_doc_guide=API%2520Reference)
 
-  This request returns a summary that contains
-  Region, Account, State, RestourceType, MessageCategory,
-  StartTime, EndTime, and Count of included jobs.
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:account_id` (`t:string`) Returns the job count for the specified account.
+  * `:aggregation_period` (`t:enum["FOURTEEN_DAYS|ONE_DAY|SEVEN_DAYS"]`) This is
+    the period that sets the boundaries for returned results.
+  * `:max_results` (`t:integer`) This parameter sets the maximum number of items
+    to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned
+    resources. For example, if a request is made to return MaxResults number of
+    resources, NextToken allows you to return more items in your list starting
+    at the location pointed to by the next token.
+  * `:resource_type` (`t:string`) Returns the job count for the specified resource
+    type. Use request GetSupportedResourceTypes to obtain strings for supported
+    resource types.
+  * `:state`
+    (`t:enum["ABORTED|AGGREGATE_ALL|ANY|COMPLETED|CREATED|FAILED|PENDING|RUNNING"]`)
+    This parameter returns the job count for jobs with the specified state.
   """
-  @spec list_restore_job_summaries(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_restore_job_summaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_restore_job_summaries_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_restore_job_summaries_errors()}
-  def list_restore_job_summaries(
-        %Client{} = client,
-        account_id \\ nil,
-        aggregation_period \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        resource_type \\ nil,
-        state \\ nil,
-        options \\ []
-      ) do
+  def list_restore_job_summaries(%Client{} = client, options \\ []) do
     url_path = "/audit/restore-job-summaries"
+
+    # Validate optional parameters
+    optional_params = [
+      account_id: nil,
+      aggregation_period: nil,
+      max_results: nil,
+      next_token: nil,
+      resource_type: nil,
+      state: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(state) do
-        [{"State", state} | query_params]
+      if opt_val = Keyword.get(options, :state) do
+        [{"State", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(resource_type) do
-        [{"ResourceType", resource_type} | query_params]
+      if opt_val = Keyword.get(options, :resource_type) do
+        [{"ResourceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(aggregation_period) do
-        [{"AggregationPeriod", aggregation_period} | query_params]
+      if opt_val = Keyword.get(options, :aggregation_period) do
+        [{"AggregationPeriod", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(account_id) do
-        [{"AccountId", account_id} | query_params]
+      if opt_val = Keyword.get(options, :account_id) do
+        [{"AccountId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :account_id,
+        :aggregation_period,
+        :max_results,
+        :next_token,
+        :resource_type,
+        :state
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -6255,113 +7624,158 @@ defmodule AWS.Backup do
   @doc """
   Returns a list of jobs that Backup initiated to restore a saved resource,
   including details about the recovery process.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListRestoreJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:by_account_id` (`t:string`) The account ID to list the jobs from. Returns
+    only restore jobs associated with the specified account ID.
+  * `:by_complete_after` (`t:timestamp`) Returns only copy jobs completed after a
+    date expressed in Unix format and Coordinated Universal Time (UTC).
+  * `:by_complete_before` (`t:timestamp`) Returns only copy jobs completed before
+    a date expressed in Unix format and Coordinated Universal Time (UTC).
+  * `:by_created_after` (`t:timestamp`) Returns only restore jobs that were
+    created after the specified date.
+  * `:by_created_before` (`t:timestamp`) Returns only restore jobs that were
+    created before the specified date.
+  * `:by_resource_type` (`t:string`) Include this parameter to return only restore
+    jobs for the specified resources:
+  * `:by_restore_testing_plan_arn` (`t:string`) This returns only restore testing
+    jobs that match the specified resource Amazon Resource Name (ARN).
+  * `:by_status` (`t:enum["ABORTED|COMPLETED|FAILED|PENDING|RUNNING"]`) Returns
+    only restore jobs associated with the specified job status.
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned
+    items. For example, if a request is made to return MaxResults number of
+    items, NextToken allows you to return more items in your list starting at
+    the location pointed to by the next token.
   """
-  @spec list_restore_jobs(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_restore_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_restore_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_restore_jobs_errors()}
-  def list_restore_jobs(
-        %Client{} = client,
-        by_account_id \\ nil,
-        by_complete_after \\ nil,
-        by_complete_before \\ nil,
-        by_created_after \\ nil,
-        by_created_before \\ nil,
-        by_resource_type \\ nil,
-        by_restore_testing_plan_arn \\ nil,
-        by_status \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_restore_jobs(%Client{} = client, options \\ []) do
     url_path = "/restore-jobs"
+
+    # Validate optional parameters
+    optional_params = [
+      by_account_id: nil,
+      by_complete_after: nil,
+      by_complete_before: nil,
+      by_created_after: nil,
+      by_created_before: nil,
+      by_resource_type: nil,
+      by_restore_testing_plan_arn: nil,
+      by_status: nil,
+      max_results: nil,
+      next_token: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_status) do
-        [{"status", by_status} | query_params]
+      if opt_val = Keyword.get(options, :by_status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_restore_testing_plan_arn) do
-        [{"restoreTestingPlanArn", by_restore_testing_plan_arn} | query_params]
+      if opt_val = Keyword.get(options, :by_restore_testing_plan_arn) do
+        [{"restoreTestingPlanArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_resource_type) do
-        [{"resourceType", by_resource_type} | query_params]
+      if opt_val = Keyword.get(options, :by_resource_type) do
+        [{"resourceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_created_before) do
-        [{"createdBefore", by_created_before} | query_params]
+      if opt_val = Keyword.get(options, :by_created_before) do
+        [{"createdBefore", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_created_after) do
-        [{"createdAfter", by_created_after} | query_params]
+      if opt_val = Keyword.get(options, :by_created_after) do
+        [{"createdAfter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_complete_before) do
-        [{"completeBefore", by_complete_before} | query_params]
+      if opt_val = Keyword.get(options, :by_complete_before) do
+        [{"completeBefore", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_complete_after) do
-        [{"completeAfter", by_complete_after} | query_params]
+      if opt_val = Keyword.get(options, :by_complete_after) do
+        [{"completeAfter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_account_id) do
-        [{"accountId", by_account_id} | query_params]
+      if opt_val = Keyword.get(options, :by_account_id) do
+        [{"accountId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :by_account_id,
+        :by_complete_after,
+        :by_complete_before,
+        :by_created_after,
+        :by_created_before,
+        :by_resource_type,
+        :by_restore_testing_plan_arn,
+        :by_status,
+        :max_results,
+        :next_token
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -6369,223 +7783,333 @@ defmodule AWS.Backup do
   @doc """
   This returns restore jobs that contain the specified protected resource.
 
-  You must include `ResourceArn`. You can optionally include
-  `NextToken`, `ByStatus`, `MaxResults`,
-  `ByRecoveryPointCreationDateAfter` , and
-  `ByRecoveryPointCreationDateBefore`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListRestoreJobsByProtectedResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) Returns only restore jobs that match the
+    specified resource Amazon Resource Name (ARN).
+
+  ## Optional parameters:
+  * `:by_recovery_point_creation_date_after` (`t:timestamp`) Returns only restore
+    jobs of recovery points that were created after the specified date.
+  * `:by_recovery_point_creation_date_before` (`t:timestamp`) Returns only restore
+    jobs of recovery points that were created before the specified date.
+  * `:by_status` (`t:enum["ABORTED|COMPLETED|FAILED|PENDING|RUNNING"]`) Returns
+    only restore jobs associated with the specified job status.
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned
+    items. For example, if a request ismade to return MaxResults number of
+    items, NextToken allows you to return more items in your list starting at
+    the location pointed to by the next token.
   """
-  @spec list_restore_jobs_by_protected_resource(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_restore_jobs_by_protected_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_restore_jobs_by_protected_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_restore_jobs_by_protected_resource_errors()}
-  def list_restore_jobs_by_protected_resource(
-        %Client{} = client,
-        resource_arn,
-        by_recovery_point_creation_date_after \\ nil,
-        by_recovery_point_creation_date_before \\ nil,
-        by_status \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_restore_jobs_by_protected_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/restore-jobs"
+
+    # Validate optional parameters
+    optional_params = [
+      by_recovery_point_creation_date_after: nil,
+      by_recovery_point_creation_date_before: nil,
+      by_status: nil,
+      max_results: nil,
+      next_token: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_status) do
-        [{"status", by_status} | query_params]
+      if opt_val = Keyword.get(options, :by_status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_recovery_point_creation_date_before) do
-        [
-          {"recoveryPointCreationDateBefore", by_recovery_point_creation_date_before}
-          | query_params
-        ]
+      if opt_val = Keyword.get(options, :by_recovery_point_creation_date_before) do
+        [{"recoveryPointCreationDateBefore", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_recovery_point_creation_date_after) do
-        [{"recoveryPointCreationDateAfter", by_recovery_point_creation_date_after} | query_params]
+      if opt_val = Keyword.get(options, :by_recovery_point_creation_date_after) do
+        [{"recoveryPointCreationDateAfter", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :by_recovery_point_creation_date_after,
+        :by_recovery_point_creation_date_before,
+        :by_status,
+        :max_results,
+        :next_token
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of restore testing plans.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListRestoreTestingPlans&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:`) The next item following a partial list of returned items.
+    For example, if a request is made to return MaxResults number of items,
+    NextToken allows you to return more items in your list starting at the
+    location pointed to by the nexttoken.
   """
-  @spec list_restore_testing_plans(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_restore_testing_plans(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_restore_testing_plans_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_restore_testing_plans_errors()}
-  def list_restore_testing_plans(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_restore_testing_plans(%Client{} = client, options \\ []) do
     url_path = "/restore-testing/plans"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns a list of restore testing selections.
+  Returns a list of restore testing selections. Can be filtered by `MaxResults`
+  and `RestoreTestingPlanName`.
 
-  Can be filtered
-  by `MaxResults` and `RestoreTestingPlanName`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListRestoreTestingSelections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:restore_testing_plan_name` (`t:`) Returns restore testing selections by the
+    specified restore testing plan name.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:`) The next item following a partial list of returned items.
+    For example, if a request is made to return MaxResults number of items,
+    NextToken allows you to return more items in your list starting at the
+    location pointed to by the nexttoken.
   """
-  @spec list_restore_testing_selections(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_restore_testing_selections(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_restore_testing_selections_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_restore_testing_selections_errors()}
   def list_restore_testing_selections(
         %Client{} = client,
         restore_testing_plan_name,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/restore-testing/plans/#{AWS.Util.encode_uri(restore_testing_plan_name)}/selections"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of key-value pairs assigned to a target recovery point, backup
-  plan, or
-  backup vault.
+  plan, or backup vault.
 
-  `ListTags` only works for resource types that support full Backup
-  management of their backups. Those resource types are listed in the "Full Backup
-  management" section of the [ Feature availability by
-  resource](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource)
-  table.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20ListTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
+    identifies a resource. The format of the ARN depends on the type of
+    resource. Valid targets for ListTags are recovery points, backup plans, and
+    backup vaults.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned
+    items. For example, if a request is made to return MaxResults number of
+    items, NextToken allows you to return more items in your list starting at
+    the location pointed to by the next token.
   """
-  @spec list_tags(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_errors()}
-  def list_tags(
-        %Client{} = client,
-        resource_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_tags(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Sets a resource-based policy that is used to manage access permissions on the
-  target
-  backup vault.
+  target backup vault. Requires a backup vault name and an access policy
+  document in JSON format.
 
-  Requires a backup vault name and an access policy document in JSON
-  format.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20PutBackupVaultAccessPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_vault_name` (`t:string`) The name of a logical container where
+    backups are stored. Backup vaults are identified by names that are unique to
+    the account used to create them and the Amazon Web Services Region where
+    they are created. They consist of lowercase letters, numbers, and hyphens.
+
+  ## Optional parameters:
   """
   @spec put_backup_vault_access_policy(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_backup_vault_access_policy_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -6595,35 +8119,33 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Applies Backup Vault Lock to a backup vault, preventing attempts to delete
-  any recovery point stored in or created in a backup vault.
+  Applies Backup Vault Lock to a backup vault, preventing attempts to delete any
+  recovery point stored in or created in a backup vault. Vault Lock also
+  prevents attempts to update the lifecycle policy that controls the retention
+  period of any recovery point currently stored in a backup vault. If specified,
+  Vault Lock enforces a minimum and maximum retention period for future backup
+  and copy jobs that target a backup vault.
 
-  Vault Lock also prevents
-  attempts to update the lifecycle policy that controls the retention period of
-  any recovery
-  point currently stored in a backup vault. If specified, Vault Lock enforces a
-  minimum and
-  maximum retention period for future backup and copy jobs that target a backup
-  vault.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20PutBackupVaultLockConfiguration&this_doc_guide=API%2520Reference)
 
-  Backup Vault Lock has been assessed by Cohasset Associates for use in
-  environments
-  that are subject to SEC 17a-4, CFTC, and FINRA regulations. For more information
-  about
-  how Backup Vault Lock relates to these regulations, see the
-  [Cohasset Associates Compliance Assessment.](samples/cohassetreport.zip)
+  ## Parameters:
+  * `:backup_vault_name` (`t:string`) The Backup Vault Lock configuration that
+    specifies the name of the backup vault it protects.
+
+  ## Optional parameters:
   """
   @spec put_backup_vault_lock_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_backup_vault_lock_configuration_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -6638,19 +8160,30 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Turns on notifications on a backup vault for the specified topic and events.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20PutBackupVaultNotifications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_vault_name` (`t:string`) The name of a logical container where
+    backups are stored. Backup vaults are identified by names that are unique to
+    the account used to create them and the Amazon Web Services Region where
+    they are created. They consist of lowercase letters, numbers, and hyphens.
+
+  ## Optional parameters:
   """
   @spec put_backup_vault_notifications(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_backup_vault_notifications_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -6662,24 +8195,30 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  This request allows you to send your independent self-run
-  restore test validation results.
+  This request allows you to send your independent self-run restore test
+  validation results. `RestoreJobId` and `ValidationStatus` are required.
+  Optionally, you can input a `ValidationStatusMessage`.
 
-  `RestoreJobId` and `ValidationStatus`
-  are required. Optionally, you can input a
-  `ValidationStatusMessage`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20PutRestoreValidationResult&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:restore_job_id` (`t:string`) This is a unique identifier of a restore job
+    within Backup.
+
+  ## Optional parameters:
   """
   @spec put_restore_validation_result(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_restore_validation_result_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -6689,15 +8228,22 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
   end
 
   @doc """
   Starts an on-demand backup job for the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20StartBackupJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_backup_job(map(), start_backup_job_input(), list()) ::
+  @spec start_backup_job(AWS.Client.t(), start_backup_job_input(), Keyword.t()) ::
           {:ok, start_backup_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_backup_job_errors()}
@@ -6706,7 +8252,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -6714,9 +8261,13 @@ defmodule AWS.Backup do
   @doc """
   Starts a job to create a one-time copy of the specified resource.
 
-  Does not support continuous backups.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20StartCopyJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_copy_job(map(), start_copy_job_input(), list()) ::
+  @spec start_copy_job(AWS.Client.t(), start_copy_job_input(), Keyword.t()) ::
           {:ok, start_copy_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_copy_job_errors()}
@@ -6725,15 +8276,23 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Starts an on-demand report job for the specified report plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20StartReportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:report_plan_name` (`t:string`) The unique name of a report plan.
+
+  ## Optional parameters:
   """
-  @spec start_report_job(map(), String.t(), start_report_job_input(), list()) ::
+  @spec start_report_job(AWS.Client.t(), String.t(), start_report_job_input(), Keyword.t()) ::
           {:ok, start_report_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_report_job_errors()}
@@ -6742,7 +8301,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6759,8 +8319,14 @@ defmodule AWS.Backup do
 
   @doc """
   Recovers the saved resource identified by an Amazon Resource Name (ARN).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20StartRestoreJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_restore_job(map(), start_restore_job_input(), list()) ::
+  @spec start_restore_job(AWS.Client.t(), start_restore_job_input(), Keyword.t()) ::
           {:ok, start_restore_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_restore_job_errors()}
@@ -6769,7 +8335,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -6777,14 +8344,15 @@ defmodule AWS.Backup do
   @doc """
   Attempts to cancel a job to create a one-time backup of a resource.
 
-  This action is not supported for the following services:
-  Amazon FSx for Windows File Server, Amazon FSx for Lustre, Amazon FSx for NetApp
-  ONTAP
-  , Amazon FSx for OpenZFS, Amazon DocumentDB (with MongoDB compatibility), Amazon
-  RDS, Amazon Aurora,
-  and Amazon Neptune.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20StopBackupJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_job_id` (`t:string`) Uniquely identifies a request to Backup to back
+    up a resource.
+
+  ## Optional parameters:
   """
-  @spec stop_backup_job(map(), String.t(), stop_backup_job_input(), list()) ::
+  @spec stop_backup_job(AWS.Client.t(), String.t(), stop_backup_job_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_backup_job_errors()}
@@ -6793,7 +8361,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6810,10 +8379,17 @@ defmodule AWS.Backup do
 
   @doc """
   Assigns a set of key-value pairs to a recovery point, backup plan, or backup
-  vault
-  identified by an Amazon Resource Name (ARN).
+  vault identified by an Amazon Resource Name (ARN).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) An ARN that uniquely identifies a resource. The
+    format of the ARN depends on the type of the tagged resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -6822,7 +8398,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6839,10 +8416,17 @@ defmodule AWS.Backup do
 
   @doc """
   Removes a set of key-value pairs from a recovery point, backup plan, or backup
-  vault
-  identified by an Amazon Resource Name (ARN)
+  vault identified by an Amazon Resource Name (ARN)
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) An ARN that uniquely identifies a resource. The
+    format of the ARN depends on the type of the tagged resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -6851,7 +8435,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6867,13 +8452,18 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Updates an existing backup plan identified by its `backupPlanId` with the
-  input document in JSON format.
-
-  The new version is uniquely identified by a
+  Updates an existing backup plan identified by its `backupPlanId` with the input
+  document in JSON format. The new version is uniquely identified by a
   `VersionId`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20UpdateBackupPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
+
+  ## Optional parameters:
   """
-  @spec update_backup_plan(map(), String.t(), update_backup_plan_input(), list()) ::
+  @spec update_backup_plan(AWS.Client.t(), String.t(), update_backup_plan_input(), Keyword.t()) ::
           {:ok, update_backup_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_backup_plan_errors()}
@@ -6882,7 +8472,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6898,10 +8489,19 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Updates an existing framework identified by its `FrameworkName` with the
-  input document in JSON format.
+  Updates an existing framework identified by its `FrameworkName` with the input
+  document in JSON format.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20UpdateFramework&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:framework_name` (`t:string`) The unique name of a framework. This name is
+    between 1 and 256 characters, starting with a letter, and consisting of
+    letters (a-z, A-Z), numbers (0-9), and underscores (_).
+
+  ## Optional parameters:
   """
-  @spec update_framework(map(), String.t(), update_framework_input(), list()) ::
+  @spec update_framework(AWS.Client.t(), String.t(), update_framework_input(), Keyword.t()) ::
           {:ok, update_framework_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_framework_errors()}
@@ -6910,20 +8510,25 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates whether the Amazon Web Services account is opted in to cross-account
-  backup.
+  backup. Returns an error if the account is not an Organizations management
+  account. Use the `DescribeGlobalSettings` API to determine the current
+  settings.
 
-  Returns an error if the account is not an Organizations management account. Use
-  the
-  `DescribeGlobalSettings` API to determine the current settings.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20UpdateGlobalSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_global_settings(map(), update_global_settings_input(), list()) ::
+  @spec update_global_settings(AWS.Client.t(), update_global_settings_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_global_settings_errors()}
@@ -6932,43 +8537,37 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Sets the transition lifecycle of a recovery point.
+  Sets the transition lifecycle of a recovery point. The lifecycle defines when a
+  protected resource is transitioned to cold storage and when it expires. Backup
+  transitions and expires backups automatically according to the lifecycle that
+  you define.
 
-  The lifecycle defines when a protected resource is transitioned to cold storage
-  and when
-  it expires. Backup transitions and expires backups automatically according to
-  the lifecycle that you define.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20UpdateRecoveryPointLifecycle&this_doc_guide=API%2520Reference)
 
-  Backups transitioned to cold storage must be stored in cold storage for a
-  minimum of 90
-  days. Therefore, the “retention” setting must be 90 days greater than the
-  “transition to
-  cold after days” setting. The “transition to cold after days” setting cannot be
-  changed
-  after a backup has been transitioned to cold.
+  ## Parameters:
+  * `:backup_vault_name` (`t:string`) The name of a logical container where
+    backups are stored. Backup vaults are identified by names that are unique to
+    the account used to create them and the Amazon Web Services Region where
+    they are created. They consist of lowercase letters, numbers, and hyphens.
+  * `:recovery_point_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
+    identifies a recovery point; for example,
+    arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.
 
-  Resource types that are able to be transitioned to cold storage are listed in
-  the "Lifecycle to cold storage"
-  section of the [
-  Feature availability by
-  resource](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource)
-  table. Backup ignores this expression for
-  other resource types.
-
-  This operation does not support continuous backups.
+  ## Optional parameters:
   """
   @spec update_recovery_point_lifecycle(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_recovery_point_lifecycle_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_recovery_point_lifecycle_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6986,7 +8585,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7004,11 +8604,13 @@ defmodule AWS.Backup do
   @doc """
   Updates the current service opt-in settings for the Region.
 
-  Use
-  the `DescribeRegionSettings` API to determine the resource types that are
-  supported.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20UpdateRegionSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_region_settings(map(), update_region_settings_input(), list()) ::
+  @spec update_region_settings(AWS.Client.t(), update_region_settings_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_region_settings_errors()}
@@ -7017,7 +8619,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -7025,8 +8628,17 @@ defmodule AWS.Backup do
   @doc """
   Updates an existing report plan identified by its `ReportPlanName` with the
   input document in JSON format.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20UpdateReportPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:report_plan_name` (`t:string`) The unique name of the report plan. This name
+    is between 1 and 256 characters, starting with a letter, and consisting of
+    letters (a-z, A-Z), numbers (0-9), and underscores (_).
+
+  ## Optional parameters:
   """
-  @spec update_report_plan(map(), String.t(), update_report_plan_input(), list()) ::
+  @spec update_report_plan(AWS.Client.t(), String.t(), update_report_plan_input(), Keyword.t()) ::
           {:ok, update_report_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_report_plan_errors()}
@@ -7035,45 +8647,30 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  This request will send changes to your specified restore testing
-  plan.
-
-  `RestoreTestingPlanName`
-  cannot be updated after it is created.
-
+  This request will send changes to your specified restore testing plan.
+  `RestoreTestingPlanName` cannot be updated after it is created.
   `RecoveryPointSelection` can contain:
 
-    *
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20UpdateRestoreTestingPlan&this_doc_guide=API%2520Reference)
 
-  `Algorithm`
+  ## Parameters:
+  * `:restore_testing_plan_name` (`t:`) This is the restore testing plan name you
+    wish to update.
 
-    *
-
-  `ExcludeVaults`
-
-    *
-
-  `IncludeVaults`
-
-    *
-
-  `RecoveryPointTypes`
-
-    *
-
-  `SelectionWindowDays`
+  ## Optional parameters:
   """
   @spec update_restore_testing_plan(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_restore_testing_plan_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_restore_testing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7088,27 +8685,32 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Most elements except the `RestoreTestingSelectionName`
-  can be updated with this request.
+  Most elements except the `RestoreTestingSelectionName` can be updated with this
+  request.
 
-  `RestoreTestingSelection` can use either protected
-  resource ARNs or conditions, but not both. That is, if your selection
-  has `ProtectedResourceArns`, requesting an update with the
-  parameter `ProtectedResourceConditions` will be
-  unsuccessful.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backup%20UpdateRestoreTestingSelection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:restore_testing_plan_name` (`t:`) The restore testing plan name is required
+    to update the indicated testing plan.
+  * `:restore_testing_selection_name` (`t:`) This is the required restore testing
+    selection name of the restore testing selection you wish to update.
+
+  ## Optional parameters:
   """
   @spec update_restore_testing_selection(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_restore_testing_selection_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_restore_testing_selection_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7126,7 +8728,8 @@ defmodule AWS.Backup do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

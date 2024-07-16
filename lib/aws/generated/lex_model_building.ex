@@ -4,12 +4,6 @@
 defmodule AWS.LexModelBuilding do
   @moduledoc """
   Amazon Lex Build-Time Actions
-
-  Amazon Lex is an AWS service for building conversational voice and text
-  interfaces.
-
-  Use these actions to create, update, and delete conversational
-  bots for new and existing client applications.
   """
 
   alias AWS.Client
@@ -1897,25 +1891,22 @@ defmodule AWS.LexModelBuilding do
   end
 
   @doc """
-  Creates a new version of the bot based on the `$LATEST`
-  version.
+  Creates a new version of the bot based on the `$LATEST` version. If the
+  `$LATEST` version of this resource hasn't changed since you created the last
+  version, Amazon Lex doesn't create a new version. It returns the last created
+  version. You can update only the `$LATEST` version of the bot. You can't
+  update the numbered versions that you create with the `CreateBotVersion`
+  operation.
 
-  If the `$LATEST` version of this resource hasn't
-  changed since you created the last version, Amazon Lex doesn't create a new
-  version. It returns the last created version.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20CreateBotVersion&this_doc_guide=API%2520Reference)
 
-  You can update only the `$LATEST` version of the bot.
-  You can't update the numbered versions that you create with the
-  `CreateBotVersion` operation.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the bot that you want to create a new version
+    of. The name is case sensitive.
 
-  When you create the first version of a bot, Amazon Lex sets the version
-  to 1. Subsequent versions increment by 1. For more information, see
-  `versioning-intro`.
-
-  This operation requires permission for the
-  `lex:CreateBotVersion` action.
+  ## Optional parameters:
   """
-  @spec create_bot_version(map(), String.t(), create_bot_version_request(), list()) ::
+  @spec create_bot_version(AWS.Client.t(), String.t(), create_bot_version_request(), Keyword.t()) ::
           {:ok, create_bot_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bot_version_errors()}
@@ -1924,7 +1915,8 @@ defmodule AWS.LexModelBuilding do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1940,26 +1932,27 @@ defmodule AWS.LexModelBuilding do
   end
 
   @doc """
-  Creates a new version of an intent based on the
-  `$LATEST` version of the intent.
+  Creates a new version of an intent based on the `$LATEST` version of the intent.
+  If the `$LATEST` version of this intent hasn't changed since you last updated
+  it, Amazon Lex doesn't create a new version. It returns the last version you
+  created. You can update only the `$LATEST` version of the intent. You can't
+  update the numbered versions that you create with the `CreateIntentVersion`
+  operation.
 
-  If the `$LATEST`
-  version of this intent hasn't changed since you last updated it, Amazon Lex
-  doesn't create a new version. It returns the last version you
-  created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20CreateIntentVersion&this_doc_guide=API%2520Reference)
 
-  You can update only the `$LATEST` version of the
-  intent. You can't update the numbered versions that you create with the
-  `CreateIntentVersion` operation.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the intent that you want to create a new
+    version of. The name is case sensitive.
 
-  When you create a version of an intent, Amazon Lex sets the version to
-  1. Subsequent versions increment by 1. For more information, see
-  `versioning-intro`.
-
-  This operation requires permissions to perform the
-  `lex:CreateIntentVersion` action.
+  ## Optional parameters:
   """
-  @spec create_intent_version(map(), String.t(), create_intent_version_request(), list()) ::
+  @spec create_intent_version(
+          AWS.Client.t(),
+          String.t(),
+          create_intent_version_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_intent_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_intent_version_errors()}
@@ -1968,7 +1961,8 @@ defmodule AWS.LexModelBuilding do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1984,26 +1978,27 @@ defmodule AWS.LexModelBuilding do
   end
 
   @doc """
-  Creates a new version of a slot type based on the
-  `$LATEST` version of the specified slot type.
+  Creates a new version of a slot type based on the `$LATEST` version of the
+  specified slot type. If the `$LATEST` version of this resource has not changed
+  since the last version that you created, Amazon Lex doesn't create a new
+  version. It returns the last version that you created. You can update only the
+  `$LATEST` version of a slot type. You can't update the numbered versions that
+  you create with the `CreateSlotTypeVersion` operation.
 
-  If the
-  `$LATEST` version of this resource has not changed since the
-  last version that you created, Amazon Lex doesn't create a new version. It
-  returns the last version that you created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20CreateSlotTypeVersion&this_doc_guide=API%2520Reference)
 
-  You can update only the `$LATEST` version of a slot
-  type. You can't update the numbered versions that you create with the
-  `CreateSlotTypeVersion` operation.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the slot type that you want to create a new
+    version for. The name is case sensitive.
 
-  When you create a version of a slot type, Amazon Lex sets the version to
-  1. Subsequent versions increment by 1. For more information, see
-  `versioning-intro`.
-
-  This operation requires permissions for the
-  `lex:CreateSlotTypeVersion` action.
+  ## Optional parameters:
   """
-  @spec create_slot_type_version(map(), String.t(), create_slot_type_version_request(), list()) ::
+  @spec create_slot_type_version(
+          AWS.Client.t(),
+          String.t(),
+          create_slot_type_version_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_slot_type_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_slot_type_version_errors()}
@@ -2012,7 +2007,8 @@ defmodule AWS.LexModelBuilding do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2028,31 +2024,22 @@ defmodule AWS.LexModelBuilding do
   end
 
   @doc """
-  Deletes all versions of the bot, including the `$LATEST`
-  version.
+  Deletes all versions of the bot, including the `$LATEST` version. To delete a
+  specific version of the bot, use the `DeleteBotVersion` operation. The
+  `DeleteBot` operation doesn't immediately remove the bot schema. Instead, it
+  is marked for deletion and removed later. Amazon Lex stores utterances
+  indefinitely for improving the ability of your bot to respond to user inputs.
+  These utterances are not removed when the bot is deleted. To remove the
+  utterances, use the `DeleteUtterances` operation.
 
-  To delete a specific version of the bot, use the `DeleteBotVersion` operation.
-  The `DeleteBot`
-  operation doesn't immediately remove the bot schema. Instead, it is marked
-  for deletion and removed later.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20DeleteBot&this_doc_guide=API%2520Reference)
 
-  Amazon Lex stores utterances indefinitely for improving the ability of
-  your bot to respond to user inputs. These utterances are not removed when
-  the bot is deleted. To remove the utterances, use the `DeleteUtterances`
-  operation.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the bot. The name is case sensitive.
 
-  If a bot has an alias, you can't delete it. Instead, the
-  `DeleteBot` operation returns a
-  `ResourceInUseException` exception that includes a reference
-  to the alias that refers to the bot. To remove the reference to the bot,
-  delete the alias. If you get the same exception again, delete the
-  referring alias until the `DeleteBot` operation is
-  successful.
-
-  This operation requires permissions for the
-  `lex:DeleteBot` action.
+  ## Optional parameters:
   """
-  @spec delete_bot(map(), String.t(), delete_bot_request(), list()) ::
+  @spec delete_bot(AWS.Client.t(), String.t(), delete_bot_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_bot_errors()}
@@ -2061,7 +2048,8 @@ defmodule AWS.LexModelBuilding do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2079,16 +2067,22 @@ defmodule AWS.LexModelBuilding do
   @doc """
   Deletes an alias for the specified bot.
 
-  You can't delete an alias that is used in the association between a
-  bot and a messaging channel. If an alias is used in a channel association,
-  the `DeleteBot` operation returns a
-  `ResourceInUseException` exception that includes a reference
-  to the channel association that refers to the bot. You can remove the
-  reference to the alias by deleting the channel association. If you get the
-  same exception again, delete the referring association until the
-  `DeleteBotAlias` operation is successful.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20DeleteBotAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bot_name` (`t:string`) The name of the bot that the alias points to.
+  * `:name` (`t:string`) The name of the alias to delete. The name is case
+    sensitive.
+
+  ## Optional parameters:
   """
-  @spec delete_bot_alias(map(), String.t(), String.t(), delete_bot_alias_request(), list()) ::
+  @spec delete_bot_alias(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_bot_alias_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_bot_alias_errors()}
@@ -2097,7 +2091,8 @@ defmodule AWS.LexModelBuilding do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2113,19 +2108,25 @@ defmodule AWS.LexModelBuilding do
   end
 
   @doc """
-  Deletes the association between an Amazon Lex bot and a messaging
-  platform.
+  Deletes the association between an Amazon Lex bot and a messaging platform.
 
-  This operation requires permission for the
-  `lex:DeleteBotChannelAssociation` action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20DeleteBotChannelAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bot_alias` (`t:string`) An alias that points to the specific version of the
+    Amazon Lex bot to which this association is being made.
+  * `:bot_name` (`t:string`) The name of the Amazon Lex bot.
+  * `:name` (`t:string`) The name of the association. The name is case sensitive.
+
+  ## Optional parameters:
   """
   @spec delete_bot_channel_association(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_bot_channel_association_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -2144,7 +2145,8 @@ defmodule AWS.LexModelBuilding do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2160,15 +2162,26 @@ defmodule AWS.LexModelBuilding do
   end
 
   @doc """
-  Deletes a specific version of a bot.
+  Deletes a specific version of a bot. To delete all versions of a bot, use the
+  `DeleteBot` operation.
 
-  To delete all versions of a
-  bot, use the `DeleteBot` operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20DeleteBotVersion&this_doc_guide=API%2520Reference)
 
-  This operation requires permissions for the
-  `lex:DeleteBotVersion` action.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the bot.
+  * `:version` (`t:string`) The version of the bot to delete. You cannot delete
+    the $LATEST version of the bot. To delete the $LATEST version, use the
+    DeleteBot operation.
+
+  ## Optional parameters:
   """
-  @spec delete_bot_version(map(), String.t(), String.t(), delete_bot_version_request(), list()) ::
+  @spec delete_bot_version(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_bot_version_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_bot_version_errors()}
@@ -2177,7 +2190,8 @@ defmodule AWS.LexModelBuilding do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2193,28 +2207,20 @@ defmodule AWS.LexModelBuilding do
   end
 
   @doc """
-  Deletes all versions of the intent, including the
-  `$LATEST` version.
+  Deletes all versions of the intent, including the `$LATEST` version. To delete a
+  specific version of the intent, use the `DeleteIntentVersion` operation. You
+  can delete a version of an intent only if it is not referenced. To delete an
+  intent that is referred to in one or more bots (see `how-it-works`), you must
+  remove those references first.
 
-  To delete a specific version of the
-  intent, use the `DeleteIntentVersion` operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20DeleteIntent&this_doc_guide=API%2520Reference)
 
-  You can delete a version of an intent only if it is not
-  referenced. To delete an intent that is referred to in one or more bots
-  (see `how-it-works`), you must remove those references
-  first.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the intent. The name is case sensitive.
 
-  If you get the `ResourceInUseException` exception, it
-  provides an example reference that shows where the intent is referenced.
-  To remove the reference to the intent, either update the bot or delete
-  it. If you get the same exception when you attempt to delete the intent
-  again, repeat until the intent has no references and the call to
-  `DeleteIntent` is successful.
-
-  This operation requires permission for the
-  `lex:DeleteIntent` action.
+  ## Optional parameters:
   """
-  @spec delete_intent(map(), String.t(), delete_intent_request(), list()) ::
+  @spec delete_intent(AWS.Client.t(), String.t(), delete_intent_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_intent_errors()}
@@ -2223,7 +2229,8 @@ defmodule AWS.LexModelBuilding do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2239,20 +2246,25 @@ defmodule AWS.LexModelBuilding do
   end
 
   @doc """
-  Deletes a specific version of an intent.
+  Deletes a specific version of an intent. To delete all versions of a intent, use
+  the `DeleteIntent` operation.
 
-  To delete all versions of
-  a intent, use the `DeleteIntent` operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20DeleteIntentVersion&this_doc_guide=API%2520Reference)
 
-  This operation requires permissions for the
-  `lex:DeleteIntentVersion` action.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the intent.
+  * `:version` (`t:string`) The version of the intent to delete. You cannot delete
+    the $LATEST version of the intent. To delete the $LATEST version, use the
+    DeleteIntent operation.
+
+  ## Optional parameters:
   """
   @spec delete_intent_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_intent_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -2262,7 +2274,8 @@ defmodule AWS.LexModelBuilding do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2278,28 +2291,20 @@ defmodule AWS.LexModelBuilding do
   end
 
   @doc """
-  Deletes all versions of the slot type, including the
-  `$LATEST` version.
+  Deletes all versions of the slot type, including the `$LATEST` version. To
+  delete a specific version of the slot type, use the `DeleteSlotTypeVersion`
+  operation. You can delete a version of a slot type only if it is not
+  referenced. To delete a slot type that is referred to in one or more intents,
+  you must remove those references first.
 
-  To delete a specific version of the slot
-  type, use the `DeleteSlotTypeVersion` operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20DeleteSlotType&this_doc_guide=API%2520Reference)
 
-  You can delete a version of a slot type only if it is not
-  referenced. To delete a slot type that is referred to in one or more
-  intents, you must remove those references first.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the slot type. The name is case sensitive.
 
-  If you get the `ResourceInUseException` exception,
-  the exception provides an example reference that shows the intent where
-  the slot type is referenced. To remove the reference to the slot type,
-  either update the intent or delete it. If you get the same exception
-  when you attempt to delete the slot type again, repeat until the slot
-  type has no references and the `DeleteSlotType` call is
-  successful.
-
-  This operation requires permission for the
-  `lex:DeleteSlotType` action.
+  ## Optional parameters:
   """
-  @spec delete_slot_type(map(), String.t(), delete_slot_type_request(), list()) ::
+  @spec delete_slot_type(AWS.Client.t(), String.t(), delete_slot_type_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_slot_type_errors()}
@@ -2308,7 +2313,8 @@ defmodule AWS.LexModelBuilding do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2324,20 +2330,25 @@ defmodule AWS.LexModelBuilding do
   end
 
   @doc """
-  Deletes a specific version of a slot type.
+  Deletes a specific version of a slot type. To delete all versions of a slot
+  type, use the `DeleteSlotType` operation.
 
-  To delete all versions
-  of a slot type, use the `DeleteSlotType` operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20DeleteSlotTypeVersion&this_doc_guide=API%2520Reference)
 
-  This operation requires permissions for the
-  `lex:DeleteSlotTypeVersion` action.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the slot type.
+  * `:version` (`t:string`) The version of the slot type to delete. You cannot
+    delete the $LATEST version of the slot type. To delete the $LATEST version,
+    use the DeleteSlotType operation.
+
+  ## Optional parameters:
   """
   @spec delete_slot_type_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_slot_type_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -2347,7 +2358,8 @@ defmodule AWS.LexModelBuilding do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2363,24 +2375,28 @@ defmodule AWS.LexModelBuilding do
   end
 
   @doc """
-  Deletes stored utterances.
+  Deletes stored utterances. Amazon Lex stores the utterances that users send to
+  your bot. Utterances are stored for 15 days for use with the
+  `GetUtterancesView` operation, and then stored indefinitely for use in
+  improving the ability of your bot to respond to user input.
 
-  Amazon Lex stores the utterances that users send to your bot. Utterances
-  are stored for 15 days for use with the `GetUtterancesView` operation, and then
-  stored indefinitely for use in improving the
-  ability of your bot to respond to user input.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20DeleteUtterances&this_doc_guide=API%2520Reference)
 
-  Use the `DeleteUtterances` operation to manually delete
-  stored utterances for a specific user. When you use the
-  `DeleteUtterances` operation, utterances stored for improving
-  your bot's ability to respond to user input are deleted immediately.
-  Utterances stored for use with the `GetUtterancesView`
-  operation are deleted after 15 days.
+  ## Parameters:
+  * `:bot_name` (`t:string`) The name of the bot that stored the utterances.
+  * `:user_id` (`t:string`) The unique identifier for the user that made the
+    utterances. This is the user ID that was sent in the PostContent or PostText
+    operation request that contained the utterance.
 
-  This operation requires permissions for the
-  `lex:DeleteUtterances` action.
+  ## Optional parameters:
   """
-  @spec delete_utterances(map(), String.t(), String.t(), delete_utterances_request(), list()) ::
+  @spec delete_utterances(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_utterances_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_utterances_errors()}
@@ -2389,7 +2405,8 @@ defmodule AWS.LexModelBuilding do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2405,15 +2422,18 @@ defmodule AWS.LexModelBuilding do
   end
 
   @doc """
-  Returns metadata information for a specific bot.
+  Returns metadata information for a specific bot. You must provide the bot name
+  and the bot version or alias.
 
-  You must provide
-  the bot name and the bot version or alias.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetBot&this_doc_guide=API%2520Reference)
 
-  This operation requires permissions for the
-  `lex:GetBot` action.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the bot. The name is case sensitive.
+  * `:version_or_alias` (`t:string`) The version or alias of the bot.
+
+  ## Optional parameters:
   """
-  @spec get_bot(map(), String.t(), String.t(), list()) ::
+  @spec get_bot(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bot_errors()}
@@ -2421,33 +2441,71 @@ defmodule AWS.LexModelBuilding do
     url_path =
       "/bots/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version_or_alias)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns information about an Amazon Lex bot alias.
+  Returns information about an Amazon Lex bot alias. For more information about
+  aliases, see `versioning-aliases`.
 
-  For more information
-  about aliases, see `versioning-aliases`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetBotAlias&this_doc_guide=API%2520Reference)
 
-  This operation requires permissions for the
-  `lex:GetBotAlias` action.
+  ## Parameters:
+  * `:bot_name` (`t:string`) The name of the bot.
+  * `:name` (`t:string`) The name of the bot alias. The name is case sensitive.
+
+  ## Optional parameters:
   """
-  @spec get_bot_alias(map(), String.t(), String.t(), list()) ::
+  @spec get_bot_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bot_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bot_alias_errors()}
   def get_bot_alias(%Client{} = client, bot_name, name, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2455,66 +2513,101 @@ defmodule AWS.LexModelBuilding do
   @doc """
   Returns a list of aliases for a specified Amazon Lex bot.
 
-  This operation requires permissions for the
-  `lex:GetBotAliases` action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetBotAliases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bot_name` (`t:string`) The name of the bot.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of aliases to return in the
+    response. The default is 50. .
+  * `:name_contains` (`t:string`) Substring to match in bot alias names. An alias
+    will be returned if any part of its name matches the substring. For example,
+    "xyz" matches both "xyzabc" and "abcxyz."
+  * `:next_token` (`t:string`) A pagination token for fetching the next page of
+    aliases. If the response to this call is truncated, Amazon Lex returns a
+    pagination token in the response. To fetch the next page of aliases, specify
+    the pagination token in the next request.
   """
-  @spec get_bot_aliases(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_bot_aliases(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bot_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bot_aliases_errors()}
-  def get_bot_aliases(
-        %Client{} = client,
-        bot_name,
-        max_results \\ nil,
-        name_contains \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_bot_aliases(%Client{} = client, bot_name, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, name_contains: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name_contains) do
-        [{"nameContains", name_contains} | query_params]
+      if opt_val = Keyword.get(options, :name_contains) do
+        [{"nameContains", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :name_contains, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns information about the association between an Amazon Lex bot and
-  a messaging platform.
+  Returns information about the association between an Amazon Lex bot and a
+  messaging platform.
 
-  This operation requires permissions for the
-  `lex:GetBotChannelAssociation` action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetBotChannelAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bot_alias` (`t:string`) An alias pointing to the specific version of the
+    Amazon Lex bot to which this association is being made.
+  * `:bot_name` (`t:string`) The name of the Amazon Lex bot.
+  * `:name` (`t:string`) The name of the association between the bot and the
+    channel. The name is case sensitive.
+
+  ## Optional parameters:
   """
-  @spec get_bot_channel_association(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_bot_channel_association(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, get_bot_channel_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bot_channel_association_errors()}
@@ -2522,121 +2615,179 @@ defmodule AWS.LexModelBuilding do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(bot_alias)}/channels/#{AWS.Util.encode_uri(name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns a list of all of the channels associated with the
-  specified bot.
+  Returns a list of all of the channels associated with the specified bot.
 
-  The `GetBotChannelAssociations` operation requires
-  permissions for the `lex:GetBotChannelAssociations`
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetBotChannelAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bot_alias` (`t:string`) An alias pointing to the specific version of the
+    Amazon Lex bot to which this association is being made.
+  * `:bot_name` (`t:string`) The name of the Amazon Lex bot in the association.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of associations to return in
+    the response. The default is 50.
+  * `:name_contains` (`t:string`) Substring to match in channel association names.
+    An association will be returned if any part of its name matches the
+    substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To return
+    all bot channel associations, use a hyphen ("-") as the nameContains
+    parameter.
+  * `:next_token` (`t:string`) A pagination token for fetching the next page of
+    associations. If the response to this call is truncated, Amazon Lex returns
+    a pagination token in the response. To fetch the next page of associations,
+    specify the pagination token in the next request.
   """
-  @spec get_bot_channel_associations(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_bot_channel_associations(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bot_channel_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bot_channel_associations_errors()}
-  def get_bot_channel_associations(
-        %Client{} = client,
-        bot_alias,
-        bot_name,
-        max_results \\ nil,
-        name_contains \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_bot_channel_associations(%Client{} = client, bot_alias, bot_name, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(bot_alias)}/channels"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, name_contains: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name_contains) do
-        [{"nameContains", name_contains} | query_params]
+      if opt_val = Keyword.get(options, :name_contains) do
+        [{"nameContains", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :name_contains, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets information about all of the versions of a bot.
+  Gets information about all of the versions of a bot. The `GetBotVersions`
+  operation returns a `BotMetadata` object for each version of a bot. For
+  example, if a bot has three numbered versions, the `GetBotVersions` operation
+  returns four `BotMetadata` objects in the response, one for each numbered
+  version and one for the `$LATEST` version.
 
-  The `GetBotVersions` operation returns a
-  `BotMetadata` object for each version of a bot. For example,
-  if a bot has three numbered versions, the `GetBotVersions`
-  operation returns four `BotMetadata` objects in the response,
-  one for each numbered version and one for the `$LATEST`
-  version.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetBotVersions&this_doc_guide=API%2520Reference)
 
-  The `GetBotVersions` operation always returns at least
-  one version, the `$LATEST` version.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the bot for which versions should be
+    returned.
 
-  This operation requires permissions for the
-  `lex:GetBotVersions` action.
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of bot versions to return in
+    the response. The default is 10.
+  * `:next_token` (`t:string`) A pagination token for fetching the next page of
+    bot versions. If the response to this call is truncated, Amazon Lex returns
+    a pagination token in the response. To fetch the next page of versions,
+    specify the pagination token in the next request.
   """
-  @spec get_bot_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_bot_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bot_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bot_versions_errors()}
-  def get_bot_versions(
-        %Client{} = client,
-        name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_bot_versions(%Client{} = client, name, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(name)}/versions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2644,56 +2795,74 @@ defmodule AWS.LexModelBuilding do
   @doc """
   Returns bot information as follows:
 
-    *
-  If you provide the `nameContains` field, the
-  response includes information for the `$LATEST` version of
-  all bots whose name contains the specified string.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetBots&this_doc_guide=API%2520Reference)
 
-    *
-  If you don't specify the `nameContains` field, the
-  operation returns information about the `$LATEST` version
-  of all of your bots.
+  ## Parameters:
 
-  This operation requires permission for the `lex:GetBots`
-  action.
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of bots to return in the
+    response that the request will return. The default is 10.
+  * `:name_contains` (`t:string`) Substring to match in bot names. A bot will be
+    returned if any part of its name matches the substring. For example, "xyz"
+    matches both "xyzabc" and "abcxyz."
+  * `:next_token` (`t:string`) A pagination token that fetches the next page of
+    bots. If the response to this call is truncated, Amazon Lex returns a
+    pagination token in the response. To fetch the next page of bots, specify
+    the pagination token in the next request.
   """
-  @spec get_bots(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec get_bots(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bots_errors()}
-  def get_bots(
-        %Client{} = client,
-        max_results \\ nil,
-        name_contains \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_bots(%Client{} = client, options \\ []) do
     url_path = "/bots"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, name_contains: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name_contains) do
-        [{"nameContains", name_contains} | query_params]
+      if opt_val = Keyword.get(options, :name_contains) do
+        [{"nameContains", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :name_contains, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2701,285 +2870,429 @@ defmodule AWS.LexModelBuilding do
   @doc """
   Returns information about a built-in intent.
 
-  This operation requires permission for the
-  `lex:GetBuiltinIntent` action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetBuiltinIntent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:signature` (`t:string`) The unique identifier for a built-in intent. To find
+    the signature for an intent, see Standard Built-in Intents in the Alexa
+    Skills Kit.
+
+  ## Optional parameters:
   """
-  @spec get_builtin_intent(map(), String.t(), list()) ::
+  @spec get_builtin_intent(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_builtin_intent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_builtin_intent_errors()}
   def get_builtin_intent(%Client{} = client, signature, options \\ []) do
     url_path = "/builtins/intents/#{AWS.Util.encode_uri(signature)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets a list of built-in intents that meet the specified
-  criteria.
+  Gets a list of built-in intents that meet the specified criteria.
 
-  This operation requires permission for the
-  `lex:GetBuiltinIntents` action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetBuiltinIntents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:locale`
+    (`t:enum["DE_DE|EN_AU|EN_GB|EN_IN|EN_US|ES_419|ES_ES|ES_US|FR_CA|FR_FR|IT_IT|JA_JP|KO_KR"]`)
+    A list of locales that the intent supports.
+  * `:max_results` (`t:integer`) The maximum number of intents to return in the
+    response. The default is 10.
+  * `:next_token` (`t:string`) A pagination token that fetches the next page of
+    intents. If this API call is truncated, Amazon Lex returns a pagination
+    token in the response. To fetch the next page of intents, use the pagination
+    token in the next request.
+  * `:signature_contains` (`t:string`) Substring to match in built-in intent
+    signatures. An intent will be returned if any part of its signature matches
+    the substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To
+    find the signature for an intent, see Standard Built-in Intents in the Alexa
+    Skills Kit.
   """
-  @spec get_builtin_intents(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_builtin_intents(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_builtin_intents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_builtin_intents_errors()}
-  def get_builtin_intents(
-        %Client{} = client,
-        locale \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        signature_contains \\ nil,
-        options \\ []
-      ) do
+  def get_builtin_intents(%Client{} = client, options \\ []) do
     url_path = "/builtins/intents"
+
+    # Validate optional parameters
+    optional_params = [locale: nil, max_results: nil, next_token: nil, signature_contains: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(signature_contains) do
-        [{"signatureContains", signature_contains} | query_params]
+      if opt_val = Keyword.get(options, :signature_contains) do
+        [{"signatureContains", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(locale) do
-        [{"locale", locale} | query_params]
+      if opt_val = Keyword.get(options, :locale) do
+        [{"locale", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:locale, :max_results, :next_token, :signature_contains])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets a list of built-in slot types that meet the specified
-  criteria.
+  Gets a list of built-in slot types that meet the specified criteria. For a list
+  of built-in slot types, see [Slot Type
+  Reference](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference)
+  in the *Alexa Skills Kit*.
 
-  For a list of built-in slot types, see [Slot Type Reference](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference)
-  in the *Alexa Skills
-  Kit*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetBuiltinSlotTypes&this_doc_guide=API%2520Reference)
 
-  This operation requires permission for the
-  `lex:GetBuiltInSlotTypes` action.
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:locale`
+    (`t:enum["DE_DE|EN_AU|EN_GB|EN_IN|EN_US|ES_419|ES_ES|ES_US|FR_CA|FR_FR|IT_IT|JA_JP|KO_KR"]`)
+    A list of locales that the slot type supports.
+  * `:max_results` (`t:integer`) The maximum number of slot types to return in the
+    response. The default is 10.
+  * `:next_token` (`t:string`) A pagination token that fetches the next page of
+    slot types. If the response to this API call is truncated, Amazon Lex
+    returns a pagination token in the response. To fetch the next page of slot
+    types, specify the pagination token in the next request.
+  * `:signature_contains` (`t:string`) Substring to match in built-in slot type
+    signatures. A slot type will be returned if any part of its signature
+    matches the substring. For example, "xyz" matches both "xyzabc" and
+    "abcxyz."
   """
-  @spec get_builtin_slot_types(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_builtin_slot_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_builtin_slot_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_builtin_slot_types_errors()}
-  def get_builtin_slot_types(
-        %Client{} = client,
-        locale \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        signature_contains \\ nil,
-        options \\ []
-      ) do
+  def get_builtin_slot_types(%Client{} = client, options \\ []) do
     url_path = "/builtins/slottypes"
+
+    # Validate optional parameters
+    optional_params = [locale: nil, max_results: nil, next_token: nil, signature_contains: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(signature_contains) do
-        [{"signatureContains", signature_contains} | query_params]
+      if opt_val = Keyword.get(options, :signature_contains) do
+        [{"signatureContains", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(locale) do
-        [{"locale", locale} | query_params]
+      if opt_val = Keyword.get(options, :locale) do
+        [{"locale", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:locale, :max_results, :next_token, :signature_contains])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Exports the contents of a Amazon Lex resource in a specified format.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetExport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:export_type` (`t:enum["ALEXA_SKILLS_KIT|LEX"]`) The format of the exported
+    data.
+  * `:name` (`t:string`) The name of the bot to export.
+  * `:resource_type` (`t:enum["BOT|INTENT|SLOT_TYPE"]`) The type of resource to
+    export.
+  * `:version` (`t:string`) The version of the bot to export.
+
+  ## Optional parameters:
   """
-  @spec get_export(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_export(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_export_errors()}
   def get_export(%Client{} = client, export_type, name, resource_type, version, options \\ []) do
     url_path = "/exports"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(version) do
-        [{"version", version} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    query_params =
-      if !is_nil(resource_type) do
-        [{"resourceType", resource_type} | query_params]
-      else
-        query_params
-      end
+    # Required query params
+    query_params = [
+      {"exportType", export_type},
+      {"name", name},
+      {"resourceType", resource_type},
+      {"version", version}
+    ]
 
-    query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
-      else
-        query_params
-      end
+    # Optional query params
 
-    query_params =
-      if !is_nil(export_type) do
-        [{"exportType", export_type} | query_params]
-      else
-        query_params
-      end
-
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets information about an import job started with the
-  `StartImport` operation.
+  Gets information about an import job started with the `StartImport` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetImport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:import_id` (`t:string`) The identifier of the import job information to
+    return.
+
+  ## Optional parameters:
   """
-  @spec get_import(map(), String.t(), list()) ::
+  @spec get_import(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_import_errors()}
   def get_import(%Client{} = client, import_id, options \\ []) do
     url_path = "/imports/#{AWS.Util.encode_uri(import_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns information about an intent.
+  Returns information about an intent. In addition to the intent name, you must
+  specify the intent version.
 
-  In addition to the intent
-  name, you must specify the intent version.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetIntent&this_doc_guide=API%2520Reference)
 
-  This operation requires permissions to perform the
-  `lex:GetIntent` action.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the intent. The name is case sensitive.
+  * `:version` (`t:string`) The version of the intent.
+
+  ## Optional parameters:
   """
-  @spec get_intent(map(), String.t(), String.t(), list()) ::
+  @spec get_intent(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_intent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_intent_errors()}
   def get_intent(%Client{} = client, name, version, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets information about all of the versions of an intent.
-
-  The `GetIntentVersions` operation returns an
-  `IntentMetadata` object for each version of an intent. For
-  example, if an intent has three numbered versions, the
-  `GetIntentVersions` operation returns four
-  `IntentMetadata` objects in the response, one for each
+  Gets information about all of the versions of an intent. The `GetIntentVersions`
+  operation returns an `IntentMetadata` object for each version of an intent.
+  For example, if an intent has three numbered versions, the `GetIntentVersions`
+  operation returns four `IntentMetadata` objects in the response, one for each
   numbered version and one for the `$LATEST` version.
 
-  The `GetIntentVersions` operation always returns at
-  least one version, the `$LATEST` version.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetIntentVersions&this_doc_guide=API%2520Reference)
 
-  This operation requires permissions for the
-  `lex:GetIntentVersions` action.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the intent for which versions should be
+    returned.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of intent versions to return
+    in the response. The default is 10.
+  * `:next_token` (`t:string`) A pagination token for fetching the next page of
+    intent versions. If the response to this call is truncated, Amazon Lex
+    returns a pagination token in the response. To fetch the next page of
+    versions, specify the pagination token in the next request.
   """
-  @spec get_intent_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_intent_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_intent_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_intent_versions_errors()}
-  def get_intent_versions(
-        %Client{} = client,
-        name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_intent_versions(%Client{} = client, name, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2987,228 +3300,351 @@ defmodule AWS.LexModelBuilding do
   @doc """
   Returns intent information as follows:
 
-    *
-  If you specify the `nameContains` field, returns the
-  `$LATEST` version of all intents that contain the
-  specified string.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetIntents&this_doc_guide=API%2520Reference)
 
-    *
-  If you don't specify the `nameContains` field,
-  returns information about the `$LATEST` version of all
-  intents.
+  ## Parameters:
 
-  The operation requires permission for the
-  `lex:GetIntents` action.
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of intents to return in the
+    response. The default is 10.
+  * `:name_contains` (`t:string`) Substring to match in intent names. An intent
+    will be returned if any part of its name matches the substring. For example,
+    "xyz" matches both "xyzabc" and "abcxyz."
+  * `:next_token` (`t:string`) A pagination token that fetches the next page of
+    intents. If the response to this API call is truncated, Amazon Lex returns a
+    pagination token in the response. To fetch the next page of intents, specify
+    the pagination token in the next request.
   """
-  @spec get_intents(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec get_intents(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_intents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_intents_errors()}
-  def get_intents(
-        %Client{} = client,
-        max_results \\ nil,
-        name_contains \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_intents(%Client{} = client, options \\ []) do
     url_path = "/intents"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, name_contains: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name_contains) do
-        [{"nameContains", name_contains} | query_params]
+      if opt_val = Keyword.get(options, :name_contains) do
+        [{"nameContains", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :name_contains, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Provides details about an ongoing or complete migration from an
-  Amazon Lex V1 bot to an Amazon Lex V2 bot.
+  Provides details about an ongoing or complete migration from an Amazon Lex V1
+  bot to an Amazon Lex V2 bot. Use this operation to view the migration alerts
+  and warnings related to the migration.
 
-  Use this operation to view the migration
-  alerts and warnings related to the migration.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetMigration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:migration_id` (`t:string`) The unique identifier of the migration to view.
+    The migrationID is returned by the operation.
+
+  ## Optional parameters:
   """
-  @spec get_migration(map(), String.t(), list()) ::
+  @spec get_migration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_migration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_migration_errors()}
   def get_migration(%Client{} = client, migration_id, options \\ []) do
     url_path = "/migrations/#{AWS.Util.encode_uri(migration_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a list of migrations between Amazon Lex V1 and Amazon Lex V2.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetMigrations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of migrations to return in the
+    response. The default is 10.
+  * `:migration_status_equals` (`t:enum["COMPLETED|FAILED|IN_PROGRESS"]`) Filters
+    the list to contain only migrations in the specified state.
+  * `:next_token` (`t:string`) A pagination token that fetches the next page of
+    migrations. If the response to this operation is truncated, Amazon Lex
+    returns a pagination token in the response. To fetch the next page of
+    migrations, specify the pagination token in the request.
+  * `:sort_by_attribute` (`t:enum["MIGRATION_DATE_TIME|V1_BOT_NAME"]`) The field
+    to sort the list of migrations by. You can sort by the Amazon Lex V1 bot
+    name or the date and time that the migration was started.
+  * `:sort_by_order` (`t:enum["ASCENDING|DESCENDING"]`) The order so sort the
+    list.
+  * `:v1_bot_name_contains` (`t:string`) Filters the list to contain only bots
+    whose name contains the specified string. The string is matched anywhere in
+    bot name.
   """
-  @spec get_migrations(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_migrations(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_migrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_migrations_errors()}
-  def get_migrations(
-        %Client{} = client,
-        max_results \\ nil,
-        migration_status_equals \\ nil,
-        next_token \\ nil,
-        sort_by_attribute \\ nil,
-        sort_by_order \\ nil,
-        v1_bot_name_contains \\ nil,
-        options \\ []
-      ) do
+  def get_migrations(%Client{} = client, options \\ []) do
     url_path = "/migrations"
+
+    # Validate optional parameters
+    optional_params = [
+      max_results: nil,
+      migration_status_equals: nil,
+      next_token: nil,
+      sort_by_attribute: nil,
+      sort_by_order: nil,
+      v1_bot_name_contains: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(v1_bot_name_contains) do
-        [{"v1BotNameContains", v1_bot_name_contains} | query_params]
+      if opt_val = Keyword.get(options, :v1_bot_name_contains) do
+        [{"v1BotNameContains", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(sort_by_order) do
-        [{"sortByOrder", sort_by_order} | query_params]
+      if opt_val = Keyword.get(options, :sort_by_order) do
+        [{"sortByOrder", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(sort_by_attribute) do
-        [{"sortByAttribute", sort_by_attribute} | query_params]
+      if opt_val = Keyword.get(options, :sort_by_attribute) do
+        [{"sortByAttribute", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(migration_status_equals) do
-        [{"migrationStatusEquals", migration_status_equals} | query_params]
+      if opt_val = Keyword.get(options, :migration_status_equals) do
+        [{"migrationStatusEquals", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :max_results,
+        :migration_status_equals,
+        :next_token,
+        :sort_by_attribute,
+        :sort_by_order,
+        :v1_bot_name_contains
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns information about a specific version of a slot type.
+  Returns information about a specific version of a slot type. In addition to
+  specifying the slot type name, you must specify the slot type version.
 
-  In
-  addition to specifying the slot type name, you must specify the slot type
-  version.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetSlotType&this_doc_guide=API%2520Reference)
 
-  This operation requires permissions for the
-  `lex:GetSlotType` action.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the slot type. The name is case sensitive.
+  * `:version` (`t:string`) The version of the slot type.
+
+  ## Optional parameters:
   """
-  @spec get_slot_type(map(), String.t(), String.t(), list()) ::
+  @spec get_slot_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_slot_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_slot_type_errors()}
   def get_slot_type(%Client{} = client, name, version, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets information about all versions of a slot type.
-
-  The `GetSlotTypeVersions` operation returns a
-  `SlotTypeMetadata` object for each version of a slot type.
+  Gets information about all versions of a slot type. The `GetSlotTypeVersions`
+  operation returns a `SlotTypeMetadata` object for each version of a slot type.
   For example, if a slot type has three numbered versions, the
-  `GetSlotTypeVersions` operation returns four
-  `SlotTypeMetadata` objects in the response, one for each
-  numbered version and one for the `$LATEST` version.
+  `GetSlotTypeVersions` operation returns four `SlotTypeMetadata` objects in the
+  response, one for each numbered version and one for the `$LATEST` version.
 
-  The `GetSlotTypeVersions` operation always returns at
-  least one version, the `$LATEST` version.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetSlotTypeVersions&this_doc_guide=API%2520Reference)
 
-  This operation requires permissions for the
-  `lex:GetSlotTypeVersions` action.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the slot type for which versions should be
+    returned.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of slot type versions to
+    return in the response. The default is 10.
+  * `:next_token` (`t:string`) A pagination token for fetching the next page of
+    slot type versions. If the response to this call is truncated, Amazon Lex
+    returns a pagination token in the response. To fetch the next page of
+    versions, specify the pagination token in the next request.
   """
-  @spec get_slot_type_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_slot_type_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_slot_type_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_slot_type_versions_errors()}
-  def get_slot_type_versions(
-        %Client{} = client,
-        name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_slot_type_versions(%Client{} = client, name, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/versions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3216,164 +3652,201 @@ defmodule AWS.LexModelBuilding do
   @doc """
   Returns slot type information as follows:
 
-    *
-  If you specify the `nameContains` field, returns the
-  `$LATEST` version of all slot types that contain the
-  specified string.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetSlotTypes&this_doc_guide=API%2520Reference)
 
-    *
-  If you don't specify the `nameContains` field,
-  returns information about the `$LATEST` version of all slot
-  types.
+  ## Parameters:
 
-  The operation requires permission for the
-  `lex:GetSlotTypes` action.
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of slot types to return in the
+    response. The default is 10.
+  * `:name_contains` (`t:string`) Substring to match in slot type names. A slot
+    type will be returned if any part of its name matches the substring. For
+    example, "xyz" matches both "xyzabc" and "abcxyz."
+  * `:next_token` (`t:string`) A pagination token that fetches the next page of
+    slot types. If the response to this API call is truncated, Amazon Lex
+    returns a pagination token in the response. To fetch next page of slot
+    types, specify the pagination token in the next request.
   """
-  @spec get_slot_types(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec get_slot_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_slot_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_slot_types_errors()}
-  def get_slot_types(
-        %Client{} = client,
-        max_results \\ nil,
-        name_contains \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_slot_types(%Client{} = client, options \\ []) do
     url_path = "/slottypes"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, name_contains: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name_contains) do
-        [{"nameContains", name_contains} | query_params]
+      if opt_val = Keyword.get(options, :name_contains) do
+        [{"nameContains", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :name_contains, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Use the `GetUtterancesView` operation to get information
-  about the utterances that your users have made to your bot.
+  Use the `GetUtterancesView` operation to get information about the utterances
+  that your users have made to your bot. You can use this list to tune the
+  utterances that your bot responds to. For example, say that you have created a
+  bot to order flowers. After your users have used your bot for a while, use the
+  `GetUtterancesView` operation to see the requests that they have made and
+  whether they have been successful. You might find that the utterance "I want
+  flowers" is not being recognized. You could add this utterance to the
+  `OrderFlowers` intent so that your bot recognizes that utterance.
 
-  You can use
-  this list to tune the utterances that your bot responds to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetUtterancesView&this_doc_guide=API%2520Reference)
 
-  For example, say that you have created a bot to order flowers.
-  After your users have used your bot for a while, use the
-  `GetUtterancesView` operation to see the requests that they
-  have made and whether they have been successful. You might find that the
-  utterance "I want flowers" is not being recognized. You could add this
-  utterance to the `OrderFlowers` intent so that your bot
-  recognizes that utterance.
+  ## Parameters:
+  * `:bot_name` (`t:string`) The name of the bot for which utterance information
+    should be returned.
+  * `:bot_versions` (`t:list[com.amazonaws.lexmodelbuildingservice#Version]`) An
+    array of bot versions for which utterance information should be returned.
+    The limit is 5 versions per request.
+  * `:status_type` (`t:enum["DETECTED|MISSED"]`) To return utterances that were
+    recognized and handled, use Detected. To return utterances that were not
+    recognized, use Missed.
 
-  After you publish a new version of a bot, you can get information
-  about the old version and the new so that you can compare the performance
-  across the two versions.
-
-  Utterance statistics are generated once a day. Data is available
-  for the last 15 days. You can request information for up to 5 versions of
-  your bot in each request. Amazon Lex returns the most frequent utterances
-  received by the bot in the last 15 days. The response contains information
-  about a maximum of 100 utterances for each version.
-
-  If you set `childDirected` field to true when you
-  created your bot, if you are using slot obfuscation with one or more
-  slots, or if you opted out of participating in improving Amazon Lex, utterances
-  are not available.
-
-  This operation requires permissions for the
-  `lex:GetUtterancesView` action.
+  ## Optional parameters:
   """
-  @spec get_utterances_view(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_utterances_view(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_utterances_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_utterances_view_errors()}
   def get_utterances_view(%Client{} = client, bot_name, bot_versions, status_type, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/utterances?view=aggregation"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(status_type) do
-        [{"status_type", status_type} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    query_params =
-      if !is_nil(bot_versions) do
-        [{"bot_versions", bot_versions} | query_params]
-      else
-        query_params
-      end
+    # Required query params
+    query_params = [{"bot_versions", bot_versions}, {"status_type", status_type}]
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets a list of tags associated with the specified resource.
+  Gets a list of tags associated with the specified resource. Only bots, bot
+  aliases, and bot channels can have tags associated with them.
 
-  Only bots,
-  bot aliases, and bot channels can have tags associated with them.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
+    get a list of tags for.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Creates an Amazon Lex conversational bot or replaces an existing bot.
+  Creates an Amazon Lex conversational bot or replaces an existing bot. When you
+  create or update a bot you are only required to specify a name, a locale, and
+  whether the bot is directed toward children under age 13. You can use this to
+  add intents later, or to remove intents from an existing bot. When you create
+  a bot with the minimum information, the bot is created or updated but Amazon
+  Lex returns the `` response `FAILED`. You can build the bot after you add one
+  or more intents. For more information about Amazon Lex bots, see
+  `how-it-works`. If you specify the name of an existing bot, the fields in the
+  request replace the existing values in the `$LATEST` version of the bot.
+  Amazon Lex removes any fields that you don't provide values for in the
+  request, except for the `idleTTLInSeconds` and `privacySettings` fields, which
+  are set to their default values. If you don't specify values for required
+  fields, Amazon Lex throws an exception.
 
-  When you create or update a bot you are only required to specify a name, a
-  locale, and whether the bot is directed toward children under age 13. You
-  can use this to add intents later, or to remove intents from an existing
-  bot. When you create a bot with the minimum information, the bot is
-  created or updated but Amazon Lex returns the `` response
-  `FAILED`. You can build the bot after you add one or more
-  intents. For more information about Amazon Lex bots, see `how-it-works`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20PutBot&this_doc_guide=API%2520Reference)
 
-  If you specify the name of an existing bot, the fields in the
-  request replace the existing values in the `$LATEST` version of
-  the bot. Amazon Lex removes any fields that you don't provide values for in the
-  request, except for the `idleTTLInSeconds` and
-  `privacySettings` fields, which are set to their default
-  values. If you don't specify values for required fields, Amazon Lex throws an
-  exception.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the bot. The name is not case sensitive.
 
-  This operation requires permissions for the `lex:PutBot`
-  action. For more information, see `security-iam`.
+  ## Optional parameters:
   """
-  @spec put_bot(map(), String.t(), put_bot_request(), list()) ::
+  @spec put_bot(AWS.Client.t(), String.t(), put_bot_request(), Keyword.t()) ::
           {:ok, put_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_bot_errors()}
@@ -3382,23 +3855,33 @@ defmodule AWS.LexModelBuilding do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Creates an alias for the specified version of the bot or replaces
-  an alias for the specified bot.
+  Creates an alias for the specified version of the bot or replaces an alias for
+  the specified bot. To change the version of the bot that the alias points to,
+  replace the alias. For more information about aliases, see
+  `versioning-aliases`.
 
-  To change the version of the bot that the
-  alias points to, replace the alias. For more information about aliases,
-  see `versioning-aliases`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20PutBotAlias&this_doc_guide=API%2520Reference)
 
-  This operation requires permissions for the
-  `lex:PutBotAlias` action.
+  ## Parameters:
+  * `:bot_name` (`t:string`) The name of the bot.
+  * `:name` (`t:string`) The name of the alias. The name is not case sensitive.
+
+  ## Optional parameters:
   """
-  @spec put_bot_alias(map(), String.t(), String.t(), put_bot_alias_request(), list()) ::
+  @spec put_bot_alias(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          put_bot_alias_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_bot_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_bot_alias_errors()}
@@ -3407,73 +3890,25 @@ defmodule AWS.LexModelBuilding do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Creates an intent or replaces an existing intent.
+  Creates an intent or replaces an existing intent. To define the interaction
+  between the user and your bot, you use one or more intents. For a pizza
+  ordering bot, for example, you would create an `OrderPizza` intent.
 
-  To define the interaction between the user and your bot, you use
-  one or more intents. For a pizza ordering bot, for example, you would
-  create an `OrderPizza` intent.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20PutIntent&this_doc_guide=API%2520Reference)
 
-  To create an intent or replace an existing intent, you must provide
-  the following:
+  ## Parameters:
+  * `:name` (`t:string`) The name of the intent. The name is not case sensitive.
 
-    *
-  Intent name. For example, `OrderPizza`.
-
-    *
-  Sample utterances. For example, "Can I order a pizza, please."
-  and "I want to order a pizza."
-
-    *
-  Information to be gathered. You specify slot types for the
-  information that your bot will request from the user. You can specify
-  standard slot types, such as a date or a time, or custom slot types
-  such as the size and crust of a pizza.
-
-    *
-  How the intent will be fulfilled. You can provide a Lambda
-  function or configure the intent to return the intent information to
-  the client application. If you use a Lambda function, when all of the
-  intent information is available, Amazon Lex invokes your Lambda function.
-  If you configure your intent to return the intent information to the
-  client application.
-
-  You can specify other optional information in the request, such
-  as:
-
-    *
-  A confirmation prompt to ask the user to confirm an intent. For
-  example, "Shall I order your pizza?"
-
-    *
-  A conclusion statement to send to the user after the intent has
-  been fulfilled. For example, "I placed your pizza order."
-
-    *
-  A follow-up prompt that asks the user for additional activity.
-  For example, asking "Do you want to order a drink with your
-  pizza?"
-
-  If you specify an existing intent name to update the intent, Amazon Lex
-  replaces the values in the `$LATEST` version of the intent with
-  the values in the request. Amazon Lex removes fields that you don't provide in
-  the request. If you don't specify the required fields, Amazon Lex throws an
-  exception. When you update the `$LATEST` version of an intent,
-  the `status` field of any bot that uses the
-  `$LATEST` version of the intent is set to
-  `NOT_BUILT`.
-
-  For more information, see `how-it-works`.
-
-  This operation requires permissions for the
-  `lex:PutIntent` action.
+  ## Optional parameters:
   """
-  @spec put_intent(map(), String.t(), put_intent_request(), list()) ::
+  @spec put_intent(AWS.Client.t(), String.t(), put_intent_request(), Keyword.t()) ::
           {:ok, put_intent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_intent_errors()}
@@ -3482,32 +3917,27 @@ defmodule AWS.LexModelBuilding do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Creates a custom slot type or replaces an existing custom slot
-  type.
+  Creates a custom slot type or replaces an existing custom slot type. To create a
+  custom slot type, specify a name for the slot type and a set of enumeration
+  values, which are the values that a slot of this type can assume. For more
+  information, see `how-it-works`.
 
-  To create a custom slot type, specify a name for the slot type and
-  a set of enumeration values, which are the values that a slot of this type
-  can assume. For more information, see `how-it-works`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20PutSlotType&this_doc_guide=API%2520Reference)
 
-  If you specify the name of an existing slot type, the fields in the
-  request replace the existing values in the `$LATEST` version of
-  the slot type. Amazon Lex removes the fields that you don't provide in the
-  request. If you don't specify required fields, Amazon Lex throws an exception.
-  When you update the `$LATEST` version of a slot type, if a bot
-  uses the `$LATEST` version of an intent that contains the slot
-  type, the bot's `status` field is set to
-  `NOT_BUILT`.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the slot type. The name is not case
+    sensitive.
 
-  This operation requires permissions for the
-  `lex:PutSlotType` action.
+  ## Optional parameters:
   """
-  @spec put_slot_type(map(), String.t(), put_slot_type_request(), list()) ::
+  @spec put_slot_type(AWS.Client.t(), String.t(), put_slot_type_request(), Keyword.t()) ::
           {:ok, put_slot_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_slot_type_errors()}
@@ -3516,15 +3946,22 @@ defmodule AWS.LexModelBuilding do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Starts a job to import a resource to Amazon Lex.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20StartImport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_import(map(), start_import_request(), list()) ::
+  @spec start_import(AWS.Client.t(), start_import_request(), Keyword.t()) ::
           {:ok, start_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_import_errors()}
@@ -3533,7 +3970,8 @@ defmodule AWS.LexModelBuilding do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3549,15 +3987,16 @@ defmodule AWS.LexModelBuilding do
   end
 
   @doc """
-  Starts migrating a bot from Amazon Lex V1 to Amazon Lex V2.
+  Starts migrating a bot from Amazon Lex V1 to Amazon Lex V2. Migrate your bot
+  when you want to take advantage of the new features of Amazon Lex V2.
 
-  Migrate your bot when
-  you want to take advantage of the new features of Amazon Lex V2.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20StartMigration&this_doc_guide=API%2520Reference)
 
-  For more information, see [Migrating a bot](https://docs.aws.amazon.com/lex/latest/dg/migrate.html) in the *Amazon Lex
-  developer guide*.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_migration(map(), start_migration_request(), list()) ::
+  @spec start_migration(AWS.Client.t(), start_migration_request(), Keyword.t()) ::
           {:ok, start_migration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_migration_errors()}
@@ -3566,7 +4005,8 @@ defmodule AWS.LexModelBuilding do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3582,12 +4022,18 @@ defmodule AWS.LexModelBuilding do
   end
 
   @doc """
-  Adds the specified tags to the specified resource.
+  Adds the specified tags to the specified resource. If a tag key already exists,
+  the existing value is replaced with the new value.
 
-  If a tag key
-  already exists, the existing value is replaced with the new value.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the bot, bot
+    alias, or bot channel to tag.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -3596,7 +4042,8 @@ defmodule AWS.LexModelBuilding do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3613,8 +4060,19 @@ defmodule AWS.LexModelBuilding do
 
   @doc """
   Removes tags from a bot, bot alias or bot channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
+    remove the tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.lexmodelbuildingservice#TagKey]`) A list of
+    tag keys to remove from the resource. If a tag key does not exist on the
+    resource, it is ignored.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -3628,7 +4086,8 @@ defmodule AWS.LexModelBuilding do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

@@ -3,69 +3,11 @@
 
 defmodule AWS.MWAA do
   @moduledoc """
-  Amazon Managed Workflows for Apache Airflow
-
-  This section contains the Amazon Managed Workflows for Apache Airflow (MWAA) API
-  reference documentation.
-
-  For more information, see [What is Amazon MWAA?](https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html).
-
-  ## Endpoints
-
-    *
-
-  `api.airflow.{region}.amazonaws.com` - This endpoint is used for environment
-  management.
-
-      *
-
-  [CreateEnvironment](https://docs.aws.amazon.com/mwaa/latest/API/API_CreateEnvironment.html) 
-
-      *
-
-  [DeleteEnvironment](https://docs.aws.amazon.com/mwaa/latest/API/API_DeleteEnvironment.html)
-
-      *
-
-  [GetEnvironment](https://docs.aws.amazon.com/mwaa/latest/API/API_GetEnvironment.html) 
-
-      *
-
-  [ListEnvironments](https://docs.aws.amazon.com/mwaa/latest/API/API_ListEnvironments.html)
-
-      *
-
-  [ListTagsForResource](https://docs.aws.amazon.com/mwaa/latest/API/API_ListTagsForResource.html) 
-
-      *
-
-  [TagResource](https://docs.aws.amazon.com/mwaa/latest/API/API_TagResource.html)
-
-      *
-
-  [UntagResource](https://docs.aws.amazon.com/mwaa/latest/API/API_UntagResource.html) 
-
-      *
-
-  [UpdateEnvironment](https://docs.aws.amazon.com/mwaa/latest/API/API_UpdateEnvironment.html)
-
-    *
-
-  `env.airflow.{region}.amazonaws.com` - This endpoint is used to operate the
-  Airflow environment.
-
-      *
-
-  [CreateCliToken](https://docs.aws.amazon.com/mwaa/latest/API/API_CreateCliToken.html )
-
-      *
-
-  [CreateWebLoginToken](https://docs.aws.amazon.com/mwaa/latest/API/API_CreateWebLoginToken.html)
-
-  ## Regions
-
-  For a list of supported regions, see [Amazon MWAA endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/mwaa.html) in the *Amazon
-  Web Services General Reference*.
+  Amazon Managed Workflows for Apache Airflow This section contains the Amazon
+  Managed Workflows for Apache Airflow (MWAA) API reference documentation. For
+  more information, see [What is Amazon
+  MWAA?](https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html).
+  **Endpoints**
   """
 
   alias AWS.Client
@@ -627,11 +569,19 @@ defmodule AWS.MWAA do
   end
 
   @doc """
-  Creates a CLI token for the Airflow CLI.
+  Creates a CLI token for the Airflow CLI. To learn more, see [Creating an Apache
+  Airflow CLI
+  token](https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-cli.html).
 
-  To learn more, see [Creating an Apache Airflow CLI token](https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-cli.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mwaa%20CreateCliToken&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the Amazon MWAA environment. For example,
+    MyMWAAEnvironment.
+
+  ## Optional parameters:
   """
-  @spec create_cli_token(map(), String.t(), create_cli_token_request(), list()) ::
+  @spec create_cli_token(AWS.Client.t(), String.t(), create_cli_token_request(), Keyword.t()) ::
           {:ok, create_cli_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cli_token_errors()}
@@ -640,7 +590,8 @@ defmodule AWS.MWAA do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "env.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "env.")
 
     Request.request_rest(
       client,
@@ -657,8 +608,16 @@ defmodule AWS.MWAA do
 
   @doc """
   Creates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mwaa%20CreateEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the Amazon MWAA environment. For example,
+    MyMWAAEnvironment.
+
+  ## Optional parameters:
   """
-  @spec create_environment(map(), String.t(), create_environment_input(), list()) ::
+  @spec create_environment(AWS.Client.t(), String.t(), create_environment_input(), Keyword.t()) ::
           {:ok, create_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_errors()}
@@ -667,17 +626,31 @@ defmodule AWS.MWAA do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Creates a web login token for the Airflow Web UI.
+  Creates a web login token for the Airflow Web UI. To learn more, see [Creating
+  an Apache Airflow web login
+  token](https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-web.html).
 
-  To learn more, see [Creating an Apache Airflow web login token](https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-web.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mwaa%20CreateWebLoginToken&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the Amazon MWAA environment. For example,
+    MyMWAAEnvironment.
+
+  ## Optional parameters:
   """
-  @spec create_web_login_token(map(), String.t(), create_web_login_token_request(), list()) ::
+  @spec create_web_login_token(
+          AWS.Client.t(),
+          String.t(),
+          create_web_login_token_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_web_login_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_web_login_token_errors()}
@@ -686,7 +659,8 @@ defmodule AWS.MWAA do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "env.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "env.")
 
     Request.request_rest(
       client,
@@ -703,8 +677,16 @@ defmodule AWS.MWAA do
 
   @doc """
   Deletes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mwaa%20DeleteEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the Amazon MWAA environment. For example,
+    MyMWAAEnvironment.
+
+  ## Optional parameters:
   """
-  @spec delete_environment(map(), String.t(), delete_environment_input(), list()) ::
+  @spec delete_environment(AWS.Client.t(), String.t(), delete_environment_input(), Keyword.t()) ::
           {:ok, delete_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_errors()}
@@ -713,7 +695,8 @@ defmodule AWS.MWAA do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -730,79 +713,165 @@ defmodule AWS.MWAA do
 
   @doc """
   Describes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mwaa%20GetEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the Amazon MWAA environment. For example,
+    MyMWAAEnvironment.
+
+  ## Optional parameters:
   """
-  @spec get_environment(map(), String.t(), list()) ::
+  @spec get_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_errors()}
   def get_environment(%Client{} = client, name, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the Amazon Managed Workflows for Apache Airflow (MWAA) environments.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mwaa%20ListEnvironments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of results to retrieve per page. For
+    example, 5 environments per page.
+  * `:next_token` (`t:string`) Retrieves the next page of the results.
   """
-  @spec list_environments(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_environments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_environments_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environments_errors()}
-  def list_environments(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_environments(%Client{} = client, options \\ []) do
     url_path = "/environments"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the key-value tag pairs associated to the Amazon Managed Workflows for
-  Apache Airflow (MWAA) environment.
+  Apache Airflow (MWAA) environment. For example, `"Environment": "Staging"`.
 
-  For example, `"Environment": "Staging"`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mwaa%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon MWAA
+    environment. For example,
+    arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+  **Internal only**. Publishes environment health metrics to Amazon CloudWatch.
 
-  **Internal only**.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mwaa%20PublishMetrics&this_doc_guide=API%2520Reference)
 
-  Publishes environment health metrics to Amazon CloudWatch.
+  ## Parameters:
+  * `:environment_name` (`t:string`) Internal only. The name of the environment.
+
+  ## Optional parameters:
   """
-  @spec publish_metrics(map(), String.t(), publish_metrics_input(), list()) ::
+  @spec publish_metrics(AWS.Client.t(), String.t(), publish_metrics_input(), Keyword.t()) ::
           {:ok, publish_metrics_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, publish_metrics_errors()}
@@ -811,7 +880,8 @@ defmodule AWS.MWAA do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "ops.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "ops.")
 
     Request.request_rest(
       client,
@@ -829,8 +899,17 @@ defmodule AWS.MWAA do
   @doc """
   Associates key-value tag pairs to your Amazon Managed Workflows for Apache
   Airflow (MWAA) environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mwaa%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon MWAA
+    environment. For example,
+    arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_input(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -839,7 +918,8 @@ defmodule AWS.MWAA do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -856,11 +936,20 @@ defmodule AWS.MWAA do
 
   @doc """
   Removes key-value tag pairs associated to your Amazon Managed Workflows for
-  Apache Airflow (MWAA) environment.
+  Apache Airflow (MWAA) environment. For example, `"Environment": "Staging"`.
 
-  For example, `"Environment": "Staging"`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mwaa%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon MWAA
+    environment. For example,
+    arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment.
+  * `:tag_keys` (`t:list[com.amazonaws.mwaa#TagKey]`) The key-value tag pair you
+    want to remove. For example, "Environment": "Staging".
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -874,7 +963,8 @@ defmodule AWS.MWAA do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -891,8 +981,16 @@ defmodule AWS.MWAA do
 
   @doc """
   Updates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mwaa%20UpdateEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of your Amazon MWAA environment. For example,
+    MyMWAAEnvironment.
+
+  ## Optional parameters:
   """
-  @spec update_environment(map(), String.t(), update_environment_input(), list()) ::
+  @spec update_environment(AWS.Client.t(), String.t(), update_environment_input(), Keyword.t()) ::
           {:ok, update_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_environment_errors()}
@@ -901,7 +999,8 @@ defmodule AWS.MWAA do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,

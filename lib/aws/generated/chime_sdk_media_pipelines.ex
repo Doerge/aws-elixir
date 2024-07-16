@@ -4,11 +4,10 @@
 defmodule AWS.ChimeSDKMediaPipelines do
   @moduledoc """
   The Amazon Chime SDK media pipeline APIs in this section allow software
-  developers to
-  create Amazon Chime SDK media pipelines that capture, concatenate, or stream
-  your Amazon Chime SDK meetings.
-
-  For more information about media pipelines, see [Amazon Chime SDK media pipelines](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Operations_Amazon_Chime_SDK_Media_Pipelines.html).
+  developers to create Amazon Chime SDK media pipelines that capture,
+  concatenate, or stream your Amazon Chime SDK meetings. For more information
+  about media pipelines, see [Amazon Chime SDK media
+  pipelines](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Operations_Amazon_Chime_SDK_Media_Pipelines.html).
   """
 
   alias AWS.Client
@@ -2087,8 +2086,18 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   @doc """
   Creates a media pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20CreateMediaCapturePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_media_capture_pipeline(map(), create_media_capture_pipeline_request(), list()) ::
+  @spec create_media_capture_pipeline(
+          AWS.Client.t(),
+          create_media_capture_pipeline_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_media_capture_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_media_capture_pipeline_errors()}
@@ -2097,7 +2106,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2114,11 +2124,17 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   @doc """
   Creates a media concatenation pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20CreateMediaConcatenationPipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_media_concatenation_pipeline(
-          map(),
+          AWS.Client.t(),
           create_media_concatenation_pipeline_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_media_concatenation_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2128,7 +2144,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2145,8 +2162,18 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   @doc """
   Creates a media insights pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20CreateMediaInsightsPipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_media_insights_pipeline(map(), create_media_insights_pipeline_request(), list()) ::
+  @spec create_media_insights_pipeline(
+          AWS.Client.t(),
+          create_media_insights_pipeline_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_media_insights_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_media_insights_pipeline_errors()}
@@ -2155,7 +2182,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2173,11 +2201,17 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   A structure that contains the static configurations for a media insights
   pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20CreateMediaInsightsPipelineConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_media_insights_pipeline_configuration(
-          map(),
+          AWS.Client.t(),
           create_media_insights_pipeline_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_media_insights_pipeline_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2187,7 +2221,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2204,11 +2239,17 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   @doc """
   Creates a media live connector pipeline in an Amazon Chime SDK meeting.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20CreateMediaLiveConnectorPipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_media_live_connector_pipeline(
-          map(),
+          AWS.Client.t(),
           create_media_live_connector_pipeline_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_media_live_connector_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2218,7 +2259,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2234,36 +2276,18 @@ defmodule AWS.ChimeSDKMediaPipelines do
   end
 
   @doc """
-  Creates an Amazon Kinesis Video Stream pool for use with media stream
-  pipelines.
+  Creates an Amazon Kinesis Video Stream pool for use with media stream pipelines.
 
-  If a meeting uses an opt-in Region as its
-  [MediaRegion](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html#chimesdk-meeting-chime_CreateMeeting-request-MediaRegion),  the KVS stream must be in that same Region. For example, if a meeting uses the
-  `af-south-1` Region, the KVS stream must also be in `af-south-1`. However, if
-  the meeting uses a
-  Region that AWS turns on by default, the KVS stream can be in any available
-  Region, including an opt-in Region. For example, if the meeting uses
-  `ca-central-1`, the KVS stream can be in
-  `eu-west-2`, `us-east-1`, `af-south-1`, or any other Region that the Amazon
-  Chime SDK supports.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20CreateMediaPipelineKinesisVideoStreamPool&this_doc_guide=API%2520Reference)
 
-  To learn which AWS Region a meeting uses, call the
-  [GetMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_GetMeeting.html)
-  API and
-  use the
-  [MediaRegion](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html#chimesdk-meeting-chime_CreateMeeting-request-MediaRegion) parameter from the response.
+  ## Parameters:
 
-  For more information about opt-in Regions, refer to [Available
-  Regions](https://docs.aws.amazon.com/chime-sdk/latest/dg/sdk-available-regions.html)
-  in the
-  *Amazon Chime SDK Developer Guide*, and
-  [Specify which AWS Regions your account can use](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html#rande-manage-enable.html),
-  in the *AWS Account Management Reference Guide*.
+  ## Optional parameters:
   """
   @spec create_media_pipeline_kinesis_video_stream_pool(
-          map(),
+          AWS.Client.t(),
           create_media_pipeline_kinesis_video_stream_pool_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_media_pipeline_kinesis_video_stream_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2273,7 +2297,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2290,8 +2315,18 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   @doc """
   Creates a streaming media pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20CreateMediaStreamPipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_media_stream_pipeline(map(), create_media_stream_pipeline_request(), list()) ::
+  @spec create_media_stream_pipeline(
+          AWS.Client.t(),
+          create_media_stream_pipeline_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_media_stream_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_media_stream_pipeline_errors()}
@@ -2300,7 +2335,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2317,12 +2353,19 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   @doc """
   Deletes the media pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20DeleteMediaCapturePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:media_pipeline_id` (`t:string`) The ID of the media pipeline being deleted.
+
+  ## Optional parameters:
   """
   @spec delete_media_capture_pipeline(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_media_capture_pipeline_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -2332,7 +2375,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2349,12 +2393,21 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   @doc """
   Deletes the specified configuration settings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20DeleteMediaInsightsPipelineConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique identifier of the resource to be
+    deleted. Valid values include the name and ARN of the media insights
+    pipeline configuration.
+
+  ## Optional parameters:
   """
   @spec delete_media_insights_pipeline_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_media_insights_pipeline_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -2369,7 +2422,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2386,8 +2440,20 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   @doc """
   Deletes the media pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20DeleteMediaPipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:media_pipeline_id` (`t:string`) The ID of the media pipeline to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_media_pipeline(map(), String.t(), delete_media_pipeline_request(), list()) ::
+  @spec delete_media_pipeline(
+          AWS.Client.t(),
+          String.t(),
+          delete_media_pipeline_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_media_pipeline_errors()}
@@ -2396,7 +2462,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2413,12 +2480,21 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   @doc """
   Deletes an Amazon Kinesis Video Stream pool.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20DeleteMediaPipelineKinesisVideoStreamPool&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique identifier of the requested resource.
+    Valid values include the name and ARN of the media pipeline Kinesis Video
+    Stream pool.
+
+  ## Optional parameters:
   """
   @spec delete_media_pipeline_kinesis_video_stream_pool(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_media_pipeline_kinesis_video_stream_pool_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -2433,7 +2509,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2450,76 +2527,189 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   @doc """
   Gets an existing media pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20GetMediaCapturePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:media_pipeline_id` (`t:string`) The ID of the pipeline that you want to get.
+
+  ## Optional parameters:
   """
-  @spec get_media_capture_pipeline(map(), String.t(), list()) ::
+  @spec get_media_capture_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_media_capture_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_media_capture_pipeline_errors()}
   def get_media_capture_pipeline(%Client{} = client, media_pipeline_id, options \\ []) do
     url_path = "/sdk-media-capture-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the configuration settings for a media insights pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20GetMediaInsightsPipelineConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique identifier of the requested resource.
+    Valid values include the name and ARN of the media insights pipeline
+    configuration.
+
+  ## Optional parameters:
   """
-  @spec get_media_insights_pipeline_configuration(map(), String.t(), list()) ::
+  @spec get_media_insights_pipeline_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_media_insights_pipeline_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_media_insights_pipeline_configuration_errors()}
   def get_media_insights_pipeline_configuration(%Client{} = client, identifier, options \\ []) do
     url_path = "/media-insights-pipeline-configurations/#{AWS.Util.encode_uri(identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an existing media pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20GetMediaPipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:media_pipeline_id` (`t:string`) The ID of the pipeline that you want to get.
+
+  ## Optional parameters:
   """
-  @spec get_media_pipeline(map(), String.t(), list()) ::
+  @spec get_media_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_media_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_media_pipeline_errors()}
   def get_media_pipeline(%Client{} = client, media_pipeline_id, options \\ []) do
     url_path = "/sdk-media-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an Kinesis video stream pool.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20GetMediaPipelineKinesisVideoStreamPool&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique identifier of the requested resource.
+    Valid values include the name and ARN of the media pipeline Kinesis Video
+    Stream pool.
+
+  ## Optional parameters:
   """
-  @spec get_media_pipeline_kinesis_video_stream_pool(map(), String.t(), list()) ::
+  @spec get_media_pipeline_kinesis_video_stream_pool(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_media_pipeline_kinesis_video_stream_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_media_pipeline_kinesis_video_stream_pool_errors()}
   def get_media_pipeline_kinesis_video_stream_pool(%Client{} = client, identifier, options \\ []) do
     url_path = "/media-pipeline-kinesis-video-stream-pools/#{AWS.Util.encode_uri(identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the details of the specified speaker search task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20GetSpeakerSearchTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique identifier of the resource to be
+    updated. Valid values include the ID and ARN of the media insights pipeline.
+  * `:speaker_search_task_id` (`t:string`) The ID of the speaker search task.
+
+  ## Optional parameters:
   """
-  @spec get_speaker_search_task(map(), String.t(), String.t(), list()) ::
+  @spec get_speaker_search_task(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_speaker_search_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_speaker_search_task_errors()}
@@ -2532,18 +2722,45 @@ defmodule AWS.ChimeSDKMediaPipelines do
     url_path =
       "/media-insights-pipelines/#{AWS.Util.encode_uri(identifier)}/speaker-search-tasks/#{AWS.Util.encode_uri(speaker_search_task_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the details of a voice tone analysis task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20GetVoiceToneAnalysisTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique identifier of the resource to be
+    updated. Valid values include the ID and ARN of the media insights pipeline.
+  * `:voice_tone_analysis_task_id` (`t:string`) The ID of the voice tone analysis
+    task.
+
+  ## Optional parameters:
   """
-  @spec get_voice_tone_analysis_task(map(), String.t(), String.t(), list()) ::
+  @spec get_voice_tone_analysis_task(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_tone_analysis_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_tone_analysis_task_errors()}
@@ -2556,188 +2773,321 @@ defmodule AWS.ChimeSDKMediaPipelines do
     url_path =
       "/media-insights-pipelines/#{AWS.Util.encode_uri(identifier)}/voice-tone-analysis-tasks/#{AWS.Util.encode_uri(voice_tone_analysis_task_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of media pipelines.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20ListMediaCapturePipelines&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call. Valid Range: 1 - 99.
+  * `:next_token` (`t:string`) The token used to retrieve the next page of
+    results.
   """
-  @spec list_media_capture_pipelines(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_media_capture_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_media_capture_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_media_capture_pipelines_errors()}
-  def list_media_capture_pipelines(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_media_capture_pipelines(%Client{} = client, options \\ []) do
     url_path = "/sdk-media-capture-pipelines"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the available media insights pipeline configurations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20ListMediaInsightsPipelineConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
+  * `:next_token` (`t:string`) The token used to return the next page of results.
   """
-  @spec list_media_insights_pipeline_configurations(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_media_insights_pipeline_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_media_insights_pipeline_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_media_insights_pipeline_configurations_errors()}
-  def list_media_insights_pipeline_configurations(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_media_insights_pipeline_configurations(%Client{} = client, options \\ []) do
     url_path = "/media-insights-pipeline-configurations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the video stream pools in the media pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20ListMediaPipelineKinesisVideoStreamPools&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
+  * `:next_token` (`t:string`) The token used to return the next page of results.
   """
-  @spec list_media_pipeline_kinesis_video_stream_pools(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_media_pipeline_kinesis_video_stream_pools(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_media_pipeline_kinesis_video_stream_pools_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_media_pipeline_kinesis_video_stream_pools_errors()}
-  def list_media_pipeline_kinesis_video_stream_pools(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_media_pipeline_kinesis_video_stream_pools(%Client{} = client, options \\ []) do
     url_path = "/media-pipeline-kinesis-video-stream-pools"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of media pipelines.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20ListMediaPipelines&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call. Valid Range: 1 - 99.
+  * `:next_token` (`t:string`) The token used to retrieve the next page of
+    results.
   """
-  @spec list_media_pipelines(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_media_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_media_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_media_pipelines_errors()}
-  def list_media_pipelines(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_media_pipelines(%Client{} = client, options \\ []) do
     url_path = "/sdk-media-pipelines"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the tags available for a media pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the media pipeline associated with any
+    tags. The ARN consists of the pipeline's region, resource ID, and pipeline
+    ID.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(resource_arn) do
-        [{"arn", resource_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"arn", resource_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2745,13 +3095,20 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Starts a speaker search task.
 
-  Before starting any speaker search tasks, you must provide all notices and
-  obtain all consents from the speaker as required under applicable privacy and
-  biometrics laws, and as required under the
-  [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime
-  SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20StartSpeakerSearchTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique identifier of the resource to be
+    updated. Valid values include the ID and ARN of the media insights pipeline.
+
+  ## Optional parameters:
   """
-  @spec start_speaker_search_task(map(), String.t(), start_speaker_search_task_request(), list()) ::
+  @spec start_speaker_search_task(
+          AWS.Client.t(),
+          String.t(),
+          start_speaker_search_task_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_speaker_search_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_speaker_search_task_errors()}
@@ -2762,7 +3119,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2778,23 +3136,28 @@ defmodule AWS.ChimeSDKMediaPipelines do
   end
 
   @doc """
-  Starts a voice tone analysis task.
+  Starts a voice tone analysis task. For more information about voice tone
+  analysis, see [Using Amazon Chime SDK voice
+  analytics](https://docs.aws.amazon.com/chime-sdk/latest/dg/voice-analytics.html)
+  in the *Amazon Chime SDK Developer Guide*. Before starting any voice tone
+  analysis tasks, you must provide all notices and obtain all consents from the
+  speaker as required under applicable privacy and biometrics laws, and as
+  required under the [AWS service terms](https://aws.amazon.com/service-terms/)
+  for the Amazon Chime SDK.
 
-  For more information about voice tone analysis, see
-  [Using Amazon Chime SDK voice analytics](https://docs.aws.amazon.com/chime-sdk/latest/dg/voice-analytics.html)
-  in the *Amazon Chime SDK Developer Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20StartVoiceToneAnalysisTask&this_doc_guide=API%2520Reference)
 
-  Before starting any voice tone analysis tasks, you must provide all notices and
-  obtain all consents from the speaker as required under applicable privacy and
-  biometrics laws, and as required under the
-  [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime
-  SDK.
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique identifier of the resource to be
+    updated. Valid values include the ID and ARN of the media insights pipeline.
+
+  ## Optional parameters:
   """
   @spec start_voice_tone_analysis_task(
-          map(),
+          AWS.Client.t(),
           String.t(),
           start_voice_tone_analysis_task_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_voice_tone_analysis_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2806,7 +3169,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2823,13 +3187,22 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   @doc """
   Stops a speaker search task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20StopSpeakerSearchTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique identifier of the resource to be
+    updated. Valid values include the ID and ARN of the media insights pipeline.
+  * `:speaker_search_task_id` (`t:string`) The speaker search task ID.
+
+  ## Optional parameters:
   """
   @spec stop_speaker_search_task(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           stop_speaker_search_task_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -2847,7 +3220,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2864,13 +3238,23 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   @doc """
   Stops a voice tone analysis task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20StopVoiceToneAnalysisTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique identifier of the resource to be
+    updated. Valid values include the ID and ARN of the media insights pipeline.
+  * `:voice_tone_analysis_task_id` (`t:string`) The ID of the voice tone analysis
+    task.
+
+  ## Optional parameters:
   """
   @spec stop_voice_tone_analysis_task(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           stop_voice_tone_analysis_task_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -2888,7 +3272,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2904,11 +3289,16 @@ defmodule AWS.ChimeSDKMediaPipelines do
   end
 
   @doc """
-  The ARN of the media pipeline that you want to tag.
+  The ARN of the media pipeline that you want to tag. Consists of the pipeline's
+  endpoint region, resource ID, and pipeline ID.
 
-  Consists of the pipeline's endpoint region, resource ID, and pipeline ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2917,7 +3307,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2934,8 +3325,14 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   @doc """
   Removes any tags from a media pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2944,7 +3341,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2961,12 +3359,21 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   @doc """
   Updates the media insights pipeline's configuration settings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20UpdateMediaInsightsPipelineConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique identifier for the resource to be
+    updated. Valid values include the name and ARN of the media insights
+    pipeline configuration.
+
+  ## Optional parameters:
   """
   @spec update_media_insights_pipeline_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_media_insights_pipeline_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_media_insights_pipeline_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2981,19 +3388,28 @@ defmodule AWS.ChimeSDKMediaPipelines do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the status of a media insights pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20UpdateMediaInsightsPipelineStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique identifier of the resource to be
+    updated. Valid values include the ID and ARN of the media insights pipeline.
+
+  ## Optional parameters:
   """
   @spec update_media_insights_pipeline_status(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_media_insights_pipeline_status_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -3003,19 +3419,29 @@ defmodule AWS.ChimeSDKMediaPipelines do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates an Amazon Kinesis Video Stream pool in a media pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20UpdateMediaPipelineKinesisVideoStreamPool&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique identifier of the requested resource.
+    Valid values include the name and ARN of the media pipeline Kinesis Video
+    Stream pool.
+
+  ## Optional parameters:
   """
   @spec update_media_pipeline_kinesis_video_stream_pool(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_media_pipeline_kinesis_video_stream_pool_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_media_pipeline_kinesis_video_stream_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3030,7 +3456,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

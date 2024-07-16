@@ -3,35 +3,15 @@
 
 defmodule AWS.ApplicationSignals do
   @moduledoc """
-
-  This is a Preview release of the Application Signals API Reference.
-
-  Operations and parameters are subject to change before the general availability
-  release.
-
+  This is a Preview release of the Application Signals API Reference. Operations
+  and parameters are subject to change before the general availability release.
   Use CloudWatch Application Signals for comprehensive observability of your
-  cloud-based applications.
-  It enables real-time service health dashboards and helps you track long-term
-  performance trends against your business goals.
-  The application-centric view provides you with unified visibility across your
-  applications, services, and
-  dependencies, so you can proactively monitor and efficiently triage any issues
-  that may arise,
-  ensuring optimal customer experience.
-
-  Application Signals provides the following benefits:
-
-    *
-  Automatically collect metrics and traces from your applications, and display key
-  metrics such as call volume, availability, latency, faults, and errors.
-
-    *
-  Create and monitor service level objectives (SLOs).
-
-    *
-  See a map of your application topology that Application Signals automatically
-  discovers, that gives you a visual representation of your applications,
-  dependencies, and their connectivity.
+  cloud-based applications. It enables real-time service health dashboards and
+  helps you track long-term performance trends against your business goals. The
+  application-centric view provides you with unified visibility across your
+  applications, services, and dependencies, so you can proactively monitor and
+  efficiently triage any issues that may arise, ensuring optimal customer
+  experience.
   """
 
   alias AWS.Client
@@ -834,28 +814,22 @@ defmodule AWS.ApplicationSignals do
 
   @doc """
   Use this operation to retrieve one or more *service level objective (SLO) budget
-  reports*.
+  reports*. An *error budget* is the amount of time in unhealthy periods that
+  your service can accumulate during an interval before your overall SLO budget
+  health is breached and the SLO is considered to be unmet. For example, an SLO
+  with a threshold of 99.95% and a monthly interval translates to an error
+  budget of 21.9 minutes of downtime in a 30-day month.
 
-  An *error budget* is the amount of time in unhealthy periods that your service
-  can
-  accumulate during an interval before your overall SLO budget health is breached
-  and the SLO is considered to be
-  unmet. For example, an SLO with a threshold of 99.95% and a monthly interval
-  translates to an error budget of 21.9 minutes of
-  downtime in a 30-day month.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationsignals%20BatchGetServiceLevelObjectiveBudgetReport&this_doc_guide=API%2520Reference)
 
-  Budget reports include a health indicator, the attainment value, and
-  remaining budget.
+  ## Parameters:
 
-  For more information about SLO error budgets, see
-  [
-  SLO
-  concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html#CloudWatch-ServiceLevelObjectives-concepts).
+  ## Optional parameters:
   """
   @spec batch_get_service_level_objective_budget_report(
-          map(),
+          AWS.Client.t(),
           batch_get_service_level_objective_budget_report_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_get_service_level_objective_budget_report_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -865,7 +839,8 @@ defmodule AWS.ApplicationSignals do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -882,78 +857,25 @@ defmodule AWS.ApplicationSignals do
 
   @doc """
   Creates a service level objective (SLO), which can help you ensure that your
-  critical business operations are
-  meeting customer expectations.
-
-  Use SLOs to set and track specific target levels for the
-  reliability and availability of your applications and services. SLOs use service
-  level indicators (SLIs) to
+  critical business operations are meeting customer expectations. Use SLOs to
+  set and track specific target levels for the reliability and availability of
+  your applications and services. SLOs use service level indicators (SLIs) to
   calculate whether the application is performing at the level that you want.
-
   Create an SLO to set a target for a service or operation’s availability or
-  latency. CloudWatch
-  measures this target frequently you can find whether it has been breached.
+  latency. CloudWatch measures this target frequently you can find whether it
+  has been breached.
 
-  When you create an SLO, you set an *attainment goal* for it. An
-  *attainment goal* is the
-  ratio of good periods that meet the threshold requirements to the total periods
-  within the interval.
-  For example, an attainment goal of 99.9% means that within your interval, you
-  are targeting 99.9% of the
-  periods to be in healthy state.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationsignals%20CreateServiceLevelObjective&this_doc_guide=API%2520Reference)
 
-  After you have created an SLO, you can retrieve error budget reports for it.
-  An *error budget* is the number of periods or amount of time that your service
-  can
-  accumulate during an interval before your overall SLO budget health is breached
-  and the SLO is considered to be
-  unmet. for example, an SLO with a threshold that 99.95% of requests must be
-  completed under 2000ms every month
-  translates to an error budget of 21.9 minutes of downtime per month.
+  ## Parameters:
 
-  When you call this operation, Application Signals creates the
-  *AWSServiceRoleForCloudWatchApplicationSignals* service-linked role,
-  if it doesn't already exist in your account. This service-
-  linked role has the following permissions:
-
-    *
-
-  `xray:GetServiceGraph`
-
-    *
-
-  `logs:StartQuery`
-
-    *
-
-  `logs:GetQueryResults`
-
-    *
-
-  `cloudwatch:GetMetricData`
-
-    *
-
-  `cloudwatch:ListMetrics`
-
-    *
-
-  `tag:GetResources`
-
-    *
-
-  `autoscaling:DescribeAutoScalingGroups`
-
-  You can easily set SLO targets for your applications that are discovered by
-  Application Signals, using critical metrics such as latency and availability.
-  You can also set SLOs against any CloudWatch metric or math expression that
-  produces a time series.
-
-  For more information about SLOs, see [
-  Service level objectives
-  (SLOs)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html).
+  ## Optional parameters:
   """
-  @spec create_service_level_objective(map(), create_service_level_objective_input(), list()) ::
+  @spec create_service_level_objective(
+          AWS.Client.t(),
+          create_service_level_objective_input(),
+          Keyword.t()
+        ) ::
           {:ok, create_service_level_objective_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_level_objective_errors()}
@@ -962,7 +884,8 @@ defmodule AWS.ApplicationSignals do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -979,12 +902,19 @@ defmodule AWS.ApplicationSignals do
 
   @doc """
   Deletes the specified service level objective.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationsignals%20DeleteServiceLevelObjective&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ARN or name of the service level objective to delete.
+
+  ## Optional parameters:
   """
   @spec delete_service_level_objective(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_service_level_objective_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_service_level_objective_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -994,7 +924,8 @@ defmodule AWS.ApplicationSignals do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1011,8 +942,20 @@ defmodule AWS.ApplicationSignals do
 
   @doc """
   Returns information about a service discovered by Application Signals.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationsignals%20GetService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:end_time` (`t:`) The end of the time period to retrieve information about.
+    When used in a raw HTTP Query API, it is formatted as be epoch time in
+    seconds. For example: 1698778057
+  * `:start_time` (`t:`) The start of the time period to retrieve information
+    about. When used in a raw HTTP Query API, it is formatted as be epoch time
+    in seconds. For example: 1698778057
+
+  ## Optional parameters:
   """
-  @spec get_service(map(), get_service_input(), list()) ::
+  @spec get_service(AWS.Client.t(), get_service_input(), Keyword.t()) ::
           {:ok, get_service_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_errors()}
@@ -1027,7 +970,8 @@ defmodule AWS.ApplicationSignals do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1044,30 +988,71 @@ defmodule AWS.ApplicationSignals do
 
   @doc """
   Returns information about one SLO created in the account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationsignals%20GetServiceLevelObjective&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ARN or name of the SLO that you want to retrieve
+    information about. You can find the ARNs of SLOs by using the
+    ListServiceLevelObjectives operation.
+
+  ## Optional parameters:
   """
-  @spec get_service_level_objective(map(), String.t(), list()) ::
+  @spec get_service_level_objective(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_level_objective_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_level_objective_errors()}
   def get_service_level_objective(%Client{} = client, id, options \\ []) do
     url_path = "/slo/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns a list of service dependencies of the service that you specify.
+  Returns a list of service dependencies of the service that you specify. A
+  dependency is an infrastructure component that an operation of this service
+  connects with. Dependencies can include Amazon Web Services services, Amazon
+  Web Services resources, and third-party services.
 
-  A dependency is an infrastructure
-  component that an operation of this service connects with. Dependencies can
-  include Amazon Web Services
-  services, Amazon Web Services resources, and third-party services.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationsignals%20ListServiceDependencies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:end_time` (`t:`) The end of the time period to retrieve information about.
+    When used in a raw HTTP Query API, it is formatted as be epoch time in
+    seconds. For example: 1698778057
+  * `:start_time` (`t:`) The start of the time period to retrieve information
+    about. When used in a raw HTTP Query API, it is formatted as be epoch time
+    in seconds. For example: 1698778057
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in one
+    operation. If you omit this parameter, the default of 50 is used.
+  * `:next_token` (`t:string`) Include this value, if it was returned by the
+    previous operation, to get the next set of service dependencies.
   """
-  @spec list_service_dependencies(map(), list_service_dependencies_input(), list()) ::
+  @spec list_service_dependencies(AWS.Client.t(), list_service_dependencies_input(), Keyword.t()) ::
           {:ok, list_service_dependencies_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_dependencies_errors()}
@@ -1084,7 +1069,13 @@ defmodule AWS.ApplicationSignals do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -1101,13 +1092,26 @@ defmodule AWS.ApplicationSignals do
 
   @doc """
   Returns the list of dependents that invoked the specified service during the
-  provided time range.
+  provided time range. Dependents include other services, CloudWatch Synthetics
+  canaries, and clients that are instrumented with CloudWatch RUM app monitors.
 
-  Dependents include
-  other services, CloudWatch Synthetics canaries, and clients that are
-  instrumented with CloudWatch RUM app monitors.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationsignals%20ListServiceDependents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:end_time` (`t:`) The end of the time period to retrieve information about.
+    When used in a raw HTTP Query API, it is formatted as be epoch time in
+    seconds. For example: 1698778057
+  * `:start_time` (`t:`) The start of the time period to retrieve information
+    about. When used in a raw HTTP Query API, it is formatted as be epoch time
+    in seconds. For example: 1698778057
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in one
+    operation. If you omit this parameter, the default of 50 is used.
+  * `:next_token` (`t:string`) Include this value, if it was returned by the
+    previous operation, to get the next set of service dependents.
   """
-  @spec list_service_dependents(map(), list_service_dependents_input(), list()) ::
+  @spec list_service_dependents(AWS.Client.t(), list_service_dependents_input(), Keyword.t()) ::
           {:ok, list_service_dependents_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_dependents_errors()}
@@ -1124,7 +1128,13 @@ defmodule AWS.ApplicationSignals do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -1141,8 +1151,24 @@ defmodule AWS.ApplicationSignals do
 
   @doc """
   Returns a list of SLOs created in this account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationsignals%20ListServiceLevelObjectives&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in one
+    operation. If you omit this parameter, the default of 50 is used.
+  * `:next_token` (`t:string`) Include this value, if it was returned by the
+    previous operation, to get the next set of service level objectives.
+  * `:operation_name` (`t:string`) The name of the operation that this SLO is
+    associated with.
   """
-  @spec list_service_level_objectives(map(), list_service_level_objectives_input(), list()) ::
+  @spec list_service_level_objectives(
+          AWS.Client.t(),
+          list_service_level_objectives_input(),
+          Keyword.t()
+        ) ::
           {:ok, list_service_level_objectives_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_level_objectives_errors()}
@@ -1158,7 +1184,13 @@ defmodule AWS.ApplicationSignals do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :operation_name])
 
     Request.request_rest(
       client,
@@ -1175,12 +1207,26 @@ defmodule AWS.ApplicationSignals do
 
   @doc """
   Returns a list of the *operations* of this service that have been discovered by
-  Application Signals.
+  Application Signals. Only the operations that were invoked during the
+  specified time range are returned.
 
-  Only the operations that were invoked during the specified time range are
-  returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationsignals%20ListServiceOperations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:end_time` (`t:`) The end of the time period to retrieve information about.
+    When used in a raw HTTP Query API, it is formatted as be epoch time in
+    seconds. For example: 1698778057
+  * `:start_time` (`t:`) The start of the time period to retrieve information
+    about. When used in a raw HTTP Query API, it is formatted as be epoch time
+    in seconds. For example: 1698778057
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in one
+    operation. If you omit this parameter, the default of 50 is used.
+  * `:next_token` (`t:string`) Include this value, if it was returned by the
+    previous operation, to get the next set of service operations.
   """
-  @spec list_service_operations(map(), list_service_operations_input(), list()) ::
+  @spec list_service_operations(AWS.Client.t(), list_service_operations_input(), Keyword.t()) ::
           {:ok, list_service_operations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_operations_errors()}
@@ -1197,7 +1243,13 @@ defmodule AWS.ApplicationSignals do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -1213,132 +1265,134 @@ defmodule AWS.ApplicationSignals do
   end
 
   @doc """
-  Returns a list of services that have been discovered by Application Signals.
+  Returns a list of services that have been discovered by Application Signals. A
+  service represents a minimum logical and transactional unit that completes a
+  business function. Services are discovered through Application Signals
+  instrumentation.
 
-  A service represents a minimum logical and transactional unit that completes a
-  business function. Services
-  are discovered through Application Signals instrumentation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationsignals%20ListServices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:end_time` (`t:`) The end of the time period to retrieve information about.
+    When used in a raw HTTP Query API, it is formatted as be epoch time in
+    seconds. For example: 1698778057
+  * `:start_time` (`t:`) The start of the time period to retrieve information
+    about. When used in a raw HTTP Query API, it is formatted as be epoch time
+    in seconds. For example: 1698778057
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in one
+    operation. If you omit this parameter, the default of 50 is used.
+  * `:next_token` (`t:string`) Include this value, if it was returned by the
+    previous operation, to get the next set of services.
   """
-  @spec list_services(map(), String.t(), String.t() | nil, String.t() | nil, String.t(), list()) ::
+  @spec list_services(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_services_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_services_errors()}
-  def list_services(
-        %Client{} = client,
-        end_time,
-        max_results \\ nil,
-        next_token \\ nil,
-        start_time,
-        options \\ []
-      ) do
+  def list_services(%Client{} = client, end_time, start_time, options \\ []) do
     url_path = "/services"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"EndTime", end_time}, {"StartTime", start_time}]
+
+    # Optional query params
     query_params =
-      if !is_nil(start_time) do
-        [{"StartTime", start_time} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    query_params =
-      if !is_nil(end_time) do
-        [{"EndTime", end_time} | query_params]
-      else
-        query_params
-      end
-
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Displays the tags associated with a CloudWatch resource.
+  Displays the tags associated with a CloudWatch resource. Tags can be assigned to
+  service level objectives.
 
-  Tags can be assigned to service level objectives.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationsignals%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the CloudWatch
+    resource that you want to view tags for.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(resource_arn) do
-        [{"ResourceArn", resource_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"ResourceArn", resource_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Enables this Amazon Web Services account to be able to use CloudWatch
-  Application Signals
-  by creating the *AWSServiceRoleForCloudWatchApplicationSignals* service-linked
-  role.
+  Application Signals by creating the
+  *AWSServiceRoleForCloudWatchApplicationSignals* service-linked role. This
+  service- linked role has the following permissions:
 
-  This service-
-  linked role has the following permissions:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationsignals%20StartDiscovery&this_doc_guide=API%2520Reference)
 
-    *
+  ## Parameters:
 
-  `xray:GetServiceGraph`
-
-    *
-
-  `logs:StartQuery`
-
-    *
-
-  `logs:GetQueryResults`
-
-    *
-
-  `cloudwatch:GetMetricData`
-
-    *
-
-  `cloudwatch:ListMetrics`
-
-    *
-
-  `tag:GetResources`
-
-    *
-
-  `autoscaling:DescribeAutoScalingGroups`
-
-  After completing this step, you still need to instrument your Java and Python
-  applications to send data
-  to Application Signals. For more information, see
-  [
-  Enabling Application
-  Signals](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable.html).
+  ## Optional parameters:
   """
-  @spec start_discovery(map(), start_discovery_input(), list()) ::
+  @spec start_discovery(AWS.Client.t(), start_discovery_input(), Keyword.t()) ::
           {:ok, start_discovery_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_discovery_errors()}
@@ -1347,7 +1401,8 @@ defmodule AWS.ApplicationSignals do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1364,26 +1419,17 @@ defmodule AWS.ApplicationSignals do
 
   @doc """
   Assigns one or more tags (key-value pairs) to the specified CloudWatch resource,
-  such as a service level objective.
+  such as a service level objective. Tags can help you organize and categorize
+  your resources. You can also use them to scope user permissions by granting a
+  user permission to access or change only resources with certain tag values.
 
-  Tags can help you organize and categorize your resources. You can also use them
-  to scope user
-  permissions by granting a user
-  permission to access or change only resources with certain tag values.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationsignals%20TagResource&this_doc_guide=API%2520Reference)
 
-  Tags don't have any semantic meaning to Amazon Web Services and are interpreted
-  strictly as strings of characters.
+  ## Parameters:
 
-  You can use the `TagResource` action with an alarm that already has tags. If you
-  specify a new tag key for the alarm,
-  this tag is appended to the list of tags associated
-  with the alarm. If you specify a tag key that is already associated with the
-  alarm, the new tag value that you specify replaces
-  the previous value for that tag.
-
-  You can associate as many as 50 tags with a CloudWatch resource.
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1392,7 +1438,8 @@ defmodule AWS.ApplicationSignals do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1409,8 +1456,14 @@ defmodule AWS.ApplicationSignals do
 
   @doc """
   Removes one or more tags from the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationsignals%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1419,7 +1472,8 @@ defmodule AWS.ApplicationSignals do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1435,16 +1489,22 @@ defmodule AWS.ApplicationSignals do
   end
 
   @doc """
-  Updates an existing service level objective (SLO).
+  Updates an existing service level objective (SLO). If you omit parameters, the
+  previous values of those parameters are retained.
 
-  If you omit parameters, the previous values
-  of those parameters are retained.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationsignals%20UpdateServiceLevelObjective&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The Amazon Resource Name (ARN) or name of the service level
+    objective that you want to update.
+
+  ## Optional parameters:
   """
   @spec update_service_level_objective(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_service_level_objective_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_service_level_objective_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1454,7 +1514,8 @@ defmodule AWS.ApplicationSignals do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

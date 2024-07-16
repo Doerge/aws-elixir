@@ -4,14 +4,7 @@
 defmodule AWS.Braket do
   @moduledoc """
   The Amazon Braket API Reference provides information about the operations and
-  structures
-  supported in Amazon Braket.
-
-  Additional Resources:
-
-    *
-
-  [Amazon Braket Developer Guide](https://docs.aws.amazon.com/braket/latest/developerguide/what-is-braket.html)
+  structures supported in Amazon Braket. Additional Resources:
   """
 
   alias AWS.Client
@@ -849,8 +842,15 @@ defmodule AWS.Braket do
 
   @doc """
   Cancels an Amazon Braket job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20CancelJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_arn` (`t:string`) The ARN of the Amazon Braket job to cancel.
+
+  ## Optional parameters:
   """
-  @spec cancel_job(map(), String.t(), cancel_job_request(), list()) ::
+  @spec cancel_job(AWS.Client.t(), String.t(), cancel_job_request(), Keyword.t()) ::
           {:ok, cancel_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_job_errors()}
@@ -859,15 +859,28 @@ defmodule AWS.Braket do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Cancels the specified task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20CancelQuantumTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:quantum_task_arn` (`t:string`) The ARN of the task to cancel.
+
+  ## Optional parameters:
   """
-  @spec cancel_quantum_task(map(), String.t(), cancel_quantum_task_request(), list()) ::
+  @spec cancel_quantum_task(
+          AWS.Client.t(),
+          String.t(),
+          cancel_quantum_task_request(),
+          Keyword.t()
+        ) ::
           {:ok, cancel_quantum_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_quantum_task_errors()}
@@ -876,15 +889,22 @@ defmodule AWS.Braket do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates an Amazon Braket job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20CreateJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_job(map(), create_job_request(), list()) ::
+  @spec create_job(AWS.Client.t(), create_job_request(), Keyword.t()) ::
           {:ok, create_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_errors()}
@@ -893,7 +913,8 @@ defmodule AWS.Braket do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -910,8 +931,14 @@ defmodule AWS.Braket do
 
   @doc """
   Creates a quantum task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20CreateQuantumTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_quantum_task(map(), create_quantum_task_request(), list()) ::
+  @spec create_quantum_task(AWS.Client.t(), create_quantum_task_request(), Keyword.t()) ::
           {:ok, create_quantum_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_quantum_task_errors()}
@@ -920,7 +947,8 @@ defmodule AWS.Braket do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -938,107 +966,210 @@ defmodule AWS.Braket do
   @doc """
   Retrieves the devices available in Amazon Braket.
 
-  For backwards compatibility with older versions of BraketSchemas, OpenQASM
-  information is omitted from GetDevice API calls. To get this information the
-  user-agent
-  needs to present a recent version of the BraketSchemas (1.8.0 or later). The
-  Braket SDK
-  automatically reports this for you. If you do not see OpenQASM results in the
-  GetDevice
-  response when using a Braket SDK, you may need to set AWS_EXECUTION_ENV
-  environment
-  variable to configure user-agent. See the code examples provided below for how
-  to do
-  this for the AWS CLI, Boto3, and the Go, Java, and JavaScript/TypeScript SDKs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20GetDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_arn` (`t:string`) The ARN of the device to retrieve.
+
+  ## Optional parameters:
   """
-  @spec get_device(map(), String.t(), list()) ::
+  @spec get_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_errors()}
   def get_device(%Client{} = client, device_arn, options \\ []) do
     url_path = "/device/#{AWS.Util.encode_uri(device_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the specified Amazon Braket job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20GetJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_arn` (`t:string`) The ARN of the job to retrieve.
+
+  ## Optional parameters:
+  * `:additional_attribute_names`
+    (`t:list[com.amazonaws.braket#HybridJobAdditionalAttributeName]`) A list of
+    attributes to return information for.
   """
-  @spec get_job(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_errors()}
-  def get_job(%Client{} = client, job_arn, additional_attribute_names \\ nil, options \\ []) do
+  def get_job(%Client{} = client, job_arn, options \\ []) do
     url_path = "/job/#{AWS.Util.encode_uri(job_arn)}"
+
+    # Validate optional parameters
+    optional_params = [additional_attribute_names: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(additional_attribute_names) do
-        [{"additionalAttributeNames", additional_attribute_names} | query_params]
+      if opt_val = Keyword.get(options, :additional_attribute_names) do
+        [{"additionalAttributeNames", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:additional_attribute_names])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the specified quantum task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20GetQuantumTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:quantum_task_arn` (`t:string`) The ARN of the task to retrieve.
+
+  ## Optional parameters:
+  * `:additional_attribute_names`
+    (`t:list[com.amazonaws.braket#QuantumTaskAdditionalAttributeName]`) A list
+    of attributes to return information for.
   """
-  @spec get_quantum_task(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_quantum_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_quantum_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_quantum_task_errors()}
-  def get_quantum_task(
-        %Client{} = client,
-        quantum_task_arn,
-        additional_attribute_names \\ nil,
-        options \\ []
-      ) do
+  def get_quantum_task(%Client{} = client, quantum_task_arn, options \\ []) do
     url_path = "/quantum-task/#{AWS.Util.encode_uri(quantum_task_arn)}"
+
+    # Validate optional parameters
+    optional_params = [additional_attribute_names: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(additional_attribute_names) do
-        [{"additionalAttributeNames", additional_attribute_names} | query_params]
+      if opt_val = Keyword.get(options, :additional_attribute_names) do
+        [{"additionalAttributeNames", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:additional_attribute_names])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Shows the tags associated with this resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) Specify the resourceArn for the resource whose tags to
+    display.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Searches for devices using the specified filters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20SearchDevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec search_devices(map(), search_devices_request(), list()) ::
+  @spec search_devices(AWS.Client.t(), search_devices_request(), Keyword.t()) ::
           {:ok, search_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_devices_errors()}
@@ -1047,7 +1178,8 @@ defmodule AWS.Braket do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1064,8 +1196,14 @@ defmodule AWS.Braket do
 
   @doc """
   Searches for Amazon Braket jobs that match the specified filter values.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20SearchJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec search_jobs(map(), search_jobs_request(), list()) ::
+  @spec search_jobs(AWS.Client.t(), search_jobs_request(), Keyword.t()) ::
           {:ok, search_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_jobs_errors()}
@@ -1074,7 +1212,8 @@ defmodule AWS.Braket do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1091,8 +1230,14 @@ defmodule AWS.Braket do
 
   @doc """
   Searches for tasks that match the specified filter values.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20SearchQuantumTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec search_quantum_tasks(map(), search_quantum_tasks_request(), list()) ::
+  @spec search_quantum_tasks(AWS.Client.t(), search_quantum_tasks_request(), Keyword.t()) ::
           {:ok, search_quantum_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_quantum_tasks_errors()}
@@ -1101,7 +1246,8 @@ defmodule AWS.Braket do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1118,8 +1264,16 @@ defmodule AWS.Braket do
 
   @doc """
   Add a tag to the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) Specify the resourceArn of the resource to which a tag
+    will be added.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1128,7 +1282,8 @@ defmodule AWS.Braket do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1145,8 +1300,18 @@ defmodule AWS.Braket do
 
   @doc """
   Remove tags from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) Specify the resourceArn for the resource from which to
+    remove the tags.
+  * `:tag_keys` (`t:list[smithy.api#String]`) Specify the keys for the tags to
+    remove from the resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1160,7 +1325,8 @@ defmodule AWS.Braket do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

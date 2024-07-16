@@ -4,18 +4,6 @@
 defmodule AWS.ServiceDiscovery do
   @moduledoc """
   Cloud Map
-
-  With Cloud Map, you can configure public DNS, private DNS, or HTTP namespaces
-  that your microservice
-  applications run in.
-
-  When an instance becomes available, you can call the Cloud Map API to register
-  the
-  instance with Cloud Map. For public or private DNS namespaces, Cloud Map
-  automatically creates DNS records and
-  an optional health check. Clients that submit public or private DNS queries, or
-  HTTP requests, for the service
-  receive an answer that contains up to eight healthy records.
   """
 
   alias AWS.Client
@@ -1380,199 +1368,149 @@ defmodule AWS.ServiceDiscovery do
   end
 
   @doc """
-  Creates an HTTP namespace.
-
-  Service instances registered using an HTTP namespace can be discovered using a
-  `DiscoverInstances` request but can't be discovered using DNS.
-
-  For the current quota on the number of namespaces that you can create using the
-  same Amazon Web Services account, see [Cloud Map quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
-  in the *Cloud Map Developer Guide*.
+  Creates an HTTP namespace. Service instances registered using an HTTP namespace
+  can be discovered using a `DiscoverInstances` request but can't be discovered
+  using DNS.
   """
-  @spec create_http_namespace(map(), create_http_namespace_request(), list()) ::
+  @spec create_http_namespace(AWS.Client.t(), create_http_namespace_request(), Keyword.t()) ::
           {:ok, create_http_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_http_namespace_errors()}
   def create_http_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHttpNamespace", input, options)
   end
 
   @doc """
   Creates a private namespace based on DNS, which is visible only inside a
-  specified Amazon VPC.
-
-  The
-  namespace defines your service naming scheme. For example, if you name your
-  namespace `example.com`
-  and name your service `backend`, the resulting DNS name for the service is
-  `backend.example.com`. Service instances that are registered using a private DNS
-  namespace can be
+  specified Amazon VPC. The namespace defines your service naming scheme. For
+  example, if you name your namespace `example.com` and name your service
+  `backend`, the resulting DNS name for the service is `backend.example.com`.
+  Service instances that are registered using a private DNS namespace can be
   discovered using either a `DiscoverInstances` request or using DNS. For the
-  current quota on the
-  number of namespaces that you can create using the same Amazon Web Services
-  account, see [Cloud Map quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
-  in the
-  *Cloud Map Developer Guide*.
+  current quota on the number of namespaces that you can create using the same
+  Amazon Web Services account, see [Cloud Map
+  quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
+  in the *Cloud Map Developer Guide*.
   """
-  @spec create_private_dns_namespace(map(), create_private_dns_namespace_request(), list()) ::
+  @spec create_private_dns_namespace(
+          AWS.Client.t(),
+          create_private_dns_namespace_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_private_dns_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_private_dns_namespace_errors()}
   def create_private_dns_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePrivateDnsNamespace", input, options)
   end
 
   @doc """
-  Creates a public namespace based on DNS, which is visible on the internet.
-
-  The namespace defines your
-  service naming scheme. For example, if you name your namespace `example.com` and
-  name your service
-  `backend`, the resulting DNS name for the service is `backend.example.com`. You
-  can
-  discover instances that were registered with a public DNS namespace by using
-  either a
-  `DiscoverInstances` request or using DNS. For the current quota on the number of
-  namespaces that you
-  can create using the same Amazon Web Services account, see [Cloud Map quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
-  in the
-  *Cloud Map Developer Guide*.
-
-  The `CreatePublicDnsNamespace` API operation is not supported in the Amazon Web
-  Services GovCloud (US)
-  Regions.
+  Creates a public namespace based on DNS, which is visible on the internet. The
+  namespace defines your service naming scheme. For example, if you name your
+  namespace `example.com` and name your service `backend`, the resulting DNS
+  name for the service is `backend.example.com`. You can discover instances that
+  were registered with a public DNS namespace by using either a
+  `DiscoverInstances` request or using DNS. For the current quota on the number
+  of namespaces that you can create using the same Amazon Web Services account,
+  see [Cloud Map
+  quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
+  in the *Cloud Map Developer Guide*.
   """
-  @spec create_public_dns_namespace(map(), create_public_dns_namespace_request(), list()) ::
+  @spec create_public_dns_namespace(
+          AWS.Client.t(),
+          create_public_dns_namespace_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_public_dns_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_public_dns_namespace_errors()}
   def create_public_dns_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePublicDnsNamespace", input, options)
   end
 
   @doc """
-  Creates a service.
-
-  This action defines the configuration for the following entities:
-
-    *
-  For public and private DNS namespaces, one of the following combinations of DNS
-  records in
-  Amazon Route 53:
-
-      *
-
-  `A`
-
-      *
-
-  `AAAA`
-
-      *
-
-  `A` and `AAAA`
-
-      *
-
-  `SRV`
-
-      *
-
-  `CNAME`
-
-    *
-  Optionally, a health check
-
-  After you create the service, you can submit a
-  [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) request, and Cloud Map uses the
-  values in the configuration to create the specified entities.
-
-  For the current quota on the number of instances that you can register using the
-  same namespace and using
-  the same service, see [Cloud Map
-  quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
-  in the *Cloud Map Developer Guide*.
+  Creates a service. This action defines the configuration for the following
+  entities:
   """
-  @spec create_service(map(), create_service_request(), list()) ::
+  @spec create_service(AWS.Client.t(), create_service_request(), Keyword.t()) ::
           {:ok, create_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_errors()}
   def create_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateService", input, options)
   end
 
   @doc """
-  Deletes a namespace from the current account.
-
-  If the namespace still contains one or more services, the
-  request fails.
+  Deletes a namespace from the current account. If the namespace still contains
+  one or more services, the request fails.
   """
-  @spec delete_namespace(map(), delete_namespace_request(), list()) ::
+  @spec delete_namespace(AWS.Client.t(), delete_namespace_request(), Keyword.t()) ::
           {:ok, delete_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_namespace_errors()}
   def delete_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNamespace", input, options)
   end
 
   @doc """
-  Deletes a specified service.
-
-  If the service still contains one or more registered instances, the request
-  fails.
+  Deletes a specified service. If the service still contains one or more
+  registered instances, the request fails.
   """
-  @spec delete_service(map(), delete_service_request(), list()) ::
+  @spec delete_service(AWS.Client.t(), delete_service_request(), Keyword.t()) ::
           {:ok, delete_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_errors()}
   def delete_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteService", input, options)
   end
 
   @doc """
   Deletes the Amazon Route 53 DNS records and health check, if any, that Cloud Map
-  created for the specified
-  instance.
+  created for the specified instance.
   """
-  @spec deregister_instance(map(), deregister_instance_request(), list()) ::
+  @spec deregister_instance(AWS.Client.t(), deregister_instance_request(), Keyword.t()) ::
           {:ok, deregister_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_instance_errors()}
   def deregister_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterInstance", input, options)
   end
 
   @doc """
-  Discovers registered instances for a specified namespace and service.
-
-  You can use
-  `DiscoverInstances` to discover instances for any type of namespace.
-  `DiscoverInstances`
-  returns a randomized list of instances allowing customers to distribute traffic
-  evenly across instances. For
-  public and private DNS namespaces, you can also use DNS queries to discover
-  instances.
+  Discovers registered instances for a specified namespace and service. You can
+  use `DiscoverInstances` to discover instances for any type of namespace.
+  `DiscoverInstances` returns a randomized list of instances allowing customers
+  to distribute traffic evenly across instances. For public and private DNS
+  namespaces, you can also use DNS queries to discover instances.
   """
-  @spec discover_instances(map(), discover_instances_request(), list()) ::
+  @spec discover_instances(AWS.Client.t(), discover_instances_request(), Keyword.t()) ::
           {:ok, discover_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, discover_instances_errors()}
   def discover_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata() |> Map.put_new(:host_prefix, "data-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "data-")
 
     Request.request_post(client, meta, "DiscoverInstances", input, options)
   end
@@ -1580,12 +1518,17 @@ defmodule AWS.ServiceDiscovery do
   @doc """
   Discovers the increasing revision associated with an instance.
   """
-  @spec discover_instances_revision(map(), discover_instances_revision_request(), list()) ::
+  @spec discover_instances_revision(
+          AWS.Client.t(),
+          discover_instances_revision_request(),
+          Keyword.t()
+        ) ::
           {:ok, discover_instances_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, discover_instances_revision_errors()}
   def discover_instances_revision(%Client{} = client, input, options \\ []) do
-    meta = metadata() |> Map.put_new(:host_prefix, "data-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "data-")
 
     Request.request_post(client, meta, "DiscoverInstancesRevision", input, options)
   end
@@ -1593,30 +1536,32 @@ defmodule AWS.ServiceDiscovery do
   @doc """
   Gets information about a specified instance.
   """
-  @spec get_instance(map(), get_instance_request(), list()) ::
+  @spec get_instance(AWS.Client.t(), get_instance_request(), Keyword.t()) ::
           {:ok, get_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_instance_errors()}
   def get_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInstance", input, options)
   end
 
   @doc """
-  Gets the current health status (`Healthy`, `Unhealthy`, or `Unknown`) of
-  one or more instances that are associated with a specified service.
-
-  There's a brief delay between when you register an instance and when the health
-  status for the instance is
-  available.
+  Gets the current health status (`Healthy`, `Unhealthy`, or `Unknown`) of one or
+  more instances that are associated with a specified service.
   """
-  @spec get_instances_health_status(map(), get_instances_health_status_request(), list()) ::
+  @spec get_instances_health_status(
+          AWS.Client.t(),
+          get_instances_health_status_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_instances_health_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_instances_health_status_errors()}
   def get_instances_health_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInstancesHealthStatus", input, options)
   end
@@ -1624,30 +1569,28 @@ defmodule AWS.ServiceDiscovery do
   @doc """
   Gets information about a namespace.
   """
-  @spec get_namespace(map(), get_namespace_request(), list()) ::
+  @spec get_namespace(AWS.Client.t(), get_namespace_request(), Keyword.t()) ::
           {:ok, get_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_namespace_errors()}
   def get_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetNamespace", input, options)
   end
 
   @doc """
   Gets information about any operation that returns an operation ID in the
-  response, such as a
-  `CreateHttpNamespace` request.
-
-  To get a list of operations that match specified criteria, see
-  [ListOperations](https://docs.aws.amazon.com/cloud-map/latest/api/API_ListOperations.html).
+  response, such as a `CreateHttpNamespace` request.
   """
-  @spec get_operation(map(), get_operation_request(), list()) ::
+  @spec get_operation(AWS.Client.t(), get_operation_request(), Keyword.t()) ::
           {:ok, get_operation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_operation_errors()}
   def get_operation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOperation", input, options)
   end
@@ -1655,12 +1598,13 @@ defmodule AWS.ServiceDiscovery do
   @doc """
   Gets the settings for a specified service.
   """
-  @spec get_service(map(), get_service_request(), list()) ::
+  @spec get_service(AWS.Client.t(), get_service_request(), Keyword.t()) ::
           {:ok, get_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_errors()}
   def get_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetService", input, options)
   end
@@ -1669,12 +1613,13 @@ defmodule AWS.ServiceDiscovery do
   Lists summary information about the instances that you registered by using a
   specified service.
   """
-  @spec list_instances(map(), list_instances_request(), list()) ::
+  @spec list_instances(AWS.Client.t(), list_instances_request(), Keyword.t()) ::
           {:ok, list_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instances_errors()}
   def list_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInstances", input, options)
   end
@@ -1683,12 +1628,13 @@ defmodule AWS.ServiceDiscovery do
   Lists summary information about the namespaces that were created by the current
   Amazon Web Services account.
   """
-  @spec list_namespaces(map(), list_namespaces_request(), list()) ::
+  @spec list_namespaces(AWS.Client.t(), list_namespaces_request(), Keyword.t()) ::
           {:ok, list_namespaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_namespaces_errors()}
   def list_namespaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListNamespaces", input, options)
   end
@@ -1696,27 +1642,28 @@ defmodule AWS.ServiceDiscovery do
   @doc """
   Lists operations that match the criteria that you specify.
   """
-  @spec list_operations(map(), list_operations_request(), list()) ::
+  @spec list_operations(AWS.Client.t(), list_operations_request(), Keyword.t()) ::
           {:ok, list_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_operations_errors()}
   def list_operations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOperations", input, options)
   end
 
   @doc """
   Lists summary information for all the services that are associated with one or
-  more
-  namespaces.
+  more namespaces.
   """
-  @spec list_services(map(), list_services_request(), list()) ::
+  @spec list_services(AWS.Client.t(), list_services_request(), Keyword.t()) ::
           {:ok, list_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_services_errors()}
   def list_services(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServices", input, options)
   end
@@ -1724,71 +1671,29 @@ defmodule AWS.ServiceDiscovery do
   @doc """
   Lists tags for the specified resource.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
   Creates or updates one or more records and, optionally, creates a health check
-  based on the settings in a
-  specified service.
-
-  When you submit a `RegisterInstance` request, the following occurs:
-
-    *
-  For each DNS record that you define in the service that's specified by
-  `ServiceId`, a record
-  is created or updated in the hosted zone that's associated with the
-  corresponding namespace.
-
-    *
-  If the service includes `HealthCheckConfig`, a health check is created based on
-  the settings
-  in the health check configuration.
-
-    *
-  The health check, if any, is associated with each of the new or updated records.
-
-  One `RegisterInstance` request must complete before you can submit another
-  request and specify
-  the same service ID and instance ID.
-
-  For more information, see
-  [CreateService](https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html).   When Cloud Map receives a DNS query for the specified DNS name, it returns the
-  applicable value:
-
-    *
-
-  **If the health check is healthy**: returns all the records
-
-    *
-
-  **If the health check is unhealthy**: returns the applicable value for the
-  last healthy instance
-
-    *
-
-  **If you didn't specify a health check configuration**: returns all the
-  records
-
-  For the current quota on the number of instances that you can register using the
-  same namespace and using
-  the same service, see [Cloud Map
-  quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
-  in the *Cloud Map Developer Guide*.
+  based on the settings in a specified service. When you submit a
+  `RegisterInstance` request, the following occurs:
   """
-  @spec register_instance(map(), register_instance_request(), list()) ::
+  @spec register_instance(AWS.Client.t(), register_instance_request(), Keyword.t()) ::
           {:ok, register_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_instance_errors()}
   def register_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterInstance", input, options)
   end
@@ -1796,12 +1701,13 @@ defmodule AWS.ServiceDiscovery do
   @doc """
   Adds one or more tags to the specified resource.
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1809,118 +1715,100 @@ defmodule AWS.ServiceDiscovery do
   @doc """
   Removes one or more tags from the specified resource.
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
-  Updates an HTTP
-  namespace.
+  Updates an HTTP namespace.
   """
-  @spec update_http_namespace(map(), update_http_namespace_request(), list()) ::
+  @spec update_http_namespace(AWS.Client.t(), update_http_namespace_request(), Keyword.t()) ::
           {:ok, update_http_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_http_namespace_errors()}
   def update_http_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateHttpNamespace", input, options)
   end
 
   @doc """
   Submits a request to change the health status of a custom health check to
-  healthy or unhealthy.
-
-  You can use `UpdateInstanceCustomHealthStatus` to change the status only for
-  custom health
-  checks, which you define using `HealthCheckCustomConfig` when you create a
-  service. You can't use it
-  to change the status for Route 53 health checks, which you define using
+  healthy or unhealthy. You can use `UpdateInstanceCustomHealthStatus` to change
+  the status only for custom health checks, which you define using
+  `HealthCheckCustomConfig` when you create a service. You can't use it to
+  change the status for Route 53 health checks, which you define using
   `HealthCheckConfig`.
-
-  For more information, see
-  [HealthCheckCustomConfig](https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html).
   """
   @spec update_instance_custom_health_status(
-          map(),
+          AWS.Client.t(),
           update_instance_custom_health_status_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_instance_custom_health_status_errors()}
   def update_instance_custom_health_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateInstanceCustomHealthStatus", input, options)
   end
 
   @doc """
-  Updates a private DNS
-  namespace.
+  Updates a private DNS namespace.
   """
-  @spec update_private_dns_namespace(map(), update_private_dns_namespace_request(), list()) ::
+  @spec update_private_dns_namespace(
+          AWS.Client.t(),
+          update_private_dns_namespace_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_private_dns_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_private_dns_namespace_errors()}
   def update_private_dns_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePrivateDnsNamespace", input, options)
   end
 
   @doc """
-  Updates a public DNS
-  namespace.
+  Updates a public DNS namespace.
   """
-  @spec update_public_dns_namespace(map(), update_public_dns_namespace_request(), list()) ::
+  @spec update_public_dns_namespace(
+          AWS.Client.t(),
+          update_public_dns_namespace_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_public_dns_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_public_dns_namespace_errors()}
   def update_public_dns_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePublicDnsNamespace", input, options)
   end
 
   @doc """
   Submits a request to perform the following operations:
-
-    *
-  Update the TTL setting for existing `DnsRecords` configurations
-
-    *
-  Add, update, or delete `HealthCheckConfig` for a specified service
-
-  You can't add, update, or delete a `HealthCheckCustomConfig` configuration.
-
-  For public and private DNS namespaces, note the following:
-
-    *
-  If you omit any existing `DnsRecords` or `HealthCheckConfig` configurations from
-  an
-  `UpdateService` request, the configurations are deleted from the service.
-
-    *
-  If you omit an existing `HealthCheckCustomConfig` configuration from an
-  `UpdateService` request, the configuration isn't deleted from the service.
-
-  When you update settings for a service, Cloud Map also updates the corresponding
-  settings in all the
-  records and health checks that were created by using the specified service.
   """
-  @spec update_service(map(), update_service_request(), list()) ::
+  @spec update_service(AWS.Client.t(), update_service_request(), Keyword.t()) ::
           {:ok, update_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_errors()}
   def update_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateService", input, options)
   end

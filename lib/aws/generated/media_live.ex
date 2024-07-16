@@ -7133,15 +7133,21 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Accept an incoming input device transfer.
+  Accept an incoming input device transfer. The ownership of the device will
+  transfer to your AWS account.
 
-  The ownership of the device will transfer to your AWS account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20AcceptInputDeviceTransfer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_device_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec accept_input_device_transfer(
-          map(),
+          AWS.Client.t(),
           String.t(),
           accept_input_device_transfer_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, accept_input_device_transfer_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7151,7 +7157,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7168,8 +7175,14 @@ defmodule AWS.MediaLive do
 
   @doc """
   Starts delete of resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20BatchDelete&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_delete(map(), batch_delete_request(), list()) ::
+  @spec batch_delete(AWS.Client.t(), batch_delete_request(), Keyword.t()) ::
           {:ok, batch_delete_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_errors()}
@@ -7178,7 +7191,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7195,8 +7209,14 @@ defmodule AWS.MediaLive do
 
   @doc """
   Starts existing resources
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20BatchStart&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_start(map(), batch_start_request(), list()) ::
+  @spec batch_start(AWS.Client.t(), batch_start_request(), Keyword.t()) ::
           {:ok, batch_start_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_start_errors()}
@@ -7205,7 +7225,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7222,8 +7243,14 @@ defmodule AWS.MediaLive do
 
   @doc """
   Stops running resources
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20BatchStop&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_stop(map(), batch_stop_request(), list()) ::
+  @spec batch_stop(AWS.Client.t(), batch_stop_request(), Keyword.t()) ::
           {:ok, batch_stop_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_stop_errors()}
@@ -7232,7 +7259,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7249,8 +7277,20 @@ defmodule AWS.MediaLive do
 
   @doc """
   Update a channel schedule
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20BatchUpdateSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec batch_update_schedule(map(), String.t(), batch_update_schedule_request(), list()) ::
+  @spec batch_update_schedule(
+          AWS.Client.t(),
+          String.t(),
+          batch_update_schedule_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_update_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_schedule_errors()}
@@ -7259,19 +7299,27 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Cancel an input device transfer that you have requested.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CancelInputDeviceTransfer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_device_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec cancel_input_device_transfer(
-          map(),
+          AWS.Client.t(),
           String.t(),
           cancel_input_device_transfer_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, cancel_input_device_transfer_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7281,7 +7329,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7298,11 +7347,15 @@ defmodule AWS.MediaLive do
 
   @doc """
   Send a request to claim an AWS Elemental device that you have purchased from a
-  third-party vendor.
+  third-party vendor. After the request succeeds, you will own the device.
 
-  After the request succeeds, you will own the device.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ClaimDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec claim_device(map(), claim_device_request(), list()) ::
+  @spec claim_device(AWS.Client.t(), claim_device_request(), Keyword.t()) ::
           {:ok, claim_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, claim_device_errors()}
@@ -7311,7 +7364,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7328,8 +7382,14 @@ defmodule AWS.MediaLive do
 
   @doc """
   Creates a new channel
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_channel(map(), create_channel_request(), list()) ::
+  @spec create_channel(AWS.Client.t(), create_channel_request(), Keyword.t()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_channel_errors()}
@@ -7338,7 +7398,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7356,11 +7417,17 @@ defmodule AWS.MediaLive do
   @doc """
   Creates a cloudwatch alarm template to dynamically generate cloudwatch metric
   alarms on targeted resource types.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateCloudWatchAlarmTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_cloud_watch_alarm_template(
-          map(),
+          AWS.Client.t(),
           create_cloud_watch_alarm_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_cloud_watch_alarm_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7370,7 +7437,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7388,11 +7456,17 @@ defmodule AWS.MediaLive do
   @doc """
   Creates a cloudwatch alarm template group to group your cloudwatch alarm
   templates and to attach to signal maps for dynamically creating alarms.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateCloudWatchAlarmTemplateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_cloud_watch_alarm_template_group(
-          map(),
+          AWS.Client.t(),
           create_cloud_watch_alarm_template_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_cloud_watch_alarm_template_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7402,7 +7476,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7420,11 +7495,17 @@ defmodule AWS.MediaLive do
   @doc """
   Creates an eventbridge rule template to monitor events and send notifications to
   your targeted resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateEventBridgeRuleTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_event_bridge_rule_template(
-          map(),
+          AWS.Client.t(),
           create_event_bridge_rule_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_event_bridge_rule_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7434,7 +7515,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7453,11 +7535,17 @@ defmodule AWS.MediaLive do
   Creates an eventbridge rule template group to group your eventbridge rule
   templates and to attach to signal maps for dynamically creating notification
   rules.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateEventBridgeRuleTemplateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_event_bridge_rule_template_group(
-          map(),
+          AWS.Client.t(),
           create_event_bridge_rule_template_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_event_bridge_rule_template_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7467,7 +7555,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7484,8 +7573,14 @@ defmodule AWS.MediaLive do
 
   @doc """
   Create an input
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateInput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_input(map(), create_input_request(), list()) ::
+  @spec create_input(AWS.Client.t(), create_input_request(), Keyword.t()) ::
           {:ok, create_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_input_errors()}
@@ -7494,7 +7589,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7511,8 +7607,18 @@ defmodule AWS.MediaLive do
 
   @doc """
   Creates a Input Security Group
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateInputSecurityGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_input_security_group(map(), create_input_security_group_request(), list()) ::
+  @spec create_input_security_group(
+          AWS.Client.t(),
+          create_input_security_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_input_security_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_input_security_group_errors()}
@@ -7521,7 +7627,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7538,8 +7645,14 @@ defmodule AWS.MediaLive do
 
   @doc """
   Create a new multiplex.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateMultiplex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_multiplex(map(), create_multiplex_request(), list()) ::
+  @spec create_multiplex(AWS.Client.t(), create_multiplex_request(), Keyword.t()) ::
           {:ok, create_multiplex_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_multiplex_errors()}
@@ -7548,7 +7661,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7565,8 +7679,20 @@ defmodule AWS.MediaLive do
 
   @doc """
   Create a new program in the multiplex.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateMultiplexProgram&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:multiplex_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec create_multiplex_program(map(), String.t(), create_multiplex_program_request(), list()) ::
+  @spec create_multiplex_program(
+          AWS.Client.t(),
+          String.t(),
+          create_multiplex_program_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_multiplex_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_multiplex_program_errors()}
@@ -7575,7 +7701,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7592,8 +7719,20 @@ defmodule AWS.MediaLive do
 
   @doc """
   Create a partner input
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreatePartnerInput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec create_partner_input(map(), String.t(), create_partner_input_request(), list()) ::
+  @spec create_partner_input(
+          AWS.Client.t(),
+          String.t(),
+          create_partner_input_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_partner_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_partner_input_errors()}
@@ -7602,7 +7741,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7618,12 +7758,16 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Initiates the creation of a new signal map.
+  Initiates the creation of a new signal map. Will discover a new mediaResourceMap
+  based on the provided discoveryEntryPointArn.
 
-  Will discover a new mediaResourceMap based on the provided
-  discoveryEntryPointArn.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateSignalMap&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_signal_map(map(), create_signal_map_request(), list()) ::
+  @spec create_signal_map(AWS.Client.t(), create_signal_map_request(), Keyword.t()) ::
           {:ok, create_signal_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_signal_map_errors()}
@@ -7632,7 +7776,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7649,8 +7794,15 @@ defmodule AWS.MediaLive do
 
   @doc """
   Create tags for a resource
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec create_tags(map(), String.t(), create_tags_request(), list()) ::
+  @spec create_tags(AWS.Client.t(), String.t(), create_tags_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_tags_errors()}
@@ -7659,7 +7811,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7675,11 +7828,16 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Starts deletion of channel.
+  Starts deletion of channel. The associated outputs are also deleted.
 
-  The associated outputs are also deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_channel(map(), String.t(), delete_channel_request(), list()) ::
+  @spec delete_channel(AWS.Client.t(), String.t(), delete_channel_request(), Keyword.t()) ::
           {:ok, delete_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_errors()}
@@ -7688,7 +7846,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7705,12 +7864,19 @@ defmodule AWS.MediaLive do
 
   @doc """
   Deletes a cloudwatch alarm template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteCloudWatchAlarmTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec delete_cloud_watch_alarm_template(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_cloud_watch_alarm_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -7720,7 +7886,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7736,16 +7903,22 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Deletes a cloudwatch alarm template group.
+  Deletes a cloudwatch alarm template group. You must detach this group from all
+  signal maps and ensure its existing templates are moved to another group or
+  deleted.
 
-  You must detach this group from all signal maps and ensure its existing
-  templates are moved to another group or deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteCloudWatchAlarmTemplateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec delete_cloud_watch_alarm_template_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_cloud_watch_alarm_template_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -7760,7 +7933,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7777,12 +7951,19 @@ defmodule AWS.MediaLive do
 
   @doc """
   Deletes an eventbridge rule template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteEventBridgeRuleTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec delete_event_bridge_rule_template(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_event_bridge_rule_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -7792,7 +7973,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7808,16 +7990,22 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Deletes an eventbridge rule template group.
+  Deletes an eventbridge rule template group. You must detach this group from all
+  signal maps and ensure its existing templates are moved to another group or
+  deleted.
 
-  You must detach this group from all signal maps and ensure its existing
-  templates are moved to another group or deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteEventBridgeRuleTemplateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec delete_event_bridge_rule_template_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_event_bridge_rule_template_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -7832,7 +8020,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7849,8 +8038,15 @@ defmodule AWS.MediaLive do
 
   @doc """
   Deletes the input end point
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteInput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_input(map(), String.t(), delete_input_request(), list()) ::
+  @spec delete_input(AWS.Client.t(), String.t(), delete_input_request(), Keyword.t()) ::
           {:ok, delete_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_input_errors()}
@@ -7859,7 +8055,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7876,12 +8073,19 @@ defmodule AWS.MediaLive do
 
   @doc """
   Deletes an Input Security Group
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteInputSecurityGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_security_group_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec delete_input_security_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_input_security_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_input_security_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7896,7 +8100,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7912,11 +8117,16 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Delete a multiplex.
+  Delete a multiplex. The multiplex must be idle.
 
-  The multiplex must be idle.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteMultiplex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:multiplex_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_multiplex(map(), String.t(), delete_multiplex_request(), list()) ::
+  @spec delete_multiplex(AWS.Client.t(), String.t(), delete_multiplex_request(), Keyword.t()) ::
           {:ok, delete_multiplex_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_multiplex_errors()}
@@ -7925,7 +8135,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7942,13 +8153,21 @@ defmodule AWS.MediaLive do
 
   @doc """
   Delete a program from a multiplex.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteMultiplexProgram&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:multiplex_id` (`t:string`)
+  * `:program_name` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec delete_multiplex_program(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_multiplex_program_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_multiplex_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7966,7 +8185,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7983,8 +8203,15 @@ defmodule AWS.MediaLive do
 
   @doc """
   Delete an expired reservation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteReservation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:reservation_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_reservation(map(), String.t(), delete_reservation_request(), list()) ::
+  @spec delete_reservation(AWS.Client.t(), String.t(), delete_reservation_request(), Keyword.t()) ::
           {:ok, delete_reservation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_reservation_errors()}
@@ -7993,7 +8220,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8010,8 +8238,15 @@ defmodule AWS.MediaLive do
 
   @doc """
   Delete all schedule actions on a channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_schedule(map(), String.t(), delete_schedule_request(), list()) ::
+  @spec delete_schedule(AWS.Client.t(), String.t(), delete_schedule_request(), Keyword.t()) ::
           {:ok, delete_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_schedule_errors()}
@@ -8020,7 +8255,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8037,8 +8273,15 @@ defmodule AWS.MediaLive do
 
   @doc """
   Deletes the specified signal map.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteSignalMap&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_signal_map(map(), String.t(), delete_signal_map_request(), list()) ::
+  @spec delete_signal_map(AWS.Client.t(), String.t(), delete_signal_map_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_signal_map_errors()}
@@ -8047,7 +8290,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8064,8 +8308,16 @@ defmodule AWS.MediaLive do
 
   @doc """
   Removes tags for a resource
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
+  * `:tag_keys` (`t:list[com.amazonaws.medialive#__string]`)
+
+  ## Optional parameters:
   """
-  @spec delete_tags(map(), String.t(), delete_tags_request(), list()) ::
+  @spec delete_tags(AWS.Client.t(), String.t(), delete_tags_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tags_errors()}
@@ -8079,7 +8331,8 @@ defmodule AWS.MediaLive do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8096,92 +8349,207 @@ defmodule AWS.MediaLive do
 
   @doc """
   Describe account configuration
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeAccountConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_account_configuration(map(), list()) ::
+  @spec describe_account_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_configuration_errors()}
   def describe_account_configuration(%Client{} = client, options \\ []) do
     url_path = "/prod/accountConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets details about a channel
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_channel(map(), String.t(), list()) ::
+  @spec describe_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_channel_errors()}
   def describe_channel(%Client{} = client, channel_id, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Produces details about an input
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeInput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_input(map(), String.t(), list()) ::
+  @spec describe_input(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_input_errors()}
   def describe_input(%Client{} = client, input_id, options \\ []) do
     url_path = "/prod/inputs/#{AWS.Util.encode_uri(input_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the details for the input device
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeInputDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_device_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_input_device(map(), String.t(), list()) ::
+  @spec describe_input_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_input_device_errors()}
   def describe_input_device(%Client{} = client, input_device_id, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get the latest thumbnail data for the input device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeInputDeviceThumbnail&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_device_id` (`t:string`)
+  * `:accept` (`t:enum["image_jpeg"]`)
+
+  ## Optional parameters:
   """
-  @spec describe_input_device_thumbnail(map(), String.t(), String.t(), list()) ::
+  @spec describe_input_device_thumbnail(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_input_device_thumbnail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_input_device_thumbnail_errors()}
   def describe_input_device_thumbnail(%Client{} = client, input_device_id, accept, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/thumbnailData"
-    headers = []
 
-    headers =
-      if !is_nil(accept) do
-        [{"accept", accept} | headers]
-      else
-        headers
-      end
+    # Validate optional parameters
+    optional_params = []
 
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = [{"accept", accept}]
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     options =
       Keyword.put(
         options,
@@ -8194,49 +8562,108 @@ defmodule AWS.MediaLive do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Produces a summary of an Input Security Group
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeInputSecurityGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_security_group_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_input_security_group(map(), String.t(), list()) ::
+  @spec describe_input_security_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_input_security_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_input_security_group_errors()}
   def describe_input_security_group(%Client{} = client, input_security_group_id, options \\ []) do
     url_path = "/prod/inputSecurityGroups/#{AWS.Util.encode_uri(input_security_group_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets details about a multiplex.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeMultiplex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:multiplex_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_multiplex(map(), String.t(), list()) ::
+  @spec describe_multiplex(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_multiplex_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_multiplex_errors()}
   def describe_multiplex(%Client{} = client, multiplex_id, options \\ []) do
     url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get the details for a program in a multiplex.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeMultiplexProgram&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:multiplex_id` (`t:string`)
+  * `:program_name` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_multiplex_program(map(), String.t(), String.t(), list()) ::
+  @spec describe_multiplex_program(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_multiplex_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_multiplex_program_errors()}
@@ -8244,89 +8671,190 @@ defmodule AWS.MediaLive do
     url_path =
       "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/programs/#{AWS.Util.encode_uri(program_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get details for an offering.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeOffering&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:offering_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_offering(map(), String.t(), list()) ::
+  @spec describe_offering(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_offering_errors()}
   def describe_offering(%Client{} = client, offering_id, options \\ []) do
     url_path = "/prod/offerings/#{AWS.Util.encode_uri(offering_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get details for a reservation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeReservation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:reservation_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_reservation(map(), String.t(), list()) ::
+  @spec describe_reservation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_reservation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_reservation_errors()}
   def describe_reservation(%Client{} = client, reservation_id, options \\ []) do
     url_path = "/prod/reservations/#{AWS.Util.encode_uri(reservation_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get a channel schedule
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec describe_schedule(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec describe_schedule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_schedule_errors()}
-  def describe_schedule(
-        %Client{} = client,
-        channel_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def describe_schedule(%Client{} = client, channel_id, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/schedule"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describe the latest thumbnails data.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeThumbnails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_id` (`t:string`)
+  * `:pipeline_id` (`t:string`)
+  * `:thumbnail_type` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_thumbnails(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_thumbnails(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_thumbnails_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_thumbnails_errors()}
@@ -8338,923 +8866,1452 @@ defmodule AWS.MediaLive do
         options \\ []
       ) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/thumbnails"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(thumbnail_type) do
-        [{"thumbnailType", thumbnail_type} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    query_params =
-      if !is_nil(pipeline_id) do
-        [{"pipelineId", pipeline_id} | query_params]
-      else
-        query_params
-      end
+    # Required query params
+    query_params = [{"pipelineId", pipeline_id}, {"thumbnailType", thumbnail_type}]
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the specified cloudwatch alarm template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20GetCloudWatchAlarmTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_cloud_watch_alarm_template(map(), String.t(), list()) ::
+  @spec get_cloud_watch_alarm_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cloud_watch_alarm_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cloud_watch_alarm_template_errors()}
   def get_cloud_watch_alarm_template(%Client{} = client, identifier, options \\ []) do
     url_path = "/prod/cloudwatch-alarm-templates/#{AWS.Util.encode_uri(identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the specified cloudwatch alarm template group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20GetCloudWatchAlarmTemplateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_cloud_watch_alarm_template_group(map(), String.t(), list()) ::
+  @spec get_cloud_watch_alarm_template_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cloud_watch_alarm_template_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cloud_watch_alarm_template_group_errors()}
   def get_cloud_watch_alarm_template_group(%Client{} = client, identifier, options \\ []) do
     url_path = "/prod/cloudwatch-alarm-template-groups/#{AWS.Util.encode_uri(identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the specified eventbridge rule template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20GetEventBridgeRuleTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_event_bridge_rule_template(map(), String.t(), list()) ::
+  @spec get_event_bridge_rule_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_event_bridge_rule_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_event_bridge_rule_template_errors()}
   def get_event_bridge_rule_template(%Client{} = client, identifier, options \\ []) do
     url_path = "/prod/eventbridge-rule-templates/#{AWS.Util.encode_uri(identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the specified eventbridge rule template group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20GetEventBridgeRuleTemplateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_event_bridge_rule_template_group(map(), String.t(), list()) ::
+  @spec get_event_bridge_rule_template_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_event_bridge_rule_template_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_event_bridge_rule_template_group_errors()}
   def get_event_bridge_rule_template_group(%Client{} = client, identifier, options \\ []) do
     url_path = "/prod/eventbridge-rule-template-groups/#{AWS.Util.encode_uri(identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the specified signal map.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20GetSignalMap&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_signal_map(map(), String.t(), list()) ::
+  @spec get_signal_map(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_signal_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_signal_map_errors()}
   def get_signal_map(%Client{} = client, identifier, options \\ []) do
     url_path = "/prod/signal-maps/#{AWS.Util.encode_uri(identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Produces list of channels that have been created
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListChannels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_channels(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_channels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channels_errors()}
-  def list_channels(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_channels(%Client{} = client, options \\ []) do
     url_path = "/prod/channels"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists cloudwatch alarm template groups.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListCloudWatchAlarmTemplateGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:scope` (`t:string`)
+  * `:signal_map_identifier` (`t:string`)
   """
-  @spec list_cloud_watch_alarm_template_groups(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_cloud_watch_alarm_template_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cloud_watch_alarm_template_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cloud_watch_alarm_template_groups_errors()}
-  def list_cloud_watch_alarm_template_groups(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        scope \\ nil,
-        signal_map_identifier \\ nil,
-        options \\ []
-      ) do
+  def list_cloud_watch_alarm_template_groups(%Client{} = client, options \\ []) do
     url_path = "/prod/cloudwatch-alarm-template-groups"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, scope: nil, signal_map_identifier: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(signal_map_identifier) do
-        [{"signalMapIdentifier", signal_map_identifier} | query_params]
+      if opt_val = Keyword.get(options, :signal_map_identifier) do
+        [{"signalMapIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(scope) do
-        [{"scope", scope} | query_params]
+      if opt_val = Keyword.get(options, :scope) do
+        [{"scope", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :scope, :signal_map_identifier])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists cloudwatch alarm templates.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListCloudWatchAlarmTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:group_identifier` (`t:string`)
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:scope` (`t:string`)
+  * `:signal_map_identifier` (`t:string`)
   """
-  @spec list_cloud_watch_alarm_templates(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_cloud_watch_alarm_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cloud_watch_alarm_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cloud_watch_alarm_templates_errors()}
-  def list_cloud_watch_alarm_templates(
-        %Client{} = client,
-        group_identifier \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        scope \\ nil,
-        signal_map_identifier \\ nil,
-        options \\ []
-      ) do
+  def list_cloud_watch_alarm_templates(%Client{} = client, options \\ []) do
     url_path = "/prod/cloudwatch-alarm-templates"
+
+    # Validate optional parameters
+    optional_params = [
+      group_identifier: nil,
+      max_results: nil,
+      next_token: nil,
+      scope: nil,
+      signal_map_identifier: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(signal_map_identifier) do
-        [{"signalMapIdentifier", signal_map_identifier} | query_params]
+      if opt_val = Keyword.get(options, :signal_map_identifier) do
+        [{"signalMapIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(scope) do
-        [{"scope", scope} | query_params]
+      if opt_val = Keyword.get(options, :scope) do
+        [{"scope", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(group_identifier) do
-        [{"groupIdentifier", group_identifier} | query_params]
+      if opt_val = Keyword.get(options, :group_identifier) do
+        [{"groupIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :group_identifier,
+        :max_results,
+        :next_token,
+        :scope,
+        :signal_map_identifier
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists eventbridge rule template groups.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListEventBridgeRuleTemplateGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:signal_map_identifier` (`t:string`)
   """
-  @spec list_event_bridge_rule_template_groups(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_event_bridge_rule_template_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_event_bridge_rule_template_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_bridge_rule_template_groups_errors()}
-  def list_event_bridge_rule_template_groups(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        signal_map_identifier \\ nil,
-        options \\ []
-      ) do
+  def list_event_bridge_rule_template_groups(%Client{} = client, options \\ []) do
     url_path = "/prod/eventbridge-rule-template-groups"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, signal_map_identifier: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(signal_map_identifier) do
-        [{"signalMapIdentifier", signal_map_identifier} | query_params]
+      if opt_val = Keyword.get(options, :signal_map_identifier) do
+        [{"signalMapIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :signal_map_identifier])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists eventbridge rule templates.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListEventBridgeRuleTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:group_identifier` (`t:string`)
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:signal_map_identifier` (`t:string`)
   """
-  @spec list_event_bridge_rule_templates(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_event_bridge_rule_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_event_bridge_rule_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_bridge_rule_templates_errors()}
-  def list_event_bridge_rule_templates(
-        %Client{} = client,
-        group_identifier \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        signal_map_identifier \\ nil,
-        options \\ []
-      ) do
+  def list_event_bridge_rule_templates(%Client{} = client, options \\ []) do
     url_path = "/prod/eventbridge-rule-templates"
+
+    # Validate optional parameters
+    optional_params = [
+      group_identifier: nil,
+      max_results: nil,
+      next_token: nil,
+      signal_map_identifier: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(signal_map_identifier) do
-        [{"signalMapIdentifier", signal_map_identifier} | query_params]
+      if opt_val = Keyword.get(options, :signal_map_identifier) do
+        [{"signalMapIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(group_identifier) do
-        [{"groupIdentifier", group_identifier} | query_params]
+      if opt_val = Keyword.get(options, :group_identifier) do
+        [{"groupIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:group_identifier, :max_results, :next_token, :signal_map_identifier])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  List input devices that are currently being transferred.
+  List input devices that are currently being transferred. List input devices that
+  you are transferring from your AWS account or input devices that another AWS
+  account is transferring to you.
 
-  List input devices that you are transferring from your AWS account or input
-  devices that another AWS account is transferring to you.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListInputDeviceTransfers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:transfer_type` (`t:string`)
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_input_device_transfers(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
+  @spec list_input_device_transfers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_input_device_transfers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_input_device_transfers_errors()}
-  def list_input_device_transfers(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        transfer_type,
-        options \\ []
-      ) do
+  def list_input_device_transfers(%Client{} = client, transfer_type, options \\ []) do
     url_path = "/prod/inputDeviceTransfers"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"transferType", transfer_type}]
+
+    # Optional query params
     query_params =
-      if !is_nil(transfer_type) do
-        [{"transferType", transfer_type} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List input devices
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListInputDevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_input_devices(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_input_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_input_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_input_devices_errors()}
-  def list_input_devices(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_input_devices(%Client{} = client, options \\ []) do
     url_path = "/prod/inputDevices"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Produces a list of Input Security Groups for an account
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListInputSecurityGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_input_security_groups(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_input_security_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_input_security_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_input_security_groups_errors()}
-  def list_input_security_groups(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_input_security_groups(%Client{} = client, options \\ []) do
     url_path = "/prod/inputSecurityGroups"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Produces list of inputs that have been created
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListInputs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_inputs(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_inputs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_inputs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_inputs_errors()}
-  def list_inputs(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_inputs(%Client{} = client, options \\ []) do
     url_path = "/prod/inputs"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List the programs that currently exist for a specific multiplex.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListMultiplexPrograms&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:multiplex_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_multiplex_programs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_multiplex_programs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_multiplex_programs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_multiplex_programs_errors()}
-  def list_multiplex_programs(
-        %Client{} = client,
-        multiplex_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_multiplex_programs(%Client{} = client, multiplex_id, options \\ []) do
     url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/programs"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve a list of the existing multiplexes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListMultiplexes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_multiplexes(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_multiplexes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_multiplexes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_multiplexes_errors()}
-  def list_multiplexes(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_multiplexes(%Client{} = client, options \\ []) do
     url_path = "/prod/multiplexes"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List offerings available for purchase.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListOfferings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:channel_class` (`t:string`)
+  * `:channel_configuration` (`t:string`)
+  * `:codec` (`t:string`)
+  * `:duration` (`t:string`)
+  * `:max_results` (`t:integer`)
+  * `:maximum_bitrate` (`t:string`)
+  * `:maximum_framerate` (`t:string`)
+  * `:next_token` (`t:string`)
+  * `:resolution` (`t:string`)
+  * `:resource_type` (`t:string`)
+  * `:special_feature` (`t:string`)
+  * `:video_quality` (`t:string`)
   """
-  @spec list_offerings(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_offerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_offerings_errors()}
-  def list_offerings(
-        %Client{} = client,
-        channel_class \\ nil,
-        channel_configuration \\ nil,
-        codec \\ nil,
-        duration \\ nil,
-        max_results \\ nil,
-        maximum_bitrate \\ nil,
-        maximum_framerate \\ nil,
-        next_token \\ nil,
-        resolution \\ nil,
-        resource_type \\ nil,
-        special_feature \\ nil,
-        video_quality \\ nil,
-        options \\ []
-      ) do
+  def list_offerings(%Client{} = client, options \\ []) do
     url_path = "/prod/offerings"
+
+    # Validate optional parameters
+    optional_params = [
+      channel_class: nil,
+      channel_configuration: nil,
+      codec: nil,
+      duration: nil,
+      max_results: nil,
+      maximum_bitrate: nil,
+      maximum_framerate: nil,
+      next_token: nil,
+      resolution: nil,
+      resource_type: nil,
+      special_feature: nil,
+      video_quality: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(video_quality) do
-        [{"videoQuality", video_quality} | query_params]
+      if opt_val = Keyword.get(options, :video_quality) do
+        [{"videoQuality", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(special_feature) do
-        [{"specialFeature", special_feature} | query_params]
+      if opt_val = Keyword.get(options, :special_feature) do
+        [{"specialFeature", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(resource_type) do
-        [{"resourceType", resource_type} | query_params]
+      if opt_val = Keyword.get(options, :resource_type) do
+        [{"resourceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(resolution) do
-        [{"resolution", resolution} | query_params]
+      if opt_val = Keyword.get(options, :resolution) do
+        [{"resolution", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(maximum_framerate) do
-        [{"maximumFramerate", maximum_framerate} | query_params]
+      if opt_val = Keyword.get(options, :maximum_framerate) do
+        [{"maximumFramerate", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(maximum_bitrate) do
-        [{"maximumBitrate", maximum_bitrate} | query_params]
+      if opt_val = Keyword.get(options, :maximum_bitrate) do
+        [{"maximumBitrate", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(duration) do
-        [{"duration", duration} | query_params]
+      if opt_val = Keyword.get(options, :duration) do
+        [{"duration", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(codec) do
-        [{"codec", codec} | query_params]
+      if opt_val = Keyword.get(options, :codec) do
+        [{"codec", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(channel_configuration) do
-        [{"channelConfiguration", channel_configuration} | query_params]
+      if opt_val = Keyword.get(options, :channel_configuration) do
+        [{"channelConfiguration", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(channel_class) do
-        [{"channelClass", channel_class} | query_params]
+      if opt_val = Keyword.get(options, :channel_class) do
+        [{"channelClass", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :channel_class,
+        :channel_configuration,
+        :codec,
+        :duration,
+        :max_results,
+        :maximum_bitrate,
+        :maximum_framerate,
+        :next_token,
+        :resolution,
+        :resource_type,
+        :special_feature,
+        :video_quality
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List purchased reservations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListReservations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:channel_class` (`t:string`)
+  * `:codec` (`t:string`)
+  * `:max_results` (`t:integer`)
+  * `:maximum_bitrate` (`t:string`)
+  * `:maximum_framerate` (`t:string`)
+  * `:next_token` (`t:string`)
+  * `:resolution` (`t:string`)
+  * `:resource_type` (`t:string`)
+  * `:special_feature` (`t:string`)
+  * `:video_quality` (`t:string`)
   """
-  @spec list_reservations(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_reservations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_reservations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_reservations_errors()}
-  def list_reservations(
-        %Client{} = client,
-        channel_class \\ nil,
-        codec \\ nil,
-        max_results \\ nil,
-        maximum_bitrate \\ nil,
-        maximum_framerate \\ nil,
-        next_token \\ nil,
-        resolution \\ nil,
-        resource_type \\ nil,
-        special_feature \\ nil,
-        video_quality \\ nil,
-        options \\ []
-      ) do
+  def list_reservations(%Client{} = client, options \\ []) do
     url_path = "/prod/reservations"
+
+    # Validate optional parameters
+    optional_params = [
+      channel_class: nil,
+      codec: nil,
+      max_results: nil,
+      maximum_bitrate: nil,
+      maximum_framerate: nil,
+      next_token: nil,
+      resolution: nil,
+      resource_type: nil,
+      special_feature: nil,
+      video_quality: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(video_quality) do
-        [{"videoQuality", video_quality} | query_params]
+      if opt_val = Keyword.get(options, :video_quality) do
+        [{"videoQuality", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(special_feature) do
-        [{"specialFeature", special_feature} | query_params]
+      if opt_val = Keyword.get(options, :special_feature) do
+        [{"specialFeature", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(resource_type) do
-        [{"resourceType", resource_type} | query_params]
+      if opt_val = Keyword.get(options, :resource_type) do
+        [{"resourceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(resolution) do
-        [{"resolution", resolution} | query_params]
+      if opt_val = Keyword.get(options, :resolution) do
+        [{"resolution", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(maximum_framerate) do
-        [{"maximumFramerate", maximum_framerate} | query_params]
+      if opt_val = Keyword.get(options, :maximum_framerate) do
+        [{"maximumFramerate", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(maximum_bitrate) do
-        [{"maximumBitrate", maximum_bitrate} | query_params]
+      if opt_val = Keyword.get(options, :maximum_bitrate) do
+        [{"maximumBitrate", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(codec) do
-        [{"codec", codec} | query_params]
+      if opt_val = Keyword.get(options, :codec) do
+        [{"codec", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(channel_class) do
-        [{"channelClass", channel_class} | query_params]
+      if opt_val = Keyword.get(options, :channel_class) do
+        [{"channelClass", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :channel_class,
+        :codec,
+        :max_results,
+        :maximum_bitrate,
+        :maximum_framerate,
+        :next_token,
+        :resolution,
+        :resource_type,
+        :special_feature,
+        :video_quality
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists signal maps.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListSignalMaps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:cloud_watch_alarm_template_group_identifier` (`t:string`)
+  * `:event_bridge_rule_template_group_identifier` (`t:string`)
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_signal_maps(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_signal_maps(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_signal_maps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_signal_maps_errors()}
-  def list_signal_maps(
-        %Client{} = client,
-        cloud_watch_alarm_template_group_identifier \\ nil,
-        event_bridge_rule_template_group_identifier \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_signal_maps(%Client{} = client, options \\ []) do
     url_path = "/prod/signal-maps"
+
+    # Validate optional parameters
+    optional_params = [
+      cloud_watch_alarm_template_group_identifier: nil,
+      event_bridge_rule_template_group_identifier: nil,
+      max_results: nil,
+      next_token: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(event_bridge_rule_template_group_identifier) do
-        [
-          {"eventBridgeRuleTemplateGroupIdentifier", event_bridge_rule_template_group_identifier}
-          | query_params
-        ]
+      if opt_val = Keyword.get(options, :event_bridge_rule_template_group_identifier) do
+        [{"eventBridgeRuleTemplateGroupIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(cloud_watch_alarm_template_group_identifier) do
-        [
-          {"cloudWatchAlarmTemplateGroupIdentifier", cloud_watch_alarm_template_group_identifier}
-          | query_params
-        ]
+      if opt_val = Keyword.get(options, :cloud_watch_alarm_template_group_identifier) do
+        [{"cloudWatchAlarmTemplateGroupIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :cloud_watch_alarm_template_group_identifier,
+        :event_bridge_rule_template_group_identifier,
+        :max_results,
+        :next_token
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Produces list of tags that have been created for a resource
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/prod/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Purchase an offering and create a reservation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20PurchaseOffering&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:offering_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec purchase_offering(map(), String.t(), purchase_offering_request(), list()) ::
+  @spec purchase_offering(AWS.Client.t(), String.t(), purchase_offering_request(), Keyword.t()) ::
           {:ok, purchase_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, purchase_offering_errors()}
@@ -9263,7 +10320,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9279,13 +10337,23 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Send a reboot command to the specified input device.
+  Send a reboot command to the specified input device. The device will begin
+  rebooting within a few seconds of sending the command. When the reboot is
+  complete, the device’s connection status will change to connected.
 
-  The device will begin rebooting within a few seconds of sending the command.
-  When the reboot is complete, the device’s connection status will change to
-  connected.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20RebootInputDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_device_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec reboot_input_device(map(), String.t(), reboot_input_device_request(), list()) ::
+  @spec reboot_input_device(
+          AWS.Client.t(),
+          String.t(),
+          reboot_input_device_request(),
+          Keyword.t()
+        ) ::
           {:ok, reboot_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_input_device_errors()}
@@ -9294,7 +10362,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9311,12 +10380,19 @@ defmodule AWS.MediaLive do
 
   @doc """
   Reject the transfer of the specified input device to your AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20RejectInputDeviceTransfer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_device_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec reject_input_device_transfer(
-          map(),
+          AWS.Client.t(),
           String.t(),
           reject_input_device_transfer_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, reject_input_device_transfer_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -9326,7 +10402,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9343,8 +10420,20 @@ defmodule AWS.MediaLive do
 
   @doc """
   Restart pipelines in one channel that is currently running.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20RestartChannelPipelines&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec restart_channel_pipelines(map(), String.t(), restart_channel_pipelines_request(), list()) ::
+  @spec restart_channel_pipelines(
+          AWS.Client.t(),
+          String.t(),
+          restart_channel_pipelines_request(),
+          Keyword.t()
+        ) ::
           {:ok, restart_channel_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restart_channel_pipelines_errors()}
@@ -9353,7 +10442,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9370,8 +10460,15 @@ defmodule AWS.MediaLive do
 
   @doc """
   Starts an existing channel
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StartChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec start_channel(map(), String.t(), start_channel_request(), list()) ::
+  @spec start_channel(AWS.Client.t(), String.t(), start_channel_request(), Keyword.t()) ::
           {:ok, start_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_channel_errors()}
@@ -9380,7 +10477,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9397,12 +10495,19 @@ defmodule AWS.MediaLive do
 
   @doc """
   Initiates a deployment to delete the monitor of the specified signal map.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StartDeleteMonitorDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec start_delete_monitor_deployment(
-          map(),
+          AWS.Client.t(),
           String.t(),
           start_delete_monitor_deployment_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_delete_monitor_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -9412,7 +10517,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9428,12 +10534,18 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Start an input device that is attached to a MediaConnect flow.
+  Start an input device that is attached to a MediaConnect flow. (There is no need
+  to start a device that is attached to a MediaLive input; MediaLive starts the
+  device when the channel starts.)
 
-  (There is no need to start a device that is attached to a MediaLive input;
-  MediaLive starts the device when the channel starts.)
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StartInputDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_device_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec start_input_device(map(), String.t(), start_input_device_request(), list()) ::
+  @spec start_input_device(AWS.Client.t(), String.t(), start_input_device_request(), Keyword.t()) ::
           {:ok, start_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_input_device_errors()}
@@ -9442,7 +10554,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9458,21 +10571,27 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Start a maintenance window for the specified input device.
-
-  Starting a maintenance window will give the device up to two hours to install
-  software. If the device was streaming prior to the maintenance, it will resume
-  streaming when the software is fully installed. Devices automatically install
-  updates while they are powered on and their MediaLive channels are stopped. A
+  Start a maintenance window for the specified input device. Starting a
+  maintenance window will give the device up to two hours to install software.
+  If the device was streaming prior to the maintenance, it will resume streaming
+  when the software is fully installed. Devices automatically install updates
+  while they are powered on and their MediaLive channels are stopped. A
   maintenance window allows you to update a device without having to stop
   MediaLive channels that use the device. The device must remain powered on and
   connected to the internet for the duration of the maintenance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StartInputDeviceMaintenanceWindow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_device_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec start_input_device_maintenance_window(
-          map(),
+          AWS.Client.t(),
           String.t(),
           start_input_device_maintenance_window_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_input_device_maintenance_window_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -9489,7 +10608,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9506,8 +10626,20 @@ defmodule AWS.MediaLive do
 
   @doc """
   Initiates a deployment to deploy the latest monitor of the specified signal map.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StartMonitorDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec start_monitor_deployment(map(), String.t(), start_monitor_deployment_request(), list()) ::
+  @spec start_monitor_deployment(
+          AWS.Client.t(),
+          String.t(),
+          start_monitor_deployment_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_monitor_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_monitor_deployment_errors()}
@@ -9516,7 +10648,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9532,12 +10665,17 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Start (run) the multiplex.
+  Start (run) the multiplex. Starting the multiplex does not start the channels.
+  You must explicitly start each channel.
 
-  Starting the multiplex does not start the channels. You must explicitly start
-  each channel.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StartMultiplex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:multiplex_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec start_multiplex(map(), String.t(), start_multiplex_request(), list()) ::
+  @spec start_multiplex(AWS.Client.t(), String.t(), start_multiplex_request(), Keyword.t()) ::
           {:ok, start_multiplex_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_multiplex_errors()}
@@ -9546,7 +10684,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9562,11 +10701,22 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Initiates an update for the specified signal map.
+  Initiates an update for the specified signal map. Will discover a new signal map
+  if a changed discoveryEntryPointArn is provided.
 
-  Will discover a new signal map if a changed discoveryEntryPointArn is provided.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StartUpdateSignalMap&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec start_update_signal_map(map(), String.t(), start_update_signal_map_request(), list()) ::
+  @spec start_update_signal_map(
+          AWS.Client.t(),
+          String.t(),
+          start_update_signal_map_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_update_signal_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_update_signal_map_errors()}
@@ -9575,7 +10725,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9592,8 +10743,15 @@ defmodule AWS.MediaLive do
 
   @doc """
   Stops a running channel
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StopChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec stop_channel(map(), String.t(), stop_channel_request(), list()) ::
+  @spec stop_channel(AWS.Client.t(), String.t(), stop_channel_request(), Keyword.t()) ::
           {:ok, stop_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_channel_errors()}
@@ -9602,7 +10760,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9618,12 +10777,18 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Stop an input device that is attached to a MediaConnect flow.
+  Stop an input device that is attached to a MediaConnect flow. (There is no need
+  to stop a device that is attached to a MediaLive input; MediaLive
+  automatically stops the device when the channel stops.)
 
-  (There is no need to stop a device that is attached to a MediaLive input;
-  MediaLive automatically stops the device when the channel stops.)
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StopInputDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_device_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec stop_input_device(map(), String.t(), stop_input_device_request(), list()) ::
+  @spec stop_input_device(AWS.Client.t(), String.t(), stop_input_device_request(), Keyword.t()) ::
           {:ok, stop_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_input_device_errors()}
@@ -9632,7 +10797,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9648,11 +10814,17 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Stops a running multiplex.
+  Stops a running multiplex. If the multiplex isn't running, this action has no
+  effect.
 
-  If the multiplex isn't running, this action has no effect.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StopMultiplex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:multiplex_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec stop_multiplex(map(), String.t(), stop_multiplex_request(), list()) ::
+  @spec stop_multiplex(AWS.Client.t(), String.t(), stop_multiplex_request(), Keyword.t()) ::
           {:ok, stop_multiplex_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_multiplex_errors()}
@@ -9661,7 +10833,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9677,12 +10850,22 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Start an input device transfer to another AWS account.
+  Start an input device transfer to another AWS account. After you make the
+  request, the other account must accept or reject the transfer.
 
-  After you make the request, the other account must accept or reject the
-  transfer.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20TransferInputDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_device_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec transfer_input_device(map(), String.t(), transfer_input_device_request(), list()) ::
+  @spec transfer_input_device(
+          AWS.Client.t(),
+          String.t(),
+          transfer_input_device_request(),
+          Keyword.t()
+        ) ::
           {:ok, transfer_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, transfer_input_device_errors()}
@@ -9691,7 +10874,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9708,8 +10892,18 @@ defmodule AWS.MediaLive do
 
   @doc """
   Update account configuration
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateAccountConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_account_configuration(map(), update_account_configuration_request(), list()) ::
+  @spec update_account_configuration(
+          AWS.Client.t(),
+          update_account_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_configuration_errors()}
@@ -9718,15 +10912,23 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_channel(map(), String.t(), update_channel_request(), list()) ::
+  @spec update_channel(AWS.Client.t(), String.t(), update_channel_request(), Keyword.t()) ::
           {:ok, update_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_channel_errors()}
@@ -9735,15 +10937,28 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Changes the class of the channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateChannelClass&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_channel_class(map(), String.t(), update_channel_class_request(), list()) ::
+  @spec update_channel_class(
+          AWS.Client.t(),
+          String.t(),
+          update_channel_class_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_channel_class_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_channel_class_errors()}
@@ -9752,19 +10967,27 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the specified cloudwatch alarm template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateCloudWatchAlarmTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec update_cloud_watch_alarm_template(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_cloud_watch_alarm_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_cloud_watch_alarm_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -9774,7 +10997,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9791,12 +11015,19 @@ defmodule AWS.MediaLive do
 
   @doc """
   Updates the specified cloudwatch alarm template group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateCloudWatchAlarmTemplateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec update_cloud_watch_alarm_template_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_cloud_watch_alarm_template_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_cloud_watch_alarm_template_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -9811,7 +11042,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9828,12 +11060,19 @@ defmodule AWS.MediaLive do
 
   @doc """
   Updates the specified eventbridge rule template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateEventBridgeRuleTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec update_event_bridge_rule_template(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_event_bridge_rule_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_event_bridge_rule_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -9843,7 +11082,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9860,12 +11100,19 @@ defmodule AWS.MediaLive do
 
   @doc """
   Updates the specified eventbridge rule template group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateEventBridgeRuleTemplateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec update_event_bridge_rule_template_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_event_bridge_rule_template_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_event_bridge_rule_template_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -9880,7 +11127,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9897,8 +11145,15 @@ defmodule AWS.MediaLive do
 
   @doc """
   Updates an input.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateInput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_input(map(), String.t(), update_input_request(), list()) ::
+  @spec update_input(AWS.Client.t(), String.t(), update_input_request(), Keyword.t()) ::
           {:ok, update_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_input_errors()}
@@ -9907,15 +11162,28 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the parameters for the input device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateInputDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_device_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_input_device(map(), String.t(), update_input_device_request(), list()) ::
+  @spec update_input_device(
+          AWS.Client.t(),
+          String.t(),
+          update_input_device_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_input_device_errors()}
@@ -9924,19 +11192,27 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Update an Input Security Group's Whilelists.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateInputSecurityGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_security_group_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec update_input_security_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_input_security_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_input_security_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -9951,15 +11227,23 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a multiplex.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateMultiplex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:multiplex_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_multiplex(map(), String.t(), update_multiplex_request(), list()) ::
+  @spec update_multiplex(AWS.Client.t(), String.t(), update_multiplex_request(), Keyword.t()) ::
           {:ok, update_multiplex_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_multiplex_errors()}
@@ -9968,20 +11252,29 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Update a program in a multiplex.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateMultiplexProgram&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:multiplex_id` (`t:string`)
+  * `:program_name` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec update_multiplex_program(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_multiplex_program_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_multiplex_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -9999,15 +11292,23 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Update reservation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateReservation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:reservation_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_reservation(map(), String.t(), update_reservation_request(), list()) ::
+  @spec update_reservation(AWS.Client.t(), String.t(), update_reservation_request(), Keyword.t()) ::
           {:ok, update_reservation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_reservation_errors()}
@@ -10016,7 +11317,8 @@ defmodule AWS.MediaLive do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

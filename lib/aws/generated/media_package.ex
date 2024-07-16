@@ -1102,8 +1102,15 @@ defmodule AWS.MediaPackage do
 
   @doc """
   Changes the Channel's properities to configure log subscription
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20ConfigureLogs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec configure_logs(map(), String.t(), configure_logs_request(), list()) ::
+  @spec configure_logs(AWS.Client.t(), String.t(), configure_logs_request(), Keyword.t()) ::
           {:ok, configure_logs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, configure_logs_errors()}
@@ -1112,15 +1119,22 @@ defmodule AWS.MediaPackage do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a new Channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20CreateChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_channel(map(), create_channel_request(), list()) ::
+  @spec create_channel(AWS.Client.t(), create_channel_request(), Keyword.t()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_channel_errors()}
@@ -1129,7 +1143,8 @@ defmodule AWS.MediaPackage do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1146,8 +1161,14 @@ defmodule AWS.MediaPackage do
 
   @doc """
   Creates a new HarvestJob record.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20CreateHarvestJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_harvest_job(map(), create_harvest_job_request(), list()) ::
+  @spec create_harvest_job(AWS.Client.t(), create_harvest_job_request(), Keyword.t()) ::
           {:ok, create_harvest_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_harvest_job_errors()}
@@ -1156,7 +1177,8 @@ defmodule AWS.MediaPackage do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1173,8 +1195,14 @@ defmodule AWS.MediaPackage do
 
   @doc """
   Creates a new OriginEndpoint record.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20CreateOriginEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_origin_endpoint(map(), create_origin_endpoint_request(), list()) ::
+  @spec create_origin_endpoint(AWS.Client.t(), create_origin_endpoint_request(), Keyword.t()) ::
           {:ok, create_origin_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_origin_endpoint_errors()}
@@ -1183,7 +1211,8 @@ defmodule AWS.MediaPackage do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1200,8 +1229,15 @@ defmodule AWS.MediaPackage do
 
   @doc """
   Deletes an existing Channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20DeleteChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_channel(map(), String.t(), delete_channel_request(), list()) ::
+  @spec delete_channel(AWS.Client.t(), String.t(), delete_channel_request(), Keyword.t()) ::
           {:ok, delete_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_errors()}
@@ -1210,7 +1246,8 @@ defmodule AWS.MediaPackage do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1227,8 +1264,20 @@ defmodule AWS.MediaPackage do
 
   @doc """
   Deletes an existing OriginEndpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20DeleteOriginEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_origin_endpoint(map(), String.t(), delete_origin_endpoint_request(), list()) ::
+  @spec delete_origin_endpoint(
+          AWS.Client.t(),
+          String.t(),
+          delete_origin_endpoint_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_origin_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_origin_endpoint_errors()}
@@ -1237,7 +1286,8 @@ defmodule AWS.MediaPackage do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1254,213 +1304,389 @@ defmodule AWS.MediaPackage do
 
   @doc """
   Gets details about a Channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20DescribeChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_channel(map(), String.t(), list()) ::
+  @spec describe_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_channel_errors()}
   def describe_channel(%Client{} = client, id, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets details about an existing HarvestJob.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20DescribeHarvestJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_harvest_job(map(), String.t(), list()) ::
+  @spec describe_harvest_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_harvest_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_harvest_job_errors()}
   def describe_harvest_job(%Client{} = client, id, options \\ []) do
     url_path = "/harvest_jobs/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets details about an existing OriginEndpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20DescribeOriginEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_origin_endpoint(map(), String.t(), list()) ::
+  @spec describe_origin_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_origin_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_origin_endpoint_errors()}
   def describe_origin_endpoint(%Client{} = client, id, options \\ []) do
     url_path = "/origin_endpoints/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a collection of Channels.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20ListChannels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_channels(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_channels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channels_errors()}
-  def list_channels(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_channels(%Client{} = client, options \\ []) do
     url_path = "/channels"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a collection of HarvestJob records.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20ListHarvestJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:include_channel_id` (`t:string`)
+  * `:include_status` (`t:string`)
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_harvest_jobs(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_harvest_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_harvest_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_harvest_jobs_errors()}
-  def list_harvest_jobs(
-        %Client{} = client,
-        include_channel_id \\ nil,
-        include_status \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_harvest_jobs(%Client{} = client, options \\ []) do
     url_path = "/harvest_jobs"
+
+    # Validate optional parameters
+    optional_params = [
+      include_channel_id: nil,
+      include_status: nil,
+      max_results: nil,
+      next_token: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(include_status) do
-        [{"includeStatus", include_status} | query_params]
+      if opt_val = Keyword.get(options, :include_status) do
+        [{"includeStatus", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(include_channel_id) do
-        [{"includeChannelId", include_channel_id} | query_params]
+      if opt_val = Keyword.get(options, :include_channel_id) do
+        [{"includeChannelId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:include_channel_id, :include_status, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a collection of OriginEndpoint records.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20ListOriginEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:channel_id` (`t:string`)
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_origin_endpoints(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_origin_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_origin_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_origin_endpoints_errors()}
-  def list_origin_endpoints(
-        %Client{} = client,
-        channel_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_origin_endpoints(%Client{} = client, options \\ []) do
     url_path = "/origin_endpoints"
+
+    # Validate optional parameters
+    optional_params = [channel_id: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(channel_id) do
-        [{"channelId", channel_id} | query_params]
+      if opt_val = Keyword.get(options, :channel_id) do
+        [{"channelId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:channel_id, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Changes the Channel's first IngestEndpoint's username and password.
+  Changes the Channel's first IngestEndpoint's username and password. WARNING -
+  This API is deprecated. Please use RotateIngestEndpointCredentials instead
 
-  WARNING - This API is deprecated. Please use RotateIngestEndpointCredentials
-  instead
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20RotateChannelCredentials&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec rotate_channel_credentials(
-          map(),
+          AWS.Client.t(),
           String.t(),
           rotate_channel_credentials_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, rotate_channel_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1470,7 +1696,8 @@ defmodule AWS.MediaPackage do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -1478,13 +1705,21 @@ defmodule AWS.MediaPackage do
   @doc """
   Rotate the IngestEndpoint's username and password, as specified by the
   IngestEndpoint's id.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20RotateIngestEndpointCredentials&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+  * `:ingest_endpoint_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec rotate_ingest_endpoint_credentials(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           rotate_ingest_endpoint_credentials_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, rotate_ingest_endpoint_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1502,12 +1737,13 @@ defmodule AWS.MediaPackage do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
@@ -1515,7 +1751,8 @@ defmodule AWS.MediaPackage do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1530,7 +1767,7 @@ defmodule AWS.MediaPackage do
     )
   end
 
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
@@ -1543,7 +1780,8 @@ defmodule AWS.MediaPackage do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1560,8 +1798,15 @@ defmodule AWS.MediaPackage do
 
   @doc """
   Updates an existing Channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20UpdateChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_channel(map(), String.t(), update_channel_request(), list()) ::
+  @spec update_channel(AWS.Client.t(), String.t(), update_channel_request(), Keyword.t()) ::
           {:ok, update_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_channel_errors()}
@@ -1570,15 +1815,28 @@ defmodule AWS.MediaPackage do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates an existing OriginEndpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20UpdateOriginEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_origin_endpoint(map(), String.t(), update_origin_endpoint_request(), list()) ::
+  @spec update_origin_endpoint(
+          AWS.Client.t(),
+          String.t(),
+          update_origin_endpoint_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_origin_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_origin_endpoint_errors()}
@@ -1587,7 +1845,8 @@ defmodule AWS.MediaPackage do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

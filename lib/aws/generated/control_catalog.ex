@@ -3,41 +3,14 @@
 
 defmodule AWS.ControlCatalog do
   @moduledoc """
-  Welcome to the Amazon Web Services Control Catalog API reference.
-
-  This guide is for
-  developers who need detailed information about how to programmatically identify
-  and filter
-  the common controls and related metadata that are available to Amazon Web
-  Services customers. This API reference provides
-  descriptions, syntax, and usage examples for each of the actions and data types
-  that are
-  supported by Amazon Web Services Control Catalog.
-
-  Use the following links to get started with the Amazon Web Services Control
-  Catalog API:
-
-    *
-
-  [Actions](https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_Operations.html): An
-  alphabetical list of all Control Catalog API operations.
-
-    *
-
-  [Data
-  types](https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_Types.html):
-  An
-  alphabetical list of all Control Catalog data types.
-
-    *
-
-  [Common parameters](https://docs.aws.amazon.com/controlcatalog/latest/APIReference/CommonParameters.html):
-  Parameters that all operations can use.
-
-    *
-
-  [Common errors](https://docs.aws.amazon.com/controlcatalog/latest/APIReference/CommonErrors.html):
-  Client and server errors that all operations can return.
+  Welcome to the Amazon Web Services Control Catalog API reference. This guide is
+  for developers who need detailed information about how to programmatically
+  identify and filter the common controls and related metadata that are
+  available to Amazon Web Services customers. This API reference provides
+  descriptions, syntax, and usage examples for each of the actions and data
+  types that are supported by Amazon Web Services Control Catalog. Use the
+  following links to get started with the Amazon Web Services Control Catalog
+  API:
   """
 
   alias AWS.Client
@@ -315,11 +288,17 @@ defmodule AWS.ControlCatalog do
   Returns a paginated list of common controls from the Amazon Web Services Control
   Catalog.
 
-  You can apply an optional filter to see common controls that have a specific
-  objective. If
-  you don’t provide a filter, the operation returns all common controls.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controlcatalog%20ListCommonControls&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results on a page or for an
+    API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
-  @spec list_common_controls(map(), list_common_controls_request(), list()) ::
+  @spec list_common_controls(AWS.Client.t(), list_common_controls_request(), Keyword.t()) ::
           {:ok, list_common_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_common_controls_errors()}
@@ -334,7 +313,13 @@ defmodule AWS.ControlCatalog do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -352,8 +337,18 @@ defmodule AWS.ControlCatalog do
   @doc """
   Returns a paginated list of domains from the Amazon Web Services Control
   Catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controlcatalog%20ListDomains&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results on a page or for an
+    API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
-  @spec list_domains(map(), list_domains_request(), list()) ::
+  @spec list_domains(AWS.Client.t(), list_domains_request(), Keyword.t()) ::
           {:ok, list_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domains_errors()}
@@ -368,7 +363,13 @@ defmodule AWS.ControlCatalog do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -387,11 +388,17 @@ defmodule AWS.ControlCatalog do
   Returns a paginated list of objectives from the Amazon Web Services Control
   Catalog.
 
-  You can apply an optional filter to see the objectives that belong to a specific
-  domain.
-  If you don’t provide a filter, the operation returns all objectives.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controlcatalog%20ListObjectives&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results on a page or for an
+    API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
-  @spec list_objectives(map(), list_objectives_request(), list()) ::
+  @spec list_objectives(AWS.Client.t(), list_objectives_request(), Keyword.t()) ::
           {:ok, list_objectives_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_objectives_errors()}
@@ -406,7 +413,13 @@ defmodule AWS.ControlCatalog do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,

@@ -4,10 +4,9 @@
 defmodule AWS.Imagebuilder do
   @moduledoc """
   EC2 Image Builder is a fully managed Amazon Web Services service that makes it
-  easier to automate the
-  creation, management, and deployment of customized, secure, and up-to-date
-  "golden" server images that are pre-installed and pre-configured with software
-  and settings to meet specific IT standards.
+  easier to automate the creation, management, and deployment of customized,
+  secure, and up-to-date "golden" server images that are pre-installed and
+  pre-configured with software and settings to meet specific IT standards.
   """
 
   alias AWS.Client
@@ -4293,12 +4292,16 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  CancelImageCreation cancels the creation of Image.
+  CancelImageCreation cancels the creation of Image. This operation can only be
+  used on images in a non-terminal state.
 
-  This operation can only be used on
-  images in a non-terminal state.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CancelImageCreation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec cancel_image_creation(map(), cancel_image_creation_request(), list()) ::
+  @spec cancel_image_creation(AWS.Client.t(), cancel_image_creation_request(), Keyword.t()) ::
           {:ok, cancel_image_creation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_image_creation_errors()}
@@ -4307,15 +4310,26 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Cancel a specific image lifecycle policy runtime instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CancelLifecycleExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec cancel_lifecycle_execution(map(), cancel_lifecycle_execution_request(), list()) ::
+  @spec cancel_lifecycle_execution(
+          AWS.Client.t(),
+          cancel_lifecycle_execution_request(),
+          Keyword.t()
+        ) ::
           {:ok, cancel_lifecycle_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_lifecycle_execution_errors()}
@@ -4324,27 +4338,24 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a new component that can be used to build, validate, test, and assess
-  your
-  image.
+  your image. The component is based on a YAML document that you specify using
+  exactly one of the following methods:
 
-  The component is based on a YAML document that you specify using exactly one of
-  the following methods:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateComponent&this_doc_guide=API%2520Reference)
 
-    *
-  Inline, using the `data` property in the request body.
+  ## Parameters:
 
-    *
-  A URL that points to a YAML document file stored in Amazon S3, using the
-  `uri` property in the request body.
+  ## Optional parameters:
   """
-  @spec create_component(map(), create_component_request(), list()) ::
+  @spec create_component(AWS.Client.t(), create_component_request(), Keyword.t()) ::
           {:ok, create_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_component_errors()}
@@ -4353,18 +4364,23 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Creates a new container recipe.
+  Creates a new container recipe. Container recipes define how images are
+  configured, tested, and assessed.
 
-  Container recipes define how images are configured,
-  tested, and assessed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateContainerRecipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_container_recipe(map(), create_container_recipe_request(), list()) ::
+  @spec create_container_recipe(AWS.Client.t(), create_container_recipe_request(), Keyword.t()) ::
           {:ok, create_container_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_container_recipe_errors()}
@@ -4373,21 +4389,26 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Creates a new distribution configuration.
-
-  Distribution configurations define and
+  Creates a new distribution configuration. Distribution configurations define and
   configure the outputs of your pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateDistributionConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_distribution_configuration(
-          map(),
+          AWS.Client.t(),
           create_distribution_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_distribution_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4397,21 +4418,25 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Creates a new image.
+  Creates a new image. This request will create a new image along with all of the
+  configured output resources defined in the distribution configuration. You
+  must specify exactly one recipe for your image, using either a
+  ContainerRecipeArn or an ImageRecipeArn.
 
-  This request will create a new image along with all of the
-  configured output resources defined in the distribution configuration. You must
-  specify
-  exactly one recipe for your image, using either a ContainerRecipeArn or an
-  ImageRecipeArn.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateImage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_image(map(), create_image_request(), list()) ::
+  @spec create_image(AWS.Client.t(), create_image_request(), Keyword.t()) ::
           {:ok, create_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_image_errors()}
@@ -4420,18 +4445,23 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Creates a new image pipeline.
+  Creates a new image pipeline. Image pipelines enable you to automate the
+  creation and distribution of images.
 
-  Image pipelines enable you to automate the creation and
-  distribution of images.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateImagePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_image_pipeline(map(), create_image_pipeline_request(), list()) ::
+  @spec create_image_pipeline(AWS.Client.t(), create_image_pipeline_request(), Keyword.t()) ::
           {:ok, create_image_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_image_pipeline_errors()}
@@ -4440,18 +4470,23 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Creates a new image recipe.
+  Creates a new image recipe. Image recipes define how images are configured,
+  tested, and assessed.
 
-  Image recipes define how images are configured, tested,
-  and assessed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateImageRecipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_image_recipe(map(), create_image_recipe_request(), list()) ::
+  @spec create_image_recipe(AWS.Client.t(), create_image_recipe_request(), Keyword.t()) ::
           {:ok, create_image_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_image_recipe_errors()}
@@ -4460,21 +4495,26 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Creates a new infrastructure configuration.
+  Creates a new infrastructure configuration. An infrastructure configuration
+  defines the environment in which your image will be built and tested.
 
-  An infrastructure configuration defines
-  the environment in which your image will be built and tested.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateInfrastructureConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_infrastructure_configuration(
-          map(),
+          AWS.Client.t(),
           create_infrastructure_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_infrastructure_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4484,15 +4524,22 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Create a lifecycle policy resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateLifecyclePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_lifecycle_policy(map(), create_lifecycle_policy_request(), list()) ::
+  @spec create_lifecycle_policy(AWS.Client.t(), create_lifecycle_policy_request(), Keyword.t()) ::
           {:ok, create_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_lifecycle_policy_errors()}
@@ -4501,15 +4548,22 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Create a new workflow or a new version of an existing workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_workflow(map(), create_workflow_request(), list()) ::
+  @spec create_workflow(AWS.Client.t(), create_workflow_request(), Keyword.t()) ::
           {:ok, create_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workflow_errors()}
@@ -4518,15 +4572,24 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Deletes a component build version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:component_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of
+    the component build version to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_component(map(), delete_component_request(), list()) ::
+  @spec delete_component(AWS.Client.t(), delete_component_request(), Keyword.t()) ::
           {:ok, delete_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_component_errors()}
@@ -4540,7 +4603,8 @@ defmodule AWS.Imagebuilder do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4557,8 +4621,16 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Deletes a container recipe.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteContainerRecipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:container_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    container recipe to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_container_recipe(map(), delete_container_recipe_request(), list()) ::
+  @spec delete_container_recipe(AWS.Client.t(), delete_container_recipe_request(), Keyword.t()) ::
           {:ok, delete_container_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_container_recipe_errors()}
@@ -4572,7 +4644,8 @@ defmodule AWS.Imagebuilder do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4589,11 +4662,19 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Deletes a distribution configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteDistributionConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:distribution_configuration_arn` (`t:string`) The Amazon Resource Name (ARN)
+    of the distribution configuration to delete.
+
+  ## Optional parameters:
   """
   @spec delete_distribution_configuration(
-          map(),
+          AWS.Client.t(),
           delete_distribution_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_distribution_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4608,7 +4689,8 @@ defmodule AWS.Imagebuilder do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4624,34 +4706,20 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Deletes an Image Builder image resource.
+  Deletes an Image Builder image resource. This does not delete any EC2 AMIs or
+  ECR container images that are created during the image build process. You must
+  clean those up separately, using the appropriate Amazon EC2 or Amazon ECR
+  console actions, or API or CLI commands.
 
-  This does not delete any EC2 AMIs or ECR container
-  images that are created during the image build process. You must clean those up
-  separately, using the appropriate Amazon EC2 or Amazon ECR console actions, or
-  API or CLI
-  commands.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteImage&this_doc_guide=API%2520Reference)
 
-    *
-  To deregister an EC2 Linux AMI, see [Deregister your Linux
-  AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html) in
-  the *
-  *Amazon EC2 User Guide*
-  *.
+  ## Parameters:
+  * `:image_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    Image Builder image resource to delete.
 
-    *
-  To deregister an EC2 Windows AMI, see [Deregister your Windows
-  AMI](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/deregister-ami.html)
-  in the *
-  *Amazon EC2 Windows Guide*
-  *.
-
-    *
-  To delete a container image from Amazon ECR, see [Deleting an
-  image](https://docs.aws.amazon.com/AmazonECR/latest/userguide/delete_image.html)
-  in the *Amazon ECR User Guide*.
+  ## Optional parameters:
   """
-  @spec delete_image(map(), delete_image_request(), list()) ::
+  @spec delete_image(AWS.Client.t(), delete_image_request(), Keyword.t()) ::
           {:ok, delete_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_image_errors()}
@@ -4665,7 +4733,8 @@ defmodule AWS.Imagebuilder do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4682,8 +4751,16 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Deletes an image pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteImagePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:image_pipeline_arn` (`t:string`) The Amazon Resource Name (ARN) of the image
+    pipeline to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_image_pipeline(map(), delete_image_pipeline_request(), list()) ::
+  @spec delete_image_pipeline(AWS.Client.t(), delete_image_pipeline_request(), Keyword.t()) ::
           {:ok, delete_image_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_image_pipeline_errors()}
@@ -4697,7 +4774,8 @@ defmodule AWS.Imagebuilder do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4714,8 +4792,16 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Deletes an image recipe.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteImageRecipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:image_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the image
+    recipe to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_image_recipe(map(), delete_image_recipe_request(), list()) ::
+  @spec delete_image_recipe(AWS.Client.t(), delete_image_recipe_request(), Keyword.t()) ::
           {:ok, delete_image_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_image_recipe_errors()}
@@ -4729,7 +4815,8 @@ defmodule AWS.Imagebuilder do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4746,11 +4833,19 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Deletes an infrastructure configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteInfrastructureConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:infrastructure_configuration_arn` (`t:string`) The Amazon Resource Name
+    (ARN) of the infrastructure configuration to delete.
+
+  ## Optional parameters:
   """
   @spec delete_infrastructure_configuration(
-          map(),
+          AWS.Client.t(),
           delete_infrastructure_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_infrastructure_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4765,7 +4860,8 @@ defmodule AWS.Imagebuilder do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4782,8 +4878,16 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Delete the specified lifecycle policy resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteLifecyclePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:lifecycle_policy_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    lifecycle policy resource to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_lifecycle_policy(map(), delete_lifecycle_policy_request(), list()) ::
+  @spec delete_lifecycle_policy(AWS.Client.t(), delete_lifecycle_policy_request(), Keyword.t()) ::
           {:ok, delete_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_lifecycle_policy_errors()}
@@ -4797,7 +4901,8 @@ defmodule AWS.Imagebuilder do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4814,8 +4919,16 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Deletes a specific workflow resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workflow_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of
+    the workflow resource to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_workflow(map(), delete_workflow_request(), list()) ::
+  @spec delete_workflow(AWS.Client.t(), delete_workflow_request(), Keyword.t()) ::
           {:ok, delete_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workflow_errors()}
@@ -4829,7 +4942,8 @@ defmodule AWS.Imagebuilder do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4846,104 +4960,188 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Gets a component object.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:component_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of
+    the component that you want to get. Regex requires the suffix /\d+$.
+
+  ## Optional parameters:
   """
-  @spec get_component(map(), String.t(), list()) ::
+  @spec get_component(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_component_errors()}
   def get_component(%Client{} = client, component_build_version_arn, options \\ []) do
     url_path = "/GetComponent"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(component_build_version_arn) do
-        [{"componentBuildVersionArn", component_build_version_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"componentBuildVersionArn", component_build_version_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a component policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetComponentPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:component_arn` (`t:string`) The Amazon Resource Name (ARN) of the component
+    whose policy you want to retrieve.
+
+  ## Optional parameters:
   """
-  @spec get_component_policy(map(), String.t(), list()) ::
+  @spec get_component_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_component_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_component_policy_errors()}
   def get_component_policy(%Client{} = client, component_arn, options \\ []) do
     url_path = "/GetComponentPolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(component_arn) do
-        [{"componentArn", component_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"componentArn", component_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a container recipe.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetContainerRecipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:container_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    container recipe to retrieve.
+
+  ## Optional parameters:
   """
-  @spec get_container_recipe(map(), String.t(), list()) ::
+  @spec get_container_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_container_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_container_recipe_errors()}
   def get_container_recipe(%Client{} = client, container_recipe_arn, options \\ []) do
     url_path = "/GetContainerRecipe"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(container_recipe_arn) do
-        [{"containerRecipeArn", container_recipe_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"containerRecipeArn", container_recipe_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the policy for a container recipe.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetContainerRecipePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:container_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    container recipe for the policy being requested.
+
+  ## Optional parameters:
   """
-  @spec get_container_recipe_policy(map(), String.t(), list()) ::
+  @spec get_container_recipe_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_container_recipe_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_container_recipe_policy_errors()}
   def get_container_recipe_policy(%Client{} = client, container_recipe_arn, options \\ []) do
     url_path = "/GetContainerRecipePolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(container_recipe_arn) do
-        [{"containerRecipeArn", container_recipe_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"containerRecipeArn", container_recipe_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a distribution configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetDistributionConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:distribution_configuration_arn` (`t:string`) The Amazon Resource Name (ARN)
+    of the distribution configuration that you want to retrieve.
+
+  ## Optional parameters:
   """
-  @spec get_distribution_configuration(map(), String.t(), list()) ::
+  @spec get_distribution_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_distribution_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_distribution_configuration_errors()}
@@ -4953,145 +5151,259 @@ defmodule AWS.Imagebuilder do
         options \\ []
       ) do
     url_path = "/GetDistributionConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(distribution_configuration_arn) do
-        [{"distributionConfigurationArn", distribution_configuration_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"distributionConfigurationArn", distribution_configuration_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an image.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetImage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:image_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    image that you want to get.
+
+  ## Optional parameters:
   """
-  @spec get_image(map(), String.t(), list()) ::
+  @spec get_image(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_image_errors()}
   def get_image(%Client{} = client, image_build_version_arn, options \\ []) do
     url_path = "/GetImage"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(image_build_version_arn) do
-        [{"imageBuildVersionArn", image_build_version_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"imageBuildVersionArn", image_build_version_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an image pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetImagePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:image_pipeline_arn` (`t:string`) The Amazon Resource Name (ARN) of the image
+    pipeline that you want to retrieve.
+
+  ## Optional parameters:
   """
-  @spec get_image_pipeline(map(), String.t(), list()) ::
+  @spec get_image_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_image_pipeline_errors()}
   def get_image_pipeline(%Client{} = client, image_pipeline_arn, options \\ []) do
     url_path = "/GetImagePipeline"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(image_pipeline_arn) do
-        [{"imagePipelineArn", image_pipeline_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"imagePipelineArn", image_pipeline_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an image policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetImagePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:image_arn` (`t:string`) The Amazon Resource Name (ARN) of the image whose
+    policy you want to retrieve.
+
+  ## Optional parameters:
   """
-  @spec get_image_policy(map(), String.t(), list()) ::
+  @spec get_image_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_image_policy_errors()}
   def get_image_policy(%Client{} = client, image_arn, options \\ []) do
     url_path = "/GetImagePolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(image_arn) do
-        [{"imageArn", image_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"imageArn", image_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an image recipe.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetImageRecipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:image_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the image
+    recipe that you want to retrieve.
+
+  ## Optional parameters:
   """
-  @spec get_image_recipe(map(), String.t(), list()) ::
+  @spec get_image_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_image_recipe_errors()}
   def get_image_recipe(%Client{} = client, image_recipe_arn, options \\ []) do
     url_path = "/GetImageRecipe"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(image_recipe_arn) do
-        [{"imageRecipeArn", image_recipe_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"imageRecipeArn", image_recipe_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an image recipe policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetImageRecipePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:image_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the image
+    recipe whose policy you want to retrieve.
+
+  ## Optional parameters:
   """
-  @spec get_image_recipe_policy(map(), String.t(), list()) ::
+  @spec get_image_recipe_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_recipe_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_image_recipe_policy_errors()}
   def get_image_recipe_policy(%Client{} = client, image_recipe_arn, options \\ []) do
     url_path = "/GetImageRecipePolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(image_recipe_arn) do
-        [{"imageRecipeArn", image_recipe_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"imageRecipeArn", image_recipe_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an infrastructure configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetInfrastructureConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:infrastructure_configuration_arn` (`t:string`) The Amazon Resource Name
+    (ARN) of the infrastructure configuration that you want to retrieve.
+
+  ## Optional parameters:
   """
-  @spec get_infrastructure_configuration(map(), String.t(), list()) ::
+  @spec get_infrastructure_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_infrastructure_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_infrastructure_configuration_errors()}
@@ -5101,17 +5413,28 @@ defmodule AWS.Imagebuilder do
         options \\ []
       ) do
     url_path = "/GetInfrastructureConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(infrastructure_configuration_arn) do
-        [{"infrastructureConfigurationArn", infrastructure_configuration_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"infrastructureConfigurationArn", infrastructure_configuration_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5119,97 +5442,173 @@ defmodule AWS.Imagebuilder do
   @doc """
   Get the runtime information that was logged for a specific runtime instance of
   the lifecycle policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetLifecycleExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:lifecycle_execution_id` (`t:string`) Use the unique identifier for a runtime
+    instance of the lifecycle policy to get runtime details.
+
+  ## Optional parameters:
   """
-  @spec get_lifecycle_execution(map(), String.t(), list()) ::
+  @spec get_lifecycle_execution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lifecycle_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lifecycle_execution_errors()}
   def get_lifecycle_execution(%Client{} = client, lifecycle_execution_id, options \\ []) do
     url_path = "/GetLifecycleExecution"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(lifecycle_execution_id) do
-        [{"lifecycleExecutionId", lifecycle_execution_id} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"lifecycleExecutionId", lifecycle_execution_id}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get details for the specified image lifecycle policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetLifecyclePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:lifecycle_policy_arn` (`t:string`) Specifies the Amazon Resource Name (ARN)
+    of the image lifecycle policy resource to get.
+
+  ## Optional parameters:
   """
-  @spec get_lifecycle_policy(map(), String.t(), list()) ::
+  @spec get_lifecycle_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lifecycle_policy_errors()}
   def get_lifecycle_policy(%Client{} = client, lifecycle_policy_arn, options \\ []) do
     url_path = "/GetLifecyclePolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(lifecycle_policy_arn) do
-        [{"lifecyclePolicyArn", lifecycle_policy_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"lifecyclePolicyArn", lifecycle_policy_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get a workflow resource object.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workflow_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of
+    the workflow resource that you want to get.
+
+  ## Optional parameters:
   """
-  @spec get_workflow(map(), String.t(), list()) ::
+  @spec get_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_errors()}
   def get_workflow(%Client{} = client, workflow_build_version_arn, options \\ []) do
     url_path = "/GetWorkflow"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(workflow_build_version_arn) do
-        [{"workflowBuildVersionArn", workflow_build_version_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"workflowBuildVersionArn", workflow_build_version_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Get the runtime information that was logged for a specific runtime instance
-  of the workflow.
+  Get the runtime information that was logged for a specific runtime instance of
+  the workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetWorkflowExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workflow_execution_id` (`t:string`) Use the unique identifier for a runtime
+    instance of the workflow to get runtime details.
+
+  ## Optional parameters:
   """
-  @spec get_workflow_execution(map(), String.t(), list()) ::
+  @spec get_workflow_execution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_execution_errors()}
   def get_workflow_execution(%Client{} = client, workflow_execution_id, options \\ []) do
     url_path = "/GetWorkflowExecution"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(workflow_execution_id) do
-        [{"workflowExecutionId", workflow_execution_id} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"workflowExecutionId", workflow_execution_id}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5217,32 +5616,57 @@ defmodule AWS.Imagebuilder do
   @doc """
   Get the runtime information that was logged for a specific runtime instance of
   the workflow step.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetWorkflowStepExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:step_execution_id` (`t:string`) Use the unique identifier for a specific
+    runtime instance of the workflow step to get runtime details for that step.
+
+  ## Optional parameters:
   """
-  @spec get_workflow_step_execution(map(), String.t(), list()) ::
+  @spec get_workflow_step_execution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_step_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_step_execution_errors()}
   def get_workflow_step_execution(%Client{} = client, step_execution_id, options \\ []) do
     url_path = "/GetWorkflowStepExecution"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(step_execution_id) do
-        [{"stepExecutionId", step_execution_id} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"stepExecutionId", step_execution_id}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Imports a component and transforms its data into a component document.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ImportComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec import_component(map(), import_component_request(), list()) ::
+  @spec import_component(AWS.Client.t(), import_component_request(), Keyword.t()) ::
           {:ok, import_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_component_errors()}
@@ -5251,29 +5675,28 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   When you export your virtual machine (VM) from its virtualization environment,
-  that
-  process creates a set of one or more disk container files that act as snapshots
-  of your
-  VM’s environment, settings, and data.
-
-  The Amazon EC2 API
-  [ImportImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html) action uses those files to import your VM and create an AMI. To import using the
-  CLI
-  command, see
+  that process creates a set of one or more disk container files that act as
+  snapshots of your VM’s environment, settings, and data. The Amazon EC2 API
+  [ImportImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html)
+  action uses those files to import your VM and create an AMI. To import using
+  the CLI command, see
   [import-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/import-image.html)
 
-  You can reference the task ID from the VM import to pull in the AMI that the
-  import
-  created as the base image for your Image Builder recipe.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ImportVmImage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec import_vm_image(map(), import_vm_image_request(), list()) ::
+  @spec import_vm_image(AWS.Client.t(), import_vm_image_request(), Keyword.t()) ::
           {:ok, import_vm_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_vm_image_errors()}
@@ -5282,27 +5705,26 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Returns the list of component build versions for the specified semantic
-  version.
+  Returns the list of component build versions for the specified semantic version.
 
-  The semantic version has four nodes: ../.
-  You can assign values for the first three, and can filter on all of them.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListComponentBuildVersions&this_doc_guide=API%2520Reference)
 
-  **Filtering:** With semantic versioning, you have the flexibility to use
-  wildcards (x)
-  to specify the most recent versions or nodes when selecting the base image or
-  components for your
-  recipe. When you use a wildcard in any node, all nodes to the right of the first
-  wildcard must also be
-  wildcards.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_component_build_versions(map(), list_component_build_versions_request(), list()) ::
+  @spec list_component_build_versions(
+          AWS.Client.t(),
+          list_component_build_versions_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_component_build_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_component_build_versions_errors()}
@@ -5311,7 +5733,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5328,24 +5751,16 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Returns the list of components that can be filtered by name, or by using the
-  listed
-  `filters` to streamline results.
+  listed `filters` to streamline results. Newly created components can take up
+  to two minutes to appear in the ListComponents API Results.
 
-  Newly created components can take up to
-  two minutes to appear in the ListComponents API Results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListComponents&this_doc_guide=API%2520Reference)
 
-  The semantic version has four nodes: ../.
-  You can assign values for the first three, and can filter on all of them.
+  ## Parameters:
 
-  **Filtering:** With semantic versioning, you have the flexibility to use
-  wildcards (x)
-  to specify the most recent versions or nodes when selecting the base image or
-  components for your
-  recipe. When you use a wildcard in any node, all nodes to the right of the first
-  wildcard must also be
-  wildcards.
+  ## Optional parameters:
   """
-  @spec list_components(map(), list_components_request(), list()) ::
+  @spec list_components(AWS.Client.t(), list_components_request(), Keyword.t()) ::
           {:ok, list_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_components_errors()}
@@ -5354,7 +5769,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5371,8 +5787,14 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Returns a list of container recipes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListContainerRecipes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_container_recipes(map(), list_container_recipes_request(), list()) ::
+  @spec list_container_recipes(AWS.Client.t(), list_container_recipes_request(), Keyword.t()) ::
           {:ok, list_container_recipes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_container_recipes_errors()}
@@ -5381,7 +5803,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5398,11 +5821,17 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Returns a list of distribution configurations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListDistributionConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec list_distribution_configurations(
-          map(),
+          AWS.Client.t(),
           list_distribution_configurations_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_distribution_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5412,7 +5841,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5429,8 +5859,18 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Returns a list of image build versions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImageBuildVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_image_build_versions(map(), list_image_build_versions_request(), list()) ::
+  @spec list_image_build_versions(
+          AWS.Client.t(),
+          list_image_build_versions_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_image_build_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_image_build_versions_errors()}
@@ -5439,7 +5879,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5456,10 +5897,15 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   List the Packages that are associated with an Image Build Version, as determined
-  by
-  Amazon Web Services Systems Manager Inventory at build time.
+  by Amazon Web Services Systems Manager Inventory at build time.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImagePackages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_image_packages(map(), list_image_packages_request(), list()) ::
+  @spec list_image_packages(AWS.Client.t(), list_image_packages_request(), Keyword.t()) ::
           {:ok, list_image_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_image_packages_errors()}
@@ -5468,7 +5914,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5485,8 +5932,18 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Returns a list of images created by the specified pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImagePipelineImages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_image_pipeline_images(map(), list_image_pipeline_images_request(), list()) ::
+  @spec list_image_pipeline_images(
+          AWS.Client.t(),
+          list_image_pipeline_images_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_image_pipeline_images_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_image_pipeline_images_errors()}
@@ -5495,7 +5952,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5512,8 +5970,14 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Returns a list of image pipelines.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImagePipelines&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_image_pipelines(map(), list_image_pipelines_request(), list()) ::
+  @spec list_image_pipelines(AWS.Client.t(), list_image_pipelines_request(), Keyword.t()) ::
           {:ok, list_image_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_image_pipelines_errors()}
@@ -5522,7 +5986,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5539,8 +6004,14 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Returns a list of image recipes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImageRecipes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_image_recipes(map(), list_image_recipes_request(), list()) ::
+  @spec list_image_recipes(AWS.Client.t(), list_image_recipes_request(), Keyword.t()) ::
           {:ok, list_image_recipes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_image_recipes_errors()}
@@ -5549,7 +6020,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5565,38 +6037,23 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Returns a list of image scan aggregations for your account.
-
-  You can filter by the type
-  of key that Image Builder uses to group results. For example, if you want to get
-  a list of
-  findings by severity level for one of your pipelines, you might specify your
-  pipeline
-  with the `imagePipelineArn` filter. If you don't specify a filter, Image Builder
-  returns an aggregation for your account.
-
+  Returns a list of image scan aggregations for your account. You can filter by
+  the type of key that Image Builder uses to group results. For example, if you
+  want to get a list of findings by severity level for one of your pipelines,
+  you might specify your pipeline with the `imagePipelineArn` filter. If you
+  don't specify a filter, Image Builder returns an aggregation for your account.
   To streamline results, you can use the following filters in your request:
 
-    *
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImageScanFindingAggregations&this_doc_guide=API%2520Reference)
 
-  `accountId`
+  ## Parameters:
 
-    *
-
-  `imageBuildVersionArn`
-
-    *
-
-  `imagePipelineArn`
-
-    *
-
-  `vulnerabilityId`
+  ## Optional parameters:
   """
   @spec list_image_scan_finding_aggregations(
-          map(),
+          AWS.Client.t(),
           list_image_scan_finding_aggregations_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_image_scan_finding_aggregations_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5606,7 +6063,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5623,8 +6081,14 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Returns a list of image scan findings for your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImageScanFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_image_scan_findings(map(), list_image_scan_findings_request(), list()) ::
+  @spec list_image_scan_findings(AWS.Client.t(), list_image_scan_findings_request(), Keyword.t()) ::
           {:ok, list_image_scan_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_image_scan_findings_errors()}
@@ -5633,7 +6097,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5649,12 +6114,16 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Returns the list of images that you have access to.
+  Returns the list of images that you have access to. Newly created images can
+  take up to two minutes to appear in the ListImages API Results.
 
-  Newly created images can take up
-  to two minutes to appear in the ListImages API Results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_images(map(), list_images_request(), list()) ::
+  @spec list_images(AWS.Client.t(), list_images_request(), Keyword.t()) ::
           {:ok, list_images_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_images_errors()}
@@ -5663,7 +6132,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5680,11 +6150,17 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Returns a list of infrastructure configurations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListInfrastructureConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec list_infrastructure_configurations(
-          map(),
+          AWS.Client.t(),
           list_infrastructure_configurations_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_infrastructure_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5694,7 +6170,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5712,11 +6189,17 @@ defmodule AWS.Imagebuilder do
   @doc """
   List resources that the runtime instance of the image lifecycle identified for
   lifecycle actions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListLifecycleExecutionResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec list_lifecycle_execution_resources(
-          map(),
+          AWS.Client.t(),
           list_lifecycle_execution_resources_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_lifecycle_execution_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5726,7 +6209,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5743,8 +6227,18 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Get the lifecycle runtime history for the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListLifecycleExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_lifecycle_executions(map(), list_lifecycle_executions_request(), list()) ::
+  @spec list_lifecycle_executions(
+          AWS.Client.t(),
+          list_lifecycle_executions_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_lifecycle_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lifecycle_executions_errors()}
@@ -5753,7 +6247,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5770,8 +6265,14 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Get a list of lifecycle policies in your Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListLifecyclePolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_lifecycle_policies(map(), list_lifecycle_policies_request(), list()) ::
+  @spec list_lifecycle_policies(AWS.Client.t(), list_lifecycle_policies_request(), Keyword.t()) ::
           {:ok, list_lifecycle_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lifecycle_policies_errors()}
@@ -5780,7 +6281,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5797,26 +6299,62 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Returns the list of tags for the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    whose tags you want to retrieve.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Get a list of workflow steps that are waiting for action for workflows
-  in your Amazon Web Services account.
+  Get a list of workflow steps that are waiting for action for workflows in your
+  Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListWaitingWorkflowSteps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_waiting_workflow_steps(map(), list_waiting_workflow_steps_request(), list()) ::
+  @spec list_waiting_workflow_steps(
+          AWS.Client.t(),
+          list_waiting_workflow_steps_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_waiting_workflow_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_waiting_workflow_steps_errors()}
@@ -5825,7 +6363,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5842,8 +6381,18 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Returns a list of build versions for a specific workflow resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListWorkflowBuildVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_workflow_build_versions(map(), list_workflow_build_versions_request(), list()) ::
+  @spec list_workflow_build_versions(
+          AWS.Client.t(),
+          list_workflow_build_versions_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_workflow_build_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflow_build_versions_errors()}
@@ -5852,7 +6401,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5869,10 +6419,15 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Returns a list of workflow runtime instance metadata objects for a specific
-  image build
-  version.
+  image build version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListWorkflowExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_workflow_executions(map(), list_workflow_executions_request(), list()) ::
+  @spec list_workflow_executions(AWS.Client.t(), list_workflow_executions_request(), Keyword.t()) ::
           {:ok, list_workflow_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflow_executions_errors()}
@@ -5881,7 +6436,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5897,10 +6453,20 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Returns runtime data for each step in a runtime instance of the workflow
-  that you specify in the request.
+  Returns runtime data for each step in a runtime instance of the workflow that
+  you specify in the request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListWorkflowStepExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_workflow_step_executions(map(), list_workflow_step_executions_request(), list()) ::
+  @spec list_workflow_step_executions(
+          AWS.Client.t(),
+          list_workflow_step_executions_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_workflow_step_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflow_step_executions_errors()}
@@ -5909,7 +6475,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5926,8 +6493,14 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Lists workflow build versions based on filtering parameters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListWorkflows&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_workflows(map(), list_workflows_request(), list()) ::
+  @spec list_workflows(AWS.Client.t(), list_workflows_request(), Keyword.t()) ::
           {:ok, list_workflows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflows_errors()}
@@ -5936,7 +6509,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5952,16 +6526,21 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Applies a policy to a component.
-
-  We recommend that you call the RAM API
-  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html) to share resources. If you call the Image Builder API
-  `PutComponentPolicy`, you must also call the RAM API
+  Applies a policy to a component. We recommend that you call the RAM API
+  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html)
+  to share resources. If you call the Image Builder API `PutComponentPolicy`,
+  you must also call the RAM API
   [PromoteResourceShareCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
-  in order for the resource to be
-  visible to all principals with whom the resource is shared.
+  in order for the resource to be visible to all principals with whom the
+  resource is shared.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20PutComponentPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_component_policy(map(), put_component_policy_request(), list()) ::
+  @spec put_component_policy(AWS.Client.t(), put_component_policy_request(), Keyword.t()) ::
           {:ok, put_component_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_component_policy_errors()}
@@ -5970,28 +6549,34 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Applies a policy to a container image.
-
-  We recommend that you call the RAM API
+  Applies a policy to a container image. We recommend that you call the RAM API
   CreateResourceShare
   (https://docs.aws.amazon.com//ram/latest/APIReference/API_CreateResourceShare.html)
-  to share
-  resources. If you call the Image Builder API `PutContainerImagePolicy`, you must
-  also
-  call the RAM API PromoteResourceShareCreatedFromPolicy
+  to share resources. If you call the Image Builder API
+  `PutContainerImagePolicy`, you must also call the RAM API
+  PromoteResourceShareCreatedFromPolicy
   (https://docs.aws.amazon.com//ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
+  in order for the resource to be visible to all principals with whom the
+  resource is shared.
 
-  in order for the resource to be visible to all principals with whom the resource
-  is
-  shared.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20PutContainerRecipePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_container_recipe_policy(map(), put_container_recipe_policy_request(), list()) ::
+  @spec put_container_recipe_policy(
+          AWS.Client.t(),
+          put_container_recipe_policy_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_container_recipe_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_container_recipe_policy_errors()}
@@ -6000,22 +6585,28 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Applies a policy to an image.
-
-  We recommend that you call the RAM API
-  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html) to share resources. If you call the Image Builder API
-  `PutImagePolicy`, you must also call the RAM API
+  Applies a policy to an image. We recommend that you call the RAM API
+  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html)
+  to share resources. If you call the Image Builder API `PutImagePolicy`, you
+  must also call the RAM API
   [PromoteResourceShareCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
-  in order for the resource to be
-  visible to all principals with whom the resource is shared.
+  in order for the resource to be visible to all principals with whom the
+  resource is shared.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20PutImagePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_image_policy(map(), put_image_policy_request(), list()) ::
+  @spec put_image_policy(AWS.Client.t(), put_image_policy_request(), Keyword.t()) ::
           {:ok, put_image_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_image_policy_errors()}
@@ -6024,22 +6615,28 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Applies a policy to an image recipe.
-
-  We recommend that you call the RAM API
-  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html) to share resources. If you call the Image Builder API
-  `PutImageRecipePolicy`, you must also call the RAM API
+  Applies a policy to an image recipe. We recommend that you call the RAM API
+  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html)
+  to share resources. If you call the Image Builder API `PutImageRecipePolicy`,
+  you must also call the RAM API
   [PromoteResourceShareCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
-  in order for the resource to be
-  visible to all principals with whom the resource is shared.
+  in order for the resource to be visible to all principals with whom the
+  resource is shared.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20PutImageRecipePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_image_recipe_policy(map(), put_image_recipe_policy_request(), list()) ::
+  @spec put_image_recipe_policy(AWS.Client.t(), put_image_recipe_policy_request(), Keyword.t()) ::
           {:ok, put_image_recipe_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_image_recipe_policy_errors()}
@@ -6048,7 +6645,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -6056,8 +6654,18 @@ defmodule AWS.Imagebuilder do
   @doc """
   Pauses or resumes image creation when the associated workflow runs a
   `WaitForAction` step.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20SendWorkflowStepAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec send_workflow_step_action(map(), send_workflow_step_action_request(), list()) ::
+  @spec send_workflow_step_action(
+          AWS.Client.t(),
+          send_workflow_step_action_request(),
+          Keyword.t()
+        ) ::
           {:ok, send_workflow_step_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_workflow_step_action_errors()}
@@ -6066,15 +6674,26 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Manually triggers a pipeline to create an image.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20StartImagePipelineExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_image_pipeline_execution(map(), start_image_pipeline_execution_request(), list()) ::
+  @spec start_image_pipeline_execution(
+          AWS.Client.t(),
+          start_image_pipeline_execution_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_image_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_image_pipeline_execution_errors()}
@@ -6083,16 +6702,27 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Begin asynchronous resource state update for lifecycle changes to the
-  specified image resources.
+  Begin asynchronous resource state update for lifecycle changes to the specified
+  image resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20StartResourceStateUpdate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_resource_state_update(map(), start_resource_state_update_request(), list()) ::
+  @spec start_resource_state_update(
+          AWS.Client.t(),
+          start_resource_state_update_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_resource_state_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_resource_state_update_errors()}
@@ -6101,15 +6731,24 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Adds a tag to a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    that you want to tag.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -6118,7 +6757,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6135,8 +6775,18 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Removes a tag from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    that you want to untag.
+  * `:tag_keys` (`t:list[com.amazonaws.imagebuilder#TagKey]`) The tag keys to
+    remove from the resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -6150,7 +6800,8 @@ defmodule AWS.Imagebuilder do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6166,15 +6817,19 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Updates a new distribution configuration.
-
-  Distribution configurations define and
+  Updates a new distribution configuration. Distribution configurations define and
   configure the outputs of your pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20UpdateDistributionConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec update_distribution_configuration(
-          map(),
+          AWS.Client.t(),
           update_distribution_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_distribution_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6184,25 +6839,24 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Updates an image pipeline.
+  Updates an image pipeline. Image pipelines enable you to automate the creation
+  and distribution of images. You must specify exactly one recipe for your
+  image, using either a `containerRecipeArn` or an `imageRecipeArn`.
 
-  Image pipelines enable you to automate the creation and
-  distribution of images. You must specify exactly one recipe for your image,
-  using either
-  a `containerRecipeArn` or an `imageRecipeArn`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20UpdateImagePipeline&this_doc_guide=API%2520Reference)
 
-  UpdateImagePipeline does not support selective updates for the pipeline. You
-  must
-  specify all of the required properties in the update request, not just the
-  properties that have changed.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_image_pipeline(map(), update_image_pipeline_request(), list()) ::
+  @spec update_image_pipeline(AWS.Client.t(), update_image_pipeline_request(), Keyword.t()) ::
           {:ok, update_image_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_image_pipeline_errors()}
@@ -6211,21 +6865,26 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Updates a new infrastructure configuration.
+  Updates a new infrastructure configuration. An infrastructure configuration
+  defines the environment in which your image will be built and tested.
 
-  An infrastructure configuration defines
-  the environment in which your image will be built and tested.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20UpdateInfrastructureConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec update_infrastructure_configuration(
-          map(),
+          AWS.Client.t(),
           update_infrastructure_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_infrastructure_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6235,15 +6894,22 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Update the specified lifecycle policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20UpdateLifecyclePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_lifecycle_policy(map(), update_lifecycle_policy_request(), list()) ::
+  @spec update_lifecycle_policy(AWS.Client.t(), update_lifecycle_policy_request(), Keyword.t()) ::
           {:ok, update_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_lifecycle_policy_errors()}
@@ -6252,7 +6918,8 @@ defmodule AWS.Imagebuilder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

@@ -3,33 +3,13 @@
 
 defmodule AWS.IoT do
   @moduledoc """
-  IoT
-
-  IoT provides secure, bi-directional communication between Internet-connected
-  devices (such as sensors, actuators, embedded devices, or smart appliances) and
-  the Amazon Web Services
-  cloud.
-
-  You can discover your custom IoT-Data endpoint to communicate with, configure
-  rules for data processing and integration with other services, organize
-  resources
-  associated with each device (Registry), configure logging, and create and manage
-  policies and credentials to authenticate devices.
-
-  The service endpoints that expose this API are listed in
-  [Amazon Web Services IoT Core Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/iot-core.html).
-  You must use the endpoint for the region that has the resources you want to
-  access.
-
-  The service name used by [Amazon Web Services Signature Version
-  4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) to
-  sign the request is:
-  *execute-api*.
-
-  For more information about how IoT works, see the [Developer Guide](https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html).
-
-  For information about how to use the credentials provider for IoT, see
-  [Authorizing Direct Calls to Amazon Web Services Services](https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html).
+  IoT IoT provides secure, bi-directional communication between Internet-connected
+  devices (such as sensors, actuators, embedded devices, or smart appliances)
+  and the Amazon Web Services cloud. You can discover your custom IoT-Data
+  endpoint to communicate with, configure rules for data processing and
+  integration with other services, organize resources associated with each
+  device (Registry), configure logging, and create and manage policies and
+  credentials to authenticate devices.
   """
 
   alias AWS.Client
@@ -10891,23 +10871,24 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Accepts a pending certificate transfer.
-
-  The default state of the certificate is
-  INACTIVE.
-
-  To check for pending certificate transfers, call `ListCertificates`
+  Accepts a pending certificate transfer. The default state of the certificate is
+  INACTIVE. To check for pending certificate transfers, call `ListCertificates`
   to enumerate your certificates.
 
-  Requires permission to access the
-  [AcceptCertificateTransfer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20AcceptCertificateTransfer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of
+    the certificate ARN contains the certificate ID.)
+
+  ## Optional parameters:
+  * `:set_as_active` (`t:boolean`) Specifies whether the certificate is active.
   """
   @spec accept_certificate_transfer(
-          map(),
+          AWS.Client.t(),
           String.t(),
           accept_certificate_transfer_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -10922,7 +10903,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:set_as_active])
 
     Request.request_rest(
       client,
@@ -10940,11 +10927,17 @@ defmodule AWS.IoT do
   @doc """
   Adds a thing to a billing group.
 
-  Requires permission to access the
-  [AddThingToBillingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20AddThingToBillingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec add_thing_to_billing_group(map(), add_thing_to_billing_group_request(), list()) ::
+  @spec add_thing_to_billing_group(
+          AWS.Client.t(),
+          add_thing_to_billing_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, add_thing_to_billing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_thing_to_billing_group_errors()}
@@ -10953,7 +10946,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -10961,11 +10955,13 @@ defmodule AWS.IoT do
   @doc """
   Adds a thing to a thing group.
 
-  Requires permission to access the
-  [AddThingToThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20AddThingToThingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec add_thing_to_thing_group(map(), add_thing_to_thing_group_request(), list()) ::
+  @spec add_thing_to_thing_group(AWS.Client.t(), add_thing_to_thing_group_request(), Keyword.t()) ::
           {:ok, add_thing_to_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_thing_to_thing_group_errors()}
@@ -10974,35 +10970,30 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Associates a group with a continuous job.
+  Associates a group with a continuous job. The following criteria must be met:
 
-  The following criteria must be met:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20AssociateTargetsWithJob&this_doc_guide=API%2520Reference)
 
-    *
-  The job must have been created with the `targetSelection` field set to
-  "CONTINUOUS".
+  ## Parameters:
+  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it
+    was created.
 
-    *
-  The job status must currently be "IN_PROGRESS".
-
-    *
-  The total number of targets associated with a job must not exceed 100.
-
-  Requires permission to access the
-  [AssociateTargetsWithJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Optional parameters:
+  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a
+    customer-managed job.
   """
   @spec associate_targets_with_job(
-          map(),
+          AWS.Client.t(),
           String.t(),
           associate_targets_with_job_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_targets_with_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -11017,7 +11008,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:namespace_id])
 
     Request.request_rest(
       client,
@@ -11036,11 +11033,14 @@ defmodule AWS.IoT do
   Attaches the specified policy to the specified principal (certificate or other
   credential).
 
-  Requires permission to access the
-  [AttachPolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20AttachPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:policy_name` (`t:string`) The name of the policy to attach.
+
+  ## Optional parameters:
   """
-  @spec attach_policy(map(), String.t(), attach_policy_request(), list()) ::
+  @spec attach_policy(AWS.Client.t(), String.t(), attach_policy_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_policy_errors()}
@@ -11049,29 +11049,46 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Attaches the specified policy to the specified principal (certificate or other
-  credential).
+  credential). **Note:** This action is deprecated and works as expected for
+  backward compatibility, but we won't add enhancements. Use `AttachPolicy`
+  instead.
 
-  **Note:** This action is deprecated and works as
-  expected for backward compatibility, but we won't add enhancements. Use
-  `AttachPolicy` instead.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20AttachPrincipalPolicy&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [AttachPrincipalPolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:policy_name` (`t:string`) The policy name.
+  * `:principal` (`t:string`) The principal, which can be a certificate ARN (as
+    returned from the CreateCertificate operation) or an Amazon Cognito ID.
+
+  ## Optional parameters:
   """
-  @spec attach_principal_policy(map(), String.t(), attach_principal_policy_request(), list()) ::
+  @spec attach_principal_policy(
+          AWS.Client.t(),
+          String.t(),
+          attach_principal_policy_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_principal_policy_errors()}
   def attach_principal_policy(%Client{} = client, policy_name, input, options \\ []) do
     url_path = "/principal-policies/#{AWS.Util.encode_uri(policy_name)}"
+
+    optional_params = [principal: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -11081,23 +11098,32 @@ defmodule AWS.IoT do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Associates a Device Defender security profile with a thing group or this
-  account.
+  account. Each thing group or account can have up to five security profiles
+  associated with it.
 
-  Each
-  thing group or account can have up to five security profiles associated with it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20AttachSecurityProfile&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [AttachSecurityProfile](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:security_profile_name` (`t:string`) The security profile that is attached.
+  * `:security_profile_target_arn` (`t:string`) The ARN of the target (thing
+    group) to which the security profile is attached.
+
+  ## Optional parameters:
   """
-  @spec attach_security_profile(map(), String.t(), attach_security_profile_request(), list()) ::
+  @spec attach_security_profile(
+          AWS.Client.t(),
+          String.t(),
+          attach_security_profile_request(),
+          Keyword.t()
+        ) ::
           {:ok, attach_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_security_profile_errors()}
@@ -11111,27 +11137,44 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Attaches the specified principal to the specified thing.
+  Attaches the specified principal to the specified thing. A principal can be
+  X.509 certificates, Amazon Cognito identities or federated identities.
 
-  A principal can be X.509
-  certificates, Amazon Cognito identities or federated identities.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20AttachThingPrincipal&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [AttachThingPrincipal](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:thing_name` (`t:string`) The name of the thing.
+  * `:principal` (`t:string`) The principal, which can be a certificate ARN (as
+    returned from the CreateCertificate operation) or an Amazon Cognito ID.
+
+  ## Optional parameters:
   """
-  @spec attach_thing_principal(map(), String.t(), attach_thing_principal_request(), list()) ::
+  @spec attach_thing_principal(
+          AWS.Client.t(),
+          String.t(),
+          attach_thing_principal_request(),
+          Keyword.t()
+        ) ::
           {:ok, attach_thing_principal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_thing_principal_errors()}
   def attach_thing_principal(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/principals"
+
+    optional_params = [principal: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -11141,27 +11184,29 @@ defmodule AWS.IoT do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Cancels a mitigation action task that is in progress.
+  Cancels a mitigation action task that is in progress. If the task is not in
+  progress, an InvalidRequestException occurs.
 
-  If the task
-  is not
-  in progress, an InvalidRequestException occurs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CancelAuditMitigationActionsTask&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [CancelAuditMitigationActionsTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:task_id` (`t:string`) The unique identifier for the task that you want to
+    cancel.
+
+  ## Optional parameters:
   """
   @spec cancel_audit_mitigation_actions_task(
-          map(),
+          AWS.Client.t(),
           String.t(),
           cancel_audit_mitigation_actions_task_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, cancel_audit_mitigation_actions_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -11171,22 +11216,25 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Cancels an audit that is in progress.
+  Cancels an audit that is in progress. The audit can be either scheduled or on
+  demand. If the audit isn't in progress, an "InvalidRequestException" occurs.
 
-  The audit can be either scheduled or on demand. If the audit isn't in progress,
-  an "InvalidRequestException" occurs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CancelAuditTask&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [CancelAuditTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:task_id` (`t:string`) The ID of the audit you want to cancel. You can only
+    cancel an audit that is "IN_PROGRESS".
+
+  ## Optional parameters:
   """
-  @spec cancel_audit_task(map(), String.t(), cancel_audit_task_request(), list()) ::
+  @spec cancel_audit_task(AWS.Client.t(), String.t(), cancel_audit_task_request(), Keyword.t()) ::
           {:ok, cancel_audit_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_audit_task_errors()}
@@ -11195,34 +11243,33 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Cancels a pending transfer for the specified certificate.
+  Cancels a pending transfer for the specified certificate. **Note** Only the
+  transfer source account can use this operation to cancel a transfer. (Transfer
+  destinations can use `RejectCertificateTransfer` instead.) After transfer, IoT
+  returns the certificate to the source account in the INACTIVE state. After the
+  destination account has accepted the transfer, the transfer cannot be
+  cancelled.
 
-  **Note** Only the transfer source account can use this
-  operation to cancel a transfer. (Transfer destinations can use
-  `RejectCertificateTransfer` instead.) After transfer, IoT returns the
-  certificate to the source account in the INACTIVE state. After the destination
-  account has
-  accepted the transfer, the transfer cannot be cancelled.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CancelCertificateTransfer&this_doc_guide=API%2520Reference)
 
-  After a certificate transfer is cancelled, the status of the certificate changes
-  from
-  PENDING_TRANSFER to INACTIVE.
+  ## Parameters:
+  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of
+    the certificate ARN contains the certificate ID.)
 
-  Requires permission to access the
-  [CancelCertificateTransfer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Optional parameters:
   """
   @spec cancel_certificate_transfer(
-          map(),
+          AWS.Client.t(),
           String.t(),
           cancel_certificate_transfer_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -11232,7 +11279,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -11248,18 +11296,20 @@ defmodule AWS.IoT do
   end
 
   @doc """
-
   Cancels a Device Defender ML Detect mitigation action.
 
-  Requires permission to access the
-  [CancelDetectMitigationActionsTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CancelDetectMitigationActionsTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:task_id` (`t:string`) The unique identifier of the task.
+
+  ## Optional parameters:
   """
   @spec cancel_detect_mitigation_actions_task(
-          map(),
+          AWS.Client.t(),
           String.t(),
           cancel_detect_mitigation_actions_task_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, cancel_detect_mitigation_actions_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -11269,7 +11319,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -11277,11 +11328,18 @@ defmodule AWS.IoT do
   @doc """
   Cancels a job.
 
-  Requires permission to access the
-  [CancelJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CancelJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it
+    was created.
+
+  ## Optional parameters:
+  * `:force` (`t:boolean`) (Optional) If true job executions with status
+    "IN_PROGRESS" and "QUEUED" are canceled, otherwise only job executions with
+    status "QUEUED" are canceled. The default is false.
   """
-  @spec cancel_job(map(), String.t(), cancel_job_request(), list()) ::
+  @spec cancel_job(AWS.Client.t(), String.t(), cancel_job_request(), Keyword.t()) ::
           {:ok, cancel_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_job_errors()}
@@ -11295,7 +11353,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:force])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -11303,16 +11367,26 @@ defmodule AWS.IoT do
   @doc """
   Cancels the execution of a job for a given thing.
 
-  Requires permission to access the
-  [CancelJobExecution](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CancelJobExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The ID of the job to be canceled.
+  * `:thing_name` (`t:string`) The name of the thing whose execution of the job
+    will be canceled.
+
+  ## Optional parameters:
+  * `:force` (`t:boolean`) (Optional) If true the job execution will be canceled
+    if it has status IN_PROGRESS or QUEUED, otherwise the job execution will be
+    canceled only if it has status QUEUED. If you attempt to cancel a job
+    execution that is IN_PROGRESS, and you do not set force to true, then an
+    InvalidStateTransitionException will be thrown. The default is false.
   """
   @spec cancel_job_execution(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           cancel_job_execution_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -11329,7 +11403,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:force])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -11337,11 +11417,13 @@ defmodule AWS.IoT do
   @doc """
   Clears the default authorizer.
 
-  Requires permission to access the
-  [ClearDefaultAuthorizer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ClearDefaultAuthorizer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec clear_default_authorizer(map(), clear_default_authorizer_request(), list()) ::
+  @spec clear_default_authorizer(AWS.Client.t(), clear_default_authorizer_request(), Keyword.t()) ::
           {:ok, clear_default_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, clear_default_authorizer_errors()}
@@ -11350,7 +11432,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -11366,41 +11449,62 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Confirms a topic rule destination.
+  Confirms a topic rule destination. When you create a rule requiring a
+  destination, IoT sends a confirmation message to the endpoint or base address
+  you specify. The message includes a token which you pass back when calling
+  `ConfirmTopicRuleDestination` to confirm that you own or have access to the
+  endpoint.
 
-  When you create a rule requiring a destination, IoT
-  sends a confirmation message to the endpoint or base address you specify. The
-  message
-  includes a token which you pass back when calling `ConfirmTopicRuleDestination`
-  to confirm that you own or have access to the endpoint.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ConfirmTopicRuleDestination&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [ConfirmTopicRuleDestination](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:confirmation_token` (`t:string`) The token used to confirm ownership or
+    access to the topic rule confirmation URL.
+
+  ## Optional parameters:
   """
-  @spec confirm_topic_rule_destination(map(), String.t(), list()) ::
+  @spec confirm_topic_rule_destination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, confirm_topic_rule_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, confirm_topic_rule_destination_errors()}
   def confirm_topic_rule_destination(%Client{} = client, confirmation_token, options \\ []) do
     url_path = "/confirmdestination/#{AWS.Util.encode_multi_segment_uri(confirmation_token)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Creates a Device Defender audit suppression.
 
-  Requires permission to access the
-  [CreateAuditSuppression](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateAuditSuppression&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_audit_suppression(map(), create_audit_suppression_request(), list()) ::
+  @spec create_audit_suppression(AWS.Client.t(), create_audit_suppression_request(), Keyword.t()) ::
           {:ok, create_audit_suppression_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_audit_suppression_errors()}
@@ -11409,7 +11513,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -11427,11 +11532,14 @@ defmodule AWS.IoT do
   @doc """
   Creates an authorizer.
 
-  Requires permission to access the
-  [CreateAuthorizer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateAuthorizer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:authorizer_name` (`t:string`) The authorizer name.
+
+  ## Optional parameters:
   """
-  @spec create_authorizer(map(), String.t(), create_authorizer_request(), list()) ::
+  @spec create_authorizer(AWS.Client.t(), String.t(), create_authorizer_request(), Keyword.t()) ::
           {:ok, create_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_authorizer_errors()}
@@ -11440,7 +11548,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -11458,11 +11567,20 @@ defmodule AWS.IoT do
   @doc """
   Creates a billing group.
 
-  Requires permission to access the
-  [CreateBillingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateBillingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:billing_group_name` (`t:string`) The name you wish to give to the billing
+    group.
+
+  ## Optional parameters:
   """
-  @spec create_billing_group(map(), String.t(), create_billing_group_request(), list()) ::
+  @spec create_billing_group(
+          AWS.Client.t(),
+          String.t(),
+          create_billing_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_billing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_billing_group_errors()}
@@ -11471,7 +11589,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -11487,72 +11606,27 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates an X.509 certificate using the specified certificate signing
-  request.
-
+  Creates an X.509 certificate using the specified certificate signing request.
   Requires permission to access the
-  [CreateCertificateFromCsr](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
-
-  The CSR must include a public key that is either an RSA key with a length of at
-  least
-  2048 bits or an ECC key from NIST P-256, NIST P-384, or NIST P-521 curves. For
-  supported
-  certificates, consult [ Certificate signing algorithms supported by
+  [CreateCertificateFromCsr](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  action. The CSR must include a public key that is either an RSA key with a
+  length of at least 2048 bits or an ECC key from NIST P-256, NIST P-384, or
+  NIST P-521 curves. For supported certificates, consult [ Certificate signing
+  algorithms supported by
   IoT](https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms).
 
-  Reusing the same certificate signing request (CSR)
-  results in a distinct certificate.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateCertificateFromCsr&this_doc_guide=API%2520Reference)
 
-  You can create multiple certificates in a batch by creating a directory, copying
-  multiple `.csr` files into that directory, and then specifying that directory on
-  the command
-  line. The following commands show how to create a batch of certificates given a
-  batch of
-  CSRs. In the following commands, we assume that a set of CSRs are located inside
-  of the
-  directory my-csr-directory:
+  ## Parameters:
 
-  On Linux and OS X, the command is:
-
-  ```
-  $ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr
-  --certificate-signing-request file://my-csr-directory/{}
-  ```
-
-  This command lists all of the CSRs in my-csr-directory and pipes each CSR file
-  name
-  to the `aws iot create-certificate-from-csr` Amazon Web Services CLI command to
-  create a certificate for
-  the corresponding CSR.
-
-  You can also run the `aws iot create-certificate-from-csr` part of the
-  command in parallel to speed up the certificate creation process:
-
-  ```
-  $ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr
-  --certificate-signing-request file://my-csr-directory/{}
-
-  ```
-
-  On Windows PowerShell, the command to create certificates for all CSRs in
-  my-csr-directory is:
-
-  ```
-  > ls -Name my-csr-directory | %{aws iot create-certificate-from-csr
-  --certificate-signing-request file://my-csr-directory/$_}
-
-  ```
-
-  On a Windows command prompt, the command to create certificates for all CSRs in
-  my-csr-directory is:
-
-  ```
-  > forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr
-  --certificate-signing-request file://@path"
-
-  ```
+  ## Optional parameters:
+  * `:set_as_active` (`t:boolean`) Specifies whether the certificate is active.
   """
-  @spec create_certificate_from_csr(map(), create_certificate_from_csr_request(), list()) ::
+  @spec create_certificate_from_csr(
+          AWS.Client.t(),
+          create_certificate_from_csr_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_certificate_from_csr_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_certificate_from_csr_errors()}
@@ -11566,7 +11640,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:set_as_active])
 
     Request.request_rest(
       client,
@@ -11582,33 +11662,30 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates an Amazon Web Services IoT Core certificate provider.
-
-  You can use Amazon Web Services IoT Core certificate provider to
-  customize how to sign a certificate signing request (CSR) in IoT fleet
-  provisioning. For
-  more information, see [Customizing certificate signing using Amazon Web Services IoT Core certificate
+  Creates an Amazon Web Services IoT Core certificate provider. You can use Amazon
+  Web Services IoT Core certificate provider to customize how to sign a
+  certificate signing request (CSR) in IoT fleet provisioning. For more
+  information, see [Customizing certificate signing using Amazon Web Services
+  IoT Core certificate
   provider](https://docs.aws.amazon.com/iot/latest/developerguide/provisioning-cert-provider.html)
-  from *Amazon Web Services IoT Core Developer
-  Guide*.
+  from *Amazon Web Services IoT Core Developer Guide*. Requires permission to
+  access the
+  [CreateCertificateProvider](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  action.
 
-  Requires permission to access the
-  [CreateCertificateProvider](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateCertificateProvider&this_doc_guide=API%2520Reference)
 
-  After you create a certificate provider, the behavior of [
-  `CreateCertificateFromCsr` API for fleet
-  provisioning](https://docs.aws.amazon.com/iot/latest/developerguide/fleet-provision-api.html#create-cert-csr)
-  will
-  change and all API calls to `CreateCertificateFromCsr` will invoke the
-  certificate provider to create the certificates. It can take up to a few minutes
-  for
-  this behavior to change after a certificate provider is created.
+  ## Parameters:
+  * `:certificate_provider_name` (`t:string`) The name of the certificate
+    provider.
+
+  ## Optional parameters:
   """
   @spec create_certificate_provider(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_certificate_provider_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_certificate_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -11623,7 +11700,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -11639,16 +11717,24 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Use this API to define a
-  Custom
-  Metric
-  published by your devices to Device Defender.
+  Use this API to define a Custom Metric published by your devices to Device
+  Defender.
 
-  Requires permission to access the
-  [CreateCustomMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateCustomMetric&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:metric_name` (`t:string`) The name of the custom metric. This will be used
+    in the metric report submitted from the device/thing. The name can't begin
+    with aws:. You can't change the name after you define it.
+
+  ## Optional parameters:
   """
-  @spec create_custom_metric(map(), String.t(), create_custom_metric_request(), list()) ::
+  @spec create_custom_metric(
+          AWS.Client.t(),
+          String.t(),
+          create_custom_metric_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_custom_metric_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_custom_metric_errors()}
@@ -11657,7 +11743,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -11674,17 +11761,19 @@ defmodule AWS.IoT do
 
   @doc """
   Create a dimension that you can use to limit the scope of a metric used in a
-  security profile for IoT Device Defender.
+  security profile for IoT Device Defender. For example, using a `TOPIC_FILTER`
+  dimension, you can narrow down the scope of the metric only to MQTT topics
+  whose name match the pattern specified in the dimension.
 
-  For example, using a `TOPIC_FILTER` dimension, you can narrow down the scope of
-  the metric only to MQTT topics whose name match the pattern specified in the
-  dimension.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateDimension&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [CreateDimension](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:name` (`t:string`) A unique identifier for the dimension. Choose something
+    that describes the type and value to make it easy to remember what it does.
+
+  ## Optional parameters:
   """
-  @spec create_dimension(map(), String.t(), create_dimension_request(), list()) ::
+  @spec create_dimension(AWS.Client.t(), String.t(), create_dimension_request(), Keyword.t()) ::
           {:ok, create_dimension_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dimension_errors()}
@@ -11693,7 +11782,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -11711,15 +11801,19 @@ defmodule AWS.IoT do
   @doc """
   Creates a domain configuration.
 
-  Requires permission to access the
-  [CreateDomainConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateDomainConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_configuration_name` (`t:string`) The name of the domain
+    configuration. This value must be unique to a region.
+
+  ## Optional parameters:
   """
   @spec create_domain_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_domain_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_domain_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -11734,7 +11828,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -11752,15 +11847,18 @@ defmodule AWS.IoT do
   @doc """
   Creates a dynamic thing group.
 
-  Requires permission to access the
-  [CreateDynamicThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateDynamicThingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_group_name` (`t:string`) The dynamic thing group name to create.
+
+  ## Optional parameters:
   """
   @spec create_dynamic_thing_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_dynamic_thing_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_dynamic_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -11770,7 +11868,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -11788,11 +11887,19 @@ defmodule AWS.IoT do
   @doc """
   Creates a fleet metric.
 
-  Requires permission to access the
-  [CreateFleetMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateFleetMetric&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:metric_name` (`t:string`) The name of the fleet metric to create.
+
+  ## Optional parameters:
   """
-  @spec create_fleet_metric(map(), String.t(), create_fleet_metric_request(), list()) ::
+  @spec create_fleet_metric(
+          AWS.Client.t(),
+          String.t(),
+          create_fleet_metric_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_fleet_metric_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_fleet_metric_errors()}
@@ -11801,7 +11908,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -11809,11 +11917,16 @@ defmodule AWS.IoT do
   @doc """
   Creates a job.
 
-  Requires permission to access the
-  [CreateJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) A job identifier which must be unique for your Amazon
+    Web Services account. We recommend using a UUID. Alpha-numeric characters,
+    "-" and "_" are valid for use here.
+
+  ## Optional parameters:
   """
-  @spec create_job(map(), String.t(), create_job_request(), list()) ::
+  @spec create_job(AWS.Client.t(), String.t(), create_job_request(), Keyword.t()) ::
           {:ok, create_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_errors()}
@@ -11822,7 +11935,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -11830,11 +11944,21 @@ defmodule AWS.IoT do
   @doc """
   Creates a job template.
 
-  Requires permission to access the
-  [CreateJobTemplate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateJobTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_template_id` (`t:string`) A unique identifier for the job template. We
+    recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for
+    use here.
+
+  ## Optional parameters:
   """
-  @spec create_job_template(map(), String.t(), create_job_template_request(), list()) ::
+  @spec create_job_template(
+          AWS.Client.t(),
+          String.t(),
+          create_job_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_template_errors()}
@@ -11843,26 +11967,32 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued
-  public key.
+  public key. You can also call `CreateKeysAndCertificate` over MQTT from a
+  device, for more information, see [Provisioning MQTT
+  API](https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api).
+  **Note** This is the only time IoT issues the private key for this
+  certificate, so it is important to keep it in a secure location.
 
-  You can also call `CreateKeysAndCertificate` over MQTT from a
-  device, for more information, see [Provisioning MQTT API](https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateKeysAndCertificate&this_doc_guide=API%2520Reference)
 
-  **Note** This is the only time IoT issues the private key
-  for this certificate, so it is important to keep it in a secure location.
+  ## Parameters:
 
-  Requires permission to access the
-  [CreateKeysAndCertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Optional parameters:
+  * `:set_as_active` (`t:boolean`) Specifies whether the certificate is active.
   """
-  @spec create_keys_and_certificate(map(), create_keys_and_certificate_request(), list()) ::
+  @spec create_keys_and_certificate(
+          AWS.Client.t(),
+          create_keys_and_certificate_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_keys_and_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_keys_and_certificate_errors()}
@@ -11876,7 +12006,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:set_as_active])
 
     Request.request_rest(
       client,
@@ -11893,17 +12029,29 @@ defmodule AWS.IoT do
 
   @doc """
   Defines an action that can be applied to audit findings by using
-  StartAuditMitigationActionsTask.
-
-  Only certain types of mitigation actions can be applied to specific check names.
-  For more information, see [Mitigation actions](https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-mitigation-actions.html).
-  Each mitigation action can apply only one type of change.
-
-  Requires permission to access the
+  StartAuditMitigationActionsTask. Only certain types of mitigation actions can
+  be applied to specific check names. For more information, see [Mitigation
+  actions](https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-mitigation-actions.html).
+  Each mitigation action can apply only one type of change. Requires permission
+  to access the
   [CreateMitigationAction](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateMitigationAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:action_name` (`t:string`) A friendly name for the action. Choose a friendly
+    name that accurately describes the action (for example,
+    EnableLoggingAction).
+
+  ## Optional parameters:
   """
-  @spec create_mitigation_action(map(), String.t(), create_mitigation_action_request(), list()) ::
+  @spec create_mitigation_action(
+          AWS.Client.t(),
+          String.t(),
+          create_mitigation_action_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_mitigation_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_mitigation_action_errors()}
@@ -11912,7 +12060,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -11930,11 +12079,14 @@ defmodule AWS.IoT do
   @doc """
   Creates an IoT OTA update on a target group of things or groups.
 
-  Requires permission to access the
-  [CreateOTAUpdate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateOTAUpdate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:ota_update_id` (`t:string`) The ID of the OTA update to be created.
+
+  ## Optional parameters:
   """
-  @spec create_ota_update(map(), String.t(), create_ota_update_request(), list()) ::
+  @spec create_ota_update(AWS.Client.t(), String.t(), create_ota_update_request(), Keyword.t()) ::
           {:ok, create_ota_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ota_update_errors()}
@@ -11943,7 +12095,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -11961,12 +12114,17 @@ defmodule AWS.IoT do
   @doc """
   Creates an IoT software package that can be deployed to your fleet.
 
-  Requires permission to access the
-  [CreatePackage](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) and
-  [GetIndexingConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  actions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreatePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_name` (`t:string`) The name of the new software package.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
-  @spec create_package(map(), String.t(), create_package_request(), list()) ::
+  @spec create_package(AWS.Client.t(), String.t(), create_package_request(), Keyword.t()) ::
           {:ok, create_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_package_errors()}
@@ -11980,7 +12138,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -11988,17 +12152,23 @@ defmodule AWS.IoT do
   @doc """
   Creates a new version for an existing IoT software package.
 
-  Requires permission to access the
-  [CreatePackageVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) and
-  [GetIndexingConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  actions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreatePackageVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_name` (`t:string`) The name of the associated software package.
+  * `:version_name` (`t:string`) The name of the new package version.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
   @spec create_package_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           create_package_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_package_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -12015,24 +12185,30 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Creates an IoT policy.
+  Creates an IoT policy. The created policy is the default version for the policy.
+  This operation creates a policy version with a version identifier of **1** and
+  sets **1** as the policy's default version.
 
-  The created policy is the default version for the policy. This operation creates
-  a
-  policy version with a version identifier of **1** and sets
-  **1** as the policy's default version.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreatePolicy&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [CreatePolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:policy_name` (`t:string`) The policy name.
+
+  ## Optional parameters:
   """
-  @spec create_policy(map(), String.t(), create_policy_request(), list()) ::
+  @spec create_policy(AWS.Client.t(), String.t(), create_policy_request(), Keyword.t()) ::
           {:ok, create_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_policy_errors()}
@@ -12041,7 +12217,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12057,24 +12234,31 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates a new version of the specified IoT policy.
+  Creates a new version of the specified IoT policy. To update a policy, create a
+  new policy version. A managed policy can have up to five versions. If the
+  policy has five versions, you must use `DeletePolicyVersion` to delete an
+  existing version before you create a new one. Optionally, you can set the new
+  version as the policy's default version. The default version is the operative
+  version (that is, the version that is in effect for the certificates to which
+  the policy is attached).
 
-  To update a policy, create a
-  new policy version. A managed policy can have up to five versions. If the policy
-  has five
-  versions, you must use `DeletePolicyVersion` to delete an existing version
-  before you create a new one.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreatePolicyVersion&this_doc_guide=API%2520Reference)
 
-  Optionally, you can set the new version as the policy's default version. The
-  default
-  version is the operative version (that is, the version that is in effect for the
-  certificates to which the policy is attached).
+  ## Parameters:
+  * `:policy_name` (`t:string`) The policy name.
 
-  Requires permission to access the
-  [CreatePolicyVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Optional parameters:
+  * `:set_as_default` (`t:boolean`) Specifies whether the policy version is set as
+    the default. When this parameter is true, the new policy version becomes the
+    operative version (that is, the version that is in effect for the
+    certificates to which the policy is attached).
   """
-  @spec create_policy_version(map(), String.t(), create_policy_version_request(), list()) ::
+  @spec create_policy_version(
+          AWS.Client.t(),
+          String.t(),
+          create_policy_version_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_policy_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_policy_version_errors()}
@@ -12088,7 +12272,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:set_as_default])
 
     Request.request_rest(
       client,
@@ -12106,11 +12296,19 @@ defmodule AWS.IoT do
   @doc """
   Creates a provisioning claim.
 
-  Requires permission to access the
-  [CreateProvisioningClaim](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateProvisioningClaim&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the provisioning template to use.
+
+  ## Optional parameters:
   """
-  @spec create_provisioning_claim(map(), String.t(), create_provisioning_claim_request(), list()) ::
+  @spec create_provisioning_claim(
+          AWS.Client.t(),
+          String.t(),
+          create_provisioning_claim_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_provisioning_claim_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_provisioning_claim_errors()}
@@ -12119,7 +12317,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12137,11 +12336,17 @@ defmodule AWS.IoT do
   @doc """
   Creates a provisioning template.
 
-  Requires permission to access the
-  [CreateProvisioningTemplate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateProvisioningTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_provisioning_template(map(), create_provisioning_template_request(), list()) ::
+  @spec create_provisioning_template(
+          AWS.Client.t(),
+          create_provisioning_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_provisioning_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_provisioning_template_errors()}
@@ -12150,7 +12355,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12168,15 +12374,20 @@ defmodule AWS.IoT do
   @doc """
   Creates a new version of a provisioning template.
 
-  Requires permission to access the
-  [CreateProvisioningTemplateVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateProvisioningTemplateVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the provisioning template.
+
+  ## Optional parameters:
+  * `:set_as_default` (`t:boolean`) Sets a fleet provision template version as the
+    default version.
   """
   @spec create_provisioning_template_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_provisioning_template_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_provisioning_template_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -12196,7 +12407,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:set_as_default])
 
     Request.request_rest(
       client,
@@ -12214,11 +12431,15 @@ defmodule AWS.IoT do
   @doc """
   Creates a role alias.
 
-  Requires permission to access the
-  [CreateRoleAlias](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateRoleAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:role_alias` (`t:string`) The role alias that points to a role ARN. This
+    allows you to change the role without having to update the device.
+
+  ## Optional parameters:
   """
-  @spec create_role_alias(map(), String.t(), create_role_alias_request(), list()) ::
+  @spec create_role_alias(AWS.Client.t(), String.t(), create_role_alias_request(), Keyword.t()) ::
           {:ok, create_role_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_role_alias_errors()}
@@ -12227,7 +12448,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12243,14 +12465,22 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates a scheduled audit that is run at a specified
-  time interval.
+  Creates a scheduled audit that is run at a specified time interval.
 
-  Requires permission to access the
-  [CreateScheduledAudit](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateScheduledAudit&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:scheduled_audit_name` (`t:string`) The name you want to give to the
+    scheduled audit. (Max. 128 chars)
+
+  ## Optional parameters:
   """
-  @spec create_scheduled_audit(map(), String.t(), create_scheduled_audit_request(), list()) ::
+  @spec create_scheduled_audit(
+          AWS.Client.t(),
+          String.t(),
+          create_scheduled_audit_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_scheduled_audit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_scheduled_audit_errors()}
@@ -12259,7 +12489,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12277,11 +12508,20 @@ defmodule AWS.IoT do
   @doc """
   Creates a Device Defender security profile.
 
-  Requires permission to access the
-  [CreateSecurityProfile](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateSecurityProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:security_profile_name` (`t:string`) The name you are giving to the security
+    profile.
+
+  ## Optional parameters:
   """
-  @spec create_security_profile(map(), String.t(), create_security_profile_request(), list()) ::
+  @spec create_security_profile(
+          AWS.Client.t(),
+          String.t(),
+          create_security_profile_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_security_profile_errors()}
@@ -12290,7 +12530,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12306,18 +12547,19 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates a stream for delivering one or more large files in chunks over MQTT.
+  Creates a stream for delivering one or more large files in chunks over MQTT. A
+  stream transports data bytes in chunks or blocks packaged as MQTT messages
+  from a source like S3. You can have one or more files associated with a
+  stream.
 
-  A stream transports data
-  bytes in chunks or blocks packaged as MQTT messages from a source like S3. You
-  can have one or more files
-  associated with a stream.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateStream&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [CreateStream](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:stream_id` (`t:string`) The stream ID.
+
+  ## Optional parameters:
   """
-  @spec create_stream(map(), String.t(), create_stream_request(), list()) ::
+  @spec create_stream(AWS.Client.t(), String.t(), create_stream_request(), Keyword.t()) ::
           {:ok, create_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_stream_errors()}
@@ -12326,7 +12568,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12342,23 +12585,19 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates a thing record in the registry.
-
-  If this call is made multiple times using
-  the same thing name and configuration, the call will succeed. If this call is
-  made with
-  the same thing name but different configuration a
+  Creates a thing record in the registry. If this call is made multiple times
+  using the same thing name and configuration, the call will succeed. If this
+  call is made with the same thing name but different configuration a
   `ResourceAlreadyExistsException` is thrown.
 
-  This is a control plane operation. See
-  [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html) for
-  information about authorizing control plane actions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateThing&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [CreateThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:thing_name` (`t:string`) The name of the thing to create.
+
+  ## Optional parameters:
   """
-  @spec create_thing(map(), String.t(), create_thing_request(), list()) ::
+  @spec create_thing(AWS.Client.t(), String.t(), create_thing_request(), Keyword.t()) ::
           {:ok, create_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_thing_errors()}
@@ -12367,7 +12606,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12385,18 +12625,14 @@ defmodule AWS.IoT do
   @doc """
   Create a thing group.
 
-  This is a control plane operation. See
-  [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html) for
-  information about authorizing control plane actions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateThingGroup&this_doc_guide=API%2520Reference)
 
-  If the `ThingGroup` that you create has the exact same attributes as an existing
-  `ThingGroup`, you will get a 200 success response.
+  ## Parameters:
+  * `:thing_group_name` (`t:string`) The thing group name to create.
 
-  Requires permission to access the
-  [CreateThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Optional parameters:
   """
-  @spec create_thing_group(map(), String.t(), create_thing_group_request(), list()) ::
+  @spec create_thing_group(AWS.Client.t(), String.t(), create_thing_group_request(), Keyword.t()) ::
           {:ok, create_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_thing_group_errors()}
@@ -12405,7 +12641,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12423,11 +12660,14 @@ defmodule AWS.IoT do
   @doc """
   Creates a new thing type.
 
-  Requires permission to access the
-  [CreateThingType](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateThingType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_type_name` (`t:string`) The name of the thing type.
+
+  ## Optional parameters:
   """
-  @spec create_thing_type(map(), String.t(), create_thing_type_request(), list()) ::
+  @spec create_thing_type(AWS.Client.t(), String.t(), create_thing_type_request(), Keyword.t()) ::
           {:ok, create_thing_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_thing_type_errors()}
@@ -12436,7 +12676,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12452,21 +12693,32 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates a rule.
+  Creates a rule. Creating rules is an administrator-level action. Any user who
+  has permission to create rules will be able to access data processed by the
+  rule.
 
-  Creating rules is an administrator-level action. Any user who has
-  permission to create rules will be able to access data processed by the rule.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateTopicRule&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [CreateTopicRule](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:rule_name` (`t:string`) The name of the rule.
+
+  ## Optional parameters:
+  * `:tags` (`t:string`) Metadata which can be used to manage the topic rule.
   """
-  @spec create_topic_rule(map(), String.t(), create_topic_rule_request(), list()) ::
+  @spec create_topic_rule(AWS.Client.t(), String.t(), create_topic_rule_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_topic_rule_errors()}
   def create_topic_rule(%Client{} = client, rule_name, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(rule_name)}"
+
+    optional_params = [tags: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -12476,7 +12728,13 @@ defmodule AWS.IoT do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:tags])
 
     Request.request_rest(
       client,
@@ -12492,15 +12750,20 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates a topic rule destination.
+  Creates a topic rule destination. The destination must be confirmed prior to
+  use.
 
-  The destination must be confirmed prior to use.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateTopicRuleDestination&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [CreateTopicRuleDestination](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_topic_rule_destination(map(), create_topic_rule_destination_request(), list()) ::
+  @spec create_topic_rule_destination(
+          AWS.Client.t(),
+          create_topic_rule_destination_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_topic_rule_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_topic_rule_destination_errors()}
@@ -12509,7 +12772,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12525,20 +12789,22 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Restores the default settings for Device Defender audits for this account.
-
-  Any
+  Restores the default settings for Device Defender audits for this account. Any
   configuration data you entered is deleted and all audit checks are reset to
   disabled.
 
-  Requires permission to access the
-  [DeleteAccountAuditConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteAccountAuditConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:delete_scheduled_audits` (`t:boolean`) If true, all scheduled audits are
+    deleted.
   """
   @spec delete_account_audit_configuration(
-          map(),
+          AWS.Client.t(),
           delete_account_audit_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_account_audit_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -12553,7 +12819,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:delete_scheduled_audits])
 
     Request.request_rest(
       client,
@@ -12569,14 +12841,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
-
   Deletes a Device Defender audit suppression.
 
-  Requires permission to access the
-  [DeleteAuditSuppression](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteAuditSuppression&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_audit_suppression(map(), delete_audit_suppression_request(), list()) ::
+  @spec delete_audit_suppression(AWS.Client.t(), delete_audit_suppression_request(), Keyword.t()) ::
           {:ok, delete_audit_suppression_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_audit_suppression_errors()}
@@ -12585,7 +12858,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12603,11 +12877,14 @@ defmodule AWS.IoT do
   @doc """
   Deletes an authorizer.
 
-  Requires permission to access the
-  [DeleteAuthorizer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteAuthorizer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:authorizer_name` (`t:string`) The name of the authorizer to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_authorizer(map(), String.t(), delete_authorizer_request(), list()) ::
+  @spec delete_authorizer(AWS.Client.t(), String.t(), delete_authorizer_request(), Keyword.t()) ::
           {:ok, delete_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_authorizer_errors()}
@@ -12616,7 +12893,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12634,11 +12912,23 @@ defmodule AWS.IoT do
   @doc """
   Deletes the billing group.
 
-  Requires permission to access the
-  [DeleteBillingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteBillingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:billing_group_name` (`t:string`) The name of the billing group.
+
+  ## Optional parameters:
+  * `:expected_version` (`t:long`) The expected version of the billing group. If
+    the version of the billing group does not match the expected version
+    specified in the request, the DeleteBillingGroup request is rejected with a
+    VersionConflictException.
   """
-  @spec delete_billing_group(map(), String.t(), delete_billing_group_request(), list()) ::
+  @spec delete_billing_group(
+          AWS.Client.t(),
+          String.t(),
+          delete_billing_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_billing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_billing_group_errors()}
@@ -12652,7 +12942,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:expected_version])
 
     Request.request_rest(
       client,
@@ -12670,11 +12966,20 @@ defmodule AWS.IoT do
   @doc """
   Deletes a registered CA certificate.
 
-  Requires permission to access the
-  [DeleteCACertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteCACertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:certificate_id` (`t:string`) The ID of the certificate to delete. (The last
+    part of the certificate ARN contains the certificate ID.)
+
+  ## Optional parameters:
   """
-  @spec delete_ca_certificate(map(), String.t(), delete_ca_certificate_request(), list()) ::
+  @spec delete_ca_certificate(
+          AWS.Client.t(),
+          String.t(),
+          delete_ca_certificate_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_ca_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ca_certificate_errors()}
@@ -12683,7 +12988,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12699,20 +13005,23 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes the specified certificate.
+  Deletes the specified certificate. A certificate cannot be deleted if it has a
+  policy or IoT thing attached to it or if its status is set to ACTIVE. To
+  delete a certificate, first use the `DetachPolicy` action to detach all
+  policies. Next, use the `UpdateCertificate` action to set the certificate to
+  the INACTIVE status.
 
-  A certificate cannot be deleted if it has a policy or IoT thing attached to it
-  or if
-  its status is set to ACTIVE. To delete a certificate, first use the
-  `DetachPolicy` action to detach all policies. Next, use the `UpdateCertificate`
-  action to set the certificate to the INACTIVE
-  status.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteCertificate&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [DeleteCertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of
+    the certificate ARN contains the certificate ID.)
+
+  ## Optional parameters:
+  * `:force_delete` (`t:boolean`) Forces the deletion of a certificate if it is
+    inactive and is not attached to an IoT thing.
   """
-  @spec delete_certificate(map(), String.t(), delete_certificate_request(), list()) ::
+  @spec delete_certificate(AWS.Client.t(), String.t(), delete_certificate_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_certificate_errors()}
@@ -12726,7 +13035,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:force_delete])
 
     Request.request_rest(
       client,
@@ -12742,21 +13057,23 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes a certificate provider.
-
-  Requires permission to access the
+  Deletes a certificate provider. Requires permission to access the
   [DeleteCertificateProvider](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
 
-  If you delete the certificate provider resource, the behavior of
-  `CreateCertificateFromCsr` will resume, and IoT will create
-  certificates signed by IoT from a certificate signing request (CSR).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteCertificateProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:certificate_provider_name` (`t:string`) The name of the certificate
+    provider.
+
+  ## Optional parameters:
   """
   @spec delete_certificate_provider(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_certificate_provider_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_certificate_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -12771,7 +13088,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12787,22 +13105,21 @@ defmodule AWS.IoT do
   end
 
   @doc """
-
   Deletes a Device Defender detect custom metric.
 
-  Requires permission to access the
-  [DeleteCustomMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteCustomMetric&this_doc_guide=API%2520Reference)
 
-  Before you can delete a custom metric, you must first remove the custom metric
-  from all
-  security profiles it's a part of.
-  The
-  security
-  profile associated with the custom metric can be found using the
-  [ListSecurityProfiles](https://docs.aws.amazon.com/iot/latest/apireference/API_ListSecurityProfiles.html)
-  API with `metricName` set to your custom metric name.
+  ## Parameters:
+  * `:metric_name` (`t:string`) The name of the custom metric.
+
+  ## Optional parameters:
   """
-  @spec delete_custom_metric(map(), String.t(), delete_custom_metric_request(), list()) ::
+  @spec delete_custom_metric(
+          AWS.Client.t(),
+          String.t(),
+          delete_custom_metric_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_custom_metric_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_metric_errors()}
@@ -12811,7 +13128,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12829,11 +13147,15 @@ defmodule AWS.IoT do
   @doc """
   Removes the specified dimension from your Amazon Web Services accounts.
 
-  Requires permission to access the
-  [DeleteDimension](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteDimension&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The unique identifier for the dimension that you want to
+    delete.
+
+  ## Optional parameters:
   """
-  @spec delete_dimension(map(), String.t(), delete_dimension_request(), list()) ::
+  @spec delete_dimension(AWS.Client.t(), String.t(), delete_dimension_request(), Keyword.t()) ::
           {:ok, delete_dimension_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dimension_errors()}
@@ -12842,7 +13164,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12860,15 +13183,19 @@ defmodule AWS.IoT do
   @doc """
   Deletes the specified domain configuration.
 
-  Requires permission to access the
-  [DeleteDomainConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteDomainConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_configuration_name` (`t:string`) The name of the domain configuration
+    to be deleted.
+
+  ## Optional parameters:
   """
   @spec delete_domain_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_domain_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_domain_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -12883,7 +13210,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12901,15 +13229,21 @@ defmodule AWS.IoT do
   @doc """
   Deletes a dynamic thing group.
 
-  Requires permission to access the
-  [DeleteDynamicThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteDynamicThingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_group_name` (`t:string`) The name of the dynamic thing group to
+    delete.
+
+  ## Optional parameters:
+  * `:expected_version` (`t:long`) The expected version of the dynamic thing group
+    to delete.
   """
   @spec delete_dynamic_thing_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_dynamic_thing_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_dynamic_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -12924,7 +13258,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:expected_version])
 
     Request.request_rest(
       client,
@@ -12940,16 +13280,24 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes the specified fleet metric.
+  Deletes the specified fleet metric. Returns successfully with no error if the
+  deletion is successful or you specify a fleet metric that doesn't exist.
 
-  Returns successfully with no error if the deletion is successful or you specify
-  a fleet metric that doesn't exist.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteFleetMetric&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [DeleteFleetMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:metric_name` (`t:string`) The name of the fleet metric to delete.
+
+  ## Optional parameters:
+  * `:expected_version` (`t:long`) The expected version of the fleet metric to
+    delete.
   """
-  @spec delete_fleet_metric(map(), String.t(), delete_fleet_metric_request(), list()) ::
+  @spec delete_fleet_metric(
+          AWS.Client.t(),
+          String.t(),
+          delete_fleet_metric_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fleet_metric_errors()}
@@ -12963,7 +13311,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:expected_version])
 
     Request.request_rest(
       client,
@@ -12979,22 +13333,26 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes a job and its related job executions.
+  Deletes a job and its related job executions. Deleting a job may take time,
+  depending on the number of job executions created for the job and various
+  other factors. While the job is being deleted, the status of the job will be
+  shown as "DELETION_IN_PROGRESS". Attempting to delete or cancel a job whose
+  status is already "DELETION_IN_PROGRESS" will result in an error.
 
-  Deleting a job may take time, depending on the number of job
-  executions created for the job and various other factors. While the job
-  is being deleted, the status of the job will be shown as
-  "DELETION_IN_PROGRESS". Attempting to delete or cancel a job whose status
-  is already "DELETION_IN_PROGRESS" will result in an error.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteJob&this_doc_guide=API%2520Reference)
 
-  Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or
-  a LimitExceededException will occur.
+  ## Parameters:
+  * `:job_id` (`t:string`) The ID of the job to be deleted.
 
-  Requires permission to access the
-  [DeleteJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Optional parameters:
+  * `:force` (`t:boolean`) (Optional) When true, you can delete a job which is
+    "IN_PROGRESS". Otherwise, you can only delete a job which is in a terminal
+    state ("COMPLETED" or "CANCELED") or an exception will occur. The default is
+    false.
+  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a
+    customer-managed job.
   """
-  @spec delete_job(map(), String.t(), delete_job_request(), list()) ::
+  @spec delete_job(AWS.Client.t(), String.t(), delete_job_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_job_errors()}
@@ -13009,7 +13367,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:force, :namespace_id])
 
     Request.request_rest(
       client,
@@ -13027,17 +13391,32 @@ defmodule AWS.IoT do
   @doc """
   Deletes a job execution.
 
-  Requires permission to access the
-  [DeleteJobExecution](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteJobExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:execution_number` (`t:long`) The ID of the job execution to be deleted. The
+    executionNumber refers to the execution of a particular job on a particular
+    device.
+  * `:job_id` (`t:string`) The ID of the job whose execution on a particular
+    device will be deleted.
+  * `:thing_name` (`t:string`) The name of the thing whose job execution will be
+    deleted.
+
+  ## Optional parameters:
+  * `:force` (`t:boolean`) (Optional) When true, you can delete a job execution
+    which is "IN_PROGRESS". Otherwise, you can only delete a job execution which
+    is in a terminal state ("SUCCEEDED", "FAILED", "REJECTED", "REMOVED" or
+    "CANCELED") or an exception will occur. The default is false.
+  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a
+    customer-managed job.
   """
   @spec delete_job_execution(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_job_execution_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -13062,7 +13441,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:force, :namespace_id])
 
     Request.request_rest(
       client,
@@ -13079,8 +13464,21 @@ defmodule AWS.IoT do
 
   @doc """
   Deletes the specified job template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteJobTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_template_id` (`t:string`) The unique identifier of the job template to
+    delete.
+
+  ## Optional parameters:
   """
-  @spec delete_job_template(map(), String.t(), delete_job_template_request(), list()) ::
+  @spec delete_job_template(
+          AWS.Client.t(),
+          String.t(),
+          delete_job_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_job_template_errors()}
@@ -13089,7 +13487,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13107,11 +13506,20 @@ defmodule AWS.IoT do
   @doc """
   Deletes a defined mitigation action from your Amazon Web Services accounts.
 
-  Requires permission to access the
-  [DeleteMitigationAction](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteMitigationAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:action_name` (`t:string`) The name of the mitigation action that you want to
+    delete.
+
+  ## Optional parameters:
   """
-  @spec delete_mitigation_action(map(), String.t(), delete_mitigation_action_request(), list()) ::
+  @spec delete_mitigation_action(
+          AWS.Client.t(),
+          String.t(),
+          delete_mitigation_action_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_mitigation_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_mitigation_action_errors()}
@@ -13120,7 +13528,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13138,11 +13547,21 @@ defmodule AWS.IoT do
   @doc """
   Delete an OTA update.
 
-  Requires permission to access the
-  [DeleteOTAUpdate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteOTAUpdate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:ota_update_id` (`t:string`) The ID of the OTA update to delete.
+
+  ## Optional parameters:
+  * `:delete_stream` (`t:boolean`) When true, the stream created by the OTAUpdate
+    process is deleted when the OTA update is deleted. Ignored if the stream
+    specified in the OTAUpdate is supplied by the user.
+  * `:force_delete_aws_job` (`t:boolean`) When true, deletes the IoT job created
+    by the OTAUpdate process even if it is "IN_PROGRESS". Otherwise, if the job
+    is not in a terminal state ("COMPLETED" or "CANCELED") an exception will
+    occur. The default is false.
   """
-  @spec delete_ota_update(map(), String.t(), delete_ota_update_request(), list()) ::
+  @spec delete_ota_update(AWS.Client.t(), String.t(), delete_ota_update_request(), Keyword.t()) ::
           {:ok, delete_ota_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ota_update_errors()}
@@ -13157,7 +13576,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:delete_stream, :force_delete_aws_job])
 
     Request.request_rest(
       client,
@@ -13173,16 +13598,20 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes a specific version from a software package.
+  Deletes a specific version from a software package. **Note:** All package
+  versions must be deleted before deleting the software package.
 
-  **Note:** All package versions must be deleted before deleting the software
-  package.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeletePackage&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [DeletePackageVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:package_name` (`t:string`) The name of the target software package.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
-  @spec delete_package(map(), String.t(), delete_package_request(), list()) ::
+  @spec delete_package(AWS.Client.t(), String.t(), delete_package_request(), Keyword.t()) ::
           {:ok, delete_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_package_errors()}
@@ -13196,7 +13625,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -13214,15 +13649,23 @@ defmodule AWS.IoT do
   @doc """
   Deletes a specific version from a software package.
 
-  **Note:** If a package version is designated as default, you must remove the
-  designation from the software package using the `UpdatePackage` action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeletePackageVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_name` (`t:string`) The name of the associated software package.
+  * `:version_name` (`t:string`) The name of the target package version.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
   @spec delete_package_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_package_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_package_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13239,7 +13682,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -13255,30 +13704,17 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes the specified policy.
+  Deletes the specified policy. A policy cannot be deleted if it has non-default
+  versions or it is attached to any certificate.
 
-  A policy cannot be deleted if it has non-default versions or it is attached to
-  any
-  certificate.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeletePolicy&this_doc_guide=API%2520Reference)
 
-  To delete a policy, use the `DeletePolicyVersion` action to delete all
-  non-default
-  versions of the policy; use the `DetachPolicy` action to detach the policy from
-  any
-  certificate; and then use the DeletePolicy action to delete the policy.
+  ## Parameters:
+  * `:policy_name` (`t:string`) The name of the policy to delete.
 
-  When a policy is deleted using DeletePolicy, its default version is deleted with
-  it.
-
-  Because of the distributed nature of Amazon Web Services, it can take up to five
-  minutes after
-  a policy is detached before it's ready to be deleted.
-
-  Requires permission to access the
-  [DeletePolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Optional parameters:
   """
-  @spec delete_policy(map(), String.t(), delete_policy_request(), list()) ::
+  @spec delete_policy(AWS.Client.t(), String.t(), delete_policy_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_policy_errors()}
@@ -13287,7 +13723,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13303,24 +13740,25 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes the specified version of the specified policy.
+  Deletes the specified version of the specified policy. You cannot delete the
+  default version of a policy using this action. To delete the default version
+  of a policy, use `DeletePolicy`. To find out which version of a policy is
+  marked as the default version, use ListPolicyVersions.
 
-  You cannot delete the default
-  version of a policy using this action. To delete the default version of a
-  policy, use `DeletePolicy`. To find out which version of a policy is marked as
-  the default
-  version, use ListPolicyVersions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeletePolicyVersion&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [DeletePolicyVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:policy_name` (`t:string`) The name of the policy.
+  * `:policy_version_id` (`t:string`) The policy version ID.
+
+  ## Optional parameters:
   """
   @spec delete_policy_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_policy_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -13338,7 +13776,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13356,15 +13795,19 @@ defmodule AWS.IoT do
   @doc """
   Deletes a provisioning template.
 
-  Requires permission to access the
-  [DeleteProvisioningTemplate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteProvisioningTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the fleet provision template to
+    delete.
+
+  ## Optional parameters:
   """
   @spec delete_provisioning_template(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_provisioning_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_provisioning_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13374,7 +13817,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13392,16 +13836,21 @@ defmodule AWS.IoT do
   @doc """
   Deletes a provisioning template version.
 
-  Requires permission to access the
-  [DeleteProvisioningTemplateVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteProvisioningTemplateVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the provisioning template version to
+    delete.
+  * `:version_id` (`t:integer`) The provisioning template version ID to delete.
+
+  ## Optional parameters:
   """
   @spec delete_provisioning_template_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_provisioning_template_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_provisioning_template_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13419,7 +13868,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13437,11 +13887,13 @@ defmodule AWS.IoT do
   @doc """
   Deletes a CA certificate registration code.
 
-  Requires permission to access the
-  [DeleteRegistrationCode](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteRegistrationCode&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_registration_code(map(), delete_registration_code_request(), list()) ::
+  @spec delete_registration_code(AWS.Client.t(), delete_registration_code_request(), Keyword.t()) ::
           {:ok, delete_registration_code_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_registration_code_errors()}
@@ -13450,7 +13902,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13468,11 +13921,14 @@ defmodule AWS.IoT do
   @doc """
   Deletes a role alias
 
-  Requires permission to access the
-  [DeleteRoleAlias](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteRoleAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:role_alias` (`t:string`) The role alias to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_role_alias(map(), String.t(), delete_role_alias_request(), list()) ::
+  @spec delete_role_alias(AWS.Client.t(), String.t(), delete_role_alias_request(), Keyword.t()) ::
           {:ok, delete_role_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_role_alias_errors()}
@@ -13481,7 +13937,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13499,11 +13956,20 @@ defmodule AWS.IoT do
   @doc """
   Deletes a scheduled audit.
 
-  Requires permission to access the
-  [DeleteScheduledAudit](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteScheduledAudit&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:scheduled_audit_name` (`t:string`) The name of the scheduled audit you want
+    to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_scheduled_audit(map(), String.t(), delete_scheduled_audit_request(), list()) ::
+  @spec delete_scheduled_audit(
+          AWS.Client.t(),
+          String.t(),
+          delete_scheduled_audit_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_scheduled_audit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_scheduled_audit_errors()}
@@ -13512,7 +13978,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13530,11 +13997,24 @@ defmodule AWS.IoT do
   @doc """
   Deletes a Device Defender security profile.
 
-  Requires permission to access the
-  [DeleteSecurityProfile](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteSecurityProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:security_profile_name` (`t:string`) The name of the security profile to be
+    deleted.
+
+  ## Optional parameters:
+  * `:expected_version` (`t:long`) The expected version of the security profile. A
+    new version is generated whenever the security profile is updated. If you
+    specify a value that is different from the actual version, a
+    VersionConflictException is thrown.
   """
-  @spec delete_security_profile(map(), String.t(), delete_security_profile_request(), list()) ::
+  @spec delete_security_profile(
+          AWS.Client.t(),
+          String.t(),
+          delete_security_profile_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_security_profile_errors()}
@@ -13548,7 +14028,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:expected_version])
 
     Request.request_rest(
       client,
@@ -13566,11 +14052,14 @@ defmodule AWS.IoT do
   @doc """
   Deletes a stream.
 
-  Requires permission to access the
-  [DeleteStream](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:stream_id` (`t:string`) The stream ID.
+
+  ## Optional parameters:
   """
-  @spec delete_stream(map(), String.t(), delete_stream_request(), list()) ::
+  @spec delete_stream(AWS.Client.t(), String.t(), delete_stream_request(), Keyword.t()) ::
           {:ok, delete_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_stream_errors()}
@@ -13579,7 +14068,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13595,16 +14085,21 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes the specified thing.
+  Deletes the specified thing. Returns successfully with no error if the deletion
+  is successful or you specify a thing that doesn't exist.
 
-  Returns successfully with no error if the deletion is
-  successful or you specify a thing that doesn't exist.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteThing&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [DeleteThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:thing_name` (`t:string`) The name of the thing to delete.
+
+  ## Optional parameters:
+  * `:expected_version` (`t:long`) The expected version of the thing record in the
+    registry. If the version of the record in the registry does not match the
+    expected version specified in the request, the DeleteThing request is
+    rejected with a VersionConflictException.
   """
-  @spec delete_thing(map(), String.t(), delete_thing_request(), list()) ::
+  @spec delete_thing(AWS.Client.t(), String.t(), delete_thing_request(), Keyword.t()) ::
           {:ok, delete_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_thing_errors()}
@@ -13618,7 +14113,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:expected_version])
 
     Request.request_rest(
       client,
@@ -13636,11 +14137,16 @@ defmodule AWS.IoT do
   @doc """
   Deletes a thing group.
 
-  Requires permission to access the
-  [DeleteThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteThingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_group_name` (`t:string`) The name of the thing group to delete.
+
+  ## Optional parameters:
+  * `:expected_version` (`t:long`) The expected version of the thing group to
+    delete.
   """
-  @spec delete_thing_group(map(), String.t(), delete_thing_group_request(), list()) ::
+  @spec delete_thing_group(AWS.Client.t(), String.t(), delete_thing_group_request(), Keyword.t()) ::
           {:ok, delete_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_thing_group_errors()}
@@ -13654,7 +14160,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:expected_version])
 
     Request.request_rest(
       client,
@@ -13670,19 +14182,20 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes the specified thing type.
+  Deletes the specified thing type. You cannot delete a thing type if it has
+  things associated with it. To delete a thing type, first mark it as deprecated
+  by calling `DeprecateThingType`, then remove any associated things by calling
+  `UpdateThing` to change the thing type on any associated thing, and finally
+  use `DeleteThingType` to delete the thing type.
 
-  You cannot delete a thing type if it has things
-  associated with it. To delete a thing type, first mark it as deprecated by
-  calling `DeprecateThingType`, then remove any associated things by calling
-  `UpdateThing` to change the thing type on any associated thing, and
-  finally use `DeleteThingType` to delete the thing type.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteThingType&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [DeleteThingType](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:thing_type_name` (`t:string`) The name of the thing type.
+
+  ## Optional parameters:
   """
-  @spec delete_thing_type(map(), String.t(), delete_thing_type_request(), list()) ::
+  @spec delete_thing_type(AWS.Client.t(), String.t(), delete_thing_type_request(), Keyword.t()) ::
           {:ok, delete_thing_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_thing_type_errors()}
@@ -13691,7 +14204,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13709,11 +14223,14 @@ defmodule AWS.IoT do
   @doc """
   Deletes the rule.
 
-  Requires permission to access the
-  [DeleteTopicRule](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteTopicRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:rule_name` (`t:string`) The name of the rule.
+
+  ## Optional parameters:
   """
-  @spec delete_topic_rule(map(), String.t(), delete_topic_rule_request(), list()) ::
+  @spec delete_topic_rule(AWS.Client.t(), String.t(), delete_topic_rule_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_topic_rule_errors()}
@@ -13722,7 +14239,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13740,15 +14258,18 @@ defmodule AWS.IoT do
   @doc """
   Deletes a topic rule destination.
 
-  Requires permission to access the
-  [DeleteTopicRuleDestination](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteTopicRuleDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The ARN of the topic rule destination to delete.
+
+  ## Optional parameters:
   """
   @spec delete_topic_rule_destination(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_topic_rule_destination_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_topic_rule_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13758,7 +14279,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13776,11 +14298,18 @@ defmodule AWS.IoT do
   @doc """
   Deletes a logging level.
 
-  Requires permission to access the
-  [DeleteV2LoggingLevel](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteV2LoggingLevel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:target_name` (`t:string`) The name of the resource for which you are
+    configuring logging.
+  * `:target_type`
+    (`t:enum["CLIENT_ID|DEFAULT|PRINCIPAL_ID|SOURCE_IP|THING_GROUP"]`) The type
+    of resource for which you are configuring logging. Must be THING_Group.
+
+  ## Optional parameters:
   """
-  @spec delete_v2_logging_level(map(), delete_v2_logging_level_request(), list()) ::
+  @spec delete_v2_logging_level(AWS.Client.t(), delete_v2_logging_level_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_v2_logging_level_errors()}
@@ -13795,7 +14324,8 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13811,16 +14341,22 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deprecates a thing type.
-
-  You can not associate new things with deprecated thing
+  Deprecates a thing type. You can not associate new things with deprecated thing
   type.
 
-  Requires permission to access the
-  [DeprecateThingType](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeprecateThingType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_type_name` (`t:string`) The name of the thing type to deprecate.
+
+  ## Optional parameters:
   """
-  @spec deprecate_thing_type(map(), String.t(), deprecate_thing_type_request(), list()) ::
+  @spec deprecate_thing_type(
+          AWS.Client.t(),
+          String.t(),
+          deprecate_thing_type_request(),
+          Keyword.t()
+        ) ::
           {:ok, deprecate_thing_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deprecate_thing_type_errors()}
@@ -13829,7 +14365,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13846,81 +14383,151 @@ defmodule AWS.IoT do
 
   @doc """
   Gets information about the Device Defender audit settings for this account.
-
   Settings include how audit notifications are sent and which audit checks are
   enabled or disabled.
 
-  Requires permission to access the
-  [DescribeAccountAuditConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeAccountAuditConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_account_audit_configuration(map(), list()) ::
+  @spec describe_account_audit_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_account_audit_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_audit_configuration_errors()}
   def describe_account_audit_configuration(%Client{} = client, options \\ []) do
     url_path = "/audit/configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets information about a single audit finding.
+  Gets information about a single audit finding. Properties include the reason for
+  noncompliance, the severity of the issue, and the start time when the audit
+  that returned the finding.
 
-  Properties include the reason for
-  noncompliance, the severity of the issue,
-  and the start time
-  when the audit that returned the
-  finding.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeAuditFinding&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [DescribeAuditFinding](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:finding_id` (`t:string`) A unique identifier for a single audit finding. You
+    can use this identifier to apply mitigation actions to the finding.
+
+  ## Optional parameters:
   """
-  @spec describe_audit_finding(map(), String.t(), list()) ::
+  @spec describe_audit_finding(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_audit_finding_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_audit_finding_errors()}
   def describe_audit_finding(%Client{} = client, finding_id, options \\ []) do
     url_path = "/audit/findings/#{AWS.Util.encode_uri(finding_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about an audit mitigation task that is used to apply mitigation
-  actions to a set of audit findings.
+  actions to a set of audit findings. Properties include the actions being
+  applied, the audit checks to which they're being applied, the task status, and
+  aggregated task statistics.
 
-  Properties include the actions being applied, the audit checks to which they're
-  being applied, the task status, and aggregated task statistics.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeAuditMitigationActionsTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:task_id` (`t:string`) The unique identifier for the audit mitigation task.
+
+  ## Optional parameters:
   """
-  @spec describe_audit_mitigation_actions_task(map(), String.t(), list()) ::
+  @spec describe_audit_mitigation_actions_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_audit_mitigation_actions_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_audit_mitigation_actions_task_errors()}
   def describe_audit_mitigation_actions_task(%Client{} = client, task_id, options \\ []) do
     url_path = "/audit/mitigationactions/tasks/#{AWS.Util.encode_uri(task_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Gets information about a Device Defender audit suppression.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeAuditSuppression&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_audit_suppression(map(), describe_audit_suppression_request(), list()) ::
+  @spec describe_audit_suppression(
+          AWS.Client.t(),
+          describe_audit_suppression_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_audit_suppression_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_audit_suppression_errors()}
@@ -13929,7 +14536,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13947,20 +14555,41 @@ defmodule AWS.IoT do
   @doc """
   Gets information about a Device Defender audit.
 
-  Requires permission to access the
-  [DescribeAuditTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeAuditTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:task_id` (`t:string`) The ID of the audit whose information you want to get.
+
+  ## Optional parameters:
   """
-  @spec describe_audit_task(map(), String.t(), list()) ::
+  @spec describe_audit_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_audit_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_audit_task_errors()}
   def describe_audit_task(%Client{} = client, task_id, options \\ []) do
     url_path = "/audit/tasks/#{AWS.Util.encode_uri(task_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -13968,20 +14597,41 @@ defmodule AWS.IoT do
   @doc """
   Describes an authorizer.
 
-  Requires permission to access the
-  [DescribeAuthorizer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeAuthorizer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:authorizer_name` (`t:string`) The name of the authorizer to describe.
+
+  ## Optional parameters:
   """
-  @spec describe_authorizer(map(), String.t(), list()) ::
+  @spec describe_authorizer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_authorizer_errors()}
   def describe_authorizer(%Client{} = client, authorizer_name, options \\ []) do
     url_path = "/authorizer/#{AWS.Util.encode_uri(authorizer_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -13989,20 +14639,41 @@ defmodule AWS.IoT do
   @doc """
   Returns information about a billing group.
 
-  Requires permission to access the
-  [DescribeBillingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeBillingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:billing_group_name` (`t:string`) The name of the billing group.
+
+  ## Optional parameters:
   """
-  @spec describe_billing_group(map(), String.t(), list()) ::
+  @spec describe_billing_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_billing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_billing_group_errors()}
   def describe_billing_group(%Client{} = client, billing_group_name, options \\ []) do
     url_path = "/billing-groups/#{AWS.Util.encode_uri(billing_group_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14010,20 +14681,41 @@ defmodule AWS.IoT do
   @doc """
   Describes a registered CA certificate.
 
-  Requires permission to access the
-  [DescribeCACertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeCACertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:certificate_id` (`t:string`) The CA certificate identifier.
+
+  ## Optional parameters:
   """
-  @spec describe_ca_certificate(map(), String.t(), list()) ::
+  @spec describe_ca_certificate(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_ca_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_ca_certificate_errors()}
   def describe_ca_certificate(%Client{} = client, certificate_id, options \\ []) do
     url_path = "/cacertificate/#{AWS.Util.encode_uri(certificate_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14031,20 +14723,42 @@ defmodule AWS.IoT do
   @doc """
   Gets information about the specified certificate.
 
-  Requires permission to access the
-  [DescribeCertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of
+    the certificate ARN contains the certificate ID.)
+
+  ## Optional parameters:
   """
-  @spec describe_certificate(map(), String.t(), list()) ::
+  @spec describe_certificate(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_certificate_errors()}
   def describe_certificate(%Client{} = client, certificate_id, options \\ []) do
     url_path = "/certificates/#{AWS.Util.encode_uri(certificate_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14052,42 +14766,84 @@ defmodule AWS.IoT do
   @doc """
   Describes a certificate provider.
 
-  Requires permission to access the
-  [DescribeCertificateProvider](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeCertificateProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:certificate_provider_name` (`t:string`) The name of the certificate
+    provider.
+
+  ## Optional parameters:
   """
-  @spec describe_certificate_provider(map(), String.t(), list()) ::
+  @spec describe_certificate_provider(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_certificate_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_certificate_provider_errors()}
   def describe_certificate_provider(%Client{} = client, certificate_provider_name, options \\ []) do
     url_path = "/certificate-providers/#{AWS.Util.encode_uri(certificate_provider_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Gets information about a Device Defender detect custom metric.
 
-  Requires permission to access the
-  [DescribeCustomMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeCustomMetric&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:metric_name` (`t:string`) The name of the custom metric.
+
+  ## Optional parameters:
   """
-  @spec describe_custom_metric(map(), String.t(), list()) ::
+  @spec describe_custom_metric(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_custom_metric_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_custom_metric_errors()}
   def describe_custom_metric(%Client{} = client, metric_name, options \\ []) do
     url_path = "/custom-metric/#{AWS.Util.encode_uri(metric_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14095,42 +14851,82 @@ defmodule AWS.IoT do
   @doc """
   Describes the default authorizer.
 
-  Requires permission to access the
-  [DescribeDefaultAuthorizer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeDefaultAuthorizer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_default_authorizer(map(), list()) ::
+  @spec describe_default_authorizer(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_default_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_default_authorizer_errors()}
   def describe_default_authorizer(%Client{} = client, options \\ []) do
     url_path = "/default-authorizer"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Gets information about a Device Defender ML Detect mitigation action.
 
-  Requires permission to access the
-  [DescribeDetectMitigationActionsTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeDetectMitigationActionsTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:task_id` (`t:string`) The unique identifier of the task.
+
+  ## Optional parameters:
   """
-  @spec describe_detect_mitigation_actions_task(map(), String.t(), list()) ::
+  @spec describe_detect_mitigation_actions_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_detect_mitigation_actions_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_detect_mitigation_actions_task_errors()}
   def describe_detect_mitigation_actions_task(%Client{} = client, task_id, options \\ []) do
     url_path = "/detect/mitigationactions/tasks/#{AWS.Util.encode_uri(task_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14139,20 +14935,41 @@ defmodule AWS.IoT do
   Provides details about a dimension that is defined in your Amazon Web Services
   accounts.
 
-  Requires permission to access the
-  [DescribeDimension](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeDimension&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The unique identifier for the dimension.
+
+  ## Optional parameters:
   """
-  @spec describe_dimension(map(), String.t(), list()) ::
+  @spec describe_dimension(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dimension_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dimension_errors()}
   def describe_dimension(%Client{} = client, name, options \\ []) do
     url_path = "/dimensions/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14160,53 +14977,97 @@ defmodule AWS.IoT do
   @doc """
   Gets summary information about a domain configuration.
 
-  Requires permission to access the
-  [DescribeDomainConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeDomainConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_configuration_name` (`t:string`) The name of the domain
+    configuration.
+
+  ## Optional parameters:
   """
-  @spec describe_domain_configuration(map(), String.t(), list()) ::
+  @spec describe_domain_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_configuration_errors()}
   def describe_domain_configuration(%Client{} = client, domain_configuration_name, options \\ []) do
     url_path = "/domainConfigurations/#{AWS.Util.encode_uri(domain_configuration_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns or creates a unique endpoint specific to the Amazon Web Services account
-  making the
-  call.
+  making the call. The first time `DescribeEndpoint` is called, an endpoint is
+  created. All subsequent calls to `DescribeEndpoint` return the same endpoint.
 
-  The first time `DescribeEndpoint` is called, an endpoint is created. All
-  subsequent calls to `DescribeEndpoint` return the same endpoint.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeEndpoint&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [DescribeEndpoint](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:endpoint_type` (`t:string`) The endpoint type. Valid endpoint types include:
   """
-  @spec describe_endpoint(map(), String.t() | nil, list()) ::
+  @spec describe_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_endpoint_errors()}
-  def describe_endpoint(%Client{} = client, endpoint_type \\ nil, options \\ []) do
+  def describe_endpoint(%Client{} = client, options \\ []) do
     url_path = "/endpoint"
+
+    # Validate optional parameters
+    optional_params = [endpoint_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(endpoint_type) do
-        [{"endpointType", endpoint_type} | query_params]
+      if opt_val = Keyword.get(options, :endpoint_type) do
+        [{"endpointType", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:endpoint_type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14214,20 +15075,40 @@ defmodule AWS.IoT do
   @doc """
   Describes event configurations.
 
-  Requires permission to access the
-  [DescribeEventConfigurations](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeEventConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_event_configurations(map(), list()) ::
+  @spec describe_event_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_event_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_configurations_errors()}
   def describe_event_configurations(%Client{} = client, options \\ []) do
     url_path = "/event-configurations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14235,20 +15116,41 @@ defmodule AWS.IoT do
   @doc """
   Gets information about the specified fleet metric.
 
-  Requires permission to access the
-  [DescribeFleetMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeFleetMetric&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:metric_name` (`t:string`) The name of the fleet metric to describe.
+
+  ## Optional parameters:
   """
-  @spec describe_fleet_metric(map(), String.t(), list()) ::
+  @spec describe_fleet_metric(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_fleet_metric_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleet_metric_errors()}
   def describe_fleet_metric(%Client{} = client, metric_name, options \\ []) do
     url_path = "/fleet-metric/#{AWS.Util.encode_uri(metric_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14256,20 +15158,41 @@ defmodule AWS.IoT do
   @doc """
   Describes a search index.
 
-  Requires permission to access the
-  [DescribeIndex](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeIndex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:index_name` (`t:string`) The index name.
+
+  ## Optional parameters:
   """
-  @spec describe_index(map(), String.t(), list()) ::
+  @spec describe_index(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_index_errors()}
   def describe_index(%Client{} = client, index_name, options \\ []) do
     url_path = "/indices/#{AWS.Util.encode_uri(index_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14277,20 +15200,42 @@ defmodule AWS.IoT do
   @doc """
   Describes a job.
 
-  Requires permission to access the
-  [DescribeJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it
+    was created.
+
+  ## Optional parameters:
   """
-  @spec describe_job(map(), String.t(), list()) ::
+  @spec describe_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_errors()}
   def describe_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14298,79 +15243,157 @@ defmodule AWS.IoT do
   @doc """
   Describes a job execution.
 
-  Requires permission to access the
-  [DescribeJobExecution](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeJobExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it
+    was created.
+  * `:thing_name` (`t:string`) The name of the thing on which the job execution is
+    running.
+
+  ## Optional parameters:
+  * `:execution_number` (`t:long`) A string (consisting of the digits "0" through
+    "9" which is used to specify a particular job execution on a particular
+    device.
   """
-  @spec describe_job_execution(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec describe_job_execution(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_execution_errors()}
-  def describe_job_execution(
-        %Client{} = client,
-        job_id,
-        thing_name,
-        execution_number \\ nil,
-        options \\ []
-      ) do
+  def describe_job_execution(%Client{} = client, job_id, thing_name, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
+
+    # Validate optional parameters
+    optional_params = [execution_number: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(execution_number) do
-        [{"executionNumber", execution_number} | query_params]
+      if opt_val = Keyword.get(options, :execution_number) do
+        [{"executionNumber", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:execution_number])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a job template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeJobTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_template_id` (`t:string`) The unique identifier of the job template.
+
+  ## Optional parameters:
   """
-  @spec describe_job_template(map(), String.t(), list()) ::
+  @spec describe_job_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_template_errors()}
   def describe_job_template(%Client{} = client, job_template_id, options \\ []) do
     url_path = "/job-templates/#{AWS.Util.encode_uri(job_template_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   View details of a managed job template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeManagedJobTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The unique name of a managed job template, which
+    is required.
+
+  ## Optional parameters:
+  * `:template_version` (`t:string`) An optional parameter to specify version of a
+    managed template. If not specified, the pre-defined default version is
+    returned.
   """
-  @spec describe_managed_job_template(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_managed_job_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_managed_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_managed_job_template_errors()}
-  def describe_managed_job_template(
-        %Client{} = client,
-        template_name,
-        template_version \\ nil,
-        options \\ []
-      ) do
+  def describe_managed_job_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/managed-job-templates/#{AWS.Util.encode_uri(template_name)}"
+
+    # Validate optional parameters
+    optional_params = [template_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(template_version) do
-        [{"templateVersion", template_version} | query_params]
+      if opt_val = Keyword.get(options, :template_version) do
+        [{"templateVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:template_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14378,20 +15401,42 @@ defmodule AWS.IoT do
   @doc """
   Gets information about a mitigation action.
 
-  Requires permission to access the
-  [DescribeMitigationAction](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeMitigationAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:action_name` (`t:string`) The friendly name that uniquely identifies the
+    mitigation action.
+
+  ## Optional parameters:
   """
-  @spec describe_mitigation_action(map(), String.t(), list()) ::
+  @spec describe_mitigation_action(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_mitigation_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_mitigation_action_errors()}
   def describe_mitigation_action(%Client{} = client, action_name, options \\ []) do
     url_path = "/mitigationactions/actions/#{AWS.Util.encode_uri(action_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14399,20 +15444,41 @@ defmodule AWS.IoT do
   @doc """
   Returns information about a provisioning template.
 
-  Requires permission to access the
-  [DescribeProvisioningTemplate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeProvisioningTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the provisioning template.
+
+  ## Optional parameters:
   """
-  @spec describe_provisioning_template(map(), String.t(), list()) ::
+  @spec describe_provisioning_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_provisioning_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_provisioning_template_errors()}
   def describe_provisioning_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/provisioning-templates/#{AWS.Util.encode_uri(template_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14420,11 +15486,20 @@ defmodule AWS.IoT do
   @doc """
   Returns information about a provisioning template version.
 
-  Requires permission to access the
-  [DescribeProvisioningTemplateVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeProvisioningTemplateVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The template name.
+  * `:version_id` (`t:integer`) The provisioning template version ID.
+
+  ## Optional parameters:
   """
-  @spec describe_provisioning_template_version(map(), String.t(), String.t(), list()) ::
+  @spec describe_provisioning_template_version(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, describe_provisioning_template_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_provisioning_template_version_errors()}
@@ -14437,10 +15512,27 @@ defmodule AWS.IoT do
     url_path =
       "/provisioning-templates/#{AWS.Util.encode_uri(template_name)}/versions/#{AWS.Util.encode_uri(version_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14448,20 +15540,41 @@ defmodule AWS.IoT do
   @doc """
   Describes a role alias.
 
-  Requires permission to access the
-  [DescribeRoleAlias](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeRoleAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:role_alias` (`t:string`) The role alias to describe.
+
+  ## Optional parameters:
   """
-  @spec describe_role_alias(map(), String.t(), list()) ::
+  @spec describe_role_alias(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_role_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_role_alias_errors()}
   def describe_role_alias(%Client{} = client, role_alias, options \\ []) do
     url_path = "/role-aliases/#{AWS.Util.encode_uri(role_alias)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14469,20 +15582,42 @@ defmodule AWS.IoT do
   @doc """
   Gets information about a scheduled audit.
 
-  Requires permission to access the
-  [DescribeScheduledAudit](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeScheduledAudit&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:scheduled_audit_name` (`t:string`) The name of the scheduled audit whose
+    information you want to get.
+
+  ## Optional parameters:
   """
-  @spec describe_scheduled_audit(map(), String.t(), list()) ::
+  @spec describe_scheduled_audit(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_scheduled_audit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_scheduled_audit_errors()}
   def describe_scheduled_audit(%Client{} = client, scheduled_audit_name, options \\ []) do
     url_path = "/audit/scheduledaudits/#{AWS.Util.encode_uri(scheduled_audit_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14490,20 +15625,42 @@ defmodule AWS.IoT do
   @doc """
   Gets information about a Device Defender security profile.
 
-  Requires permission to access the
-  [DescribeSecurityProfile](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeSecurityProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:security_profile_name` (`t:string`) The name of the security profile whose
+    information you want to get.
+
+  ## Optional parameters:
   """
-  @spec describe_security_profile(map(), String.t(), list()) ::
+  @spec describe_security_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_security_profile_errors()}
   def describe_security_profile(%Client{} = client, security_profile_name, options \\ []) do
     url_path = "/security-profiles/#{AWS.Util.encode_uri(security_profile_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14511,20 +15668,41 @@ defmodule AWS.IoT do
   @doc """
   Gets information about a stream.
 
-  Requires permission to access the
-  [DescribeStream](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:stream_id` (`t:string`) The stream ID.
+
+  ## Optional parameters:
   """
-  @spec describe_stream(map(), String.t(), list()) ::
+  @spec describe_stream(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_stream_errors()}
   def describe_stream(%Client{} = client, stream_id, options \\ []) do
     url_path = "/streams/#{AWS.Util.encode_uri(stream_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14532,20 +15710,41 @@ defmodule AWS.IoT do
   @doc """
   Gets information about the specified thing.
 
-  Requires permission to access the
-  [DescribeThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeThing&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_name` (`t:string`) The name of the thing.
+
+  ## Optional parameters:
   """
-  @spec describe_thing(map(), String.t(), list()) ::
+  @spec describe_thing(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_thing_errors()}
   def describe_thing(%Client{} = client, thing_name, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14553,20 +15752,41 @@ defmodule AWS.IoT do
   @doc """
   Describe a thing group.
 
-  Requires permission to access the
-  [DescribeThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeThingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_group_name` (`t:string`) The name of the thing group.
+
+  ## Optional parameters:
   """
-  @spec describe_thing_group(map(), String.t(), list()) ::
+  @spec describe_thing_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_thing_group_errors()}
   def describe_thing_group(%Client{} = client, thing_group_name, options \\ []) do
     url_path = "/thing-groups/#{AWS.Util.encode_uri(thing_group_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14574,20 +15794,41 @@ defmodule AWS.IoT do
   @doc """
   Describes a bulk thing provisioning task.
 
-  Requires permission to access the
-  [DescribeThingRegistrationTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeThingRegistrationTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:task_id` (`t:string`) The task ID.
+
+  ## Optional parameters:
   """
-  @spec describe_thing_registration_task(map(), String.t(), list()) ::
+  @spec describe_thing_registration_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_thing_registration_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_thing_registration_task_errors()}
   def describe_thing_registration_task(%Client{} = client, task_id, options \\ []) do
     url_path = "/thing-registration-tasks/#{AWS.Util.encode_uri(task_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14595,36 +15836,58 @@ defmodule AWS.IoT do
   @doc """
   Gets information about the specified thing type.
 
-  Requires permission to access the
-  [DescribeThingType](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeThingType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_type_name` (`t:string`) The name of the thing type.
+
+  ## Optional parameters:
   """
-  @spec describe_thing_type(map(), String.t(), list()) ::
+  @spec describe_thing_type(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_thing_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_thing_type_errors()}
   def describe_thing_type(%Client{} = client, thing_type_name, options \\ []) do
     url_path = "/thing-types/#{AWS.Util.encode_uri(thing_type_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Detaches a policy from the specified target.
+  Detaches a policy from the specified target. Because of the distributed nature
+  of Amazon Web Services, it can take up to five minutes after a policy is
+  detached before it's ready to be deleted.
 
-  Because of the distributed nature of Amazon Web Services, it can take up to five
-  minutes after
-  a policy is detached before it's ready to be deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DetachPolicy&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [DetachPolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:policy_name` (`t:string`) The policy to detach.
+
+  ## Optional parameters:
   """
-  @spec detach_policy(map(), String.t(), detach_policy_request(), list()) ::
+  @spec detach_policy(AWS.Client.t(), String.t(), detach_policy_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_policy_errors()}
@@ -14633,7 +15896,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14649,22 +15913,37 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Removes the specified policy from the specified certificate.
+  Removes the specified policy from the specified certificate. **Note:** This
+  action is deprecated and works as expected for backward compatibility, but we
+  won't add enhancements. Use `DetachPolicy` instead.
 
-  **Note:** This action is deprecated and works as
-  expected for backward compatibility, but we won't add enhancements. Use
-  `DetachPolicy` instead.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DetachPrincipalPolicy&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [DetachPrincipalPolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:policy_name` (`t:string`) The name of the policy to detach.
+  * `:principal` (`t:string`) The principal.
+
+  ## Optional parameters:
   """
-  @spec detach_principal_policy(map(), String.t(), detach_principal_policy_request(), list()) ::
+  @spec detach_principal_policy(
+          AWS.Client.t(),
+          String.t(),
+          detach_principal_policy_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_principal_policy_errors()}
   def detach_principal_policy(%Client{} = client, policy_name, input, options \\ []) do
     url_path = "/principal-policies/#{AWS.Util.encode_uri(policy_name)}"
+
+    optional_params = [principal: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -14674,7 +15953,8 @@ defmodule AWS.IoT do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14693,11 +15973,21 @@ defmodule AWS.IoT do
   Disassociates a Device Defender security profile from a thing group or from this
   account.
 
-  Requires permission to access the
-  [DetachSecurityProfile](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DetachSecurityProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:security_profile_name` (`t:string`) The security profile that is detached.
+  * `:security_profile_target_arn` (`t:string`) The ARN of the thing group from
+    which the security profile is detached.
+
+  ## Optional parameters:
   """
-  @spec detach_security_profile(map(), String.t(), detach_security_profile_request(), list()) ::
+  @spec detach_security_profile(
+          AWS.Client.t(),
+          String.t(),
+          detach_security_profile_request(),
+          Keyword.t()
+        ) ::
           {:ok, detach_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_security_profile_errors()}
@@ -14711,7 +16001,8 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14727,26 +16018,40 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Detaches the specified principal from the specified thing.
+  Detaches the specified principal from the specified thing. A principal can be
+  X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or
+  federated identities. This call is asynchronous. It might take several seconds
+  for the detachment to propagate.
 
-  A principal can be X.509
-  certificates, IAM users, groups, and roles, Amazon Cognito identities or
-  federated
-  identities.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DetachThingPrincipal&this_doc_guide=API%2520Reference)
 
-  This call is asynchronous. It might take several seconds for the detachment to
-  propagate.
+  ## Parameters:
+  * `:thing_name` (`t:string`) The name of the thing.
+  * `:principal` (`t:string`) If the principal is a certificate, this value must
+    be ARN of the certificate. If the principal is an Amazon Cognito identity,
+    this value must be the ID of the Amazon Cognito identity.
 
-  Requires permission to access the
-  [DetachThingPrincipal](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Optional parameters:
   """
-  @spec detach_thing_principal(map(), String.t(), detach_thing_principal_request(), list()) ::
+  @spec detach_thing_principal(
+          AWS.Client.t(),
+          String.t(),
+          detach_thing_principal_request(),
+          Keyword.t()
+        ) ::
           {:ok, detach_thing_principal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_thing_principal_errors()}
   def detach_thing_principal(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/principals"
+
+    optional_params = [principal: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -14756,7 +16061,8 @@ defmodule AWS.IoT do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14774,11 +16080,14 @@ defmodule AWS.IoT do
   @doc """
   Disables the rule.
 
-  Requires permission to access the
-  [DisableTopicRule](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DisableTopicRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:rule_name` (`t:string`) The name of the rule to disable.
+
+  ## Optional parameters:
   """
-  @spec disable_topic_rule(map(), String.t(), disable_topic_rule_request(), list()) ::
+  @spec disable_topic_rule(AWS.Client.t(), String.t(), disable_topic_rule_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_topic_rule_errors()}
@@ -14787,7 +16096,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14805,11 +16115,14 @@ defmodule AWS.IoT do
   @doc """
   Enables the rule.
 
-  Requires permission to access the
-  [EnableTopicRule](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20EnableTopicRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:rule_name` (`t:string`) The name of the topic rule to enable.
+
+  ## Optional parameters:
   """
-  @spec enable_topic_rule(map(), String.t(), enable_topic_rule_request(), list()) ::
+  @spec enable_topic_rule(AWS.Client.t(), String.t(), enable_topic_rule_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_topic_rule_errors()}
@@ -14818,7 +16131,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14834,56 +16148,71 @@ defmodule AWS.IoT do
   end
 
   @doc """
-
   Returns a Device Defender's ML Detect Security Profile training model's status.
 
-  Requires permission to access the
-  [GetBehaviorModelTrainingSummaries](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetBehaviorModelTrainingSummaries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time. The default is 10.
+  * `:next_token` (`t:string`) The token for the next set of results.
+  * `:security_profile_name` (`t:string`) The name of the security profile.
   """
-  @spec get_behavior_model_training_summaries(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_behavior_model_training_summaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_behavior_model_training_summaries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_behavior_model_training_summaries_errors()}
-  def get_behavior_model_training_summaries(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        security_profile_name \\ nil,
-        options \\ []
-      ) do
+  def get_behavior_model_training_summaries(%Client{} = client, options \\ []) do
     url_path = "/behavior-model-training/summaries"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, security_profile_name: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(security_profile_name) do
-        [{"securityProfileName", security_profile_name} | query_params]
+      if opt_val = Keyword.get(options, :security_profile_name) do
+        [{"securityProfileName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :security_profile_name])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14891,11 +16220,13 @@ defmodule AWS.IoT do
   @doc """
   Aggregates on indexed data with search queries pertaining to particular fields.
 
-  Requires permission to access the
-  [GetBucketsAggregation](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetBucketsAggregation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_buckets_aggregation(map(), get_buckets_aggregation_request(), list()) ::
+  @spec get_buckets_aggregation(AWS.Client.t(), get_buckets_aggregation_request(), Keyword.t()) ::
           {:ok, get_buckets_aggregation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_buckets_aggregation_errors()}
@@ -14904,7 +16235,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14922,11 +16254,13 @@ defmodule AWS.IoT do
   @doc """
   Returns the approximate count of unique values that match the query.
 
-  Requires permission to access the
-  [GetCardinality](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetCardinality&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_cardinality(map(), get_cardinality_request(), list()) ::
+  @spec get_cardinality(AWS.Client.t(), get_cardinality_request(), Keyword.t()) ::
           {:ok, get_cardinality_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cardinality_errors()}
@@ -14935,7 +16269,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14952,14 +16287,16 @@ defmodule AWS.IoT do
 
   @doc """
   Gets a list of the policies that have an effect on the authorization behavior of
-  the
-  specified device when it connects to the IoT device gateway.
+  the specified device when it connects to the IoT device gateway.
 
-  Requires permission to access the
-  [GetEffectivePolicies](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetEffectivePolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:thing_name` (`t:string`) The thing name.
   """
-  @spec get_effective_policies(map(), get_effective_policies_request(), list()) ::
+  @spec get_effective_policies(AWS.Client.t(), get_effective_policies_request(), Keyword.t()) ::
           {:ok, get_effective_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_effective_policies_errors()}
@@ -14973,7 +16310,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:thing_name])
 
     Request.request_rest(
       client,
@@ -14991,20 +16334,40 @@ defmodule AWS.IoT do
   @doc """
   Gets the indexing configuration.
 
-  Requires permission to access the
-  [GetIndexingConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetIndexingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_indexing_configuration(map(), list()) ::
+  @spec get_indexing_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_indexing_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_indexing_configuration_errors()}
   def get_indexing_configuration(%Client{} = client, options \\ []) do
     url_path = "/indexing/config"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15012,44 +16375,84 @@ defmodule AWS.IoT do
   @doc """
   Gets a job document.
 
-  Requires permission to access the
-  [GetJobDocument](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetJobDocument&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it
+    was created.
+
+  ## Optional parameters:
   """
-  @spec get_job_document(map(), String.t(), list()) ::
+  @spec get_job_document(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_document_errors()}
   def get_job_document(%Client{} = client, job_id, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}/job-document"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets the logging options.
+  Gets the logging options. NOTE: use of this command is not recommended. Use
+  `GetV2LoggingOptions` instead.
 
-  NOTE: use of this command is not recommended. Use `GetV2LoggingOptions`
-  instead.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetLoggingOptions&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [GetLoggingOptions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_logging_options(map(), list()) ::
+  @spec get_logging_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_logging_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_logging_options_errors()}
   def get_logging_options(%Client{} = client, options \\ []) do
     url_path = "/loggingOptions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15057,20 +16460,41 @@ defmodule AWS.IoT do
   @doc """
   Gets an OTA update.
 
-  Requires permission to access the
-  [GetOTAUpdate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetOTAUpdate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:ota_update_id` (`t:string`) The OTA update ID.
+
+  ## Optional parameters:
   """
-  @spec get_ota_update(map(), String.t(), list()) ::
+  @spec get_ota_update(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_ota_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ota_update_errors()}
   def get_ota_update(%Client{} = client, ota_update_id, options \\ []) do
     url_path = "/otaUpdates/#{AWS.Util.encode_uri(ota_update_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15078,20 +16502,41 @@ defmodule AWS.IoT do
   @doc """
   Gets information about the specified software package.
 
-  Requires permission to access the
-  [GetPackage](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetPackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_name` (`t:string`) The name of the target software package.
+
+  ## Optional parameters:
   """
-  @spec get_package(map(), String.t(), list()) ::
+  @spec get_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_package_errors()}
   def get_package(%Client{} = client, package_name, options \\ []) do
     url_path = "/packages/#{AWS.Util.encode_uri(package_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15099,20 +16544,40 @@ defmodule AWS.IoT do
   @doc """
   Gets information about the specified software package's configuration.
 
-  Requires permission to access the
-  [GetPackageConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetPackageConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_package_configuration(map(), list()) ::
+  @spec get_package_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_package_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_package_configuration_errors()}
   def get_package_configuration(%Client{} = client, options \\ []) do
     url_path = "/package-configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15120,11 +16585,15 @@ defmodule AWS.IoT do
   @doc """
   Gets information about the specified package version.
 
-  Requires permission to access the
-  [GetPackageVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetPackageVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_name` (`t:string`) The name of the associated package.
+  * `:version_name` (`t:string`) The name of the target package version.
+
+  ## Optional parameters:
   """
-  @spec get_package_version(map(), String.t(), String.t(), list()) ::
+  @spec get_package_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_package_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_package_version_errors()}
@@ -15132,37 +16601,50 @@ defmodule AWS.IoT do
     url_path =
       "/packages/#{AWS.Util.encode_uri(package_name)}/versions/#{AWS.Util.encode_uri(version_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Groups the aggregated values that match the query into percentile groupings.
+  Groups the aggregated values that match the query into percentile groupings. The
+  default percentile groupings are: 1,5,25,50,75,95,99, although you can specify
+  your own when you call `GetPercentiles`. This function returns a value for
+  each percentile group specified (or the default percentile groupings). The
+  percentile group "1" contains the aggregated field value that occurs in
+  approximately one percent of the values that match the query. The percentile
+  group "5" contains the aggregated field value that occurs in approximately
+  five percent of the values that match the query, and so on. The result is an
+  approximation, the more values that match the query, the more accurate the
+  percentile values.
 
-  The default
-  percentile groupings are: 1,5,25,50,75,95,99, although you can specify your own
-  when you call `GetPercentiles`. This function returns a value for each
-  percentile group specified (or the default percentile groupings). The percentile
-  group
-  "1" contains the aggregated field value that occurs in approximately one percent
-  of the
-  values that match the query. The percentile group "5" contains the aggregated
-  field value
-  that occurs in approximately five percent of the values that match the query,
-  and so on.
-  The result is an approximation, the more values that match the query, the more
-  accurate
-  the percentile values.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetPercentiles&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [GetPercentiles](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_percentiles(map(), get_percentiles_request(), list()) ::
+  @spec get_percentiles(AWS.Client.t(), get_percentiles_request(), Keyword.t()) ::
           {:ok, get_percentiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_percentiles_errors()}
@@ -15171,7 +16653,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -15188,23 +16671,43 @@ defmodule AWS.IoT do
 
   @doc """
   Gets information about the specified policy with the policy document of the
-  default
-  version.
+  default version.
 
-  Requires permission to access the
-  [GetPolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:policy_name` (`t:string`) The name of the policy.
+
+  ## Optional parameters:
   """
-  @spec get_policy(map(), String.t(), list()) ::
+  @spec get_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_policy_errors()}
   def get_policy(%Client{} = client, policy_name, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(policy_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15212,11 +16715,15 @@ defmodule AWS.IoT do
   @doc """
   Gets information about the specified policy version.
 
-  Requires permission to access the
-  [GetPolicyVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetPolicyVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:policy_name` (`t:string`) The name of the policy.
+  * `:policy_version_id` (`t:string`) The policy version ID.
+
+  ## Optional parameters:
   """
-  @spec get_policy_version(map(), String.t(), String.t(), list()) ::
+  @spec get_policy_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_policy_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_policy_version_errors()}
@@ -15224,52 +16731,87 @@ defmodule AWS.IoT do
     url_path =
       "/policies/#{AWS.Util.encode_uri(policy_name)}/version/#{AWS.Util.encode_uri(policy_version_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets a registration code used to register a CA certificate with IoT.
+  Gets a registration code used to register a CA certificate with IoT. IoT will
+  create a registration code as part of this API call if the registration code
+  doesn't exist or has been deleted. If you already have a registration code,
+  this API call will return the same registration code.
 
-  IoT will create a registration code as part of this API call if the registration
-  code doesn't exist or has been deleted. If you already have a registration code,
-  this API
-  call will return the same registration code.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetRegistrationCode&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [GetRegistrationCode](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_registration_code(map(), list()) ::
+  @spec get_registration_code(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_registration_code_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_registration_code_errors()}
   def get_registration_code(%Client{} = client, options \\ []) do
     url_path = "/registrationcode"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns the count, average, sum, minimum, maximum, sum of squares, variance,
-  and standard deviation for the specified aggregated field.
+  Returns the count, average, sum, minimum, maximum, sum of squares, variance, and
+  standard deviation for the specified aggregated field. If the aggregation
+  field is of type `String`, only the count statistic is returned.
 
-  If the aggregation field is of type
-  `String`, only the count statistic is returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetStatistics&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [GetStatistics](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_statistics(map(), get_statistics_request(), list()) ::
+  @spec get_statistics(AWS.Client.t(), get_statistics_request(), Keyword.t()) ::
           {:ok, get_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_statistics_errors()}
@@ -15278,7 +16820,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -15296,20 +16839,41 @@ defmodule AWS.IoT do
   @doc """
   Gets information about the rule.
 
-  Requires permission to access the
-  [GetTopicRule](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetTopicRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:rule_name` (`t:string`) The name of the rule.
+
+  ## Optional parameters:
   """
-  @spec get_topic_rule(map(), String.t(), list()) ::
+  @spec get_topic_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_topic_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_topic_rule_errors()}
   def get_topic_rule(%Client{} = client, rule_name, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(rule_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15317,20 +16881,41 @@ defmodule AWS.IoT do
   @doc """
   Gets information about a topic rule destination.
 
-  Requires permission to access the
-  [GetTopicRuleDestination](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetTopicRuleDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The ARN of the topic rule destination.
+
+  ## Optional parameters:
   """
-  @spec get_topic_rule_destination(map(), String.t(), list()) ::
+  @spec get_topic_rule_destination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_topic_rule_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_topic_rule_destination_errors()}
   def get_topic_rule_destination(%Client{} = client, arn, options \\ []) do
     url_path = "/destinations/#{AWS.Util.encode_multi_segment_uri(arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15338,20 +16923,40 @@ defmodule AWS.IoT do
   @doc """
   Gets the fine grained logging options.
 
-  Requires permission to access the
-  [GetV2LoggingOptions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetV2LoggingOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_v2_logging_options(map(), list()) ::
+  @spec get_v2_logging_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_v2_logging_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_v2_logging_options_errors()}
   def get_v2_logging_options(%Client{} = client, options \\ []) do
     url_path = "/v2LoggingOptions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15359,89 +16964,122 @@ defmodule AWS.IoT do
   @doc """
   Lists the active violations for a given Device Defender security profile.
 
-  Requires permission to access the
-  [ListActiveViolations](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListActiveViolations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:behavior_criteria_type` (`t:enum["MACHINE_LEARNING|STATIC|STATISTICAL"]`)
+    The criteria for a behavior.
+  * `:list_suppressed_alerts` (`t:boolean`) A list of all suppressed alerts.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:next_token` (`t:string`) The token for the next set of results.
+  * `:security_profile_name` (`t:string`) The name of the Device Defender security
+    profile for which violations are listed.
+  * `:thing_name` (`t:string`) The name of the thing whose active violations are
+    listed.
+  * `:verification_state`
+    (`t:enum["BENIGN_POSITIVE|FALSE_POSITIVE|TRUE_POSITIVE|UNKNOWN"]`) The
+    verification state of the violation (detect alarm).
   """
-  @spec list_active_violations(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_active_violations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_active_violations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_active_violations_errors()}
-  def list_active_violations(
-        %Client{} = client,
-        behavior_criteria_type \\ nil,
-        list_suppressed_alerts \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        security_profile_name \\ nil,
-        thing_name \\ nil,
-        verification_state \\ nil,
-        options \\ []
-      ) do
+  def list_active_violations(%Client{} = client, options \\ []) do
     url_path = "/active-violations"
+
+    # Validate optional parameters
+    optional_params = [
+      behavior_criteria_type: nil,
+      list_suppressed_alerts: nil,
+      max_results: nil,
+      next_token: nil,
+      security_profile_name: nil,
+      thing_name: nil,
+      verification_state: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(verification_state) do
-        [{"verificationState", verification_state} | query_params]
+      if opt_val = Keyword.get(options, :verification_state) do
+        [{"verificationState", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(thing_name) do
-        [{"thingName", thing_name} | query_params]
+      if opt_val = Keyword.get(options, :thing_name) do
+        [{"thingName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(security_profile_name) do
-        [{"securityProfileName", security_profile_name} | query_params]
+      if opt_val = Keyword.get(options, :security_profile_name) do
+        [{"securityProfileName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(list_suppressed_alerts) do
-        [{"listSuppressedAlerts", list_suppressed_alerts} | query_params]
+      if opt_val = Keyword.get(options, :list_suppressed_alerts) do
+        [{"listSuppressedAlerts", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(behavior_criteria_type) do
-        [{"behaviorCriteriaType", behavior_criteria_type} | query_params]
+      if opt_val = Keyword.get(options, :behavior_criteria_type) do
+        [{"behaviorCriteriaType", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :behavior_criteria_type,
+        :list_suppressed_alerts,
+        :max_results,
+        :next_token,
+        :security_profile_name,
+        :thing_name,
+        :verification_state
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15449,11 +17087,27 @@ defmodule AWS.IoT do
   @doc """
   Lists the policies attached to the specified thing group.
 
-  Requires permission to access the
-  [ListAttachedPolicies](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListAttachedPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:target` (`t:string`) The group or principal for which the policies will be
+    listed. Valid principals are CertificateArn
+    (arn:aws:iot:region:accountId:cert/certificateId), thingGroupArn
+    (arn:aws:iot:region:accountId:thinggroup/groupName) and CognitoId
+    (region:id).
+
+  ## Optional parameters:
+  * `:marker` (`t:string`) The token to retrieve the next set of results.
+  * `:page_size` (`t:integer`) The maximum number of results to be returned per
+    request.
+  * `:recursive` (`t:boolean`) When true, recursively list attached policies.
   """
-  @spec list_attached_policies(map(), String.t(), list_attached_policies_request(), list()) ::
+  @spec list_attached_policies(
+          AWS.Client.t(),
+          String.t(),
+          list_attached_policies_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_attached_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attached_policies_errors()}
@@ -15469,7 +17123,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:marker, :page_size, :recursive])
 
     Request.request_rest(
       client,
@@ -15486,15 +17146,15 @@ defmodule AWS.IoT do
 
   @doc """
   Lists the findings (results) of a Device Defender audit or of the audits
-  performed during a specified time period.
+  performed during a specified time period. (Findings are retained for 90 days.)
 
-  (Findings are retained for 90 days.)
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListAuditFindings&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [ListAuditFindings](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_audit_findings(map(), list_audit_findings_request(), list()) ::
+  @spec list_audit_findings(AWS.Client.t(), list_audit_findings_request(), Keyword.t()) ::
           {:ok, list_audit_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_audit_findings_errors()}
@@ -15503,7 +17163,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -15519,74 +17180,87 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Gets the status of audit mitigation action tasks that were
-  executed.
+  Gets the status of audit mitigation action tasks that were executed.
 
-  Requires permission to access the
-  [ListAuditMitigationActionsExecutions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListAuditMitigationActionsExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:finding_id` (`t:string`) Specify this filter to limit results to those that
+    were applied to a specific audit finding.
+  * `:task_id` (`t:string`) Specify this filter to limit results to actions for a
+    specific audit mitigation actions task.
+
+  ## Optional parameters:
+  * `:action_status`
+    (`t:enum["CANCELED|COMPLETED|FAILED|IN_PROGRESS|PENDING|SKIPPED"]`) Specify
+    this filter to limit results to those with a specific status.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time. The default is 25.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_audit_mitigation_actions_executions(
-          map(),
-          String.t() | nil,
+          AWS.Client.t(),
           String.t(),
-          String.t() | nil,
-          String.t() | nil,
           String.t(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_audit_mitigation_actions_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_audit_mitigation_actions_executions_errors()}
   def list_audit_mitigation_actions_executions(
         %Client{} = client,
-        action_status \\ nil,
         finding_id,
-        max_results \\ nil,
-        next_token \\ nil,
         task_id,
         options \\ []
       ) do
     url_path = "/audit/mitigationactions/executions"
+
+    # Validate optional parameters
+    optional_params = [action_status: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"findingId", finding_id}, {"taskId", task_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(task_id) do
-        [{"taskId", task_id} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :action_status) do
+        [{"actionStatus", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(finding_id) do
-        [{"findingId", finding_id} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    query_params =
-      if !is_nil(action_status) do
-        [{"actionStatus", action_status} | query_params]
-      else
-        query_params
-      end
-
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:action_status, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15594,102 +17268,112 @@ defmodule AWS.IoT do
   @doc """
   Gets a list of audit mitigation action tasks that match the specified filters.
 
-  Requires permission to access the
-  [ListAuditMitigationActionsTasks](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListAuditMitigationActionsTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:end_time` (`t:timestamp`) Specify this filter to limit results to tasks that
+    were completed or canceled on or before a specific date and time.
+  * `:start_time` (`t:timestamp`) Specify this filter to limit results to tasks
+    that began on or after a specific date and time.
+
+  ## Optional parameters:
+  * `:audit_task_id` (`t:string`) Specify this filter to limit results to tasks
+    that were applied to results for a specific audit.
+  * `:finding_id` (`t:string`) Specify this filter to limit results to tasks that
+    were applied to a specific audit finding.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time. The default is 25.
+  * `:next_token` (`t:string`) The token for the next set of results.
+  * `:task_status` (`t:enum["CANCELED|COMPLETED|FAILED|IN_PROGRESS"]`) Specify
+    this filter to limit results to tasks that are in a specific state.
   """
-  @spec list_audit_mitigation_actions_tasks(
-          map(),
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_audit_mitigation_actions_tasks(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_audit_mitigation_actions_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_audit_mitigation_actions_tasks_errors()}
-  def list_audit_mitigation_actions_tasks(
-        %Client{} = client,
-        audit_task_id \\ nil,
-        end_time,
-        finding_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        start_time,
-        task_status \\ nil,
-        options \\ []
-      ) do
+  def list_audit_mitigation_actions_tasks(%Client{} = client, end_time, start_time, options \\ []) do
     url_path = "/audit/mitigationactions/tasks"
+
+    # Validate optional parameters
+    optional_params = [
+      audit_task_id: nil,
+      finding_id: nil,
+      max_results: nil,
+      next_token: nil,
+      task_status: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"endTime", end_time}, {"startTime", start_time}]
+
+    # Optional query params
     query_params =
-      if !is_nil(task_status) do
-        [{"taskStatus", task_status} | query_params]
+      if opt_val = Keyword.get(options, :task_status) do
+        [{"taskStatus", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(start_time) do
-        [{"startTime", start_time} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :finding_id) do
+        [{"findingId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(finding_id) do
-        [{"findingId", finding_id} | query_params]
+      if opt_val = Keyword.get(options, :audit_task_id) do
+        [{"auditTaskId", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(end_time) do
-        [{"endTime", end_time} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    query_params =
-      if !is_nil(audit_task_id) do
-        [{"auditTaskId", audit_task_id} | query_params]
-      else
-        query_params
-      end
-
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:audit_task_id, :finding_id, :max_results, :next_token, :task_status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Lists your Device Defender audit listings.
 
-  Requires permission to access the
-  [ListAuditSuppressions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListAuditSuppressions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_audit_suppressions(map(), list_audit_suppressions_request(), list()) ::
+  @spec list_audit_suppressions(AWS.Client.t(), list_audit_suppressions_request(), Keyword.t()) ::
           {:ok, list_audit_suppressions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_audit_suppressions_errors()}
@@ -15698,7 +17382,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -15714,83 +17399,88 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Lists the Device Defender audits that have been performed during a given
-  time period.
+  Lists the Device Defender audits that have been performed during a given time
+  period.
 
-  Requires permission to access the
-  [ListAuditTasks](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListAuditTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:end_time` (`t:timestamp`) The end of the time period.
+  * `:start_time` (`t:timestamp`) The beginning of the time period. Audit
+    information is retained for a limited time (90 days). Requesting a start
+    time prior to what is retained results in an "InvalidRequestException".
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time. The default is 25.
+  * `:next_token` (`t:string`) The token for the next set of results.
+  * `:task_status` (`t:enum["CANCELED|COMPLETED|FAILED|IN_PROGRESS"]`) A filter to
+    limit the output to audits with the specified completion status: can be one
+    of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".
+  * `:task_type` (`t:enum["ON_DEMAND_AUDIT_TASK|SCHEDULED_AUDIT_TASK"]`) A filter
+    to limit the output to the specified type of audit: can be one of
+    "ON_DEMAND_AUDIT_TASK" or "SCHEDULED__AUDIT_TASK".
   """
-  @spec list_audit_tasks(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_audit_tasks(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_audit_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_audit_tasks_errors()}
-  def list_audit_tasks(
-        %Client{} = client,
-        end_time,
-        max_results \\ nil,
-        next_token \\ nil,
-        start_time,
-        task_status \\ nil,
-        task_type \\ nil,
-        options \\ []
-      ) do
+  def list_audit_tasks(%Client{} = client, end_time, start_time, options \\ []) do
     url_path = "/audit/tasks"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, task_status: nil, task_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"endTime", end_time}, {"startTime", start_time}]
+
+    # Optional query params
     query_params =
-      if !is_nil(task_type) do
-        [{"taskType", task_type} | query_params]
+      if opt_val = Keyword.get(options, :task_type) do
+        [{"taskType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(task_status) do
-        [{"taskStatus", task_status} | query_params]
+      if opt_val = Keyword.get(options, :task_status) do
+        [{"taskStatus", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(start_time) do
-        [{"startTime", start_time} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    query_params =
-      if !is_nil(end_time) do
-        [{"endTime", end_time} | query_params]
-      else
-        query_params
-      end
-
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :task_status, :task_type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15798,62 +17488,79 @@ defmodule AWS.IoT do
   @doc """
   Lists the authorizers registered in your account.
 
-  Requires permission to access the
-  [ListAuthorizers](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListAuthorizers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:ascending_order` (`t:boolean`) Return the list of authorizers in ascending
+    alphabetical order.
+  * `:marker` (`t:string`) A marker used to get the next set of results.
+  * `:page_size` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:status` (`t:enum["ACTIVE|INACTIVE"]`) The status of the list authorizers
+    request.
   """
-  @spec list_authorizers(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_authorizers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_authorizers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_authorizers_errors()}
-  def list_authorizers(
-        %Client{} = client,
-        ascending_order \\ nil,
-        marker \\ nil,
-        page_size \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_authorizers(%Client{} = client, options \\ []) do
     url_path = "/authorizers"
+
+    # Validate optional parameters
+    optional_params = [ascending_order: nil, marker: nil, page_size: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"pageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(ascending_order) do
-        [{"isAscendingOrder", ascending_order} | query_params]
+      if opt_val = Keyword.get(options, :ascending_order) do
+        [{"isAscendingOrder", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:ascending_order, :marker, :page_size, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15861,114 +17568,151 @@ defmodule AWS.IoT do
   @doc """
   Lists the billing groups you have created.
 
-  Requires permission to access the
-  [ListBillingGroups](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListBillingGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per
+    request.
+  * `:name_prefix_filter` (`t:string`) Limit the results to billing groups whose
+    names have the given prefix.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
-  @spec list_billing_groups(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_billing_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_billing_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_billing_groups_errors()}
-  def list_billing_groups(
-        %Client{} = client,
-        max_results \\ nil,
-        name_prefix_filter \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_billing_groups(%Client{} = client, options \\ []) do
     url_path = "/billing-groups"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, name_prefix_filter: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name_prefix_filter) do
-        [{"namePrefixFilter", name_prefix_filter} | query_params]
+      if opt_val = Keyword.get(options, :name_prefix_filter) do
+        [{"namePrefixFilter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :name_prefix_filter, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the CA certificates registered for your Amazon Web Services account.
-
-  The results are paginated with a default page size of 25. You can use the
-  returned
+  Lists the CA certificates registered for your Amazon Web Services account. The
+  results are paginated with a default page size of 25. You can use the returned
   marker to retrieve additional results.
 
-  Requires permission to access the
-  [ListCACertificates](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListCACertificates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:ascending_order` (`t:boolean`) Determines the order of the results.
+  * `:marker` (`t:string`) The marker for the next set of results.
+  * `:page_size` (`t:integer`) The result page size.
+  * `:template_name` (`t:string`) The name of the provisioning template.
   """
-  @spec list_ca_certificates(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_ca_certificates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ca_certificates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ca_certificates_errors()}
-  def list_ca_certificates(
-        %Client{} = client,
-        ascending_order \\ nil,
-        marker \\ nil,
-        page_size \\ nil,
-        template_name \\ nil,
-        options \\ []
-      ) do
+  def list_ca_certificates(%Client{} = client, options \\ []) do
     url_path = "/cacertificates"
+
+    # Validate optional parameters
+    optional_params = [ascending_order: nil, marker: nil, page_size: nil, template_name: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(template_name) do
-        [{"templateName", template_name} | query_params]
+      if opt_val = Keyword.get(options, :template_name) do
+        [{"templateName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"pageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(ascending_order) do
-        [{"isAscendingOrder", ascending_order} | query_params]
+      if opt_val = Keyword.get(options, :ascending_order) do
+        [{"isAscendingOrder", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:ascending_order, :marker, :page_size, :template_name])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15976,91 +17720,134 @@ defmodule AWS.IoT do
   @doc """
   Lists all your certificate providers in your Amazon Web Services account.
 
-  Requires permission to access the
-  [ListCertificateProviders](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListCertificateProviders&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:ascending_order` (`t:boolean`) Returns the list of certificate providers in
+    ascending alphabetical order.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if
+    there are no more results.
   """
-  @spec list_certificate_providers(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_certificate_providers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_certificate_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_certificate_providers_errors()}
-  def list_certificate_providers(
-        %Client{} = client,
-        ascending_order \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_certificate_providers(%Client{} = client, options \\ []) do
     url_path = "/certificate-providers"
+
+    # Validate optional parameters
+    optional_params = [ascending_order: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(ascending_order) do
-        [{"isAscendingOrder", ascending_order} | query_params]
+      if opt_val = Keyword.get(options, :ascending_order) do
+        [{"isAscendingOrder", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:ascending_order, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the certificates registered in your Amazon Web Services account.
-
-  The results are paginated with a default page size of 25. You can use the
-  returned
+  Lists the certificates registered in your Amazon Web Services account. The
+  results are paginated with a default page size of 25. You can use the returned
   marker to retrieve additional results.
 
-  Requires permission to access the
-  [ListCertificates](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListCertificates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:ascending_order` (`t:boolean`) Specifies the order for results. If True, the
+    results are returned in ascending order, based on the creation date.
+  * `:marker` (`t:string`) The marker for the next set of results.
+  * `:page_size` (`t:integer`) The result page size.
   """
-  @spec list_certificates(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_certificates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_certificates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_certificates_errors()}
-  def list_certificates(
-        %Client{} = client,
-        ascending_order \\ nil,
-        marker \\ nil,
-        page_size \\ nil,
-        options \\ []
-      ) do
+  def list_certificates(%Client{} = client, options \\ []) do
     url_path = "/certificates"
+
+    # Validate optional parameters
+    optional_params = [ascending_order: nil, marker: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"pageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(ascending_order) do
-        [{"isAscendingOrder", ascending_order} | query_params]
+      if opt_val = Keyword.get(options, :ascending_order) do
+        [{"isAscendingOrder", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:ascending_order, :marker, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -16068,252 +17855,329 @@ defmodule AWS.IoT do
   @doc """
   List the device certificates signed by the specified CA certificate.
 
-  Requires permission to access the
-  [ListCertificatesByCA](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListCertificatesByCA&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:ca_certificate_id` (`t:string`) The ID of the CA certificate. This operation
+    will list all registered device certificate that were signed by this CA
+    certificate.
+
+  ## Optional parameters:
+  * `:ascending_order` (`t:boolean`) Specifies the order for results. If True, the
+    results are returned in ascending order, based on the creation date.
+  * `:marker` (`t:string`) The marker for the next set of results.
+  * `:page_size` (`t:integer`) The result page size.
   """
-  @spec list_certificates_by_ca(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_certificates_by_ca(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_certificates_by_ca_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_certificates_by_ca_errors()}
-  def list_certificates_by_ca(
-        %Client{} = client,
-        ca_certificate_id,
-        ascending_order \\ nil,
-        marker \\ nil,
-        page_size \\ nil,
-        options \\ []
-      ) do
+  def list_certificates_by_ca(%Client{} = client, ca_certificate_id, options \\ []) do
     url_path = "/certificates-by-ca/#{AWS.Util.encode_uri(ca_certificate_id)}"
+
+    # Validate optional parameters
+    optional_params = [ascending_order: nil, marker: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"pageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(ascending_order) do
-        [{"isAscendingOrder", ascending_order} | query_params]
+      if opt_val = Keyword.get(options, :ascending_order) do
+        [{"isAscendingOrder", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:ascending_order, :marker, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Lists your Device Defender detect custom metrics.
 
-  Requires permission to access the
-  [ListCustomMetrics](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListCustomMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time. The default is 25.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
-  @spec list_custom_metrics(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_custom_metrics(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_custom_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_metrics_errors()}
-  def list_custom_metrics(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_custom_metrics(%Client{} = client, options \\ []) do
     url_path = "/custom-metrics"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Lists mitigation actions executions for a Device Defender ML Detect Security
   Profile.
 
-  Requires permission to access the
-  [ListDetectMitigationActionsExecutions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListDetectMitigationActionsExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:end_time` (`t:timestamp`) The end of the time period for which ML Detect
+    mitigation actions executions are returned.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time. The default is 25.
+  * `:next_token` (`t:string`) The token for the next set of results.
+  * `:start_time` (`t:timestamp`) A filter to limit results to those found after
+    the specified time. You must specify either the startTime and endTime or the
+    taskId, but not both.
+  * `:task_id` (`t:string`) The unique identifier of the task.
+  * `:thing_name` (`t:string`) The name of the thing whose mitigation actions are
+    listed.
+  * `:violation_id` (`t:string`) The unique identifier of the violation.
   """
-  @spec list_detect_mitigation_actions_executions(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_detect_mitigation_actions_executions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_detect_mitigation_actions_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_detect_mitigation_actions_executions_errors()}
-  def list_detect_mitigation_actions_executions(
-        %Client{} = client,
-        end_time \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        start_time \\ nil,
-        task_id \\ nil,
-        thing_name \\ nil,
-        violation_id \\ nil,
-        options \\ []
-      ) do
+  def list_detect_mitigation_actions_executions(%Client{} = client, options \\ []) do
     url_path = "/detect/mitigationactions/executions"
+
+    # Validate optional parameters
+    optional_params = [
+      end_time: nil,
+      max_results: nil,
+      next_token: nil,
+      start_time: nil,
+      task_id: nil,
+      thing_name: nil,
+      violation_id: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(violation_id) do
-        [{"violationId", violation_id} | query_params]
+      if opt_val = Keyword.get(options, :violation_id) do
+        [{"violationId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(thing_name) do
-        [{"thingName", thing_name} | query_params]
+      if opt_val = Keyword.get(options, :thing_name) do
+        [{"thingName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(task_id) do
-        [{"taskId", task_id} | query_params]
+      if opt_val = Keyword.get(options, :task_id) do
+        [{"taskId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(start_time) do
-        [{"startTime", start_time} | query_params]
+      if opt_val = Keyword.get(options, :start_time) do
+        [{"startTime", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(end_time) do
-        [{"endTime", end_time} | query_params]
+      if opt_val = Keyword.get(options, :end_time) do
+        [{"endTime", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :end_time,
+        :max_results,
+        :next_token,
+        :start_time,
+        :task_id,
+        :thing_name,
+        :violation_id
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   List of Device Defender ML Detect mitigation actions tasks.
 
-  Requires permission to access the
-  [ListDetectMitigationActionsTasks](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListDetectMitigationActionsTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:end_time` (`t:timestamp`) The end of the time period for which ML Detect
+    mitigation actions tasks are returned.
+  * `:start_time` (`t:timestamp`) A filter to limit results to those found after
+    the specified time. You must specify either the startTime and endTime or the
+    taskId, but not both.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time. The default is 25.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
-  @spec list_detect_mitigation_actions_tasks(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          list()
-        ) ::
+  @spec list_detect_mitigation_actions_tasks(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_detect_mitigation_actions_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_detect_mitigation_actions_tasks_errors()}
   def list_detect_mitigation_actions_tasks(
         %Client{} = client,
         end_time,
-        max_results \\ nil,
-        next_token \\ nil,
         start_time,
         options \\ []
       ) do
     url_path = "/detect/mitigationactions/tasks"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"endTime", end_time}, {"startTime", start_time}]
+
+    # Optional query params
     query_params =
-      if !is_nil(start_time) do
-        [{"startTime", start_time} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    query_params =
-      if !is_nil(end_time) do
-        [{"endTime", end_time} | query_params]
-      else
-        query_params
-      end
-
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -16322,91 +18186,132 @@ defmodule AWS.IoT do
   List the set of dimensions that are defined for your Amazon Web Services
   accounts.
 
-  Requires permission to access the
-  [ListDimensions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListDimensions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to retrieve at one
+    time.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
-  @spec list_dimensions(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_dimensions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_dimensions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dimensions_errors()}
-  def list_dimensions(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_dimensions(%Client{} = client, options \\ []) do
     url_path = "/dimensions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets a list of domain configurations for the user.
-
-  This list is sorted
+  Gets a list of domain configurations for the user. This list is sorted
   alphabetically by domain configuration name.
 
-  Requires permission to access the
-  [ListDomainConfigurations](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListDomainConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:marker` (`t:string`) The marker for the next set of results.
+  * `:page_size` (`t:integer`) The result page size.
+  * `:service_type` (`t:enum["CREDENTIAL_PROVIDER|DATA|JOBS"]`) The type of
+    service delivered by the endpoint.
   """
-  @spec list_domain_configurations(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_domain_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domain_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domain_configurations_errors()}
-  def list_domain_configurations(
-        %Client{} = client,
-        marker \\ nil,
-        page_size \\ nil,
-        service_type \\ nil,
-        options \\ []
-      ) do
+  def list_domain_configurations(%Client{} = client, options \\ []) do
     url_path = "/domainConfigurations"
+
+    # Validate optional parameters
+    optional_params = [marker: nil, page_size: nil, service_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(service_type) do
-        [{"serviceType", service_type} | query_params]
+      if opt_val = Keyword.get(options, :service_type) do
+        [{"serviceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"pageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"marker", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:marker, :page_size, :service_type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -16414,34 +18319,63 @@ defmodule AWS.IoT do
   @doc """
   Lists all your fleet metrics.
 
-  Requires permission to access the
-  [ListFleetMetrics](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListFleetMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    operation.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
-  @spec list_fleet_metrics(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_fleet_metrics(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_fleet_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fleet_metrics_errors()}
-  def list_fleet_metrics(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_fleet_metrics(%Client{} = client, options \\ []) do
     url_path = "/fleet-metrics"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -16449,34 +18383,62 @@ defmodule AWS.IoT do
   @doc """
   Lists the search indices.
 
-  Requires permission to access the
-  [ListIndices](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListIndices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:next_token` (`t:string`) The token used to get the next set of results, or
+    null if there are no additional results.
   """
-  @spec list_indices(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_indices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_indices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_indices_errors()}
-  def list_indices(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_indices(%Client{} = client, options \\ []) do
     url_path = "/indices"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -16484,55 +18446,73 @@ defmodule AWS.IoT do
   @doc """
   Lists the job executions for a job.
 
-  Requires permission to access the
-  [ListJobExecutionsForJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListJobExecutionsForJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it
+    was created.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    request.
+  * `:next_token` (`t:string`) The token to retrieve the next set of results.
+  * `:status`
+    (`t:enum["CANCELED|FAILED|IN_PROGRESS|QUEUED|REJECTED|REMOVED|SUCCEEDED|TIMED_OUT"]`)
+    The status of the job.
   """
-  @spec list_job_executions_for_job(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_job_executions_for_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_executions_for_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_job_executions_for_job_errors()}
-  def list_job_executions_for_job(
-        %Client{} = client,
-        job_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_job_executions_for_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}/things"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -16540,73 +18520,97 @@ defmodule AWS.IoT do
   @doc """
   Lists the job executions for the specified thing.
 
-  Requires permission to access the
-  [ListJobExecutionsForThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListJobExecutionsForThing&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_name` (`t:string`) The thing name.
+
+  ## Optional parameters:
+  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it
+    was created.
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    request.
+  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a
+    customer-managed job.
+  * `:next_token` (`t:string`) The token to retrieve the next set of results.
+  * `:status`
+    (`t:enum["CANCELED|FAILED|IN_PROGRESS|QUEUED|REJECTED|REMOVED|SUCCEEDED|TIMED_OUT"]`)
+    An optional filter that lets you search for jobs that have the specified
+    status.
   """
-  @spec list_job_executions_for_thing(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_job_executions_for_thing(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_executions_for_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_job_executions_for_thing_errors()}
-  def list_job_executions_for_thing(
-        %Client{} = client,
-        thing_name,
-        job_id \\ nil,
-        max_results \\ nil,
-        namespace_id \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_job_executions_for_thing(%Client{} = client, thing_name, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs"
+
+    # Validate optional parameters
+    optional_params = [
+      job_id: nil,
+      max_results: nil,
+      namespace_id: nil,
+      next_token: nil,
+      status: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(namespace_id) do
-        [{"namespaceId", namespace_id} | query_params]
+      if opt_val = Keyword.get(options, :namespace_id) do
+        [{"namespaceId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(job_id) do
-        [{"jobId", job_id} | query_params]
+      if opt_val = Keyword.get(options, :job_id) do
+        [{"jobId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:job_id, :max_results, :namespace_id, :next_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -16614,34 +18618,62 @@ defmodule AWS.IoT do
   @doc """
   Returns a list of job templates.
 
-  Requires permission to access the
-  [ListJobTemplates](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListJobTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in the
+    list.
+  * `:next_token` (`t:string`) The token to use to return the next set of results
+    in the list.
   """
-  @spec list_job_templates(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_job_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_job_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_job_templates_errors()}
-  def list_job_templates(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_job_templates(%Client{} = client, options \\ []) do
     url_path = "/job-templates"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -16649,236 +18681,313 @@ defmodule AWS.IoT do
   @doc """
   Lists jobs.
 
-  Requires permission to access the
-  [ListJobs](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per
+    request.
+  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a
+    customer-managed job.
+  * `:next_token` (`t:string`) The token to retrieve the next set of results.
+  * `:status`
+    (`t:enum["CANCELED|COMPLETED|DELETION_IN_PROGRESS|IN_PROGRESS|SCHEDULED"]`)
+    An optional filter that lets you search for jobs that have the specified
+    status.
+  * `:target_selection` (`t:enum["CONTINUOUS|SNAPSHOT"]`) Specifies whether the
+    job will continue to run (CONTINUOUS), or will be complete after all those
+    things specified as targets have completed the job (SNAPSHOT). If
+    continuous, the job may also be run on a thing when a change is detected in
+    a target. For example, a job will run on a thing when the thing is added to
+    a target group, even after the job was completed by all things originally in
+    the group.
+  * `:thing_group_id` (`t:string`) A filter that limits the returned jobs to those
+    for the specified group.
+  * `:thing_group_name` (`t:string`) A filter that limits the returned jobs to
+    those for the specified group.
   """
-  @spec list_jobs(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_errors()}
-  def list_jobs(
-        %Client{} = client,
-        max_results \\ nil,
-        namespace_id \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        target_selection \\ nil,
-        thing_group_id \\ nil,
-        thing_group_name \\ nil,
-        options \\ []
-      ) do
+  def list_jobs(%Client{} = client, options \\ []) do
     url_path = "/jobs"
+
+    # Validate optional parameters
+    optional_params = [
+      max_results: nil,
+      namespace_id: nil,
+      next_token: nil,
+      status: nil,
+      target_selection: nil,
+      thing_group_id: nil,
+      thing_group_name: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(thing_group_name) do
-        [{"thingGroupName", thing_group_name} | query_params]
+      if opt_val = Keyword.get(options, :thing_group_name) do
+        [{"thingGroupName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(thing_group_id) do
-        [{"thingGroupId", thing_group_id} | query_params]
+      if opt_val = Keyword.get(options, :thing_group_id) do
+        [{"thingGroupId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(target_selection) do
-        [{"targetSelection", target_selection} | query_params]
+      if opt_val = Keyword.get(options, :target_selection) do
+        [{"targetSelection", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(namespace_id) do
-        [{"namespaceId", namespace_id} | query_params]
+      if opt_val = Keyword.get(options, :namespace_id) do
+        [{"namespaceId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :max_results,
+        :namespace_id,
+        :next_token,
+        :status,
+        :target_selection,
+        :thing_group_id,
+        :thing_group_name
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of managed job templates.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListManagedJobTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Maximum number of entries that can be returned.
+  * `:next_token` (`t:string`) The token to retrieve the next set of results.
+  * `:template_name` (`t:string`) An optional parameter for template name. If
+    specified, only the versions of the managed job templates that have the
+    specified template name will be returned.
   """
-  @spec list_managed_job_templates(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_managed_job_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_managed_job_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_managed_job_templates_errors()}
-  def list_managed_job_templates(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        template_name \\ nil,
-        options \\ []
-      ) do
+  def list_managed_job_templates(%Client{} = client, options \\ []) do
     url_path = "/managed-job-templates"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, template_name: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(template_name) do
-        [{"templateName", template_name} | query_params]
+      if opt_val = Keyword.get(options, :template_name) do
+        [{"templateName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :template_name])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the values reported for an IoT Device Defender metric (device-side metric,
-  cloud-side metric, or custom metric)
-  by the given thing during the specified time period.
+  cloud-side metric, or custom metric) by the given thing during the specified
+  time period.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListMetricValues&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:end_time` (`t:timestamp`) The end of the time period for which metric values
+    are returned.
+  * `:metric_name` (`t:string`) The name of the security profile metric for which
+    values are returned.
+  * `:start_time` (`t:timestamp`) The start of the time period for which metric
+    values are returned.
+  * `:thing_name` (`t:string`) The name of the thing for which security profile
+    metric values are returned.
+
+  ## Optional parameters:
+  * `:dimension_name` (`t:string`) The dimension name.
+  * `:dimension_value_operator` (`t:enum["IN|NOT_IN"]`) The dimension value
+    operator.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_metric_values(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
+          AWS.Client.t(),
           String.t(),
           String.t(),
-          list()
+          String.t(),
+          String.t(),
+          Keyword.t()
         ) ::
           {:ok, list_metric_values_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_metric_values_errors()}
   def list_metric_values(
         %Client{} = client,
-        dimension_name \\ nil,
-        dimension_value_operator \\ nil,
         end_time,
-        max_results \\ nil,
         metric_name,
-        next_token \\ nil,
         start_time,
         thing_name,
         options \\ []
       ) do
     url_path = "/metric-values"
+
+    # Validate optional parameters
+    optional_params = [
+      dimension_name: nil,
+      dimension_value_operator: nil,
+      max_results: nil,
+      next_token: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [
+      {"endTime", end_time},
+      {"metricName", metric_name},
+      {"startTime", start_time},
+      {"thingName", thing_name}
+    ]
+
+    # Optional query params
     query_params =
-      if !is_nil(thing_name) do
-        [{"thingName", thing_name} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(start_time) do
-        [{"startTime", start_time} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :dimension_value_operator) do
+        [{"dimensionValueOperator", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(metric_name) do
-        [{"metricName", metric_name} | query_params]
+      if opt_val = Keyword.get(options, :dimension_name) do
+        [{"dimensionName", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    query_params =
-      if !is_nil(end_time) do
-        [{"endTime", end_time} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(dimension_value_operator) do
-        [{"dimensionValueOperator", dimension_value_operator} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(dimension_name) do
-        [{"dimensionName", dimension_name} | query_params]
-      else
-        query_params
-      end
-
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:dimension_name, :dimension_value_operator, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -16886,53 +18995,72 @@ defmodule AWS.IoT do
   @doc """
   Gets a list of all mitigation actions that match the specified filter criteria.
 
-  Requires permission to access the
-  [ListMitigationActions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListMitigationActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:action_type`
+    (`t:enum["ADD_THINGS_TO_THING_GROUP|ENABLE_IOT_LOGGING|PUBLISH_FINDING_TO_SNS|REPLACE_DEFAULT_POLICY_VERSION|UPDATE_CA_CERTIFICATE|UPDATE_DEVICE_CERTIFICATE"]`)
+    Specify a value to limit the result to mitigation actions with a specific
+    action type.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time. The default is 25.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
-  @spec list_mitigation_actions(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_mitigation_actions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_mitigation_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_mitigation_actions_errors()}
-  def list_mitigation_actions(
-        %Client{} = client,
-        action_type \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_mitigation_actions(%Client{} = client, options \\ []) do
     url_path = "/mitigationactions/actions"
+
+    # Validate optional parameters
+    optional_params = [action_type: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(action_type) do
-        [{"actionType", action_type} | query_params]
+      if opt_val = Keyword.get(options, :action_type) do
+        [{"actionType", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:action_type, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -16940,47 +19068,71 @@ defmodule AWS.IoT do
   @doc """
   Lists OTA updates.
 
-  Requires permission to access the
-  [ListOTAUpdates](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListOTAUpdates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:next_token` (`t:string`) A token used to retrieve the next set of results.
+  * `:ota_update_status`
+    (`t:enum["CREATE_COMPLETE|CREATE_FAILED|CREATE_IN_PROGRESS|CREATE_PENDING|DELETE_FAILED|DELETE_IN_PROGRESS"]`)
+    The OTA update job status.
   """
-  @spec list_ota_updates(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_ota_updates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ota_updates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ota_updates_errors()}
-  def list_ota_updates(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        ota_update_status \\ nil,
-        options \\ []
-      ) do
+  def list_ota_updates(%Client{} = client, options \\ []) do
     url_path = "/otaUpdates"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, ota_update_status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(ota_update_status) do
-        [{"otaUpdateStatus", ota_update_status} | query_params]
+      if opt_val = Keyword.get(options, :ota_update_status) do
+        [{"otaUpdateStatus", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :ota_update_status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -16988,53 +19140,69 @@ defmodule AWS.IoT do
   @doc """
   Lists certificates that are being transferred but not yet accepted.
 
-  Requires permission to access the
-  [ListOutgoingCertificates](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListOutgoingCertificates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:ascending_order` (`t:boolean`) Specifies the order for results. If True, the
+    results are returned in ascending order, based on the creation date.
+  * `:marker` (`t:string`) The marker for the next set of results.
+  * `:page_size` (`t:integer`) The result page size.
   """
-  @spec list_outgoing_certificates(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_outgoing_certificates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_outgoing_certificates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_outgoing_certificates_errors()}
-  def list_outgoing_certificates(
-        %Client{} = client,
-        ascending_order \\ nil,
-        marker \\ nil,
-        page_size \\ nil,
-        options \\ []
-      ) do
+  def list_outgoing_certificates(%Client{} = client, options \\ []) do
     url_path = "/certificates-out-going"
+
+    # Validate optional parameters
+    optional_params = [ascending_order: nil, marker: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"pageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(ascending_order) do
-        [{"isAscendingOrder", ascending_order} | query_params]
+      if opt_val = Keyword.get(options, :ascending_order) do
+        [{"isAscendingOrder", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:ascending_order, :marker, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -17042,55 +19210,71 @@ defmodule AWS.IoT do
   @doc """
   Lists the software package versions associated to the account.
 
-  Requires permission to access the
-  [ListPackageVersions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListPackageVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_name` (`t:string`) The name of the target software package.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:next_token` (`t:string`) The token for the next set of results.
+  * `:status` (`t:enum["DEPRECATED|DRAFT|PUBLISHED"]`) The status of the package
+    version. For more information, see Package version lifecycle.
   """
-  @spec list_package_versions(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_package_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_package_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_package_versions_errors()}
-  def list_package_versions(
-        %Client{} = client,
-        package_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_package_versions(%Client{} = client, package_name, options \\ []) do
     url_path = "/packages/#{AWS.Util.encode_uri(package_name)}/versions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -17098,34 +19282,61 @@ defmodule AWS.IoT do
   @doc """
   Lists the software packages associated to the account.
 
-  Requires permission to access the
-  [ListPackages](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListPackages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results returned at one
+    time.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
-  @spec list_packages(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_packages_errors()}
-  def list_packages(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_packages(%Client{} = client, options \\ []) do
     url_path = "/packages"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -17133,262 +19344,330 @@ defmodule AWS.IoT do
   @doc """
   Lists your policies.
 
-  Requires permission to access the
-  [ListPolicies](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:ascending_order` (`t:boolean`) Specifies the order for results. If true, the
+    results are returned in ascending creation order.
+  * `:marker` (`t:string`) The marker for the next set of results.
+  * `:page_size` (`t:integer`) The result page size.
   """
-  @spec list_policies(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_policies_errors()}
-  def list_policies(
-        %Client{} = client,
-        ascending_order \\ nil,
-        marker \\ nil,
-        page_size \\ nil,
-        options \\ []
-      ) do
+  def list_policies(%Client{} = client, options \\ []) do
     url_path = "/policies"
+
+    # Validate optional parameters
+    optional_params = [ascending_order: nil, marker: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"pageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(ascending_order) do
-        [{"isAscendingOrder", ascending_order} | query_params]
+      if opt_val = Keyword.get(options, :ascending_order) do
+        [{"isAscendingOrder", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:ascending_order, :marker, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the principals associated with the specified policy.
+  Lists the principals associated with the specified policy. **Note:** This action
+  is deprecated and works as expected for backward compatibility, but we won't
+  add enhancements. Use `ListTargetsForPolicy` instead.
 
-  **Note:** This action is deprecated and works as
-  expected for backward compatibility, but we won't add enhancements. Use
-  `ListTargetsForPolicy` instead.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListPolicyPrincipals&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [ListPolicyPrincipals](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:policy_name` (`t:string`) The policy name.
+
+  ## Optional parameters:
+  * `:ascending_order` (`t:boolean`) Specifies the order for results. If true, the
+    results are returned in ascending creation order.
+  * `:marker` (`t:string`) The marker for the next set of results.
+  * `:page_size` (`t:integer`) The result page size.
   """
-  @spec list_policy_principals(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          list()
-        ) ::
+  @spec list_policy_principals(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_policy_principals_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_policy_principals_errors()}
-  def list_policy_principals(
-        %Client{} = client,
-        ascending_order \\ nil,
-        marker \\ nil,
-        page_size \\ nil,
-        policy_name,
-        options \\ []
-      ) do
+  def list_policy_principals(%Client{} = client, policy_name, options \\ []) do
     url_path = "/policy-principals"
-    headers = []
 
-    headers =
-      if !is_nil(policy_name) do
-        [{"x-amzn-iot-policy", policy_name} | headers]
-      else
-        headers
-      end
+    # Validate optional parameters
+    optional_params = [ascending_order: nil, marker: nil, page_size: nil]
 
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = [{"x-amzn-iot-policy", policy_name}]
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"pageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(ascending_order) do
-        [{"isAscendingOrder", ascending_order} | query_params]
+      if opt_val = Keyword.get(options, :ascending_order) do
+        [{"isAscendingOrder", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:ascending_order, :marker, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the versions of the specified policy and identifies the default
-  version.
+  Lists the versions of the specified policy and identifies the default version.
 
-  Requires permission to access the
-  [ListPolicyVersions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListPolicyVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:policy_name` (`t:string`) The policy name.
+
+  ## Optional parameters:
   """
-  @spec list_policy_versions(map(), String.t(), list()) ::
+  @spec list_policy_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_policy_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_policy_versions_errors()}
   def list_policy_versions(%Client{} = client, policy_name, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(policy_name)}/version"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the policies attached to the specified principal.
+  Lists the policies attached to the specified principal. If you use an Cognito
+  identity, the ID must be in [AmazonCognito Identity
+  format](https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax).
+  **Note:** This action is deprecated and works as expected for backward
+  compatibility, but we won't add enhancements. Use `ListAttachedPolicies`
+  instead.
 
-  If you use an Cognito
-  identity, the ID must be in [AmazonCognito Identity format](https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListPrincipalPolicies&this_doc_guide=API%2520Reference)
 
-  **Note:** This action is deprecated and works as
-  expected for backward compatibility, but we won't add enhancements. Use
-  `ListAttachedPolicies` instead.
+  ## Parameters:
+  * `:principal` (`t:string`) The principal. Valid principals are CertificateArn
+    (arn:aws:iot:region:accountId:cert/certificateId), thingGroupArn
+    (arn:aws:iot:region:accountId:thinggroup/groupName) and CognitoId
+    (region:id).
 
-  Requires permission to access the
-  [ListPrincipalPolicies](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Optional parameters:
+  * `:ascending_order` (`t:boolean`) Specifies the order for results. If true,
+    results are returned in ascending creation order.
+  * `:marker` (`t:string`) The marker for the next set of results.
+  * `:page_size` (`t:integer`) The result page size.
   """
-  @spec list_principal_policies(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          list()
-        ) ::
+  @spec list_principal_policies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_principal_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_principal_policies_errors()}
-  def list_principal_policies(
-        %Client{} = client,
-        ascending_order \\ nil,
-        marker \\ nil,
-        page_size \\ nil,
-        principal,
-        options \\ []
-      ) do
+  def list_principal_policies(%Client{} = client, principal, options \\ []) do
     url_path = "/principal-policies"
-    headers = []
 
-    headers =
-      if !is_nil(principal) do
-        [{"x-amzn-iot-principal", principal} | headers]
-      else
-        headers
-      end
+    # Validate optional parameters
+    optional_params = [ascending_order: nil, marker: nil, page_size: nil]
 
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = [{"x-amzn-iot-principal", principal}]
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"pageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(ascending_order) do
-        [{"isAscendingOrder", ascending_order} | query_params]
+      if opt_val = Keyword.get(options, :ascending_order) do
+        [{"isAscendingOrder", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:ascending_order, :marker, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the things associated with the specified principal.
+  Lists the things associated with the specified principal. A principal can be
+  X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or
+  federated identities.
 
-  A principal can be X.509
-  certificates, IAM users, groups, and roles, Amazon Cognito identities or
-  federated
-  identities.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListPrincipalThings&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [ListPrincipalThings](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:principal` (`t:string`) The principal.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    operation.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
-  @spec list_principal_things(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
+  @spec list_principal_things(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_principal_things_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_principal_things_errors()}
-  def list_principal_things(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        principal,
-        options \\ []
-      ) do
+  def list_principal_things(%Client{} = client, principal, options \\ []) do
     url_path = "/principals/things"
-    headers = []
 
-    headers =
-      if !is_nil(principal) do
-        [{"x-amzn-principal", principal} | headers]
-      else
-        headers
-      end
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
 
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = [{"x-amzn-principal", principal}]
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -17396,46 +19675,62 @@ defmodule AWS.IoT do
   @doc """
   A list of provisioning template versions.
 
-  Requires permission to access the
-  [ListProvisioningTemplateVersions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListProvisioningTemplateVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the provisioning template.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:next_token` (`t:string`) A token to retrieve the next set of results.
   """
-  @spec list_provisioning_template_versions(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_provisioning_template_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_provisioning_template_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_provisioning_template_versions_errors()}
-  def list_provisioning_template_versions(
-        %Client{} = client,
-        template_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_provisioning_template_versions(%Client{} = client, template_name, options \\ []) do
     url_path = "/provisioning-templates/#{AWS.Util.encode_uri(template_name)}/versions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -17443,127 +19738,126 @@ defmodule AWS.IoT do
   @doc """
   Lists the provisioning templates in your Amazon Web Services account.
 
-  Requires permission to access the
-  [ListProvisioningTemplates](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListProvisioningTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:next_token` (`t:string`) A token to retrieve the next set of results.
   """
-  @spec list_provisioning_templates(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_provisioning_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_provisioning_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_provisioning_templates_errors()}
-  def list_provisioning_templates(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_provisioning_templates(%Client{} = client, options \\ []) do
     url_path = "/provisioning-templates"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  The related resources of an Audit finding.
+  The related resources of an Audit finding. The following resources can be
+  returned from calling this API:
 
-  The following resources can be returned from calling this API:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListRelatedResourcesForAuditFinding&this_doc_guide=API%2520Reference)
 
-    *
-  DEVICE_CERTIFICATE
+  ## Parameters:
+  * `:finding_id` (`t:string`) The finding Id.
 
-    *
-  CA_CERTIFICATE
-
-    *
-  IOT_POLICY
-
-    *
-  COGNITO_IDENTITY_POOL
-
-    *
-  CLIENT_ID
-
-    *
-  ACCOUNT_SETTINGS
-
-    *
-  ROLE_ALIAS
-
-    *
-  IAM_ROLE
-
-    *
-  ISSUER_CERTIFICATE
-
-  This API is similar to DescribeAuditFinding's
-  [RelatedResources](https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeAuditFinding.html) but provides pagination and is not limited to 10 resources.
-  When calling
-  [DescribeAuditFinding](https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeAuditFinding.html)
-  for the intermediate CA revoked for
-  active device certificates check, RelatedResources will not be populated. You
-  must use this API, ListRelatedResourcesForAuditFinding, to list the
-  certificates.
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:next_token` (`t:string`) A token that can be used to retrieve the next set
+    of results, or null if there are no additional results.
   """
-  @spec list_related_resources_for_audit_finding(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_related_resources_for_audit_finding(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_related_resources_for_audit_finding_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_related_resources_for_audit_finding_errors()}
-  def list_related_resources_for_audit_finding(
-        %Client{} = client,
-        finding_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_related_resources_for_audit_finding(%Client{} = client, finding_id, options \\ []) do
     url_path = "/audit/relatedResources"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"findingId", finding_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(finding_id) do
-        [{"findingId", finding_id} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -17571,47 +19865,70 @@ defmodule AWS.IoT do
   @doc """
   Lists the role aliases registered in your account.
 
-  Requires permission to access the
-  [ListRoleAliases](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListRoleAliases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:ascending_order` (`t:boolean`) Return the list of role aliases in ascending
+    alphabetical order.
+  * `:marker` (`t:string`) A marker used to get the next set of results.
+  * `:page_size` (`t:integer`) The maximum number of results to return at one
+    time.
   """
-  @spec list_role_aliases(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_role_aliases(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_role_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_role_aliases_errors()}
-  def list_role_aliases(
-        %Client{} = client,
-        ascending_order \\ nil,
-        marker \\ nil,
-        page_size \\ nil,
-        options \\ []
-      ) do
+  def list_role_aliases(%Client{} = client, options \\ []) do
     url_path = "/role-aliases"
+
+    # Validate optional parameters
+    optional_params = [ascending_order: nil, marker: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"pageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(ascending_order) do
-        [{"isAscendingOrder", ascending_order} | query_params]
+      if opt_val = Keyword.get(options, :ascending_order) do
+        [{"isAscendingOrder", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:ascending_order, :marker, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -17619,108 +19936,145 @@ defmodule AWS.IoT do
   @doc """
   Lists all of your scheduled audits.
 
-  Requires permission to access the
-  [ListScheduledAudits](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListScheduledAudits&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time. The default is 25.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
-  @spec list_scheduled_audits(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_scheduled_audits(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_scheduled_audits_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_scheduled_audits_errors()}
-  def list_scheduled_audits(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_scheduled_audits(%Client{} = client, options \\ []) do
     url_path = "/audit/scheduledaudits"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the Device Defender security profiles
-  you've
-  created.
-
-  You can filter security profiles by dimension or custom metric.
-
-  Requires permission to access the
+  Lists the Device Defender security profiles you've created. You can filter
+  security profiles by dimension or custom metric. Requires permission to access
+  the
   [ListSecurityProfiles](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
 
-  `dimensionName` and `metricName` cannot be used in the same request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListSecurityProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:dimension_name` (`t:string`) A filter to limit results to the security
+    profiles that use the defined dimension. Cannot be used with metricName
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:metric_name` (`t:string`) The name of the custom metric. Cannot be used with
+    dimensionName.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
-  @spec list_security_profiles(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_security_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_security_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_security_profiles_errors()}
-  def list_security_profiles(
-        %Client{} = client,
-        dimension_name \\ nil,
-        max_results \\ nil,
-        metric_name \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_security_profiles(%Client{} = client, options \\ []) do
     url_path = "/security-profiles"
+
+    # Validate optional parameters
+    optional_params = [dimension_name: nil, max_results: nil, metric_name: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(metric_name) do
-        [{"metricName", metric_name} | query_params]
+      if opt_val = Keyword.get(options, :metric_name) do
+        [{"metricName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(dimension_name) do
-        [{"dimensionName", dimension_name} | query_params]
+      if opt_val = Keyword.get(options, :dimension_name) do
+        [{"dimensionName", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:dimension_name, :max_results, :metric_name, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -17728,62 +20082,75 @@ defmodule AWS.IoT do
   @doc """
   Lists the Device Defender security profiles attached to a target (thing group).
 
-  Requires permission to access the
-  [ListSecurityProfilesForTarget](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListSecurityProfilesForTarget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:security_profile_target_arn` (`t:string`) The ARN of the target (thing
+    group) whose attached security profiles you want to get.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:next_token` (`t:string`) The token for the next set of results.
+  * `:recursive` (`t:boolean`) If true, return child groups too.
   """
-  @spec list_security_profiles_for_target(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          list()
-        ) ::
+  @spec list_security_profiles_for_target(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_security_profiles_for_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_security_profiles_for_target_errors()}
   def list_security_profiles_for_target(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        recursive \\ nil,
         security_profile_target_arn,
         options \\ []
       ) do
     url_path = "/security-profiles-for-target"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, recursive: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"securityProfileTargetArn", security_profile_target_arn}]
+
+    # Optional query params
     query_params =
-      if !is_nil(security_profile_target_arn) do
-        [{"securityProfileTargetArn", security_profile_target_arn} | query_params]
+      if opt_val = Keyword.get(options, :recursive) do
+        [{"recursive", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(recursive) do
-        [{"recursive", recursive} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :recursive])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -17791,47 +20158,70 @@ defmodule AWS.IoT do
   @doc """
   Lists all of the streams in your Amazon Web Services account.
 
-  Requires permission to access the
-  [ListStreams](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListStreams&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:ascending_order` (`t:boolean`) Set to true to return the list of streams in
+    ascending order.
+  * `:max_results` (`t:integer`) The maximum number of results to return at a
+    time.
+  * `:next_token` (`t:string`) A token used to get the next set of results.
   """
-  @spec list_streams(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_streams(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_streams_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_streams_errors()}
-  def list_streams(
-        %Client{} = client,
-        ascending_order \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_streams(%Client{} = client, options \\ []) do
     url_path = "/streams"
+
+    # Validate optional parameters
+    optional_params = [ascending_order: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(ascending_order) do
-        [{"isAscendingOrder", ascending_order} | query_params]
+      if opt_val = Keyword.get(options, :ascending_order) do
+        [{"isAscendingOrder", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:ascending_order, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -17839,34 +20229,55 @@ defmodule AWS.IoT do
   @doc """
   Lists the tags (metadata) you have assigned to the resource.
 
-  Requires permission to access the
-  [ListTagsForResource](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
-  @spec list_tags_for_resource(map(), String.t() | nil, String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, next_token \\ nil, resource_arn, options \\ []) do
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"resourceArn", resource_arn}]
+
+    # Optional query params
     query_params =
-      if !is_nil(resource_arn) do
-        [{"resourceArn", resource_arn} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -17874,11 +20285,22 @@ defmodule AWS.IoT do
   @doc """
   List targets for the specified policy.
 
-  Requires permission to access the
-  [ListTargetsForPolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListTargetsForPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:policy_name` (`t:string`) The policy name.
+
+  ## Optional parameters:
+  * `:marker` (`t:string`) A marker used to get the next set of results.
+  * `:page_size` (`t:integer`) The maximum number of results to return at one
+    time.
   """
-  @spec list_targets_for_policy(map(), String.t(), list_targets_for_policy_request(), list()) ::
+  @spec list_targets_for_policy(
+          AWS.Client.t(),
+          String.t(),
+          list_targets_for_policy_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_targets_for_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_targets_for_policy_errors()}
@@ -17893,7 +20315,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:marker, :page_size])
 
     Request.request_rest(
       client,
@@ -17912,46 +20340,62 @@ defmodule AWS.IoT do
   Lists the targets (thing groups) associated with a given Device Defender
   security profile.
 
-  Requires permission to access the
-  [ListTargetsForSecurityProfile](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListTargetsForSecurityProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:security_profile_name` (`t:string`) The security profile.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
-  @spec list_targets_for_security_profile(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_targets_for_security_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_targets_for_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_targets_for_security_profile_errors()}
-  def list_targets_for_security_profile(
-        %Client{} = client,
-        security_profile_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_targets_for_security_profile(%Client{} = client, security_profile_name, options \\ []) do
     url_path = "/security-profiles/#{AWS.Util.encode_uri(security_profile_name)}/targets"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -17959,71 +20403,95 @@ defmodule AWS.IoT do
   @doc """
   List the thing groups in your account.
 
-  Requires permission to access the
-  [ListThingGroups](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListThingGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:name_prefix_filter` (`t:string`) A filter that limits the results to those
+    with the specified name prefix.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
+  * `:parent_group` (`t:string`) A filter that limits the results to those with
+    the specified parent group.
+  * `:recursive` (`t:boolean`) If true, return child groups as well.
   """
-  @spec list_thing_groups(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_thing_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_thing_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_thing_groups_errors()}
-  def list_thing_groups(
-        %Client{} = client,
-        max_results \\ nil,
-        name_prefix_filter \\ nil,
-        next_token \\ nil,
-        parent_group \\ nil,
-        recursive \\ nil,
-        options \\ []
-      ) do
+  def list_thing_groups(%Client{} = client, options \\ []) do
     url_path = "/thing-groups"
+
+    # Validate optional parameters
+    optional_params = [
+      max_results: nil,
+      name_prefix_filter: nil,
+      next_token: nil,
+      parent_group: nil,
+      recursive: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(recursive) do
-        [{"recursive", recursive} | query_params]
+      if opt_val = Keyword.get(options, :recursive) do
+        [{"recursive", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(parent_group) do
-        [{"parentGroup", parent_group} | query_params]
+      if opt_val = Keyword.get(options, :parent_group) do
+        [{"parentGroup", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name_prefix_filter) do
-        [{"namePrefixFilter", name_prefix_filter} | query_params]
+      if opt_val = Keyword.get(options, :name_prefix_filter) do
+        [{"namePrefixFilter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :name_prefix_filter, :next_token, :parent_group, :recursive])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -18031,138 +20499,202 @@ defmodule AWS.IoT do
   @doc """
   List the thing groups to which the specified thing belongs.
 
-  Requires permission to access the
-  [ListThingGroupsForThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListThingGroupsForThing&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_name` (`t:string`) The thing name.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
-  @spec list_thing_groups_for_thing(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_thing_groups_for_thing(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_thing_groups_for_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_thing_groups_for_thing_errors()}
-  def list_thing_groups_for_thing(
-        %Client{} = client,
-        thing_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_thing_groups_for_thing(%Client{} = client, thing_name, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/thing-groups"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the principals associated with the specified thing.
+  Lists the principals associated with the specified thing. A principal can be
+  X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or
+  federated identities.
 
-  A principal can be X.509
-  certificates, IAM users, groups, and roles, Amazon Cognito identities or
-  federated
-  identities.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListThingPrincipals&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [ListThingPrincipals](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:thing_name` (`t:string`) The name of the thing.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    operation.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
-  @spec list_thing_principals(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_thing_principals(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_thing_principals_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_thing_principals_errors()}
-  def list_thing_principals(
-        %Client{} = client,
-        thing_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_thing_principals(%Client{} = client, thing_name, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/principals"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Information about the thing registration tasks.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListThingRegistrationTaskReports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:task_id` (`t:string`) The id of the task.
+  * `:report_type` (`t:enum["ERRORS|RESULTS"]`) The type of task report.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per
+    request.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
-  @spec list_thing_registration_task_reports(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          list()
-        ) ::
+  @spec list_thing_registration_task_reports(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_thing_registration_task_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_thing_registration_task_reports_errors()}
   def list_thing_registration_task_reports(
         %Client{} = client,
         task_id,
-        max_results \\ nil,
-        next_token \\ nil,
         report_type,
         options \\ []
       ) do
     url_path = "/thing-registration-tasks/#{AWS.Util.encode_uri(task_id)}/reports"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"reportType", report_type}]
+
+    # Optional query params
     query_params =
-      if !is_nil(report_type) do
-        [{"reportType", report_type} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -18170,53 +20702,72 @@ defmodule AWS.IoT do
   @doc """
   List bulk thing provisioning tasks.
 
-  Requires permission to access the
-  [ListThingRegistrationTasks](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListThingRegistrationTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
+  * `:status` (`t:enum["Cancelled|Cancelling|Completed|Failed|InProgress"]`) The
+    status of the bulk thing provisioning task.
   """
-  @spec list_thing_registration_tasks(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_thing_registration_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_thing_registration_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_thing_registration_tasks_errors()}
-  def list_thing_registration_tasks(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_thing_registration_tasks(%Client{} = client, options \\ []) do
     url_path = "/thing-registration-tasks"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -18224,141 +20775,193 @@ defmodule AWS.IoT do
   @doc """
   Lists the existing thing types.
 
-  Requires permission to access the
-  [ListThingTypes](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListThingTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    operation.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
+  * `:thing_type_name` (`t:string`) The name of the thing type.
   """
-  @spec list_thing_types(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_thing_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_thing_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_thing_types_errors()}
-  def list_thing_types(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        thing_type_name \\ nil,
-        options \\ []
-      ) do
+  def list_thing_types(%Client{} = client, options \\ []) do
     url_path = "/thing-types"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, thing_type_name: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(thing_type_name) do
-        [{"thingTypeName", thing_type_name} | query_params]
+      if opt_val = Keyword.get(options, :thing_type_name) do
+        [{"thingTypeName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :thing_type_name])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists your things.
-
-  Use the **attributeName** and **attributeValue** parameters to filter your
-  things. For example,
-  calling `ListThings` with attributeName=Color and attributeValue=Red
-  retrieves all things in the registry that contain an attribute **Color** with
-  the value **Red**. For more
-  information, see [List Things](https://docs.aws.amazon.com/iot/latest/developerguide/thing-registry.html#list-things)
-  from the *Amazon Web Services IoT Core Developer
-  Guide*.
-
-  Requires permission to access the
+  Lists your things. Use the **attributeName** and **attributeValue** parameters
+  to filter your things. For example, calling `ListThings` with
+  attributeName=Color and attributeValue=Red retrieves all things in the
+  registry that contain an attribute **Color** with the value **Red**. For more
+  information, see [List
+  Things](https://docs.aws.amazon.com/iot/latest/developerguide/thing-registry.html#list-things)
+  from the *Amazon Web Services IoT Core Developer Guide*. Requires permission
+  to access the
   [ListThings](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
 
-  You will not be charged for calling this API if an `Access denied` error is
-  returned. You will also not be charged if no attributes or pagination token was
-  provided in request and no pagination token and no results were returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListThings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:attribute_name` (`t:string`) The attribute name used to search for things.
+  * `:attribute_value` (`t:string`) The attribute value used to search for things.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    operation.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
+  * `:thing_type_name` (`t:string`) The name of the thing type used to search for
+    things.
+  * `:use_prefix_attribute_value` (`t:boolean`) When true, the action returns the
+    thing resources with attribute values that start with the attributeValue
+    provided.
   """
-  @spec list_things(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_things(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_things_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_things_errors()}
-  def list_things(
-        %Client{} = client,
-        attribute_name \\ nil,
-        attribute_value \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        thing_type_name \\ nil,
-        use_prefix_attribute_value \\ nil,
-        options \\ []
-      ) do
+  def list_things(%Client{} = client, options \\ []) do
     url_path = "/things"
+
+    # Validate optional parameters
+    optional_params = [
+      attribute_name: nil,
+      attribute_value: nil,
+      max_results: nil,
+      next_token: nil,
+      thing_type_name: nil,
+      use_prefix_attribute_value: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(use_prefix_attribute_value) do
-        [{"usePrefixAttributeValue", use_prefix_attribute_value} | query_params]
+      if opt_val = Keyword.get(options, :use_prefix_attribute_value) do
+        [{"usePrefixAttributeValue", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(thing_type_name) do
-        [{"thingTypeName", thing_type_name} | query_params]
+      if opt_val = Keyword.get(options, :thing_type_name) do
+        [{"thingTypeName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(attribute_value) do
-        [{"attributeValue", attribute_value} | query_params]
+      if opt_val = Keyword.get(options, :attribute_value) do
+        [{"attributeValue", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(attribute_name) do
-        [{"attributeName", attribute_name} | query_params]
+      if opt_val = Keyword.get(options, :attribute_name) do
+        [{"attributeName", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :attribute_name,
+        :attribute_value,
+        :max_results,
+        :next_token,
+        :thing_type_name,
+        :use_prefix_attribute_value
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -18366,46 +20969,64 @@ defmodule AWS.IoT do
   @doc """
   Lists the things you have added to the given billing group.
 
-  Requires permission to access the
-  [ListThingsInBillingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListThingsInBillingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:billing_group_name` (`t:string`) The name of the billing group.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per
+    request.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
-  @spec list_things_in_billing_group(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_things_in_billing_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_things_in_billing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_things_in_billing_group_errors()}
-  def list_things_in_billing_group(
-        %Client{} = client,
-        billing_group_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_things_in_billing_group(%Client{} = client, billing_group_name, options \\ []) do
     url_path = "/billing-groups/#{AWS.Util.encode_uri(billing_group_name)}/things"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -18413,55 +21034,73 @@ defmodule AWS.IoT do
   @doc """
   Lists the things in the specified group.
 
-  Requires permission to access the
-  [ListThingsInThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListThingsInThingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_group_name` (`t:string`) The thing group name.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
+  * `:recursive` (`t:boolean`) When true, list things in this thing group and in
+    all child groups as well.
   """
-  @spec list_things_in_thing_group(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_things_in_thing_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_things_in_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_things_in_thing_group_errors()}
-  def list_things_in_thing_group(
-        %Client{} = client,
-        thing_group_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        recursive \\ nil,
-        options \\ []
-      ) do
+  def list_things_in_thing_group(%Client{} = client, thing_group_name, options \\ []) do
     url_path = "/thing-groups/#{AWS.Util.encode_uri(thing_group_name)}/things"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, recursive: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(recursive) do
-        [{"recursive", recursive} | query_params]
+      if opt_val = Keyword.get(options, :recursive) do
+        [{"recursive", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :recursive])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -18469,39 +21108,63 @@ defmodule AWS.IoT do
   @doc """
   Lists all the topic rule destinations in your Amazon Web Services account.
 
-  Requires permission to access the
-  [ListTopicRuleDestinations](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListTopicRuleDestinations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
-  @spec list_topic_rule_destinations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_topic_rule_destinations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_topic_rule_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_topic_rule_destinations_errors()}
-  def list_topic_rule_destinations(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_topic_rule_destinations(%Client{} = client, options \\ []) do
     url_path = "/destinations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -18509,62 +21172,78 @@ defmodule AWS.IoT do
   @doc """
   Lists the rules for the specific topic.
 
-  Requires permission to access the
-  [ListTopicRules](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListTopicRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
+  * `:rule_disabled` (`t:boolean`) Specifies whether the rule is disabled.
+  * `:topic` (`t:string`) The topic.
   """
-  @spec list_topic_rules(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_topic_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_topic_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_topic_rules_errors()}
-  def list_topic_rules(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        rule_disabled \\ nil,
-        topic \\ nil,
-        options \\ []
-      ) do
+  def list_topic_rules(%Client{} = client, options \\ []) do
     url_path = "/rules"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, rule_disabled: nil, topic: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(topic) do
-        [{"topic", topic} | query_params]
+      if opt_val = Keyword.get(options, :topic) do
+        [{"topic", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(rule_disabled) do
-        [{"ruleDisabled", rule_disabled} | query_params]
+      if opt_val = Keyword.get(options, :rule_disabled) do
+        [{"ruleDisabled", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :rule_disabled, :topic])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -18572,166 +21251,200 @@ defmodule AWS.IoT do
   @doc """
   Lists logging levels.
 
-  Requires permission to access the
-  [ListV2LoggingLevels](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListV2LoggingLevels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
+  * `:target_type`
+    (`t:enum["CLIENT_ID|DEFAULT|PRINCIPAL_ID|SOURCE_IP|THING_GROUP"]`) The type
+    of resource for which you are configuring logging. Must be THING_Group.
   """
-  @spec list_v2_logging_levels(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_v2_logging_levels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_v2_logging_levels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_v2_logging_levels_errors()}
-  def list_v2_logging_levels(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        target_type \\ nil,
-        options \\ []
-      ) do
+  def list_v2_logging_levels(%Client{} = client, options \\ []) do
     url_path = "/v2LoggingLevel"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, target_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(target_type) do
-        [{"targetType", target_type} | query_params]
+      if opt_val = Keyword.get(options, :target_type) do
+        [{"targetType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :target_type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the Device Defender security profile violations discovered during the
-  given time period.
+  given time period. You can use filters to limit the results to those alerts
+  issued for a particular security profile, behavior, or thing (device).
 
-  You can use filters to limit the results to those alerts issued for a particular
-  security profile,
-  behavior, or thing (device).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListViolationEvents&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [ListViolationEvents](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:end_time` (`t:timestamp`) The end time for the alerts to be listed.
+  * `:start_time` (`t:timestamp`) The start time for the alerts to be listed.
+
+  ## Optional parameters:
+  * `:behavior_criteria_type` (`t:enum["MACHINE_LEARNING|STATIC|STATISTICAL"]`)
+    The criteria for a behavior.
+  * `:list_suppressed_alerts` (`t:boolean`) A list of all suppressed alerts.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:next_token` (`t:string`) The token for the next set of results.
+  * `:security_profile_name` (`t:string`) A filter to limit results to those
+    alerts generated by the specified security profile.
+  * `:thing_name` (`t:string`) A filter to limit results to those alerts caused by
+    the specified thing.
+  * `:verification_state`
+    (`t:enum["BENIGN_POSITIVE|FALSE_POSITIVE|TRUE_POSITIVE|UNKNOWN"]`) The
+    verification state of the violation (detect alarm).
   """
-  @spec list_violation_events(
-          map(),
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_violation_events(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_violation_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_violation_events_errors()}
-  def list_violation_events(
-        %Client{} = client,
-        behavior_criteria_type \\ nil,
-        end_time,
-        list_suppressed_alerts \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        security_profile_name \\ nil,
-        start_time,
-        thing_name \\ nil,
-        verification_state \\ nil,
-        options \\ []
-      ) do
+  def list_violation_events(%Client{} = client, end_time, start_time, options \\ []) do
     url_path = "/violation-events"
+
+    # Validate optional parameters
+    optional_params = [
+      behavior_criteria_type: nil,
+      list_suppressed_alerts: nil,
+      max_results: nil,
+      next_token: nil,
+      security_profile_name: nil,
+      thing_name: nil,
+      verification_state: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"endTime", end_time}, {"startTime", start_time}]
+
+    # Optional query params
     query_params =
-      if !is_nil(verification_state) do
-        [{"verificationState", verification_state} | query_params]
+      if opt_val = Keyword.get(options, :verification_state) do
+        [{"verificationState", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(thing_name) do
-        [{"thingName", thing_name} | query_params]
+      if opt_val = Keyword.get(options, :thing_name) do
+        [{"thingName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(start_time) do
-        [{"startTime", start_time} | query_params]
+      if opt_val = Keyword.get(options, :security_profile_name) do
+        [{"securityProfileName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(security_profile_name) do
-        [{"securityProfileName", security_profile_name} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :list_suppressed_alerts) do
+        [{"listSuppressedAlerts", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(list_suppressed_alerts) do
-        [{"listSuppressedAlerts", list_suppressed_alerts} | query_params]
+      if opt_val = Keyword.get(options, :behavior_criteria_type) do
+        [{"behaviorCriteriaType", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(end_time) do
-        [{"endTime", end_time} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    query_params =
-      if !is_nil(behavior_criteria_type) do
-        [{"behaviorCriteriaType", behavior_criteria_type} | query_params]
-      else
-        query_params
-      end
-
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :behavior_criteria_type,
+        :list_suppressed_alerts,
+        :max_results,
+        :next_token,
+        :security_profile_name,
+        :thing_name,
+        :verification_state
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -18739,12 +21452,19 @@ defmodule AWS.IoT do
   @doc """
   Set a verification state and provide a description of that verification state on
   a violation (detect alarm).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20PutVerificationStateOnViolation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:violation_id` (`t:string`) The violation ID.
+
+  ## Optional parameters:
   """
   @spec put_verification_state_on_violation(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_verification_state_on_violation_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_verification_state_on_violation_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -18754,7 +21474,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -18770,18 +21491,22 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Registers a CA certificate with Amazon Web Services IoT Core.
+  Registers a CA certificate with Amazon Web Services IoT Core. There is no limit
+  to the number of CA certificates you can register in your Amazon Web Services
+  account. You can register up to 10 CA certificates with the same `CA subject
+  field` per Amazon Web Services account.
 
-  There is no limit to the number of CA
-  certificates you can register in your Amazon Web Services account. You can
-  register up to 10 CA
-  certificates with the same `CA subject field` per Amazon Web Services account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20RegisterCACertificate&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [RegisterCACertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:allow_auto_registration` (`t:boolean`) Allows this CA certificate to be used
+    for auto registration of device certificates.
+  * `:set_as_active` (`t:boolean`) A boolean value that specifies if the CA
+    certificate is set to active.
   """
-  @spec register_ca_certificate(map(), register_ca_certificate_request(), list()) ::
+  @spec register_ca_certificate(AWS.Client.t(), register_ca_certificate_request(), Keyword.t()) ::
           {:ok, register_ca_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_ca_certificate_errors()}
@@ -18796,7 +21521,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:allow_auto_registration, :set_as_active])
 
     Request.request_rest(
       client,
@@ -18812,19 +21543,23 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Registers a device certificate with IoT in the same [certificate mode](https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode)
-  as the signing CA.
-
-  If you have more than one CA certificate that has the same subject field, you
-  must
-  specify the CA certificate that was used to sign the device certificate being
-  registered.
-
-  Requires permission to access the
+  Registers a device certificate with IoT in the same [certificate
+  mode](https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode)
+  as the signing CA. If you have more than one CA certificate that has the same
+  subject field, you must specify the CA certificate that was used to sign the
+  device certificate being registered. Requires permission to access the
   [RegisterCertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20RegisterCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:set_as_active` (`t:boolean`) A boolean value that specifies if the
+    certificate is set to active.
   """
-  @spec register_certificate(map(), register_certificate_request(), list()) ::
+  @spec register_certificate(AWS.Client.t(), register_certificate_request(), Keyword.t()) ::
           {:ok, register_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_certificate_errors()}
@@ -18838,7 +21573,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:set_as_active])
 
     Request.request_rest(
       client,
@@ -18854,13 +21595,21 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Register a certificate that does not have a certificate authority (CA).
-
-  For supported certificates, consult [
-  Certificate signing algorithms supported by
+  Register a certificate that does not have a certificate authority (CA). For
+  supported certificates, consult [ Certificate signing algorithms supported by
   IoT](https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20RegisterCertificateWithoutCA&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec register_certificate_without_ca(map(), register_certificate_without_ca_request(), list()) ::
+  @spec register_certificate_without_ca(
+          AWS.Client.t(),
+          register_certificate_without_ca_request(),
+          Keyword.t()
+        ) ::
           {:ok, register_certificate_without_ca_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_certificate_without_ca_errors()}
@@ -18869,7 +21618,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -18885,20 +21635,22 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Provisions a thing in the device registry.
-
-  RegisterThing calls other IoT control
-  plane APIs. These calls might exceed your account level [
-  IoT Throttling
+  Provisions a thing in the device registry. RegisterThing calls other IoT control
+  plane APIs. These calls might exceed your account level [ IoT Throttling
   Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot)
-  and cause throttle errors. Please contact [Amazon Web Services Customer Support](https://console.aws.amazon.com/support/home) to raise
-  your throttling limits if necessary.
-
-  Requires permission to access the
+  and cause throttle errors. Please contact [Amazon Web Services Customer
+  Support](https://console.aws.amazon.com/support/home) to raise your throttling
+  limits if necessary. Requires permission to access the
   [RegisterThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20RegisterThing&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec register_thing(map(), register_thing_request(), list()) ::
+  @spec register_thing(AWS.Client.t(), register_thing_request(), Keyword.t()) ::
           {:ok, register_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_thing_errors()}
@@ -18907,7 +21659,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -18923,28 +21676,24 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Rejects a pending certificate transfer.
+  Rejects a pending certificate transfer. After IoT rejects a certificate
+  transfer, the certificate status changes from **PENDING_TRANSFER** to
+  **INACTIVE**. To check for pending certificate transfers, call
+  `ListCertificates` to enumerate your certificates.
 
-  After IoT rejects a certificate transfer,
-  the certificate status changes from **PENDING_TRANSFER** to
-  **INACTIVE**.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20RejectCertificateTransfer&this_doc_guide=API%2520Reference)
 
-  To check for pending certificate transfers, call `ListCertificates`
-  to enumerate your certificates.
+  ## Parameters:
+  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of
+    the certificate ARN contains the certificate ID.)
 
-  This operation can only be called by the transfer destination. After it is
-  called,
-  the certificate will be returned to the source's account in the INACTIVE state.
-
-  Requires permission to access the
-  [RejectCertificateTransfer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Optional parameters:
   """
   @spec reject_certificate_transfer(
-          map(),
+          AWS.Client.t(),
           String.t(),
           reject_certificate_transfer_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -18954,7 +21703,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -18970,16 +21720,22 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Removes the given thing from the billing group.
-
-  Requires permission to access the
+  Removes the given thing from the billing group. Requires permission to access
+  the
   [RemoveThingFromBillingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
 
-  This call is asynchronous. It might take several seconds for the detachment to
-  propagate.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20RemoveThingFromBillingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec remove_thing_from_billing_group(map(), remove_thing_from_billing_group_request(), list()) ::
+  @spec remove_thing_from_billing_group(
+          AWS.Client.t(),
+          remove_thing_from_billing_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, remove_thing_from_billing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_thing_from_billing_group_errors()}
@@ -18988,24 +21744,29 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Remove the specified thing from the specified group.
+  Remove the specified thing from the specified group. You must specify either a
+  `thingGroupArn` or a `thingGroupName` to identify the thing group and either a
+  `thingArn` or a `thingName` to identify the thing to remove from the thing
+  group.
 
-  You must specify either a `thingGroupArn` or a
-  `thingGroupName` to identify the thing group and
-  either a `thingArn` or a `thingName` to
-  identify the thing to remove from the thing group.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20RemoveThingFromThingGroup&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [RemoveThingFromThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec remove_thing_from_thing_group(map(), remove_thing_from_thing_group_request(), list()) ::
+  @spec remove_thing_from_thing_group(
+          AWS.Client.t(),
+          remove_thing_from_thing_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, remove_thing_from_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_thing_from_thing_group_errors()}
@@ -19014,24 +21775,25 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Replaces the rule.
+  Replaces the rule. You must specify all parameters for the new rule. Creating
+  rules is an administrator-level action. Any user who has permission to create
+  rules will be able to access data processed by the rule.
 
-  You must specify all parameters for the new rule. Creating rules
-  is an administrator-level action. Any user who has permission to create rules
-  will be able
-  to access data processed by the rule.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ReplaceTopicRule&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [ReplaceTopicRule](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:rule_name` (`t:string`) The name of the rule.
+
+  ## Optional parameters:
   """
-  @spec replace_topic_rule(map(), String.t(), replace_topic_rule_request(), list()) ::
+  @spec replace_topic_rule(AWS.Client.t(), String.t(), replace_topic_rule_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, replace_topic_rule_errors()}
@@ -19040,7 +21802,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19058,11 +21821,13 @@ defmodule AWS.IoT do
   @doc """
   The query search index.
 
-  Requires permission to access the
-  [SearchIndex](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20SearchIndex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec search_index(map(), search_index_request(), list()) ::
+  @spec search_index(AWS.Client.t(), search_index_request(), Keyword.t()) ::
           {:ok, search_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_index_errors()}
@@ -19071,7 +21836,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19087,16 +21853,16 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Sets the default authorizer.
-
-  This will be used if a websocket connection is made
+  Sets the default authorizer. This will be used if a websocket connection is made
   without specifying an authorizer.
 
-  Requires permission to access the
-  [SetDefaultAuthorizer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20SetDefaultAuthorizer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec set_default_authorizer(map(), set_default_authorizer_request(), list()) ::
+  @spec set_default_authorizer(AWS.Client.t(), set_default_authorizer_request(), Keyword.t()) ::
           {:ok, set_default_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_default_authorizer_errors()}
@@ -19105,7 +21871,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19122,23 +21889,24 @@ defmodule AWS.IoT do
 
   @doc """
   Sets the specified version of the specified policy as the policy's default
-  (operative) version.
+  (operative) version. This action affects all certificates to which the policy
+  is attached. To list the principals the policy is attached to, use the
+  `ListPrincipalPolicies` action.
 
-  This action affects all certificates to which the policy is attached.
-  To list the principals the policy is attached to, use the
-  `ListPrincipalPolicies`
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20SetDefaultPolicyVersion&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [SetDefaultPolicyVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:policy_name` (`t:string`) The policy name.
+  * `:policy_version_id` (`t:string`) The policy version ID.
+
+  ## Optional parameters:
   """
   @spec set_default_policy_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           set_default_policy_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -19156,7 +21924,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19172,16 +21941,16 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Sets the logging options.
+  Sets the logging options. NOTE: use of this command is not recommended. Use
+  `SetV2LoggingOptions` instead.
 
-  NOTE: use of this command is not recommended. Use `SetV2LoggingOptions`
-  instead.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20SetLoggingOptions&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [SetLoggingOptions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec set_logging_options(map(), set_logging_options_request(), list()) ::
+  @spec set_logging_options(AWS.Client.t(), set_logging_options_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_logging_options_errors()}
@@ -19190,7 +21959,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19208,11 +21978,13 @@ defmodule AWS.IoT do
   @doc """
   Sets the logging level.
 
-  Requires permission to access the
-  [SetV2LoggingLevel](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20SetV2LoggingLevel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec set_v2_logging_level(map(), set_v2_logging_level_request(), list()) ::
+  @spec set_v2_logging_level(AWS.Client.t(), set_v2_logging_level_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_v2_logging_level_errors()}
@@ -19221,7 +21993,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19239,11 +22012,13 @@ defmodule AWS.IoT do
   @doc """
   Sets the logging options for the V2 logging service.
 
-  Requires permission to access the
-  [SetV2LoggingOptions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20SetV2LoggingOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec set_v2_logging_options(map(), set_v2_logging_options_request(), list()) ::
+  @spec set_v2_logging_options(AWS.Client.t(), set_v2_logging_options_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_v2_logging_options_errors()}
@@ -19252,7 +22027,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19270,15 +22046,19 @@ defmodule AWS.IoT do
   @doc """
   Starts a task that applies a set of mitigation actions to the specified target.
 
-  Requires permission to access the
-  [StartAuditMitigationActionsTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20StartAuditMitigationActionsTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:task_id` (`t:string`) A unique identifier for the task. You can use this
+    identifier to check the status of the task or to cancel it.
+
+  ## Optional parameters:
   """
   @spec start_audit_mitigation_actions_task(
-          map(),
+          AWS.Client.t(),
           String.t(),
           start_audit_mitigation_actions_task_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_audit_mitigation_actions_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -19288,7 +22068,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19304,18 +22085,20 @@ defmodule AWS.IoT do
   end
 
   @doc """
-
   Starts a Device Defender ML Detect mitigation actions task.
 
-  Requires permission to access the
-  [StartDetectMitigationActionsTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20StartDetectMitigationActionsTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:task_id` (`t:string`) The unique identifier of the task.
+
+  ## Optional parameters:
   """
   @spec start_detect_mitigation_actions_task(
-          map(),
+          AWS.Client.t(),
           String.t(),
           start_detect_mitigation_actions_task_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_detect_mitigation_actions_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -19325,7 +22108,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -19333,11 +22117,17 @@ defmodule AWS.IoT do
   @doc """
   Starts an on-demand Device Defender audit.
 
-  Requires permission to access the
-  [StartOnDemandAuditTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20StartOnDemandAuditTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_on_demand_audit_task(map(), start_on_demand_audit_task_request(), list()) ::
+  @spec start_on_demand_audit_task(
+          AWS.Client.t(),
+          start_on_demand_audit_task_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_on_demand_audit_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_on_demand_audit_task_errors()}
@@ -19346,7 +22136,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19364,11 +22155,17 @@ defmodule AWS.IoT do
   @doc """
   Creates a bulk thing provisioning task.
 
-  Requires permission to access the
-  [StartThingRegistrationTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20StartThingRegistrationTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_thing_registration_task(map(), start_thing_registration_task_request(), list()) ::
+  @spec start_thing_registration_task(
+          AWS.Client.t(),
+          start_thing_registration_task_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_thing_registration_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_thing_registration_task_errors()}
@@ -19377,7 +22174,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19395,15 +22193,18 @@ defmodule AWS.IoT do
   @doc """
   Cancels a bulk thing provisioning task.
 
-  Requires permission to access the
-  [StopThingRegistrationTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20StopThingRegistrationTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:task_id` (`t:string`) The bulk thing provisioning task ID.
+
+  ## Optional parameters:
   """
   @spec stop_thing_registration_task(
-          map(),
+          AWS.Client.t(),
           String.t(),
           stop_thing_registration_task_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, stop_thing_registration_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -19413,22 +22214,23 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Adds to or modifies the tags of the given resource.
+  Adds to or modifies the tags of the given resource. Tags are metadata which can
+  be used to manage a resource.
 
-  Tags are metadata which can be
-  used to manage a resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20TagResource&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [TagResource](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -19437,7 +22239,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19454,16 +22257,17 @@ defmodule AWS.IoT do
 
   @doc """
   Tests if a specified principal is authorized to perform an IoT action on a
-  specified resource.
+  specified resource. Use this to test and debug the authorization behavior of
+  devices that connect to the IoT device gateway.
 
-  Use this to test and debug the authorization behavior of devices that
-  connect to the IoT device gateway.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20TestAuthorization&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [TestAuthorization](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:client_id` (`t:string`) The MQTT client ID.
   """
-  @spec test_authorization(map(), test_authorization_request(), list()) ::
+  @spec test_authorization(AWS.Client.t(), test_authorization_request(), Keyword.t()) ::
           {:ok, test_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_authorization_errors()}
@@ -19477,7 +22281,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_id])
 
     Request.request_rest(
       client,
@@ -19494,17 +22304,22 @@ defmodule AWS.IoT do
 
   @doc """
   Tests a custom authorization behavior by invoking a specified custom authorizer.
+  Use this to test and debug the custom authorization behavior of devices that
+  connect to the IoT device gateway.
 
-  Use
-  this to test and debug the custom authorization behavior of devices that connect
-  to the IoT
-  device gateway.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20TestInvokeAuthorizer&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [TestInvokeAuthorizer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:authorizer_name` (`t:string`) The custom authorizer name.
+
+  ## Optional parameters:
   """
-  @spec test_invoke_authorizer(map(), String.t(), test_invoke_authorizer_request(), list()) ::
+  @spec test_invoke_authorizer(
+          AWS.Client.t(),
+          String.t(),
+          test_invoke_authorizer_request(),
+          Keyword.t()
+        ) ::
           {:ok, test_invoke_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_invoke_authorizer_errors()}
@@ -19513,7 +22328,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19530,26 +22346,25 @@ defmodule AWS.IoT do
 
   @doc """
   Transfers the specified certificate to the specified Amazon Web Services
-  account.
-
-  Requires permission to access the
+  account. Requires permission to access the
   [TransferCertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
 
-  You can cancel the transfer until it is acknowledged by the recipient.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20TransferCertificate&this_doc_guide=API%2520Reference)
 
-  No notification is sent to the transfer destination's account. It is up to the
-  caller
-  to notify the transfer target.
+  ## Parameters:
+  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of
+    the certificate ARN contains the certificate ID.)
+  * `:target_aws_account` (`t:string`) The Amazon Web Services account.
 
-  The certificate being transferred must not be in the ACTIVE state. You can use
-  the
-  `UpdateCertificate` action to deactivate it.
-
-  The certificate must not have any policies attached to it. You can use the
-  `DetachPolicy` action to detach them.
+  ## Optional parameters:
   """
-  @spec transfer_certificate(map(), String.t(), transfer_certificate_request(), list()) ::
+  @spec transfer_certificate(
+          AWS.Client.t(),
+          String.t(),
+          transfer_certificate_request(),
+          Keyword.t()
+        ) ::
           {:ok, transfer_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, transfer_certificate_errors()}
@@ -19563,7 +22378,8 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19581,11 +22397,13 @@ defmodule AWS.IoT do
   @doc """
   Removes the given tags (metadata) from the resource.
 
-  Requires permission to access the
-  [UntagResource](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -19594,7 +22412,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19611,18 +22430,19 @@ defmodule AWS.IoT do
 
   @doc """
   Configures or reconfigures the Device Defender audit settings for this account.
-
   Settings include how audit notifications are sent and which audit checks are
   enabled or disabled.
 
-  Requires permission to access the
-  [UpdateAccountAuditConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateAccountAuditConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec update_account_audit_configuration(
-          map(),
+          AWS.Client.t(),
           update_account_audit_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_account_audit_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -19632,7 +22452,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19648,10 +22469,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
-
   Updates a Device Defender audit suppression.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateAuditSuppression&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_audit_suppression(map(), update_audit_suppression_request(), list()) ::
+  @spec update_audit_suppression(AWS.Client.t(), update_audit_suppression_request(), Keyword.t()) ::
           {:ok, update_audit_suppression_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_audit_suppression_errors()}
@@ -19660,7 +22486,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19678,11 +22505,14 @@ defmodule AWS.IoT do
   @doc """
   Updates an authorizer.
 
-  Requires permission to access the
-  [UpdateAuthorizer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateAuthorizer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:authorizer_name` (`t:string`) The authorizer name.
+
+  ## Optional parameters:
   """
-  @spec update_authorizer(map(), String.t(), update_authorizer_request(), list()) ::
+  @spec update_authorizer(AWS.Client.t(), String.t(), update_authorizer_request(), Keyword.t()) ::
           {:ok, update_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_authorizer_errors()}
@@ -19691,7 +22521,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -19699,11 +22530,19 @@ defmodule AWS.IoT do
   @doc """
   Updates information about the billing group.
 
-  Requires permission to access the
-  [UpdateBillingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateBillingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:billing_group_name` (`t:string`) The name of the billing group.
+
+  ## Optional parameters:
   """
-  @spec update_billing_group(map(), String.t(), update_billing_group_request(), list()) ::
+  @spec update_billing_group(
+          AWS.Client.t(),
+          String.t(),
+          update_billing_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_billing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_billing_group_errors()}
@@ -19712,7 +22551,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19730,11 +22570,23 @@ defmodule AWS.IoT do
   @doc """
   Updates a registered CA certificate.
 
-  Requires permission to access the
-  [UpdateCACertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateCACertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:certificate_id` (`t:string`) The CA certificate identifier.
+
+  ## Optional parameters:
+  * `:new_auto_registration_status` (`t:enum["DISABLE|ENABLE"]`) The new value for
+    the auto registration status. Valid values are: "ENABLE" or "DISABLE".
+  * `:new_status` (`t:enum["ACTIVE|INACTIVE"]`) The updated status of the CA
+    certificate.
   """
-  @spec update_ca_certificate(map(), String.t(), update_ca_certificate_request(), list()) ::
+  @spec update_ca_certificate(
+          AWS.Client.t(),
+          String.t(),
+          update_ca_certificate_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ca_certificate_errors()}
@@ -19749,31 +22601,35 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:new_auto_registration_status, :new_status])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Updates the status of the specified certificate.
-
-  This operation is
-  idempotent.
-
+  Updates the status of the specified certificate. This operation is idempotent.
   Requires permission to access the
   [UpdateCertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
 
-  Certificates must be in the ACTIVE state to authenticate devices that use
-  a certificate to connect to IoT.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateCertificate&this_doc_guide=API%2520Reference)
 
-  Within a few minutes of updating a certificate from the ACTIVE state to any
-  other
-  state, IoT disconnects all devices that used that certificate to connect.
-  Devices cannot
-  use a certificate that is not in the ACTIVE state to reconnect.
+  ## Parameters:
+  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of
+    the certificate ARN contains the certificate ID.)
+  * `:new_status`
+    (`t:enum["ACTIVE|INACTIVE|PENDING_ACTIVATION|PENDING_TRANSFER|REGISTER_INACTIVE|REVOKED"]`)
+    The new status.
+
+  ## Optional parameters:
   """
-  @spec update_certificate(map(), String.t(), update_certificate_request(), list()) ::
+  @spec update_certificate(AWS.Client.t(), String.t(), update_certificate_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_certificate_errors()}
@@ -19787,7 +22643,8 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -19795,15 +22652,19 @@ defmodule AWS.IoT do
   @doc """
   Updates a certificate provider.
 
-  Requires permission to access the
-  [UpdateCertificateProvider](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateCertificateProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:certificate_provider_name` (`t:string`) The name of the certificate
+    provider.
+
+  ## Optional parameters:
   """
   @spec update_certificate_provider(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_certificate_provider_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_certificate_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -19818,20 +22679,28 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Updates a
-  Device Defender detect custom metric.
+  Updates a Device Defender detect custom metric.
 
-  Requires permission to access the
-  [UpdateCustomMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateCustomMetric&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:metric_name` (`t:string`) The name of the custom metric. Cannot be updated.
+
+  ## Optional parameters:
   """
-  @spec update_custom_metric(map(), String.t(), update_custom_metric_request(), list()) ::
+  @spec update_custom_metric(
+          AWS.Client.t(),
+          String.t(),
+          update_custom_metric_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_custom_metric_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_custom_metric_errors()}
@@ -19840,7 +22709,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19856,20 +22726,18 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Updates the definition for a dimension.
+  Updates the definition for a dimension. You cannot change the type of a
+  dimension after it is created (you can delete it and recreate it).
 
-  You
-  cannot
-  change the type of a dimension after
-  it is created (you can delete it and
-  recreate
-  it).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateDimension&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [UpdateDimension](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:name` (`t:string`) A unique identifier for the dimension. Choose something
+    that describes the type and value to make it easy to remember what it does.
+
+  ## Optional parameters:
   """
-  @spec update_dimension(map(), String.t(), update_dimension_request(), list()) ::
+  @spec update_dimension(AWS.Client.t(), String.t(), update_dimension_request(), Keyword.t()) ::
           {:ok, update_dimension_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dimension_errors()}
@@ -19878,7 +22746,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19894,20 +22763,22 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Updates values stored in the domain configuration.
+  Updates values stored in the domain configuration. Domain configurations for
+  default endpoints can't be updated.
 
-  Domain configurations for default
-  endpoints can't be updated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateDomainConfiguration&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [UpdateDomainConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:domain_configuration_name` (`t:string`) The name of the domain configuration
+    to be updated.
+
+  ## Optional parameters:
   """
   @spec update_domain_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_domain_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_domain_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -19922,7 +22793,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -19930,15 +22802,19 @@ defmodule AWS.IoT do
   @doc """
   Updates a dynamic thing group.
 
-  Requires permission to access the
-  [UpdateDynamicThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateDynamicThingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_group_name` (`t:string`) The name of the dynamic thing group to
+    update.
+
+  ## Optional parameters:
   """
   @spec update_dynamic_thing_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_dynamic_thing_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_dynamic_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -19948,7 +22824,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19966,11 +22843,17 @@ defmodule AWS.IoT do
   @doc """
   Updates the event configurations.
 
-  Requires permission to access the
-  [UpdateEventConfigurations](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateEventConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_event_configurations(map(), update_event_configurations_request(), list()) ::
+  @spec update_event_configurations(
+          AWS.Client.t(),
+          update_event_configurations_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_event_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_event_configurations_errors()}
@@ -19979,7 +22862,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19997,11 +22881,19 @@ defmodule AWS.IoT do
   @doc """
   Updates the data for a fleet metric.
 
-  Requires permission to access the
-  [UpdateFleetMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateFleetMetric&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:metric_name` (`t:string`) The name of the fleet metric to update.
+
+  ## Optional parameters:
   """
-  @spec update_fleet_metric(map(), String.t(), update_fleet_metric_request(), list()) ::
+  @spec update_fleet_metric(
+          AWS.Client.t(),
+          String.t(),
+          update_fleet_metric_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_fleet_metric_errors()}
@@ -20010,7 +22902,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -20028,11 +22921,17 @@ defmodule AWS.IoT do
   @doc """
   Updates the search configuration.
 
-  Requires permission to access the
-  [UpdateIndexingConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateIndexingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_indexing_configuration(map(), update_indexing_configuration_request(), list()) ::
+  @spec update_indexing_configuration(
+          AWS.Client.t(),
+          update_indexing_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_indexing_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_indexing_configuration_errors()}
@@ -20041,7 +22940,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -20059,11 +22959,16 @@ defmodule AWS.IoT do
   @doc """
   Updates supported fields of the specified job.
 
-  Requires permission to access the
-  [UpdateJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The ID of the job to be updated.
+
+  ## Optional parameters:
+  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a
+    customer-managed job.
   """
-  @spec update_job(map(), String.t(), update_job_request(), list()) ::
+  @spec update_job(AWS.Client.t(), String.t(), update_job_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_job_errors()}
@@ -20077,7 +22982,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:namespace_id])
 
     Request.request_rest(
       client,
@@ -20095,11 +23006,21 @@ defmodule AWS.IoT do
   @doc """
   Updates the definition for the specified mitigation action.
 
-  Requires permission to access the
-  [UpdateMitigationAction](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateMitigationAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:action_name` (`t:string`) The friendly name for the mitigation action. You
+    cannot change the name by using UpdateMitigationAction. Instead, you must
+    delete and recreate the mitigation action with the new name.
+
+  ## Optional parameters:
   """
-  @spec update_mitigation_action(map(), String.t(), update_mitigation_action_request(), list()) ::
+  @spec update_mitigation_action(
+          AWS.Client.t(),
+          String.t(),
+          update_mitigation_action_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_mitigation_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_mitigation_action_errors()}
@@ -20108,7 +23029,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -20126,12 +23048,17 @@ defmodule AWS.IoT do
   @doc """
   Updates the supported fields for a specific software package.
 
-  Requires permission to access the
-  [UpdatePackage](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) and
-  [GetIndexingConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  actions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdatePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_name` (`t:string`) The name of the target software package.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
-  @spec update_package(map(), String.t(), update_package_request(), list()) ::
+  @spec update_package(AWS.Client.t(), String.t(), update_package_request(), Keyword.t()) ::
           {:ok, update_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_package_errors()}
@@ -20145,7 +23072,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -20163,12 +23096,20 @@ defmodule AWS.IoT do
   @doc """
   Updates the software package configuration.
 
-  Requires permission to access the
-  [UpdatePackageConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) and
-  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)
-  actions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdatePackageConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
-  @spec update_package_configuration(map(), update_package_configuration_request(), list()) ::
+  @spec update_package_configuration(
+          AWS.Client.t(),
+          update_package_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_package_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_package_configuration_errors()}
@@ -20182,7 +23123,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -20200,17 +23147,23 @@ defmodule AWS.IoT do
   @doc """
   Updates the supported fields for a specific package version.
 
-  Requires permission to access the
-  [UpdatePackageVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) and
-  [GetIndexingConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  actions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdatePackageVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_name` (`t:string`) The name of the associated software package.
+  * `:version_name` (`t:string`) The name of the target package version.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
   @spec update_package_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_package_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_package_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -20227,7 +23180,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -20245,15 +23204,18 @@ defmodule AWS.IoT do
   @doc """
   Updates a provisioning template.
 
-  Requires permission to access the
-  [UpdateProvisioningTemplate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateProvisioningTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the provisioning template.
+
+  ## Optional parameters:
   """
   @spec update_provisioning_template(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_provisioning_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_provisioning_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -20263,7 +23225,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -20281,11 +23244,14 @@ defmodule AWS.IoT do
   @doc """
   Updates a role alias.
 
-  Requires permission to access the
-  [UpdateRoleAlias](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateRoleAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:role_alias` (`t:string`) The role alias to update.
+
+  ## Optional parameters:
   """
-  @spec update_role_alias(map(), String.t(), update_role_alias_request(), list()) ::
+  @spec update_role_alias(AWS.Client.t(), String.t(), update_role_alias_request(), Keyword.t()) ::
           {:ok, update_role_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_role_alias_errors()}
@@ -20294,20 +23260,30 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Updates a scheduled audit, including which checks are performed and
-  how often the audit takes place.
+  Updates a scheduled audit, including which checks are performed and how often
+  the audit takes place.
 
-  Requires permission to access the
-  [UpdateScheduledAudit](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateScheduledAudit&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:scheduled_audit_name` (`t:string`) The name of the scheduled audit. (Max.
+    128 chars)
+
+  ## Optional parameters:
   """
-  @spec update_scheduled_audit(map(), String.t(), update_scheduled_audit_request(), list()) ::
+  @spec update_scheduled_audit(
+          AWS.Client.t(),
+          String.t(),
+          update_scheduled_audit_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_scheduled_audit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_scheduled_audit_errors()}
@@ -20316,7 +23292,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -20334,11 +23311,24 @@ defmodule AWS.IoT do
   @doc """
   Updates a Device Defender security profile.
 
-  Requires permission to access the
-  [UpdateSecurityProfile](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateSecurityProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:security_profile_name` (`t:string`) The name of the security profile you
+    want to update.
+
+  ## Optional parameters:
+  * `:expected_version` (`t:long`) The expected version of the security profile. A
+    new version is generated whenever the security profile is updated. If you
+    specify a value that is different from the actual version, a
+    VersionConflictException is thrown.
   """
-  @spec update_security_profile(map(), String.t(), update_security_profile_request(), list()) ::
+  @spec update_security_profile(
+          AWS.Client.t(),
+          String.t(),
+          update_security_profile_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_security_profile_errors()}
@@ -20352,7 +23342,13 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:expected_version])
 
     Request.request_rest(
       client,
@@ -20368,15 +23364,16 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Updates an existing stream.
+  Updates an existing stream. The stream version will be incremented by one.
 
-  The stream version will be incremented by one.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateStream&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [UpdateStream](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+  * `:stream_id` (`t:string`) The stream ID.
+
+  ## Optional parameters:
   """
-  @spec update_stream(map(), String.t(), update_stream_request(), list()) ::
+  @spec update_stream(AWS.Client.t(), String.t(), update_stream_request(), Keyword.t()) ::
           {:ok, update_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_stream_errors()}
@@ -20385,7 +23382,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -20393,11 +23391,14 @@ defmodule AWS.IoT do
   @doc """
   Updates the data for a thing.
 
-  Requires permission to access the
-  [UpdateThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateThing&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_name` (`t:string`) The name of the thing to update.
+
+  ## Optional parameters:
   """
-  @spec update_thing(map(), String.t(), update_thing_request(), list()) ::
+  @spec update_thing(AWS.Client.t(), String.t(), update_thing_request(), Keyword.t()) ::
           {:ok, update_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_thing_errors()}
@@ -20406,7 +23407,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -20424,11 +23426,14 @@ defmodule AWS.IoT do
   @doc """
   Update a thing group.
 
-  Requires permission to access the
-  [UpdateThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateThingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_group_name` (`t:string`) The thing group to update.
+
+  ## Optional parameters:
   """
-  @spec update_thing_group(map(), String.t(), update_thing_group_request(), list()) ::
+  @spec update_thing_group(AWS.Client.t(), String.t(), update_thing_group_request(), Keyword.t()) ::
           {:ok, update_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_thing_group_errors()}
@@ -20437,7 +23442,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -20455,11 +23461,17 @@ defmodule AWS.IoT do
   @doc """
   Updates the groups to which the thing belongs.
 
-  Requires permission to access the
-  [UpdateThingGroupsForThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateThingGroupsForThing&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_thing_groups_for_thing(map(), update_thing_groups_for_thing_request(), list()) ::
+  @spec update_thing_groups_for_thing(
+          AWS.Client.t(),
+          update_thing_groups_for_thing_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_thing_groups_for_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_thing_groups_for_thing_errors()}
@@ -20468,22 +23480,27 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Updates a topic rule destination.
+  Updates a topic rule destination. You use this to change the status, endpoint
+  URL, or confirmation URL of the destination.
 
-  You use this to change the status, endpoint URL, or
-  confirmation URL of the destination.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateTopicRuleDestination&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [UpdateTopicRuleDestination](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_topic_rule_destination(map(), update_topic_rule_destination_request(), list()) ::
+  @spec update_topic_rule_destination(
+          AWS.Client.t(),
+          update_topic_rule_destination_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_topic_rule_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_topic_rule_destination_errors()}
@@ -20492,7 +23509,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -20510,14 +23528,16 @@ defmodule AWS.IoT do
   @doc """
   Validates a Device Defender security profile behaviors specification.
 
-  Requires permission to access the
-  [ValidateSecurityProfileBehaviors](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ValidateSecurityProfileBehaviors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec validate_security_profile_behaviors(
-          map(),
+          AWS.Client.t(),
           validate_security_profile_behaviors_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, validate_security_profile_behaviors_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -20527,7 +23547,8 @@ defmodule AWS.IoT do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

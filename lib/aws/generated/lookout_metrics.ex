@@ -3,10 +3,9 @@
 
 defmodule AWS.LookoutMetrics do
   @moduledoc """
-  This is the *Amazon Lookout for Metrics API Reference*.
-
-  For an introduction to the service
-  with tutorials for getting started, visit [Amazon Lookout for Metrics Developer
+  This is the *Amazon Lookout for Metrics API Reference*. For an introduction to
+  the service with tutorials for getting started, visit [Amazon Lookout for
+  Metrics Developer
   Guide](https://docs.aws.amazon.com/lookoutmetrics/latest/dev).
   """
 
@@ -1824,8 +1823,18 @@ defmodule AWS.LookoutMetrics do
 
   @doc """
   Activates an anomaly detector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20ActivateAnomalyDetector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec activate_anomaly_detector(map(), activate_anomaly_detector_request(), list()) ::
+  @spec activate_anomaly_detector(
+          AWS.Client.t(),
+          activate_anomaly_detector_request(),
+          Keyword.t()
+        ) ::
           {:ok, activate_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, activate_anomaly_detector_errors()}
@@ -1834,7 +1843,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1851,8 +1861,18 @@ defmodule AWS.LookoutMetrics do
 
   @doc """
   Runs a backtest for anomaly detection for the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20BackTestAnomalyDetector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec back_test_anomaly_detector(map(), back_test_anomaly_detector_request(), list()) ::
+  @spec back_test_anomaly_detector(
+          AWS.Client.t(),
+          back_test_anomaly_detector_request(),
+          Keyword.t()
+        ) ::
           {:ok, back_test_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, back_test_anomaly_detector_errors()}
@@ -1861,7 +1881,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1878,8 +1899,14 @@ defmodule AWS.LookoutMetrics do
 
   @doc """
   Creates an alert for an anomaly detector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20CreateAlert&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_alert(map(), create_alert_request(), list()) ::
+  @spec create_alert(AWS.Client.t(), create_alert_request(), Keyword.t()) ::
           {:ok, create_alert_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_alert_errors()}
@@ -1888,7 +1915,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1905,8 +1933,14 @@ defmodule AWS.LookoutMetrics do
 
   @doc """
   Creates an anomaly detector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20CreateAnomalyDetector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_anomaly_detector(map(), create_anomaly_detector_request(), list()) ::
+  @spec create_anomaly_detector(AWS.Client.t(), create_anomaly_detector_request(), Keyword.t()) ::
           {:ok, create_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_anomaly_detector_errors()}
@@ -1915,7 +1949,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1932,8 +1967,14 @@ defmodule AWS.LookoutMetrics do
 
   @doc """
   Creates a dataset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20CreateMetricSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_metric_set(map(), create_metric_set_request(), list()) ::
+  @spec create_metric_set(AWS.Client.t(), create_metric_set_request(), Keyword.t()) ::
           {:ok, create_metric_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_metric_set_errors()}
@@ -1942,7 +1983,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1959,8 +2001,18 @@ defmodule AWS.LookoutMetrics do
 
   @doc """
   Deactivates an anomaly detector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DeactivateAnomalyDetector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec deactivate_anomaly_detector(map(), deactivate_anomaly_detector_request(), list()) ::
+  @spec deactivate_anomaly_detector(
+          AWS.Client.t(),
+          deactivate_anomaly_detector_request(),
+          Keyword.t()
+        ) ::
           {:ok, deactivate_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deactivate_anomaly_detector_errors()}
@@ -1969,7 +2021,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1986,8 +2039,14 @@ defmodule AWS.LookoutMetrics do
 
   @doc """
   Deletes an alert.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DeleteAlert&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_alert(map(), delete_alert_request(), list()) ::
+  @spec delete_alert(AWS.Client.t(), delete_alert_request(), Keyword.t()) ::
           {:ok, delete_alert_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_alert_errors()}
@@ -1996,7 +2055,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2012,13 +2072,16 @@ defmodule AWS.LookoutMetrics do
   end
 
   @doc """
-  Deletes a detector.
+  Deletes a detector. Deleting an anomaly detector will delete all of its
+  corresponding resources including any configured datasets and alerts.
 
-  Deleting an anomaly detector will delete all of its corresponding resources
-  including any
-  configured datasets and alerts.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DeleteAnomalyDetector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_anomaly_detector(map(), delete_anomaly_detector_request(), list()) ::
+  @spec delete_anomaly_detector(AWS.Client.t(), delete_anomaly_detector_request(), Keyword.t()) ::
           {:ok, delete_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_anomaly_detector_errors()}
@@ -2027,7 +2090,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2045,12 +2109,13 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Describes an alert.
 
-  Amazon Lookout for Metrics API actions are eventually consistent. If you do a
-  read operation on a resource
-  immediately after creating or modifying it, use retries to allow time for the
-  write operation to complete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DescribeAlert&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_alert(map(), describe_alert_request(), list()) ::
+  @spec describe_alert(AWS.Client.t(), describe_alert_request(), Keyword.t()) ::
           {:ok, describe_alert_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_alert_errors()}
@@ -2059,7 +2124,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2076,11 +2142,17 @@ defmodule AWS.LookoutMetrics do
 
   @doc """
   Returns information about the status of the specified anomaly detection jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DescribeAnomalyDetectionExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec describe_anomaly_detection_executions(
-          map(),
+          AWS.Client.t(),
           describe_anomaly_detection_executions_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_anomaly_detection_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2090,7 +2162,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2108,12 +2181,17 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Describes a detector.
 
-  Amazon Lookout for Metrics API actions are eventually consistent. If you do a
-  read operation on a resource
-  immediately after creating or modifying it, use retries to allow time for the
-  write operation to complete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DescribeAnomalyDetector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_anomaly_detector(map(), describe_anomaly_detector_request(), list()) ::
+  @spec describe_anomaly_detector(
+          AWS.Client.t(),
+          describe_anomaly_detector_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_anomaly_detector_errors()}
@@ -2122,7 +2200,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2140,12 +2219,13 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Describes a dataset.
 
-  Amazon Lookout for Metrics API actions are eventually consistent. If you do a
-  read operation on a resource
-  immediately after creating or modifying it, use retries to allow time for the
-  write operation to complete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DescribeMetricSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_metric_set(map(), describe_metric_set_request(), list()) ::
+  @spec describe_metric_set(AWS.Client.t(), describe_metric_set_request(), Keyword.t()) ::
           {:ok, describe_metric_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_metric_set_errors()}
@@ -2154,7 +2234,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2171,8 +2252,14 @@ defmodule AWS.LookoutMetrics do
 
   @doc """
   Detects an Amazon S3 dataset's file format, interval, and offset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DetectMetricSetConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec detect_metric_set_config(map(), detect_metric_set_config_request(), list()) ::
+  @spec detect_metric_set_config(AWS.Client.t(), detect_metric_set_config_request(), Keyword.t()) ::
           {:ok, detect_metric_set_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_metric_set_config_errors()}
@@ -2181,7 +2268,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2198,8 +2286,14 @@ defmodule AWS.LookoutMetrics do
 
   @doc """
   Returns details about a group of anomalous metrics.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20GetAnomalyGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_anomaly_group(map(), get_anomaly_group_request(), list()) ::
+  @spec get_anomaly_group(AWS.Client.t(), get_anomaly_group_request(), Keyword.t()) ::
           {:ok, get_anomaly_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_anomaly_group_errors()}
@@ -2208,7 +2302,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2225,8 +2320,14 @@ defmodule AWS.LookoutMetrics do
 
   @doc """
   Returns details about the requested data quality metrics.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20GetDataQualityMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_data_quality_metrics(map(), get_data_quality_metrics_request(), list()) ::
+  @spec get_data_quality_metrics(AWS.Client.t(), get_data_quality_metrics_request(), Keyword.t()) ::
           {:ok, get_data_quality_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_quality_metrics_errors()}
@@ -2235,7 +2336,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2252,8 +2354,14 @@ defmodule AWS.LookoutMetrics do
 
   @doc """
   Get feedback for an anomaly group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20GetFeedback&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_feedback(map(), get_feedback_request(), list()) ::
+  @spec get_feedback(AWS.Client.t(), get_feedback_request(), Keyword.t()) ::
           {:ok, get_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_feedback_errors()}
@@ -2262,7 +2370,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2279,8 +2388,14 @@ defmodule AWS.LookoutMetrics do
 
   @doc """
   Returns a selection of sample records from an Amazon S3 datasource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20GetSampleData&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_sample_data(map(), get_sample_data_request(), list()) ::
+  @spec get_sample_data(AWS.Client.t(), get_sample_data_request(), Keyword.t()) ::
           {:ok, get_sample_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sample_data_errors()}
@@ -2289,7 +2404,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2307,12 +2423,13 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Lists the alerts attached to a detector.
 
-  Amazon Lookout for Metrics API actions are eventually consistent. If you do a
-  read operation on a resource
-  immediately after creating or modifying it, use retries to allow time for the
-  write operation to complete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20ListAlerts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_alerts(map(), list_alerts_request(), list()) ::
+  @spec list_alerts(AWS.Client.t(), list_alerts_request(), Keyword.t()) ::
           {:ok, list_alerts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_alerts_errors()}
@@ -2321,7 +2438,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2339,12 +2457,13 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Lists the detectors in the current AWS Region.
 
-  Amazon Lookout for Metrics API actions are eventually consistent. If you do a
-  read operation on a resource
-  immediately after creating or modifying it, use retries to allow time for the
-  write operation to complete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20ListAnomalyDetectors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_anomaly_detectors(map(), list_anomaly_detectors_request(), list()) ::
+  @spec list_anomaly_detectors(AWS.Client.t(), list_anomaly_detectors_request(), Keyword.t()) ::
           {:ok, list_anomaly_detectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_anomaly_detectors_errors()}
@@ -2353,7 +2472,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2369,13 +2489,19 @@ defmodule AWS.LookoutMetrics do
   end
 
   @doc """
-  Returns a list of measures that are potential causes or effects of an
-  anomaly group.
+  Returns a list of measures that are potential causes or effects of an anomaly
+  group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20ListAnomalyGroupRelatedMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec list_anomaly_group_related_metrics(
-          map(),
+          AWS.Client.t(),
           list_anomaly_group_related_metrics_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_anomaly_group_related_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2385,7 +2511,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2402,8 +2529,18 @@ defmodule AWS.LookoutMetrics do
 
   @doc """
   Returns a list of anomaly groups.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20ListAnomalyGroupSummaries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_anomaly_group_summaries(map(), list_anomaly_group_summaries_request(), list()) ::
+  @spec list_anomaly_group_summaries(
+          AWS.Client.t(),
+          list_anomaly_group_summaries_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_anomaly_group_summaries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_anomaly_group_summaries_errors()}
@@ -2412,7 +2549,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2429,8 +2567,18 @@ defmodule AWS.LookoutMetrics do
 
   @doc """
   Gets a list of anomalous metrics for a measure in an anomaly group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20ListAnomalyGroupTimeSeries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_anomaly_group_time_series(map(), list_anomaly_group_time_series_request(), list()) ::
+  @spec list_anomaly_group_time_series(
+          AWS.Client.t(),
+          list_anomaly_group_time_series_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_anomaly_group_time_series_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_anomaly_group_time_series_errors()}
@@ -2439,7 +2587,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2457,12 +2606,13 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Lists the datasets in the current AWS Region.
 
-  Amazon Lookout for Metrics API actions are eventually consistent. If you do a
-  read operation on a resource
-  immediately after creating or modifying it, use retries to allow time for the
-  write operation to complete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20ListMetricSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_metric_sets(map(), list_metric_sets_request(), list()) ::
+  @spec list_metric_sets(AWS.Client.t(), list_metric_sets_request(), Keyword.t()) ::
           {:ok, list_metric_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_metric_sets_errors()}
@@ -2471,7 +2621,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2490,25 +2641,56 @@ defmodule AWS.LookoutMetrics do
   Gets a list of
   [tags](https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html)
   for a detector, dataset, or alert.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource's Amazon Resource Name (ARN).
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Add feedback for an anomalous metric.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20PutFeedback&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_feedback(map(), put_feedback_request(), list()) ::
+  @spec put_feedback(AWS.Client.t(), put_feedback_request(), Keyword.t()) ::
           {:ok, put_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_feedback_errors()}
@@ -2517,7 +2699,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2536,8 +2719,15 @@ defmodule AWS.LookoutMetrics do
   Adds
   [tags](https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html)
   to a detector, dataset, or alert.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource's Amazon Resource Name (ARN).
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2546,7 +2736,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2565,8 +2756,17 @@ defmodule AWS.LookoutMetrics do
   Removes
   [tags](https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html)
   from a detector, dataset, or alert.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource's Amazon Resource Name (ARN).
+  * `:tag_keys` (`t:list[com.amazonaws.lookoutmetrics#TagKey]`) Keys to remove
+    from the resource's tags.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2580,7 +2780,8 @@ defmodule AWS.LookoutMetrics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2597,8 +2798,14 @@ defmodule AWS.LookoutMetrics do
 
   @doc """
   Make changes to an existing alert.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20UpdateAlert&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_alert(map(), update_alert_request(), list()) ::
+  @spec update_alert(AWS.Client.t(), update_alert_request(), Keyword.t()) ::
           {:ok, update_alert_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_alert_errors()}
@@ -2607,7 +2814,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2623,12 +2831,16 @@ defmodule AWS.LookoutMetrics do
   end
 
   @doc """
-  Updates a detector.
+  Updates a detector. After activation, you can only change a detector's ingestion
+  delay and description.
 
-  After activation, you can only change a detector's ingestion delay and
-  description.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20UpdateAnomalyDetector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_anomaly_detector(map(), update_anomaly_detector_request(), list()) ::
+  @spec update_anomaly_detector(AWS.Client.t(), update_anomaly_detector_request(), Keyword.t()) ::
           {:ok, update_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_anomaly_detector_errors()}
@@ -2637,7 +2849,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2654,8 +2867,14 @@ defmodule AWS.LookoutMetrics do
 
   @doc """
   Updates a dataset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20UpdateMetricSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_metric_set(map(), update_metric_set_request(), list()) ::
+  @spec update_metric_set(AWS.Client.t(), update_metric_set_request(), Keyword.t()) ::
           {:ok, update_metric_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_metric_set_errors()}
@@ -2664,7 +2883,8 @@ defmodule AWS.LookoutMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

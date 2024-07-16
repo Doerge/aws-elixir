@@ -3,13 +3,8 @@
 
 defmodule AWS.IoTSecureTunneling do
   @moduledoc """
-  IoT Secure Tunneling
-
-  IoT Secure Tunneling creates remote connections to devices deployed in the
-  field.
-
-  For more information about how IoT Secure Tunneling works, see [IoT Secure
-  Tunneling](https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html).
+  IoT Secure Tunneling IoT Secure Tunneling creates remote connections to devices
+  deployed in the field.
   """
 
   alias AWS.Client
@@ -328,46 +323,37 @@ defmodule AWS.IoTSecureTunneling do
       protocol: "json",
       service_id: "IoTSecureTunneling",
       signature_version: "v4",
-      signing_name: "IoTSecuredTunneling",
+      signing_name: "tunneling.iot",
       target_prefix: "IoTSecuredTunneling"
     }
   end
 
   @doc """
-  Closes a tunnel identified by the unique tunnel id.
-
-  When a `CloseTunnel`
-  request is received, we close the WebSocket connections between the client and
-  proxy
+  Closes a tunnel identified by the unique tunnel id. When a `CloseTunnel` request
+  is received, we close the WebSocket connections between the client and proxy
   server so no data can be transmitted.
-
-  Requires permission to access the
-  [CloseTunnel](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
   """
-  @spec close_tunnel(map(), close_tunnel_request(), list()) ::
+  @spec close_tunnel(AWS.Client.t(), close_tunnel_request(), Keyword.t()) ::
           {:ok, close_tunnel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, close_tunnel_errors()}
   def close_tunnel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CloseTunnel", input, options)
   end
 
   @doc """
   Gets information about a tunnel identified by the unique tunnel id.
-
-  Requires permission to access the
-  [DescribeTunnel](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
   """
-  @spec describe_tunnel(map(), describe_tunnel_request(), list()) ::
+  @spec describe_tunnel(AWS.Client.t(), describe_tunnel_request(), Keyword.t()) ::
           {:ok, describe_tunnel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_tunnel_errors()}
   def describe_tunnel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTunnel", input, options)
   end
@@ -375,31 +361,28 @@ defmodule AWS.IoTSecureTunneling do
   @doc """
   Lists the tags for the specified resource.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
-  List all tunnels for an Amazon Web Services account.
-
-  Tunnels are listed by creation time in
-  descending order, newer tunnels will be listed before older tunnels.
-
-  Requires permission to access the
-  [ListTunnels](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  List all tunnels for an Amazon Web Services account. Tunnels are listed by
+  creation time in descending order, newer tunnels will be listed before older
+  tunnels.
   """
-  @spec list_tunnels(map(), list_tunnels_request(), list()) ::
+  @spec list_tunnels(AWS.Client.t(), list_tunnels_request(), Keyword.t()) ::
           {:ok, list_tunnels_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_tunnels(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTunnels", input, options)
   end
@@ -407,41 +390,36 @@ defmodule AWS.IoTSecureTunneling do
   @doc """
   Creates a new tunnel, and returns two client access tokens for clients to use to
   connect to the IoT Secure Tunneling proxy server.
-
-  Requires permission to access the
-  [OpenTunnel](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
   """
-  @spec open_tunnel(map(), open_tunnel_request(), list()) ::
+  @spec open_tunnel(AWS.Client.t(), open_tunnel_request(), Keyword.t()) ::
           {:ok, open_tunnel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, open_tunnel_errors()}
   def open_tunnel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "OpenTunnel", input, options)
   end
 
   @doc """
   Revokes the current client access token (CAT) and returns new CAT for clients to
-  use when reconnecting to secure tunneling to access the same tunnel.
-
-  Requires permission to access the
+  use when reconnecting to secure tunneling to access the same tunnel. Requires
+  permission to access the
   [RotateTunnelAccessToken](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
-
-  Rotating the CAT doesn't extend the tunnel duration. For example, say the tunnel
-  duration is 12 hours and the tunnel has already been open for 4 hours. When you
-  rotate the access tokens, the new tokens that are generated can only be used for
-  the
-  remaining 8 hours.
   """
-  @spec rotate_tunnel_access_token(map(), rotate_tunnel_access_token_request(), list()) ::
+  @spec rotate_tunnel_access_token(
+          AWS.Client.t(),
+          rotate_tunnel_access_token_request(),
+          Keyword.t()
+        ) ::
           {:ok, rotate_tunnel_access_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, rotate_tunnel_access_token_errors()}
   def rotate_tunnel_access_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RotateTunnelAccessToken", input, options)
   end
@@ -449,12 +427,13 @@ defmodule AWS.IoTSecureTunneling do
   @doc """
   A resource tag.
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -462,12 +441,13 @@ defmodule AWS.IoTSecureTunneling do
   @doc """
   Removes a tag from a resource.
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

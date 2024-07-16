@@ -4,28 +4,17 @@
 defmodule AWS.SSO do
   @moduledoc """
   AWS IAM Identity Center (successor to AWS Single Sign-On) Portal is a web
-  service that makes it easy for you to assign user access to
-  IAM Identity Center resources such as the AWS access portal.
-
-  Users can get AWS account applications and roles
-  assigned to them and get federated into the application.
-
-  Although AWS Single Sign-On was renamed, the `sso` and
+  service that makes it easy for you to assign user access to IAM Identity
+  Center resources such as the AWS access portal. Users can get AWS account
+  applications and roles assigned to them and get federated into the
+  application. Although AWS Single Sign-On was renamed, the `sso` and
   `identitystore` API namespaces will continue to retain their original name for
-  backward compatibility purposes. For more information, see [IAM Identity Center rename](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed).
-
+  backward compatibility purposes. For more information, see [IAM Identity
+  Center
+  rename](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed).
   This reference guide describes the IAM Identity Center Portal operations that
-  you can call
-  programatically and includes detailed information on data types and errors.
-
-  AWS provides SDKs that consist of libraries and sample code for various
-  programming
-  languages and platforms, such as Java, Ruby, .Net, iOS, or Android. The SDKs
-  provide a
-  convenient way to create programmatic access to IAM Identity Center and other
-  AWS services. For more
-  information about the AWS SDKs, including how to download and install them, see
-  [Tools for Amazon Web Services](http://aws.amazon.com/tools/).
+  you can call programatically and includes detailed information on data types
+  and errors.
   """
 
   alias AWS.Client
@@ -239,183 +228,219 @@ defmodule AWS.SSO do
 
   @doc """
   Returns the STS short-term credentials for a given role name that is assigned to
-  the
-  user.
+  the user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sso%20GetRoleCredentials&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The identifier for the AWS account that is assigned
+    to the user.
+  * `:role_name` (`t:string`) The friendly name of the role that is assigned to
+    the user.
+  * `:access_token` (`t:string`) The token issued by the CreateToken API call. For
+    more information, see CreateToken in the IAM Identity Center OIDC API
+    Reference Guide.
+
+  ## Optional parameters:
   """
-  @spec get_role_credentials(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_role_credentials(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_role_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_role_credentials_errors()}
   def get_role_credentials(%Client{} = client, account_id, role_name, access_token, options \\ []) do
     url_path = "/federation/credentials"
-    headers = []
 
-    headers =
-      if !is_nil(access_token) do
-        [{"x-amz-sso_bearer_token", access_token} | headers]
-      else
-        headers
-      end
+    # Validate optional parameters
+    optional_params = []
 
-    query_params = []
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
-    query_params =
-      if !is_nil(role_name) do
-        [{"role_name", role_name} | query_params]
-      else
-        query_params
-      end
+    # Required headers
+    headers = [{"x-amz-sso_bearer_token", access_token}]
 
-    query_params =
-      if !is_nil(account_id) do
-        [{"account_id", account_id} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"account_id", account_id}, {"role_name", role_name}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all roles that are assigned to the user for a given AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sso%20ListAccountRoles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The identifier for the AWS account that is assigned
+    to the user.
+  * `:access_token` (`t:string`) The token issued by the CreateToken API call. For
+    more information, see CreateToken in the IAM Identity Center OIDC API
+    Reference Guide.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The number of items that clients can request per
+    page.
+  * `:next_token` (`t:string`) The page token from the previous response output
+    when you request subsequent pages.
   """
-  @spec list_account_roles(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          list()
-        ) ::
+  @spec list_account_roles(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_account_roles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_account_roles_errors()}
-  def list_account_roles(
-        %Client{} = client,
-        account_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        access_token,
-        options \\ []
-      ) do
+  def list_account_roles(%Client{} = client, account_id, access_token, options \\ []) do
     url_path = "/assignment/roles"
-    headers = []
 
-    headers =
-      if !is_nil(access_token) do
-        [{"x-amz-sso_bearer_token", access_token} | headers]
-      else
-        headers
-      end
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
 
-    query_params = []
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
+    # Required headers
+    headers = [{"x-amz-sso_bearer_token", access_token}]
+
+    # Optional headers
+
+    # Required query params
+    query_params = [{"account_id", account_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next_token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_result", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max_result", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(account_id) do
-        [{"account_id", account_id} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists all AWS accounts assigned to the user.
+  Lists all AWS accounts assigned to the user. These AWS accounts are assigned by
+  the administrator of the account. For more information, see [Assign User
+  Access](https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers)
+  in the *IAM Identity Center User Guide*. This operation returns a paginated
+  response.
 
-  These AWS accounts are assigned by the
-  administrator of the account. For more information, see [Assign User Access](https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers)
-  in the *IAM Identity Center User Guide*. This operation
-  returns a paginated response.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sso%20ListAccounts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:access_token` (`t:string`) The token issued by the CreateToken API call. For
+    more information, see CreateToken in the IAM Identity Center OIDC API
+    Reference Guide.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) This is the number of items clients can request
+    per page.
+  * `:next_token` (`t:string`) (Optional) When requesting subsequent pages, this
+    is the page token from the previous response output.
   """
-  @spec list_accounts(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
+  @spec list_accounts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_accounts_errors()}
-  def list_accounts(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        access_token,
-        options \\ []
-      ) do
+  def list_accounts(%Client{} = client, access_token, options \\ []) do
     url_path = "/assignment/accounts"
-    headers = []
 
-    headers =
-      if !is_nil(access_token) do
-        [{"x-amz-sso_bearer_token", access_token} | headers]
-      else
-        headers
-      end
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
 
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = [{"x-amz-sso_bearer_token", access_token}]
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next_token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_result", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max_result", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Removes the locally stored SSO tokens from the client-side cache and sends an
-  API call to
-  the IAM Identity Center service to invalidate the corresponding server-side IAM
-  Identity Center sign in
-  session.
+  API call to the IAM Identity Center service to invalidate the corresponding
+  server-side IAM Identity Center sign in session.
 
-  If a user uses IAM Identity Center to access the AWS CLI, the user’s IAM
-  Identity Center sign in session is
-  used to obtain an IAM session, as specified in the corresponding IAM Identity
-  Center permission set.
-  More specifically, IAM Identity Center assumes an IAM role in the target account
-  on behalf of the user,
-  and the corresponding temporary AWS credentials are returned to the client.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sso%20Logout&this_doc_guide=API%2520Reference)
 
-  After user logout, any existing IAM role sessions that were created by using IAM
-  Identity Center
-  permission sets continue based on the duration configured in the permission set.
-  For more information, see [User authentications](https://docs.aws.amazon.com/singlesignon/latest/userguide/authconcept.html)
-  in the *IAM Identity Center User
-  Guide*.
+  ## Parameters:
+  * `:access_token` (`t:string`) The token issued by the CreateToken API call. For
+    more information, see CreateToken in the IAM Identity Center OIDC API
+    Reference Guide.
+
+  ## Optional parameters:
   """
-  @spec logout(map(), logout_request(), list()) ::
+  @spec logout(AWS.Client.t(), logout_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, logout_errors()}
   def logout(%Client{} = client, input, options \\ []) do
     url_path = "/logout"
+
+    optional_params = [access_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -425,7 +450,8 @@ defmodule AWS.SSO do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

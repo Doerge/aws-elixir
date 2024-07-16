@@ -3,32 +3,12 @@
 
 defmodule AWS.Rbin do
   @moduledoc """
-  This is the *Recycle Bin API Reference*.
-
-  This documentation provides
+  This is the *Recycle Bin API Reference*. This documentation provides
   descriptions and syntax for each of the actions and data types in Recycle Bin.
-
   Recycle Bin is a resource recovery feature that enables you to restore
-  accidentally
-  deleted snapshots and EBS-backed AMIs. When using Recycle Bin, if your resources
-  are
-  deleted, they are retained in the Recycle Bin for a time period that you
-  specify.
-
-  You can restore a resource from the Recycle Bin at any time before its retention
-  period
-  expires. After you restore a resource from the Recycle Bin, the resource is
-  removed from the
-  Recycle Bin, and you can then use it in the same way you use any other resource
-  of that type
-  in your account. If the retention period expires and the resource is not
-  restored, the resource
-  is permanently deleted from the Recycle Bin and is no longer available for
-  recovery. For more
-  information about Recycle Bin, see [
-  Recycle
-  Bin](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html) in
-  the *Amazon Elastic Compute Cloud User Guide*.
+  accidentally deleted snapshots and EBS-backed AMIs. When using Recycle Bin, if
+  your resources are deleted, they are retained in the Recycle Bin for a time
+  period that you specify.
   """
 
   alias AWS.Client
@@ -493,14 +473,18 @@ defmodule AWS.Rbin do
   end
 
   @doc """
-  Creates a Recycle Bin retention rule.
-
-  For more information, see [
-  Create Recycle Bin retention
+  Creates a Recycle Bin retention rule. For more information, see [ Create Recycle
+  Bin retention
   rules](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-create-rule)
   in the *Amazon Elastic Compute Cloud User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20CreateRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_rule(map(), create_rule_request(), list()) ::
+  @spec create_rule(AWS.Client.t(), create_rule_request(), Keyword.t()) ::
           {:ok, create_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rule_errors()}
@@ -509,7 +493,8 @@ defmodule AWS.Rbin do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -525,14 +510,19 @@ defmodule AWS.Rbin do
   end
 
   @doc """
-  Deletes a Recycle Bin retention rule.
-
-  For more information, see [
-  Delete Recycle Bin retention
+  Deletes a Recycle Bin retention rule. For more information, see [ Delete Recycle
+  Bin retention
   rules](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-delete-rule)
   in the *Amazon Elastic Compute Cloud User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20DeleteRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique ID of the retention rule.
+
+  ## Optional parameters:
   """
-  @spec delete_rule(map(), String.t(), delete_rule_request(), list()) ::
+  @spec delete_rule(AWS.Client.t(), String.t(), delete_rule_request(), Keyword.t()) ::
           {:ok, delete_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rule_errors()}
@@ -541,7 +531,8 @@ defmodule AWS.Rbin do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -558,25 +549,56 @@ defmodule AWS.Rbin do
 
   @doc """
   Gets information about a Recycle Bin retention rule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20GetRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique ID of the retention rule.
+
+  ## Optional parameters:
   """
-  @spec get_rule(map(), String.t(), list()) ::
+  @spec get_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rule_errors()}
   def get_rule(%Client{} = client, identifier, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the Recycle Bin retention rules in the Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20ListRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_rules(map(), list_rules_request(), list()) ::
+  @spec list_rules(AWS.Client.t(), list_rules_request(), Keyword.t()) ::
           {:ok, list_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rules_errors()}
@@ -585,7 +607,8 @@ defmodule AWS.Rbin do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -602,27 +625,58 @@ defmodule AWS.Rbin do
 
   @doc """
   Lists the tags assigned to a retention rule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the retention
+    rule.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Locks a retention rule.
+  Locks a retention rule. A locked retention rule can't be modified or deleted.
 
-  A locked retention rule can't be modified or deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20LockRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique ID of the retention rule.
+
+  ## Optional parameters:
   """
-  @spec lock_rule(map(), String.t(), lock_rule_request(), list()) ::
+  @spec lock_rule(AWS.Client.t(), String.t(), lock_rule_request(), Keyword.t()) ::
           {:ok, lock_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, lock_rule_errors()}
@@ -631,7 +685,8 @@ defmodule AWS.Rbin do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -648,8 +703,16 @@ defmodule AWS.Rbin do
 
   @doc """
   Assigns tags to the specified retention rule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the retention
+    rule.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -658,7 +721,8 @@ defmodule AWS.Rbin do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -674,12 +738,17 @@ defmodule AWS.Rbin do
   end
 
   @doc """
-  Unlocks a retention rule.
+  Unlocks a retention rule. After a retention rule is unlocked, it can be modified
+  or deleted only after the unlock delay period expires.
 
-  After a retention rule is unlocked, it can be modified or deleted
-  only after the unlock delay period expires.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20UnlockRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique ID of the retention rule.
+
+  ## Optional parameters:
   """
-  @spec unlock_rule(map(), String.t(), unlock_rule_request(), list()) ::
+  @spec unlock_rule(AWS.Client.t(), String.t(), unlock_rule_request(), Keyword.t()) ::
           {:ok, unlock_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unlock_rule_errors()}
@@ -688,7 +757,8 @@ defmodule AWS.Rbin do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -705,8 +775,18 @@ defmodule AWS.Rbin do
 
   @doc """
   Unassigns a tag from a retention rule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the retention
+    rule.
+  * `:tag_keys` (`t:list[com.amazonaws.rbin#TagKey]`) The tag keys of the tags to
+    unassign. All tags that have the specified tag key are unassigned.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -720,7 +800,8 @@ defmodule AWS.Rbin do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -736,17 +817,21 @@ defmodule AWS.Rbin do
   end
 
   @doc """
-  Updates an existing Recycle Bin retention rule.
-
-  You can update a retention rule's description,
-  resource tags, and retention period at any time after creation. You can't update
-  a retention rule's
-  resource type after creation. For more information, see [
-  Update Recycle Bin retention
+  Updates an existing Recycle Bin retention rule. You can update a retention
+  rule's description, resource tags, and retention period at any time after
+  creation. You can't update a retention rule's resource type after creation.
+  For more information, see [ Update Recycle Bin retention
   rules](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-update-rule)
   in the *Amazon Elastic Compute Cloud User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20UpdateRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique ID of the retention rule.
+
+  ## Optional parameters:
   """
-  @spec update_rule(map(), String.t(), update_rule_request(), list()) ::
+  @spec update_rule(AWS.Client.t(), String.t(), update_rule_request(), Keyword.t()) ::
           {:ok, update_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rule_errors()}
@@ -755,7 +840,8 @@ defmodule AWS.Rbin do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

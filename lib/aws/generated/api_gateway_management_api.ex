@@ -4,12 +4,11 @@
 defmodule AWS.ApiGatewayManagementApi do
   @moduledoc """
   The Amazon API Gateway Management API allows you to directly manage runtime
-  aspects of your deployed APIs.
-
-  To use it, you must explicitly set the SDK's endpoint to point to the endpoint
-  of your deployed API. The endpoint will be of the form
-  https://{api-id}.execute-api.{region}.amazonaws.com/{stage}, or will be the
-  endpoint corresponding to your API's custom domain and base path, if applicable.
+  aspects of your deployed APIs. To use it, you must explicitly set the SDK's
+  endpoint to point to the endpoint of your deployed API. The endpoint will be
+  of the form https://{api-id}.execute-api.{region}.amazonaws.com/{stage}, or
+  will be the endpoint corresponding to your API's custom domain and base path,
+  if applicable.
   """
 
   alias AWS.Client
@@ -137,8 +136,21 @@ defmodule AWS.ApiGatewayManagementApi do
 
   @doc """
   Delete the connection with the provided id.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewaymanagementapi%20DeleteConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connection_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_connection(map(), String.t(), String.t(), delete_connection_request(), list()) ::
+  @spec delete_connection(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_connection_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connection_errors()}
@@ -147,7 +159,8 @@ defmodule AWS.ApiGatewayManagementApi do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -164,25 +177,64 @@ defmodule AWS.ApiGatewayManagementApi do
 
   @doc """
   Get information about the connection with the provided id.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewaymanagementapi%20GetConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connection_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_connection(map(), String.t(), String.t(), list()) ::
+  @spec get_connection(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connection_errors()}
   def get_connection(%Client{} = client, stage, connection_id, options \\ []) do
     url_path = "/#{stage}/@connections/#{AWS.Util.encode_uri(connection_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Sends the provided data to the specified connection.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewaymanagementapi%20PostToConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connection_id` (`t:string`) The identifier of the connection that a specific
+    client is using.
+
+  ## Optional parameters:
   """
-  @spec post_to_connection(map(), String.t(), String.t(), post_to_connection_request(), list()) ::
+  @spec post_to_connection(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          post_to_connection_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, post_to_connection_errors()}
@@ -191,7 +243,8 @@ defmodule AWS.ApiGatewayManagementApi do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

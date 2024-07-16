@@ -4,50 +4,16 @@
 defmodule AWS.SageMakerA2IRuntime do
   @moduledoc """
   Amazon Augmented AI (Amazon A2I) adds the benefit of human judgment to any
-  machine learning
-  application.
-
-  When an AI application can't evaluate data with a high degree of confidence,
-  human reviewers can take over. This human review is called a human review
-  workflow. To create
-  and start a human review workflow, you need three resources: a *worker task
-  template*, a *flow definition*, and a *human
-  loop*.
-
-  For information about these resources and prerequisites for using Amazon A2I,
-  see [Get Started with Amazon Augmented
-  AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-getting-started.html) in
-  the Amazon SageMaker Developer Guide.
-
-  This API reference includes information about API actions and data types that
-  you can use
-  to interact with Amazon A2I programmatically. Use this guide to:
-
-    *
-  Start a human loop with the `StartHumanLoop` operation when using
-  Amazon A2I with a *custom task type*. To learn more about the
-  difference between custom and built-in task types, see [Use Task Types
-  ](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-task-types-general.html).
-  To learn
-  how to start a human loop using this API, see [Create and Start a Human Loop for a Custom Task Type
-  ](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-start-human-loop.html#a2i-instructions-starthumanloop)
-  in the
-  Amazon SageMaker Developer Guide.
-
-    *
-  Manage your human loops. You can list all human loops that you have created,
-  describe
-  individual human loops, and stop and delete human loops. To learn more, see
-  [Monitor and Manage Your Human Loop
-  ](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-monitor-humanloop-results.html)
-  in the Amazon SageMaker Developer Guide.
-
-  Amazon A2I integrates APIs from various AWS services to create and start human
-  review
-  workflows for those services. To learn how Amazon A2I uses these APIs, see [Use APIs in
-  Amazon
-  A2I](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-api-references.html) in
-  the Amazon SageMaker Developer Guide.
+  machine learning application. When an AI application can't evaluate data with
+  a high degree of confidence, human reviewers can take over. This human review
+  is called a human review workflow. To create and start a human review
+  workflow, you need three resources: a *worker task template*, a *flow
+  definition*, and a *human loop*. For information about these resources and
+  prerequisites for using Amazon A2I, see [Get Started with Amazon Augmented
+  AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-getting-started.html)
+  in the Amazon SageMaker Developer Guide. This API reference includes
+  information about API actions and data types that you can use to interact with
+  Amazon A2I programmatically. Use this guide to:
   """
 
   alias AWS.Client
@@ -335,10 +301,15 @@ defmodule AWS.SageMakerA2IRuntime do
   @doc """
   Deletes the specified human loop for a flow definition.
 
-  If the human loop was deleted, this operation will return a
-  `ResourceNotFoundException`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakera2iruntime%20DeleteHumanLoop&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:human_loop_name` (`t:string`) The name of the human loop that you want to
+    delete.
+
+  ## Optional parameters:
   """
-  @spec delete_human_loop(map(), String.t(), delete_human_loop_request(), list()) ::
+  @spec delete_human_loop(AWS.Client.t(), String.t(), delete_human_loop_request(), Keyword.t()) ::
           {:ok, delete_human_loop_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_human_loop_errors()}
@@ -347,7 +318,8 @@ defmodule AWS.SageMakerA2IRuntime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -363,108 +335,167 @@ defmodule AWS.SageMakerA2IRuntime do
   end
 
   @doc """
-  Returns information about the specified human loop.
+  Returns information about the specified human loop. If the human loop was
+  deleted, this operation will return a `ResourceNotFoundException` error.
 
-  If the human loop was deleted, this
-  operation will return a `ResourceNotFoundException` error.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakera2iruntime%20DescribeHumanLoop&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:human_loop_name` (`t:string`) The name of the human loop that you want
+    information about.
+
+  ## Optional parameters:
   """
-  @spec describe_human_loop(map(), String.t(), list()) ::
+  @spec describe_human_loop(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_human_loop_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_human_loop_errors()}
   def describe_human_loop(%Client{} = client, human_loop_name, options \\ []) do
     url_path = "/human-loops/#{AWS.Util.encode_uri(human_loop_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns information about human loops, given the specified parameters.
+  Returns information about human loops, given the specified parameters. If a
+  human loop was deleted, it will not be included.
 
-  If a human loop was deleted, it will not be included.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakera2iruntime%20ListHumanLoops&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_definition_arn` (`t:string`) The Amazon Resource Name (ARN) of a flow
+    definition.
+
+  ## Optional parameters:
+  * `:creation_time_after` (`t:timestamp[date-time]`) (Optional) The timestamp of
+    the date when you want the human loops to begin in ISO 8601 format. For
+    example, 2020-02-24.
+  * `:creation_time_before` (`t:timestamp[date-time]`) (Optional) The timestamp of
+    the date before which you want the human loops to begin in ISO 8601 format.
+    For example, 2020-02-24.
+  * `:max_results` (`t:integer`) The total number of items to return. If the total
+    number of available items is more than the value specified in MaxResults,
+    then a NextToken is returned in the output. You can use this token to
+    display the next page of results.
+  * `:next_token` (`t:string`) A token to display the next page of results.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Optional. The order for
+    displaying results. Valid values: Ascending and Descending.
   """
-  @spec list_human_loops(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_human_loops(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_human_loops_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_human_loops_errors()}
-  def list_human_loops(
-        %Client{} = client,
-        creation_time_after \\ nil,
-        creation_time_before \\ nil,
-        flow_definition_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        sort_order \\ nil,
-        options \\ []
-      ) do
+  def list_human_loops(%Client{} = client, flow_definition_arn, options \\ []) do
     url_path = "/human-loops"
+
+    # Validate optional parameters
+    optional_params = [
+      creation_time_after: nil,
+      creation_time_before: nil,
+      max_results: nil,
+      next_token: nil,
+      sort_order: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"FlowDefinitionArn", flow_definition_arn}]
+
+    # Optional query params
     query_params =
-      if !is_nil(sort_order) do
-        [{"SortOrder", sort_order} | query_params]
+      if opt_val = Keyword.get(options, :sort_order) do
+        [{"SortOrder", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(flow_definition_arn) do
-        [{"FlowDefinitionArn", flow_definition_arn} | query_params]
+      if opt_val = Keyword.get(options, :creation_time_before) do
+        [{"CreationTimeBefore", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(creation_time_before) do
-        [{"CreationTimeBefore", creation_time_before} | query_params]
+      if opt_val = Keyword.get(options, :creation_time_after) do
+        [{"CreationTimeAfter", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(creation_time_after) do
-        [{"CreationTimeAfter", creation_time_after} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :creation_time_after,
+        :creation_time_before,
+        :max_results,
+        :next_token,
+        :sort_order
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Starts a human loop, provided that at least one activation condition is met.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakera2iruntime%20StartHumanLoop&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_human_loop(map(), start_human_loop_request(), list()) ::
+  @spec start_human_loop(AWS.Client.t(), start_human_loop_request(), Keyword.t()) ::
           {:ok, start_human_loop_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_human_loop_errors()}
@@ -473,7 +504,8 @@ defmodule AWS.SageMakerA2IRuntime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -490,8 +522,14 @@ defmodule AWS.SageMakerA2IRuntime do
 
   @doc """
   Stops the specified human loop.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakera2iruntime%20StopHumanLoop&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec stop_human_loop(map(), stop_human_loop_request(), list()) ::
+  @spec stop_human_loop(AWS.Client.t(), stop_human_loop_request(), Keyword.t()) ::
           {:ok, stop_human_loop_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_human_loop_errors()}
@@ -500,7 +538,8 @@ defmodule AWS.SageMakerA2IRuntime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

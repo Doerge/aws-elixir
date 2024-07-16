@@ -4,14 +4,6 @@
 defmodule AWS.Shield do
   @moduledoc """
   Shield Advanced
-
-  This is the *Shield Advanced API Reference*.
-
-  This guide is for developers who need detailed information about the Shield
-  Advanced API actions,
-  data types, and errors. For detailed information about WAF and Shield Advanced
-  features and an overview of how to use the WAF and Shield Advanced APIs, see the
-  [WAF and Shield Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
 
   alias AWS.Client
@@ -1549,19 +1541,16 @@ defmodule AWS.Shield do
   @doc """
   Authorizes the Shield Response Team (SRT) to access the specified Amazon S3
   bucket containing log data such as Application Load Balancer access logs,
-  CloudFront logs, or logs from third party sources.
-
-  You can associate up to 10 Amazon S3 buckets with your subscription.
-
-  To use the services of the SRT and make an `AssociateDRTLogBucket` request, you
-  must be subscribed to the [Business Support plan](http://aws.amazon.com/premiumsupport/business-support/) or the [Enterprise Support plan](http://aws.amazon.com/premiumsupport/enterprise-support/).
+  CloudFront logs, or logs from third party sources. You can associate up to 10
+  Amazon S3 buckets with your subscription.
   """
-  @spec associate_drt_log_bucket(map(), associate_drt_log_bucket_request(), list()) ::
+  @spec associate_drt_log_bucket(AWS.Client.t(), associate_drt_log_bucket_request(), Keyword.t()) ::
           {:ok, associate_drt_log_bucket_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_drt_log_bucket_errors()}
   def associate_drt_log_bucket(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateDRTLogBucket", input, options)
   end
@@ -1569,160 +1558,110 @@ defmodule AWS.Shield do
   @doc """
   Authorizes the Shield Response Team (SRT) using the specified role, to access
   your Amazon Web Services account to assist with DDoS attack mitigation during
-  potential attacks.
-
-  This enables the SRT to inspect your WAF configuration and create or update WAF
-  rules and web ACLs.
-
-  You can associate only one `RoleArn` with your subscription. If you submit an
-  `AssociateDRTRole` request for an account that already has an associated role,
-  the new `RoleArn` will replace the existing `RoleArn`.
-
-  Prior to making the `AssociateDRTRole` request, you must attach the
-  `AWSShieldDRTAccessPolicy` managed policy to the role that you'll specify in the
-  request. You can access this policy in the IAM console at
-  [AWSShieldDRTAccessPolicy](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy). For more information see [Adding and removing IAM identity
-  permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html).
-  The role must also trust the service principal
-  `drt.shield.amazonaws.com`. For more information, see [IAM JSON policy elements: Principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html).
-
-  The SRT will have access only to your WAF and Shield resources. By submitting
-  this request, you authorize the SRT to inspect your WAF and Shield configuration
-  and create and update WAF rules and web ACLs on your behalf. The SRT takes these
-  actions only if explicitly authorized by you.
-
-  You must have the `iam:PassRole` permission to make an `AssociateDRTRole`
-  request. For more information, see [Granting a user permissions to pass a role to an Amazon Web Services
-  service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html).
-
-  To use the services of the SRT and make an `AssociateDRTRole` request, you must
-  be subscribed to the [Business Support plan](http://aws.amazon.com/premiumsupport/business-support/) or the [Enterprise Support plan](http://aws.amazon.com/premiumsupport/enterprise-support/).
+  potential attacks. This enables the SRT to inspect your WAF configuration and
+  create or update WAF rules and web ACLs. You can associate only one `RoleArn`
+  with your subscription. If you submit an `AssociateDRTRole` request for an
+  account that already has an associated role, the new `RoleArn` will replace
+  the existing `RoleArn`.
   """
-  @spec associate_drt_role(map(), associate_drt_role_request(), list()) ::
+  @spec associate_drt_role(AWS.Client.t(), associate_drt_role_request(), Keyword.t()) ::
           {:ok, associate_drt_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_drt_role_errors()}
   def associate_drt_role(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateDRTRole", input, options)
   end
 
   @doc """
   Adds health-based detection to the Shield Advanced protection for a resource.
-
   Shield Advanced health-based detection uses the health of your Amazon Web
-  Services resource to improve responsiveness and accuracy in attack detection and
-  response.
-
-  You define the health check in Route 53 and then associate it with your Shield
-  Advanced protection. For more information, see [Shield Advanced Health-Based Detection](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option)
-  in the *WAF Developer Guide*.
+  Services resource to improve responsiveness and accuracy in attack detection
+  and response.
   """
-  @spec associate_health_check(map(), associate_health_check_request(), list()) ::
+  @spec associate_health_check(AWS.Client.t(), associate_health_check_request(), Keyword.t()) ::
           {:ok, associate_health_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_health_check_errors()}
   def associate_health_check(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateHealthCheck", input, options)
   end
 
   @doc """
   Initializes proactive engagement and sets the list of contacts for the Shield
-  Response Team (SRT) to use.
-
-  You must provide at least one phone number in the emergency contact list.
-
-  After you have initialized proactive engagement using this call, to disable or
-  enable proactive engagement, use the calls `DisableProactiveEngagement` and
-  `EnableProactiveEngagement`.
-
-  This call defines the list of email addresses and phone numbers that the SRT can
-  use to contact you for escalations to the SRT and to initiate proactive customer
-  support.
-
-  The contacts that you provide in the request replace any contacts that were
-  already defined. If you already have contacts defined and want to use them,
-  retrieve the list using `DescribeEmergencyContactSettings` and then provide it
-  to this call.
+  Response Team (SRT) to use. You must provide at least one phone number in the
+  emergency contact list. After you have initialized proactive engagement using
+  this call, to disable or enable proactive engagement, use the calls
+  `DisableProactiveEngagement` and `EnableProactiveEngagement`.
   """
   @spec associate_proactive_engagement_details(
-          map(),
+          AWS.Client.t(),
           associate_proactive_engagement_details_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_proactive_engagement_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_proactive_engagement_details_errors()}
   def associate_proactive_engagement_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateProactiveEngagementDetails", input, options)
   end
 
   @doc """
-  Enables Shield Advanced for a specific Amazon Web Services resource.
-
-  The resource can be an Amazon CloudFront distribution, Amazon Route 53 hosted
+  Enables Shield Advanced for a specific Amazon Web Services resource. The
+  resource can be an Amazon CloudFront distribution, Amazon Route 53 hosted
   zone, Global Accelerator standard accelerator, Elastic IP Address, Application
-  Load Balancer, or a Classic Load Balancer. You can protect Amazon EC2 instances
-  and Network Load Balancers by association with protected Amazon EC2 Elastic IP
-  addresses.
-
-  You can add protection to only a single resource with each `CreateProtection`
-  request. You can add protection to multiple resources
-  at once through the Shield Advanced console at
-  [https://console.aws.amazon.com/wafv2/shieldv2#/](https://console.aws.amazon.com/wafv2/shieldv2#/). For more information see
-  [Getting Started with Shield
-  Advanced](https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html)
-  and [Adding Shield Advanced protection to Amazon Web Services resources](https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html).
+  Load Balancer, or a Classic Load Balancer. You can protect Amazon EC2
+  instances and Network Load Balancers by association with protected Amazon EC2
+  Elastic IP addresses.
   """
-  @spec create_protection(map(), create_protection_request(), list()) ::
+  @spec create_protection(AWS.Client.t(), create_protection_request(), Keyword.t()) ::
           {:ok, create_protection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_protection_errors()}
   def create_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProtection", input, options)
   end
 
   @doc """
   Creates a grouping of protected resources so they can be handled as a
-  collective.
-
-  This resource grouping improves the accuracy of detection and reduces false
-  positives.
+  collective. This resource grouping improves the accuracy of detection and
+  reduces false positives.
   """
-  @spec create_protection_group(map(), create_protection_group_request(), list()) ::
+  @spec create_protection_group(AWS.Client.t(), create_protection_group_request(), Keyword.t()) ::
           {:ok, create_protection_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_protection_group_errors()}
   def create_protection_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProtectionGroup", input, options)
   end
 
   @doc """
-  Activates Shield Advanced for an account.
-
-  For accounts that are members of an Organizations organization, Shield Advanced
-  subscriptions are billed against the organization's payer account,
-  regardless of whether the payer account itself is subscribed.
-
-  When you initially create a subscription, your subscription is set to be
-  automatically renewed at the end of the existing subscription period. You can
-  change this by submitting an `UpdateSubscription` request.
+  Activates Shield Advanced for an account. For accounts that are members of an
+  Organizations organization, Shield Advanced subscriptions are billed against
+  the organization's payer account, regardless of whether the payer account
+  itself is subscribed.
   """
-  @spec create_subscription(map(), create_subscription_request(), list()) ::
+  @spec create_subscription(AWS.Client.t(), create_subscription_request(), Keyword.t()) ::
           {:ok, create_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_subscription_errors()}
   def create_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSubscription", input, options)
   end
@@ -1730,12 +1669,13 @@ defmodule AWS.Shield do
   @doc """
   Deletes an Shield Advanced `Protection`.
   """
-  @spec delete_protection(map(), delete_protection_request(), list()) ::
+  @spec delete_protection(AWS.Client.t(), delete_protection_request(), Keyword.t()) ::
           {:ok, delete_protection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_protection_errors()}
   def delete_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProtection", input, options)
   end
@@ -1743,28 +1683,29 @@ defmodule AWS.Shield do
   @doc """
   Removes the specified protection group.
   """
-  @spec delete_protection_group(map(), delete_protection_group_request(), list()) ::
+  @spec delete_protection_group(AWS.Client.t(), delete_protection_group_request(), Keyword.t()) ::
           {:ok, delete_protection_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_protection_group_errors()}
   def delete_protection_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProtectionGroup", input, options)
   end
 
   @doc """
-  Removes Shield Advanced from an account.
-
-  Shield Advanced requires a 1-year subscription commitment. You cannot delete a
-  subscription prior to the completion of that commitment.
+  Removes Shield Advanced from an account. Shield Advanced requires a 1-year
+  subscription commitment. You cannot delete a subscription prior to the
+  completion of that commitment.
   """
-  @spec delete_subscription(map(), delete_subscription_request(), list()) ::
+  @spec delete_subscription(AWS.Client.t(), delete_subscription_request(), Keyword.t()) ::
           {:ok, delete_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_subscription_errors()}
   def delete_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSubscription", input, options)
   end
@@ -1772,12 +1713,13 @@ defmodule AWS.Shield do
   @doc """
   Describes the details of a DDoS attack.
   """
-  @spec describe_attack(map(), describe_attack_request(), list()) ::
+  @spec describe_attack(AWS.Client.t(), describe_attack_request(), Keyword.t()) ::
           {:ok, describe_attack_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_attack_errors()}
   def describe_attack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAttack", input, options)
   end
@@ -1785,24 +1727,24 @@ defmodule AWS.Shield do
   @doc """
   Provides information about the number and type of attacks Shield has detected in
   the last year for all resources that belong to your account, regardless of
-  whether you've defined Shield protections for them.
-
-  This operation is available to Shield customers as well as to Shield Advanced
-  customers.
-
-  The operation returns data for the time range of midnight UTC, one year ago, to
+  whether you've defined Shield protections for them. This operation is
+  available to Shield customers as well as to Shield Advanced customers. The
+  operation returns data for the time range of midnight UTC, one year ago, to
   midnight UTC, today. For example, if the current time is `2020-10-26 15:39:32
   PDT`, equal to `2020-10-26 22:39:32 UTC`, then the time range for the attack
   data returned is from `2019-10-26 00:00:00 UTC` to `2020-10-26 00:00:00 UTC`.
-
-  The time range indicates the period covered by the attack statistics data items.
   """
-  @spec describe_attack_statistics(map(), describe_attack_statistics_request(), list()) ::
+  @spec describe_attack_statistics(
+          AWS.Client.t(),
+          describe_attack_statistics_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_attack_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_attack_statistics_errors()}
   def describe_attack_statistics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAttackStatistics", input, options)
   end
@@ -1812,31 +1754,33 @@ defmodule AWS.Shield do
   Response Team (SRT) to access your Amazon Web Services account while assisting
   with attack mitigation.
   """
-  @spec describe_drt_access(map(), describe_drt_access_request(), list()) ::
+  @spec describe_drt_access(AWS.Client.t(), describe_drt_access_request(), Keyword.t()) ::
           {:ok, describe_drt_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_drt_access_errors()}
   def describe_drt_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDRTAccess", input, options)
   end
 
   @doc """
   A list of email addresses and phone numbers that the Shield Response Team (SRT)
-  can use to contact you if you have proactive engagement enabled, for escalations
-  to the SRT and to initiate proactive customer support.
+  can use to contact you if you have proactive engagement enabled, for
+  escalations to the SRT and to initiate proactive customer support.
   """
   @spec describe_emergency_contact_settings(
-          map(),
+          AWS.Client.t(),
           describe_emergency_contact_settings_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_emergency_contact_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_emergency_contact_settings_errors()}
   def describe_emergency_contact_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEmergencyContactSettings", input, options)
   end
@@ -1844,12 +1788,13 @@ defmodule AWS.Shield do
   @doc """
   Lists the details of a `Protection` object.
   """
-  @spec describe_protection(map(), describe_protection_request(), list()) ::
+  @spec describe_protection(AWS.Client.t(), describe_protection_request(), Keyword.t()) ::
           {:ok, describe_protection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_protection_errors()}
   def describe_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProtection", input, options)
   end
@@ -1857,12 +1802,17 @@ defmodule AWS.Shield do
   @doc """
   Returns the specification for the specified protection group.
   """
-  @spec describe_protection_group(map(), describe_protection_group_request(), list()) ::
+  @spec describe_protection_group(
+          AWS.Client.t(),
+          describe_protection_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_protection_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_protection_group_errors()}
   def describe_protection_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProtectionGroup", input, options)
   end
@@ -1870,34 +1820,34 @@ defmodule AWS.Shield do
   @doc """
   Provides details about the Shield Advanced subscription for an account.
   """
-  @spec describe_subscription(map(), describe_subscription_request(), list()) ::
+  @spec describe_subscription(AWS.Client.t(), describe_subscription_request(), Keyword.t()) ::
           {:ok, describe_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_subscription_errors()}
   def describe_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSubscription", input, options)
   end
 
   @doc """
   Disable the Shield Advanced automatic application layer DDoS mitigation feature
-  for the protected resource.
-
-  This
-  stops Shield Advanced from creating, verifying, and applying WAF rules for
-  attacks that it detects for the resource.
+  for the protected resource. This stops Shield Advanced from creating,
+  verifying, and applying WAF rules for attacks that it detects for the
+  resource.
   """
   @spec disable_application_layer_automatic_response(
-          map(),
+          AWS.Client.t(),
           disable_application_layer_automatic_response_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disable_application_layer_automatic_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_application_layer_automatic_response_errors()}
   def disable_application_layer_automatic_response(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableApplicationLayerAutomaticResponse", input, options)
   end
@@ -1906,12 +1856,17 @@ defmodule AWS.Shield do
   Removes authorization from the Shield Response Team (SRT) to notify contacts
   about escalations to the SRT and to initiate proactive customer support.
   """
-  @spec disable_proactive_engagement(map(), disable_proactive_engagement_request(), list()) ::
+  @spec disable_proactive_engagement(
+          AWS.Client.t(),
+          disable_proactive_engagement_request(),
+          Keyword.t()
+        ) ::
           {:ok, disable_proactive_engagement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_proactive_engagement_errors()}
   def disable_proactive_engagement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableProactiveEngagement", input, options)
   end
@@ -1920,12 +1875,17 @@ defmodule AWS.Shield do
   Removes the Shield Response Team's (SRT) access to the specified Amazon S3
   bucket containing the logs that you shared previously.
   """
-  @spec disassociate_drt_log_bucket(map(), disassociate_drt_log_bucket_request(), list()) ::
+  @spec disassociate_drt_log_bucket(
+          AWS.Client.t(),
+          disassociate_drt_log_bucket_request(),
+          Keyword.t()
+        ) ::
           {:ok, disassociate_drt_log_bucket_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_drt_log_bucket_errors()}
   def disassociate_drt_log_bucket(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateDRTLogBucket", input, options)
   end
@@ -1934,80 +1894,54 @@ defmodule AWS.Shield do
   Removes the Shield Response Team's (SRT) access to your Amazon Web Services
   account.
   """
-  @spec disassociate_drt_role(map(), disassociate_drt_role_request(), list()) ::
+  @spec disassociate_drt_role(AWS.Client.t(), disassociate_drt_role_request(), Keyword.t()) ::
           {:ok, disassociate_drt_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_drt_role_errors()}
   def disassociate_drt_role(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateDRTRole", input, options)
   end
 
   @doc """
   Removes health-based detection from the Shield Advanced protection for a
-  resource.
-
-  Shield Advanced health-based detection uses the health of your Amazon Web
-  Services resource to improve responsiveness and accuracy in attack detection and
-  response.
-
-  You define the health check in Route 53 and then associate or disassociate it
-  with your Shield Advanced protection. For more information, see [Shield Advanced Health-Based
-  Detection](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option)
-  in the *WAF Developer Guide*.
+  resource. Shield Advanced health-based detection uses the health of your
+  Amazon Web Services resource to improve responsiveness and accuracy in attack
+  detection and response.
   """
-  @spec disassociate_health_check(map(), disassociate_health_check_request(), list()) ::
+  @spec disassociate_health_check(
+          AWS.Client.t(),
+          disassociate_health_check_request(),
+          Keyword.t()
+        ) ::
           {:ok, disassociate_health_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_health_check_errors()}
   def disassociate_health_check(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateHealthCheck", input, options)
   end
 
   @doc """
   Enable the Shield Advanced automatic application layer DDoS mitigation for the
-  protected resource.
-
-  This feature is available for Amazon CloudFront distributions and Application
-  Load Balancers only.
-
-  This causes Shield Advanced to create, verify, and apply WAF rules for DDoS
-  attacks that it detects for the
-  resource. Shield Advanced applies the rules in a Shield rule group inside the
-  web ACL that you've associated
-  with the resource. For information about how automatic mitigation works and the
-  requirements for using it, see
-  [Shield Advanced automatic application layer DDoS mitigation](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced-automatic-app-layer-response.html).
-
-  Don't use this action to make changes to automatic mitigation settings when it's
-  already enabled for a resource. Instead, use
-  `UpdateApplicationLayerAutomaticResponse`.
-
-  To use this feature, you must associate a web ACL with the protected resource.
-  The web ACL must be created using the latest version of WAF (v2). You can
-  associate the web ACL through the Shield Advanced console
-  at
-  [https://console.aws.amazon.com/wafv2/shieldv2#/](https://console.aws.amazon.com/wafv2/shieldv2#/). For more information,
-  see [Getting Started with Shield
-  Advanced](https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html).
-  You can also associate the web ACL to the resource through the WAF console or
-  the WAF API, but you must manage Shield Advanced automatic mitigation through
-  Shield Advanced. For information about WAF, see
-  [WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
+  protected resource. This feature is available for Amazon CloudFront
+  distributions and Application Load Balancers only.
   """
   @spec enable_application_layer_automatic_response(
-          map(),
+          AWS.Client.t(),
           enable_application_layer_automatic_response_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, enable_application_layer_automatic_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_application_layer_automatic_response_errors()}
   def enable_application_layer_automatic_response(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableApplicationLayerAutomaticResponse", input, options)
   end
@@ -2017,12 +1951,17 @@ defmodule AWS.Shield do
   contacts about escalations to the SRT and to initiate proactive customer
   support.
   """
-  @spec enable_proactive_engagement(map(), enable_proactive_engagement_request(), list()) ::
+  @spec enable_proactive_engagement(
+          AWS.Client.t(),
+          enable_proactive_engagement_request(),
+          Keyword.t()
+        ) ::
           {:ok, enable_proactive_engagement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_proactive_engagement_errors()}
   def enable_proactive_engagement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableProactiveEngagement", input, options)
   end
@@ -2030,12 +1969,13 @@ defmodule AWS.Shield do
   @doc """
   Returns the `SubscriptionState`, either `Active` or `Inactive`.
   """
-  @spec get_subscription_state(map(), get_subscription_state_request(), list()) ::
+  @spec get_subscription_state(AWS.Client.t(), get_subscription_state_request(), Keyword.t()) ::
           {:ok, get_subscription_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_subscription_state_errors()}
   def get_subscription_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSubscriptionState", input, options)
   end
@@ -2044,46 +1984,45 @@ defmodule AWS.Shield do
   Returns all ongoing DDoS attacks or all DDoS attacks during a specified time
   period.
   """
-  @spec list_attacks(map(), list_attacks_request(), list()) ::
+  @spec list_attacks(AWS.Client.t(), list_attacks_request(), Keyword.t()) ::
           {:ok, list_attacks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attacks_errors()}
   def list_attacks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAttacks", input, options)
   end
 
   @doc """
-  Retrieves `ProtectionGroup` objects for the account.
-
-  You can retrieve all protection groups or you can provide
-  filtering criteria and retrieve just the subset of protection groups that match
-  the criteria.
+  Retrieves `ProtectionGroup` objects for the account. You can retrieve all
+  protection groups or you can provide filtering criteria and retrieve just the
+  subset of protection groups that match the criteria.
   """
-  @spec list_protection_groups(map(), list_protection_groups_request(), list()) ::
+  @spec list_protection_groups(AWS.Client.t(), list_protection_groups_request(), Keyword.t()) ::
           {:ok, list_protection_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_protection_groups_errors()}
   def list_protection_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProtectionGroups", input, options)
   end
 
   @doc """
-  Retrieves `Protection` objects for the account.
-
-  You can retrieve all protections or you can provide
-  filtering criteria and retrieve just the subset of protections that match the
-  criteria.
+  Retrieves `Protection` objects for the account. You can retrieve all protections
+  or you can provide filtering criteria and retrieve just the subset of
+  protections that match the criteria.
   """
-  @spec list_protections(map(), list_protections_request(), list()) ::
+  @spec list_protections(AWS.Client.t(), list_protections_request(), Keyword.t()) ::
           {:ok, list_protections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_protections_errors()}
   def list_protections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProtections", input, options)
   end
@@ -2092,15 +2031,16 @@ defmodule AWS.Shield do
   Retrieves the resources that are included in the protection group.
   """
   @spec list_resources_in_protection_group(
-          map(),
+          AWS.Client.t(),
           list_resources_in_protection_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_resources_in_protection_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resources_in_protection_group_errors()}
   def list_resources_in_protection_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourcesInProtectionGroup", input, options)
   end
@@ -2109,12 +2049,13 @@ defmodule AWS.Shield do
   Gets information about Amazon Web Services tags for a specified Amazon Resource
   Name (ARN) in Shield.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2122,12 +2063,13 @@ defmodule AWS.Shield do
   @doc """
   Adds or updates tags for a resource in Shield.
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2135,12 +2077,13 @@ defmodule AWS.Shield do
   @doc """
   Removes tags from a resource in Shield.
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2150,15 +2093,16 @@ defmodule AWS.Shield do
   configuration for the specified resource.
   """
   @spec update_application_layer_automatic_response(
-          map(),
+          AWS.Client.t(),
           update_application_layer_automatic_response_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_application_layer_automatic_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_layer_automatic_response_errors()}
   def update_application_layer_automatic_response(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApplicationLayerAutomaticResponse", input, options)
   end
@@ -2170,52 +2114,47 @@ defmodule AWS.Shield do
   customer support.
   """
   @spec update_emergency_contact_settings(
-          map(),
+          AWS.Client.t(),
           update_emergency_contact_settings_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_emergency_contact_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_emergency_contact_settings_errors()}
   def update_emergency_contact_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEmergencyContactSettings", input, options)
   end
 
   @doc """
-  Updates an existing protection group.
-
-  A protection group is a grouping of protected resources so they can be handled
-  as a collective. This resource grouping improves the accuracy of detection and
-  reduces false positives.
+  Updates an existing protection group. A protection group is a grouping of
+  protected resources so they can be handled as a collective. This resource
+  grouping improves the accuracy of detection and reduces false positives.
   """
-  @spec update_protection_group(map(), update_protection_group_request(), list()) ::
+  @spec update_protection_group(AWS.Client.t(), update_protection_group_request(), Keyword.t()) ::
           {:ok, update_protection_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_protection_group_errors()}
   def update_protection_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProtectionGroup", input, options)
   end
 
   @doc """
-  Updates the details of an existing subscription.
-
-  Only enter values for parameters you want to change. Empty parameters are not
-  updated.
-
-  For accounts that are members of an Organizations organization, Shield Advanced
-  subscriptions are billed against the organization's payer account,
-  regardless of whether the payer account itself is subscribed.
+  Updates the details of an existing subscription. Only enter values for
+  parameters you want to change. Empty parameters are not updated.
   """
-  @spec update_subscription(map(), update_subscription_request(), list()) ::
+  @spec update_subscription(AWS.Client.t(), update_subscription_request(), Keyword.t()) ::
           {:ok, update_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_subscription_errors()}
   def update_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSubscription", input, options)
   end

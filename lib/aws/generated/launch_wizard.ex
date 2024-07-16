@@ -4,12 +4,9 @@
 defmodule AWS.LaunchWizard do
   @moduledoc """
   Launch Wizard offers a guided way of sizing, configuring, and deploying Amazon
-  Web Services resources for
-  third party applications, such as Microsoft SQL Server Always On and HANA based
-  SAP
-  systems, without the need to manually identify and provision individual Amazon
-  Web Services
-  resources.
+  Web Services resources for third party applications, such as Microsoft SQL
+  Server Always On and HANA based SAP systems, without the need to manually
+  identify and provision individual Amazon Web Services resources.
   """
 
   alias AWS.Client
@@ -548,13 +545,17 @@ defmodule AWS.LaunchWizard do
   end
 
   @doc """
-  Creates a deployment for the given workload.
+  Creates a deployment for the given workload. Deployments created by this
+  operation are not available in the Launch Wizard console to use the `Clone
+  deployment` action on.
 
-  Deployments created by this operation are
-  not available in the Launch Wizard console to use the `Clone deployment` action
-  on.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20CreateDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_deployment(map(), create_deployment_input(), list()) ::
+  @spec create_deployment(AWS.Client.t(), create_deployment_input(), Keyword.t()) ::
           {:ok, create_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deployment_errors()}
@@ -563,7 +564,8 @@ defmodule AWS.LaunchWizard do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -580,8 +582,14 @@ defmodule AWS.LaunchWizard do
 
   @doc """
   Deletes a deployment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20DeleteDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_deployment(map(), delete_deployment_input(), list()) ::
+  @spec delete_deployment(AWS.Client.t(), delete_deployment_input(), Keyword.t()) ::
           {:ok, delete_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_deployment_errors()}
@@ -590,7 +598,8 @@ defmodule AWS.LaunchWizard do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -607,8 +616,14 @@ defmodule AWS.LaunchWizard do
 
   @doc """
   Returns information about the deployment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20GetDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_deployment(map(), get_deployment_input(), list()) ::
+  @spec get_deployment(AWS.Client.t(), get_deployment_input(), Keyword.t()) ::
           {:ok, get_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_errors()}
@@ -617,7 +632,8 @@ defmodule AWS.LaunchWizard do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -634,8 +650,14 @@ defmodule AWS.LaunchWizard do
 
   @doc """
   Returns information about a workload.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20GetWorkload&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_workload(map(), get_workload_input(), list()) ::
+  @spec get_workload(AWS.Client.t(), get_workload_input(), Keyword.t()) ::
           {:ok, get_workload_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workload_errors()}
@@ -644,7 +666,8 @@ defmodule AWS.LaunchWizard do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -661,16 +684,24 @@ defmodule AWS.LaunchWizard do
 
   @doc """
   Returns details for a given workload and deployment pattern, including the
-  available
-  specifications.
-
-  You can use the
-  [ListWorkloads](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloads.html) operation to discover the available workload names and the
+  available specifications. You can use the
+  [ListWorkloads](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloads.html)
+  operation to discover the available workload names and the
   [ListWorkloadDeploymentPatterns](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.html)
-  operation to discover the available deployment
-  pattern names of a given workload.
+  operation to discover the available deployment pattern names of a given
+  workload.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20GetWorkloadDeploymentPattern&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_workload_deployment_pattern(map(), get_workload_deployment_pattern_input(), list()) ::
+  @spec get_workload_deployment_pattern(
+          AWS.Client.t(),
+          get_workload_deployment_pattern_input(),
+          Keyword.t()
+        ) ::
           {:ok, get_workload_deployment_pattern_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workload_deployment_pattern_errors()}
@@ -679,7 +710,8 @@ defmodule AWS.LaunchWizard do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -696,8 +728,14 @@ defmodule AWS.LaunchWizard do
 
   @doc """
   Lists the events of a deployment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20ListDeploymentEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_deployment_events(map(), list_deployment_events_input(), list()) ::
+  @spec list_deployment_events(AWS.Client.t(), list_deployment_events_input(), Keyword.t()) ::
           {:ok, list_deployment_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployment_events_errors()}
@@ -706,7 +744,8 @@ defmodule AWS.LaunchWizard do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -723,8 +762,14 @@ defmodule AWS.LaunchWizard do
 
   @doc """
   Lists the deployments that have been created.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20ListDeployments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_deployments(map(), list_deployments_input(), list()) ::
+  @spec list_deployments(AWS.Client.t(), list_deployments_input(), Keyword.t()) ::
           {:ok, list_deployments_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployments_errors()}
@@ -733,7 +778,8 @@ defmodule AWS.LaunchWizard do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -750,32 +796,62 @@ defmodule AWS.LaunchWizard do
 
   @doc """
   Lists the tags associated with a specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the workload deployment patterns for a given workload name.
-
-  You can use the
+  Lists the workload deployment patterns for a given workload name. You can use
+  the
   [ListWorkloads](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloads.html)
   operation to discover the available workload names.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20ListWorkloadDeploymentPatterns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec list_workload_deployment_patterns(
-          map(),
+          AWS.Client.t(),
           list_workload_deployment_patterns_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_workload_deployment_patterns_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -785,7 +861,8 @@ defmodule AWS.LaunchWizard do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -801,13 +878,17 @@ defmodule AWS.LaunchWizard do
   end
 
   @doc """
-  Lists the available workload names.
-
-  You can use the
+  Lists the available workload names. You can use the
   [ListWorkloadDeploymentPatterns](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.html)
   operation to discover the available deployment patterns for a given workload.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20ListWorkloads&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_workloads(map(), list_workloads_input(), list()) ::
+  @spec list_workloads(AWS.Client.t(), list_workloads_input(), Keyword.t()) ::
           {:ok, list_workloads_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workloads_errors()}
@@ -816,7 +897,8 @@ defmodule AWS.LaunchWizard do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -833,8 +915,15 @@ defmodule AWS.LaunchWizard do
 
   @doc """
   Adds the specified tags to the given resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_input(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -843,7 +932,8 @@ defmodule AWS.LaunchWizard do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -860,8 +950,17 @@ defmodule AWS.LaunchWizard do
 
   @doc """
   Removes the specified tags from the given resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.launchwizard#TagKey]`) Keys identifying the
+    tags to remove.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -875,7 +974,8 @@ defmodule AWS.LaunchWizard do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

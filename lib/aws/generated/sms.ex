@@ -3,32 +3,14 @@
 
 defmodule AWS.SMS do
   @moduledoc """
-
-
-  ## Product update
-
-  We recommend [Amazon Web Services Application Migration Service](http://aws.amazon.com/application-migration-service) (Amazon Web
-  Services
-  MGN) as the primary migration service for lift-and-shift migrations.
-
-  If Amazon Web Services MGN is
-  unavailable in a specific Amazon Web Services Region, you can use the Server
-  Migration Service APIs through March
-  2023.
-
+  **Product update** We recommend [Amazon Web Services Application Migration
+  Service](http://aws.amazon.com/application-migration-service) (Amazon Web
+  Services MGN) as the primary migration service for lift-and-shift migrations.
+  If Amazon Web Services MGN is unavailable in a specific Amazon Web Services
+  Region, you can use the Server Migration Service APIs through March 2023.
   Server Migration Service (Server Migration Service) makes it easier and faster
-  for you to migrate your
-  on-premises workloads to Amazon Web Services. To learn more about Server
-  Migration Service, see the following
-  resources:
-
-    *
-
-  [Server Migration Service product page](http://aws.amazon.com/server-migration-service/)
-
-    *
-
-  [Server Migration Service User Guide](https://docs.aws.amazon.com/server-migration-service/latest/userguide/)
+  for you to migrate your on-premises workloads to Amazon Web Services. To learn
+  more about Server Migration Service, see the following resources:
   """
 
   alias AWS.Client
@@ -1649,52 +1631,48 @@ defmodule AWS.SMS do
   end
 
   @doc """
-  Creates an application.
-
-  An application consists of one or more server groups. Each
-  server group contain one or more servers.
+  Creates an application. An application consists of one or more server groups.
+  Each server group contain one or more servers.
   """
-  @spec create_app(map(), create_app_request(), list()) ::
+  @spec create_app(AWS.Client.t(), create_app_request(), Keyword.t()) ::
           {:ok, create_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_errors()}
   def create_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApp", input, options)
   end
 
   @doc """
-  Creates a replication job.
-
-  The replication job schedules periodic replication runs
-  to replicate your server to Amazon Web Services. Each replication run creates an
-  Amazon Machine Image
-  (AMI).
+  Creates a replication job. The replication job schedules periodic replication
+  runs to replicate your server to Amazon Web Services. Each replication run
+  creates an Amazon Machine Image (AMI).
   """
-  @spec create_replication_job(map(), create_replication_job_request(), list()) ::
+  @spec create_replication_job(AWS.Client.t(), create_replication_job_request(), Keyword.t()) ::
           {:ok, create_replication_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_replication_job_errors()}
   def create_replication_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReplicationJob", input, options)
   end
 
   @doc """
-  Deletes the specified application.
-
-  Optionally deletes the launched stack associated with
-  the application and all Server Migration Service replication jobs for servers in
-  the application.
+  Deletes the specified application. Optionally deletes the launched stack
+  associated with the application and all Server Migration Service replication
+  jobs for servers in the application.
   """
-  @spec delete_app(map(), delete_app_request(), list()) ::
+  @spec delete_app(AWS.Client.t(), delete_app_request(), Keyword.t()) ::
           {:ok, delete_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_errors()}
   def delete_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApp", input, options)
   end
@@ -1702,12 +1680,17 @@ defmodule AWS.SMS do
   @doc """
   Deletes the launch configuration for the specified application.
   """
-  @spec delete_app_launch_configuration(map(), delete_app_launch_configuration_request(), list()) ::
+  @spec delete_app_launch_configuration(
+          AWS.Client.t(),
+          delete_app_launch_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_app_launch_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_launch_configuration_errors()}
   def delete_app_launch_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAppLaunchConfiguration", input, options)
   end
@@ -1716,15 +1699,16 @@ defmodule AWS.SMS do
   Deletes the replication configuration for the specified application.
   """
   @spec delete_app_replication_configuration(
-          map(),
+          AWS.Client.t(),
           delete_app_replication_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_app_replication_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_replication_configuration_errors()}
   def delete_app_replication_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAppReplicationConfiguration", input, options)
   end
@@ -1733,34 +1717,30 @@ defmodule AWS.SMS do
   Deletes the validation configuration for the specified application.
   """
   @spec delete_app_validation_configuration(
-          map(),
+          AWS.Client.t(),
           delete_app_validation_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_app_validation_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_validation_configuration_errors()}
   def delete_app_validation_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAppValidationConfiguration", input, options)
   end
 
   @doc """
   Deletes the specified replication job.
-
-  After you delete a replication job, there are no further replication runs.
-  Amazon Web Services
-  deletes the contents of the Amazon S3 bucket used to store Server Migration
-  Service artifacts. The AMIs created
-  by the replication runs are not deleted.
   """
-  @spec delete_replication_job(map(), delete_replication_job_request(), list()) ::
+  @spec delete_replication_job(AWS.Client.t(), delete_replication_job_request(), Keyword.t()) ::
           {:ok, delete_replication_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replication_job_errors()}
   def delete_replication_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReplicationJob", input, options)
   end
@@ -1768,58 +1748,57 @@ defmodule AWS.SMS do
   @doc """
   Deletes all servers from your server catalog.
   """
-  @spec delete_server_catalog(map(), delete_server_catalog_request(), list()) ::
+  @spec delete_server_catalog(AWS.Client.t(), delete_server_catalog_request(), Keyword.t()) ::
           {:ok, delete_server_catalog_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_server_catalog_errors()}
   def delete_server_catalog(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteServerCatalog", input, options)
   end
 
   @doc """
   Disassociates the specified connector from Server Migration Service.
-
-  After you disassociate a connector, it is no longer available to support
-  replication jobs.
   """
-  @spec disassociate_connector(map(), disassociate_connector_request(), list()) ::
+  @spec disassociate_connector(AWS.Client.t(), disassociate_connector_request(), Keyword.t()) ::
           {:ok, disassociate_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_connector_errors()}
   def disassociate_connector(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateConnector", input, options)
   end
 
   @doc """
   Generates a target change set for a currently launched stack and writes it to an
-  Amazon S3
-  object in the customer’s Amazon S3 bucket.
+  Amazon S3 object in the customer’s Amazon S3 bucket.
   """
-  @spec generate_change_set(map(), generate_change_set_request(), list()) ::
+  @spec generate_change_set(AWS.Client.t(), generate_change_set_request(), Keyword.t()) ::
           {:ok, generate_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_change_set_errors()}
   def generate_change_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GenerateChangeSet", input, options)
   end
 
   @doc """
   Generates an CloudFormation template based on the current launch configuration
-  and writes it to
-  an Amazon S3 object in the customer’s Amazon S3 bucket.
+  and writes it to an Amazon S3 object in the customer’s Amazon S3 bucket.
   """
-  @spec generate_template(map(), generate_template_request(), list()) ::
+  @spec generate_template(AWS.Client.t(), generate_template_request(), Keyword.t()) ::
           {:ok, generate_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_template_errors()}
   def generate_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GenerateTemplate", input, options)
   end
@@ -1827,12 +1806,13 @@ defmodule AWS.SMS do
   @doc """
   Retrieve information about the specified application.
   """
-  @spec get_app(map(), get_app_request(), list()) ::
+  @spec get_app(AWS.Client.t(), get_app_request(), Keyword.t()) ::
           {:ok, get_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_errors()}
   def get_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetApp", input, options)
   end
@@ -1841,31 +1821,36 @@ defmodule AWS.SMS do
   Retrieves the application launch configuration associated with the specified
   application.
   """
-  @spec get_app_launch_configuration(map(), get_app_launch_configuration_request(), list()) ::
+  @spec get_app_launch_configuration(
+          AWS.Client.t(),
+          get_app_launch_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_app_launch_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_launch_configuration_errors()}
   def get_app_launch_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAppLaunchConfiguration", input, options)
   end
 
   @doc """
   Retrieves the application replication configuration associated with the
-  specified
-  application.
+  specified application.
   """
   @spec get_app_replication_configuration(
-          map(),
+          AWS.Client.t(),
           get_app_replication_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_app_replication_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_replication_configuration_errors()}
   def get_app_replication_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAppReplicationConfiguration", input, options)
   end
@@ -1874,15 +1859,16 @@ defmodule AWS.SMS do
   Retrieves information about a configuration for validating an application.
   """
   @spec get_app_validation_configuration(
-          map(),
+          AWS.Client.t(),
           get_app_validation_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_app_validation_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_validation_configuration_errors()}
   def get_app_validation_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAppValidationConfiguration", input, options)
   end
@@ -1890,12 +1876,17 @@ defmodule AWS.SMS do
   @doc """
   Retrieves output from validating an application.
   """
-  @spec get_app_validation_output(map(), get_app_validation_output_request(), list()) ::
+  @spec get_app_validation_output(
+          AWS.Client.t(),
+          get_app_validation_output_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_app_validation_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_validation_output_errors()}
   def get_app_validation_output(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAppValidationOutput", input, options)
   end
@@ -1903,12 +1894,13 @@ defmodule AWS.SMS do
   @doc """
   Describes the connectors registered with the Server Migration Service.
   """
-  @spec get_connectors(map(), get_connectors_request(), list()) ::
+  @spec get_connectors(AWS.Client.t(), get_connectors_request(), Keyword.t()) ::
           {:ok, get_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connectors_errors()}
   def get_connectors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetConnectors", input, options)
   end
@@ -1916,12 +1908,13 @@ defmodule AWS.SMS do
   @doc """
   Describes the specified replication job or all of your replication jobs.
   """
-  @spec get_replication_jobs(map(), get_replication_jobs_request(), list()) ::
+  @spec get_replication_jobs(AWS.Client.t(), get_replication_jobs_request(), Keyword.t()) ::
           {:ok, get_replication_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_replication_jobs_errors()}
   def get_replication_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetReplicationJobs", input, options)
   end
@@ -1929,28 +1922,27 @@ defmodule AWS.SMS do
   @doc """
   Describes the replication runs for the specified replication job.
   """
-  @spec get_replication_runs(map(), get_replication_runs_request(), list()) ::
+  @spec get_replication_runs(AWS.Client.t(), get_replication_runs_request(), Keyword.t()) ::
           {:ok, get_replication_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_replication_runs_errors()}
   def get_replication_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetReplicationRuns", input, options)
   end
 
   @doc """
   Describes the servers in your server catalog.
-
-  Before you can describe your servers, you must import them using
-  `ImportServerCatalog`.
   """
-  @spec get_servers(map(), get_servers_request(), list()) ::
+  @spec get_servers(AWS.Client.t(), get_servers_request(), Keyword.t()) ::
           {:ok, get_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_servers_errors()}
   def get_servers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetServers", input, options)
   end
@@ -1958,32 +1950,28 @@ defmodule AWS.SMS do
   @doc """
   Allows application import from Migration Hub.
   """
-  @spec import_app_catalog(map(), import_app_catalog_request(), list()) ::
+  @spec import_app_catalog(AWS.Client.t(), import_app_catalog_request(), Keyword.t()) ::
           {:ok, import_app_catalog_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_app_catalog_errors()}
   def import_app_catalog(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportAppCatalog", input, options)
   end
 
   @doc """
-  Gathers a complete list of on-premises servers.
-
-  Connectors must be installed and
+  Gathers a complete list of on-premises servers. Connectors must be installed and
   monitoring all servers to import.
-
-  This call returns immediately, but might take additional time to retrieve all
-  the
-  servers.
   """
-  @spec import_server_catalog(map(), import_server_catalog_request(), list()) ::
+  @spec import_server_catalog(AWS.Client.t(), import_server_catalog_request(), Keyword.t()) ::
           {:ok, import_server_catalog_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_server_catalog_errors()}
   def import_server_catalog(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportServerCatalog", input, options)
   end
@@ -1991,12 +1979,13 @@ defmodule AWS.SMS do
   @doc """
   Launches the specified application as a stack in CloudFormation.
   """
-  @spec launch_app(map(), launch_app_request(), list()) ::
+  @spec launch_app(AWS.Client.t(), launch_app_request(), Keyword.t()) ::
           {:ok, launch_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, launch_app_errors()}
   def launch_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "LaunchApp", input, options)
   end
@@ -2004,12 +1993,13 @@ defmodule AWS.SMS do
   @doc """
   Retrieves summaries for all applications.
   """
-  @spec list_apps(map(), list_apps_request(), list()) ::
+  @spec list_apps(AWS.Client.t(), list_apps_request(), Keyword.t()) ::
           {:ok, list_apps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_apps_errors()}
   def list_apps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApps", input, options)
   end
@@ -2018,12 +2008,17 @@ defmodule AWS.SMS do
   Provides information to Server Migration Service about whether application
   validation is successful.
   """
-  @spec notify_app_validation_output(map(), notify_app_validation_output_request(), list()) ::
+  @spec notify_app_validation_output(
+          AWS.Client.t(),
+          notify_app_validation_output_request(),
+          Keyword.t()
+        ) ::
           {:ok, notify_app_validation_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, notify_app_validation_output_errors()}
   def notify_app_validation_output(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "NotifyAppValidationOutput", input, options)
   end
@@ -2031,12 +2026,17 @@ defmodule AWS.SMS do
   @doc """
   Creates or updates the launch configuration for the specified application.
   """
-  @spec put_app_launch_configuration(map(), put_app_launch_configuration_request(), list()) ::
+  @spec put_app_launch_configuration(
+          AWS.Client.t(),
+          put_app_launch_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_app_launch_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_app_launch_configuration_errors()}
   def put_app_launch_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAppLaunchConfiguration", input, options)
   end
@@ -2045,15 +2045,16 @@ defmodule AWS.SMS do
   Creates or updates the replication configuration for the specified application.
   """
   @spec put_app_replication_configuration(
-          map(),
+          AWS.Client.t(),
           put_app_replication_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_app_replication_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_app_replication_configuration_errors()}
   def put_app_replication_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAppReplicationConfiguration", input, options)
   end
@@ -2062,30 +2063,31 @@ defmodule AWS.SMS do
   Creates or updates a validation configuration for the specified application.
   """
   @spec put_app_validation_configuration(
-          map(),
+          AWS.Client.t(),
           put_app_validation_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_app_validation_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_app_validation_configuration_errors()}
   def put_app_validation_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAppValidationConfiguration", input, options)
   end
 
   @doc """
   Starts replicating the specified application by creating replication jobs for
-  each server in the
-  application.
+  each server in the application.
   """
-  @spec start_app_replication(map(), start_app_replication_request(), list()) ::
+  @spec start_app_replication(AWS.Client.t(), start_app_replication_request(), Keyword.t()) ::
           {:ok, start_app_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_app_replication_errors()}
   def start_app_replication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartAppReplication", input, options)
   end
@@ -2093,49 +2095,52 @@ defmodule AWS.SMS do
   @doc """
   Starts an on-demand replication run for the specified application.
   """
-  @spec start_on_demand_app_replication(map(), start_on_demand_app_replication_request(), list()) ::
+  @spec start_on_demand_app_replication(
+          AWS.Client.t(),
+          start_on_demand_app_replication_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_on_demand_app_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_on_demand_app_replication_errors()}
   def start_on_demand_app_replication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartOnDemandAppReplication", input, options)
   end
 
   @doc """
-  Starts an on-demand replication run for the specified replication job.
-
-  This
+  Starts an on-demand replication run for the specified replication job. This
   replication run starts immediately. This replication run is in addition to the
-  ones
-  already scheduled.
-
-  There is a limit on the number of on-demand replications runs that you can
-  request
-  in a 24-hour period.
+  ones already scheduled.
   """
-  @spec start_on_demand_replication_run(map(), start_on_demand_replication_run_request(), list()) ::
+  @spec start_on_demand_replication_run(
+          AWS.Client.t(),
+          start_on_demand_replication_run_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_on_demand_replication_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_on_demand_replication_run_errors()}
   def start_on_demand_replication_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartOnDemandReplicationRun", input, options)
   end
 
   @doc """
   Stops replicating the specified application by deleting the replication job for
-  each server in
-  the application.
+  each server in the application.
   """
-  @spec stop_app_replication(map(), stop_app_replication_request(), list()) ::
+  @spec stop_app_replication(AWS.Client.t(), stop_app_replication_request(), Keyword.t()) ::
           {:ok, stop_app_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_app_replication_errors()}
   def stop_app_replication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopAppReplication", input, options)
   end
@@ -2143,12 +2148,13 @@ defmodule AWS.SMS do
   @doc """
   Terminates the stack for the specified application.
   """
-  @spec terminate_app(map(), terminate_app_request(), list()) ::
+  @spec terminate_app(AWS.Client.t(), terminate_app_request(), Keyword.t()) ::
           {:ok, terminate_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, terminate_app_errors()}
   def terminate_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TerminateApp", input, options)
   end
@@ -2156,12 +2162,13 @@ defmodule AWS.SMS do
   @doc """
   Updates the specified application.
   """
-  @spec update_app(map(), update_app_request(), list()) ::
+  @spec update_app(AWS.Client.t(), update_app_request(), Keyword.t()) ::
           {:ok, update_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_errors()}
   def update_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApp", input, options)
   end
@@ -2169,12 +2176,13 @@ defmodule AWS.SMS do
   @doc """
   Updates the specified settings for the specified replication job.
   """
-  @spec update_replication_job(map(), update_replication_job_request(), list()) ::
+  @spec update_replication_job(AWS.Client.t(), update_replication_job_request(), Keyword.t()) ::
           {:ok, update_replication_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_replication_job_errors()}
   def update_replication_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateReplicationJob", input, options)
   end

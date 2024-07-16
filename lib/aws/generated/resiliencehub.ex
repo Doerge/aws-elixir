@@ -4,14 +4,10 @@
 defmodule AWS.Resiliencehub do
   @moduledoc """
   Resilience Hub helps you proactively prepare and protect your Amazon Web
-  Services applications from
-  disruptions.
-
-  It offers continual resiliency assessment and validation that integrates
-  into your software development lifecycle. This enables you to uncover resiliency
-  weaknesses,
-  ensure recovery time objective (RTO) and recovery point objective (RPO) targets
-  for your
+  Services applications from disruptions. It offers continual resiliency
+  assessment and validation that integrates into your software development
+  lifecycle. This enables you to uncover resiliency weaknesses, ensure recovery
+  time objective (RTO) and recovery point objective (RPO) targets for your
   applications are met, and resolve issues before they are released into
   production.
   """
@@ -2656,18 +2652,24 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Adds the source of resource-maps to the draft version of an application.
-
-  During assessment, Resilience Hub will use these resource-maps to resolve the
-  latest physical ID for each resource in the application template. For more
+  Adds the source of resource-maps to the draft version of an application. During
+  assessment, Resilience Hub will use these resource-maps to resolve the latest
+  physical ID for each resource in the application template. For more
   information about different types of resources suported by Resilience Hub and
-  how to add them in your application, see [Step 2: How is your application managed?](https://docs.aws.amazon.com/resilience-hub/latest/userguide/how-app-manage.html)
+  how to add them in your application, see [Step 2: How is your application
+  managed?](https://docs.aws.amazon.com/resilience-hub/latest/userguide/how-app-manage.html)
   in the Resilience Hub User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20AddDraftAppVersionResourceMappings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec add_draft_app_version_resource_mappings(
-          map(),
+          AWS.Client.t(),
           add_draft_app_version_resource_mappings_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, add_draft_app_version_resource_mappings_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2677,7 +2679,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2694,11 +2697,17 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Enables you to include or exclude one or more operational recommendations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20BatchUpdateRecommendationStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec batch_update_recommendation_status(
-          map(),
+          AWS.Client.t(),
           batch_update_recommendation_status_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_update_recommendation_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2708,7 +2717,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2724,31 +2734,24 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Creates an Resilience Hub application.
-
-  An Resilience Hub application is a
+  Creates an Resilience Hub application. An Resilience Hub application is a
   collection of Amazon Web Services resources structured to prevent and recover
   Amazon Web Services application disruptions. To describe a Resilience Hub
-  application,
-  you provide an application name, resources from one or more CloudFormation
-  stacks, Resource Groups, Terraform state files, AppRegistry applications, and an
-  appropriate
-  resiliency policy. In addition, you can also add resources that are located on
-  Amazon Elastic Kubernetes Service (Amazon EKS) clusters as optional resources.
-  For more information about the number of resources supported per application,
-  see [Service quotas](https://docs.aws.amazon.com/general/latest/gr/resiliencehub.html#limits_resiliencehub).
+  application, you provide an application name, resources from one or more
+  CloudFormation stacks, Resource Groups, Terraform state files, AppRegistry
+  applications, and an appropriate resiliency policy. In addition, you can also
+  add resources that are located on Amazon Elastic Kubernetes Service (Amazon
+  EKS) clusters as optional resources. For more information about the number of
+  resources supported per application, see [Service
+  quotas](https://docs.aws.amazon.com/general/latest/gr/resiliencehub.html#limits_resiliencehub).
 
-  After you create an Resilience Hub application, you publish it so that you can
-  run a resiliency
-  assessment on it. You can then use recommendations from the assessment to
-  improve resiliency
-  by running another assessment, comparing results, and then iterating the process
-  until you
-  achieve your goals for recovery time objective (RTO) and recovery point
-  objective
-  (RPO).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20CreateApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_app(map(), create_app_request(), list()) ::
+  @spec create_app(AWS.Client.t(), create_app_request(), Keyword.t()) ::
           {:ok, create_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_errors()}
@@ -2757,7 +2760,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2775,14 +2779,16 @@ defmodule AWS.Resiliencehub do
   @doc """
   Creates a new Application Component in the Resilience Hub application.
 
-  This API updates the Resilience Hub application draft version. To use this
-  Application Component for running assessments, you must publish the Resilience
-  Hub application using the `PublishAppVersion` API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20CreateAppVersionAppComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_app_version_app_component(
-          map(),
+          AWS.Client.t(),
           create_app_version_app_component_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_app_version_app_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2792,7 +2798,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2809,27 +2816,20 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Adds a resource to the Resilience Hub application and assigns it to the
-  specified
-  Application Components.
+  specified Application Components. If you specify a new Application Component,
+  Resilience Hub will automatically create the Application Component.
 
-  If you specify a new Application Component, Resilience Hub will automatically
-  create the Application Component.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20CreateAppVersionResource&this_doc_guide=API%2520Reference)
 
-    
-  This action has no effect outside Resilience Hub.
+  ## Parameters:
 
-    
-  This API updates the Resilience Hub application draft version. To use this
-  resource
-  for running resiliency assessments, you must publish the Resilience Hub
-  application using
-  the `PublishAppVersion` API.
-
-    
-  To update application version with new `physicalResourceID`, you must
-  call `ResolveAppVersionResources` API.
+  ## Optional parameters:
   """
-  @spec create_app_version_resource(map(), create_app_version_resource_request(), list()) ::
+  @spec create_app_version_resource(
+          AWS.Client.t(),
+          create_app_version_resource_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_app_version_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_version_resource_errors()}
@@ -2838,7 +2838,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2855,8 +2856,18 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Creates a new recommendation template for the Resilience Hub application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20CreateRecommendationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_recommendation_template(map(), create_recommendation_template_request(), list()) ::
+  @spec create_recommendation_template(
+          AWS.Client.t(),
+          create_recommendation_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_recommendation_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_recommendation_template_errors()}
@@ -2865,7 +2876,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2883,15 +2895,13 @@ defmodule AWS.Resiliencehub do
   @doc """
   Creates a resiliency policy for an application.
 
-  Resilience Hub allows you to provide a value of zero for `rtoInSecs` and
-  `rpoInSecs` of your resiliency policy. But, while assessing your application,
-  the lowest possible assessment result is near zero. Hence, if you provide value
-  zero for `rtoInSecs` and `rpoInSecs`, the estimated workload RTO and estimated
-  workload RPO result will be near zero and the **Compliance
-  status** for your application will be set to **Policy
-  breached**.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20CreateResiliencyPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_resiliency_policy(map(), create_resiliency_policy_request(), list()) ::
+  @spec create_resiliency_policy(AWS.Client.t(), create_resiliency_policy_request(), Keyword.t()) ::
           {:ok, create_resiliency_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_resiliency_policy_errors()}
@@ -2900,7 +2910,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2916,12 +2927,16 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Deletes an Resilience Hub application.
+  Deletes an Resilience Hub application. This is a destructive action that can't
+  be undone.
 
-  This is a destructive action that can't be
-  undone.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_app(map(), delete_app_request(), list()) ::
+  @spec delete_app(AWS.Client.t(), delete_app_request(), Keyword.t()) ::
           {:ok, delete_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_errors()}
@@ -2930,7 +2945,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2946,12 +2962,16 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Deletes an Resilience Hub application assessment.
+  Deletes an Resilience Hub application assessment. This is a destructive action
+  that can't be undone.
 
-  This is a destructive action that can't
-  be undone.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteAppAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_app_assessment(map(), delete_app_assessment_request(), list()) ::
+  @spec delete_app_assessment(AWS.Client.t(), delete_app_assessment_request(), Keyword.t()) ::
           {:ok, delete_app_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_assessment_errors()}
@@ -2960,7 +2980,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2978,8 +2999,14 @@ defmodule AWS.Resiliencehub do
   @doc """
   Deletes the input source and all of its imported resources from the Resilience
   Hub application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteAppInputSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_app_input_source(map(), delete_app_input_source_request(), list()) ::
+  @spec delete_app_input_source(AWS.Client.t(), delete_app_input_source_request(), Keyword.t()) ::
           {:ok, delete_app_input_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_input_source_errors()}
@@ -2988,7 +3015,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3006,19 +3034,16 @@ defmodule AWS.Resiliencehub do
   @doc """
   Deletes an Application Component from the Resilience Hub application.
 
-    
-  This API updates the Resilience Hub application draft version. To use this
-  Application Component for running assessments, you must publish the Resilience
-  Hub application using the `PublishAppVersion` API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteAppVersionAppComponent&this_doc_guide=API%2520Reference)
 
-    
-  You will not be able to delete an Application Component if it has resources
-  associated with it.
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec delete_app_version_app_component(
-          map(),
+          AWS.Client.t(),
           delete_app_version_app_component_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_app_version_app_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3028,7 +3053,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3046,19 +3072,17 @@ defmodule AWS.Resiliencehub do
   @doc """
   Deletes a resource from the Resilience Hub application.
 
-    
-  You can only delete a manually added resource. To exclude non-manually added
-  resources, use the `UpdateAppVersionResource` API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteAppVersionResource&this_doc_guide=API%2520Reference)
 
-    
-  This action has no effect outside Resilience Hub.
+  ## Parameters:
 
-    
-  This API updates the Resilience Hub application draft version. To use this
-  resource for running resiliency assessments, you must publish the Resilience Hub
-  application using the `PublishAppVersion` API.
+  ## Optional parameters:
   """
-  @spec delete_app_version_resource(map(), delete_app_version_resource_request(), list()) ::
+  @spec delete_app_version_resource(
+          AWS.Client.t(),
+          delete_app_version_resource_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_app_version_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_version_resource_errors()}
@@ -3067,7 +3091,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3083,12 +3108,20 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Deletes a recommendation template.
-
-  This is a destructive action that can't be
+  Deletes a recommendation template. This is a destructive action that can't be
   undone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteRecommendationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_recommendation_template(map(), delete_recommendation_template_request(), list()) ::
+  @spec delete_recommendation_template(
+          AWS.Client.t(),
+          delete_recommendation_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_recommendation_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_recommendation_template_errors()}
@@ -3097,7 +3130,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3113,11 +3147,15 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Deletes a resiliency policy.
+  Deletes a resiliency policy. This is a destructive action that can't be undone.
 
-  This is a destructive action that can't be undone.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteResiliencyPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_resiliency_policy(map(), delete_resiliency_policy_request(), list()) ::
+  @spec delete_resiliency_policy(AWS.Client.t(), delete_resiliency_policy_request(), Keyword.t()) ::
           {:ok, delete_resiliency_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resiliency_policy_errors()}
@@ -3126,7 +3164,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3143,8 +3182,14 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Describes an Resilience Hub application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_app(map(), describe_app_request(), list()) ::
+  @spec describe_app(AWS.Client.t(), describe_app_request(), Keyword.t()) ::
           {:ok, describe_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_errors()}
@@ -3153,7 +3198,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3170,8 +3216,14 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Describes an assessment for an Resilience Hub application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_app_assessment(map(), describe_app_assessment_request(), list()) ::
+  @spec describe_app_assessment(AWS.Client.t(), describe_app_assessment_request(), Keyword.t()) ::
           {:ok, describe_app_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_assessment_errors()}
@@ -3180,7 +3232,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3197,8 +3250,14 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Describes the Resilience Hub application version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_app_version(map(), describe_app_version_request(), list()) ::
+  @spec describe_app_version(AWS.Client.t(), describe_app_version_request(), Keyword.t()) ::
           {:ok, describe_app_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_version_errors()}
@@ -3207,7 +3266,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3224,11 +3284,17 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Describes an Application Component in the Resilience Hub application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppVersionAppComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec describe_app_version_app_component(
-          map(),
+          AWS.Client.t(),
           describe_app_version_app_component_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_app_version_app_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3238,7 +3304,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3256,22 +3323,17 @@ defmodule AWS.Resiliencehub do
   @doc """
   Describes a resource of the Resilience Hub application.
 
-  This API accepts only one of the following parameters to descibe the resource:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppVersionResource&this_doc_guide=API%2520Reference)
 
-    
+  ## Parameters:
 
-  `resourceName`
-
-    
-
-  `logicalResourceId`
-
-    
-
-  `physicalResourceId` (Along with `physicalResourceId`, you can also
-  provide `awsAccountId`, and `awsRegion`)
+  ## Optional parameters:
   """
-  @spec describe_app_version_resource(map(), describe_app_version_resource_request(), list()) ::
+  @spec describe_app_version_resource(
+          AWS.Client.t(),
+          describe_app_version_resource_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_app_version_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_version_resource_errors()}
@@ -3280,7 +3342,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3297,16 +3360,19 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Returns the resolution status for the specified resolution identifier for an
-  application
-  version.
+  application version. If `resolutionId` is not specified, the current
+  resolution status is returned.
 
-  If `resolutionId` is not specified, the current resolution status is
-  returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppVersionResourcesResolutionStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec describe_app_version_resources_resolution_status(
-          map(),
+          AWS.Client.t(),
           describe_app_version_resources_resolution_status_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_app_version_resources_resolution_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3316,7 +3382,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3333,8 +3400,18 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Describes details about an Resilience Hub application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppVersionTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_app_version_template(map(), describe_app_version_template_request(), list()) ::
+  @spec describe_app_version_template(
+          AWS.Client.t(),
+          describe_app_version_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_app_version_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_version_template_errors()}
@@ -3343,7 +3420,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3361,16 +3439,16 @@ defmodule AWS.Resiliencehub do
   @doc """
   Describes the status of importing resources to an application version.
 
-  If you get a 404 error with
-  `ResourceImportStatusNotFoundAppMetadataException`, you must call
-  `importResourcesToDraftAppVersion` after creating the application and before
-  calling `describeDraftAppVersionResourcesImportStatus` to obtain the
-  status.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeDraftAppVersionResourcesImportStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec describe_draft_app_version_resources_import_status(
-          map(),
+          AWS.Client.t(),
           describe_draft_app_version_resources_import_status_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_draft_app_version_resources_import_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3380,7 +3458,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3396,14 +3475,21 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Describes a specified resiliency policy for an Resilience Hub application.
-
-  The
+  Describes a specified resiliency policy for an Resilience Hub application. The
   returned policy object includes creation time, data location constraints, the
-  Amazon Resource
-  Name (ARN) for the policy, tags, tier, and more.
+  Amazon Resource Name (ARN) for the policy, tags, tier, and more.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeResiliencyPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_resiliency_policy(map(), describe_resiliency_policy_request(), list()) ::
+  @spec describe_resiliency_policy(
+          AWS.Client.t(),
+          describe_resiliency_policy_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_resiliency_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_resiliency_policy_errors()}
@@ -3412,7 +3498,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3429,16 +3516,20 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Imports resources to Resilience Hub application draft version from different
-  input sources.
-
-  For more information about the input sources supported by Resilience Hub, see
-  [Discover the structure and describe your Resilience Hub
+  input sources. For more information about the input sources supported by
+  Resilience Hub, see [Discover the structure and describe your Resilience Hub
   application](https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ImportResourcesToDraftAppVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec import_resources_to_draft_app_version(
-          map(),
+          AWS.Client.t(),
           import_resources_to_draft_app_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, import_resources_to_draft_app_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3448,7 +3539,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3465,8 +3557,18 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Lists the alarm recommendations for an Resilience Hub application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAlarmRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_alarm_recommendations(map(), list_alarm_recommendations_request(), list()) ::
+  @spec list_alarm_recommendations(
+          AWS.Client.t(),
+          list_alarm_recommendations_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_alarm_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_alarm_recommendations_errors()}
@@ -3475,7 +3577,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3492,11 +3595,17 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   List of compliance drifts that were detected while running an assessment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppAssessmentComplianceDrifts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec list_app_assessment_compliance_drifts(
-          map(),
+          AWS.Client.t(),
           list_app_assessment_compliance_drifts_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_app_assessment_compliance_drifts_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3506,7 +3615,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3524,11 +3634,17 @@ defmodule AWS.Resiliencehub do
   @doc """
   Indicates the list of resource drifts that were detected while running an
   assessment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppAssessmentResourceDrifts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec list_app_assessment_resource_drifts(
-          map(),
+          AWS.Client.t(),
           list_app_assessment_resource_drifts_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_app_assessment_resource_drifts_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3538,7 +3654,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3554,107 +3671,158 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Lists the assessments for an Resilience Hub application.
+  Lists the assessments for an Resilience Hub application. You can use request
+  parameters to refine the results for the response object.
 
-  You can use request parameters to
-  refine the results for the response object.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppAssessments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:app_arn` (`t:string`) Amazon Resource Name (ARN) of the Resilience Hub
+    application. The format for this ARN is:
+    arn:partition:resiliencehub:region:account:app/app-id. For more information
+    about ARNs, see Amazon Resource Names (ARNs) in the Amazon Web Services
+    General Reference guide.
+  * `:assessment_name` (`t:string`) The name for the assessment.
+  * `:assessment_status` (`t:list[com.amazonaws.resiliencehub#AssessmentStatus]`)
+    The current status of the assessment for the resiliency policy.
+  * `:compliance_status` (`t:string`) The current status of compliance for the
+    resiliency policy.
+  * `:invoker` (`t:string`) Specifies the entity that invoked a specific
+    assessment, either a User or the System.
+  * `:max_results` (`t:integer`) Maximum number of results to include in the
+    response. If more results exist than the specified MaxResults value, a token
+    is included in the response so that the remaining results can be retrieved.
+  * `:next_token` (`t:string`) Null, or the token from a previous call to get the
+    next set of results.
+  * `:reverse_order` (`t:boolean`) The default is to sort by ascending startTime.
+    To sort by descending startTime, set reverseOrder to true.
   """
-  @spec list_app_assessments(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_app_assessments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_assessments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_assessments_errors()}
-  def list_app_assessments(
-        %Client{} = client,
-        app_arn \\ nil,
-        assessment_name \\ nil,
-        assessment_status \\ nil,
-        compliance_status \\ nil,
-        invoker \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        reverse_order \\ nil,
-        options \\ []
-      ) do
+  def list_app_assessments(%Client{} = client, options \\ []) do
     url_path = "/list-app-assessments"
+
+    # Validate optional parameters
+    optional_params = [
+      app_arn: nil,
+      assessment_name: nil,
+      assessment_status: nil,
+      compliance_status: nil,
+      invoker: nil,
+      max_results: nil,
+      next_token: nil,
+      reverse_order: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(reverse_order) do
-        [{"reverseOrder", reverse_order} | query_params]
+      if opt_val = Keyword.get(options, :reverse_order) do
+        [{"reverseOrder", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(invoker) do
-        [{"invoker", invoker} | query_params]
+      if opt_val = Keyword.get(options, :invoker) do
+        [{"invoker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(compliance_status) do
-        [{"complianceStatus", compliance_status} | query_params]
+      if opt_val = Keyword.get(options, :compliance_status) do
+        [{"complianceStatus", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(assessment_status) do
-        [{"assessmentStatus", assessment_status} | query_params]
+      if opt_val = Keyword.get(options, :assessment_status) do
+        [{"assessmentStatus", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(assessment_name) do
-        [{"assessmentName", assessment_name} | query_params]
+      if opt_val = Keyword.get(options, :assessment_name) do
+        [{"assessmentName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(app_arn) do
-        [{"appArn", app_arn} | query_params]
+      if opt_val = Keyword.get(options, :app_arn) do
+        [{"appArn", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :app_arn,
+        :assessment_name,
+        :assessment_status,
+        :compliance_status,
+        :invoker,
+        :max_results,
+        :next_token,
+        :reverse_order
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the compliances for an Resilience Hub Application Component.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppComponentCompliances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_app_component_compliances(map(), list_app_component_compliances_request(), list()) ::
+  @spec list_app_component_compliances(
+          AWS.Client.t(),
+          list_app_component_compliances_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_app_component_compliances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_component_compliances_errors()}
@@ -3663,7 +3831,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3680,11 +3849,17 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Lists the recommendations for an Resilience Hub Application Component.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppComponentRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec list_app_component_recommendations(
-          map(),
+          AWS.Client.t(),
           list_app_component_recommendations_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_app_component_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3694,7 +3869,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3710,13 +3886,18 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Lists all the input sources of the Resilience Hub application.
-
-  For more information about the
-  input sources supported by Resilience Hub, see [Discover the structure and describe your Resilience Hub
+  Lists all the input sources of the Resilience Hub application. For more
+  information about the input sources supported by Resilience Hub, see [Discover
+  the structure and describe your Resilience Hub
   application](https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppInputSources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_app_input_sources(map(), list_app_input_sources_request(), list()) ::
+  @spec list_app_input_sources(AWS.Client.t(), list_app_input_sources_request(), Keyword.t()) ::
           {:ok, list_app_input_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_input_sources_errors()}
@@ -3725,7 +3906,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3742,8 +3924,18 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Lists all the Application Components in the Resilience Hub application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppVersionAppComponents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_app_version_app_components(map(), list_app_version_app_components_request(), list()) ::
+  @spec list_app_version_app_components(
+          AWS.Client.t(),
+          list_app_version_app_components_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_app_version_app_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_version_app_components_errors()}
@@ -3752,7 +3944,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3769,16 +3962,19 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Lists how the resources in an application version are mapped/sourced from.
+  Mappings can be physical resource identifiers, CloudFormation stacks,
+  resource-groups, or an application registry app.
 
-  Mappings can be
-  physical resource identifiers, CloudFormation stacks, resource-groups, or an
-  application registry
-  app.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppVersionResourceMappings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec list_app_version_resource_mappings(
-          map(),
+          AWS.Client.t(),
           list_app_version_resource_mappings_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_app_version_resource_mappings_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3788,7 +3984,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3805,8 +4002,18 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Lists all the resources in an Resilience Hub application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppVersionResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_app_version_resources(map(), list_app_version_resources_request(), list()) ::
+  @spec list_app_version_resources(
+          AWS.Client.t(),
+          list_app_version_resources_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_app_version_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_version_resources_errors()}
@@ -3815,7 +4022,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3832,8 +4040,14 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Lists the different versions for the Resilience Hub applications.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_app_versions(map(), list_app_versions_request(), list()) ::
+  @spec list_app_versions(AWS.Client.t(), list_app_versions_request(), Keyword.t()) ::
           {:ok, list_app_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_versions_errors()}
@@ -3842,7 +4056,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3860,243 +4075,344 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists your Resilience Hub applications.
 
-  You can filter applications using only one filter at a time or without using any
-  filter.
-  If you try to filter applications using multiple filters, you will get the
-  following
-  error:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListApps&this_doc_guide=API%2520Reference)
 
-  ```
-  An error occurred (ValidationException) when calling the ListApps operation:
-  Only
-  one filter is supported for this operation.
-  ```
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:app_arn` (`t:string`) Amazon Resource Name (ARN) of the Resilience Hub
+    application. The format for this ARN is:
+    arn:partition:resiliencehub:region:account:app/app-id. For more information
+    about ARNs, see Amazon Resource Names (ARNs) in the Amazon Web Services
+    General Reference guide.
+  * `:from_last_assessment_time` (`t:timestamp`) Indicates the lower limit of the
+    range that is used to filter applications based on their last assessment
+    times.
+  * `:max_results` (`t:integer`) Maximum number of results to include in the
+    response. If more results exist than the specified MaxResults value, a token
+    is included in the response so that the remaining results can be retrieved.
+  * `:name` (`t:string`) The name for the one of the listed applications.
+  * `:next_token` (`t:string`) Null, or the token from a previous call to get the
+    next set of results.
+  * `:reverse_order` (`t:boolean`) The application list is sorted based on the
+    values of lastAppComplianceEvaluationTime field. By default, application
+    list is sorted in ascending order. To sort the appliation list in descending
+    order, set this field to True.
+  * `:to_last_assessment_time` (`t:timestamp`) Indicates the upper limit of the
+    range that is used to filter the applications based on their last assessment
+    times.
   """
-  @spec list_apps(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_apps(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_apps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_apps_errors()}
-  def list_apps(
-        %Client{} = client,
-        app_arn \\ nil,
-        from_last_assessment_time \\ nil,
-        max_results \\ nil,
-        name \\ nil,
-        next_token \\ nil,
-        reverse_order \\ nil,
-        to_last_assessment_time \\ nil,
-        options \\ []
-      ) do
+  def list_apps(%Client{} = client, options \\ []) do
     url_path = "/list-apps"
+
+    # Validate optional parameters
+    optional_params = [
+      app_arn: nil,
+      from_last_assessment_time: nil,
+      max_results: nil,
+      name: nil,
+      next_token: nil,
+      reverse_order: nil,
+      to_last_assessment_time: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(to_last_assessment_time) do
-        [{"toLastAssessmentTime", to_last_assessment_time} | query_params]
+      if opt_val = Keyword.get(options, :to_last_assessment_time) do
+        [{"toLastAssessmentTime", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(reverse_order) do
-        [{"reverseOrder", reverse_order} | query_params]
+      if opt_val = Keyword.get(options, :reverse_order) do
+        [{"reverseOrder", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
+      if opt_val = Keyword.get(options, :name) do
+        [{"name", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(from_last_assessment_time) do
-        [{"fromLastAssessmentTime", from_last_assessment_time} | query_params]
+      if opt_val = Keyword.get(options, :from_last_assessment_time) do
+        [{"fromLastAssessmentTime", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(app_arn) do
-        [{"appArn", app_arn} | query_params]
+      if opt_val = Keyword.get(options, :app_arn) do
+        [{"appArn", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :app_arn,
+        :from_last_assessment_time,
+        :max_results,
+        :name,
+        :next_token,
+        :reverse_order,
+        :to_last_assessment_time
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the recommendation templates for the Resilience Hub applications.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListRecommendationTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:assessment_arn` (`t:string`) Amazon Resource Name (ARN) of the assessment.
+    The format for this ARN is:
+    arn:partition:resiliencehub:region:account:app-assessment/app-id. For more
+    information about ARNs, see Amazon Resource Names (ARNs) in the Amazon Web
+    Services General Reference guide.
+  * `:max_results` (`t:integer`) Maximum number of results to include in the
+    response. If more results exist than the specified MaxResults value, a token
+    is included in the response so that the remaining results can be retrieved.
+  * `:name` (`t:string`) The name for one of the listed recommendation templates.
+  * `:next_token` (`t:string`) Null, or the token from a previous call to get the
+    next set of results.
+  * `:recommendation_template_arn` (`t:string`) The Amazon Resource Name (ARN) for
+    a recommendation template.
+  * `:reverse_order` (`t:boolean`) The default is to sort by ascending startTime.
+    To sort by descending startTime, set reverseOrder to true.
+  * `:status` (`t:list[com.amazonaws.resiliencehub#RecommendationTemplateStatus]`)
+    Status of the action.
   """
-  @spec list_recommendation_templates(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_recommendation_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_recommendation_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recommendation_templates_errors()}
-  def list_recommendation_templates(
-        %Client{} = client,
-        assessment_arn \\ nil,
-        max_results \\ nil,
-        name \\ nil,
-        next_token \\ nil,
-        recommendation_template_arn \\ nil,
-        reverse_order \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_recommendation_templates(%Client{} = client, options \\ []) do
     url_path = "/list-recommendation-templates"
+
+    # Validate optional parameters
+    optional_params = [
+      assessment_arn: nil,
+      max_results: nil,
+      name: nil,
+      next_token: nil,
+      recommendation_template_arn: nil,
+      reverse_order: nil,
+      status: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(reverse_order) do
-        [{"reverseOrder", reverse_order} | query_params]
+      if opt_val = Keyword.get(options, :reverse_order) do
+        [{"reverseOrder", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(recommendation_template_arn) do
-        [{"recommendationTemplateArn", recommendation_template_arn} | query_params]
+      if opt_val = Keyword.get(options, :recommendation_template_arn) do
+        [{"recommendationTemplateArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
+      if opt_val = Keyword.get(options, :name) do
+        [{"name", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(assessment_arn) do
-        [{"assessmentArn", assessment_arn} | query_params]
+      if opt_val = Keyword.get(options, :assessment_arn) do
+        [{"assessmentArn", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :assessment_arn,
+        :max_results,
+        :name,
+        :next_token,
+        :recommendation_template_arn,
+        :reverse_order,
+        :status
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the resiliency policies for the Resilience Hub applications.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListResiliencyPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Maximum number of results to include in the
+    response. If more results exist than the specified MaxResults value, a token
+    is included in the response so that the remaining results can be retrieved.
+  * `:next_token` (`t:string`) Null, or the token from a previous call to get the
+    next set of results.
+  * `:policy_name` (`t:string`) The name of the policy
   """
-  @spec list_resiliency_policies(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_resiliency_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resiliency_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resiliency_policies_errors()}
-  def list_resiliency_policies(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        policy_name \\ nil,
-        options \\ []
-      ) do
+  def list_resiliency_policies(%Client{} = client, options \\ []) do
     url_path = "/list-resiliency-policies"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, policy_name: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(policy_name) do
-        [{"policyName", policy_name} | query_params]
+      if opt_val = Keyword.get(options, :policy_name) do
+        [{"policyName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :policy_name])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the standard operating procedure (SOP) recommendations for the Resilience
-  Hub
-  applications.
+  Hub applications.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListSopRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_sop_recommendations(map(), list_sop_recommendations_request(), list()) ::
+  @spec list_sop_recommendations(AWS.Client.t(), list_sop_recommendations_request(), Keyword.t()) ::
           {:ok, list_sop_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sop_recommendations_errors()}
@@ -4105,7 +4421,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4122,61 +4439,125 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Lists the suggested resiliency policies for the Resilience Hub applications.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListSuggestedResiliencyPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Maximum number of results to include in the
+    response. If more results exist than the specified MaxResults value, a token
+    is included in the response so that the remaining results can be retrieved.
+  * `:next_token` (`t:string`) Null, or the token from a previous call to get the
+    next set of results.
   """
-  @spec list_suggested_resiliency_policies(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_suggested_resiliency_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_suggested_resiliency_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_suggested_resiliency_policies_errors()}
-  def list_suggested_resiliency_policies(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_suggested_resiliency_policies(%Client{} = client, options \\ []) do
     url_path = "/list-suggested-resiliency-policies"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the tags for your resources in your Resilience Hub applications.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a specific
+    resource in your Resilience Hub application.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the test recommendations for the Resilience Hub application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListTestRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_test_recommendations(map(), list_test_recommendations_request(), list()) ::
+  @spec list_test_recommendations(
+          AWS.Client.t(),
+          list_test_recommendations_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_test_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_recommendations_errors()}
@@ -4185,7 +4566,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4201,17 +4583,20 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Lists the resources that are not currently supported in Resilience Hub.
+  Lists the resources that are not currently supported in Resilience Hub. An
+  unsupported resource is a resource that exists in the object that was used to
+  create an app, but is not supported by Resilience Hub.
 
-  An unsupported
-  resource is a resource that exists in the object that was used to create an app,
-  but is not
-  supported by Resilience Hub.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListUnsupportedAppVersionResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec list_unsupported_app_version_resources(
-          map(),
+          AWS.Client.t(),
           list_unsupported_app_version_resources_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_unsupported_app_version_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4221,7 +4606,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4238,8 +4624,14 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Publishes a new version of a specific Resilience Hub application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20PublishAppVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec publish_app_version(map(), publish_app_version_request(), list()) ::
+  @spec publish_app_version(AWS.Client.t(), publish_app_version_request(), Keyword.t()) ::
           {:ok, publish_app_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, publish_app_version_errors()}
@@ -4248,7 +4640,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4266,8 +4659,18 @@ defmodule AWS.Resiliencehub do
   @doc """
   Adds or updates the app template for an Resilience Hub application draft
   version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20PutDraftAppVersionTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_draft_app_version_template(map(), put_draft_app_version_template_request(), list()) ::
+  @spec put_draft_app_version_template(
+          AWS.Client.t(),
+          put_draft_app_version_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_draft_app_version_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_draft_app_version_template_errors()}
@@ -4276,7 +4679,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4293,11 +4697,17 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Removes resource mappings from a draft application version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20RemoveDraftAppVersionResourceMappings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec remove_draft_app_version_resource_mappings(
-          map(),
+          AWS.Client.t(),
           remove_draft_app_version_resource_mappings_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, remove_draft_app_version_resource_mappings_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4307,7 +4717,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4324,8 +4735,18 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Resolves the resources for an application version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ResolveAppVersionResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec resolve_app_version_resources(map(), resolve_app_version_resources_request(), list()) ::
+  @spec resolve_app_version_resources(
+          AWS.Client.t(),
+          resolve_app_version_resources_request(),
+          Keyword.t()
+        ) ::
           {:ok, resolve_app_version_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resolve_app_version_resources_errors()}
@@ -4334,7 +4755,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4351,8 +4773,14 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Creates a new application assessment for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20StartAppAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_app_assessment(map(), start_app_assessment_request(), list()) ::
+  @spec start_app_assessment(AWS.Client.t(), start_app_assessment_request(), Keyword.t()) ::
           {:ok, start_app_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_app_assessment_errors()}
@@ -4361,7 +4789,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4378,8 +4807,15 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Applies one or more tags to a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -4388,7 +4824,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4405,8 +4842,17 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Removes one or more tags from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) Amazon Resource Name (ARN) of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.resiliencehub#TagKey]`) The keys of the
+    tags you want to remove.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -4420,7 +4866,8 @@ defmodule AWS.Resiliencehub do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4437,8 +4884,14 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Updates an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20UpdateApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_app(map(), update_app_request(), list()) ::
+  @spec update_app(AWS.Client.t(), update_app_request(), Keyword.t()) ::
           {:ok, update_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_errors()}
@@ -4447,7 +4900,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4465,13 +4919,13 @@ defmodule AWS.Resiliencehub do
   @doc """
   Updates the Resilience Hub application version.
 
-  This API updates the Resilience Hub application draft version. To use this
-  information
-  for running resiliency assessments, you must publish the Resilience Hub
-  application using the
-  `PublishAppVersion` API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20UpdateAppVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_app_version(map(), update_app_version_request(), list()) ::
+  @spec update_app_version(AWS.Client.t(), update_app_version_request(), Keyword.t()) ::
           {:ok, update_app_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_version_errors()}
@@ -4480,7 +4934,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4498,14 +4953,16 @@ defmodule AWS.Resiliencehub do
   @doc """
   Updates an existing Application Component in the Resilience Hub application.
 
-  This API updates the Resilience Hub application draft version. To use this
-  Application Component for running assessments, you must publish the Resilience
-  Hub application using the `PublishAppVersion` API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20UpdateAppVersionAppComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec update_app_version_app_component(
-          map(),
+          AWS.Client.t(),
           update_app_version_app_component_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_app_version_app_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4515,7 +4972,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4533,19 +4991,17 @@ defmodule AWS.Resiliencehub do
   @doc """
   Updates the resource details in the Resilience Hub application.
 
-    
-  This action has no effect outside Resilience Hub.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20UpdateAppVersionResource&this_doc_guide=API%2520Reference)
 
-    
-  This API updates the Resilience Hub application draft version. To use this
-  resource for running resiliency assessments, you must publish the Resilience Hub
-  application using the `PublishAppVersion` API.
+  ## Parameters:
 
-    
-  To update application version with new `physicalResourceID`, you must call
-  `ResolveAppVersionResources` API.
+  ## Optional parameters:
   """
-  @spec update_app_version_resource(map(), update_app_version_resource_request(), list()) ::
+  @spec update_app_version_resource(
+          AWS.Client.t(),
+          update_app_version_resource_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_app_version_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_version_resource_errors()}
@@ -4554,7 +5010,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4572,15 +5029,13 @@ defmodule AWS.Resiliencehub do
   @doc """
   Updates a resiliency policy.
 
-  Resilience Hub allows you to provide a value of zero for `rtoInSecs` and
-  `rpoInSecs` of your resiliency policy. But, while assessing your application,
-  the lowest possible assessment result is near zero. Hence, if you provide value
-  zero for `rtoInSecs` and `rpoInSecs`, the estimated workload RTO and
-  estimated workload RPO result will be near zero and the **Compliance
-  status** for your application will be set to **Policy
-  breached**.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20UpdateResiliencyPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_resiliency_policy(map(), update_resiliency_policy_request(), list()) ::
+  @spec update_resiliency_policy(AWS.Client.t(), update_resiliency_policy_request(), Keyword.t()) ::
           {:ok, update_resiliency_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resiliency_policy_errors()}
@@ -4589,7 +5044,8 @@ defmodule AWS.Resiliencehub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

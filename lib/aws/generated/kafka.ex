@@ -2904,12 +2904,20 @@ defmodule AWS.Kafka do
 
   @doc """
   Associates one or more Scram Secrets with an Amazon MSK cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20BatchAssociateScramSecret&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster to
+    be updated.
+
+  ## Optional parameters:
   """
   @spec batch_associate_scram_secret(
-          map(),
+          AWS.Client.t(),
           String.t(),
           batch_associate_scram_secret_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_associate_scram_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2919,7 +2927,8 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2936,12 +2945,20 @@ defmodule AWS.Kafka do
 
   @doc """
   Disassociates one or more Scram Secrets from an Amazon MSK cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20BatchDisassociateScramSecret&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster to
+    be updated.
+
+  ## Optional parameters:
   """
   @spec batch_disassociate_scram_secret(
-          map(),
+          AWS.Client.t(),
           String.t(),
           batch_disassociate_scram_secret_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_disassociate_scram_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2951,7 +2968,8 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2968,8 +2986,14 @@ defmodule AWS.Kafka do
 
   @doc """
   Creates a new MSK cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20CreateCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_cluster(map(), create_cluster_request(), list()) ::
+  @spec create_cluster(AWS.Client.t(), create_cluster_request(), Keyword.t()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_errors()}
@@ -2978,7 +3002,8 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2995,8 +3020,14 @@ defmodule AWS.Kafka do
 
   @doc """
   Creates a new MSK cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20CreateClusterV2&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_cluster_v2(map(), create_cluster_v2_request(), list()) ::
+  @spec create_cluster_v2(AWS.Client.t(), create_cluster_v2_request(), Keyword.t()) ::
           {:ok, create_cluster_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_v2_errors()}
@@ -3005,7 +3036,8 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3022,8 +3054,14 @@ defmodule AWS.Kafka do
 
   @doc """
   Creates a new MSK configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20CreateConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_configuration(map(), create_configuration_request(), list()) ::
+  @spec create_configuration(AWS.Client.t(), create_configuration_request(), Keyword.t()) ::
           {:ok, create_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_errors()}
@@ -3032,7 +3070,8 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3049,8 +3088,14 @@ defmodule AWS.Kafka do
 
   @doc """
   Creates the replicator.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20CreateReplicator&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_replicator(map(), create_replicator_request(), list()) ::
+  @spec create_replicator(AWS.Client.t(), create_replicator_request(), Keyword.t()) ::
           {:ok, create_replicator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_replicator_errors()}
@@ -3059,7 +3104,8 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3076,8 +3122,14 @@ defmodule AWS.Kafka do
 
   @doc """
   Creates a new MSK VPC connection.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20CreateVpcConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_vpc_connection(map(), create_vpc_connection_request(), list()) ::
+  @spec create_vpc_connection(AWS.Client.t(), create_vpc_connection_request(), Keyword.t()) ::
           {:ok, create_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vpc_connection_errors()}
@@ -3086,7 +3138,8 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3104,8 +3157,17 @@ defmodule AWS.Kafka do
   @doc """
   Deletes the MSK cluster specified by the Amazon Resource Name (ARN) in the
   request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DeleteCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
+    identifies the cluster.
+
+  ## Optional parameters:
+  * `:current_version` (`t:string`) The current version of the MSK cluster.
   """
-  @spec delete_cluster(map(), String.t(), delete_cluster_request(), list()) ::
+  @spec delete_cluster(AWS.Client.t(), String.t(), delete_cluster_request(), Keyword.t()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_errors()}
@@ -3119,7 +3181,13 @@ defmodule AWS.Kafka do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:current_version])
 
     Request.request_rest(
       client,
@@ -3137,8 +3205,20 @@ defmodule AWS.Kafka do
   @doc """
   Deletes the MSK cluster policy specified by the Amazon Resource Name (ARN) in
   the request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DeleteClusterPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster.
+
+  ## Optional parameters:
   """
-  @spec delete_cluster_policy(map(), String.t(), delete_cluster_policy_request(), list()) ::
+  @spec delete_cluster_policy(
+          AWS.Client.t(),
+          String.t(),
+          delete_cluster_policy_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_cluster_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_policy_errors()}
@@ -3147,7 +3227,8 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3164,8 +3245,21 @@ defmodule AWS.Kafka do
 
   @doc """
   Deletes an MSK Configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DeleteConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies an
+    MSK configuration.
+
+  ## Optional parameters:
   """
-  @spec delete_configuration(map(), String.t(), delete_configuration_request(), list()) ::
+  @spec delete_configuration(
+          AWS.Client.t(),
+          String.t(),
+          delete_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_errors()}
@@ -3174,7 +3268,8 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3191,8 +3286,17 @@ defmodule AWS.Kafka do
 
   @doc """
   Deletes a replicator.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DeleteReplicator&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:replicator_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    replicator to be deleted.
+
+  ## Optional parameters:
+  * `:current_version` (`t:string`) The current version of the replicator.
   """
-  @spec delete_replicator(map(), String.t(), delete_replicator_request(), list()) ::
+  @spec delete_replicator(AWS.Client.t(), String.t(), delete_replicator_request(), Keyword.t()) ::
           {:ok, delete_replicator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replicator_errors()}
@@ -3206,7 +3310,13 @@ defmodule AWS.Kafka do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:current_version])
 
     Request.request_rest(
       client,
@@ -3223,8 +3333,21 @@ defmodule AWS.Kafka do
 
   @doc """
   Deletes a MSK VPC connection.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DeleteVpcConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies an
+    MSK VPC connection.
+
+  ## Optional parameters:
   """
-  @spec delete_vpc_connection(map(), String.t(), delete_vpc_connection_request(), list()) ::
+  @spec delete_vpc_connection(
+          AWS.Client.t(),
+          String.t(),
+          delete_vpc_connection_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vpc_connection_errors()}
@@ -3233,7 +3356,8 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3251,51 +3375,128 @@ defmodule AWS.Kafka do
   @doc """
   Returns a description of the MSK cluster whose Amazon Resource Name (ARN) is
   specified in the request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DescribeCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
+    identifies the cluster.
+
+  ## Optional parameters:
   """
-  @spec describe_cluster(map(), String.t(), list()) ::
+  @spec describe_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_errors()}
   def describe_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a description of the cluster operation specified by the ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DescribeClusterOperation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_operation_arn` (`t:string`) The Amazon Resource Name (ARN) that
+    uniquely identifies the MSK cluster operation.
+
+  ## Optional parameters:
   """
-  @spec describe_cluster_operation(map(), String.t(), list()) ::
+  @spec describe_cluster_operation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_cluster_operation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_operation_errors()}
   def describe_cluster_operation(%Client{} = client, cluster_operation_arn, options \\ []) do
     url_path = "/v1/operations/#{AWS.Util.encode_uri(cluster_operation_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a description of the cluster operation specified by the ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DescribeClusterOperationV2&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_operation_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_cluster_operation_v2(map(), String.t(), list()) ::
+  @spec describe_cluster_operation_v2(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_cluster_operation_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_operation_v2_errors()}
   def describe_cluster_operation_v2(%Client{} = client, cluster_operation_arn, options \\ []) do
     url_path = "/api/v2/operations/#{AWS.Util.encode_uri(cluster_operation_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3303,42 +3504,104 @@ defmodule AWS.Kafka do
   @doc """
   Returns a description of the MSK cluster whose Amazon Resource Name (ARN) is
   specified in the request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DescribeClusterV2&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
+    identifies the cluster.
+
+  ## Optional parameters:
   """
-  @spec describe_cluster_v2(map(), String.t(), list()) ::
+  @spec describe_cluster_v2(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_cluster_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_v2_errors()}
   def describe_cluster_v2(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/api/v2/clusters/#{AWS.Util.encode_uri(cluster_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a description of this MSK configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DescribeConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies an
+    MSK configuration and all of its revisions.
+
+  ## Optional parameters:
   """
-  @spec describe_configuration(map(), String.t(), list()) ::
+  @spec describe_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_configuration_errors()}
   def describe_configuration(%Client{} = client, arn, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a description of this revision of the configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DescribeConfigurationRevision&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies an
+    MSK configuration and all of its revisions.
+  * `:revision` (`t:long`) A string that uniquely identifies a revision of an MSK
+    configuration.
+
+  ## Optional parameters:
   """
-  @spec describe_configuration_revision(map(), String.t(), String.t(), list()) ::
+  @spec describe_configuration_revision(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_configuration_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_configuration_revision_errors()}
@@ -3346,61 +3609,156 @@ defmodule AWS.Kafka do
     url_path =
       "/v1/configurations/#{AWS.Util.encode_uri(arn)}/revisions/#{AWS.Util.encode_uri(revision)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes a replicator.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DescribeReplicator&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:replicator_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    replicator to be described.
+
+  ## Optional parameters:
   """
-  @spec describe_replicator(map(), String.t(), list()) ::
+  @spec describe_replicator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_replicator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replicator_errors()}
   def describe_replicator(%Client{} = client, replicator_arn, options \\ []) do
     url_path = "/replication/v1/replicators/#{AWS.Util.encode_uri(replicator_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a description of this MSK VPC connection.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20DescribeVpcConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies a
+    MSK VPC connection.
+
+  ## Optional parameters:
   """
-  @spec describe_vpc_connection(map(), String.t(), list()) ::
+  @spec describe_vpc_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_vpc_connection_errors()}
   def describe_vpc_connection(%Client{} = client, arn, options \\ []) do
     url_path = "/v1/vpc-connection/#{AWS.Util.encode_uri(arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   A list of brokers that a client application can use to bootstrap.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20GetBootstrapBrokers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
+    identifies the cluster.
+
+  ## Optional parameters:
   """
-  @spec get_bootstrap_brokers(map(), String.t(), list()) ::
+  @spec get_bootstrap_brokers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bootstrap_brokers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bootstrap_brokers_errors()}
   def get_bootstrap_brokers(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/bootstrap-brokers"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3408,78 +3766,162 @@ defmodule AWS.Kafka do
   @doc """
   Get the MSK cluster policy specified by the Amazon Resource Name (ARN) in the
   request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20GetClusterPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster.
+
+  ## Optional parameters:
   """
-  @spec get_cluster_policy(map(), String.t(), list()) ::
+  @spec get_cluster_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cluster_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cluster_policy_errors()}
   def get_cluster_policy(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/policy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the Apache Kafka versions to which you can update the MSK cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20GetCompatibleKafkaVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster
+    check.
   """
-  @spec get_compatible_kafka_versions(map(), String.t() | nil, list()) ::
+  @spec get_compatible_kafka_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_compatible_kafka_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_compatible_kafka_versions_errors()}
-  def get_compatible_kafka_versions(%Client{} = client, cluster_arn \\ nil, options \\ []) do
+  def get_compatible_kafka_versions(%Client{} = client, options \\ []) do
     url_path = "/v1/compatible-kafka-versions"
+
+    # Validate optional parameters
+    optional_params = [cluster_arn: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(cluster_arn) do
-        [{"clusterArn", cluster_arn} | query_params]
+      if opt_val = Keyword.get(options, :cluster_arn) do
+        [{"clusterArn", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:cluster_arn])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all the VPC connections in this Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListClientVpcConnections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in the
+    response. If there are more results, the response includes a NextToken
+    parameter.
+  * `:next_token` (`t:string`) The paginated results marker. When the result of
+    the operation is truncated, the call returns NextToken in the response. To
+    get the next batch, provide this token in your next request.
   """
-  @spec list_client_vpc_connections(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_client_vpc_connections(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_client_vpc_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_client_vpc_connections_errors()}
-  def list_client_vpc_connections(
-        %Client{} = client,
-        cluster_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_client_vpc_connections(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/client-vpc-connections"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3487,37 +3929,67 @@ defmodule AWS.Kafka do
   @doc """
   Returns a list of all the operations that have been performed on the specified
   MSK cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListClusterOperations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
+    identifies the cluster.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in the
+    response. If there are more results, the response includes a NextToken
+    parameter.
+  * `:next_token` (`t:string`) The paginated results marker. When the result of
+    the operation is truncated, the call returns NextToken in the response. To
+    get the next batch, provide this token in your next request.
   """
-  @spec list_cluster_operations(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_cluster_operations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_cluster_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cluster_operations_errors()}
-  def list_cluster_operations(
-        %Client{} = client,
-        cluster_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_cluster_operations(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/operations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3525,426 +3997,733 @@ defmodule AWS.Kafka do
   @doc """
   Returns a list of all the operations that have been performed on the specified
   MSK cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListClusterOperationsV2&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`)
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_cluster_operations_v2(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_cluster_operations_v2(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_cluster_operations_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cluster_operations_v2_errors()}
-  def list_cluster_operations_v2(
-        %Client{} = client,
-        cluster_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_cluster_operations_v2(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/api/v2/clusters/#{AWS.Util.encode_uri(cluster_arn)}/operations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all the MSK clusters in the current Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListClusters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:cluster_name_filter` (`t:string`) Specify a prefix of the name of the
+    clusters that you want to list. The service lists all the clusters whose
+    names start with this prefix.
+  * `:max_results` (`t:integer`) The maximum number of results to return in the
+    response. If there are more results, the response includes a NextToken
+    parameter.
+  * `:next_token` (`t:string`) The paginated results marker. When the result of
+    the operation is truncated, the call returns NextToken in the response. To
+    get the next batch, provide this token in your next request.
   """
-  @spec list_clusters(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_clusters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_clusters_errors()}
-  def list_clusters(
-        %Client{} = client,
-        cluster_name_filter \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_clusters(%Client{} = client, options \\ []) do
     url_path = "/v1/clusters"
+
+    # Validate optional parameters
+    optional_params = [cluster_name_filter: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(cluster_name_filter) do
-        [{"clusterNameFilter", cluster_name_filter} | query_params]
+      if opt_val = Keyword.get(options, :cluster_name_filter) do
+        [{"clusterNameFilter", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:cluster_name_filter, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all the MSK clusters in the current Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListClustersV2&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:cluster_name_filter` (`t:string`) Specify a prefix of the names of the
+    clusters that you want to list. The service lists all the clusters whose
+    names start with this prefix.
+  * `:cluster_type_filter` (`t:string`) Specify either PROVISIONED or SERVERLESS.
+  * `:max_results` (`t:integer`) The maximum number of results to return in the
+    response. If there are more results, the response includes a NextToken
+    parameter.
+  * `:next_token` (`t:string`) The paginated results marker. When the result of
+    the operation is truncated, the call returns NextToken in the response. To
+    get the next batch, provide this token in your next request.
   """
-  @spec list_clusters_v2(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_clusters_v2(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_clusters_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_clusters_v2_errors()}
-  def list_clusters_v2(
-        %Client{} = client,
-        cluster_name_filter \\ nil,
-        cluster_type_filter \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_clusters_v2(%Client{} = client, options \\ []) do
     url_path = "/api/v2/clusters"
+
+    # Validate optional parameters
+    optional_params = [
+      cluster_name_filter: nil,
+      cluster_type_filter: nil,
+      max_results: nil,
+      next_token: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(cluster_type_filter) do
-        [{"clusterTypeFilter", cluster_type_filter} | query_params]
+      if opt_val = Keyword.get(options, :cluster_type_filter) do
+        [{"clusterTypeFilter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(cluster_name_filter) do
-        [{"clusterNameFilter", cluster_name_filter} | query_params]
+      if opt_val = Keyword.get(options, :cluster_name_filter) do
+        [{"clusterNameFilter", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:cluster_name_filter, :cluster_type_filter, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all the MSK configurations in this Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListConfigurationRevisions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies an
+    MSK configuration and all of its revisions.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in the
+    response. If there are more results, the response includes a NextToken
+    parameter.
+  * `:next_token` (`t:string`) The paginated results marker. When the result of
+    the operation is truncated, the call returns NextToken in the response. To
+    get the next batch, provide this token in your next request.
   """
-  @spec list_configuration_revisions(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_configuration_revisions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_configuration_revisions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configuration_revisions_errors()}
-  def list_configuration_revisions(
-        %Client{} = client,
-        arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_configuration_revisions(%Client{} = client, arn, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(arn)}/revisions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all the MSK configurations in this Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in the
+    response. If there are more results, the response includes a NextToken
+    parameter.
+  * `:next_token` (`t:string`) The paginated results marker. When the result of
+    the operation is truncated, the call returns NextToken in the response. To
+    get the next batch, provide this token in your next request.
   """
-  @spec list_configurations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configurations_errors()}
-  def list_configurations(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_configurations(%Client{} = client, options \\ []) do
     url_path = "/v1/configurations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of Apache Kafka versions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListKafkaVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in the
+    response. If there are more results, the response includes a NextToken
+    parameter.
+  * `:next_token` (`t:string`) The paginated results marker. When the result of
+    the operation is truncated, the call returns NextToken in the response. To
+    get the next batch, provide this token in your next request.
   """
-  @spec list_kafka_versions(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_kafka_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_kafka_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_kafka_versions_errors()}
-  def list_kafka_versions(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_kafka_versions(%Client{} = client, options \\ []) do
     url_path = "/v1/kafka-versions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of the broker nodes in the cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListNodes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
+    identifies the cluster.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in the
+    response. If there are more results, the response includes a NextToken
+    parameter.
+  * `:next_token` (`t:string`) The paginated results marker. When the result of
+    the operation is truncated, the call returns NextToken in the response. To
+    get the next batch, provide this token in your next request.
   """
-  @spec list_nodes(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_nodes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_nodes_errors()}
-  def list_nodes(
-        %Client{} = client,
-        cluster_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_nodes(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/nodes"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the replicators.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListReplicators&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in the
+    response. If there are more results, the response includes a NextToken
+    parameter.
+  * `:next_token` (`t:string`) If the response of ListReplicators is truncated, it
+    returns a NextToken in the response. This NextToken should be sent in the
+    subsequent request to ListReplicators.
+  * `:replicator_name_filter` (`t:string`) Returns replicators starting with given
+    name.
   """
-  @spec list_replicators(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_replicators(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_replicators_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_replicators_errors()}
-  def list_replicators(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        replicator_name_filter \\ nil,
-        options \\ []
-      ) do
+  def list_replicators(%Client{} = client, options \\ []) do
     url_path = "/replication/v1/replicators"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, replicator_name_filter: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(replicator_name_filter) do
-        [{"replicatorNameFilter", replicator_name_filter} | query_params]
+      if opt_val = Keyword.get(options, :replicator_name_filter) do
+        [{"replicatorNameFilter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :replicator_name_filter])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of the Scram Secrets associated with an Amazon MSK cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListScramSecrets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The arn of the cluster.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maxResults of the query.
+  * `:next_token` (`t:string`) The nextToken of the query.
   """
-  @spec list_scram_secrets(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_scram_secrets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_scram_secrets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_scram_secrets_errors()}
-  def list_scram_secrets(
-        %Client{} = client,
-        cluster_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_scram_secrets(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/scram-secrets"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of the tags associated with the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
+    identifies the resource that's associated with the tags.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all the VPC connections in this Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListVpcConnections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in the
+    response. If there are more results, the response includes a NextToken
+    parameter.
+  * `:next_token` (`t:string`) The paginated results marker. When the result of
+    the operation is truncated, the call returns NextToken in the response. To
+    get the next batch, provide this token in your next request.
   """
-  @spec list_vpc_connections(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_vpc_connections(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_vpc_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vpc_connections_errors()}
-  def list_vpc_connections(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_vpc_connections(%Client{} = client, options \\ []) do
     url_path = "/v1/vpc-connections"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3952,8 +4731,15 @@ defmodule AWS.Kafka do
   @doc """
   Creates or updates the MSK cluster policy specified by the cluster Amazon
   Resource Name (ARN) in the request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20PutClusterPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster.
+
+  ## Optional parameters:
   """
-  @spec put_cluster_policy(map(), String.t(), put_cluster_policy_request(), list()) ::
+  @spec put_cluster_policy(AWS.Client.t(), String.t(), put_cluster_policy_request(), Keyword.t()) ::
           {:ok, put_cluster_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_cluster_policy_errors()}
@@ -3962,15 +4748,24 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Reboots brokers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20RebootBroker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster to
+    be updated.
+
+  ## Optional parameters:
   """
-  @spec reboot_broker(map(), String.t(), reboot_broker_request(), list()) ::
+  @spec reboot_broker(AWS.Client.t(), String.t(), reboot_broker_request(), Keyword.t()) ::
           {:ok, reboot_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_broker_errors()}
@@ -3979,19 +4774,27 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Returns empty response.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20RejectClientVpcConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster.
+
+  ## Optional parameters:
   """
   @spec reject_client_vpc_connection(
-          map(),
+          AWS.Client.t(),
           String.t(),
           reject_client_vpc_connection_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, reject_client_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4001,15 +4804,24 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Adds tags to the specified MSK resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
+    identifies the resource that's associated with the tags.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -4018,7 +4830,8 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4035,8 +4848,18 @@ defmodule AWS.Kafka do
 
   @doc """
   Removes the tags associated with the keys that are provided in the query.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
+    identifies the resource that's associated with the tags.
+  * `:tag_keys` (`t:list[com.amazonaws.kafka#__string]`) Tag keys must be unique
+    for a given cluster. In addition, the following restrictions apply:
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -4050,7 +4873,8 @@ defmodule AWS.Kafka do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4067,8 +4891,21 @@ defmodule AWS.Kafka do
 
   @doc """
   Updates the number of broker nodes in the cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UpdateBrokerCount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
+    identifies the cluster.
+
+  ## Optional parameters:
   """
-  @spec update_broker_count(map(), String.t(), update_broker_count_request(), list()) ::
+  @spec update_broker_count(
+          AWS.Client.t(),
+          String.t(),
+          update_broker_count_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_broker_count_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_broker_count_errors()}
@@ -4077,15 +4914,29 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the EBS storage associated with MSK brokers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UpdateBrokerStorage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
+    identifies the cluster.
+
+  ## Optional parameters:
   """
-  @spec update_broker_storage(map(), String.t(), update_broker_storage_request(), list()) ::
+  @spec update_broker_storage(
+          AWS.Client.t(),
+          String.t(),
+          update_broker_storage_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_broker_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_broker_storage_errors()}
@@ -4094,15 +4945,24 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates EC2 instance type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UpdateBrokerType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
+    identifies the cluster.
+
+  ## Optional parameters:
   """
-  @spec update_broker_type(map(), String.t(), update_broker_type_request(), list()) ::
+  @spec update_broker_type(AWS.Client.t(), String.t(), update_broker_type_request(), Keyword.t()) ::
           {:ok, update_broker_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_broker_type_errors()}
@@ -4111,7 +4971,8 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -4119,12 +4980,20 @@ defmodule AWS.Kafka do
   @doc """
   Updates the cluster with the configuration that is specified in the request
   body.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UpdateClusterConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
+    identifies the cluster.
+
+  ## Optional parameters:
   """
   @spec update_cluster_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_cluster_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_cluster_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4134,19 +5003,28 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the Apache Kafka version for the cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UpdateClusterKafkaVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster to
+    be updated.
+
+  ## Optional parameters:
   """
   @spec update_cluster_kafka_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_cluster_kafka_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_cluster_kafka_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4156,15 +5034,28 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates an MSK configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UpdateConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the configuration.
+
+  ## Optional parameters:
   """
-  @spec update_configuration(map(), String.t(), update_configuration_request(), list()) ::
+  @spec update_configuration(
+          AWS.Client.t(),
+          String.t(),
+          update_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configuration_errors()}
@@ -4173,15 +5064,29 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the cluster's connectivity configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UpdateConnectivity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    configuration.
+
+  ## Optional parameters:
   """
-  @spec update_connectivity(map(), String.t(), update_connectivity_request(), list()) ::
+  @spec update_connectivity(
+          AWS.Client.t(),
+          String.t(),
+          update_connectivity_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_connectivity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connectivity_errors()}
@@ -4190,19 +5095,26 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Updates the monitoring settings for the cluster.
+  Updates the monitoring settings for the cluster. You can use this operation to
+  specify which Apache Kafka metrics you want Amazon MSK to send to Amazon
+  CloudWatch. You can also specify settings for open monitoring with Prometheus.
 
-  You can use this operation to specify which Apache Kafka metrics you want Amazon
-  MSK to send to Amazon CloudWatch. You can also specify settings for open
-  monitoring with Prometheus.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UpdateMonitoring&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
+    identifies the cluster.
+
+  ## Optional parameters:
   """
-  @spec update_monitoring(map(), String.t(), update_monitoring_request(), list()) ::
+  @spec update_monitoring(AWS.Client.t(), String.t(), update_monitoring_request(), Keyword.t()) ::
           {:ok, update_monitoring_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_monitoring_errors()}
@@ -4211,15 +5123,29 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates replication info of a replicator.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UpdateReplicationInfo&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:replicator_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    replicator to be updated.
+
+  ## Optional parameters:
   """
-  @spec update_replication_info(map(), String.t(), update_replication_info_request(), list()) ::
+  @spec update_replication_info(
+          AWS.Client.t(),
+          String.t(),
+          update_replication_info_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_replication_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_replication_info_errors()}
@@ -4230,18 +5156,25 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Updates the security settings for the cluster.
+  Updates the security settings for the cluster. You can use this operation to
+  specify encryption and authentication on existing clusters.
 
-  You can use this operation to specify encryption and authentication on existing
-  clusters.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UpdateSecurity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
+    identifies the cluster.
+
+  ## Optional parameters:
   """
-  @spec update_security(map(), String.t(), update_security_request(), list()) ::
+  @spec update_security(AWS.Client.t(), String.t(), update_security_request(), Keyword.t()) ::
           {:ok, update_security_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_security_errors()}
@@ -4250,7 +5183,8 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4267,8 +5201,16 @@ defmodule AWS.Kafka do
 
   @doc """
   Updates cluster broker volume size (or) sets cluster storage mode to TIERED.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20UpdateStorage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster to
+    be updated.
+
+  ## Optional parameters:
   """
-  @spec update_storage(map(), String.t(), update_storage_request(), list()) ::
+  @spec update_storage(AWS.Client.t(), String.t(), update_storage_request(), Keyword.t()) ::
           {:ok, update_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_storage_errors()}
@@ -4277,7 +5219,8 @@ defmodule AWS.Kafka do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

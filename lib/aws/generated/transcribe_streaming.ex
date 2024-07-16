@@ -4,29 +4,7 @@
 defmodule AWS.TranscribeStreaming do
   @moduledoc """
   Amazon Transcribe streaming offers three main types of real-time transcription:
-  **Standard**, **Medical**, and
-  **Call Analytics**.
-
-    *
-
-  **Standard transcriptions** are the most common option. Refer
-  to for details.
-
-    *
-
-  **Medical transcriptions** are tailored to medical professionals
-  and incorporate medical terms. A common use case for this service is
-  transcribing doctor-patient
-  dialogue in real time, so doctors can focus on their patient instead of taking
-  notes. Refer to
-  for details.
-
-    *
-
-  **Call Analytics transcriptions** are designed for use with call
-  center audio on two different channels; if you're looking for insight into
-  customer service calls, use this
-  option. Refer to for details.
+  **Standard**, **Medical**, and **Call Analytics**.
   """
 
   alias AWS.Client
@@ -629,39 +607,85 @@ defmodule AWS.TranscribeStreaming do
   @doc """
   Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
   Amazon Transcribe and the transcription results are streamed to your
-  application.
+  application. Use this operation for [Call
+  Analytics](https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html)
+  transcriptions. The following parameters are required:
 
-  Use this operation
-  for [Call Analytics](https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html)
-  transcriptions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribestreaming%20StartCallAnalyticsStreamTranscription&this_doc_guide=API%2520Reference)
 
-  The following parameters are required:
+  ## Parameters:
+  * `:language_code`
+    (`t:enum["DE_DE|EN_AU|EN_GB|EN_US|ES_US|FR_CA|FR_FR|IT_IT|PT_BR"]`) Specify
+    the language code that represents the language spoken in your audio.
+  * `:media_encoding` (`t:enum["FLAC|OGG_OPUS|PCM"]`) Specify the encoding of your
+    input audio. Supported formats are:
+  * `:media_sample_rate_hertz` (`t:integer`) The sample rate of the input audio
+    (in hertz). Low-quality audio, such as telephone audio, is typically around
+    8,000 Hz. High-quality audio typically ranges from 16,000 Hz to 48,000 Hz.
+    Note that the sample rate you specify must match that of your audio.
 
-    *
-
-  `language-code`
-
-    *
-
-  `media-encoding`
-
-    *
-
-  `sample-rate`
-
-  For more information on streaming with Amazon Transcribe, see [Transcribing streaming
-  audio](https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html).
+  ## Optional parameters:
+  * `:content_identification_type` (`t:enum["PII"]`) Labels all personally
+    identifiable information (PII) identified in your transcript.
+  * `:content_redaction_type` (`t:enum["PII"]`) Redacts all personally
+    identifiable information (PII) identified in your transcript.
+  * `:enable_partial_results_stabilization` (`t:boolean`) Enables partial result
+    stabilization for your transcription. Partial result stabilization can
+    reduce latency in your output, but may impact accuracy. For more
+    information, see Partial-result stabilization.
+  * `:language_model_name` (`t:string`) Specify the name of the custom language
+    model that you want to use when processing your transcription. Note that
+    language model names are case sensitive.
+  * `:partial_results_stability` (`t:enum["HIGH|LOW|MEDIUM"]`) Specify the level
+    of stability to use when you enable partial results stabilization
+    (EnablePartialResultsStabilization).
+  * `:pii_entity_types` (`t:string`) Specify which types of personally
+    identifiable information (PII) you want to redact in your transcript. You
+    can include as many types as you'd like, or you can select ALL.
+  * `:session_id` (`t:string`) Specify a name for your Call Analytics
+    transcription session. If you don't include this parameter in your request,
+    Amazon Transcribe generates an ID and returns it in the response.
+  * `:vocabulary_filter_method` (`t:enum["MASK|REMOVE|TAG"]`) Specify how you want
+    your vocabulary filter applied to your transcript.
+  * `:vocabulary_filter_name` (`t:string`) Specify the name of the custom
+    vocabulary filter that you want to use when processing your transcription.
+    Note that vocabulary filter names are case sensitive.
+  * `:vocabulary_name` (`t:string`) Specify the name of the custom vocabulary that
+    you want to use when processing your transcription. Note that vocabulary
+    names are case sensitive.
   """
   @spec start_call_analytics_stream_transcription(
-          map(),
+          AWS.Client.t(),
           start_call_analytics_stream_transcription_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_call_analytics_stream_transcription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_call_analytics_stream_transcription_errors()}
   def start_call_analytics_stream_transcription(%Client{} = client, input, options \\ []) do
     url_path = "/call-analytics-stream-transcription"
+
+    optional_params = [
+      content_identification_type: nil,
+      content_redaction_type: nil,
+      enable_partial_results_stabilization: nil,
+      language_code: nil,
+      language_model_name: nil,
+      media_encoding: nil,
+      media_sample_rate_hertz: nil,
+      partial_results_stability: nil,
+      pii_entity_types: nil,
+      session_id: nil,
+      vocabulary_filter_method: nil,
+      vocabulary_filter_name: nil,
+      vocabulary_name: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -707,7 +731,24 @@ defmodule AWS.TranscribeStreaming do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :content_identification_type,
+        :content_redaction_type,
+        :enable_partial_results_stabilization,
+        :language_model_name,
+        :partial_results_stability,
+        :pii_entity_types,
+        :session_id,
+        :vocabulary_filter_method,
+        :vocabulary_filter_name,
+        :vocabulary_name
+      ])
 
     Request.request_rest(
       client,
@@ -725,36 +766,74 @@ defmodule AWS.TranscribeStreaming do
   @doc """
   Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
   Amazon Transcribe Medical and the transcription results are streamed to your
-  application.
+  application. The following parameters are required:
 
-  The following parameters are required:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribestreaming%20StartMedicalStreamTranscription&this_doc_guide=API%2520Reference)
 
-    *
+  ## Parameters:
+  * `:language_code`
+    (`t:enum["DE_DE|EN_AU|EN_GB|EN_US|ES_US|FR_CA|FR_FR|HI_IN|IT_IT|JA_JP|KO_KR|PT_BR|TH_TH|ZH_CN"]`)
+    Specify the language code that represents the language spoken in your audio.
+  * `:media_encoding` (`t:enum["FLAC|OGG_OPUS|PCM"]`) Specify the encoding used
+    for the input audio. Supported formats are:
+  * `:media_sample_rate_hertz` (`t:integer`) The sample rate of the input audio
+    (in hertz). Amazon Transcribe Medical supports a range from 16,000 Hz to
+    48,000 Hz. Note that the sample rate you specify must match that of your
+    audio.
+  * `:specialty`
+    (`t:enum["CARDIOLOGY|NEUROLOGY|ONCOLOGY|PRIMARYCARE|RADIOLOGY|UROLOGY"]`)
+    Specify the medical specialty contained in your audio.
+  * `:type` (`t:enum["CONVERSATION|DICTATION"]`) Specify the type of input audio.
+    For example, choose DICTATION for a provider dictating patient notes and
+    CONVERSATION for a dialogue between a patient and a medical professional.
 
-  `language-code`
-
-    *
-
-  `media-encoding`
-
-    *
-
-  `sample-rate`
-
-  For more information on streaming with Amazon Transcribe Medical, see
-  [Transcribing streaming
-  audio](https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html).
+  ## Optional parameters:
+  * `:content_identification_type` (`t:enum["PHI"]`) Labels all personal health
+    information (PHI) identified in your transcript.
+  * `:enable_channel_identification` (`t:boolean`) Enables channel identification
+    in multi-channel audio.
+  * `:number_of_channels` (`t:integer`) Specify the number of channels in your
+    audio stream. Up to two channels are supported.
+  * `:session_id` (`t:string`) Specify a name for your transcription session. If
+    you don't include this parameter in your request, Amazon Transcribe Medical
+    generates an ID and returns it in the response.
+  * `:show_speaker_label` (`t:boolean`) Enables speaker partitioning (diarization)
+    in your transcription output. Speaker partitioning labels the speech from
+    individual speakers in your media file.
+  * `:vocabulary_name` (`t:string`) Specify the name of the custom vocabulary that
+    you want to use when processing your transcription. Note that vocabulary
+    names are case sensitive.
   """
   @spec start_medical_stream_transcription(
-          map(),
+          AWS.Client.t(),
           start_medical_stream_transcription_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_medical_stream_transcription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_medical_stream_transcription_errors()}
   def start_medical_stream_transcription(%Client{} = client, input, options \\ []) do
     url_path = "/medical-stream-transcription"
+
+    optional_params = [
+      content_identification_type: nil,
+      enable_channel_identification: nil,
+      language_code: nil,
+      media_encoding: nil,
+      media_sample_rate_hertz: nil,
+      number_of_channels: nil,
+      session_id: nil,
+      show_speaker_label: nil,
+      specialty: nil,
+      type: nil,
+      vocabulary_name: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -794,7 +873,20 @@ defmodule AWS.TranscribeStreaming do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :content_identification_type,
+        :enable_channel_identification,
+        :number_of_channels,
+        :session_id,
+        :show_speaker_label,
+        :vocabulary_name
+      ])
 
     Request.request_rest(
       client,
@@ -812,31 +904,119 @@ defmodule AWS.TranscribeStreaming do
   @doc """
   Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
   Amazon Transcribe and the transcription results are streamed to your
-  application.
+  application. The following parameters are required:
 
-  The following parameters are required:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribestreaming%20StartStreamTranscription&this_doc_guide=API%2520Reference)
 
-    *
+  ## Parameters:
+  * `:media_encoding` (`t:enum["FLAC|OGG_OPUS|PCM"]`) Specify the encoding of your
+    input audio. Supported formats are:
+  * `:media_sample_rate_hertz` (`t:integer`) The sample rate of the input audio
+    (in hertz). Low-quality audio, such as telephone audio, is typically around
+    8,000 Hz. High-quality audio typically ranges from 16,000 Hz to 48,000 Hz.
+    Note that the sample rate you specify must match that of your audio.
 
-  `language-code` or `identify-language` or `identify-multiple-language`
-
-    *
-
-  `media-encoding`
-
-    *
-
-  `sample-rate`
-
-  For more information on streaming with Amazon Transcribe, see [Transcribing streaming
-  audio](https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html).
+  ## Optional parameters:
+  * `:content_identification_type` (`t:enum["PII"]`) Labels all personally
+    identifiable information (PII) identified in your transcript.
+  * `:content_redaction_type` (`t:enum["PII"]`) Redacts all personally
+    identifiable information (PII) identified in your transcript.
+  * `:enable_channel_identification` (`t:boolean`) Enables channel identification
+    in multi-channel audio.
+  * `:enable_partial_results_stabilization` (`t:boolean`) Enables partial result
+    stabilization for your transcription. Partial result stabilization can
+    reduce latency in your output, but may impact accuracy. For more
+    information, see Partial-result stabilization.
+  * `:identify_language` (`t:boolean`) Enables automatic language identification
+    for your transcription.
+  * `:identify_multiple_languages` (`t:boolean`) Enables automatic multi-language
+    identification in your transcription job request. Use this parameter if your
+    stream contains more than one language. If your stream contains only one
+    language, use IdentifyLanguage instead.
+  * `:language_code`
+    (`t:enum["DE_DE|EN_AU|EN_GB|EN_US|ES_US|FR_CA|FR_FR|HI_IN|IT_IT|JA_JP|KO_KR|PT_BR|TH_TH|ZH_CN"]`)
+    Specify the language code that represents the language spoken in your audio.
+  * `:language_model_name` (`t:string`) Specify the name of the custom language
+    model that you want to use when processing your transcription. Note that
+    language model names are case sensitive.
+  * `:language_options` (`t:string`) Specify two or more language codes that
+    represent the languages you think may be present in your media; including
+    more than five is not recommended. If you're unsure what languages are
+    present, do not include this parameter.
+  * `:number_of_channels` (`t:integer`) Specify the number of channels in your
+    audio stream. Up to two channels are supported.
+  * `:partial_results_stability` (`t:enum["HIGH|LOW|MEDIUM"]`) Specify the level
+    of stability to use when you enable partial results stabilization
+    (EnablePartialResultsStabilization).
+  * `:pii_entity_types` (`t:string`) Specify which types of personally
+    identifiable information (PII) you want to redact in your transcript. You
+    can include as many types as you'd like, or you can select ALL.
+  * `:preferred_language`
+    (`t:enum["DE_DE|EN_AU|EN_GB|EN_US|ES_US|FR_CA|FR_FR|HI_IN|IT_IT|JA_JP|KO_KR|PT_BR|TH_TH|ZH_CN"]`)
+    Specify a preferred language from the subset of languages codes you
+    specified in LanguageOptions.
+  * `:session_id` (`t:string`) Specify a name for your transcription session. If
+    you don't include this parameter in your request, Amazon Transcribe
+    generates an ID and returns it in the response.
+  * `:show_speaker_label` (`t:boolean`) Enables speaker partitioning (diarization)
+    in your transcription output. Speaker partitioning labels the speech from
+    individual speakers in your media file.
+  * `:vocabulary_filter_method` (`t:enum["MASK|REMOVE|TAG"]`) Specify how you want
+    your vocabulary filter applied to your transcript.
+  * `:vocabulary_filter_name` (`t:string`) Specify the name of the custom
+    vocabulary filter that you want to use when processing your transcription.
+    Note that vocabulary filter names are case sensitive.
+  * `:vocabulary_filter_names` (`t:string`) Specify the names of the custom
+    vocabulary filters that you want to use when processing your transcription.
+    Note that vocabulary filter names are case sensitive.
+  * `:vocabulary_name` (`t:string`) Specify the name of the custom vocabulary that
+    you want to use when processing your transcription. Note that vocabulary
+    names are case sensitive.
+  * `:vocabulary_names` (`t:string`) Specify the names of the custom vocabularies
+    that you want to use when processing your transcription. Note that
+    vocabulary names are case sensitive.
   """
-  @spec start_stream_transcription(map(), start_stream_transcription_request(), list()) ::
+  @spec start_stream_transcription(
+          AWS.Client.t(),
+          start_stream_transcription_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_stream_transcription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_stream_transcription_errors()}
   def start_stream_transcription(%Client{} = client, input, options \\ []) do
     url_path = "/stream-transcription"
+
+    optional_params = [
+      content_identification_type: nil,
+      content_redaction_type: nil,
+      enable_channel_identification: nil,
+      enable_partial_results_stabilization: nil,
+      identify_language: nil,
+      identify_multiple_languages: nil,
+      language_code: nil,
+      language_model_name: nil,
+      language_options: nil,
+      media_encoding: nil,
+      media_sample_rate_hertz: nil,
+      number_of_channels: nil,
+      partial_results_stability: nil,
+      pii_entity_types: nil,
+      preferred_language: nil,
+      session_id: nil,
+      show_speaker_label: nil,
+      vocabulary_filter_method: nil,
+      vocabulary_filter_name: nil,
+      vocabulary_filter_names: nil,
+      vocabulary_name: nil,
+      vocabulary_names: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -900,7 +1080,34 @@ defmodule AWS.TranscribeStreaming do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :content_identification_type,
+        :content_redaction_type,
+        :enable_channel_identification,
+        :enable_partial_results_stabilization,
+        :identify_language,
+        :identify_multiple_languages,
+        :language_code,
+        :language_model_name,
+        :language_options,
+        :number_of_channels,
+        :partial_results_stability,
+        :pii_entity_types,
+        :preferred_language,
+        :session_id,
+        :show_speaker_label,
+        :vocabulary_filter_method,
+        :vocabulary_filter_name,
+        :vocabulary_filter_names,
+        :vocabulary_name,
+        :vocabulary_names
+      ])
 
     Request.request_rest(
       client,

@@ -4,15 +4,9 @@
 defmodule AWS.ApplicationCostProfiler do
   @moduledoc """
   This reference provides descriptions of the AWS Application Cost Profiler API.
-
   The AWS Application Cost Profiler API provides programmatic access to view,
-  create, update, and delete
-  application cost report definitions, as well as to import your usage data into
-  the Application Cost Profiler
-  service.
-
-  For more information about using this service, see the [AWS Application Cost Profiler User
-  Guide](https://docs.aws.amazon.com/application-cost-profiler/latest/userguide/introduction.html).
+  create, update, and delete application cost report definitions, as well as to
+  import your usage data into the Application Cost Profiler service.
   """
 
   alias AWS.Client
@@ -312,12 +306,22 @@ defmodule AWS.ApplicationCostProfiler do
   end
 
   @doc """
-  Deletes the specified report definition in AWS Application Cost Profiler.
+  Deletes the specified report definition in AWS Application Cost Profiler. This
+  stops the report from being generated.
 
-  This stops the report from being
-  generated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationcostprofiler%20DeleteReportDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:report_id` (`t:string`) Required. ID of the report to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_report_definition(map(), String.t(), delete_report_definition_request(), list()) ::
+  @spec delete_report_definition(
+          AWS.Client.t(),
+          String.t(),
+          delete_report_definition_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_report_definition_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_report_definition_errors()}
@@ -326,7 +330,8 @@ defmodule AWS.ApplicationCostProfiler do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -344,17 +349,42 @@ defmodule AWS.ApplicationCostProfiler do
   @doc """
   Retrieves the definition of a report already configured in AWS Application Cost
   Profiler.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationcostprofiler%20GetReportDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:report_id` (`t:string`) ID of the report to retrieve.
+
+  ## Optional parameters:
   """
-  @spec get_report_definition(map(), String.t(), list()) ::
+  @spec get_report_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_report_definition_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_report_definition_errors()}
   def get_report_definition(%Client{} = client, report_id, options \\ []) do
     url_path = "/reportDefinition/#{AWS.Util.encode_uri(report_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -362,13 +392,13 @@ defmodule AWS.ApplicationCostProfiler do
   @doc """
   Ingests application usage data from Amazon Simple Storage Service (Amazon S3).
 
-  The data must already exist in the S3 location. As part of the action, AWS
-  Application Cost Profiler
-  copies the object from your S3 bucket to an S3 bucket owned by Amazon for
-  processing
-  asynchronously.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationcostprofiler%20ImportApplicationUsage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec import_application_usage(map(), import_application_usage_request(), list()) ::
+  @spec import_application_usage(AWS.Client.t(), import_application_usage_request(), Keyword.t()) ::
           {:ok, import_application_usage_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_application_usage_errors()}
@@ -377,7 +407,8 @@ defmodule AWS.ApplicationCostProfiler do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -395,45 +426,75 @@ defmodule AWS.ApplicationCostProfiler do
   @doc """
   Retrieves a list of all reports and their configurations for your AWS account.
 
-  The maximum number of reports is one.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationcostprofiler%20ListReportDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token value from a previous call to access the
+    next page of results.
   """
-  @spec list_report_definitions(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_report_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_report_definitions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_report_definitions_errors()}
-  def list_report_definitions(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_report_definitions(%Client{} = client, options \\ []) do
     url_path = "/reportDefinition"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Creates the report definition for a report in Application Cost Profiler.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationcostprofiler%20PutReportDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_report_definition(map(), put_report_definition_request(), list()) ::
+  @spec put_report_definition(AWS.Client.t(), put_report_definition_request(), Keyword.t()) ::
           {:ok, put_report_definition_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_report_definition_errors()}
@@ -442,7 +503,8 @@ defmodule AWS.ApplicationCostProfiler do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -459,8 +521,20 @@ defmodule AWS.ApplicationCostProfiler do
 
   @doc """
   Updates existing report in AWS Application Cost Profiler.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationcostprofiler%20UpdateReportDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:report_id` (`t:string`) Required. ID of the report to update.
+
+  ## Optional parameters:
   """
-  @spec update_report_definition(map(), String.t(), update_report_definition_request(), list()) ::
+  @spec update_report_definition(
+          AWS.Client.t(),
+          String.t(),
+          update_report_definition_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_report_definition_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_report_definition_errors()}
@@ -469,7 +543,8 @@ defmodule AWS.ApplicationCostProfiler do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

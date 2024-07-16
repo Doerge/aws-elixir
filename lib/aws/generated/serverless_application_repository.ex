@@ -4,47 +4,16 @@
 defmodule AWS.ServerlessApplicationRepository do
   @moduledoc """
   The AWS Serverless Application Repository makes it easy for developers and
-  enterprises to quickly find
-  and deploy serverless applications in the AWS Cloud.
-
-  For more information about serverless applications,
-  see Serverless Computing and Applications on the AWS website.
-
-  The AWS Serverless Application Repository is deeply integrated with the AWS
-  Lambda console, so that developers of
-  all levels can get started with serverless computing without needing to learn
-  anything new. You can use category
-  keywords to browse for applications such as web and mobile backends, data
-  processing applications, or chatbots.
-  You can also search for applications by name, publisher, or event source. To use
-  an application, you simply choose it,
-  configure any required fields, and deploy it with a few clicks.
-
-  You can also easily publish applications, sharing them publicly with the
-  community at large, or privately
-  within your team or across your organization. To publish a serverless
-  application (or app), you can use the
-  AWS Management Console, AWS Command Line Interface (AWS CLI), or AWS SDKs to
-  upload the code. Along with the
-  code, you upload a simple manifest file, also known as the AWS Serverless
-  Application Model (AWS SAM) template.
-  For more information about AWS SAM, see AWS Serverless Application Model (AWS
-  SAM) on the AWS Labs
-  GitHub repository.
-
-  The AWS Serverless Application Repository Developer Guide contains more
-  information about the two developer
-  experiences available:
-
-    *
-  Consuming Applications – Browse for applications and view information about
-  them, including
-  source code and readme files. Also install, configure, and deploy applications
-  of your choosing.
-
-  Publishing Applications – Configure and upload applications to make them
-  available to other
-  developers, and publish new versions of applications.
+  enterprises to quickly find and deploy serverless applications in the AWS
+  Cloud. For more information about serverless applications, see Serverless
+  Computing and Applications on the AWS website. The AWS Serverless Application
+  Repository is deeply integrated with the AWS Lambda console, so that
+  developers of all levels can get started with serverless computing without
+  needing to learn anything new. You can use category keywords to browse for
+  applications such as web and mobile backends, data processing applications, or
+  chatbots. You can also search for applications by name, publisher, or event
+  source. To use an application, you simply choose it, configure any required
+  fields, and deploy it with a few clicks.
   """
 
   alias AWS.Client
@@ -766,8 +735,14 @@ defmodule AWS.ServerlessApplicationRepository do
   @doc """
   Creates an application, optionally including an AWS SAM file to create the first
   application version in the same call.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20CreateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_application(map(), create_application_request(), list()) ::
+  @spec create_application(AWS.Client.t(), create_application_request(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
@@ -776,7 +751,8 @@ defmodule AWS.ServerlessApplicationRepository do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -793,13 +769,22 @@ defmodule AWS.ServerlessApplicationRepository do
 
   @doc """
   Creates an application version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20CreateApplicationVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
+  * `:semantic_version` (`t:string`) The semantic version of the new version.
+
+  ## Optional parameters:
   """
   @spec create_application_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           create_application_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_application_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -817,19 +802,28 @@ defmodule AWS.ServerlessApplicationRepository do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
   end
 
   @doc """
   Creates an AWS CloudFormation change set for the given application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20CreateCloudFormationChangeSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
+
+  ## Optional parameters:
   """
   @spec create_cloud_formation_change_set(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_cloud_formation_change_set_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_cloud_formation_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -839,7 +833,8 @@ defmodule AWS.ServerlessApplicationRepository do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -856,12 +851,20 @@ defmodule AWS.ServerlessApplicationRepository do
 
   @doc """
   Creates an AWS CloudFormation template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20CreateCloudFormationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
+
+  ## Optional parameters:
   """
   @spec create_cloud_formation_template(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_cloud_formation_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_cloud_formation_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -871,7 +874,8 @@ defmodule AWS.ServerlessApplicationRepository do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -888,8 +892,16 @@ defmodule AWS.ServerlessApplicationRepository do
 
   @doc """
   Deletes the specified application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20DeleteApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
+
+  ## Optional parameters:
   """
-  @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
+  @spec delete_application(AWS.Client.t(), String.t(), delete_application_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
@@ -898,7 +910,8 @@ defmodule AWS.ServerlessApplicationRepository do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -915,49 +928,116 @@ defmodule AWS.ServerlessApplicationRepository do
 
   @doc """
   Gets the specified application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20GetApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
+
+  ## Optional parameters:
+  * `:semantic_version` (`t:string`) The semantic version of the application to
+    get.
   """
-  @spec get_application(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_errors()}
-  def get_application(%Client{} = client, application_id, semantic_version \\ nil, options \\ []) do
+  def get_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
+
+    # Validate optional parameters
+    optional_params = [semantic_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(semantic_version) do
-        [{"semanticVersion", semantic_version} | query_params]
+      if opt_val = Keyword.get(options, :semantic_version) do
+        [{"semanticVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:semantic_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the policy for the application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20GetApplicationPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
+
+  ## Optional parameters:
   """
-  @spec get_application_policy(map(), String.t(), list()) ::
+  @spec get_application_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_policy_errors()}
   def get_application_policy(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/policy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the specified AWS CloudFormation template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20GetCloudFormationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
+  * `:template_id` (`t:string`) The UUID returned by CreateCloudFormationTemplate.
+
+  ## Optional parameters:
   """
-  @spec get_cloud_formation_template(map(), String.t(), String.t(), list()) ::
+  @spec get_cloud_formation_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_cloud_formation_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cloud_formation_template_errors()}
@@ -965,143 +1045,247 @@ defmodule AWS.ServerlessApplicationRepository do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the list of applications nested in the containing application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20ListApplicationDependencies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
+
+  ## Optional parameters:
+  * `:max_items` (`t:integer`) The total number of items to return.
+  * `:next_token` (`t:string`) A token to specify where to start paginating.
+  * `:semantic_version` (`t:string`) The semantic version of the application to
+    get.
   """
-  @spec list_application_dependencies(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_application_dependencies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_dependencies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_dependencies_errors()}
-  def list_application_dependencies(
-        %Client{} = client,
-        application_id,
-        max_items \\ nil,
-        next_token \\ nil,
-        semantic_version \\ nil,
-        options \\ []
-      ) do
+  def list_application_dependencies(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/dependencies"
+
+    # Validate optional parameters
+    optional_params = [max_items: nil, next_token: nil, semantic_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(semantic_version) do
-        [{"semanticVersion", semantic_version} | query_params]
+      if opt_val = Keyword.get(options, :semantic_version) do
+        [{"semanticVersion", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_items) do
-        [{"maxItems", max_items} | query_params]
+      if opt_val = Keyword.get(options, :max_items) do
+        [{"maxItems", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_items, :next_token, :semantic_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists versions for the specified application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20ListApplicationVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
+
+  ## Optional parameters:
+  * `:max_items` (`t:integer`) The total number of items to return.
+  * `:next_token` (`t:string`) A token to specify where to start paginating.
   """
-  @spec list_application_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_application_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_versions_errors()}
-  def list_application_versions(
-        %Client{} = client,
-        application_id,
-        max_items \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_application_versions(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/versions"
+
+    # Validate optional parameters
+    optional_params = [max_items: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_items) do
-        [{"maxItems", max_items} | query_params]
+      if opt_val = Keyword.get(options, :max_items) do
+        [{"maxItems", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_items, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists applications owned by the requester.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20ListApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_items` (`t:integer`) The total number of items to return.
+  * `:next_token` (`t:string`) A token to specify where to start paginating.
   """
-  @spec list_applications(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
-  def list_applications(%Client{} = client, max_items \\ nil, next_token \\ nil, options \\ []) do
+  def list_applications(%Client{} = client, options \\ []) do
     url_path = "/applications"
+
+    # Validate optional parameters
+    optional_params = [max_items: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_items) do
-        [{"maxItems", max_items} | query_params]
+      if opt_val = Keyword.get(options, :max_items) do
+        [{"maxItems", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_items, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Sets the permission policy for an application.
-
-  For the list of actions supported for this operation, see
-  [Application Permissions](https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions)
-
+  Sets the permission policy for an application. For the list of actions supported
+  for this operation, see [Application
+  Permissions](https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions)
   .
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20PutApplicationPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
+
+  ## Optional parameters:
   """
-  @spec put_application_policy(map(), String.t(), put_application_policy_request(), list()) ::
+  @spec put_application_policy(
+          AWS.Client.t(),
+          String.t(),
+          put_application_policy_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_application_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_application_policy_errors()}
@@ -1110,7 +1294,8 @@ defmodule AWS.ServerlessApplicationRepository do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -1118,9 +1303,20 @@ defmodule AWS.ServerlessApplicationRepository do
   @doc """
   Unshares an application from an AWS Organization.
 
-  This operation can be called only from the organization's master account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20UnshareApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
+
+  ## Optional parameters:
   """
-  @spec unshare_application(map(), String.t(), unshare_application_request(), list()) ::
+  @spec unshare_application(
+          AWS.Client.t(),
+          String.t(),
+          unshare_application_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unshare_application_errors()}
@@ -1129,7 +1325,8 @@ defmodule AWS.ServerlessApplicationRepository do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1146,8 +1343,16 @@ defmodule AWS.ServerlessApplicationRepository do
 
   @doc """
   Updates the specified application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20UpdateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
+
+  ## Optional parameters:
   """
-  @spec update_application(map(), String.t(), update_application_request(), list()) ::
+  @spec update_application(AWS.Client.t(), String.t(), update_application_request(), Keyword.t()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
@@ -1156,7 +1361,8 @@ defmodule AWS.ServerlessApplicationRepository do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

@@ -3,14 +3,12 @@
 
 defmodule AWS.Scheduler do
   @moduledoc """
-
   Amazon EventBridge Scheduler is a serverless scheduler that allows you to
-  create, run, and manage tasks from one central, managed service.
-
-  EventBridge Scheduler delivers your tasks reliably, with built-in mechanisms
-  that adjust your schedules based on the availability of downstream targets.
-  The following reference lists the available API actions, and data types for
-  EventBridge Scheduler.
+  create, run, and manage tasks from one central, managed service. EventBridge
+  Scheduler delivers your tasks reliably, with built-in mechanisms that adjust
+  your schedules based on the availability of downstream targets. The following
+  reference lists the available API actions, and data types for EventBridge
+  Scheduler.
   """
 
   alias AWS.Client
@@ -731,8 +729,15 @@ defmodule AWS.Scheduler do
 
   @doc """
   Creates the specified schedule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20CreateSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the schedule that you are creating.
+
+  ## Optional parameters:
   """
-  @spec create_schedule(map(), String.t(), create_schedule_input(), list()) ::
+  @spec create_schedule(AWS.Client.t(), String.t(), create_schedule_input(), Keyword.t()) ::
           {:ok, create_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_schedule_errors()}
@@ -741,7 +746,8 @@ defmodule AWS.Scheduler do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -758,8 +764,20 @@ defmodule AWS.Scheduler do
 
   @doc """
   Creates the specified schedule group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20CreateScheduleGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the schedule group that you are creating.
+
+  ## Optional parameters:
   """
-  @spec create_schedule_group(map(), String.t(), create_schedule_group_input(), list()) ::
+  @spec create_schedule_group(
+          AWS.Client.t(),
+          String.t(),
+          create_schedule_group_input(),
+          Keyword.t()
+        ) ::
           {:ok, create_schedule_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_schedule_group_errors()}
@@ -768,7 +786,8 @@ defmodule AWS.Scheduler do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -785,8 +804,21 @@ defmodule AWS.Scheduler do
 
   @doc """
   Deletes the specified schedule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20DeleteSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the schedule to delete.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier you provide to
+    ensure the idempotency of the request. If you do not specify a client token,
+    EventBridge Scheduler uses a randomly generated token for the request to
+    ensure idempotency.
+  * `:group_name` (`t:string`) The name of the schedule group associated with this
+    schedule. If you omit this, the default schedule group is used.
   """
-  @spec delete_schedule(map(), String.t(), delete_schedule_input(), list()) ::
+  @spec delete_schedule(AWS.Client.t(), String.t(), delete_schedule_input(), Keyword.t()) ::
           {:ok, delete_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_schedule_errors()}
@@ -801,7 +833,13 @@ defmodule AWS.Scheduler do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token, :group_name])
 
     Request.request_rest(
       client,
@@ -817,19 +855,31 @@ defmodule AWS.Scheduler do
   end
 
   @doc """
-  Deletes the specified schedule group.
+  Deletes the specified schedule group. Deleting a schedule group results in
+  EventBridge Scheduler deleting all schedules associated with the group. When
+  you delete a group, it remains in a `DELETING` state until all of its
+  associated schedules are deleted. Schedules associated with the group that are
+  set to run while the schedule group is in the process of being deleted might
+  continue to invoke their targets until the schedule group and its associated
+  schedules are deleted.
 
-  Deleting a schedule group results in EventBridge Scheduler deleting all
-  schedules associated with the group.
-  When you delete a group, it remains in a `DELETING` state until all of its
-  associated schedules are deleted.
-  Schedules associated with the group that are set to run while the schedule group
-  is in the process of being deleted might continue to invoke their targets
-  until the schedule group and its associated schedules are deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20DeleteScheduleGroup&this_doc_guide=API%2520Reference)
 
-  This operation is eventually consistent.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the schedule group to delete.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier you provide to
+    ensure the idempotency of the request. If you do not specify a client token,
+    EventBridge Scheduler uses a randomly generated token for the request to
+    ensure idempotency.
   """
-  @spec delete_schedule_group(map(), String.t(), delete_schedule_group_input(), list()) ::
+  @spec delete_schedule_group(
+          AWS.Client.t(),
+          String.t(),
+          delete_schedule_group_input(),
+          Keyword.t()
+        ) ::
           {:ok, delete_schedule_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_schedule_group_errors()}
@@ -843,7 +893,13 @@ defmodule AWS.Scheduler do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -860,181 +916,328 @@ defmodule AWS.Scheduler do
 
   @doc """
   Retrieves the specified schedule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20GetSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the schedule to retrieve.
+
+  ## Optional parameters:
+  * `:group_name` (`t:string`) The name of the schedule group associated with this
+    schedule. If you omit this, EventBridge Scheduler assumes that the schedule
+    is associated with the default group.
   """
-  @spec get_schedule(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_schedule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_schedule_errors()}
-  def get_schedule(%Client{} = client, name, group_name \\ nil, options \\ []) do
+  def get_schedule(%Client{} = client, name, options \\ []) do
     url_path = "/schedules/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = [group_name: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(group_name) do
-        [{"groupName", group_name} | query_params]
+      if opt_val = Keyword.get(options, :group_name) do
+        [{"groupName", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:group_name])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the specified schedule group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20GetScheduleGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the schedule group to retrieve.
+
+  ## Optional parameters:
   """
-  @spec get_schedule_group(map(), String.t(), list()) ::
+  @spec get_schedule_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_schedule_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_schedule_group_errors()}
   def get_schedule_group(%Client{} = client, name, options \\ []) do
     url_path = "/schedule-groups/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a paginated list of your schedule groups.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20ListScheduleGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) If specified, limits the number of results
+    returned by this operation. The operation also returns a NextToken which you
+    can use in a subsequent operation to retrieve the next set of results.
+  * `:name_prefix` (`t:string`) The name prefix that you can use to return a
+    filtered list of your schedule groups.
+  * `:next_token` (`t:string`) The token returned by a previous call to retrieve
+    the next set of results.
   """
-  @spec list_schedule_groups(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_schedule_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_schedule_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schedule_groups_errors()}
-  def list_schedule_groups(
-        %Client{} = client,
-        max_results \\ nil,
-        name_prefix \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_schedule_groups(%Client{} = client, options \\ []) do
     url_path = "/schedule-groups"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, name_prefix: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name_prefix) do
-        [{"NamePrefix", name_prefix} | query_params]
+      if opt_val = Keyword.get(options, :name_prefix) do
+        [{"NamePrefix", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :name_prefix, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a paginated list of your EventBridge Scheduler schedules.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20ListSchedules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:group_name` (`t:string`) If specified, only lists the schedules whose
+    associated schedule group matches the given filter.
+  * `:max_results` (`t:integer`) If specified, limits the number of results
+    returned by this operation. The operation also returns a NextToken which you
+    can use in a subsequent operation to retrieve the next set of results.
+  * `:name_prefix` (`t:string`) Schedule name prefix to return the filtered list
+    of resources.
+  * `:next_token` (`t:string`) The token returned by a previous call to retrieve
+    the next set of results.
+  * `:state` (`t:string`) If specified, only lists the schedules whose current
+    state matches the given filter.
   """
-  @spec list_schedules(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_schedules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_schedules_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schedules_errors()}
-  def list_schedules(
-        %Client{} = client,
-        group_name \\ nil,
-        max_results \\ nil,
-        name_prefix \\ nil,
-        next_token \\ nil,
-        state \\ nil,
-        options \\ []
-      ) do
+  def list_schedules(%Client{} = client, options \\ []) do
     url_path = "/schedules"
+
+    # Validate optional parameters
+    optional_params = [
+      group_name: nil,
+      max_results: nil,
+      name_prefix: nil,
+      next_token: nil,
+      state: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(state) do
-        [{"State", state} | query_params]
+      if opt_val = Keyword.get(options, :state) do
+        [{"State", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name_prefix) do
-        [{"NamePrefix", name_prefix} | query_params]
+      if opt_val = Keyword.get(options, :name_prefix) do
+        [{"NamePrefix", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(group_name) do
-        [{"ScheduleGroup", group_name} | query_params]
+      if opt_val = Keyword.get(options, :group_name) do
+        [{"ScheduleGroup", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:group_name, :max_results, :name_prefix, :next_token, :state])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the tags associated with the Scheduler resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the EventBridge Scheduler resource for
+    which you want to view tags.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Assigns one or more tags (key-value pairs) to the specified EventBridge
-  Scheduler resource.
+  Scheduler resource. You can only assign tags to schedule groups.
 
-  You can only assign tags to schedule groups.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the schedule
+    group that you are adding tags to.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_input(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1043,7 +1246,8 @@ defmodule AWS.Scheduler do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1061,8 +1265,18 @@ defmodule AWS.Scheduler do
   @doc """
   Removes one or more tags from the specified EventBridge Scheduler schedule
   group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the schedule
+    group from which you are removing tags.
+  * `:tag_keys` (`t:list[com.amazonaws.scheduler#TagKey]`) The list of tag keys to
+    remove from the resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1076,7 +1290,8 @@ defmodule AWS.Scheduler do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1092,20 +1307,20 @@ defmodule AWS.Scheduler do
   end
 
   @doc """
+  Updates the specified schedule. When you call `UpdateSchedule`, EventBridge
+  Scheduler uses all values, including empty values, specified in the request
+  and overrides the existing schedule. This is by design. This means that if you
+  do not set an optional field in your request, that field will be set to its
+  system-default value after the update.
 
-  Updates the specified schedule.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=scheduler%20UpdateSchedule&this_doc_guide=API%2520Reference)
 
-  When you call `UpdateSchedule`, EventBridge Scheduler uses all values, including
-  empty values, specified in the request and
-  overrides the existing schedule. This is by design. This means that if you do
-  not set an optional field in your request, that field will be set to
-  its system-default value after the update.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the schedule that you are updating.
 
-  Before calling this operation, we recommend that you call the `GetSchedule` API
-  operation and make a note of all optional parameters
-  for your `UpdateSchedule` call.
+  ## Optional parameters:
   """
-  @spec update_schedule(map(), String.t(), update_schedule_input(), list()) ::
+  @spec update_schedule(AWS.Client.t(), String.t(), update_schedule_input(), Keyword.t()) ::
           {:ok, update_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_schedule_errors()}
@@ -1114,7 +1329,8 @@ defmodule AWS.Scheduler do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

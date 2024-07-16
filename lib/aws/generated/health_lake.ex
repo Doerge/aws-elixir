@@ -4,8 +4,8 @@
 defmodule AWS.HealthLake do
   @moduledoc """
   AWS HealthLake is a HIPAA eligibile service that allows customers to store,
-  transform, query, and analyze their FHIR-formatted data in a consistent fashion
-  in the cloud.
+  transform, query, and analyze their FHIR-formatted data in a consistent
+  fashion in the cloud.
   """
 
   alias AWS.Client
@@ -670,12 +670,13 @@ defmodule AWS.HealthLake do
   @doc """
   Creates a data store that can ingest and export FHIR formatted data.
   """
-  @spec create_fhir_datastore(map(), create_fhir_datastore_request(), list()) ::
+  @spec create_fhir_datastore(AWS.Client.t(), create_fhir_datastore_request(), Keyword.t()) ::
           {:ok, create_fhir_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_fhir_datastore_errors()}
   def create_fhir_datastore(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFHIRDatastore", input, options)
   end
@@ -683,28 +684,29 @@ defmodule AWS.HealthLake do
   @doc """
   Deletes a data store.
   """
-  @spec delete_fhir_datastore(map(), delete_fhir_datastore_request(), list()) ::
+  @spec delete_fhir_datastore(AWS.Client.t(), delete_fhir_datastore_request(), Keyword.t()) ::
           {:ok, delete_fhir_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fhir_datastore_errors()}
   def delete_fhir_datastore(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFHIRDatastore", input, options)
   end
 
   @doc """
   Gets the properties associated with the FHIR data store, including the data
-  store ID,
-  data store ARN, data store name, data store status, when the data store was
-  created, data store type version, and the data store's endpoint.
+  store ID, data store ARN, data store name, data store status, when the data
+  store was created, data store type version, and the data store's endpoint.
   """
-  @spec describe_fhir_datastore(map(), describe_fhir_datastore_request(), list()) ::
+  @spec describe_fhir_datastore(AWS.Client.t(), describe_fhir_datastore_request(), Keyword.t()) ::
           {:ok, describe_fhir_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fhir_datastore_errors()}
   def describe_fhir_datastore(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFHIRDatastore", input, options)
   end
@@ -713,12 +715,13 @@ defmodule AWS.HealthLake do
   Displays the properties of a FHIR export job, including the ID, ARN, name, and
   the status of the job.
   """
-  @spec describe_fhir_export_job(map(), describe_fhir_export_job_request(), list()) ::
+  @spec describe_fhir_export_job(AWS.Client.t(), describe_fhir_export_job_request(), Keyword.t()) ::
           {:ok, describe_fhir_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fhir_export_job_errors()}
   def describe_fhir_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFHIRExportJob", input, options)
   end
@@ -727,12 +730,13 @@ defmodule AWS.HealthLake do
   Displays the properties of a FHIR import job, including the ID, ARN, name, and
   the status of the job.
   """
-  @spec describe_fhir_import_job(map(), describe_fhir_import_job_request(), list()) ::
+  @spec describe_fhir_import_job(AWS.Client.t(), describe_fhir_import_job_request(), Keyword.t()) ::
           {:ok, describe_fhir_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fhir_import_job_errors()}
   def describe_fhir_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFHIRImportJob", input, options)
   end
@@ -741,54 +745,55 @@ defmodule AWS.HealthLake do
   Lists all FHIR data stores that are in the user’s account, regardless of data
   store status.
   """
-  @spec list_fhir_datastores(map(), list_fhir_datastores_request(), list()) ::
+  @spec list_fhir_datastores(AWS.Client.t(), list_fhir_datastores_request(), Keyword.t()) ::
           {:ok, list_fhir_datastores_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fhir_datastores_errors()}
   def list_fhir_datastores(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFHIRDatastores", input, options)
   end
 
   @doc """
-
   Lists all FHIR export jobs associated with an account and their statuses.
   """
-  @spec list_fhir_export_jobs(map(), list_fhir_export_jobs_request(), list()) ::
+  @spec list_fhir_export_jobs(AWS.Client.t(), list_fhir_export_jobs_request(), Keyword.t()) ::
           {:ok, list_fhir_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fhir_export_jobs_errors()}
   def list_fhir_export_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFHIRExportJobs", input, options)
   end
 
   @doc """
-
   Lists all FHIR import jobs associated with an account and their statuses.
   """
-  @spec list_fhir_import_jobs(map(), list_fhir_import_jobs_request(), list()) ::
+  @spec list_fhir_import_jobs(AWS.Client.t(), list_fhir_import_jobs_request(), Keyword.t()) ::
           {:ok, list_fhir_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fhir_import_jobs_errors()}
   def list_fhir_import_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFHIRImportJobs", input, options)
   end
 
   @doc """
-
   Returns a list of all existing tags associated with a data store.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -796,12 +801,13 @@ defmodule AWS.HealthLake do
   @doc """
   Begins a FHIR export job.
   """
-  @spec start_fhir_export_job(map(), start_fhir_export_job_request(), list()) ::
+  @spec start_fhir_export_job(AWS.Client.t(), start_fhir_export_job_request(), Keyword.t()) ::
           {:ok, start_fhir_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_fhir_export_job_errors()}
   def start_fhir_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartFHIRExportJob", input, options)
   end
@@ -809,40 +815,41 @@ defmodule AWS.HealthLake do
   @doc """
   Begins a FHIR Import job.
   """
-  @spec start_fhir_import_job(map(), start_fhir_import_job_request(), list()) ::
+  @spec start_fhir_import_job(AWS.Client.t(), start_fhir_import_job_request(), Keyword.t()) ::
           {:ok, start_fhir_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_fhir_import_job_errors()}
   def start_fhir_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartFHIRImportJob", input, options)
   end
 
   @doc """
-
   Adds a user specified key and value tag to a data store.
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
-
   Removes tags from a data store.
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

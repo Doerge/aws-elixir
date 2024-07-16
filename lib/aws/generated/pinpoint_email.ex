@@ -3,57 +3,10 @@
 
 defmodule AWS.PinpointEmail do
   @moduledoc """
-  Amazon Pinpoint Email Service
-
-  Welcome to the *Amazon Pinpoint Email API Reference*.
-
-  This guide provides
-  information about the Amazon Pinpoint Email API (version 1.0), including
-  supported
-  operations, data types, parameters, and schemas.
-
-  [Amazon Pinpoint](https://aws.amazon.com/pinpoint) is an AWS service that you can use to engage with your customers across multiple messaging channels. You
-  can use
-  Amazon Pinpoint to send email, SMS text messages, voice messages, and push
-  notifications. The
-  Amazon Pinpoint Email API provides programmatic access to options that are
-  unique to the
-  email channel and supplement the options provided by the Amazon Pinpoint API.
-
-  If you're new to Amazon Pinpoint, you might find it helpful to also review the
-  [Amazon
-  Pinpoint Developer
-  Guide](https://docs.aws.amazon.com/pinpoint/latest/developerguide/welcome.html).
-  The *Amazon Pinpoint Developer
-  Guide* provides tutorials, code samples, and procedures that demonstrate
-  how to use Amazon Pinpoint features programmatically and how to integrate Amazon
-  Pinpoint functionality into
-  mobile apps and other types of applications. The guide also provides information
-  about
-  key topics such as Amazon Pinpoint integration with other AWS services and the
-  limits that apply
-  to using the service.
-
-  The Amazon Pinpoint Email API is available in several AWS Regions and it
-  provides an endpoint
-  for each of these Regions. For a list of all the Regions and endpoints where the
-  API is
-  currently available, see [AWS Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#pinpoint_region)
-  in
-  the *Amazon Web Services General Reference*. To learn more about AWS Regions,
-  see
-  [Managing AWS Regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) in the
-  *Amazon Web Services General Reference*.
-
-  In each Region, AWS maintains multiple Availability Zones. These Availability
-  Zones
-  are physically isolated from each other, but are united by private, low-latency,
-  high-throughput, and highly redundant network connections. These Availability
-  Zones
-  enable us to provide very high levels of availability and redundancy, while also
-  minimizing latency. To learn more about the number of Availability Zones that
-  are
-  available in each Region, see [AWS Global Infrastructure](http://aws.amazon.com/about-aws/global-infrastructure/).
+  Amazon Pinpoint Email Service Welcome to the *Amazon Pinpoint Email API
+  Reference*. This guide provides information about the Amazon Pinpoint Email
+  API (version 1.0), including supported operations, data types, parameters, and
+  schemas.
   """
 
   alias AWS.Client
@@ -1752,17 +1705,19 @@ defmodule AWS.PinpointEmail do
   end
 
   @doc """
-  Create a configuration set.
+  Create a configuration set. *Configuration sets* are groups of rules that you
+  can apply to the emails you send using Amazon Pinpoint. You apply a
+  configuration set to an email by including a reference to the configuration
+  set in the headers of the email. When you apply a configuration set to an
+  email, all of the rules in that configuration set are applied to the email.
 
-  *Configuration sets* are groups of
-  rules that you can apply to the emails you send using Amazon Pinpoint. You apply
-  a configuration
-  set to an email by including a reference to the configuration set in the headers
-  of the
-  email. When you apply a configuration set to an email, all of the rules in that
-  configuration set are applied to the email.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20CreateConfigurationSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_configuration_set(map(), create_configuration_set_request(), list()) ::
+  @spec create_configuration_set(AWS.Client.t(), create_configuration_set_request(), Keyword.t()) ::
           {:ok, create_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_set_errors()}
@@ -1771,7 +1726,8 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1787,24 +1743,26 @@ defmodule AWS.PinpointEmail do
   end
 
   @doc """
-  Create an event destination.
+  Create an event destination. In Amazon Pinpoint, *events* include message sends,
+  deliveries, opens, clicks, bounces, and complaints. *Event destinations* are
+  places that you can send information about these events to. For example, you
+  can send event data to Amazon SNS to receive notifications when you receive
+  bounces or complaints, or you can use Amazon Kinesis Data Firehose to stream
+  data to Amazon S3 for long-term storage.
 
-  In Amazon Pinpoint, *events* include message
-  sends, deliveries, opens, clicks, bounces, and complaints. *Event
-  destinations* are places that you can send information about these events
-  to. For example, you can send event data to Amazon SNS to receive notifications
-  when you
-  receive bounces or complaints, or you can use Amazon Kinesis Data Firehose to
-  stream data to Amazon S3 for long-term
-  storage.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20CreateConfigurationSetEventDestination&this_doc_guide=API%2520Reference)
 
-  A single configuration set can include more than one event destination.
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that
+    you want to add an event destination to.
+
+  ## Optional parameters:
   """
   @spec create_configuration_set_event_destination(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_configuration_set_event_destination_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1821,7 +1779,8 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1837,16 +1796,19 @@ defmodule AWS.PinpointEmail do
   end
 
   @doc """
-  Create a new pool of dedicated IP addresses.
+  Create a new pool of dedicated IP addresses. A pool can include one or more
+  dedicated IP addresses that are associated with your Amazon Pinpoint account.
+  You can associate a pool with a configuration set. When you send an email that
+  uses that configuration set, Amazon Pinpoint sends it using only the IP
+  addresses in the associated pool.
 
-  A pool can include one or more dedicated
-  IP addresses that are associated with your Amazon Pinpoint account. You can
-  associate a pool with
-  a configuration set. When you send an email that uses that configuration set,
-  Amazon Pinpoint
-  sends it using only the IP addresses in the associated pool.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20CreateDedicatedIpPool&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_dedicated_ip_pool(map(), create_dedicated_ip_pool_request(), list()) ::
+  @spec create_dedicated_ip_pool(AWS.Client.t(), create_dedicated_ip_pool_request(), Keyword.t()) ::
           {:ok, create_dedicated_ip_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dedicated_ip_pool_errors()}
@@ -1855,7 +1817,8 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1871,24 +1834,25 @@ defmodule AWS.PinpointEmail do
   end
 
   @doc """
-  Create a new predictive inbox placement test.
+  Create a new predictive inbox placement test. Predictive inbox placement tests
+  can help you predict how your messages will be handled by various email
+  providers around the world. When you perform a predictive inbox placement
+  test, you provide a sample message that contains the content that you plan to
+  send to your customers. Amazon Pinpoint then sends that message to special
+  email addresses spread across several major email providers. After about 24
+  hours, the test is complete, and you can use the `GetDeliverabilityTestReport`
+  operation to view the results of the test.
 
-  Predictive inbox placement tests can help you predict how your messages will be
-  handled
-  by various email providers around the world. When you perform a predictive inbox
-  placement test, you provide a
-  sample message that contains the content that you plan to send to your
-  customers. Amazon Pinpoint
-  then sends that message to special email addresses spread across several major
-  email
-  providers. After about 24 hours, the test is complete, and you can use the
-  `GetDeliverabilityTestReport` operation to view the results of the
-  test.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20CreateDeliverabilityTestReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_deliverability_test_report(
-          map(),
+          AWS.Client.t(),
           create_deliverability_test_report_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_deliverability_test_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1898,7 +1862,8 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1914,32 +1879,22 @@ defmodule AWS.PinpointEmail do
   end
 
   @doc """
-  Verifies an email identity for use with Amazon Pinpoint.
+  Verifies an email identity for use with Amazon Pinpoint. In Amazon Pinpoint, an
+  identity is an email address or domain that you use when you send email.
+  Before you can use an identity to send email with Amazon Pinpoint, you first
+  have to verify it. By verifying an address, you demonstrate that you're the
+  owner of the address, and that you've given Amazon Pinpoint permission to send
+  email from the address. When you verify an email address, Amazon Pinpoint
+  sends an email to the address. Your email address is verified as soon as you
+  follow the link in the verification email.
 
-  In Amazon Pinpoint, an identity is an email
-  address or domain that you use when you send email. Before you can use an
-  identity to
-  send email with Amazon Pinpoint, you first have to verify it. By verifying an
-  address, you
-  demonstrate that you're the owner of the address, and that you've given Amazon
-  Pinpoint permission
-  to send email from the address.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20CreateEmailIdentity&this_doc_guide=API%2520Reference)
 
-  When you verify an email address, Amazon Pinpoint sends an email to the address.
-  Your email
-  address is verified as soon as you follow the link in the verification email.
+  ## Parameters:
 
-  When you verify a domain, this operation provides a set of DKIM tokens, which
-  you can
-  convert into CNAME tokens. You add these CNAME tokens to the DNS configuration
-  for your
-  domain. Your domain is verified when Amazon Pinpoint detects these records in
-  the DNS
-  configuration for your domain. It usually takes around 72 hours to complete the
-  domain
-  verification process.
+  ## Optional parameters:
   """
-  @spec create_email_identity(map(), create_email_identity_request(), list()) ::
+  @spec create_email_identity(AWS.Client.t(), create_email_identity_request(), Keyword.t()) ::
           {:ok, create_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_email_identity_errors()}
@@ -1948,7 +1903,8 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1966,15 +1922,20 @@ defmodule AWS.PinpointEmail do
   @doc """
   Delete an existing configuration set.
 
-  In Amazon Pinpoint, *configuration sets* are groups of rules that you can
-  apply to the emails you send. You apply a configuration set to an email by
-  including a
-  reference to the configuration set in the headers of the email. When you apply a
-  configuration set to an email, all of the rules in that configuration set are
-  applied to
-  the email.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20DeleteConfigurationSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that
+    you want to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_configuration_set(map(), String.t(), delete_configuration_set_request(), list()) ::
+  @spec delete_configuration_set(
+          AWS.Client.t(),
+          String.t(),
+          delete_configuration_set_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_set_errors()}
@@ -1983,7 +1944,8 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2001,20 +1963,22 @@ defmodule AWS.PinpointEmail do
   @doc """
   Delete an event destination.
 
-  In Amazon Pinpoint, *events* include message sends, deliveries, opens,
-  clicks, bounces, and complaints. *Event destinations* are places that
-  you can send information about these events to. For example, you can send event
-  data to
-  Amazon SNS to receive notifications when you receive bounces or complaints, or
-  you can use
-  Amazon Kinesis Data Firehose to stream data to Amazon S3 for long-term storage.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20DeleteConfigurationSetEventDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that
+    contains the event destination that you want to delete.
+  * `:event_destination_name` (`t:string`) The name of the event destination that
+    you want to delete.
+
+  ## Optional parameters:
   """
   @spec delete_configuration_set_event_destination(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_configuration_set_event_destination_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2032,7 +1996,8 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2049,8 +2014,21 @@ defmodule AWS.PinpointEmail do
 
   @doc """
   Delete a dedicated IP pool.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20DeleteDedicatedIpPool&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:pool_name` (`t:string`) The name of the dedicated IP pool that you want to
+    delete.
+
+  ## Optional parameters:
   """
-  @spec delete_dedicated_ip_pool(map(), String.t(), delete_dedicated_ip_pool_request(), list()) ::
+  @spec delete_dedicated_ip_pool(
+          AWS.Client.t(),
+          String.t(),
+          delete_dedicated_ip_pool_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_dedicated_ip_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dedicated_ip_pool_errors()}
@@ -2059,7 +2037,8 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2076,12 +2055,22 @@ defmodule AWS.PinpointEmail do
 
   @doc """
   Deletes an email identity that you previously verified for use with Amazon
-  Pinpoint.
+  Pinpoint. An identity can be either an email address or a domain name.
 
-  An identity
-  can be either an email address or a domain name.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20DeleteEmailIdentity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:email_identity` (`t:string`) The identity (that is, the email address or
+    domain) that you want to delete from your Amazon Pinpoint account.
+
+  ## Optional parameters:
   """
-  @spec delete_email_identity(map(), String.t(), delete_email_identity_request(), list()) ::
+  @spec delete_email_identity(
+          AWS.Client.t(),
+          String.t(),
+          delete_email_identity_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_email_identity_errors()}
@@ -2090,7 +2079,8 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2107,71 +2097,133 @@ defmodule AWS.PinpointEmail do
 
   @doc """
   Obtain information about the email-sending status and capabilities of your
-  Amazon Pinpoint
-  account in the current AWS Region.
+  Amazon Pinpoint account in the current AWS Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20GetAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_account(map(), list()) ::
+  @spec get_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_errors()}
   def get_account(%Client{} = client, options \\ []) do
     url_path = "/v1/email/account"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve a list of the blacklists that your dedicated IP addresses appear on.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20GetBlacklistReports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:blacklist_item_names`
+    (`t:list[com.amazonaws.pinpointemail#BlacklistItemName]`) A list of IP
+    addresses that you want to retrieve blacklist information about. You can
+    only specify the dedicated IP addresses that you use to send email using
+    Amazon Pinpoint or Amazon SES.
+
+  ## Optional parameters:
   """
-  @spec get_blacklist_reports(map(), String.t(), list()) ::
+  @spec get_blacklist_reports(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_blacklist_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_blacklist_reports_errors()}
   def get_blacklist_reports(%Client{} = client, blacklist_item_names, options \\ []) do
     url_path = "/v1/email/deliverability-dashboard/blacklist-report"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(blacklist_item_names) do
-        [{"BlacklistItemNames", blacklist_item_names} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"BlacklistItemNames", blacklist_item_names}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get information about an existing configuration set, including the dedicated IP
-  pool
-  that it's associated with, whether or not it's enabled for sending email, and
-  more.
+  pool that it's associated with, whether or not it's enabled for sending email,
+  and more.
 
-  In Amazon Pinpoint, *configuration sets* are groups of rules that you can
-  apply to the emails you send. You apply a configuration set to an email by
-  including a
-  reference to the configuration set in the headers of the email. When you apply a
-  configuration set to an email, all of the rules in that configuration set are
-  applied to
-  the email.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20GetConfigurationSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that
+    you want to obtain more information about.
+
+  ## Optional parameters:
   """
-  @spec get_configuration_set(map(), String.t(), list()) ::
+  @spec get_configuration_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_set_errors()}
   def get_configuration_set(%Client{} = client, configuration_set_name, options \\ []) do
     url_path = "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2180,15 +2232,15 @@ defmodule AWS.PinpointEmail do
   Retrieve a list of event destinations that are associated with a configuration
   set.
 
-  In Amazon Pinpoint, *events* include message sends, deliveries, opens,
-  clicks, bounces, and complaints. *Event destinations* are places that
-  you can send information about these events to. For example, you can send event
-  data to
-  Amazon SNS to receive notifications when you receive bounces or complaints, or
-  you can use
-  Amazon Kinesis Data Firehose to stream data to Amazon S3 for long-term storage.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20GetConfigurationSetEventDestinations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that
+    contains the event destination.
+
+  ## Optional parameters:
   """
-  @spec get_configuration_set_event_destinations(map(), String.t(), list()) ::
+  @spec get_configuration_set_event_destinations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configuration_set_event_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_set_event_destinations_errors()}
@@ -2200,31 +2252,73 @@ defmodule AWS.PinpointEmail do
     url_path =
       "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get information about a dedicated IP address, including the name of the
-  dedicated IP
-  pool that it's associated with, as well information about the automatic warm-up
-  process
-  for the address.
+  dedicated IP pool that it's associated with, as well information about the
+  automatic warm-up process for the address.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20GetDedicatedIp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:ip` (`t:string`) The IP address that you want to obtain more information
+    about. The value you specify has to be a dedicated IP address that's
+    assocaited with your Amazon Pinpoint account.
+
+  ## Optional parameters:
   """
-  @spec get_dedicated_ip(map(), String.t(), list()) ::
+  @spec get_dedicated_ip(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_dedicated_ip_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dedicated_ip_errors()}
   def get_dedicated_ip(%Client{} = client, ip, options \\ []) do
     url_path = "/v1/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2232,123 +2326,240 @@ defmodule AWS.PinpointEmail do
   @doc """
   List the dedicated IP addresses that are associated with your Amazon Pinpoint
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20GetDedicatedIps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) A token returned from a previous call to
+    GetDedicatedIps to indicate the position of the dedicated IP pool in the
+    list of IP pools.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to
+    GetDedicatedIpsRequest. If the number of results is larger than the number
+    you specified in this parameter, then the response includes a NextToken
+    element, which you can use to obtain additional results.
+  * `:pool_name` (`t:string`) The name of the IP pool that the dedicated IP
+    address is associated with.
   """
-  @spec get_dedicated_ips(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec get_dedicated_ips(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_dedicated_ips_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dedicated_ips_errors()}
-  def get_dedicated_ips(
-        %Client{} = client,
-        next_token \\ nil,
-        page_size \\ nil,
-        pool_name \\ nil,
-        options \\ []
-      ) do
+  def get_dedicated_ips(%Client{} = client, options \\ []) do
     url_path = "/v1/email/dedicated-ips"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil, pool_name: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(pool_name) do
-        [{"PoolName", pool_name} | query_params]
+      if opt_val = Keyword.get(options, :pool_name) do
+        [{"PoolName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"PageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size, :pool_name])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve information about the status of the Deliverability dashboard for your
-  Amazon Pinpoint account.
+  Amazon Pinpoint account. When the Deliverability dashboard is enabled, you
+  gain access to reputation, deliverability, and other metrics for the domains
+  that you use to send email using Amazon Pinpoint. You also gain the ability to
+  perform predictive inbox placement tests.
 
-  When the Deliverability dashboard is enabled, you gain access to reputation,
-  deliverability, and
-  other metrics for the domains that you use to send email using Amazon Pinpoint.
-  You also gain the
-  ability to perform predictive inbox placement tests.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20GetDeliverabilityDashboardOptions&this_doc_guide=API%2520Reference)
 
-  When you use the Deliverability dashboard, you pay a monthly subscription
-  charge, in addition
-  to any other fees that you accrue by using Amazon Pinpoint. For more information
-  about the
-  features and cost of a Deliverability dashboard subscription, see [Amazon Pinpoint Pricing](http://aws.amazon.com/pinpoint/pricing/).
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_deliverability_dashboard_options(map(), list()) ::
+  @spec get_deliverability_dashboard_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_deliverability_dashboard_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deliverability_dashboard_options_errors()}
   def get_deliverability_dashboard_options(%Client{} = client, options \\ []) do
     url_path = "/v1/email/deliverability-dashboard"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve the results of a predictive inbox placement test.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20GetDeliverabilityTestReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:report_id` (`t:string`) A unique string that identifies the predictive inbox
+    placement test.
+
+  ## Optional parameters:
   """
-  @spec get_deliverability_test_report(map(), String.t(), list()) ::
+  @spec get_deliverability_test_report(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_deliverability_test_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deliverability_test_report_errors()}
   def get_deliverability_test_report(%Client{} = client, report_id, options \\ []) do
     url_path = "/v1/email/deliverability-dashboard/test-reports/#{AWS.Util.encode_uri(report_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieve all the deliverability data for a specific campaign.
+  Retrieve all the deliverability data for a specific campaign. This data is
+  available for a campaign only if the campaign sent email by using a domain
+  that the Deliverability dashboard is enabled for
+  (`PutDeliverabilityDashboardOption` operation).
 
-  This data is available
-  for a campaign only if the campaign sent email by using a domain that the
-  Deliverability dashboard is enabled for (`PutDeliverabilityDashboardOption`
-  operation).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20GetDomainDeliverabilityCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:campaign_id` (`t:string`) The unique identifier for the campaign. Amazon
+    Pinpoint automatically generates and assigns this identifier to a campaign.
+    This value is not the same as the campaign identifier that Amazon Pinpoint
+    assigns to campaigns that you create and manage by using the Amazon Pinpoint
+    API or the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec get_domain_deliverability_campaign(map(), String.t(), list()) ::
+  @spec get_domain_deliverability_campaign(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_domain_deliverability_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_deliverability_campaign_errors()}
   def get_domain_deliverability_campaign(%Client{} = client, campaign_id, options \\ []) do
     url_path = "/v1/email/deliverability-dashboard/campaigns/#{AWS.Util.encode_uri(campaign_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve inbox placement and engagement rates for the domains that you use to
-  send
-  email.
+  send email.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20GetDomainStatisticsReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain` (`t:string`) The domain that you want to obtain deliverability
+    metrics for.
+  * `:end_date` (`t:timestamp`) The last day (in Unix time) that you want to
+    obtain domain deliverability metrics for. The EndDate that you specify has
+    to be less than or equal to 30 days after the StartDate.
+  * `:start_date` (`t:timestamp`) The first day (in Unix time) that you want to
+    obtain domain deliverability metrics for.
+
+  ## Optional parameters:
   """
-  @spec get_domain_statistics_report(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_domain_statistics_report(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, get_domain_statistics_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_statistics_report_errors()}
@@ -2362,193 +2573,312 @@ defmodule AWS.PinpointEmail do
     url_path =
       "/v1/email/deliverability-dashboard/statistics-report/#{AWS.Util.encode_uri(domain)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(start_date) do
-        [{"StartDate", start_date} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    query_params =
-      if !is_nil(end_date) do
-        [{"EndDate", end_date} | query_params]
-      else
-        query_params
-      end
+    # Required query params
+    query_params = [{"EndDate", end_date}, {"StartDate", start_date}]
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Provides information about a specific identity associated with your Amazon
-  Pinpoint account,
-  including the identity's verification status, its DKIM authentication status,
-  and its
-  custom Mail-From settings.
+  Pinpoint account, including the identity's verification status, its DKIM
+  authentication status, and its custom Mail-From settings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20GetEmailIdentity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:email_identity` (`t:string`) The email identity that you want to retrieve
+    details for.
+
+  ## Optional parameters:
   """
-  @spec get_email_identity(map(), String.t(), list()) ::
+  @spec get_email_identity(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_email_identity_errors()}
   def get_email_identity(%Client{} = client, email_identity, options \\ []) do
     url_path = "/v1/email/identities/#{AWS.Util.encode_uri(email_identity)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List all of the configuration sets associated with your Amazon Pinpoint account
-  in the current
-  region.
+  in the current region.
 
-  In Amazon Pinpoint, *configuration sets* are groups of rules that you can
-  apply to the emails you send. You apply a configuration set to an email by
-  including a
-  reference to the configuration set in the headers of the email. When you apply a
-  configuration set to an email, all of the rules in that configuration set are
-  applied to
-  the email.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20ListConfigurationSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) A token returned from a previous call to
+    ListConfigurationSets to indicate the position in the list of configuration
+    sets.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to
+    ListConfigurationSets. If the number of results is larger than the number
+    you specified in this parameter, then the response includes a NextToken
+    element, which you can use to obtain additional results.
   """
-  @spec list_configuration_sets(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_configuration_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configuration_sets_errors()}
-  def list_configuration_sets(
-        %Client{} = client,
-        next_token \\ nil,
-        page_size \\ nil,
-        options \\ []
-      ) do
+  def list_configuration_sets(%Client{} = client, options \\ []) do
     url_path = "/v1/email/configuration-sets"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"PageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List all of the dedicated IP pools that exist in your Amazon Pinpoint account in
-  the current
-  AWS Region.
+  the current AWS Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20ListDedicatedIpPools&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) A token returned from a previous call to
+    ListDedicatedIpPools to indicate the position in the list of dedicated IP
+    pools.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to
+    ListDedicatedIpPools. If the number of results is larger than the number you
+    specified in this parameter, then the response includes a NextToken element,
+    which you can use to obtain additional results.
   """
-  @spec list_dedicated_ip_pools(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_dedicated_ip_pools(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_dedicated_ip_pools_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dedicated_ip_pools_errors()}
-  def list_dedicated_ip_pools(
-        %Client{} = client,
-        next_token \\ nil,
-        page_size \\ nil,
-        options \\ []
-      ) do
+  def list_dedicated_ip_pools(%Client{} = client, options \\ []) do
     url_path = "/v1/email/dedicated-ip-pools"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"PageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Show a list of the predictive inbox placement tests that you've performed,
-  regardless of their statuses.
+  regardless of their statuses. For predictive inbox placement tests that are
+  complete, you can use the `GetDeliverabilityTestReport` operation to view the
+  results.
 
-  For
-  predictive inbox placement tests that are complete, you can use the
-  `GetDeliverabilityTestReport`
-  operation to view the results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20ListDeliverabilityTestReports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) A token returned from a previous call to
+    ListDeliverabilityTestReports to indicate the position in the list of
+    predictive inbox placement tests.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to
+    ListDeliverabilityTestReports. If the number of results is larger than the
+    number you specified in this parameter, then the response includes a
+    NextToken element, which you can use to obtain additional results.
   """
-  @spec list_deliverability_test_reports(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_deliverability_test_reports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_deliverability_test_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deliverability_test_reports_errors()}
-  def list_deliverability_test_reports(
-        %Client{} = client,
-        next_token \\ nil,
-        page_size \\ nil,
-        options \\ []
-      ) do
+  def list_deliverability_test_reports(%Client{} = client, options \\ []) do
     url_path = "/v1/email/deliverability-dashboard/test-reports"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"PageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve deliverability data for all the campaigns that used a specific domain
-  to send
-  email during a specified time range.
+  to send email during a specified time range. This data is available for a
+  domain only if you enabled the Deliverability dashboard
+  (`PutDeliverabilityDashboardOption` operation) for the domain.
 
-  This data is available for a domain only if you
-  enabled the Deliverability dashboard (`PutDeliverabilityDashboardOption`
-  operation)
-  for the domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20ListDomainDeliverabilityCampaigns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:subscribed_domain` (`t:string`) The domain to obtain deliverability data
+    for.
+  * `:end_date` (`t:timestamp`) The last day, in Unix time format, that you want
+    to obtain deliverability data for. This value has to be less than or equal
+    to 30 days after the value of the StartDate parameter.
+  * `:start_date` (`t:timestamp`) The first day, in Unix time format, that you
+    want to obtain deliverability data for.
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) A token that’s returned from a previous call to the
+    ListDomainDeliverabilityCampaigns operation. This token indicates the
+    position of a campaign in the list of campaigns.
+  * `:page_size` (`t:integer`) The maximum number of results to include in
+    response to a single call to the ListDomainDeliverabilityCampaigns
+    operation. If the number of results is larger than the number that you
+    specify in this parameter, the response includes a NextToken element, which
+    you can use to obtain additional results.
   """
   @spec list_domain_deliverability_campaigns(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
-          String.t() | nil,
-          String.t() | nil,
           String.t(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_domain_deliverability_campaigns_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2557,131 +2887,184 @@ defmodule AWS.PinpointEmail do
         %Client{} = client,
         subscribed_domain,
         end_date,
-        next_token \\ nil,
-        page_size \\ nil,
         start_date,
         options \\ []
       ) do
     url_path =
       "/v1/email/deliverability-dashboard/domains/#{AWS.Util.encode_uri(subscribed_domain)}/campaigns"
 
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"EndDate", end_date}, {"StartDate", start_date}]
+
+    # Optional query params
     query_params =
-      if !is_nil(start_date) do
-        [{"StartDate", start_date} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"PageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    query_params =
-      if !is_nil(end_date) do
-        [{"EndDate", end_date} | query_params]
-      else
-        query_params
-      end
-
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all of the email identities that are associated with your
-  Amazon Pinpoint
-  account.
+  Amazon Pinpoint account. An identity can be either an email address or a
+  domain. This operation returns identities that are verified as well as those
+  that aren't.
 
-  An identity can be either an email address or a domain. This operation returns
-  identities that are verified as well as those that aren't.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20ListEmailIdentities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) A token returned from a previous call to
+    ListEmailIdentities to indicate the position in the list of identities.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to
+    ListEmailIdentities. If the number of results is larger than the number you
+    specified in this parameter, then the response includes a NextToken element,
+    which you can use to obtain additional results.
   """
-  @spec list_email_identities(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_email_identities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_email_identities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_email_identities_errors()}
-  def list_email_identities(
-        %Client{} = client,
-        next_token \\ nil,
-        page_size \\ nil,
-        options \\ []
-      ) do
+  def list_email_identities(%Client{} = client, options \\ []) do
     url_path = "/v1/email/identities"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"PageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve a list of the tags (keys and values) that are associated with a
-  specified
-  resource.
+  specified resource. A *tag* is a label that you optionally define and
+  associate with a resource in Amazon Pinpoint. Each tag consists of a
+  required *tag key* and an optional associated *tag value*. A tag key is a
+  general label that acts as a category for more specific tag values. A tag
+  value acts as a descriptor within a tag key.
 
-  A *tag* is a label that you optionally define and associate
-  with a resource in Amazon Pinpoint. Each tag consists of a required *tag
-  key* and an optional associated *tag value*. A tag key
-  is a general label that acts as a category for more specific tag values. A tag
-  value
-  acts as a descriptor within a tag key.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    that you want to retrieve tag information for.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/email/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(resource_arn) do
-        [{"ResourceArn", resource_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"ResourceArn", resource_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Enable or disable the automatic warm-up feature for dedicated IP addresses.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20PutAccountDedicatedIpWarmupAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec put_account_dedicated_ip_warmup_attributes(
-          map(),
+          AWS.Client.t(),
           put_account_dedicated_ip_warmup_attributes_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_account_dedicated_ip_warmup_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2691,15 +3074,26 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Enable or disable the ability of your account to send email.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20PutAccountSendingAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_account_sending_attributes(map(), put_account_sending_attributes_request(), list()) ::
+  @spec put_account_sending_attributes(
+          AWS.Client.t(),
+          put_account_sending_attributes_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_account_sending_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_account_sending_attributes_errors()}
@@ -2708,22 +3102,30 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Associate a configuration set with a dedicated IP pool.
+  Associate a configuration set with a dedicated IP pool. You can use dedicated IP
+  pools to create groups of dedicated IP addresses for sending specific types of
+  email.
 
-  You can use dedicated IP pools
-  to create groups of dedicated IP addresses for sending specific types of email.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20PutConfigurationSetDeliveryOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that
+    you want to associate with a dedicated IP pool.
+
+  ## Optional parameters:
   """
   @spec put_configuration_set_delivery_options(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_configuration_set_delivery_options_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_configuration_set_delivery_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2740,21 +3142,29 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Enable or disable collection of reputation metrics for emails that you send
-  using a
-  particular configuration set in a specific AWS Region.
+  using a particular configuration set in a specific AWS Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20PutConfigurationSetReputationOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that
+    you want to enable or disable reputation metric tracking for.
+
+  ## Optional parameters:
   """
   @spec put_configuration_set_reputation_options(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_configuration_set_reputation_options_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_configuration_set_reputation_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2771,21 +3181,29 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Enable or disable email sending for messages that use a particular configuration
-  set
-  in a specific AWS Region.
+  set in a specific AWS Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20PutConfigurationSetSendingOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that
+    you want to enable or disable email sending for.
+
+  ## Optional parameters:
   """
   @spec put_configuration_set_sending_options(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_configuration_set_sending_options_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_configuration_set_sending_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2802,21 +3220,29 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Specify a custom domain to use for open and click tracking elements in email
-  that you
-  send using Amazon Pinpoint.
+  that you send using Amazon Pinpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20PutConfigurationSetTrackingOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that
+    you want to add a custom tracking domain to.
+
+  ## Optional parameters:
   """
   @spec put_configuration_set_tracking_options(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_configuration_set_tracking_options_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_configuration_set_tracking_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2833,7 +3259,8 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -2841,14 +3268,21 @@ defmodule AWS.PinpointEmail do
   @doc """
   Move a dedicated IP address to an existing dedicated IP pool.
 
-  The dedicated IP address that you specify must already exist, and must be
-  associated with your Amazon Pinpoint account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20PutDedicatedIpInPool&this_doc_guide=API%2520Reference)
 
-  The dedicated IP pool you specify must already exist. You can create a new pool
-  by
-  using the `CreateDedicatedIpPool` operation.
+  ## Parameters:
+  * `:ip` (`t:string`) The IP address that you want to move to the dedicated IP
+    pool. The value you specify has to be a dedicated IP address that's
+    associated with your Amazon Pinpoint account.
+
+  ## Optional parameters:
   """
-  @spec put_dedicated_ip_in_pool(map(), String.t(), put_dedicated_ip_in_pool_request(), list()) ::
+  @spec put_dedicated_ip_in_pool(
+          AWS.Client.t(),
+          String.t(),
+          put_dedicated_ip_in_pool_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_dedicated_ip_in_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_dedicated_ip_in_pool_errors()}
@@ -2857,16 +3291,17 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @spec put_dedicated_ip_warmup_attributes(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_dedicated_ip_warmup_attributes_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_dedicated_ip_warmup_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2876,31 +3311,29 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Enable or disable the Deliverability dashboard for your Amazon Pinpoint account.
+  When you enable the Deliverability dashboard, you gain access to reputation,
+  deliverability, and other metrics for the domains that you use to send email
+  using Amazon Pinpoint. You also gain the ability to perform predictive inbox
+  placement tests.
 
-  When you enable the
-  Deliverability dashboard, you gain access to reputation, deliverability, and
-  other metrics for
-  the domains that you use to send email using Amazon Pinpoint. You also gain the
-  ability to perform
-  predictive inbox placement tests.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20PutDeliverabilityDashboardOption&this_doc_guide=API%2520Reference)
 
-  When you use the Deliverability dashboard, you pay a monthly subscription
-  charge, in addition
-  to any other fees that you accrue by using Amazon Pinpoint. For more information
-  about the
-  features and cost of a Deliverability dashboard subscription, see [Amazon Pinpoint Pricing](http://aws.amazon.com/pinpoint/pricing/).
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec put_deliverability_dashboard_option(
-          map(),
+          AWS.Client.t(),
           put_deliverability_dashboard_option_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_deliverability_dashboard_option_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2910,19 +3343,28 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Used to enable or disable DKIM authentication for an email identity.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20PutEmailIdentityDkimAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:email_identity` (`t:string`) The email identity that you want to change the
+    DKIM settings for.
+
+  ## Optional parameters:
   """
   @spec put_email_identity_dkim_attributes(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_email_identity_dkim_attributes_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_email_identity_dkim_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2932,40 +3374,33 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Used to enable or disable feedback forwarding for an identity.
+  Used to enable or disable feedback forwarding for an identity. This setting
+  determines what happens when an identity is used to send an email that results
+  in a bounce or complaint event. When you enable feedback forwarding, Amazon
+  Pinpoint sends you email notifications when bounce or complaint events occur.
+  Amazon Pinpoint sends this notification to the address that you specified in
+  the Return-Path header of the original email.
 
-  This setting determines
-  what happens when an identity is used to send an email that results in a bounce
-  or
-  complaint event.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20PutEmailIdentityFeedbackAttributes&this_doc_guide=API%2520Reference)
 
-  When you enable feedback forwarding, Amazon Pinpoint sends you email
-  notifications when bounce
-  or complaint events occur. Amazon Pinpoint sends this notification to the
-  address that you
-  specified in the Return-Path header of the original email.
+  ## Parameters:
+  * `:email_identity` (`t:string`) The email identity that you want to configure
+    bounce and complaint feedback forwarding for.
 
-  When you disable feedback forwarding, Amazon Pinpoint sends notifications
-  through other
-  mechanisms, such as by notifying an Amazon SNS topic. You're required to have a
-  method of
-  tracking bounces and complaints. If you haven't set up another mechanism for
-  receiving
-  bounce or complaint notifications, Amazon Pinpoint sends an email notification
-  when these events
-  occur (even if this setting is disabled).
+  ## Optional parameters:
   """
   @spec put_email_identity_feedback_attributes(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_email_identity_feedback_attributes_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_email_identity_feedback_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2980,7 +3415,8 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -2988,12 +3424,20 @@ defmodule AWS.PinpointEmail do
   @doc """
   Used to enable or disable the custom Mail-From domain configuration for an email
   identity.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20PutEmailIdentityMailFromAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:email_identity` (`t:string`) The verified email identity that you want to
+    set up the custom MAIL FROM domain for.
+
+  ## Optional parameters:
   """
   @spec put_email_identity_mail_from_attributes(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_email_identity_mail_from_attributes_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_email_identity_mail_from_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3008,32 +3452,23 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Sends an email message.
+  Sends an email message. You can use the Amazon Pinpoint Email API to send two
+  types of messages:
 
-  You can use the Amazon Pinpoint Email API to send two types of
-  messages:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20SendEmail&this_doc_guide=API%2520Reference)
 
-    *
+  ## Parameters:
 
-  **Simple** – A standard email message. When
-  you create this type of message, you specify the sender, the recipient, and the
-  message body, and Amazon Pinpoint assembles the message for you.
-
-    *
-
-  **Raw** – A raw, MIME-formatted email
-  message. When you send this type of email, you have to specify all of the
-  message headers, as well as the message body. You can use this message type to
-  send messages that contain attachments. The message that you specify has to be a
-  valid MIME message.
+  ## Optional parameters:
   """
-  @spec send_email(map(), send_email_request(), list()) ::
+  @spec send_email(AWS.Client.t(), send_email_request(), Keyword.t()) ::
           {:ok, send_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_email_errors()}
@@ -3042,7 +3477,8 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3058,23 +3494,19 @@ defmodule AWS.PinpointEmail do
   end
 
   @doc """
-  Add one or more tags (keys and values) to a specified resource.
-
-  A
-  *tag* is a label that you optionally define and associate with a
-  resource in Amazon Pinpoint. Tags can help you categorize and manage resources
-  in different ways,
+  Add one or more tags (keys and values) to a specified resource. A *tag* is a
+  label that you optionally define and associate with a resource in Amazon
+  Pinpoint. Tags can help you categorize and manage resources in different ways,
   such as by purpose, owner, environment, or other criteria. A resource can have
-  as many
-  as 50 tags.
+  as many as 50 tags.
 
-  Each tag consists of a required *tag key* and an
-  associated *tag value*, both of which you define. A tag key is a
-  general label that acts as a category for more specific tag values. A tag value
-  acts as
-  a descriptor within a tag key.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -3083,7 +3515,8 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3100,8 +3533,19 @@ defmodule AWS.PinpointEmail do
 
   @doc """
   Remove one or more tags (keys and values) from a specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    that you want to remove one or more tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.pinpointemail#TagKey]`) The tags (tag keys)
+    that you want to remove from the resource. When you specify a tag key, the
+    action removes both that key and its associated tag value.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -3116,7 +3560,8 @@ defmodule AWS.PinpointEmail do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3134,20 +3579,22 @@ defmodule AWS.PinpointEmail do
   @doc """
   Update the configuration of an event destination for a configuration set.
 
-  In Amazon Pinpoint, *events* include message sends, deliveries, opens,
-  clicks, bounces, and complaints. *Event destinations* are places that
-  you can send information about these events to. For example, you can send event
-  data to
-  Amazon SNS to receive notifications when you receive bounces or complaints, or
-  you can use
-  Amazon Kinesis Data Firehose to stream data to Amazon S3 for long-term storage.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20UpdateConfigurationSetEventDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that
+    contains the event destination that you want to modify.
+  * `:event_destination_name` (`t:string`) The name of the event destination that
+    you want to modify.
+
+  ## Optional parameters:
   """
   @spec update_configuration_set_event_destination(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_configuration_set_event_destination_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3165,7 +3612,8 @@ defmodule AWS.PinpointEmail do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

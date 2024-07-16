@@ -4,48 +4,12 @@
 defmodule AWS.WorkMail do
   @moduledoc """
   WorkMail is a secure, managed business email and calendaring service with
-  support for
-  existing desktop and mobile email clients.
-
-  You can access your email, contacts, and
-  calendars using Microsoft Outlook, your browser, or other native iOS and Android
-  email
-  applications. You can integrate WorkMail with your existing corporate directory
-  and control
-  both the keys that encrypt your data and the location in which your data is
-  stored.
-
-  The WorkMail API is designed for the following scenarios:
-
-    *
-  Listing and describing organizations
-
-    *
-  Managing users
-
-    *
-  Managing groups
-
-    *
-  Managing resources
-
-  All WorkMail API operations are Amazon-authenticated and certificate-signed.
-  They not
-  only require the use of the AWS SDK, but also allow for the exclusive use of AWS
-  Identity and Access Management
-  users and roles to help facilitate access, trust, and permission policies. By
-  creating a
-  role and allowing an IAM user to access the WorkMail site, the IAM user gains
-  full
-  administrative visibility into the entire WorkMail organization (or as set in
-  the IAM
-  policy). This includes, but is not limited to, the ability to create, update,
-  and delete
-  users, groups, and resources. This allows developers to perform the scenarios
-  listed above,
-  as well as give users the ability to grant access on a selective basis using the
-  IAM
-  model.
+  support for existing desktop and mobile email clients. You can access your
+  email, contacts, and calendars using Microsoft Outlook, your browser, or other
+  native iOS and Android email applications. You can integrate WorkMail with
+  your existing corporate directory and control both the keys that encrypt your
+  data and the location in which your data is stored. The WorkMail API is
+  designed for the following scenarios:
   """
 
   alias AWS.Client
@@ -3394,12 +3358,17 @@ defmodule AWS.WorkMail do
   @doc """
   Adds a member (user or group) to the resource's set of delegates.
   """
-  @spec associate_delegate_to_resource(map(), associate_delegate_to_resource_request(), list()) ::
+  @spec associate_delegate_to_resource(
+          AWS.Client.t(),
+          associate_delegate_to_resource_request(),
+          Keyword.t()
+        ) ::
           {:ok, associate_delegate_to_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_delegate_to_resource_errors()}
   def associate_delegate_to_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateDelegateToResource", input, options)
   end
@@ -3407,44 +3376,54 @@ defmodule AWS.WorkMail do
   @doc """
   Adds a member (user or group) to the group's set.
   """
-  @spec associate_member_to_group(map(), associate_member_to_group_request(), list()) ::
+  @spec associate_member_to_group(
+          AWS.Client.t(),
+          associate_member_to_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, associate_member_to_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_member_to_group_errors()}
   def associate_member_to_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateMemberToGroup", input, options)
   end
 
   @doc """
-  Assumes an impersonation role for the given WorkMail organization.
-
-  This method returns an
-  authentication token you can use to make impersonated calls.
+  Assumes an impersonation role for the given WorkMail organization. This method
+  returns an authentication token you can use to make impersonated calls.
   """
-  @spec assume_impersonation_role(map(), assume_impersonation_role_request(), list()) ::
+  @spec assume_impersonation_role(
+          AWS.Client.t(),
+          assume_impersonation_role_request(),
+          Keyword.t()
+        ) ::
           {:ok, assume_impersonation_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, assume_impersonation_role_errors()}
   def assume_impersonation_role(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssumeImpersonationRole", input, options)
   end
 
   @doc """
   Cancels a mailbox export job.
-
-  If the mailbox export job is near completion, it might not be possible to cancel
-  it.
   """
-  @spec cancel_mailbox_export_job(map(), cancel_mailbox_export_job_request(), list()) ::
+  @spec cancel_mailbox_export_job(
+          AWS.Client.t(),
+          cancel_mailbox_export_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, cancel_mailbox_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_mailbox_export_job_errors()}
   def cancel_mailbox_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelMailboxExportJob", input, options)
   end
@@ -3452,12 +3431,13 @@ defmodule AWS.WorkMail do
   @doc """
   Adds an alias to the set of a given member (user or group) of WorkMail.
   """
-  @spec create_alias(map(), create_alias_request(), list()) ::
+  @spec create_alias(AWS.Client.t(), create_alias_request(), Keyword.t()) ::
           {:ok, create_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_alias_errors()}
   def create_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAlias", input, options)
   end
@@ -3467,15 +3447,16 @@ defmodule AWS.WorkMail do
   domain.
   """
   @spec create_availability_configuration(
-          map(),
+          AWS.Client.t(),
           create_availability_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_availability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_availability_configuration_errors()}
   def create_availability_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAvailabilityConfiguration", input, options)
   end
@@ -3484,31 +3465,31 @@ defmodule AWS.WorkMail do
   Creates a group that can be used in WorkMail by calling the `RegisterToWorkMail`
   operation.
   """
-  @spec create_group(map(), create_group_request(), list()) ::
+  @spec create_group(AWS.Client.t(), create_group_request(), Keyword.t()) ::
           {:ok, create_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_errors()}
   def create_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGroup", input, options)
   end
 
   @doc """
   Creates an impersonation role for the given WorkMail organization.
-
-  *Idempotency* ensures that an API request completes no more than one
-  time. With an idempotent request, if the original request completes
-  successfully, any
-  subsequent retries also complete successfully without performing any further
-  actions.
   """
-  @spec create_impersonation_role(map(), create_impersonation_role_request(), list()) ::
+  @spec create_impersonation_role(
+          AWS.Client.t(),
+          create_impersonation_role_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_impersonation_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_impersonation_role_errors()}
   def create_impersonation_role(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateImpersonationRole", input, options)
   end
@@ -3517,48 +3498,44 @@ defmodule AWS.WorkMail do
   Creates a new mobile device access rule for the specified WorkMail organization.
   """
   @spec create_mobile_device_access_rule(
-          map(),
+          AWS.Client.t(),
           create_mobile_device_access_rule_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_mobile_device_access_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_mobile_device_access_rule_errors()}
   def create_mobile_device_access_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMobileDeviceAccessRule", input, options)
   end
 
   @doc """
-  Creates a new WorkMail organization.
-
-  Optionally, you can choose to associate an existing AWS Directory Service
-  directory with your organization. If an AWS Directory Service directory ID is
-  specified, the organization alias must match the directory alias. If you choose
-  not to associate an existing directory with your organization, then we create a
-  new WorkMail directory for you. For more information, see [Adding an organization](https://docs.aws.amazon.com/workmail/latest/adminguide/add_new_organization.html)
+  Creates a new WorkMail organization. Optionally, you can choose to associate an
+  existing AWS Directory Service directory with your organization. If an AWS
+  Directory Service directory ID is specified, the organization alias must match
+  the directory alias. If you choose not to associate an existing directory with
+  your organization, then we create a new WorkMail directory for you. For more
+  information, see [Adding an
+  organization](https://docs.aws.amazon.com/workmail/latest/adminguide/add_new_organization.html)
+  in the *WorkMail Administrator Guide*. You can associate multiple email
+  domains with an organization, then choose your default email domain from the
+  WorkMail console. You can also associate a domain that is managed in an Amazon
+  Route 53 public hosted zone. For more information, see [Adding a
+  domain](https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html)
+  and [Choosing the default
+  domain](https://docs.aws.amazon.com/workmail/latest/adminguide/default_domain.html)
   in the *WorkMail Administrator Guide*.
-
-  You can associate multiple email domains with an organization, then choose your
-  default email domain from the WorkMail console. You can also associate a domain
-  that is managed
-  in an Amazon Route 53 public hosted zone. For more information, see [Adding a domain](https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html)
-  and [Choosing the default domain](https://docs.aws.amazon.com/workmail/latest/adminguide/default_domain.html)
-  in the *WorkMail Administrator Guide*.
-
-  Optionally, you can use a customer managed key from AWS Key Management Service
-  (AWS
-  KMS) to encrypt email for your organization. If you don't associate an AWS KMS
-  key, WorkMail
-  creates a default, AWS managed key for you.
   """
-  @spec create_organization(map(), create_organization_request(), list()) ::
+  @spec create_organization(AWS.Client.t(), create_organization_request(), Keyword.t()) ::
           {:ok, create_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_organization_errors()}
   def create_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateOrganization", input, options)
   end
@@ -3566,12 +3543,13 @@ defmodule AWS.WorkMail do
   @doc """
   Creates a new WorkMail resource.
   """
-  @spec create_resource(map(), create_resource_request(), list()) ::
+  @spec create_resource(AWS.Client.t(), create_resource_request(), Keyword.t()) ::
           {:ok, create_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_resource_errors()}
   def create_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateResource", input, options)
   end
@@ -3580,43 +3558,45 @@ defmodule AWS.WorkMail do
   Creates a user who can be used in WorkMail by calling the `RegisterToWorkMail`
   operation.
   """
-  @spec create_user(map(), create_user_request(), list()) ::
+  @spec create_user(AWS.Client.t(), create_user_request(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUser", input, options)
   end
 
   @doc """
   Deletes an access control rule for the specified WorkMail organization.
-
-  Deleting already deleted and non-existing rules does not produce an error. In
-  those cases, the service sends back an HTTP 200 response with an empty HTTP
-  body.
   """
-  @spec delete_access_control_rule(map(), delete_access_control_rule_request(), list()) ::
+  @spec delete_access_control_rule(
+          AWS.Client.t(),
+          delete_access_control_rule_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_access_control_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_access_control_rule_errors()}
   def delete_access_control_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAccessControlRule", input, options)
   end
 
   @doc """
-  Remove one or more specified aliases from a set of aliases for a given
-  user.
+  Remove one or more specified aliases from a set of aliases for a given user.
   """
-  @spec delete_alias(map(), delete_alias_request(), list()) ::
+  @spec delete_alias(AWS.Client.t(), delete_alias_request(), Keyword.t()) ::
           {:ok, delete_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_alias_errors()}
   def delete_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAlias", input, options)
   end
@@ -3626,15 +3606,16 @@ defmodule AWS.WorkMail do
   domain.
   """
   @spec delete_availability_configuration(
-          map(),
+          AWS.Client.t(),
           delete_availability_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_availability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_availability_configuration_errors()}
   def delete_availability_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAvailabilityConfiguration", input, options)
   end
@@ -3643,15 +3624,16 @@ defmodule AWS.WorkMail do
   Deletes the email monitoring configuration for a specified organization.
   """
   @spec delete_email_monitoring_configuration(
-          map(),
+          AWS.Client.t(),
           delete_email_monitoring_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_email_monitoring_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_email_monitoring_configuration_errors()}
   def delete_email_monitoring_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEmailMonitoringConfiguration", input, options)
   end
@@ -3659,12 +3641,13 @@ defmodule AWS.WorkMail do
   @doc """
   Deletes a group from WorkMail.
   """
-  @spec delete_group(map(), delete_group_request(), list()) ::
+  @spec delete_group(AWS.Client.t(), delete_group_request(), Keyword.t()) ::
           {:ok, delete_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_group_errors()}
   def delete_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGroup", input, options)
   end
@@ -3672,12 +3655,17 @@ defmodule AWS.WorkMail do
   @doc """
   Deletes an impersonation role for the given WorkMail organization.
   """
-  @spec delete_impersonation_role(map(), delete_impersonation_role_request(), list()) ::
+  @spec delete_impersonation_role(
+          AWS.Client.t(),
+          delete_impersonation_role_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_impersonation_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_impersonation_role_errors()}
   def delete_impersonation_role(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteImpersonationRole", input, options)
   end
@@ -3685,12 +3673,17 @@ defmodule AWS.WorkMail do
   @doc """
   Deletes permissions granted to a member (user or group).
   """
-  @spec delete_mailbox_permissions(map(), delete_mailbox_permissions_request(), list()) ::
+  @spec delete_mailbox_permissions(
+          AWS.Client.t(),
+          delete_mailbox_permissions_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_mailbox_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_mailbox_permissions_errors()}
   def delete_mailbox_permissions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMailboxPermissions", input, options)
   end
@@ -3698,60 +3691,54 @@ defmodule AWS.WorkMail do
   @doc """
   Deletes the mobile device access override for the given WorkMail organization,
   user, and device.
-
-  Deleting already deleted and non-existing overrides does not produce an error.
-  In those cases, the service sends back an HTTP 200 response with an empty HTTP
-  body.
   """
   @spec delete_mobile_device_access_override(
-          map(),
+          AWS.Client.t(),
           delete_mobile_device_access_override_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_mobile_device_access_override_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_mobile_device_access_override_errors()}
   def delete_mobile_device_access_override(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMobileDeviceAccessOverride", input, options)
   end
 
   @doc """
   Deletes a mobile device access rule for the specified WorkMail organization.
-
-  Deleting already deleted and non-existing rules does not produce an error. In
-  those cases, the service sends back an HTTP 200 response with an empty HTTP
-  body.
   """
   @spec delete_mobile_device_access_rule(
-          map(),
+          AWS.Client.t(),
           delete_mobile_device_access_rule_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_mobile_device_access_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_mobile_device_access_rule_errors()}
   def delete_mobile_device_access_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMobileDeviceAccessRule", input, options)
   end
 
   @doc """
   Deletes an WorkMail organization and all underlying AWS resources managed by
-  WorkMail as part of the organization.
-
-  You can choose whether to delete the associated directory. For more information,
-  see [Removing an organization](https://docs.aws.amazon.com/workmail/latest/adminguide/remove_organization.html)
+  WorkMail as part of the organization. You can choose whether to delete the
+  associated directory. For more information, see [Removing an
+  organization](https://docs.aws.amazon.com/workmail/latest/adminguide/remove_organization.html)
   in the *WorkMail Administrator Guide*.
   """
-  @spec delete_organization(map(), delete_organization_request(), list()) ::
+  @spec delete_organization(AWS.Client.t(), delete_organization_request(), Keyword.t()) ::
           {:ok, delete_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_organization_errors()}
   def delete_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteOrganization", input, options)
   end
@@ -3759,12 +3746,13 @@ defmodule AWS.WorkMail do
   @doc """
   Deletes the specified resource.
   """
-  @spec delete_resource(map(), delete_resource_request(), list()) ::
+  @spec delete_resource(AWS.Client.t(), delete_resource_request(), Keyword.t()) ::
           {:ok, delete_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_errors()}
   def delete_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResource", input, options)
   end
@@ -3772,69 +3760,67 @@ defmodule AWS.WorkMail do
   @doc """
   Deletes the specified retention policy from the specified organization.
   """
-  @spec delete_retention_policy(map(), delete_retention_policy_request(), list()) ::
+  @spec delete_retention_policy(AWS.Client.t(), delete_retention_policy_request(), Keyword.t()) ::
           {:ok, delete_retention_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_retention_policy_errors()}
   def delete_retention_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRetentionPolicy", input, options)
   end
 
   @doc """
-  Deletes a user from WorkMail and all subsequent systems.
-
-  Before you can delete a
-  user, the user state must be `DISABLED`. Use the `DescribeUser`
-  action to confirm the user state.
-
-  Deleting a user is permanent and cannot be undone. WorkMail archives user
-  mailboxes for
-  30 days before they are permanently removed.
+  Deletes a user from WorkMail and all subsequent systems. Before you can delete a
+  user, the user state must be `DISABLED`. Use the `DescribeUser` action to
+  confirm the user state.
   """
-  @spec delete_user(map(), delete_user_request(), list()) ::
+  @spec delete_user(AWS.Client.t(), delete_user_request(), Keyword.t()) ::
           {:ok, delete_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUser", input, options)
   end
 
   @doc """
-  Mark a user, group, or resource as no longer used in WorkMail.
-
-  This action
+  Mark a user, group, or resource as no longer used in WorkMail. This action
   disassociates the mailbox and schedules it for clean-up. WorkMail keeps
-  mailboxes for 30 days
-  before they are permanently removed. The functionality in the console is
-  *Disable*.
+  mailboxes for 30 days before they are permanently removed. The functionality
+  in the console is *Disable*.
   """
-  @spec deregister_from_work_mail(map(), deregister_from_work_mail_request(), list()) ::
+  @spec deregister_from_work_mail(
+          AWS.Client.t(),
+          deregister_from_work_mail_request(),
+          Keyword.t()
+        ) ::
           {:ok, deregister_from_work_mail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_from_work_mail_errors()}
   def deregister_from_work_mail(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterFromWorkMail", input, options)
   end
 
   @doc """
   Removes a domain from WorkMail, stops email routing to WorkMail, and removes the
-  authorization allowing WorkMail use.
-
-  SES keeps the domain because other applications may use it. You must first
-  remove any email address used by WorkMail entities before you remove the domain.
+  authorization allowing WorkMail use. SES keeps the domain because other
+  applications may use it. You must first remove any email address used by
+  WorkMail entities before you remove the domain.
   """
-  @spec deregister_mail_domain(map(), deregister_mail_domain_request(), list()) ::
+  @spec deregister_mail_domain(AWS.Client.t(), deregister_mail_domain_request(), Keyword.t()) ::
           {:ok, deregister_mail_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_mail_domain_errors()}
   def deregister_mail_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterMailDomain", input, options)
   end
@@ -3844,15 +3830,16 @@ defmodule AWS.WorkMail do
   organization.
   """
   @spec describe_email_monitoring_configuration(
-          map(),
+          AWS.Client.t(),
           describe_email_monitoring_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_email_monitoring_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_email_monitoring_configuration_errors()}
   def describe_email_monitoring_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEmailMonitoringConfiguration", input, options)
   end
@@ -3860,12 +3847,13 @@ defmodule AWS.WorkMail do
   @doc """
   Returns basic details about an entity in WorkMail.
   """
-  @spec describe_entity(map(), describe_entity_request(), list()) ::
+  @spec describe_entity(AWS.Client.t(), describe_entity_request(), Keyword.t()) ::
           {:ok, describe_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_entity_errors()}
   def describe_entity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEntity", input, options)
   end
@@ -3873,12 +3861,13 @@ defmodule AWS.WorkMail do
   @doc """
   Returns the data available for the group.
   """
-  @spec describe_group(map(), describe_group_request(), list()) ::
+  @spec describe_group(AWS.Client.t(), describe_group_request(), Keyword.t()) ::
           {:ok, describe_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_group_errors()}
   def describe_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGroup", input, options)
   end
@@ -3886,12 +3875,17 @@ defmodule AWS.WorkMail do
   @doc """
   Lists the settings in a DMARC policy for a specified organization.
   """
-  @spec describe_inbound_dmarc_settings(map(), describe_inbound_dmarc_settings_request(), list()) ::
+  @spec describe_inbound_dmarc_settings(
+          AWS.Client.t(),
+          describe_inbound_dmarc_settings_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_inbound_dmarc_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_inbound_dmarc_settings_errors()}
   def describe_inbound_dmarc_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInboundDmarcSettings", input, options)
   end
@@ -3899,12 +3893,17 @@ defmodule AWS.WorkMail do
   @doc """
   Describes the current status of a mailbox export job.
   """
-  @spec describe_mailbox_export_job(map(), describe_mailbox_export_job_request(), list()) ::
+  @spec describe_mailbox_export_job(
+          AWS.Client.t(),
+          describe_mailbox_export_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_mailbox_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_mailbox_export_job_errors()}
   def describe_mailbox_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMailboxExportJob", input, options)
   end
@@ -3913,12 +3912,13 @@ defmodule AWS.WorkMail do
   Provides more information regarding a given organization based on its
   identifier.
   """
-  @spec describe_organization(map(), describe_organization_request(), list()) ::
+  @spec describe_organization(AWS.Client.t(), describe_organization_request(), Keyword.t()) ::
           {:ok, describe_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_organization_errors()}
   def describe_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOrganization", input, options)
   end
@@ -3926,12 +3926,13 @@ defmodule AWS.WorkMail do
   @doc """
   Returns the data available for the resource.
   """
-  @spec describe_resource(map(), describe_resource_request(), list()) ::
+  @spec describe_resource(AWS.Client.t(), describe_resource_request(), Keyword.t()) ::
           {:ok, describe_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_resource_errors()}
   def describe_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeResource", input, options)
   end
@@ -3939,12 +3940,13 @@ defmodule AWS.WorkMail do
   @doc """
   Provides information regarding the user.
   """
-  @spec describe_user(map(), describe_user_request(), list()) ::
+  @spec describe_user(AWS.Client.t(), describe_user_request(), Keyword.t()) ::
           {:ok, describe_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_errors()}
   def describe_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUser", input, options)
   end
@@ -3953,15 +3955,16 @@ defmodule AWS.WorkMail do
   Removes a member from the resource's set of delegates.
   """
   @spec disassociate_delegate_from_resource(
-          map(),
+          AWS.Client.t(),
           disassociate_delegate_from_resource_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_delegate_from_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_delegate_from_resource_errors()}
   def disassociate_delegate_from_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateDelegateFromResource", input, options)
   end
@@ -3969,12 +3972,17 @@ defmodule AWS.WorkMail do
   @doc """
   Removes a member from a group.
   """
-  @spec disassociate_member_from_group(map(), disassociate_member_from_group_request(), list()) ::
+  @spec disassociate_member_from_group(
+          AWS.Client.t(),
+          disassociate_member_from_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, disassociate_member_from_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_member_from_group_errors()}
   def disassociate_member_from_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateMemberFromGroup", input, options)
   end
@@ -3982,17 +3990,20 @@ defmodule AWS.WorkMail do
   @doc """
   Gets the effects of an organization's access control rules as they apply to a
   specified IPv4 address, access protocol action, and user ID or impersonation
-  role ID.
-
-  You must provide either the user ID or impersonation role ID. Impersonation role
-  ID can only be used with Action EWS.
+  role ID. You must provide either the user ID or impersonation role ID.
+  Impersonation role ID can only be used with Action EWS.
   """
-  @spec get_access_control_effect(map(), get_access_control_effect_request(), list()) ::
+  @spec get_access_control_effect(
+          AWS.Client.t(),
+          get_access_control_effect_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_access_control_effect_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_access_control_effect_errors()}
   def get_access_control_effect(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAccessControlEffect", input, options)
   end
@@ -4000,12 +4011,17 @@ defmodule AWS.WorkMail do
   @doc """
   Gets the default retention policy details for the specified organization.
   """
-  @spec get_default_retention_policy(map(), get_default_retention_policy_request(), list()) ::
+  @spec get_default_retention_policy(
+          AWS.Client.t(),
+          get_default_retention_policy_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_default_retention_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_default_retention_policy_errors()}
   def get_default_retention_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDefaultRetentionPolicy", input, options)
   end
@@ -4013,12 +4029,13 @@ defmodule AWS.WorkMail do
   @doc """
   Gets the impersonation role details for the given WorkMail organization.
   """
-  @spec get_impersonation_role(map(), get_impersonation_role_request(), list()) ::
+  @spec get_impersonation_role(AWS.Client.t(), get_impersonation_role_request(), Keyword.t()) ::
           {:ok, get_impersonation_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_impersonation_role_errors()}
   def get_impersonation_role(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetImpersonationRole", input, options)
   end
@@ -4026,12 +4043,17 @@ defmodule AWS.WorkMail do
   @doc """
   Tests whether the given impersonation role can impersonate a target user.
   """
-  @spec get_impersonation_role_effect(map(), get_impersonation_role_effect_request(), list()) ::
+  @spec get_impersonation_role_effect(
+          AWS.Client.t(),
+          get_impersonation_role_effect_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_impersonation_role_effect_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_impersonation_role_effect_errors()}
   def get_impersonation_role_effect(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetImpersonationRoleEffect", input, options)
   end
@@ -4040,12 +4062,13 @@ defmodule AWS.WorkMail do
   Gets details for a mail domain, including domain records required to configure
   your domain with recommended security.
   """
-  @spec get_mail_domain(map(), get_mail_domain_request(), list()) ::
+  @spec get_mail_domain(AWS.Client.t(), get_mail_domain_request(), Keyword.t()) ::
           {:ok, get_mail_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_mail_domain_errors()}
   def get_mail_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMailDomain", input, options)
   end
@@ -4053,29 +4076,34 @@ defmodule AWS.WorkMail do
   @doc """
   Requests a user's mailbox details for a specified organization and user.
   """
-  @spec get_mailbox_details(map(), get_mailbox_details_request(), list()) ::
+  @spec get_mailbox_details(AWS.Client.t(), get_mailbox_details_request(), Keyword.t()) ::
           {:ok, get_mailbox_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_mailbox_details_errors()}
   def get_mailbox_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMailboxDetails", input, options)
   end
 
   @doc """
   Simulates the effect of the mobile device access rules for the given attributes
-  of a sample access event.
-
-  Use this method to test the effects of the current set of mobile device access
-  rules for the WorkMail organization for a particular user's attributes.
+  of a sample access event. Use this method to test the effects of the current
+  set of mobile device access rules for the WorkMail organization for a
+  particular user's attributes.
   """
-  @spec get_mobile_device_access_effect(map(), get_mobile_device_access_effect_request(), list()) ::
+  @spec get_mobile_device_access_effect(
+          AWS.Client.t(),
+          get_mobile_device_access_effect_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_mobile_device_access_effect_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_mobile_device_access_effect_errors()}
   def get_mobile_device_access_effect(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMobileDeviceAccessEffect", input, options)
   end
@@ -4085,15 +4113,16 @@ defmodule AWS.WorkMail do
   user, and device.
   """
   @spec get_mobile_device_access_override(
-          map(),
+          AWS.Client.t(),
           get_mobile_device_access_override_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_mobile_device_access_override_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_mobile_device_access_override_errors()}
   def get_mobile_device_access_override(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMobileDeviceAccessOverride", input, options)
   end
@@ -4101,26 +4130,31 @@ defmodule AWS.WorkMail do
   @doc """
   Lists the access control rules for the specified organization.
   """
-  @spec list_access_control_rules(map(), list_access_control_rules_request(), list()) ::
+  @spec list_access_control_rules(
+          AWS.Client.t(),
+          list_access_control_rules_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_access_control_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_access_control_rules_errors()}
   def list_access_control_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAccessControlRules", input, options)
   end
 
   @doc """
-  Creates a paginated call to list the aliases associated with a given
-  entity.
+  Creates a paginated call to list the aliases associated with a given entity.
   """
-  @spec list_aliases(map(), list_aliases_request(), list()) ::
+  @spec list_aliases(AWS.Client.t(), list_aliases_request(), Keyword.t()) ::
           {:ok, list_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_aliases_errors()}
   def list_aliases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAliases", input, options)
   end
@@ -4129,31 +4163,31 @@ defmodule AWS.WorkMail do
   List all the `AvailabilityConfiguration`'s for the given WorkMail organization.
   """
   @spec list_availability_configurations(
-          map(),
+          AWS.Client.t(),
           list_availability_configurations_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_availability_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_availability_configurations_errors()}
   def list_availability_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAvailabilityConfigurations", input, options)
   end
 
   @doc """
-  Returns an overview of the members of a group.
-
-  Users and groups can be members of a
-  group.
+  Returns an overview of the members of a group. Users and groups can be members
+  of a group.
   """
-  @spec list_group_members(map(), list_group_members_request(), list()) ::
+  @spec list_group_members(AWS.Client.t(), list_group_members_request(), Keyword.t()) ::
           {:ok, list_group_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_group_members_errors()}
   def list_group_members(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGroupMembers", input, options)
   end
@@ -4161,12 +4195,13 @@ defmodule AWS.WorkMail do
   @doc """
   Returns summaries of the organization's groups.
   """
-  @spec list_groups(map(), list_groups_request(), list()) ::
+  @spec list_groups(AWS.Client.t(), list_groups_request(), Keyword.t()) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_groups_errors()}
   def list_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGroups", input, options)
   end
@@ -4174,12 +4209,13 @@ defmodule AWS.WorkMail do
   @doc """
   Returns all the groups to which an entity belongs.
   """
-  @spec list_groups_for_entity(map(), list_groups_for_entity_request(), list()) ::
+  @spec list_groups_for_entity(AWS.Client.t(), list_groups_for_entity_request(), Keyword.t()) ::
           {:ok, list_groups_for_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_groups_for_entity_errors()}
   def list_groups_for_entity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGroupsForEntity", input, options)
   end
@@ -4187,12 +4223,13 @@ defmodule AWS.WorkMail do
   @doc """
   Lists all the impersonation roles for the given WorkMail organization.
   """
-  @spec list_impersonation_roles(map(), list_impersonation_roles_request(), list()) ::
+  @spec list_impersonation_roles(AWS.Client.t(), list_impersonation_roles_request(), Keyword.t()) ::
           {:ok, list_impersonation_roles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_impersonation_roles_errors()}
   def list_impersonation_roles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListImpersonationRoles", input, options)
   end
@@ -4200,27 +4237,28 @@ defmodule AWS.WorkMail do
   @doc """
   Lists the mail domains in a given WorkMail organization.
   """
-  @spec list_mail_domains(map(), list_mail_domains_request(), list()) ::
+  @spec list_mail_domains(AWS.Client.t(), list_mail_domains_request(), Keyword.t()) ::
           {:ok, list_mail_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_mail_domains_errors()}
   def list_mail_domains(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMailDomains", input, options)
   end
 
   @doc """
   Lists the mailbox export jobs started for the specified organization within the
-  last
-  seven days.
+  last seven days.
   """
-  @spec list_mailbox_export_jobs(map(), list_mailbox_export_jobs_request(), list()) ::
+  @spec list_mailbox_export_jobs(AWS.Client.t(), list_mailbox_export_jobs_request(), Keyword.t()) ::
           {:ok, list_mailbox_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_mailbox_export_jobs_errors()}
   def list_mailbox_export_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMailboxExportJobs", input, options)
   end
@@ -4229,12 +4267,13 @@ defmodule AWS.WorkMail do
   Lists the mailbox permissions associated with a user, group, or resource
   mailbox.
   """
-  @spec list_mailbox_permissions(map(), list_mailbox_permissions_request(), list()) ::
+  @spec list_mailbox_permissions(AWS.Client.t(), list_mailbox_permissions_request(), Keyword.t()) ::
           {:ok, list_mailbox_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_mailbox_permissions_errors()}
   def list_mailbox_permissions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMailboxPermissions", input, options)
   end
@@ -4244,15 +4283,16 @@ defmodule AWS.WorkMail do
   WorkMail organization, user, or device.
   """
   @spec list_mobile_device_access_overrides(
-          map(),
+          AWS.Client.t(),
           list_mobile_device_access_overrides_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_mobile_device_access_overrides_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_mobile_device_access_overrides_errors()}
   def list_mobile_device_access_overrides(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMobileDeviceAccessOverrides", input, options)
   end
@@ -4260,12 +4300,17 @@ defmodule AWS.WorkMail do
   @doc """
   Lists the mobile device access rules for the specified WorkMail organization.
   """
-  @spec list_mobile_device_access_rules(map(), list_mobile_device_access_rules_request(), list()) ::
+  @spec list_mobile_device_access_rules(
+          AWS.Client.t(),
+          list_mobile_device_access_rules_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_mobile_device_access_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_mobile_device_access_rules_errors()}
   def list_mobile_device_access_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMobileDeviceAccessRules", input, options)
   end
@@ -4273,28 +4318,28 @@ defmodule AWS.WorkMail do
   @doc """
   Returns summaries of the customer's organizations.
   """
-  @spec list_organizations(map(), list_organizations_request(), list()) ::
+  @spec list_organizations(AWS.Client.t(), list_organizations_request(), Keyword.t()) ::
           {:ok, list_organizations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_organizations_errors()}
   def list_organizations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOrganizations", input, options)
   end
 
   @doc """
-  Lists the delegates associated with a resource.
-
-  Users and groups can be resource
+  Lists the delegates associated with a resource. Users and groups can be resource
   delegates and answer requests on behalf of the resource.
   """
-  @spec list_resource_delegates(map(), list_resource_delegates_request(), list()) ::
+  @spec list_resource_delegates(AWS.Client.t(), list_resource_delegates_request(), Keyword.t()) ::
           {:ok, list_resource_delegates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_delegates_errors()}
   def list_resource_delegates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourceDelegates", input, options)
   end
@@ -4302,12 +4347,13 @@ defmodule AWS.WorkMail do
   @doc """
   Returns summaries of the organization's resources.
   """
-  @spec list_resources(map(), list_resources_request(), list()) ::
+  @spec list_resources(AWS.Client.t(), list_resources_request(), Keyword.t()) ::
           {:ok, list_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resources_errors()}
   def list_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResources", input, options)
   end
@@ -4315,12 +4361,13 @@ defmodule AWS.WorkMail do
   @doc """
   Lists the tags applied to an WorkMail organization resource.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4328,32 +4375,30 @@ defmodule AWS.WorkMail do
   @doc """
   Returns summaries of the organization's users.
   """
-  @spec list_users(map(), list_users_request(), list()) ::
+  @spec list_users(AWS.Client.t(), list_users_request(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_users_errors()}
   def list_users(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUsers", input, options)
   end
 
   @doc """
-  Adds a new access control rule for the specified organization.
-
-  The rule allows or
-  denies access to the organization for the specified IPv4 addresses, access
-  protocol
-  actions, user IDs and impersonation IDs. Adding a new rule with the same name as
-  an existing rule replaces
-  the older rule.
+  Adds a new access control rule for the specified organization. The rule allows
+  or denies access to the organization for the specified IPv4 addresses, access
+  protocol actions, user IDs and impersonation IDs. Adding a new rule with the
+  same name as an existing rule replaces the older rule.
   """
-  @spec put_access_control_rule(map(), put_access_control_rule_request(), list()) ::
+  @spec put_access_control_rule(AWS.Client.t(), put_access_control_rule_request(), Keyword.t()) ::
           {:ok, put_access_control_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_access_control_rule_errors()}
   def put_access_control_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAccessControlRule", input, options)
   end
@@ -4363,15 +4408,16 @@ defmodule AWS.WorkMail do
   organization.
   """
   @spec put_email_monitoring_configuration(
-          map(),
+          AWS.Client.t(),
           put_email_monitoring_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_email_monitoring_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_email_monitoring_configuration_errors()}
   def put_email_monitoring_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutEmailMonitoringConfiguration", input, options)
   end
@@ -4379,28 +4425,32 @@ defmodule AWS.WorkMail do
   @doc """
   Enables or disables a DMARC policy for a given organization.
   """
-  @spec put_inbound_dmarc_settings(map(), put_inbound_dmarc_settings_request(), list()) ::
+  @spec put_inbound_dmarc_settings(
+          AWS.Client.t(),
+          put_inbound_dmarc_settings_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_inbound_dmarc_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_inbound_dmarc_settings_errors()}
   def put_inbound_dmarc_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutInboundDmarcSettings", input, options)
   end
 
   @doc """
-  Sets permissions for a user, group, or resource.
-
-  This replaces any pre-existing
+  Sets permissions for a user, group, or resource. This replaces any pre-existing
   permissions.
   """
-  @spec put_mailbox_permissions(map(), put_mailbox_permissions_request(), list()) ::
+  @spec put_mailbox_permissions(AWS.Client.t(), put_mailbox_permissions_request(), Keyword.t()) ::
           {:ok, put_mailbox_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_mailbox_permissions_errors()}
   def put_mailbox_permissions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutMailboxPermissions", input, options)
   end
@@ -4410,15 +4460,16 @@ defmodule AWS.WorkMail do
   organization, user, and device.
   """
   @spec put_mobile_device_access_override(
-          map(),
+          AWS.Client.t(),
           put_mobile_device_access_override_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_mobile_device_access_override_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_mobile_device_access_override_errors()}
   def put_mobile_device_access_override(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutMobileDeviceAccessOverride", input, options)
   end
@@ -4426,55 +4477,49 @@ defmodule AWS.WorkMail do
   @doc """
   Puts a retention policy to the specified organization.
   """
-  @spec put_retention_policy(map(), put_retention_policy_request(), list()) ::
+  @spec put_retention_policy(AWS.Client.t(), put_retention_policy_request(), Keyword.t()) ::
           {:ok, put_retention_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_retention_policy_errors()}
   def put_retention_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutRetentionPolicy", input, options)
   end
 
   @doc """
   Registers a new domain in WorkMail and SES, and configures it for use by
-  WorkMail.
-
-  Emails received by SES for this domain are routed to the specified WorkMail
-  organization, and WorkMail has
-  permanent permission to use the specified domain for sending your users' emails.
+  WorkMail. Emails received by SES for this domain are routed to the specified
+  WorkMail organization, and WorkMail has permanent permission to use the
+  specified domain for sending your users' emails.
   """
-  @spec register_mail_domain(map(), register_mail_domain_request(), list()) ::
+  @spec register_mail_domain(AWS.Client.t(), register_mail_domain_request(), Keyword.t()) ::
           {:ok, register_mail_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_mail_domain_errors()}
   def register_mail_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterMailDomain", input, options)
   end
 
   @doc """
   Registers an existing and disabled user, group, or resource for WorkMail use by
-  associating a mailbox and calendaring capabilities.
-
-  It performs no change if the user,
-  group, or resource is enabled and fails if the user, group, or resource is
-  deleted. This
-  operation results in the accumulation of costs. For more information, see
-  [Pricing](https://aws.amazon.com/workmail/pricing). The equivalent console
-  functionality for this operation is *Enable*.
-
-  Users can either be created by calling the `CreateUser` API operation
-  or they can be synchronized from your directory. For more information, see
-  `DeregisterFromWorkMail`.
+  associating a mailbox and calendaring capabilities. It performs no change if
+  the user, group, or resource is enabled and fails if the user, group, or
+  resource is deleted. This operation results in the accumulation of costs. For
+  more information, see [Pricing](https://aws.amazon.com/workmail/pricing). The
+  equivalent console functionality for this operation is *Enable*.
   """
-  @spec register_to_work_mail(map(), register_to_work_mail_request(), list()) ::
+  @spec register_to_work_mail(AWS.Client.t(), register_to_work_mail_request(), Keyword.t()) ::
           {:ok, register_to_work_mail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_to_work_mail_errors()}
   def register_to_work_mail(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterToWorkMail", input, options)
   end
@@ -4482,85 +4527,82 @@ defmodule AWS.WorkMail do
   @doc """
   Allows the administrator to reset the password for a user.
   """
-  @spec reset_password(map(), reset_password_request(), list()) ::
+  @spec reset_password(AWS.Client.t(), reset_password_request(), Keyword.t()) ::
           {:ok, reset_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_password_errors()}
   def reset_password(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetPassword", input, options)
   end
 
   @doc """
   Starts a mailbox export job to export MIME-format email messages and calendar
-  items
-  from the specified mailbox to the specified Amazon Simple Storage Service
-  (Amazon S3)
-  bucket.
-
-  For more information, see [Exporting mailbox content](https://docs.aws.amazon.com/workmail/latest/adminguide/mail-export.html)
-  in
-  the *WorkMail Administrator Guide*.
+  items from the specified mailbox to the specified Amazon Simple Storage
+  Service (Amazon S3) bucket. For more information, see [Exporting mailbox
+  content](https://docs.aws.amazon.com/workmail/latest/adminguide/mail-export.html)
+  in the *WorkMail Administrator Guide*.
   """
-  @spec start_mailbox_export_job(map(), start_mailbox_export_job_request(), list()) ::
+  @spec start_mailbox_export_job(AWS.Client.t(), start_mailbox_export_job_request(), Keyword.t()) ::
           {:ok, start_mailbox_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_mailbox_export_job_errors()}
   def start_mailbox_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMailboxExportJob", input, options)
   end
 
   @doc """
-  Applies the specified tags to the specified WorkMailorganization
-  resource.
+  Applies the specified tags to the specified WorkMailorganization resource.
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Performs a test on an availability provider to ensure that access is allowed.
-
   For EWS, it verifies the provided credentials can be used to successfully log
-  in. For Lambda, it verifies that the Lambda function can be invoked and that the
-  resource access
-  policy was configured to deny anonymous access. An anonymous invocation is one
-  done without providing either a `SourceArn` or `SourceAccount` header.
-
-  The request must contain either one provider definition (`EwsProvider` or
-  `LambdaProvider`) or the `DomainName` parameter. If the
-  `DomainName` parameter is provided, the configuration stored under the
-  `DomainName` will be tested.
+  in. For Lambda, it verifies that the Lambda function can be invoked and that
+  the resource access policy was configured to deny anonymous access. An
+  anonymous invocation is one done without providing either a `SourceArn` or
+  `SourceAccount` header.
   """
-  @spec test_availability_configuration(map(), test_availability_configuration_request(), list()) ::
+  @spec test_availability_configuration(
+          AWS.Client.t(),
+          test_availability_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, test_availability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_availability_configuration_errors()}
   def test_availability_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TestAvailabilityConfiguration", input, options)
   end
 
   @doc """
-  Untags the specified tags from the specified WorkMail organization
-  resource.
+  Untags the specified tags from the specified WorkMail organization resource.
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4570,31 +4612,36 @@ defmodule AWS.WorkMail do
   organization and domain.
   """
   @spec update_availability_configuration(
-          map(),
+          AWS.Client.t(),
           update_availability_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_availability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_availability_configuration_errors()}
   def update_availability_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAvailabilityConfiguration", input, options)
   end
 
   @doc """
-  Updates the default mail domain for an organization.
-
-  The default mail domain is used by the WorkMail AWS Console to suggest an email
-  address when enabling a mail user. You can only have one default domain.
+  Updates the default mail domain for an organization. The default mail domain is
+  used by the WorkMail AWS Console to suggest an email address when enabling a
+  mail user. You can only have one default domain.
   """
-  @spec update_default_mail_domain(map(), update_default_mail_domain_request(), list()) ::
+  @spec update_default_mail_domain(
+          AWS.Client.t(),
+          update_default_mail_domain_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_default_mail_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_default_mail_domain_errors()}
   def update_default_mail_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDefaultMailDomain", input, options)
   end
@@ -4602,12 +4649,13 @@ defmodule AWS.WorkMail do
   @doc """
   Updates attibutes in a group.
   """
-  @spec update_group(map(), update_group_request(), list()) ::
+  @spec update_group(AWS.Client.t(), update_group_request(), Keyword.t()) ::
           {:ok, update_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_group_errors()}
   def update_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGroup", input, options)
   end
@@ -4615,26 +4663,31 @@ defmodule AWS.WorkMail do
   @doc """
   Updates an impersonation role for the given WorkMail organization.
   """
-  @spec update_impersonation_role(map(), update_impersonation_role_request(), list()) ::
+  @spec update_impersonation_role(
+          AWS.Client.t(),
+          update_impersonation_role_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_impersonation_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_impersonation_role_errors()}
   def update_impersonation_role(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateImpersonationRole", input, options)
   end
 
   @doc """
-  Updates a user's current mailbox quota for a specified organization and
-  user.
+  Updates a user's current mailbox quota for a specified organization and user.
   """
-  @spec update_mailbox_quota(map(), update_mailbox_quota_request(), list()) ::
+  @spec update_mailbox_quota(AWS.Client.t(), update_mailbox_quota_request(), Keyword.t()) ::
           {:ok, update_mailbox_quota_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_mailbox_quota_errors()}
   def update_mailbox_quota(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMailboxQuota", input, options)
   end
@@ -4643,67 +4696,69 @@ defmodule AWS.WorkMail do
   Updates a mobile device access rule for the specified WorkMail organization.
   """
   @spec update_mobile_device_access_rule(
-          map(),
+          AWS.Client.t(),
           update_mobile_device_access_rule_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_mobile_device_access_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_mobile_device_access_rule_errors()}
   def update_mobile_device_access_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMobileDeviceAccessRule", input, options)
   end
 
   @doc """
-  Updates the primary email for a user, group, or resource.
-
-  The current email is moved
-  into the list of aliases (or swapped between an existing alias and the current
-  primary
-  email), and the email provided in the input is promoted as the primary.
+  Updates the primary email for a user, group, or resource. The current email is
+  moved into the list of aliases (or swapped between an existing alias and the
+  current primary email), and the email provided in the input is promoted as the
+  primary.
   """
-  @spec update_primary_email_address(map(), update_primary_email_address_request(), list()) ::
+  @spec update_primary_email_address(
+          AWS.Client.t(),
+          update_primary_email_address_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_primary_email_address_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_primary_email_address_errors()}
   def update_primary_email_address(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePrimaryEmailAddress", input, options)
   end
 
   @doc """
-  Updates data for the resource.
-
-  To have the latest information, it must be preceded by
-  a `DescribeResource` call. The dataset in the request should be the one
-  expected when performing another `DescribeResource` call.
+  Updates data for the resource. To have the latest information, it must be
+  preceded by a `DescribeResource` call. The dataset in the request should be
+  the one expected when performing another `DescribeResource` call.
   """
-  @spec update_resource(map(), update_resource_request(), list()) ::
+  @spec update_resource(AWS.Client.t(), update_resource_request(), Keyword.t()) ::
           {:ok, update_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resource_errors()}
   def update_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateResource", input, options)
   end
 
   @doc """
-  Updates data for the user.
-
-  To have the latest information, it must be preceded by a
-  `DescribeUser` call. The dataset in the request should be the one
+  Updates data for the user. To have the latest information, it must be preceded
+  by a `DescribeUser` call. The dataset in the request should be the one
   expected when performing another `DescribeUser` call.
   """
-  @spec update_user(map(), update_user_request(), list()) ::
+  @spec update_user(AWS.Client.t(), update_user_request(), Keyword.t()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUser", input, options)
   end

@@ -3,18 +3,7 @@
 
 defmodule AWS.SageMaker do
   @moduledoc """
-  Provides APIs for creating and managing SageMaker resources.
-
-  Other Resources:
-
-    *
-
-  [SageMaker Developer Guide](https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html#first-time-user)
-
-    *
-
-  [Amazon Augmented AI Runtime API
-  Reference](https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/Welcome.html)
+  Provides APIs for creating and managing SageMaker resources. Other Resources:
   """
 
   alias AWS.Client
@@ -17458,88 +17447,67 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Creates an *association* between the source and the destination.
-
-  A
-  source can be associated with multiple destinations, and a destination can be
-  associated
+  Creates an *association* between the source and the destination. A source can be
+  associated with multiple destinations, and a destination can be associated
   with multiple sources. An association is a lineage tracking entity. For more
-  information, see
-  [Amazon SageMaker ML Lineage
+  information, see [Amazon SageMaker ML Lineage
   Tracking](https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html).
   """
-  @spec add_association(map(), add_association_request(), list()) ::
+  @spec add_association(AWS.Client.t(), add_association_request(), Keyword.t()) ::
           {:ok, add_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_association_errors()}
   def add_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddAssociation", input, options)
   end
 
   @doc """
-  Adds or overwrites one or more tags for the specified SageMaker resource.
-
-  You can add
-  tags to notebook instances, training jobs, hyperparameter tuning jobs, batch
-  transform
-  jobs, models, labeling jobs, work teams, endpoint configurations, and
-  endpoints.
-
-  Each tag consists of a key and an optional value. Tag keys must be unique per
-  resource. For more information about tags, see For more information, see [Amazon Web Services Tagging
+  Adds or overwrites one or more tags for the specified SageMaker resource. You
+  can add tags to notebook instances, training jobs, hyperparameter tuning jobs,
+  batch transform jobs, models, labeling jobs, work teams, endpoint
+  configurations, and endpoints. Each tag consists of a key and an optional
+  value. Tag keys must be unique per resource. For more information about tags,
+  see For more information, see [Amazon Web Services Tagging
   Strategies](https://aws.amazon.com/answers/account-management/aws-tagging-strategies/).
-
   Tags that you add to a hyperparameter tuning job by calling this API are also
-  added to any training jobs that the hyperparameter tuning job launches after you
-  call this API, but not to training jobs that the hyperparameter tuning job
-  launched
-  before you called this API. To make sure that the tags associated with a
-  hyperparameter tuning job are also added to all training jobs that the
+  added to any training jobs that the hyperparameter tuning job launches after
+  you call this API, but not to training jobs that the hyperparameter tuning job
+  launched before you called this API. To make sure that the tags associated
+  with a hyperparameter tuning job are also added to all training jobs that the
   hyperparameter tuning job launches, add the tags when you first create the
-  tuning
-  job by specifying them in the `Tags` parameter of
-  [CreateHyperParameterTuningJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html) 
-
-  Tags that you add to a SageMaker Domain or User Profile by calling this API are
-  also added to any Apps that the Domain or User Profile launches after you call
-  this
-  API, but not to Apps that the Domain or User Profile launched before you called
-  this
-  API. To make sure that the tags associated with a Domain or User Profile are
-  also
-  added to all Apps that the Domain or User Profile launches, add the tags when
-  you
-  first create the Domain or User Profile by specifying them in the `Tags`
-  parameter of
-  [CreateDomain](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateDomain.html)
-  or
-  [CreateUserProfile](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateUserProfile.html).
+  tuning job by specifying them in the `Tags` parameter of
+  [CreateHyperParameterTuningJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html)
   """
-  @spec add_tags(map(), add_tags_input(), list()) ::
+  @spec add_tags(AWS.Client.t(), add_tags_input(), Keyword.t()) ::
           {:ok, add_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def add_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTags", input, options)
   end
 
   @doc """
-  Associates a trial component with a trial.
-
-  A trial component can be associated with
-  multiple trials. To disassociate a trial component from a trial, call the
+  Associates a trial component with a trial. A trial component can be associated
+  with multiple trials. To disassociate a trial component from a trial, call the
   [DisassociateTrialComponent](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DisassociateTrialComponent.html)
   API.
   """
-  @spec associate_trial_component(map(), associate_trial_component_request(), list()) ::
+  @spec associate_trial_component(
+          AWS.Client.t(),
+          associate_trial_component_request(),
+          Keyword.t()
+        ) ::
           {:ok, associate_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_trial_component_errors()}
   def associate_trial_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateTrialComponent", input, options)
   end
@@ -17547,31 +17515,34 @@ defmodule AWS.SageMaker do
   @doc """
   This action batch describes a list of versioned model packages
   """
-  @spec batch_describe_model_package(map(), batch_describe_model_package_input(), list()) ::
+  @spec batch_describe_model_package(
+          AWS.Client.t(),
+          batch_describe_model_package_input(),
+          Keyword.t()
+        ) ::
           {:ok, batch_describe_model_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def batch_describe_model_package(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDescribeModelPackage", input, options)
   end
 
   @doc """
-  Creates an *action*.
-
-  An action is a lineage tracking entity that
-  represents an action or activity. For example, a model deployment or an HPO job.
-  Generally, an action involves at least one input or output artifact. For more
-  information, see
-  [Amazon SageMaker ML Lineage
+  Creates an *action*. An action is a lineage tracking entity that represents an
+  action or activity. For example, a model deployment or an HPO job. Generally,
+  an action involves at least one input or output artifact. For more
+  information, see [Amazon SageMaker ML Lineage
   Tracking](https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html).
   """
-  @spec create_action(map(), create_action_request(), list()) ::
+  @spec create_action(AWS.Client.t(), create_action_request(), Keyword.t()) ::
           {:ok, create_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_action_errors()}
   def create_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAction", input, options)
   end
@@ -17580,99 +17551,77 @@ defmodule AWS.SageMaker do
   Create a machine learning algorithm that you can use in SageMaker and list in
   the Amazon Web Services Marketplace.
   """
-  @spec create_algorithm(map(), create_algorithm_input(), list()) ::
+  @spec create_algorithm(AWS.Client.t(), create_algorithm_input(), Keyword.t()) ::
           {:ok, create_algorithm_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def create_algorithm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAlgorithm", input, options)
   end
 
   @doc """
-  Creates a running app for the specified UserProfile.
-
-  This operation is automatically
-  invoked by Amazon SageMaker upon access to the associated Domain, and when new
-  kernel
-  configurations are selected by the user. A user may have multiple Apps active
-  simultaneously.
+  Creates a running app for the specified UserProfile. This operation is
+  automatically invoked by Amazon SageMaker upon access to the associated
+  Domain, and when new kernel configurations are selected by the user. A user
+  may have multiple Apps active simultaneously.
   """
-  @spec create_app(map(), create_app_request(), list()) ::
+  @spec create_app(AWS.Client.t(), create_app_request(), Keyword.t()) ::
           {:ok, create_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_errors()}
   def create_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApp", input, options)
   end
 
   @doc """
   Creates a configuration for running a SageMaker image as a KernelGateway app.
-
-  The
-  configuration specifies the Amazon Elastic File System storage volume on the
-  image, and a list of the
-  kernels in the image.
+  The configuration specifies the Amazon Elastic File System storage volume on
+  the image, and a list of the kernels in the image.
   """
-  @spec create_app_image_config(map(), create_app_image_config_request(), list()) ::
+  @spec create_app_image_config(AWS.Client.t(), create_app_image_config_request(), Keyword.t()) ::
           {:ok, create_app_image_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_image_config_errors()}
   def create_app_image_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAppImageConfig", input, options)
   end
 
   @doc """
-  Creates an *artifact*.
-
-  An artifact is a lineage tracking entity that
-  represents a URI addressable object or data. Some examples are the S3 URI of a
-  dataset and
-  the ECR registry path of an image. For more information, see
-  [Amazon SageMaker ML Lineage
+  Creates an *artifact*. An artifact is a lineage tracking entity that represents
+  a URI addressable object or data. Some examples are the S3 URI of a dataset
+  and the ECR registry path of an image. For more information, see [Amazon
+  SageMaker ML Lineage
   Tracking](https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html).
   """
-  @spec create_artifact(map(), create_artifact_request(), list()) ::
+  @spec create_artifact(AWS.Client.t(), create_artifact_request(), Keyword.t()) ::
           {:ok, create_artifact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_artifact_errors()}
   def create_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateArtifact", input, options)
   end
 
   @doc """
   Creates an Autopilot job also referred to as Autopilot experiment or AutoML job.
-
-  We recommend using the new versions
-  [CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html) and
-  [DescribeAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html),
-  which offer backward compatibility.
-
-  `CreateAutoMLJobV2` can manage tabular problem types identical to those of
-  its previous version `CreateAutoMLJob`, as well as time-series forecasting,
-  non-tabular problem types such as image or text classification, and text
-  generation
-  (LLMs fine-tuning).
-
-  Find guidelines about how to migrate a `CreateAutoMLJob` to
-  `CreateAutoMLJobV2` in [Migrate a CreateAutoMLJob to CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment.html#autopilot-create-experiment-api-migrate-v1-v2).
-
-  You can find the best-performing model after you run an AutoML job by calling
-  [DescribeAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html) (recommended) or
-  [DescribeAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html).
   """
-  @spec create_auto_ml_job(map(), create_auto_ml_job_request(), list()) ::
+  @spec create_auto_ml_job(AWS.Client.t(), create_auto_ml_job_request(), Keyword.t()) ::
           {:ok, create_auto_ml_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_auto_ml_job_errors()}
   def create_auto_ml_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAutoMLJob", input, options)
   end
@@ -17680,172 +17629,124 @@ defmodule AWS.SageMaker do
   @doc """
   Creates an Autopilot job also referred to as Autopilot experiment or AutoML job
   V2.
-
-  [CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html) and
+  [CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html)
+  and
   [DescribeAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html)
   are new versions of
-  [CreateAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html) and
+  [CreateAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html)
+  and
   [DescribeAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html)
-  which offer backward compatibility.
-
-  `CreateAutoMLJobV2` can manage tabular problem types identical to those of
-  its previous version `CreateAutoMLJob`, as well as time-series forecasting,
-  non-tabular problem types such as image or text classification, and text
-  generation
-  (LLMs fine-tuning).
-
-  Find guidelines about how to migrate a `CreateAutoMLJob` to
-  `CreateAutoMLJobV2` in [Migrate a CreateAutoMLJob to CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment.html#autopilot-create-experiment-api-migrate-v1-v2).
-
+  which offer backward compatibility. `CreateAutoMLJobV2` can manage tabular
+  problem types identical to those of its previous version `CreateAutoMLJob`, as
+  well as time-series forecasting, non-tabular problem types such as image or
+  text classification, and text generation (LLMs fine-tuning). Find guidelines
+  about how to migrate a `CreateAutoMLJob` to `CreateAutoMLJobV2` in [Migrate a
+  CreateAutoMLJob to
+  CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment.html#autopilot-create-experiment-api-migrate-v1-v2).
   For the list of available problem types supported by `CreateAutoMLJobV2`, see
-  [AutoMLProblemTypeConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLProblemTypeConfig.html). 
-  You can find the best-performing model after you run an AutoML job V2 by calling
-  [DescribeAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html).
+  [AutoMLProblemTypeConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLProblemTypeConfig.html).
   """
-  @spec create_auto_ml_job_v2(map(), create_auto_ml_job_v2_request(), list()) ::
+  @spec create_auto_ml_job_v2(AWS.Client.t(), create_auto_ml_job_v2_request(), Keyword.t()) ::
           {:ok, create_auto_ml_job_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_auto_ml_job_v2_errors()}
   def create_auto_ml_job_v2(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAutoMLJobV2", input, options)
   end
 
   @doc """
-  Creates a SageMaker HyperPod cluster.
-
-  SageMaker HyperPod is a capability of SageMaker for creating and managing
-  persistent clusters for developing large machine learning models, such as large
-  language
-  models (LLMs) and diffusion models. To learn more, see [Amazon SageMaker HyperPod](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod.html)
-  in the
-  *Amazon SageMaker Developer Guide*.
+  Creates a SageMaker HyperPod cluster. SageMaker HyperPod is a capability of
+  SageMaker for creating and managing persistent clusters for developing large
+  machine learning models, such as large language models (LLMs) and diffusion
+  models. To learn more, see [Amazon SageMaker
+  HyperPod](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod.html)
+  in the *Amazon SageMaker Developer Guide*.
   """
-  @spec create_cluster(map(), create_cluster_request(), list()) ::
+  @spec create_cluster(AWS.Client.t(), create_cluster_request(), Keyword.t()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
   end
 
   @doc """
-  Creates a Git repository as a resource in your SageMaker account.
-
-  You can associate the
-  repository with notebook instances so that you can use Git source control for
-  the
-  notebooks you create. The Git repository is a resource in your SageMaker
-  account, so it can
-  be associated with more than one notebook instance, and it persists
-  independently from
-  the lifecycle of any notebook instances it is associated with.
-
-  The repository can be hosted either in [Amazon Web Services CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html)
-  or in any other Git repository.
+  Creates a Git repository as a resource in your SageMaker account. You can
+  associate the repository with notebook instances so that you can use Git
+  source control for the notebooks you create. The Git repository is a resource
+  in your SageMaker account, so it can be associated with more than one notebook
+  instance, and it persists independently from the lifecycle of any notebook
+  instances it is associated with.
   """
-  @spec create_code_repository(map(), create_code_repository_input(), list()) ::
+  @spec create_code_repository(AWS.Client.t(), create_code_repository_input(), Keyword.t()) ::
           {:ok, create_code_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def create_code_repository(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCodeRepository", input, options)
   end
 
   @doc """
-  Starts a model compilation job.
-
-  After the model has been compiled, Amazon SageMaker saves the
-  resulting model artifacts to an Amazon Simple Storage Service (Amazon S3) bucket
-  that you specify.
-
-  If
-  you choose to host your model using Amazon SageMaker hosting services, you can
-  use the resulting
-  model artifacts as part of the model. You can also use the artifacts with
-  Amazon Web Services IoT Greengrass. In that case, deploy them as an ML
-  resource.
-
-  In the request body, you provide the following:
-
-    *
-  A name for the compilation job
-
-    *
-  Information about the input model artifacts
-
-    *
-  The output location for the compiled model and the device (target) that the
-  model runs on
-
-    *
-  The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker assumes to
-  perform
-  the model compilation job.
-
-  You can also provide a `Tag` to track the model compilation job's resource
-  use and costs. The response body contains the
-  `CompilationJobArn`
-  for the compiled job.
-
-  To stop a model compilation job, use
-  [StopCompilationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopCompilationJob.html). To get information about a particular model compilation
-  job, use
-  [DescribeCompilationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeCompilationJob.html).
-  To get information about multiple model compilation
-  jobs, use
-  [ListCompilationJobs](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListCompilationJobs.html).
+  Starts a model compilation job. After the model has been compiled, Amazon
+  SageMaker saves the resulting model artifacts to an Amazon Simple Storage
+  Service (Amazon S3) bucket that you specify. If you choose to host your model
+  using Amazon SageMaker hosting services, you can use the resulting model
+  artifacts as part of the model. You can also use the artifacts with Amazon Web
+  Services IoT Greengrass. In that case, deploy them as an ML resource.
   """
-  @spec create_compilation_job(map(), create_compilation_job_request(), list()) ::
+  @spec create_compilation_job(AWS.Client.t(), create_compilation_job_request(), Keyword.t()) ::
           {:ok, create_compilation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_compilation_job_errors()}
   def create_compilation_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCompilationJob", input, options)
   end
 
   @doc """
-  Creates a *context*.
-
-  A context is a lineage tracking entity that
-  represents a logical grouping of other tracking or experiment entities. Some
-  examples are
-  an endpoint and a model package. For more information, see
-  [Amazon SageMaker ML Lineage
+  Creates a *context*. A context is a lineage tracking entity that represents a
+  logical grouping of other tracking or experiment entities. Some examples are
+  an endpoint and a model package. For more information, see [Amazon SageMaker
+  ML Lineage
   Tracking](https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html).
   """
-  @spec create_context(map(), create_context_request(), list()) ::
+  @spec create_context(AWS.Client.t(), create_context_request(), Keyword.t()) ::
           {:ok, create_context_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_context_errors()}
   def create_context(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateContext", input, options)
   end
 
   @doc """
-  Creates a definition for a job that monitors data quality and drift.
-
-  For information
-  about model monitor, see [Amazon SageMaker Model Monitor](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html).
+  Creates a definition for a job that monitors data quality and drift. For
+  information about model monitor, see [Amazon SageMaker Model
+  Monitor](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html).
   """
   @spec create_data_quality_job_definition(
-          map(),
+          AWS.Client.t(),
           create_data_quality_job_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_data_quality_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_quality_job_definition_errors()}
   def create_data_quality_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataQualityJobDefinition", input, options)
   end
@@ -17853,98 +17754,50 @@ defmodule AWS.SageMaker do
   @doc """
   Creates a device fleet.
   """
-  @spec create_device_fleet(map(), create_device_fleet_request(), list()) ::
+  @spec create_device_fleet(AWS.Client.t(), create_device_fleet_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_device_fleet_errors()}
   def create_device_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDeviceFleet", input, options)
   end
 
   @doc """
-  Creates a `Domain`.
-
-  A domain consists of an associated Amazon Elastic File System
-  volume, a list of authorized users, and a variety of security, application,
-  policy, and
-  Amazon Virtual Private Cloud (VPC) configurations. Users within a domain can
-  share notebook files
-  and other artifacts with each other.
-
-  ## EFS storage
-
-  When a domain is created, an EFS volume is created for use by all of the users
-  within the
-  domain. Each user receives a private home directory within the EFS volume for
-  notebooks, Git
-  repositories, and data files.
-
-  SageMaker uses the Amazon Web Services Key Management Service (Amazon Web
-  Services
-  KMS) to encrypt the EFS volume attached to the domain with an Amazon Web
-  Services managed key
-  by default. For more control, you can specify a customer managed key. For more
-  information,
-  see [Protect Data at Rest Using
-  Encryption](https://docs.aws.amazon.com/sagemaker/latest/dg/encryption-at-rest.html).
-
-  ## VPC configuration
-
-  All traffic between the domain and the Amazon EFS volume is through the
-  specified
-  VPC and subnets. For other traffic, you can specify the `AppNetworkAccessType`
-  parameter. `AppNetworkAccessType` corresponds to the network access type that
-  you
-  choose when you onboard to the domain. The following options are available:
-
-    *
-
-  `PublicInternetOnly` - Non-EFS traffic goes through a VPC managed by
-  Amazon SageMaker, which allows internet access. This is the default value.
-
-    *
-
-  `VpcOnly` - All traffic is through the specified VPC and subnets. Internet
-  access is disabled by default. To allow internet access, you must specify a NAT
-  gateway.
-
-  When internet access is disabled, you won't be able to run a Amazon SageMaker
-  Studio notebook or to train or host models unless your VPC has an interface
-  endpoint to
-  the SageMaker API and runtime or a NAT gateway and your security groups allow
-  outbound connections.
-
-  NFS traffic over TCP on port 2049 needs to be allowed in both inbound and
-  outbound rules
-  in order to launch a Amazon SageMaker Studio app successfully.
-
-  For more information, see [Connect Amazon SageMaker Studio Notebooks to Resources in a
-  VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-notebooks-and-internet-access.html).
+  Creates a `Domain`. A domain consists of an associated Amazon Elastic File
+  System volume, a list of authorized users, and a variety of security,
+  application, policy, and Amazon Virtual Private Cloud (VPC) configurations.
+  Users within a domain can share notebook files and other artifacts with each
+  other. **EFS storage**
   """
-  @spec create_domain(map(), create_domain_request(), list()) ::
+  @spec create_domain(AWS.Client.t(), create_domain_request(), Keyword.t()) ::
           {:ok, create_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDomain", input, options)
   end
 
   @doc """
-  Creates an edge deployment plan, consisting of multiple stages.
-
-  Each stage may have a
-  different deployment configuration and devices.
+  Creates an edge deployment plan, consisting of multiple stages. Each stage may
+  have a different deployment configuration and devices.
   """
-  @spec create_edge_deployment_plan(map(), create_edge_deployment_plan_request(), list()) ::
+  @spec create_edge_deployment_plan(
+          AWS.Client.t(),
+          create_edge_deployment_plan_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_edge_deployment_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_edge_deployment_plan_errors()}
   def create_edge_deployment_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEdgeDeploymentPlan", input, options)
   end
@@ -17952,278 +17805,122 @@ defmodule AWS.SageMaker do
   @doc """
   Creates a new stage in an existing edge deployment plan.
   """
-  @spec create_edge_deployment_stage(map(), create_edge_deployment_stage_request(), list()) ::
+  @spec create_edge_deployment_stage(
+          AWS.Client.t(),
+          create_edge_deployment_stage_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_edge_deployment_stage_errors()}
   def create_edge_deployment_stage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEdgeDeploymentStage", input, options)
   end
 
   @doc """
-  Starts a SageMaker Edge Manager model packaging job.
-
-  Edge Manager will use the model artifacts from the Amazon Simple Storage Service
-  bucket that you specify. After the model has been packaged, Amazon SageMaker
-  saves the resulting artifacts to an S3 bucket that you specify.
+  Starts a SageMaker Edge Manager model packaging job. Edge Manager will use the
+  model artifacts from the Amazon Simple Storage Service bucket that you
+  specify. After the model has been packaged, Amazon SageMaker saves the
+  resulting artifacts to an S3 bucket that you specify.
   """
-  @spec create_edge_packaging_job(map(), create_edge_packaging_job_request(), list()) ::
+  @spec create_edge_packaging_job(
+          AWS.Client.t(),
+          create_edge_packaging_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_edge_packaging_job_errors()}
   def create_edge_packaging_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEdgePackagingJob", input, options)
   end
 
   @doc """
   Creates an endpoint using the endpoint configuration specified in the request.
-
-  SageMaker
-  uses the endpoint to provision resources and deploy models. You create the
-  endpoint
-  configuration with the
-  [CreateEndpointConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html) API.
-
-  Use this API to deploy models using SageMaker hosting services.
-
-  You must not delete an `EndpointConfig` that is in use by an endpoint
-  that is live or while the `UpdateEndpoint` or `CreateEndpoint`
-  operations are being performed on the endpoint. To update an endpoint, you must
-  create a new `EndpointConfig`.
-
-  The endpoint name must be unique within an Amazon Web Services Region in your
-  Amazon Web Services account.
-
-  When it receives the request, SageMaker creates the endpoint, launches the
-  resources (ML
-  compute instances), and deploys the model(s) on them.
-
-  When you call
-  [CreateEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html),
-  a load call is made to DynamoDB to verify that your
-  endpoint configuration exists. When you read data from a DynamoDB table
-  supporting
-  [
-  `Eventually Consistent Reads`
-  ](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html),
-  the response might not
-  reflect the results of a recently completed write operation. The response might
-  include some stale data. If the dependent entities are not yet in DynamoDB, this
-  causes a validation error. If you repeat your read request after a short time,
-  the
-  response should return the latest data. So retry logic is recommended to handle
-  these possible issues. We also recommend that customers call
-  [DescribeEndpointConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpointConfig.html) before calling
-  [CreateEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html)
-  to minimize the potential impact of a DynamoDB
-  eventually consistent read.
-
-  When SageMaker receives the request, it sets the endpoint status to
-  `Creating`. After it creates the endpoint, it sets the status to
-  `InService`. SageMaker can then process incoming requests for inferences. To
-  check the status of an endpoint, use the
-  [DescribeEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html) API.
-
-  If any of the models hosted at this endpoint get model data from an Amazon S3
-  location,
-  SageMaker uses Amazon Web Services Security Token Service to download model
-  artifacts from the
-  S3 path you provided. Amazon Web Services STS is activated in your Amazon Web
-  Services
-  account by default. If you previously deactivated Amazon Web Services STS for a
-  region,
-  you need to reactivate Amazon Web Services STS for that region. For more
-  information, see
-  [Activating and
-  Deactivating Amazon Web Services STS in an Amazon Web Services
-  Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)
-  in the
-  *Amazon Web Services Identity and Access Management User
-  Guide*.
-
-  To add the IAM role policies for using this API operation, go to the [IAM console](https://console.aws.amazon.com/iam/), and choose
-  Roles in the left navigation pane. Search the IAM role that you want to grant
-  access to use the
-  [CreateEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html) and
+  SageMaker uses the endpoint to provision resources and deploy models. You
+  create the endpoint configuration with the
   [CreateEndpointConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html)
-  API operations, add the following policies to the
-  role.
-
-    
-  Option 1: For a full SageMaker access, search and attach the
-  `AmazonSageMakerFullAccess` policy.
-
-    
-  Option 2: For granting a limited access to an IAM role, paste the
-  following Action elements manually into the JSON file of the IAM role:
-
-  ```
-  "Action": ["sagemaker:CreateEndpoint", "sagemaker:CreateEndpointConfig"]
-  ```
-
-  `"Resource": [` 
-
-  `"arn:aws:sagemaker:region:account-id:endpoint/endpointName"`
-
-  `"arn:aws:sagemaker:region:account-id:endpoint-config/endpointConfigName"`
-
-  `]`
-
-  For more information, see [SageMaker API Permissions: Actions, Permissions, and Resources
-  Reference](https://docs.aws.amazon.com/sagemaker/latest/dg/api-permissions-reference.html).
+  API. Use this API to deploy models using SageMaker hosting services. You must
+  not delete an `EndpointConfig` that is in use by an endpoint that is live or
+  while the `UpdateEndpoint` or `CreateEndpoint` operations are being performed
+  on the endpoint. To update an endpoint, you must create a new
+  `EndpointConfig`.
   """
-  @spec create_endpoint(map(), create_endpoint_input(), list()) ::
+  @spec create_endpoint(AWS.Client.t(), create_endpoint_input(), Keyword.t()) ::
           {:ok, create_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_endpoint_errors()}
   def create_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEndpoint", input, options)
   end
 
   @doc """
   Creates an endpoint configuration that SageMaker hosting services uses to deploy
-  models.
-
-  In
-  the configuration, you identify one or more models, created using the
-  `CreateModel` API, to deploy and the resources that you want SageMaker to
+  models. In the configuration, you identify one or more models, created using
+  the `CreateModel` API, to deploy and the resources that you want SageMaker to
   provision. Then you call the
-  [CreateEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html) API.
-
-  Use this API if you want to use SageMaker hosting services to deploy models into
-  production.
-
-  In the request, you define a `ProductionVariant`, for each model that you
-  want to deploy. Each `ProductionVariant` parameter also describes the
-  resources that you want SageMaker to provision. This includes the number and
-  type of ML
-  compute instances to deploy.
-
-  If you are hosting multiple models, you also assign a `VariantWeight` to
-  specify how much traffic you want to allocate to each model. For example,
-  suppose that
-  you want to host two models, A and B, and you assign traffic weight 2 for model
-  A and 1
-  for model B. SageMaker distributes two-thirds of the traffic to Model A, and
-  one-third to
-  model B.
-
-  When you call
-  [CreateEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html),
-  a load call is made to DynamoDB to verify that your
-  endpoint configuration exists. When you read data from a DynamoDB table
-  supporting
-  [
-  `Eventually Consistent Reads`
-  ](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html),
-  the response might not
-  reflect the results of a recently completed write operation. The response might
-  include some stale data. If the dependent entities are not yet in DynamoDB, this
-  causes a validation error. If you repeat your read request after a short time,
-  the
-  response should return the latest data. So retry logic is recommended to handle
-  these possible issues. We also recommend that customers call
-  [DescribeEndpointConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpointConfig.html) before calling
   [CreateEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html)
-  to minimize the potential impact of a DynamoDB
-  eventually consistent read.
+  API. Use this API if you want to use SageMaker hosting services to deploy
+  models into production. In the request, you define a `ProductionVariant`, for
+  each model that you want to deploy. Each `ProductionVariant` parameter also
+  describes the resources that you want SageMaker to provision. This includes
+  the number and type of ML compute instances to deploy.
   """
-  @spec create_endpoint_config(map(), create_endpoint_config_input(), list()) ::
+  @spec create_endpoint_config(AWS.Client.t(), create_endpoint_config_input(), Keyword.t()) ::
           {:ok, create_endpoint_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_endpoint_config_errors()}
   def create_endpoint_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEndpointConfig", input, options)
   end
 
   @doc """
-  Creates a SageMaker *experiment*.
-
-  An experiment is a collection of
-  *trials* that are observed, compared and evaluated as a group. A trial is
-  a set of steps, called *trial components*, that produce a machine learning
-  model.
-
-  In the Studio UI, trials are referred to as *run groups* and trial
-  components are referred to as *runs*.
-
-  The goal of an experiment is to determine the components that produce the best
-  model.
-  Multiple trials are performed, each one isolating and measuring the impact of a
-  change to one
-  or more inputs, while keeping the remaining inputs constant.
-
-  When you use SageMaker Studio or the SageMaker Python SDK, all experiments,
-  trials, and trial
-  components are automatically tracked, logged, and indexed. When you use the
-  Amazon Web Services SDK for Python (Boto), you
-  must use the logging APIs provided by the SDK.
-
-  You can add tags to experiments, trials, trial components and then use the
-  [Search](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html) API to search for the tags.
-
-  To add a description to an experiment, specify the optional `Description`
-  parameter. To add a description later, or to change the description, call the
-  [UpdateExperiment](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateExperiment.html)
-  API.
-
-  To get a list of all your experiments, call the
-  [ListExperiments](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListExperiments.html) API. To
-  view an experiment's properties, call the
-  [DescribeExperiment](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeExperiment.html)
-  API. To get a
-  list of all the trials associated with an experiment, call the
-  [ListTrials](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTrials.html) API. To create a trial call the
-  [CreateTrial](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrial.html)
-  API.
+  Creates a SageMaker *experiment*. An experiment is a collection of *trials* that
+  are observed, compared and evaluated as a group. A trial is a set of steps,
+  called *trial components*, that produce a machine learning model. In the
+  Studio UI, trials are referred to as *run groups* and trial components are
+  referred to as *runs*.
   """
-  @spec create_experiment(map(), create_experiment_request(), list()) ::
+  @spec create_experiment(AWS.Client.t(), create_experiment_request(), Keyword.t()) ::
           {:ok, create_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_experiment_errors()}
   def create_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateExperiment", input, options)
   end
 
   @doc """
-  Create a new `FeatureGroup`.
-
-  A `FeatureGroup` is a group of
-  `Features` defined in the `FeatureStore` to describe a
-  `Record`.
-
-  The `FeatureGroup` defines the schema and features contained in the
-  `FeatureGroup`. A `FeatureGroup` definition is composed of a list
-  of `Features`, a `RecordIdentifierFeatureName`, an
-  `EventTimeFeatureName` and configurations for its `OnlineStore`
-  and `OfflineStore`. Check [Amazon Web Services service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)
-  to see the `FeatureGroup`s quota for your Amazon Web Services
-  account.
-
-  Note that it can take approximately 10-15 minutes to provision an
-  `OnlineStore`
-  `FeatureGroup` with the `InMemory`
-  `StorageType`.
-
-  You must include at least one of `OnlineStoreConfig` and
-  `OfflineStoreConfig` to create a `FeatureGroup`.
+  Create a new `FeatureGroup`. A `FeatureGroup` is a group of `Features` defined
+  in the `FeatureStore` to describe a `Record`. The `FeatureGroup` defines the
+  schema and features contained in the `FeatureGroup`. A `FeatureGroup`
+  definition is composed of a list of `Features`, a
+  `RecordIdentifierFeatureName`, an `EventTimeFeatureName` and configurations
+  for its `OnlineStore` and `OfflineStore`. Check [Amazon Web Services service
+  quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)
+  to see the `FeatureGroup`s quota for your Amazon Web Services account.
   """
-  @spec create_feature_group(map(), create_feature_group_request(), list()) ::
+  @spec create_feature_group(AWS.Client.t(), create_feature_group_request(), Keyword.t()) ::
           {:ok, create_feature_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_feature_group_errors()}
   def create_feature_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFeatureGroup", input, options)
   end
@@ -18231,12 +17928,13 @@ defmodule AWS.SageMaker do
   @doc """
   Creates a flow definition.
   """
-  @spec create_flow_definition(map(), create_flow_definition_request(), list()) ::
+  @spec create_flow_definition(AWS.Client.t(), create_flow_definition_request(), Keyword.t()) ::
           {:ok, create_flow_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_flow_definition_errors()}
   def create_flow_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFlowDefinition", input, options)
   end
@@ -18244,12 +17942,13 @@ defmodule AWS.SageMaker do
   @doc """
   Create a hub.
   """
-  @spec create_hub(map(), create_hub_request(), list()) ::
+  @spec create_hub(AWS.Client.t(), create_hub_request(), Keyword.t()) ::
           {:ok, create_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_hub_errors()}
   def create_hub(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHub", input, options)
   end
@@ -18258,293 +17957,217 @@ defmodule AWS.SageMaker do
   Create a hub content reference in order to add a model in the JumpStart public
   hub to a private hub.
   """
-  @spec create_hub_content_reference(map(), create_hub_content_reference_request(), list()) ::
+  @spec create_hub_content_reference(
+          AWS.Client.t(),
+          create_hub_content_reference_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_hub_content_reference_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_hub_content_reference_errors()}
   def create_hub_content_reference(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHubContentReference", input, options)
   end
 
   @doc """
   Defines the settings you will use for the human review workflow user interface.
-
-  Reviewers will see a three-panel interface with an instruction area, the item to
-  review, and an input area.
+  Reviewers will see a three-panel interface with an instruction area, the item
+  to review, and an input area.
   """
-  @spec create_human_task_ui(map(), create_human_task_ui_request(), list()) ::
+  @spec create_human_task_ui(AWS.Client.t(), create_human_task_ui_request(), Keyword.t()) ::
           {:ok, create_human_task_ui_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_human_task_ui_errors()}
   def create_human_task_ui(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHumanTaskUi", input, options)
   end
 
   @doc """
-  Starts a hyperparameter tuning job.
-
-  A hyperparameter tuning job finds the best version
-  of a model by running many training jobs on your dataset using the algorithm you
-  choose
-  and values for hyperparameters within ranges that you specify. It then chooses
-  the
-  hyperparameter values that result in a model that performs the best, as measured
-  by an
-  objective metric that you choose.
-
-  A hyperparameter tuning job automatically creates Amazon SageMaker experiments,
-  trials, and
-  trial components for each training job that it runs. You can view these entities
-  in
-  Amazon SageMaker Studio. For more information, see [View Experiments, Trials, and Trial
+  Starts a hyperparameter tuning job. A hyperparameter tuning job finds the best
+  version of a model by running many training jobs on your dataset using the
+  algorithm you choose and values for hyperparameters within ranges that you
+  specify. It then chooses the hyperparameter values that result in a model that
+  performs the best, as measured by an objective metric that you choose. A
+  hyperparameter tuning job automatically creates Amazon SageMaker experiments,
+  trials, and trial components for each training job that it runs. You can view
+  these entities in Amazon SageMaker Studio. For more information, see [View
+  Experiments, Trials, and Trial
   Components](https://docs.aws.amazon.com/sagemaker/latest/dg/experiments-view-compare.html#experiments-view).
-
-  Do not include any security-sensitive information including account access IDs,
-  secrets or tokens in any hyperparameter field. If the use of security-sensitive
-  credentials are detected, SageMaker will reject your training job request and
-  return an
-  exception error.
   """
   @spec create_hyper_parameter_tuning_job(
-          map(),
+          AWS.Client.t(),
           create_hyper_parameter_tuning_job_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_hyper_parameter_tuning_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_hyper_parameter_tuning_job_errors()}
   def create_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHyperParameterTuningJob", input, options)
   end
 
   @doc """
-  Creates a custom SageMaker image.
-
-  A SageMaker image is a set of image versions. Each image
-  version represents a container image stored in Amazon ECR. For more information,
-  see
-  [Bring your own SageMaker image](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html).
+  Creates a custom SageMaker image. A SageMaker image is a set of image versions.
+  Each image version represents a container image stored in Amazon ECR. For more
+  information, see [Bring your own SageMaker
+  image](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html).
   """
-  @spec create_image(map(), create_image_request(), list()) ::
+  @spec create_image(AWS.Client.t(), create_image_request(), Keyword.t()) ::
           {:ok, create_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_image_errors()}
   def create_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateImage", input, options)
   end
 
   @doc """
-  Creates a version of the SageMaker image specified by `ImageName`.
-
-  The version
+  Creates a version of the SageMaker image specified by `ImageName`. The version
   represents the Amazon ECR container image specified by `BaseImage`.
   """
-  @spec create_image_version(map(), create_image_version_request(), list()) ::
+  @spec create_image_version(AWS.Client.t(), create_image_version_request(), Keyword.t()) ::
           {:ok, create_image_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_image_version_errors()}
   def create_image_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateImageVersion", input, options)
   end
 
   @doc """
   Creates an inference component, which is a SageMaker hosting object that you can
-  use to deploy a model to an endpoint.
-
-  In the inference component settings, you specify the
-  model, the endpoint, and how the model utilizes the resources that the endpoint
-  hosts. You
-  can optimize resource utilization by tailoring how the required CPU cores,
-  accelerators,
-  and memory are allocated. You can deploy multiple inference components to an
-  endpoint,
-  where each inference component contains one model and the resource utilization
-  needs for
-  that individual model. After you deploy an inference component, you can directly
-  invoke the
+  use to deploy a model to an endpoint. In the inference component settings, you
+  specify the model, the endpoint, and how the model utilizes the resources that
+  the endpoint hosts. You can optimize resource utilization by tailoring how the
+  required CPU cores, accelerators, and memory are allocated. You can deploy
+  multiple inference components to an endpoint, where each inference component
+  contains one model and the resource utilization needs for that individual
+  model. After you deploy an inference component, you can directly invoke the
   associated model when you use the InvokeEndpoint API action.
   """
-  @spec create_inference_component(map(), create_inference_component_input(), list()) ::
+  @spec create_inference_component(
+          AWS.Client.t(),
+          create_inference_component_input(),
+          Keyword.t()
+        ) ::
           {:ok, create_inference_component_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_inference_component_errors()}
   def create_inference_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInferenceComponent", input, options)
   end
 
   @doc """
-
   Creates an inference experiment using the configurations specified in the
-  request.
-
-  Use this API to setup and schedule an experiment to compare model variants on a
-  Amazon SageMaker inference endpoint. For
-  more information about inference experiments, see [Shadow tests](https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html).
-
-  Amazon SageMaker begins your experiment at the scheduled time and routes traffic
-  to your endpoint's model variants based
-  on your specified configuration.
-
-  While the experiment is in progress or after it has concluded, you can view
-  metrics that compare your model
-  variants. For more information, see [View, monitor, and edit shadow tests](https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests-view-monitor-edit.html).
+  request. Use this API to setup and schedule an experiment to compare model
+  variants on a Amazon SageMaker inference endpoint. For more information about
+  inference experiments, see [Shadow
+  tests](https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html).
+  Amazon SageMaker begins your experiment at the scheduled time and routes
+  traffic to your endpoint's model variants based on your specified
+  configuration.
   """
-  @spec create_inference_experiment(map(), create_inference_experiment_request(), list()) ::
+  @spec create_inference_experiment(
+          AWS.Client.t(),
+          create_inference_experiment_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_inference_experiment_errors()}
   def create_inference_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInferenceExperiment", input, options)
   end
 
   @doc """
-  Starts a recommendation job.
-
-  You can create either an instance
-  recommendation or load test job.
+  Starts a recommendation job. You can create either an instance recommendation or
+  load test job.
   """
   @spec create_inference_recommendations_job(
-          map(),
+          AWS.Client.t(),
           create_inference_recommendations_job_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_inference_recommendations_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_inference_recommendations_job_errors()}
   def create_inference_recommendations_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInferenceRecommendationsJob", input, options)
   end
 
   @doc """
   Creates a job that uses workers to label the data objects in your input dataset.
-
-  You
-  can use the labeled data to train machine learning models.
-
-  You can select your workforce from one of three providers:
-
-    *
-  A private workforce that you create. It can include employees, contractors,
-  and outside experts. Use a private workforce when want the data to stay within
-  your organization or when a specific set of skills is required.
-
-    *
-  One or more vendors that you select from the Amazon Web Services Marketplace.
-  Vendors provide
-  expertise in specific areas.
-
-    *
-  The Amazon Mechanical Turk workforce. This is the largest workforce, but it
-  should only be used for public data or data that has been stripped of any
-  personally identifiable information.
-
-  You can also use *automated data labeling* to reduce the number of
-  data objects that need to be labeled by a human. Automated data labeling uses
-  *active learning* to determine if a data object can be labeled by
-  machine or if it needs to be sent to a human worker. For more information, see
-  [Using Automated Data
-  Labeling](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-automated-labeling.html).
-
-  The data objects to be labeled are contained in an Amazon S3 bucket. You create
-  a
-  *manifest file* that describes the location of each object. For
-  more information, see [Using Input and Output Data](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-data.html).
-
-  The output can be used as the manifest file for another labeling job or as
-  training
-  data for your machine learning models.
-
-  You can use this operation to create a static labeling job or a streaming
-  labeling
-  job. A static labeling job stops if all data objects in the input manifest file
-  identified in `ManifestS3Uri` have been labeled. A streaming labeling job
-  runs perpetually until it is manually stopped, or remains idle for 10 days. You
-  can send
-  new data objects to an active (`InProgress`) streaming labeling job in real
-  time. To learn how to create a static labeling job, see [Create a Labeling Job (API)
-  ](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-create-labeling-job-api.html)
-  in the Amazon SageMaker Developer Guide. To learn how to create a streaming
-  labeling job, see [Create a Streaming Labeling Job](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-streaming-create-job.html).
+  You can use the labeled data to train machine learning models. You can select
+  your workforce from one of three providers:
   """
-  @spec create_labeling_job(map(), create_labeling_job_request(), list()) ::
+  @spec create_labeling_job(AWS.Client.t(), create_labeling_job_request(), Keyword.t()) ::
           {:ok, create_labeling_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_labeling_job_errors()}
   def create_labeling_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLabelingJob", input, options)
   end
 
   @doc """
   Creates an MLflow Tracking Server using a general purpose Amazon S3 bucket as
-  the artifact
-  store.
-
-  For more information, see [Create an MLflow Tracking Server](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server.html).
+  the artifact store. For more information, see [Create an MLflow Tracking
+  Server](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server.html).
   """
-  @spec create_mlflow_tracking_server(map(), create_mlflow_tracking_server_request(), list()) ::
+  @spec create_mlflow_tracking_server(
+          AWS.Client.t(),
+          create_mlflow_tracking_server_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_mlflow_tracking_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_mlflow_tracking_server_errors()}
   def create_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMlflowTrackingServer", input, options)
   end
 
   @doc """
-  Creates a model in SageMaker.
-
-  In the request, you name the model and describe a primary
-  container. For the primary container, you specify the Docker image that
-  contains inference code, artifacts (from prior training), and a custom
-  environment map
-  that the inference code uses when you deploy the model for predictions.
-
-  Use this API to create a model if you want to use SageMaker hosting services or
-  run a batch
-  transform job.
-
-  To host your model, you create an endpoint configuration with the
-  `CreateEndpointConfig` API, and then create an endpoint with the
-  `CreateEndpoint` API. SageMaker then deploys all of the containers that you
-  defined for the model in the hosting environment.
-
-  To run a batch transform using your model, you start a job with the
-  `CreateTransformJob` API. SageMaker uses your model and your dataset to get
-  inferences which are then saved to a specified S3 location.
-
-  In the request, you also provide an IAM role that SageMaker can assume to access
-  model
-  artifacts and docker image for deployment on ML compute hosting instances or for
-  batch
-  transform jobs. In addition, you also use the IAM role to manage permissions the
-  inference code needs. For example, if the inference code access any other Amazon
-  Web Services resources, you grant necessary permissions via this role.
+  Creates a model in SageMaker. In the request, you name the model and describe a
+  primary container. For the primary container, you specify the Docker image
+  that contains inference code, artifacts (from prior training), and a custom
+  environment map that the inference code uses when you deploy the model for
+  predictions. Use this API to create a model if you want to use SageMaker
+  hosting services or run a batch transform job.
   """
-  @spec create_model(map(), create_model_input(), list()) ::
+  @spec create_model(AWS.Client.t(), create_model_input(), Keyword.t()) ::
           {:ok, create_model_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_errors()}
   def create_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModel", input, options)
   end
@@ -18553,30 +18176,30 @@ defmodule AWS.SageMaker do
   Creates the definition for a model bias job.
   """
   @spec create_model_bias_job_definition(
-          map(),
+          AWS.Client.t(),
           create_model_bias_job_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_model_bias_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_bias_job_definition_errors()}
   def create_model_bias_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelBiasJobDefinition", input, options)
   end
 
   @doc """
   Creates an Amazon SageMaker Model Card.
-
-  For information about how to use model cards, see [Amazon SageMaker Model Card](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html).
   """
-  @spec create_model_card(map(), create_model_card_request(), list()) ::
+  @spec create_model_card(AWS.Client.t(), create_model_card_request(), Keyword.t()) ::
           {:ok, create_model_card_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_card_errors()}
   def create_model_card(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelCard", input, options)
   end
@@ -18584,12 +18207,17 @@ defmodule AWS.SageMaker do
   @doc """
   Creates an Amazon SageMaker Model Card export job.
   """
-  @spec create_model_card_export_job(map(), create_model_card_export_job_request(), list()) ::
+  @spec create_model_card_export_job(
+          AWS.Client.t(),
+          create_model_card_export_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_model_card_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_card_export_job_errors()}
   def create_model_card_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelCardExportJob", input, options)
   end
@@ -18598,86 +18226,76 @@ defmodule AWS.SageMaker do
   Creates the definition for a model explainability job.
   """
   @spec create_model_explainability_job_definition(
-          map(),
+          AWS.Client.t(),
           create_model_explainability_job_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_model_explainability_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_explainability_job_definition_errors()}
   def create_model_explainability_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelExplainabilityJobDefinition", input, options)
   end
 
   @doc """
   Creates a model package that you can use to create SageMaker models or list on
-  Amazon Web Services
-  Marketplace, or a versioned model that is part of a model group.
-
-  Buyers can subscribe to
-  model packages listed on Amazon Web Services Marketplace to create models in
-  SageMaker.
-
-  To create a model package by specifying a Docker container that contains your
-  inference code and the Amazon S3 location of your model artifacts, provide
-  values for
-  `InferenceSpecification`. To create a model from an algorithm resource
-  that you created or subscribed to in Amazon Web Services Marketplace, provide a
-  value for
-  `SourceAlgorithmSpecification`.
-
-  There are two types of model packages:
-
-    
-  Versioned - a model that is part of a model group in the model
-  registry.
-
-    
-  Unversioned - a model package that is not part of a model group.
+  Amazon Web Services Marketplace, or a versioned model that is part of a model
+  group. Buyers can subscribe to model packages listed on Amazon Web Services
+  Marketplace to create models in SageMaker. To create a model package by
+  specifying a Docker container that contains your inference code and the Amazon
+  S3 location of your model artifacts, provide values for
+  `InferenceSpecification`. To create a model from an algorithm resource that
+  you created or subscribed to in Amazon Web Services Marketplace, provide a
+  value for `SourceAlgorithmSpecification`.
   """
-  @spec create_model_package(map(), create_model_package_input(), list()) ::
+  @spec create_model_package(AWS.Client.t(), create_model_package_input(), Keyword.t()) ::
           {:ok, create_model_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_package_errors()}
   def create_model_package(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelPackage", input, options)
   end
 
   @doc """
-  Creates a model group.
-
-  A model group contains a group of model versions.
+  Creates a model group. A model group contains a group of model versions.
   """
-  @spec create_model_package_group(map(), create_model_package_group_input(), list()) ::
+  @spec create_model_package_group(
+          AWS.Client.t(),
+          create_model_package_group_input(),
+          Keyword.t()
+        ) ::
           {:ok, create_model_package_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_package_group_errors()}
   def create_model_package_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelPackageGroup", input, options)
   end
 
   @doc """
-  Creates a definition for a job that monitors model quality and drift.
-
-  For information
-  about model monitor, see [Amazon SageMaker Model Monitor](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html).
+  Creates a definition for a job that monitors model quality and drift. For
+  information about model monitor, see [Amazon SageMaker Model
+  Monitor](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html).
   """
   @spec create_model_quality_job_definition(
-          map(),
+          AWS.Client.t(),
           create_model_quality_job_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_model_quality_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_quality_job_definition_errors()}
   def create_model_quality_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelQualityJobDefinition", input, options)
   end
@@ -18686,136 +18304,75 @@ defmodule AWS.SageMaker do
   Creates a schedule that regularly starts Amazon SageMaker Processing Jobs to
   monitor the data captured for an Amazon SageMaker Endpoint.
   """
-  @spec create_monitoring_schedule(map(), create_monitoring_schedule_request(), list()) ::
+  @spec create_monitoring_schedule(
+          AWS.Client.t(),
+          create_monitoring_schedule_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_monitoring_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_monitoring_schedule_errors()}
   def create_monitoring_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMonitoringSchedule", input, options)
   end
 
   @doc """
-  Creates an SageMaker notebook instance.
-
-  A notebook instance is a machine learning (ML)
-  compute instance running on a Jupyter notebook.
-
-  In a `CreateNotebookInstance` request, specify the type of ML compute
-  instance that you want to run. SageMaker launches the instance, installs common
-  libraries
+  Creates an SageMaker notebook instance. A notebook instance is a machine
+  learning (ML) compute instance running on a Jupyter notebook. In a
+  `CreateNotebookInstance` request, specify the type of ML compute instance that
+  you want to run. SageMaker launches the instance, installs common libraries
   that you can use to explore datasets for model training, and attaches an ML
-  storage
-  volume to the notebook instance.
-
-  SageMaker also provides a set of example notebooks. Each notebook demonstrates
-  how to
-  use SageMaker with a specific algorithm or with a machine learning framework.
-
-  After receiving the request, SageMaker does the following:
-
-    1.
-  Creates a network interface in the SageMaker VPC.
-
-    2.
-  (Option) If you specified `SubnetId`, SageMaker creates a network
-  interface in your own VPC, which is inferred from the subnet ID that you provide
-  in the input. When creating this network interface, SageMaker attaches the
-  security
-  group that you specified in the request to the network interface that it creates
-  in your VPC.
-
-    3.
-  Launches an EC2 instance of the type specified in the request in the SageMaker
-  VPC. If you specified `SubnetId` of your VPC, SageMaker specifies both
-  network interfaces when launching this instance. This enables inbound traffic
-  from your own VPC to the notebook instance, assuming that the security groups
-  allow it.
-
-  After creating the notebook instance, SageMaker returns its Amazon Resource Name
-  (ARN).
-  You can't change the name of a notebook instance after you create it.
-
-  After SageMaker creates the notebook instance, you can connect to the Jupyter
-  server and
-  work in Jupyter notebooks. For example, you can write code to explore a dataset
-  that you
-  can use for model training, train a model, host models by creating SageMaker
-  endpoints, and
-  validate hosted models.
-
-  For more information, see [How It Works](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html).
+  storage volume to the notebook instance.
   """
-  @spec create_notebook_instance(map(), create_notebook_instance_input(), list()) ::
+  @spec create_notebook_instance(AWS.Client.t(), create_notebook_instance_input(), Keyword.t()) ::
           {:ok, create_notebook_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_notebook_instance_errors()}
   def create_notebook_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateNotebookInstance", input, options)
   end
 
   @doc """
   Creates a lifecycle configuration that you can associate with a notebook
-  instance.
-
-  A
-  *lifecycle configuration* is a collection of shell scripts that
-  run when you create or start a notebook instance.
-
-  Each lifecycle configuration script has a limit of 16384 characters.
-
-  The value of the `$PATH` environment variable that is available to both
-  scripts is `/sbin:bin:/usr/sbin:/usr/bin`.
-
-  View Amazon CloudWatch Logs for notebook instance lifecycle configurations in
-  log group
-  `/aws/sagemaker/NotebookInstances` in log stream
-  `[notebook-instance-name]/[LifecycleConfigHook]`.   Lifecycle configuration scripts cannot run for longer than 5 minutes. If a
-  script runs
-  for longer than 5 minutes, it fails and the notebook instance is not created or
-  started.
-
-  For information about notebook instance lifestyle configurations, see [Step
-  2.1: (Optional) Customize a Notebook
-  Instance](https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html).
+  instance. A *lifecycle configuration* is a collection of shell scripts that
+  run when you create or start a notebook instance. Each lifecycle configuration
+  script has a limit of 16384 characters.
   """
   @spec create_notebook_instance_lifecycle_config(
-          map(),
+          AWS.Client.t(),
           create_notebook_instance_lifecycle_config_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_notebook_instance_lifecycle_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_notebook_instance_lifecycle_config_errors()}
   def create_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateNotebookInstanceLifecycleConfig", input, options)
   end
 
   @doc """
-  Creates a job that optimizes a model for inference performance.
-
-  To create the job, you
-  provide the location of a source model, and you provide the settings for the
-  optimization
-  techniques that you want the job to apply. When the job completes successfully,
-  SageMaker
-  uploads the new optimized model to the output destination that you specify.
-
-  For more information about how to use this action, and about the supported
-  optimization
-  techniques, see [Optimize model inference with Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/model-optimize.html).
+  Creates a job that optimizes a model for inference performance. To create the
+  job, you provide the location of a source model, and you provide the settings
+  for the optimization techniques that you want the job to apply. When the job
+  completes successfully, SageMaker uploads the new optimized model to the
+  output destination that you specify.
   """
-  @spec create_optimization_job(map(), create_optimization_job_request(), list()) ::
+  @spec create_optimization_job(AWS.Client.t(), create_optimization_job_request(), Keyword.t()) ::
           {:ok, create_optimization_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_optimization_job_errors()}
   def create_optimization_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateOptimizationJob", input, options)
   end
@@ -18823,115 +18380,85 @@ defmodule AWS.SageMaker do
   @doc """
   Creates a pipeline using a JSON pipeline definition.
   """
-  @spec create_pipeline(map(), create_pipeline_request(), list()) ::
+  @spec create_pipeline(AWS.Client.t(), create_pipeline_request(), Keyword.t()) ::
           {:ok, create_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pipeline_errors()}
   def create_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePipeline", input, options)
   end
 
   @doc """
-  Creates a URL for a specified UserProfile in a Domain.
-
-  When accessed in a web browser, the
-  user will be automatically signed in to the domain, and granted access to all of
-  the Apps and
-  files associated with the Domain's Amazon Elastic File System volume. This
-  operation can only be
-  called when the authentication mode equals IAM.
-
-  The IAM role or user passed to this API defines the permissions to access
-  the app. Once the presigned URL is created, no additional permission is required
-  to access
-  this URL. IAM authorization policies for this API are also enforced for every
-  HTTP request and WebSocket frame that attempts to connect to the app.
-
-  You can restrict access to this API and to the URL that it returns to a list of
-  IP
-  addresses, Amazon VPCs or Amazon VPC Endpoints that you specify. For more
-  information, see [Connect to Amazon SageMaker Studio Through an Interface VPC
-  Endpoint](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-interface-endpoint.html)
-  .
-
-  The URL that you get from a call to `CreatePresignedDomainUrl` has a default
-  timeout of 5 minutes. You can configure this value using `ExpiresInSeconds`. If
-  you try to use the URL after the timeout limit expires, you are directed to the
-  Amazon Web Services console sign-in page.
+  Creates a URL for a specified UserProfile in a Domain. When accessed in a web
+  browser, the user will be automatically signed in to the domain, and granted
+  access to all of the Apps and files associated with the Domain's Amazon
+  Elastic File System volume. This operation can only be called when the
+  authentication mode equals IAM. The IAM role or user passed to this API
+  defines the permissions to access the app. Once the presigned URL is created,
+  no additional permission is required to access this URL. IAM authorization
+  policies for this API are also enforced for every HTTP request and WebSocket
+  frame that attempts to connect to the app.
   """
-  @spec create_presigned_domain_url(map(), create_presigned_domain_url_request(), list()) ::
+  @spec create_presigned_domain_url(
+          AWS.Client.t(),
+          create_presigned_domain_url_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_presigned_domain_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_presigned_domain_url_errors()}
   def create_presigned_domain_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePresignedDomainUrl", input, options)
   end
 
   @doc """
   Returns a presigned URL that you can use to connect to the MLflow UI attached to
-  your
-  tracking server.
-
-  For more information, see [Launch the MLflow UI using a presigned URL](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-launch-ui.html).
+  your tracking server. For more information, see [Launch the MLflow UI using a
+  presigned
+  URL](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-launch-ui.html).
   """
   @spec create_presigned_mlflow_tracking_server_url(
-          map(),
+          AWS.Client.t(),
           create_presigned_mlflow_tracking_server_url_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_presigned_mlflow_tracking_server_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_presigned_mlflow_tracking_server_url_errors()}
   def create_presigned_mlflow_tracking_server_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePresignedMlflowTrackingServerUrl", input, options)
   end
 
   @doc """
   Returns a URL that you can use to connect to the Jupyter server from a notebook
-  instance.
-
-  In the SageMaker console, when you choose `Open` next to a notebook
+  instance. In the SageMaker console, when you choose `Open` next to a notebook
   instance, SageMaker opens a new tab showing the Jupyter server home page from
-  the notebook
-  instance. The console uses this API to get the URL and show the page.
-
-  The IAM role or user used to call this API defines the permissions to access the
-  notebook instance. Once the presigned URL is created, no additional permission
-  is
-  required to access this URL. IAM authorization policies for this API are also
-  enforced
-  for every HTTP request and WebSocket frame that attempts to connect to the
-  notebook
-  instance.
-
-  You can restrict access to this API and to the URL that it returns to a list of
-  IP
-  addresses that you specify. Use the `NotIpAddress` condition operator and the
-  `aws:SourceIP` condition context key to specify the list of IP addresses
-  that you want to have access to the notebook instance. For more information, see
-  [Limit Access to a Notebook Instance by IP Address](https://docs.aws.amazon.com/sagemaker/latest/dg/security_iam_id-based-policy-examples.html#nbi-ip-filter).
-
-  The URL that you get from a call to
-  [CreatePresignedNotebookInstanceUrl](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreatePresignedNotebookInstanceUrl.html)
-  is valid only for 5 minutes. If you
-  try to use the URL after the 5-minute limit expires, you are directed to the
-  Amazon Web Services console sign-in page.
+  the notebook instance. The console uses this API to get the URL and show the
+  page. The IAM role or user used to call this API defines the permissions to
+  access the notebook instance. Once the presigned URL is created, no additional
+  permission is required to access this URL. IAM authorization policies for this
+  API are also enforced for every HTTP request and WebSocket frame that attempts
+  to connect to the notebook instance.
   """
   @spec create_presigned_notebook_instance_url(
-          map(),
+          AWS.Client.t(),
           create_presigned_notebook_instance_url_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_presigned_notebook_instance_url_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def create_presigned_notebook_instance_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePresignedNotebookInstanceUrl", input, options)
   end
@@ -18939,27 +18466,28 @@ defmodule AWS.SageMaker do
   @doc """
   Creates a processing job.
   """
-  @spec create_processing_job(map(), create_processing_job_request(), list()) ::
+  @spec create_processing_job(AWS.Client.t(), create_processing_job_request(), Keyword.t()) ::
           {:ok, create_processing_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_processing_job_errors()}
   def create_processing_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProcessingJob", input, options)
   end
 
   @doc """
   Creates a machine learning (ML) project that can contain one or more templates
-  that set
-  up an ML pipeline from training to deploying an approved model.
+  that set up an ML pipeline from training to deploying an approved model.
   """
-  @spec create_project(map(), create_project_input(), list()) ::
+  @spec create_project(AWS.Client.t(), create_project_input(), Keyword.t()) ::
           {:ok, create_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProject", input, options)
   end
@@ -18967,12 +18495,13 @@ defmodule AWS.SageMaker do
   @doc """
   Creates a private space or a space used for real time collaboration in a domain.
   """
-  @spec create_space(map(), create_space_request(), list()) ::
+  @spec create_space(AWS.Client.t(), create_space_request(), Keyword.t()) ::
           {:ok, create_space_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_space_errors()}
   def create_space(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSpace", input, options)
   end
@@ -18980,315 +18509,150 @@ defmodule AWS.SageMaker do
   @doc """
   Creates a new Amazon SageMaker Studio Lifecycle Configuration.
   """
-  @spec create_studio_lifecycle_config(map(), create_studio_lifecycle_config_request(), list()) ::
+  @spec create_studio_lifecycle_config(
+          AWS.Client.t(),
+          create_studio_lifecycle_config_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_studio_lifecycle_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_studio_lifecycle_config_errors()}
   def create_studio_lifecycle_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStudioLifecycleConfig", input, options)
   end
 
   @doc """
-  Starts a model training job.
-
-  After training completes, SageMaker saves the resulting
-  model artifacts to an Amazon S3 location that you specify.
-
-  If you choose to host your model using SageMaker hosting services, you can use
-  the
+  Starts a model training job. After training completes, SageMaker saves the
+  resulting model artifacts to an Amazon S3 location that you specify. If you
+  choose to host your model using SageMaker hosting services, you can use the
   resulting model artifacts as part of the model. You can also use the artifacts
-  in a
-  machine learning service other than SageMaker, provided that you know how to use
-  them for
-  inference.
-
-  In the request body, you provide the following:
-
-    *
-
-  `AlgorithmSpecification` - Identifies the training algorithm to
-  use.
-
-    *
-
-  `HyperParameters` - Specify these algorithm-specific parameters to
-  enable the estimation of model parameters during training. Hyperparameters can
-  be tuned to optimize this learning process. For a list of hyperparameters for
-  each training algorithm provided by SageMaker, see
-  [Algorithms](https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html). 
-  Do not include any security-sensitive information including account access
-  IDs, secrets or tokens in any hyperparameter field. If the use of
-  security-sensitive credentials are detected, SageMaker will reject your training
-  job request and return an exception error.
-
-    *
-
-  `InputDataConfig` - Describes the input required by the training
-  job and the Amazon S3, EFS, or FSx location where it is stored.
-
-    *
-
-  `OutputDataConfig` - Identifies the Amazon S3 bucket where you want
-  SageMaker to save the results of model training.
-
-    *
-
-  `ResourceConfig` - Identifies the resources, ML compute
-  instances, and ML storage volumes to deploy for model training. In distributed
-  training, you specify more than one instance.
-
-    *
-
-  `EnableManagedSpotTraining` - Optimize the cost of training machine
-  learning models by up to 80% by using Amazon EC2 Spot instances. For more
-  information, see [Managed Spot
-  Training](https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html).
-
-    *
-
-  `RoleArn` - The Amazon Resource Name (ARN) that SageMaker assumes to perform
-  tasks on
-  your behalf during model training.
-
-  You must grant this role the necessary permissions so that SageMaker can
-  successfully
-  complete model training.
-
-    *
-
-  `StoppingCondition` - To help cap training costs, use
-  `MaxRuntimeInSeconds` to set a time limit for training. Use
-  `MaxWaitTimeInSeconds` to specify how long a managed spot
-  training job has to complete.
-
-    *
-
-  `Environment` - The environment variables to set in the Docker
-  container.
-
-    *
-
-  `RetryStrategy` - The number of times to retry the job when the job
-  fails due to an `InternalServerError`.
-
-  For more information about SageMaker, see [How It Works](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html).
+  in a machine learning service other than SageMaker, provided that you know how
+  to use them for inference.
   """
-  @spec create_training_job(map(), create_training_job_request(), list()) ::
+  @spec create_training_job(AWS.Client.t(), create_training_job_request(), Keyword.t()) ::
           {:ok, create_training_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_training_job_errors()}
   def create_training_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrainingJob", input, options)
   end
 
   @doc """
-  Starts a transform job.
-
-  A transform job uses a trained model to get inferences on a
-  dataset and saves these results to an Amazon S3 location that you specify.
-
-  To perform batch transformations, you create a transform job and use the data
-  that you
-  have readily available.
-
-  In the request body, you provide the following:
-
-    *
-
-  `TransformJobName` - Identifies the transform job. The name must be
-  unique within an Amazon Web Services Region in an Amazon Web Services account.
-
-    *
-
-  `ModelName` - Identifies the model to use. `ModelName`
-  must be the name of an existing Amazon SageMaker model in the same Amazon Web
-  Services Region and Amazon Web Services
-  account. For information on creating a model, see
-  [CreateModel](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html). 
-
-    *
-
-  `TransformInput` - Describes the dataset to be transformed and the
-  Amazon S3 location where it is stored.
-
-    *
-
-  `TransformOutput` - Identifies the Amazon S3 location where you want
-  Amazon SageMaker to save the results from the transform job.
-
-    *
-
-  `TransformResources` - Identifies the ML compute instances for the
-  transform job.
-
-  For more information about how batch transformation works, see [Batch
-  Transform](https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html).
+  Starts a transform job. A transform job uses a trained model to get inferences
+  on a dataset and saves these results to an Amazon S3 location that you
+  specify. To perform batch transformations, you create a transform job and use
+  the data that you have readily available.
   """
-  @spec create_transform_job(map(), create_transform_job_request(), list()) ::
+  @spec create_transform_job(AWS.Client.t(), create_transform_job_request(), Keyword.t()) ::
           {:ok, create_transform_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_transform_job_errors()}
   def create_transform_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTransformJob", input, options)
   end
 
   @doc """
-  Creates an SageMaker *trial*.
-
-  A trial is a set of steps called
-  *trial components* that produce a machine learning model. A trial is part
-  of a single SageMaker *experiment*.
-
-  When you use SageMaker Studio or the SageMaker Python SDK, all experiments,
-  trials, and trial
-  components are automatically tracked, logged, and indexed. When you use the
-  Amazon Web Services SDK for Python (Boto), you
-  must use the logging APIs provided by the SDK.
-
-  You can add tags to a trial and then use the
-  [Search](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html) API to search for
-  the tags.
-
-  To get a list of all your trials, call the
-  [ListTrials](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTrials.html)
-  API. To view a
-  trial's properties, call the
-  [DescribeTrial](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrial.html) API. To create a trial component,
-  call the
-  [CreateTrialComponent](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrialComponent.html)
-  API.
+  Creates an SageMaker *trial*. A trial is a set of steps called *trial
+  components* that produce a machine learning model. A trial is part of a single
+  SageMaker *experiment*. When you use SageMaker Studio or the SageMaker Python
+  SDK, all experiments, trials, and trial components are automatically tracked,
+  logged, and indexed. When you use the Amazon Web Services SDK for Python
+  (Boto), you must use the logging APIs provided by the SDK.
   """
-  @spec create_trial(map(), create_trial_request(), list()) ::
+  @spec create_trial(AWS.Client.t(), create_trial_request(), Keyword.t()) ::
           {:ok, create_trial_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_trial_errors()}
   def create_trial(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrial", input, options)
   end
 
   @doc """
-  Creates a *trial component*, which is a stage of a machine learning
-  *trial*.
-
-  A trial is composed of one or more trial components. A trial
-  component can be used in multiple trials.
-
-  Trial components include pre-processing jobs, training jobs, and batch transform
-  jobs.
-
-  When you use SageMaker Studio or the SageMaker Python SDK, all experiments,
-  trials, and trial
-  components are automatically tracked, logged, and indexed. When you use the
-  Amazon Web Services SDK for Python (Boto), you
-  must use the logging APIs provided by the SDK.
-
-  You can add tags to a trial component and then use the
-  [Search](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html)
-  API to
-  search for the tags.
+  Creates a *trial component*, which is a stage of a machine learning *trial*. A
+  trial is composed of one or more trial components. A trial component can be
+  used in multiple trials. Trial components include pre-processing jobs,
+  training jobs, and batch transform jobs.
   """
-  @spec create_trial_component(map(), create_trial_component_request(), list()) ::
+  @spec create_trial_component(AWS.Client.t(), create_trial_component_request(), Keyword.t()) ::
           {:ok, create_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_trial_component_errors()}
   def create_trial_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrialComponent", input, options)
   end
 
   @doc """
-  Creates a user profile.
-
-  A user profile represents a single user within a domain, and is
-  the main way to reference a "person" for the purposes of sharing, reporting, and
-  other
-  user-oriented features. This entity is created when a user onboards to a domain.
-  If an
-  administrator invites a person by email or imports them from IAM Identity
-  Center, a user
-  profile is automatically created. A user profile is the primary holder of
-  settings for an
-  individual user and has a reference to the user's private Amazon Elastic File
-  System home
+  Creates a user profile. A user profile represents a single user within a domain,
+  and is the main way to reference a "person" for the purposes of sharing,
+  reporting, and other user-oriented features. This entity is created when a
+  user onboards to a domain. If an administrator invites a person by email or
+  imports them from IAM Identity Center, a user profile is automatically
+  created. A user profile is the primary holder of settings for an individual
+  user and has a reference to the user's private Amazon Elastic File System home
   directory.
   """
-  @spec create_user_profile(map(), create_user_profile_request(), list()) ::
+  @spec create_user_profile(AWS.Client.t(), create_user_profile_request(), Keyword.t()) ::
           {:ok, create_user_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_profile_errors()}
   def create_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUserProfile", input, options)
   end
 
   @doc """
-  Use this operation to create a workforce.
-
-  This operation will return an error
-  if a workforce already exists in the Amazon Web Services Region that you
-  specify. You can only
-  create one workforce in each Amazon Web Services Region per Amazon Web Services
-  account.
-
-  If you want to create a new workforce in an Amazon Web Services Region where
-  a workforce already exists, use the
-  [DeleteWorkforce](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkforce.html) API
-  operation to delete the existing workforce and then use `CreateWorkforce`
-  to create a new workforce.
-
-  To create a private workforce using Amazon Cognito, you must specify a Cognito
-  user pool
-  in `CognitoConfig`.
-  You can also create an Amazon Cognito workforce using the Amazon SageMaker
-  console.
-  For more information, see
-  [
-  Create a Private Workforce (Amazon
+  Use this operation to create a workforce. This operation will return an error if
+  a workforce already exists in the Amazon Web Services Region that you specify.
+  You can only create one workforce in each Amazon Web Services Region per
+  Amazon Web Services account. If you want to create a new workforce in an
+  Amazon Web Services Region where a workforce already exists, use the
+  [DeleteWorkforce](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkforce.html)
+  API operation to delete the existing workforce and then use `CreateWorkforce`
+  to create a new workforce. To create a private workforce using Amazon Cognito,
+  you must specify a Cognito user pool in `CognitoConfig`. You can also create
+  an Amazon Cognito workforce using the Amazon SageMaker console. For more
+  information, see [ Create a Private Workforce (Amazon
   Cognito)](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html).
-
-  To create a private workforce using your own OIDC Identity Provider (IdP),
-  specify your IdP
-  configuration in `OidcConfig`. Your OIDC IdP must support *groups*
-  because groups are used by Ground Truth and Amazon A2I to create work teams.
-  For more information, see [
-  Create a Private Workforce (OIDC
-  IdP)](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private-oidc.html).
   """
-  @spec create_workforce(map(), create_workforce_request(), list()) ::
+  @spec create_workforce(AWS.Client.t(), create_workforce_request(), Keyword.t()) ::
           {:ok, create_workforce_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def create_workforce(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkforce", input, options)
   end
 
   @doc """
-  Creates a new work team for labeling your data.
-
-  A work team is defined by one or more
-  Amazon Cognito user pools. You must first create the user pools before you can
-  create a work
-  team.
-
-  You cannot create more than 25 work teams in an account and region.
+  Creates a new work team for labeling your data. A work team is defined by one or
+  more Amazon Cognito user pools. You must first create the user pools before
+  you can create a work team.
   """
-  @spec create_workteam(map(), create_workteam_request(), list()) ::
+  @spec create_workteam(AWS.Client.t(), create_workteam_request(), Keyword.t()) ::
           {:ok, create_workteam_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workteam_errors()}
   def create_workteam(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkteam", input, options)
   end
@@ -19296,12 +18660,13 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes an action.
   """
-  @spec delete_action(map(), delete_action_request(), list()) ::
+  @spec delete_action(AWS.Client.t(), delete_action_request(), Keyword.t()) ::
           {:ok, delete_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_action_errors()}
   def delete_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAction", input, options)
   end
@@ -19309,12 +18674,13 @@ defmodule AWS.SageMaker do
   @doc """
   Removes the specified algorithm from your account.
   """
-  @spec delete_algorithm(map(), delete_algorithm_input(), list()) ::
+  @spec delete_algorithm(AWS.Client.t(), delete_algorithm_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_algorithm_errors()}
   def delete_algorithm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAlgorithm", input, options)
   end
@@ -19322,12 +18688,13 @@ defmodule AWS.SageMaker do
   @doc """
   Used to stop and delete an app.
   """
-  @spec delete_app(map(), delete_app_request(), list()) ::
+  @spec delete_app(AWS.Client.t(), delete_app_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_errors()}
   def delete_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApp", input, options)
   end
@@ -19335,28 +18702,27 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes an AppImageConfig.
   """
-  @spec delete_app_image_config(map(), delete_app_image_config_request(), list()) ::
+  @spec delete_app_image_config(AWS.Client.t(), delete_app_image_config_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_image_config_errors()}
   def delete_app_image_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAppImageConfig", input, options)
   end
 
   @doc """
-  Deletes an artifact.
-
-  Either `ArtifactArn` or `Source` must be
-  specified.
+  Deletes an artifact. Either `ArtifactArn` or `Source` must be specified.
   """
-  @spec delete_artifact(map(), delete_artifact_request(), list()) ::
+  @spec delete_artifact(AWS.Client.t(), delete_artifact_request(), Keyword.t()) ::
           {:ok, delete_artifact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_artifact_errors()}
   def delete_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteArtifact", input, options)
   end
@@ -19364,12 +18730,13 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes an association.
   """
-  @spec delete_association(map(), delete_association_request(), list()) ::
+  @spec delete_association(AWS.Client.t(), delete_association_request(), Keyword.t()) ::
           {:ok, delete_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_association_errors()}
   def delete_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAssociation", input, options)
   end
@@ -19377,12 +18744,13 @@ defmodule AWS.SageMaker do
   @doc """
   Delete a SageMaker HyperPod cluster.
   """
-  @spec delete_cluster(map(), delete_cluster_request(), list()) ::
+  @spec delete_cluster(AWS.Client.t(), delete_cluster_request(), Keyword.t()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCluster", input, options)
   end
@@ -19390,36 +18758,29 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes the specified Git repository from your account.
   """
-  @spec delete_code_repository(map(), delete_code_repository_input(), list()) ::
+  @spec delete_code_repository(AWS.Client.t(), delete_code_repository_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def delete_code_repository(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCodeRepository", input, options)
   end
 
   @doc """
-  Deletes the specified compilation job.
-
-  This action deletes only the compilation job
-  resource in Amazon SageMaker. It doesn't delete other resources that are related
-  to
-  that job, such as the model artifacts that the job creates, the compilation logs
-  in
-  CloudWatch, the compiled model, or the IAM role.
-
-  You can delete a compilation job only if its current status is `COMPLETED`,
-  `FAILED`, or `STOPPED`. If the job status is
-  `STARTING` or `INPROGRESS`, stop the job, and then delete it
-  after its status becomes `STOPPED`.
+  Deletes the specified compilation job. This action deletes only the compilation
+  job resource in Amazon SageMaker. It doesn't delete other resources that are
+  related to that job, such as the model artifacts that the job creates, the
+  compilation logs in CloudWatch, the compiled model, or the IAM role.
   """
-  @spec delete_compilation_job(map(), delete_compilation_job_request(), list()) ::
+  @spec delete_compilation_job(AWS.Client.t(), delete_compilation_job_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_compilation_job_errors()}
   def delete_compilation_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCompilationJob", input, options)
   end
@@ -19427,12 +18788,13 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes an context.
   """
-  @spec delete_context(map(), delete_context_request(), list()) ::
+  @spec delete_context(AWS.Client.t(), delete_context_request(), Keyword.t()) ::
           {:ok, delete_context_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_context_errors()}
   def delete_context(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteContext", input, options)
   end
@@ -19441,15 +18803,16 @@ defmodule AWS.SageMaker do
   Deletes a data quality monitoring job definition.
   """
   @spec delete_data_quality_job_definition(
-          map(),
+          AWS.Client.t(),
           delete_data_quality_job_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_quality_job_definition_errors()}
   def delete_data_quality_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDataQualityJobDefinition", input, options)
   end
@@ -19457,31 +18820,30 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes a fleet.
   """
-  @spec delete_device_fleet(map(), delete_device_fleet_request(), list()) ::
+  @spec delete_device_fleet(AWS.Client.t(), delete_device_fleet_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_device_fleet_errors()}
   def delete_device_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDeviceFleet", input, options)
   end
 
   @doc """
-  Used to delete a domain.
-
-  If you onboarded with IAM mode, you will need to delete your
-  domain to onboard again using IAM Identity Center. Use with caution. All of the
-  members of the
-  domain will lose access to their EFS volume, including data, notebooks, and
-  other artifacts.
+  Used to delete a domain. If you onboarded with IAM mode, you will need to delete
+  your domain to onboard again using IAM Identity Center. Use with caution. All
+  of the members of the domain will lose access to their EFS volume, including
+  data, notebooks, and other artifacts.
   """
-  @spec delete_domain(map(), delete_domain_request(), list()) ::
+  @spec delete_domain(AWS.Client.t(), delete_domain_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDomain", input, options)
   end
@@ -19490,12 +18852,17 @@ defmodule AWS.SageMaker do
   Deletes an edge deployment plan if (and only if) all the stages in the plan are
   inactive or there are no stages in the plan.
   """
-  @spec delete_edge_deployment_plan(map(), delete_edge_deployment_plan_request(), list()) ::
+  @spec delete_edge_deployment_plan(
+          AWS.Client.t(),
+          delete_edge_deployment_plan_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_edge_deployment_plan_errors()}
   def delete_edge_deployment_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEdgeDeploymentPlan", input, options)
   end
@@ -19504,119 +18871,81 @@ defmodule AWS.SageMaker do
   Delete a stage in an edge deployment plan if (and only if) the stage is
   inactive.
   """
-  @spec delete_edge_deployment_stage(map(), delete_edge_deployment_stage_request(), list()) ::
+  @spec delete_edge_deployment_stage(
+          AWS.Client.t(),
+          delete_edge_deployment_stage_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_edge_deployment_stage_errors()}
   def delete_edge_deployment_stage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEdgeDeploymentStage", input, options)
   end
 
   @doc """
-  Deletes an endpoint.
-
-  SageMaker frees up all of the resources that were deployed when the
-  endpoint was created.
-
-  SageMaker retires any custom KMS key grants associated with the endpoint,
-  meaning you don't
-  need to use the
-  [RevokeGrant](http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html) API call.
-
-  When you delete your endpoint, SageMaker asynchronously deletes associated
-  endpoint
-  resources such as KMS key grants. You might still see these resources in your
-  account
-  for a few minutes after deleting your endpoint. Do not delete or revoke the
-  permissions
-  for your
-
-  ```
-
-  [ExecutionRoleArn](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html#sagemaker-CreateModel-request-ExecutionRoleArn)
-
-  ```
-
-  , otherwise SageMaker cannot delete these
-  resources.
+  Deletes an endpoint. SageMaker frees up all of the resources that were deployed
+  when the endpoint was created.
   """
-  @spec delete_endpoint(map(), delete_endpoint_input(), list()) ::
+  @spec delete_endpoint(AWS.Client.t(), delete_endpoint_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def delete_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEndpoint", input, options)
   end
 
   @doc """
-  Deletes an endpoint configuration.
-
-  The `DeleteEndpointConfig` API
-  deletes only the specified configuration. It does not delete endpoints created
-  using the
+  Deletes an endpoint configuration. The `DeleteEndpointConfig` API deletes only
+  the specified configuration. It does not delete endpoints created using the
   configuration.
-
-  You must not delete an `EndpointConfig` in use by an endpoint that is
-  live or while the `UpdateEndpoint` or `CreateEndpoint` operations
-  are being performed on the endpoint. If you delete the `EndpointConfig` of an
-  endpoint that is active or being created or updated you may lose visibility into
-  the
-  instance type the endpoint is using. The endpoint must be deleted in order to
-  stop
-  incurring charges.
   """
-  @spec delete_endpoint_config(map(), delete_endpoint_config_input(), list()) ::
+  @spec delete_endpoint_config(AWS.Client.t(), delete_endpoint_config_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def delete_endpoint_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEndpointConfig", input, options)
   end
 
   @doc """
-  Deletes an SageMaker experiment.
-
-  All trials associated with the experiment must be deleted
-  first. Use the
+  Deletes an SageMaker experiment. All trials associated with the experiment must
+  be deleted first. Use the
   [ListTrials](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTrials.html)
-  API to get a list of the trials associated with
-  the experiment.
+  API to get a list of the trials associated with the experiment.
   """
-  @spec delete_experiment(map(), delete_experiment_request(), list()) ::
+  @spec delete_experiment(AWS.Client.t(), delete_experiment_request(), Keyword.t()) ::
           {:ok, delete_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_experiment_errors()}
   def delete_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteExperiment", input, options)
   end
 
   @doc """
-  Delete the `FeatureGroup` and any data that was written to the
-  `OnlineStore` of the `FeatureGroup`.
-
-  Data cannot be accessed from
-  the `OnlineStore` immediately after `DeleteFeatureGroup` is called.
-
-  Data written into the `OfflineStore` will not be deleted. The Amazon Web
-  Services Glue database and tables that are automatically created for your
-  `OfflineStore` are not deleted.
-
-  Note that it can take approximately 10-15 minutes to delete an `OnlineStore`
-  `FeatureGroup` with the `InMemory`
-  `StorageType`.
+  Delete the `FeatureGroup` and any data that was written to the `OnlineStore` of
+  the `FeatureGroup`. Data cannot be accessed from the `OnlineStore` immediately
+  after `DeleteFeatureGroup` is called. Data written into the `OfflineStore`
+  will not be deleted. The Amazon Web Services Glue database and tables that are
+  automatically created for your `OfflineStore` are not deleted.
   """
-  @spec delete_feature_group(map(), delete_feature_group_request(), list()) ::
+  @spec delete_feature_group(AWS.Client.t(), delete_feature_group_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_feature_group_errors()}
   def delete_feature_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFeatureGroup", input, options)
   end
@@ -19624,12 +18953,13 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes the specified flow definition.
   """
-  @spec delete_flow_definition(map(), delete_flow_definition_request(), list()) ::
+  @spec delete_flow_definition(AWS.Client.t(), delete_flow_definition_request(), Keyword.t()) ::
           {:ok, delete_flow_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_flow_definition_errors()}
   def delete_flow_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFlowDefinition", input, options)
   end
@@ -19637,12 +18967,13 @@ defmodule AWS.SageMaker do
   @doc """
   Delete a hub.
   """
-  @spec delete_hub(map(), delete_hub_request(), list()) ::
+  @spec delete_hub(AWS.Client.t(), delete_hub_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_hub_errors()}
   def delete_hub(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHub", input, options)
   end
@@ -19650,12 +18981,13 @@ defmodule AWS.SageMaker do
   @doc """
   Delete the contents of a hub.
   """
-  @spec delete_hub_content(map(), delete_hub_content_request(), list()) ::
+  @spec delete_hub_content(AWS.Client.t(), delete_hub_content_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_hub_content_errors()}
   def delete_hub_content(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHubContent", input, options)
   end
@@ -19663,85 +18995,81 @@ defmodule AWS.SageMaker do
   @doc """
   Delete a hub content reference in order to remove a model from a private hub.
   """
-  @spec delete_hub_content_reference(map(), delete_hub_content_reference_request(), list()) ::
+  @spec delete_hub_content_reference(
+          AWS.Client.t(),
+          delete_hub_content_reference_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_hub_content_reference_errors()}
   def delete_hub_content_reference(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHubContentReference", input, options)
   end
 
   @doc """
   Use this operation to delete a human task user interface (worker task template).
-
-  To see a list of human task user interfaces
-  (work task templates) in your account, use
-  [ListHumanTaskUis](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListHumanTaskUis.html).
-  When you delete a worker task template, it no longer appears when you call
-  `ListHumanTaskUis`.
   """
-  @spec delete_human_task_ui(map(), delete_human_task_ui_request(), list()) ::
+  @spec delete_human_task_ui(AWS.Client.t(), delete_human_task_ui_request(), Keyword.t()) ::
           {:ok, delete_human_task_ui_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_human_task_ui_errors()}
   def delete_human_task_ui(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHumanTaskUi", input, options)
   end
 
   @doc """
-  Deletes a hyperparameter tuning job.
-
-  The `DeleteHyperParameterTuningJob`
-  API deletes only the tuning job entry that was created in SageMaker when you
-  called the
-  `CreateHyperParameterTuningJob` API. It does not delete training jobs,
-  artifacts, or the IAM role that you specified when creating the model.
+  Deletes a hyperparameter tuning job. The `DeleteHyperParameterTuningJob` API
+  deletes only the tuning job entry that was created in SageMaker when you
+  called the `CreateHyperParameterTuningJob` API. It does not delete training
+  jobs, artifacts, or the IAM role that you specified when creating the model.
   """
   @spec delete_hyper_parameter_tuning_job(
-          map(),
+          AWS.Client.t(),
           delete_hyper_parameter_tuning_job_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def delete_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHyperParameterTuningJob", input, options)
   end
 
   @doc """
-  Deletes a SageMaker image and all versions of the image.
-
-  The container images aren't
-  deleted.
+  Deletes a SageMaker image and all versions of the image. The container images
+  aren't deleted.
   """
-  @spec delete_image(map(), delete_image_request(), list()) ::
+  @spec delete_image(AWS.Client.t(), delete_image_request(), Keyword.t()) ::
           {:ok, delete_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_image_errors()}
   def delete_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteImage", input, options)
   end
 
   @doc """
-  Deletes a version of a SageMaker image.
-
-  The container image the version represents isn't
-  deleted.
+  Deletes a version of a SageMaker image. The container image the version
+  represents isn't deleted.
   """
-  @spec delete_image_version(map(), delete_image_version_request(), list()) ::
+  @spec delete_image_version(AWS.Client.t(), delete_image_version_request(), Keyword.t()) ::
           {:ok, delete_image_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_image_version_errors()}
   def delete_image_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteImageVersion", input, options)
   end
@@ -19749,62 +19077,69 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes an inference component.
   """
-  @spec delete_inference_component(map(), delete_inference_component_input(), list()) ::
+  @spec delete_inference_component(
+          AWS.Client.t(),
+          delete_inference_component_input(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def delete_inference_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInferenceComponent", input, options)
   end
 
   @doc """
   Deletes an inference experiment.
-
-  This operation does not delete your endpoint, variants, or any underlying
-  resources. This operation only
-  deletes the metadata of your experiment.
   """
-  @spec delete_inference_experiment(map(), delete_inference_experiment_request(), list()) ::
+  @spec delete_inference_experiment(
+          AWS.Client.t(),
+          delete_inference_experiment_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_inference_experiment_errors()}
   def delete_inference_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInferenceExperiment", input, options)
   end
 
   @doc """
-  Deletes an MLflow Tracking Server.
-
-  For more information, see [Clean up MLflow resources](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-cleanup.html.html).
+  Deletes an MLflow Tracking Server. For more information, see [Clean up MLflow
+  resources](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-cleanup.html.html).
   """
-  @spec delete_mlflow_tracking_server(map(), delete_mlflow_tracking_server_request(), list()) ::
+  @spec delete_mlflow_tracking_server(
+          AWS.Client.t(),
+          delete_mlflow_tracking_server_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_mlflow_tracking_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_mlflow_tracking_server_errors()}
   def delete_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMlflowTrackingServer", input, options)
   end
 
   @doc """
-  Deletes a model.
-
-  The `DeleteModel` API deletes only the model entry that
-  was created in SageMaker when you called the `CreateModel` API. It does not
-  delete
+  Deletes a model. The `DeleteModel` API deletes only the model entry that was
+  created in SageMaker when you called the `CreateModel` API. It does not delete
   model artifacts, inference code, or the IAM role that you specified when
-  creating the
-  model.
+  creating the model.
   """
-  @spec delete_model(map(), delete_model_input(), list()) ::
+  @spec delete_model(AWS.Client.t(), delete_model_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def delete_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModel", input, options)
   end
@@ -19813,15 +19148,16 @@ defmodule AWS.SageMaker do
   Deletes an Amazon SageMaker model bias job definition.
   """
   @spec delete_model_bias_job_definition(
-          map(),
+          AWS.Client.t(),
           delete_model_bias_job_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_model_bias_job_definition_errors()}
   def delete_model_bias_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelBiasJobDefinition", input, options)
   end
@@ -19829,12 +19165,13 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes an Amazon SageMaker Model Card.
   """
-  @spec delete_model_card(map(), delete_model_card_request(), list()) ::
+  @spec delete_model_card(AWS.Client.t(), delete_model_card_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_model_card_errors()}
   def delete_model_card(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelCard", input, options)
   end
@@ -19843,33 +19180,30 @@ defmodule AWS.SageMaker do
   Deletes an Amazon SageMaker model explainability job definition.
   """
   @spec delete_model_explainability_job_definition(
-          map(),
+          AWS.Client.t(),
           delete_model_explainability_job_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_model_explainability_job_definition_errors()}
   def delete_model_explainability_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelExplainabilityJobDefinition", input, options)
   end
 
   @doc """
   Deletes a model package.
-
-  A model package is used to create SageMaker models or list on Amazon Web
-  Services Marketplace. Buyers can
-  subscribe to model packages listed on Amazon Web Services Marketplace to create
-  models in SageMaker.
   """
-  @spec delete_model_package(map(), delete_model_package_input(), list()) ::
+  @spec delete_model_package(AWS.Client.t(), delete_model_package_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_model_package_errors()}
   def delete_model_package(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelPackage", input, options)
   end
@@ -19877,12 +19211,17 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes the specified model group.
   """
-  @spec delete_model_package_group(map(), delete_model_package_group_input(), list()) ::
+  @spec delete_model_package_group(
+          AWS.Client.t(),
+          delete_model_package_group_input(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_model_package_group_errors()}
   def delete_model_package_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelPackageGroup", input, options)
   end
@@ -19891,14 +19230,15 @@ defmodule AWS.SageMaker do
   Deletes a model group resource policy.
   """
   @spec delete_model_package_group_policy(
-          map(),
+          AWS.Client.t(),
           delete_model_package_group_policy_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def delete_model_package_group_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelPackageGroupPolicy", input, options)
   end
@@ -19907,52 +19247,50 @@ defmodule AWS.SageMaker do
   Deletes the secified model quality monitoring job definition.
   """
   @spec delete_model_quality_job_definition(
-          map(),
+          AWS.Client.t(),
           delete_model_quality_job_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_model_quality_job_definition_errors()}
   def delete_model_quality_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelQualityJobDefinition", input, options)
   end
 
   @doc """
-  Deletes a monitoring schedule.
-
-  Also stops the schedule had not already been stopped.
-  This does not delete the job execution history of the monitoring schedule.
+  Deletes a monitoring schedule. Also stops the schedule had not already been
+  stopped. This does not delete the job execution history of the monitoring
+  schedule.
   """
-  @spec delete_monitoring_schedule(map(), delete_monitoring_schedule_request(), list()) ::
+  @spec delete_monitoring_schedule(
+          AWS.Client.t(),
+          delete_monitoring_schedule_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_monitoring_schedule_errors()}
   def delete_monitoring_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMonitoringSchedule", input, options)
   end
 
   @doc """
-  Deletes an SageMaker notebook instance.
-
-  Before you can delete a notebook instance, you
-  must call the `StopNotebookInstance` API.
-
-  When you delete a notebook instance, you lose all of your data. SageMaker
-  removes
-  the ML compute instance, and deletes the ML storage volume and the network
-  interface
-  associated with the notebook instance.
+  Deletes an SageMaker notebook instance. Before you can delete a notebook
+  instance, you must call the `StopNotebookInstance` API.
   """
-  @spec delete_notebook_instance(map(), delete_notebook_instance_input(), list()) ::
+  @spec delete_notebook_instance(AWS.Client.t(), delete_notebook_instance_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def delete_notebook_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNotebookInstance", input, options)
   end
@@ -19961,14 +19299,15 @@ defmodule AWS.SageMaker do
   Deletes a notebook instance lifecycle configuration.
   """
   @spec delete_notebook_instance_lifecycle_config(
-          map(),
+          AWS.Client.t(),
           delete_notebook_instance_lifecycle_config_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def delete_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNotebookInstanceLifecycleConfig", input, options)
   end
@@ -19976,30 +19315,30 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes an optimization job.
   """
-  @spec delete_optimization_job(map(), delete_optimization_job_request(), list()) ::
+  @spec delete_optimization_job(AWS.Client.t(), delete_optimization_job_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_optimization_job_errors()}
   def delete_optimization_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteOptimizationJob", input, options)
   end
 
   @doc """
-  Deletes a pipeline if there are no running instances of the pipeline.
-
-  To delete a
-  pipeline, you must stop all running instances of the pipeline using the
+  Deletes a pipeline if there are no running instances of the pipeline. To delete
+  a pipeline, you must stop all running instances of the pipeline using the
   `StopPipelineExecution` API. When you delete a pipeline, all instances of the
   pipeline are deleted.
   """
-  @spec delete_pipeline(map(), delete_pipeline_request(), list()) ::
+  @spec delete_pipeline(AWS.Client.t(), delete_pipeline_request(), Keyword.t()) ::
           {:ok, delete_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pipeline_errors()}
   def delete_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePipeline", input, options)
   end
@@ -20007,12 +19346,13 @@ defmodule AWS.SageMaker do
   @doc """
   Delete the specified project.
   """
-  @spec delete_project(map(), delete_project_input(), list()) ::
+  @spec delete_project(AWS.Client.t(), delete_project_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProject", input, options)
   end
@@ -20020,164 +19360,139 @@ defmodule AWS.SageMaker do
   @doc """
   Used to delete a space.
   """
-  @spec delete_space(map(), delete_space_request(), list()) ::
+  @spec delete_space(AWS.Client.t(), delete_space_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_space_errors()}
   def delete_space(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSpace", input, options)
   end
 
   @doc """
-  Deletes the Amazon SageMaker Studio Lifecycle Configuration.
-
-  In order to delete the
-  Lifecycle Configuration, there must be no running apps using the Lifecycle
-  Configuration. You
-  must also remove the Lifecycle Configuration from UserSettings in all Domains
-  and
-  UserProfiles.
+  Deletes the Amazon SageMaker Studio Lifecycle Configuration. In order to delete
+  the Lifecycle Configuration, there must be no running apps using the Lifecycle
+  Configuration. You must also remove the Lifecycle Configuration from
+  UserSettings in all Domains and UserProfiles.
   """
-  @spec delete_studio_lifecycle_config(map(), delete_studio_lifecycle_config_request(), list()) ::
+  @spec delete_studio_lifecycle_config(
+          AWS.Client.t(),
+          delete_studio_lifecycle_config_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_studio_lifecycle_config_errors()}
   def delete_studio_lifecycle_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStudioLifecycleConfig", input, options)
   end
 
   @doc """
-  Deletes the specified tags from an SageMaker resource.
-
-  To list a resource's tags, use the `ListTags` API.
-
-  When you call this API to delete tags from a hyperparameter tuning job, the
-  deleted tags are not removed from training jobs that the hyperparameter tuning
-  job
-  launched before you called this API.
-
-  When you call this API to delete tags from a SageMaker Domain or User Profile,
-  the
-  deleted tags are not removed from Apps that the SageMaker Domain or User Profile
-  launched before you called this API.
+  Deletes the specified tags from an SageMaker resource. To list a resource's
+  tags, use the `ListTags` API.
   """
-  @spec delete_tags(map(), delete_tags_input(), list()) ::
+  @spec delete_tags(AWS.Client.t(), delete_tags_input(), Keyword.t()) ::
           {:ok, delete_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def delete_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTags", input, options)
   end
 
   @doc """
-  Deletes the specified trial.
-
-  All trial components that make up the trial must be deleted
-  first. Use the
+  Deletes the specified trial. All trial components that make up the trial must be
+  deleted first. Use the
   [DescribeTrialComponent](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrialComponent.html)
-  API to get the list of trial
-  components.
+  API to get the list of trial components.
   """
-  @spec delete_trial(map(), delete_trial_request(), list()) ::
+  @spec delete_trial(AWS.Client.t(), delete_trial_request(), Keyword.t()) ::
           {:ok, delete_trial_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_trial_errors()}
   def delete_trial(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTrial", input, options)
   end
 
   @doc """
-  Deletes the specified trial component.
-
-  A trial component must be disassociated from all
-  trials before the trial component can be deleted. To disassociate a trial
-  component from a
-  trial, call the
+  Deletes the specified trial component. A trial component must be disassociated
+  from all trials before the trial component can be deleted. To disassociate a
+  trial component from a trial, call the
   [DisassociateTrialComponent](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DisassociateTrialComponent.html)
   API.
   """
-  @spec delete_trial_component(map(), delete_trial_component_request(), list()) ::
+  @spec delete_trial_component(AWS.Client.t(), delete_trial_component_request(), Keyword.t()) ::
           {:ok, delete_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_trial_component_errors()}
   def delete_trial_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTrialComponent", input, options)
   end
 
   @doc """
-  Deletes a user profile.
-
-  When a user profile is deleted, the user loses access to their EFS
-  volume, including data, notebooks, and other artifacts.
+  Deletes a user profile. When a user profile is deleted, the user loses access to
+  their EFS volume, including data, notebooks, and other artifacts.
   """
-  @spec delete_user_profile(map(), delete_user_profile_request(), list()) ::
+  @spec delete_user_profile(AWS.Client.t(), delete_user_profile_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_profile_errors()}
   def delete_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUserProfile", input, options)
   end
 
   @doc """
   Use this operation to delete a workforce.
-
-  If you want to create a new workforce in an Amazon Web Services Region where
-  a workforce already exists, use this operation to delete the
-  existing workforce and then use
-  [CreateWorkforce](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateWorkforce.html) to create a new workforce.
-
-  If a private workforce contains one or more work teams, you must use
-  the
-  [DeleteWorkteam](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkteam.html)
-  operation to delete all work teams before you delete the workforce.
-  If you try to delete a workforce that contains one or more work teams,
-  you will receive a `ResourceInUse` error.
   """
-  @spec delete_workforce(map(), delete_workforce_request(), list()) ::
+  @spec delete_workforce(AWS.Client.t(), delete_workforce_request(), Keyword.t()) ::
           {:ok, delete_workforce_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def delete_workforce(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWorkforce", input, options)
   end
 
   @doc """
-  Deletes an existing work team.
-
-  This operation can't be undone.
+  Deletes an existing work team. This operation can't be undone.
   """
-  @spec delete_workteam(map(), delete_workteam_request(), list()) ::
+  @spec delete_workteam(AWS.Client.t(), delete_workteam_request(), Keyword.t()) ::
           {:ok, delete_workteam_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workteam_errors()}
   def delete_workteam(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWorkteam", input, options)
   end
 
   @doc """
-  Deregisters the specified devices.
-
-  After you deregister a device, you will need to re-register the devices.
+  Deregisters the specified devices. After you deregister a device, you will need
+  to re-register the devices.
   """
-  @spec deregister_devices(map(), deregister_devices_request(), list()) ::
+  @spec deregister_devices(AWS.Client.t(), deregister_devices_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def deregister_devices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterDevices", input, options)
   end
@@ -20185,12 +19500,13 @@ defmodule AWS.SageMaker do
   @doc """
   Describes an action.
   """
-  @spec describe_action(map(), describe_action_request(), list()) ::
+  @spec describe_action(AWS.Client.t(), describe_action_request(), Keyword.t()) ::
           {:ok, describe_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_action_errors()}
   def describe_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAction", input, options)
   end
@@ -20198,11 +19514,12 @@ defmodule AWS.SageMaker do
   @doc """
   Returns a description of the specified algorithm that is in your account.
   """
-  @spec describe_algorithm(map(), describe_algorithm_input(), list()) ::
+  @spec describe_algorithm(AWS.Client.t(), describe_algorithm_input(), Keyword.t()) ::
           {:ok, describe_algorithm_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_algorithm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAlgorithm", input, options)
   end
@@ -20210,12 +19527,13 @@ defmodule AWS.SageMaker do
   @doc """
   Describes the app.
   """
-  @spec describe_app(map(), describe_app_request(), list()) ::
+  @spec describe_app(AWS.Client.t(), describe_app_request(), Keyword.t()) ::
           {:ok, describe_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_errors()}
   def describe_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApp", input, options)
   end
@@ -20223,12 +19541,17 @@ defmodule AWS.SageMaker do
   @doc """
   Describes an AppImageConfig.
   """
-  @spec describe_app_image_config(map(), describe_app_image_config_request(), list()) ::
+  @spec describe_app_image_config(
+          AWS.Client.t(),
+          describe_app_image_config_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_app_image_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_image_config_errors()}
   def describe_app_image_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAppImageConfig", input, options)
   end
@@ -20236,46 +19559,48 @@ defmodule AWS.SageMaker do
   @doc """
   Describes an artifact.
   """
-  @spec describe_artifact(map(), describe_artifact_request(), list()) ::
+  @spec describe_artifact(AWS.Client.t(), describe_artifact_request(), Keyword.t()) ::
           {:ok, describe_artifact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_artifact_errors()}
   def describe_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeArtifact", input, options)
   end
 
   @doc """
   Returns information about an AutoML job created by calling
-  [CreateAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html). 
-
+  [CreateAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html).
   AutoML jobs created by calling
   [CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html)
-  cannot be described by
-  `DescribeAutoMLJob`.
+  cannot be described by `DescribeAutoMLJob`.
   """
-  @spec describe_auto_ml_job(map(), describe_auto_ml_job_request(), list()) ::
+  @spec describe_auto_ml_job(AWS.Client.t(), describe_auto_ml_job_request(), Keyword.t()) ::
           {:ok, describe_auto_ml_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_auto_ml_job_errors()}
   def describe_auto_ml_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAutoMLJob", input, options)
   end
 
   @doc """
   Returns information about an AutoML job created by calling
-  [CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html) or
+  [CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html)
+  or
   [CreateAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html).
   """
-  @spec describe_auto_ml_job_v2(map(), describe_auto_ml_job_v2_request(), list()) ::
+  @spec describe_auto_ml_job_v2(AWS.Client.t(), describe_auto_ml_job_v2_request(), Keyword.t()) ::
           {:ok, describe_auto_ml_job_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_auto_ml_job_v2_errors()}
   def describe_auto_ml_job_v2(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAutoMLJobV2", input, options)
   end
@@ -20283,26 +19608,28 @@ defmodule AWS.SageMaker do
   @doc """
   Retrieves information of a SageMaker HyperPod cluster.
   """
-  @spec describe_cluster(map(), describe_cluster_request(), list()) ::
+  @spec describe_cluster(AWS.Client.t(), describe_cluster_request(), Keyword.t()) ::
           {:ok, describe_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_errors()}
   def describe_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCluster", input, options)
   end
 
   @doc """
-  Retrieves information of a node (also called a *instance*
-  interchangeably) of a SageMaker HyperPod cluster.
+  Retrieves information of a node (also called a *instance* interchangeably) of a
+  SageMaker HyperPod cluster.
   """
-  @spec describe_cluster_node(map(), describe_cluster_node_request(), list()) ::
+  @spec describe_cluster_node(AWS.Client.t(), describe_cluster_node_request(), Keyword.t()) ::
           {:ok, describe_cluster_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_node_errors()}
   def describe_cluster_node(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusterNode", input, options)
   end
@@ -20310,29 +19637,26 @@ defmodule AWS.SageMaker do
   @doc """
   Gets details about the specified Git repository.
   """
-  @spec describe_code_repository(map(), describe_code_repository_input(), list()) ::
+  @spec describe_code_repository(AWS.Client.t(), describe_code_repository_input(), Keyword.t()) ::
           {:ok, describe_code_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_code_repository(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCodeRepository", input, options)
   end
 
   @doc """
   Returns information about a model compilation job.
-
-  To create a model compilation job, use
-  [CreateCompilationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateCompilationJob.html). To get information about multiple model compilation
-  jobs, use
-  [ListCompilationJobs](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListCompilationJobs.html).
   """
-  @spec describe_compilation_job(map(), describe_compilation_job_request(), list()) ::
+  @spec describe_compilation_job(AWS.Client.t(), describe_compilation_job_request(), Keyword.t()) ::
           {:ok, describe_compilation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_compilation_job_errors()}
   def describe_compilation_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCompilationJob", input, options)
   end
@@ -20340,12 +19664,13 @@ defmodule AWS.SageMaker do
   @doc """
   Describes a context.
   """
-  @spec describe_context(map(), describe_context_request(), list()) ::
+  @spec describe_context(AWS.Client.t(), describe_context_request(), Keyword.t()) ::
           {:ok, describe_context_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_context_errors()}
   def describe_context(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeContext", input, options)
   end
@@ -20354,15 +19679,16 @@ defmodule AWS.SageMaker do
   Gets the details of a data quality monitoring job definition.
   """
   @spec describe_data_quality_job_definition(
-          map(),
+          AWS.Client.t(),
           describe_data_quality_job_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_data_quality_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_quality_job_definition_errors()}
   def describe_data_quality_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataQualityJobDefinition", input, options)
   end
@@ -20370,12 +19696,13 @@ defmodule AWS.SageMaker do
   @doc """
   Describes the device.
   """
-  @spec describe_device(map(), describe_device_request(), list()) ::
+  @spec describe_device(AWS.Client.t(), describe_device_request(), Keyword.t()) ::
           {:ok, describe_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_device_errors()}
   def describe_device(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDevice", input, options)
   end
@@ -20383,12 +19710,13 @@ defmodule AWS.SageMaker do
   @doc """
   A description of the fleet the device belongs to.
   """
-  @spec describe_device_fleet(map(), describe_device_fleet_request(), list()) ::
+  @spec describe_device_fleet(AWS.Client.t(), describe_device_fleet_request(), Keyword.t()) ::
           {:ok, describe_device_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_device_fleet_errors()}
   def describe_device_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDeviceFleet", input, options)
   end
@@ -20396,12 +19724,13 @@ defmodule AWS.SageMaker do
   @doc """
   The description of the domain.
   """
-  @spec describe_domain(map(), describe_domain_request(), list()) ::
+  @spec describe_domain(AWS.Client.t(), describe_domain_request(), Keyword.t()) ::
           {:ok, describe_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_errors()}
   def describe_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDomain", input, options)
   end
@@ -20409,12 +19738,17 @@ defmodule AWS.SageMaker do
   @doc """
   Describes an edge deployment plan with deployment status per stage.
   """
-  @spec describe_edge_deployment_plan(map(), describe_edge_deployment_plan_request(), list()) ::
+  @spec describe_edge_deployment_plan(
+          AWS.Client.t(),
+          describe_edge_deployment_plan_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_edge_deployment_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_edge_deployment_plan_errors()}
   def describe_edge_deployment_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEdgeDeploymentPlan", input, options)
   end
@@ -20422,12 +19756,17 @@ defmodule AWS.SageMaker do
   @doc """
   A description of edge packaging jobs.
   """
-  @spec describe_edge_packaging_job(map(), describe_edge_packaging_job_request(), list()) ::
+  @spec describe_edge_packaging_job(
+          AWS.Client.t(),
+          describe_edge_packaging_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_edge_packaging_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_edge_packaging_job_errors()}
   def describe_edge_packaging_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEdgePackagingJob", input, options)
   end
@@ -20435,11 +19774,12 @@ defmodule AWS.SageMaker do
   @doc """
   Returns the description of an endpoint.
   """
-  @spec describe_endpoint(map(), describe_endpoint_input(), list()) ::
+  @spec describe_endpoint(AWS.Client.t(), describe_endpoint_input(), Keyword.t()) ::
           {:ok, describe_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEndpoint", input, options)
   end
@@ -20448,11 +19788,12 @@ defmodule AWS.SageMaker do
   Returns the description of an endpoint configuration created using the
   `CreateEndpointConfig` API.
   """
-  @spec describe_endpoint_config(map(), describe_endpoint_config_input(), list()) ::
+  @spec describe_endpoint_config(AWS.Client.t(), describe_endpoint_config_input(), Keyword.t()) ::
           {:ok, describe_endpoint_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_endpoint_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEndpointConfig", input, options)
   end
@@ -20460,29 +19801,29 @@ defmodule AWS.SageMaker do
   @doc """
   Provides a list of an experiment's properties.
   """
-  @spec describe_experiment(map(), describe_experiment_request(), list()) ::
+  @spec describe_experiment(AWS.Client.t(), describe_experiment_request(), Keyword.t()) ::
           {:ok, describe_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_experiment_errors()}
   def describe_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExperiment", input, options)
   end
 
   @doc """
-  Use this operation to describe a `FeatureGroup`.
-
-  The response includes
-  information on the creation time, `FeatureGroup` name, the unique identifier for
-  each `FeatureGroup`, and more.
+  Use this operation to describe a `FeatureGroup`. The response includes
+  information on the creation time, `FeatureGroup` name, the unique identifier
+  for each `FeatureGroup`, and more.
   """
-  @spec describe_feature_group(map(), describe_feature_group_request(), list()) ::
+  @spec describe_feature_group(AWS.Client.t(), describe_feature_group_request(), Keyword.t()) ::
           {:ok, describe_feature_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_feature_group_errors()}
   def describe_feature_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFeatureGroup", input, options)
   end
@@ -20490,12 +19831,17 @@ defmodule AWS.SageMaker do
   @doc """
   Shows the metadata for a feature within a feature group.
   """
-  @spec describe_feature_metadata(map(), describe_feature_metadata_request(), list()) ::
+  @spec describe_feature_metadata(
+          AWS.Client.t(),
+          describe_feature_metadata_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_feature_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_feature_metadata_errors()}
   def describe_feature_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFeatureMetadata", input, options)
   end
@@ -20503,12 +19849,13 @@ defmodule AWS.SageMaker do
   @doc """
   Returns information about the specified flow definition.
   """
-  @spec describe_flow_definition(map(), describe_flow_definition_request(), list()) ::
+  @spec describe_flow_definition(AWS.Client.t(), describe_flow_definition_request(), Keyword.t()) ::
           {:ok, describe_flow_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_flow_definition_errors()}
   def describe_flow_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFlowDefinition", input, options)
   end
@@ -20516,12 +19863,13 @@ defmodule AWS.SageMaker do
   @doc """
   Describes a hub.
   """
-  @spec describe_hub(map(), describe_hub_request(), list()) ::
+  @spec describe_hub(AWS.Client.t(), describe_hub_request(), Keyword.t()) ::
           {:ok, describe_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_hub_errors()}
   def describe_hub(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHub", input, options)
   end
@@ -20529,12 +19877,13 @@ defmodule AWS.SageMaker do
   @doc """
   Describe the content of a hub.
   """
-  @spec describe_hub_content(map(), describe_hub_content_request(), list()) ::
+  @spec describe_hub_content(AWS.Client.t(), describe_hub_content_request(), Keyword.t()) ::
           {:ok, describe_hub_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_hub_content_errors()}
   def describe_hub_content(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHubContent", input, options)
   end
@@ -20543,33 +19892,33 @@ defmodule AWS.SageMaker do
   Returns information about the requested human task user interface (worker task
   template).
   """
-  @spec describe_human_task_ui(map(), describe_human_task_ui_request(), list()) ::
+  @spec describe_human_task_ui(AWS.Client.t(), describe_human_task_ui_request(), Keyword.t()) ::
           {:ok, describe_human_task_ui_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_human_task_ui_errors()}
   def describe_human_task_ui(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHumanTaskUi", input, options)
   end
 
   @doc """
   Returns a description of a hyperparameter tuning job, depending on the fields
-  selected.
-
-  These fields can include the name, Amazon Resource Name (ARN), job status of
-  your tuning job and more.
+  selected. These fields can include the name, Amazon Resource Name (ARN), job
+  status of your tuning job and more.
   """
   @spec describe_hyper_parameter_tuning_job(
-          map(),
+          AWS.Client.t(),
           describe_hyper_parameter_tuning_job_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_hyper_parameter_tuning_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_hyper_parameter_tuning_job_errors()}
   def describe_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHyperParameterTuningJob", input, options)
   end
@@ -20577,12 +19926,13 @@ defmodule AWS.SageMaker do
   @doc """
   Describes a SageMaker image.
   """
-  @spec describe_image(map(), describe_image_request(), list()) ::
+  @spec describe_image(AWS.Client.t(), describe_image_request(), Keyword.t()) ::
           {:ok, describe_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_image_errors()}
   def describe_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeImage", input, options)
   end
@@ -20590,12 +19940,13 @@ defmodule AWS.SageMaker do
   @doc """
   Describes a version of a SageMaker image.
   """
-  @spec describe_image_version(map(), describe_image_version_request(), list()) ::
+  @spec describe_image_version(AWS.Client.t(), describe_image_version_request(), Keyword.t()) ::
           {:ok, describe_image_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_image_version_errors()}
   def describe_image_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeImageVersion", input, options)
   end
@@ -20603,11 +19954,16 @@ defmodule AWS.SageMaker do
   @doc """
   Returns information about an inference component.
   """
-  @spec describe_inference_component(map(), describe_inference_component_input(), list()) ::
+  @spec describe_inference_component(
+          AWS.Client.t(),
+          describe_inference_component_input(),
+          Keyword.t()
+        ) ::
           {:ok, describe_inference_component_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_inference_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInferenceComponent", input, options)
   end
@@ -20615,31 +19971,36 @@ defmodule AWS.SageMaker do
   @doc """
   Returns details about an inference experiment.
   """
-  @spec describe_inference_experiment(map(), describe_inference_experiment_request(), list()) ::
+  @spec describe_inference_experiment(
+          AWS.Client.t(),
+          describe_inference_experiment_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_inference_experiment_errors()}
   def describe_inference_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInferenceExperiment", input, options)
   end
 
   @doc """
-  Provides the results of the Inference Recommender job.
-
-  One or more recommendation jobs are returned.
+  Provides the results of the Inference Recommender job. One or more
+  recommendation jobs are returned.
   """
   @spec describe_inference_recommendations_job(
-          map(),
+          AWS.Client.t(),
           describe_inference_recommendations_job_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_inference_recommendations_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_inference_recommendations_job_errors()}
   def describe_inference_recommendations_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInferenceRecommendationsJob", input, options)
   end
@@ -20647,30 +20008,30 @@ defmodule AWS.SageMaker do
   @doc """
   Gets information about a labeling job.
   """
-  @spec describe_labeling_job(map(), describe_labeling_job_request(), list()) ::
+  @spec describe_labeling_job(AWS.Client.t(), describe_labeling_job_request(), Keyword.t()) ::
           {:ok, describe_labeling_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_labeling_job_errors()}
   def describe_labeling_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLabelingJob", input, options)
   end
 
   @doc """
-  Provides a list of properties for the requested lineage group.
-
-  For more information, see [
-  Cross-Account Lineage Tracking
+  Provides a list of properties for the requested lineage group. For more
+  information, see [ Cross-Account Lineage Tracking
   ](https://docs.aws.amazon.com/sagemaker/latest/dg/xaccount-lineage-tracking.html)
   in the *Amazon SageMaker Developer Guide*.
   """
-  @spec describe_lineage_group(map(), describe_lineage_group_request(), list()) ::
+  @spec describe_lineage_group(AWS.Client.t(), describe_lineage_group_request(), Keyword.t()) ::
           {:ok, describe_lineage_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_lineage_group_errors()}
   def describe_lineage_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLineageGroup", input, options)
   end
@@ -20678,25 +20039,30 @@ defmodule AWS.SageMaker do
   @doc """
   Returns information about an MLflow Tracking Server.
   """
-  @spec describe_mlflow_tracking_server(map(), describe_mlflow_tracking_server_request(), list()) ::
+  @spec describe_mlflow_tracking_server(
+          AWS.Client.t(),
+          describe_mlflow_tracking_server_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_mlflow_tracking_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_mlflow_tracking_server_errors()}
   def describe_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMlflowTrackingServer", input, options)
   end
 
   @doc """
-  Describes a model that you created using the `CreateModel`
-  API.
+  Describes a model that you created using the `CreateModel` API.
   """
-  @spec describe_model(map(), describe_model_input(), list()) ::
+  @spec describe_model(AWS.Client.t(), describe_model_input(), Keyword.t()) ::
           {:ok, describe_model_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModel", input, options)
   end
@@ -20705,15 +20071,16 @@ defmodule AWS.SageMaker do
   Returns a description of a model bias job definition.
   """
   @spec describe_model_bias_job_definition(
-          map(),
+          AWS.Client.t(),
           describe_model_bias_job_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_model_bias_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_model_bias_job_definition_errors()}
   def describe_model_bias_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelBiasJobDefinition", input, options)
   end
@@ -20722,12 +20089,13 @@ defmodule AWS.SageMaker do
   Describes the content, creation time, and security configuration of an Amazon
   SageMaker Model Card.
   """
-  @spec describe_model_card(map(), describe_model_card_request(), list()) ::
+  @spec describe_model_card(AWS.Client.t(), describe_model_card_request(), Keyword.t()) ::
           {:ok, describe_model_card_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_model_card_errors()}
   def describe_model_card(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelCard", input, options)
   end
@@ -20735,12 +20103,17 @@ defmodule AWS.SageMaker do
   @doc """
   Describes an Amazon SageMaker Model Card export job.
   """
-  @spec describe_model_card_export_job(map(), describe_model_card_export_job_request(), list()) ::
+  @spec describe_model_card_export_job(
+          AWS.Client.t(),
+          describe_model_card_export_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_model_card_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_model_card_export_job_errors()}
   def describe_model_card_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelCardExportJob", input, options)
   end
@@ -20749,37 +20122,34 @@ defmodule AWS.SageMaker do
   Returns a description of a model explainability job definition.
   """
   @spec describe_model_explainability_job_definition(
-          map(),
+          AWS.Client.t(),
           describe_model_explainability_job_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_model_explainability_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_model_explainability_job_definition_errors()}
   def describe_model_explainability_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelExplainabilityJobDefinition", input, options)
   end
 
   @doc """
   Returns a description of the specified model package, which is used to create
-  SageMaker
-  models or list them on Amazon Web Services Marketplace.
-
-  If you provided a KMS Key ID when you created your model package,
-  you will see the [KMS Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html)
+  SageMaker models or list them on Amazon Web Services Marketplace. If you
+  provided a KMS Key ID when you created your model package, you will see the
+  [KMS
+  Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html)
   API call in your CloudTrail logs when you use this API.
-
-  To create models in SageMaker, buyers can subscribe to model packages listed on
-  Amazon Web Services
-  Marketplace.
   """
-  @spec describe_model_package(map(), describe_model_package_input(), list()) ::
+  @spec describe_model_package(AWS.Client.t(), describe_model_package_input(), Keyword.t()) ::
           {:ok, describe_model_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_model_package(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelPackage", input, options)
   end
@@ -20787,11 +20157,16 @@ defmodule AWS.SageMaker do
   @doc """
   Gets a description for the specified model group.
   """
-  @spec describe_model_package_group(map(), describe_model_package_group_input(), list()) ::
+  @spec describe_model_package_group(
+          AWS.Client.t(),
+          describe_model_package_group_input(),
+          Keyword.t()
+        ) ::
           {:ok, describe_model_package_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_model_package_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelPackageGroup", input, options)
   end
@@ -20800,15 +20175,16 @@ defmodule AWS.SageMaker do
   Returns a description of a model quality job definition.
   """
   @spec describe_model_quality_job_definition(
-          map(),
+          AWS.Client.t(),
           describe_model_quality_job_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_model_quality_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_model_quality_job_definition_errors()}
   def describe_model_quality_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelQualityJobDefinition", input, options)
   end
@@ -20816,12 +20192,17 @@ defmodule AWS.SageMaker do
   @doc """
   Describes the schedule for a monitoring job.
   """
-  @spec describe_monitoring_schedule(map(), describe_monitoring_schedule_request(), list()) ::
+  @spec describe_monitoring_schedule(
+          AWS.Client.t(),
+          describe_monitoring_schedule_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_monitoring_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_monitoring_schedule_errors()}
   def describe_monitoring_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMonitoringSchedule", input, options)
   end
@@ -20829,30 +20210,33 @@ defmodule AWS.SageMaker do
   @doc """
   Returns information about a notebook instance.
   """
-  @spec describe_notebook_instance(map(), describe_notebook_instance_input(), list()) ::
+  @spec describe_notebook_instance(
+          AWS.Client.t(),
+          describe_notebook_instance_input(),
+          Keyword.t()
+        ) ::
           {:ok, describe_notebook_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_notebook_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeNotebookInstance", input, options)
   end
 
   @doc """
   Returns a description of a notebook instance lifecycle configuration.
-
-  For information about notebook instance lifestyle configurations, see [Step 2.1: (Optional) Customize a Notebook
-  Instance](https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html).
   """
   @spec describe_notebook_instance_lifecycle_config(
-          map(),
+          AWS.Client.t(),
           describe_notebook_instance_lifecycle_config_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_notebook_instance_lifecycle_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeNotebookInstanceLifecycleConfig", input, options)
   end
@@ -20860,12 +20244,17 @@ defmodule AWS.SageMaker do
   @doc """
   Provides the properties of the specified optimization job.
   """
-  @spec describe_optimization_job(map(), describe_optimization_job_request(), list()) ::
+  @spec describe_optimization_job(
+          AWS.Client.t(),
+          describe_optimization_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_optimization_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_optimization_job_errors()}
   def describe_optimization_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOptimizationJob", input, options)
   end
@@ -20873,12 +20262,13 @@ defmodule AWS.SageMaker do
   @doc """
   Describes the details of a pipeline.
   """
-  @spec describe_pipeline(map(), describe_pipeline_request(), list()) ::
+  @spec describe_pipeline(AWS.Client.t(), describe_pipeline_request(), Keyword.t()) ::
           {:ok, describe_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_pipeline_errors()}
   def describe_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePipeline", input, options)
   end
@@ -20887,15 +20277,16 @@ defmodule AWS.SageMaker do
   Describes the details of an execution's pipeline definition.
   """
   @spec describe_pipeline_definition_for_execution(
-          map(),
+          AWS.Client.t(),
           describe_pipeline_definition_for_execution_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_pipeline_definition_for_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_pipeline_definition_for_execution_errors()}
   def describe_pipeline_definition_for_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePipelineDefinitionForExecution", input, options)
   end
@@ -20903,12 +20294,17 @@ defmodule AWS.SageMaker do
   @doc """
   Describes the details of a pipeline execution.
   """
-  @spec describe_pipeline_execution(map(), describe_pipeline_execution_request(), list()) ::
+  @spec describe_pipeline_execution(
+          AWS.Client.t(),
+          describe_pipeline_execution_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_pipeline_execution_errors()}
   def describe_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePipelineExecution", input, options)
   end
@@ -20916,12 +20312,13 @@ defmodule AWS.SageMaker do
   @doc """
   Returns a description of a processing job.
   """
-  @spec describe_processing_job(map(), describe_processing_job_request(), list()) ::
+  @spec describe_processing_job(AWS.Client.t(), describe_processing_job_request(), Keyword.t()) ::
           {:ok, describe_processing_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_processing_job_errors()}
   def describe_processing_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProcessingJob", input, options)
   end
@@ -20929,11 +20326,12 @@ defmodule AWS.SageMaker do
   @doc """
   Describes the details of a project.
   """
-  @spec describe_project(map(), describe_project_input(), list()) ::
+  @spec describe_project(AWS.Client.t(), describe_project_input(), Keyword.t()) ::
           {:ok, describe_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProject", input, options)
   end
@@ -20941,12 +20339,13 @@ defmodule AWS.SageMaker do
   @doc """
   Describes the space.
   """
-  @spec describe_space(map(), describe_space_request(), list()) ::
+  @spec describe_space(AWS.Client.t(), describe_space_request(), Keyword.t()) ::
           {:ok, describe_space_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_space_errors()}
   def describe_space(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSpace", input, options)
   end
@@ -20955,51 +20354,48 @@ defmodule AWS.SageMaker do
   Describes the Amazon SageMaker Studio Lifecycle Configuration.
   """
   @spec describe_studio_lifecycle_config(
-          map(),
+          AWS.Client.t(),
           describe_studio_lifecycle_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_studio_lifecycle_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_studio_lifecycle_config_errors()}
   def describe_studio_lifecycle_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStudioLifecycleConfig", input, options)
   end
 
   @doc """
-  Gets information about a work team provided by a vendor.
-
-  It returns details about the
-  subscription with a vendor in the Amazon Web Services Marketplace.
+  Gets information about a work team provided by a vendor. It returns details
+  about the subscription with a vendor in the Amazon Web Services Marketplace.
   """
-  @spec describe_subscribed_workteam(map(), describe_subscribed_workteam_request(), list()) ::
+  @spec describe_subscribed_workteam(
+          AWS.Client.t(),
+          describe_subscribed_workteam_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_subscribed_workteam_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_subscribed_workteam(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSubscribedWorkteam", input, options)
   end
 
   @doc """
   Returns information about a training job.
-
-  Some of the attributes below only appear if the training job successfully
-  starts.
-  If the training job fails, `TrainingJobStatus` is `Failed` and,
-  depending on the `FailureReason`, attributes like
-  `TrainingStartTime`, `TrainingTimeInSeconds`,
-  `TrainingEndTime`, and `BillableTimeInSeconds` may not be
-  present in the response.
   """
-  @spec describe_training_job(map(), describe_training_job_request(), list()) ::
+  @spec describe_training_job(AWS.Client.t(), describe_training_job_request(), Keyword.t()) ::
           {:ok, describe_training_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_training_job_errors()}
   def describe_training_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrainingJob", input, options)
   end
@@ -21007,12 +20403,13 @@ defmodule AWS.SageMaker do
   @doc """
   Returns information about a transform job.
   """
-  @spec describe_transform_job(map(), describe_transform_job_request(), list()) ::
+  @spec describe_transform_job(AWS.Client.t(), describe_transform_job_request(), Keyword.t()) ::
           {:ok, describe_transform_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_transform_job_errors()}
   def describe_transform_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTransformJob", input, options)
   end
@@ -21020,12 +20417,13 @@ defmodule AWS.SageMaker do
   @doc """
   Provides a list of a trial's properties.
   """
-  @spec describe_trial(map(), describe_trial_request(), list()) ::
+  @spec describe_trial(AWS.Client.t(), describe_trial_request(), Keyword.t()) ::
           {:ok, describe_trial_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_trial_errors()}
   def describe_trial(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrial", input, options)
   end
@@ -21033,128 +20431,121 @@ defmodule AWS.SageMaker do
   @doc """
   Provides a list of a trials component's properties.
   """
-  @spec describe_trial_component(map(), describe_trial_component_request(), list()) ::
+  @spec describe_trial_component(AWS.Client.t(), describe_trial_component_request(), Keyword.t()) ::
           {:ok, describe_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_trial_component_errors()}
   def describe_trial_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrialComponent", input, options)
   end
 
   @doc """
-  Describes a user profile.
-
-  For more information, see `CreateUserProfile`.
+  Describes a user profile. For more information, see `CreateUserProfile`.
   """
-  @spec describe_user_profile(map(), describe_user_profile_request(), list()) ::
+  @spec describe_user_profile(AWS.Client.t(), describe_user_profile_request(), Keyword.t()) ::
           {:ok, describe_user_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_profile_errors()}
   def describe_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUserProfile", input, options)
   end
 
   @doc """
   Lists private workforce information, including workforce name, Amazon Resource
-  Name
-  (ARN), and, if applicable, allowed IP address ranges
+  Name (ARN), and, if applicable, allowed IP address ranges
   ([CIDRs](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html)).
-
-  Allowable IP address
-  ranges are the IP addresses that workers can use to access tasks.
-
-  This operation applies only to private workforces.
+  Allowable IP address ranges are the IP addresses that workers can use to
+  access tasks.
   """
-  @spec describe_workforce(map(), describe_workforce_request(), list()) ::
+  @spec describe_workforce(AWS.Client.t(), describe_workforce_request(), Keyword.t()) ::
           {:ok, describe_workforce_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_workforce(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkforce", input, options)
   end
 
   @doc """
-  Gets information about a specific work team.
-
-  You can see information such as the
+  Gets information about a specific work team. You can see information such as the
   creation date, the last updated date, membership information, and the work
-  team's Amazon
-  Resource Name (ARN).
+  team's Amazon Resource Name (ARN).
   """
-  @spec describe_workteam(map(), describe_workteam_request(), list()) ::
+  @spec describe_workteam(AWS.Client.t(), describe_workteam_request(), Keyword.t()) ::
           {:ok, describe_workteam_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_workteam(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkteam", input, options)
   end
 
   @doc """
-  Disables using Service Catalog in SageMaker.
-
-  Service Catalog is used to create
+  Disables using Service Catalog in SageMaker. Service Catalog is used to create
   SageMaker projects.
   """
   @spec disable_sagemaker_servicecatalog_portfolio(
-          map(),
+          AWS.Client.t(),
           disable_sagemaker_servicecatalog_portfolio_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disable_sagemaker_servicecatalog_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def disable_sagemaker_servicecatalog_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableSagemakerServicecatalogPortfolio", input, options)
   end
 
   @doc """
-  Disassociates a trial component from a trial.
-
-  This doesn't effect other trials the
-  component is associated with. Before you can delete a component, you must
-  disassociate the
-  component from all trials it is associated with. To associate a trial component
-  with a trial,
-  call the
-  [AssociateTrialComponent](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AssociateTrialComponent.html) API.
-
-  To get a list of the trials a component is associated with, use the
+  Disassociates a trial component from a trial. This doesn't effect other trials
+  the component is associated with. Before you can delete a component, you must
+  disassociate the component from all trials it is associated with. To associate
+  a trial component with a trial, call the
+  [AssociateTrialComponent](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AssociateTrialComponent.html)
+  API. To get a list of the trials a component is associated with, use the
   [Search](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html)
-  API. Specify `ExperimentTrialComponent` for the `Resource` parameter.
-  The list appears in the response under `Results.TrialComponent.Parents`.
+  API. Specify `ExperimentTrialComponent` for the `Resource` parameter. The list
+  appears in the response under `Results.TrialComponent.Parents`.
   """
-  @spec disassociate_trial_component(map(), disassociate_trial_component_request(), list()) ::
+  @spec disassociate_trial_component(
+          AWS.Client.t(),
+          disassociate_trial_component_request(),
+          Keyword.t()
+        ) ::
           {:ok, disassociate_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_trial_component_errors()}
   def disassociate_trial_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateTrialComponent", input, options)
   end
 
   @doc """
-  Enables using Service Catalog in SageMaker.
-
-  Service Catalog is used to create
+  Enables using Service Catalog in SageMaker. Service Catalog is used to create
   SageMaker projects.
   """
   @spec enable_sagemaker_servicecatalog_portfolio(
-          map(),
+          AWS.Client.t(),
           enable_sagemaker_servicecatalog_portfolio_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, enable_sagemaker_servicecatalog_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def enable_sagemaker_servicecatalog_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableSagemakerServicecatalogPortfolio", input, options)
   end
@@ -21162,11 +20553,12 @@ defmodule AWS.SageMaker do
   @doc """
   Describes a fleet.
   """
-  @spec get_device_fleet_report(map(), get_device_fleet_report_request(), list()) ::
+  @spec get_device_fleet_report(AWS.Client.t(), get_device_fleet_report_request(), Keyword.t()) ::
           {:ok, get_device_fleet_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def get_device_fleet_report(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeviceFleetReport", input, options)
   end
@@ -21174,49 +20566,51 @@ defmodule AWS.SageMaker do
   @doc """
   The resource policy for the lineage group.
   """
-  @spec get_lineage_group_policy(map(), get_lineage_group_policy_request(), list()) ::
+  @spec get_lineage_group_policy(AWS.Client.t(), get_lineage_group_policy_request(), Keyword.t()) ::
           {:ok, get_lineage_group_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lineage_group_policy_errors()}
   def get_lineage_group_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLineageGroupPolicy", input, options)
   end
 
   @doc """
-  Gets a resource policy that manages access for a model group.
-
-  For information about
-  resource policies, see [Identity-based policies and resource-based
+  Gets a resource policy that manages access for a model group. For information
+  about resource policies, see [Identity-based policies and resource-based
   policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html)
-  in the *Amazon Web Services Identity and
-  Access Management User Guide.*.
+  in the *Amazon Web Services Identity and Access Management User Guide.*.
   """
-  @spec get_model_package_group_policy(map(), get_model_package_group_policy_input(), list()) ::
+  @spec get_model_package_group_policy(
+          AWS.Client.t(),
+          get_model_package_group_policy_input(),
+          Keyword.t()
+        ) ::
           {:ok, get_model_package_group_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def get_model_package_group_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetModelPackageGroupPolicy", input, options)
   end
 
   @doc """
-  Gets the status of Service Catalog in SageMaker.
-
-  Service Catalog is used to create
-  SageMaker projects.
+  Gets the status of Service Catalog in SageMaker. Service Catalog is used to
+  create SageMaker projects.
   """
   @spec get_sagemaker_servicecatalog_portfolio_status(
-          map(),
+          AWS.Client.t(),
           get_sagemaker_servicecatalog_portfolio_status_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_sagemaker_servicecatalog_portfolio_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def get_sagemaker_servicecatalog_portfolio_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -21229,37 +20623,36 @@ defmodule AWS.SageMaker do
 
   @doc """
   Starts an Amazon SageMaker Inference Recommender autoscaling recommendation job.
-
-  Returns recommendations for autoscaling policies
-  that you can apply to your SageMaker endpoint.
+  Returns recommendations for autoscaling policies that you can apply to your
+  SageMaker endpoint.
   """
   @spec get_scaling_configuration_recommendation(
-          map(),
+          AWS.Client.t(),
           get_scaling_configuration_recommendation_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_scaling_configuration_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_scaling_configuration_recommendation_errors()}
   def get_scaling_configuration_recommendation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetScalingConfigurationRecommendation", input, options)
   end
 
   @doc """
-  An auto-complete API for the search functionality in the SageMaker console.
-
-  It returns
-  suggestions of possible matches for the property name to use in `Search`
-  queries. Provides suggestions for `HyperParameters`, `Tags`, and
+  An auto-complete API for the search functionality in the SageMaker console. It
+  returns suggestions of possible matches for the property name to use in
+  `Search` queries. Provides suggestions for `HyperParameters`, `Tags`, and
   `Metrics`.
   """
-  @spec get_search_suggestions(map(), get_search_suggestions_request(), list()) ::
+  @spec get_search_suggestions(AWS.Client.t(), get_search_suggestions_request(), Keyword.t()) ::
           {:ok, get_search_suggestions_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def get_search_suggestions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSearchSuggestions", input, options)
   end
@@ -21267,12 +20660,13 @@ defmodule AWS.SageMaker do
   @doc """
   Import hub content.
   """
-  @spec import_hub_content(map(), import_hub_content_request(), list()) ::
+  @spec import_hub_content(AWS.Client.t(), import_hub_content_request(), Keyword.t()) ::
           {:ok, import_hub_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_hub_content_errors()}
   def import_hub_content(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportHubContent", input, options)
   end
@@ -21280,12 +20674,13 @@ defmodule AWS.SageMaker do
   @doc """
   Lists the actions in your account and their properties.
   """
-  @spec list_actions(map(), list_actions_request(), list()) ::
+  @spec list_actions(AWS.Client.t(), list_actions_request(), Keyword.t()) ::
           {:ok, list_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_actions_errors()}
   def list_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListActions", input, options)
   end
@@ -21293,11 +20688,12 @@ defmodule AWS.SageMaker do
   @doc """
   Lists the machine learning algorithms that have been created.
   """
-  @spec list_algorithms(map(), list_algorithms_input(), list()) ::
+  @spec list_algorithms(AWS.Client.t(), list_algorithms_input(), Keyword.t()) ::
           {:ok, list_algorithms_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_algorithms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAlgorithms", input, options)
   end
@@ -21305,29 +20701,28 @@ defmodule AWS.SageMaker do
   @doc """
   Lists the aliases of a specified image or image version.
   """
-  @spec list_aliases(map(), list_aliases_request(), list()) ::
+  @spec list_aliases(AWS.Client.t(), list_aliases_request(), Keyword.t()) ::
           {:ok, list_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_aliases_errors()}
   def list_aliases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAliases", input, options)
   end
 
   @doc """
-  Lists the AppImageConfigs in your account and their properties.
-
-  The list can be
-  filtered by creation time or modified time, and whether the AppImageConfig name
-  contains
-  a specified string.
+  Lists the AppImageConfigs in your account and their properties. The list can be
+  filtered by creation time or modified time, and whether the AppImageConfig
+  name contains a specified string.
   """
-  @spec list_app_image_configs(map(), list_app_image_configs_request(), list()) ::
+  @spec list_app_image_configs(AWS.Client.t(), list_app_image_configs_request(), Keyword.t()) ::
           {:ok, list_app_image_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_app_image_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAppImageConfigs", input, options)
   end
@@ -21335,11 +20730,12 @@ defmodule AWS.SageMaker do
   @doc """
   Lists apps.
   """
-  @spec list_apps(map(), list_apps_request(), list()) ::
+  @spec list_apps(AWS.Client.t(), list_apps_request(), Keyword.t()) ::
           {:ok, list_apps_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_apps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApps", input, options)
   end
@@ -21347,12 +20743,13 @@ defmodule AWS.SageMaker do
   @doc """
   Lists the artifacts in your account and their properties.
   """
-  @spec list_artifacts(map(), list_artifacts_request(), list()) ::
+  @spec list_artifacts(AWS.Client.t(), list_artifacts_request(), Keyword.t()) ::
           {:ok, list_artifacts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_artifacts_errors()}
   def list_artifacts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListArtifacts", input, options)
   end
@@ -21360,12 +20757,13 @@ defmodule AWS.SageMaker do
   @doc """
   Lists the associations in your account and their properties.
   """
-  @spec list_associations(map(), list_associations_request(), list()) ::
+  @spec list_associations(AWS.Client.t(), list_associations_request(), Keyword.t()) ::
           {:ok, list_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_associations_errors()}
   def list_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAssociations", input, options)
   end
@@ -21373,11 +20771,12 @@ defmodule AWS.SageMaker do
   @doc """
   Request a list of jobs.
   """
-  @spec list_auto_ml_jobs(map(), list_auto_ml_jobs_request(), list()) ::
+  @spec list_auto_ml_jobs(AWS.Client.t(), list_auto_ml_jobs_request(), Keyword.t()) ::
           {:ok, list_auto_ml_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_auto_ml_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAutoMLJobs", input, options)
   end
@@ -21385,26 +20784,32 @@ defmodule AWS.SageMaker do
   @doc """
   List the candidates created for the job.
   """
-  @spec list_candidates_for_auto_ml_job(map(), list_candidates_for_auto_ml_job_request(), list()) ::
+  @spec list_candidates_for_auto_ml_job(
+          AWS.Client.t(),
+          list_candidates_for_auto_ml_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_candidates_for_auto_ml_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_candidates_for_auto_ml_job_errors()}
   def list_candidates_for_auto_ml_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCandidatesForAutoMLJob", input, options)
   end
 
   @doc """
-  Retrieves the list of instances (also called *nodes* interchangeably)
-  in a SageMaker HyperPod cluster.
+  Retrieves the list of instances (also called *nodes* interchangeably) in a
+  SageMaker HyperPod cluster.
   """
-  @spec list_cluster_nodes(map(), list_cluster_nodes_request(), list()) ::
+  @spec list_cluster_nodes(AWS.Client.t(), list_cluster_nodes_request(), Keyword.t()) ::
           {:ok, list_cluster_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cluster_nodes_errors()}
   def list_cluster_nodes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListClusterNodes", input, options)
   end
@@ -21412,11 +20817,12 @@ defmodule AWS.SageMaker do
   @doc """
   Retrieves the list of SageMaker HyperPod clusters.
   """
-  @spec list_clusters(map(), list_clusters_request(), list()) ::
+  @spec list_clusters(AWS.Client.t(), list_clusters_request(), Keyword.t()) ::
           {:ok, list_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListClusters", input, options)
   end
@@ -21424,28 +20830,25 @@ defmodule AWS.SageMaker do
   @doc """
   Gets a list of the Git repositories in your account.
   """
-  @spec list_code_repositories(map(), list_code_repositories_input(), list()) ::
+  @spec list_code_repositories(AWS.Client.t(), list_code_repositories_input(), Keyword.t()) ::
           {:ok, list_code_repositories_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_code_repositories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCodeRepositories", input, options)
   end
 
   @doc """
   Lists model compilation jobs that satisfy various filters.
-
-  To create a model compilation job, use
-  [CreateCompilationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateCompilationJob.html). To get information about a particular model
-  compilation job you have created, use
-  [DescribeCompilationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeCompilationJob.html).
   """
-  @spec list_compilation_jobs(map(), list_compilation_jobs_request(), list()) ::
+  @spec list_compilation_jobs(AWS.Client.t(), list_compilation_jobs_request(), Keyword.t()) ::
           {:ok, list_compilation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_compilation_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCompilationJobs", input, options)
   end
@@ -21453,12 +20856,13 @@ defmodule AWS.SageMaker do
   @doc """
   Lists the contexts in your account and their properties.
   """
-  @spec list_contexts(map(), list_contexts_request(), list()) ::
+  @spec list_contexts(AWS.Client.t(), list_contexts_request(), Keyword.t()) ::
           {:ok, list_contexts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contexts_errors()}
   def list_contexts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListContexts", input, options)
   end
@@ -21467,14 +20871,15 @@ defmodule AWS.SageMaker do
   Lists the data quality job definitions in your account.
   """
   @spec list_data_quality_job_definitions(
-          map(),
+          AWS.Client.t(),
           list_data_quality_job_definitions_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_data_quality_job_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_data_quality_job_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataQualityJobDefinitions", input, options)
   end
@@ -21482,11 +20887,12 @@ defmodule AWS.SageMaker do
   @doc """
   Returns a list of devices in the fleet.
   """
-  @spec list_device_fleets(map(), list_device_fleets_request(), list()) ::
+  @spec list_device_fleets(AWS.Client.t(), list_device_fleets_request(), Keyword.t()) ::
           {:ok, list_device_fleets_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_device_fleets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeviceFleets", input, options)
   end
@@ -21494,11 +20900,12 @@ defmodule AWS.SageMaker do
   @doc """
   A list of devices.
   """
-  @spec list_devices(map(), list_devices_request(), list()) ::
+  @spec list_devices(AWS.Client.t(), list_devices_request(), Keyword.t()) ::
           {:ok, list_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_devices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDevices", input, options)
   end
@@ -21506,11 +20913,12 @@ defmodule AWS.SageMaker do
   @doc """
   Lists the domains.
   """
-  @spec list_domains(map(), list_domains_request(), list()) ::
+  @spec list_domains(AWS.Client.t(), list_domains_request(), Keyword.t()) ::
           {:ok, list_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_domains(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDomains", input, options)
   end
@@ -21518,11 +20926,16 @@ defmodule AWS.SageMaker do
   @doc """
   Lists all edge deployment plans.
   """
-  @spec list_edge_deployment_plans(map(), list_edge_deployment_plans_request(), list()) ::
+  @spec list_edge_deployment_plans(
+          AWS.Client.t(),
+          list_edge_deployment_plans_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_edge_deployment_plans_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_edge_deployment_plans(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEdgeDeploymentPlans", input, options)
   end
@@ -21530,11 +20943,12 @@ defmodule AWS.SageMaker do
   @doc """
   Returns a list of edge packaging jobs.
   """
-  @spec list_edge_packaging_jobs(map(), list_edge_packaging_jobs_request(), list()) ::
+  @spec list_edge_packaging_jobs(AWS.Client.t(), list_edge_packaging_jobs_request(), Keyword.t()) ::
           {:ok, list_edge_packaging_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_edge_packaging_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEdgePackagingJobs", input, options)
   end
@@ -21542,11 +20956,12 @@ defmodule AWS.SageMaker do
   @doc """
   Lists endpoint configurations.
   """
-  @spec list_endpoint_configs(map(), list_endpoint_configs_input(), list()) ::
+  @spec list_endpoint_configs(AWS.Client.t(), list_endpoint_configs_input(), Keyword.t()) ::
           {:ok, list_endpoint_configs_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_endpoint_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEndpointConfigs", input, options)
   end
@@ -21554,28 +20969,27 @@ defmodule AWS.SageMaker do
   @doc """
   Lists endpoints.
   """
-  @spec list_endpoints(map(), list_endpoints_input(), list()) ::
+  @spec list_endpoints(AWS.Client.t(), list_endpoints_input(), Keyword.t()) ::
           {:ok, list_endpoints_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEndpoints", input, options)
   end
 
   @doc """
-  Lists all the experiments in your account.
-
-  The list can be filtered to show only
+  Lists all the experiments in your account. The list can be filtered to show only
   experiments that were created in a specific time range. The list can be sorted
-  by experiment
-  name or creation time.
+  by experiment name or creation time.
   """
-  @spec list_experiments(map(), list_experiments_request(), list()) ::
+  @spec list_experiments(AWS.Client.t(), list_experiments_request(), Keyword.t()) ::
           {:ok, list_experiments_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_experiments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListExperiments", input, options)
   end
@@ -21583,11 +20997,12 @@ defmodule AWS.SageMaker do
   @doc """
   List `FeatureGroup`s based on given filter and order.
   """
-  @spec list_feature_groups(map(), list_feature_groups_request(), list()) ::
+  @spec list_feature_groups(AWS.Client.t(), list_feature_groups_request(), Keyword.t()) ::
           {:ok, list_feature_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_feature_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFeatureGroups", input, options)
   end
@@ -21595,11 +21010,12 @@ defmodule AWS.SageMaker do
   @doc """
   Returns information about the flow definitions in your account.
   """
-  @spec list_flow_definitions(map(), list_flow_definitions_request(), list()) ::
+  @spec list_flow_definitions(AWS.Client.t(), list_flow_definitions_request(), Keyword.t()) ::
           {:ok, list_flow_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_flow_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFlowDefinitions", input, options)
   end
@@ -21607,12 +21023,17 @@ defmodule AWS.SageMaker do
   @doc """
   List hub content versions.
   """
-  @spec list_hub_content_versions(map(), list_hub_content_versions_request(), list()) ::
+  @spec list_hub_content_versions(
+          AWS.Client.t(),
+          list_hub_content_versions_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_hub_content_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_hub_content_versions_errors()}
   def list_hub_content_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHubContentVersions", input, options)
   end
@@ -21620,12 +21041,13 @@ defmodule AWS.SageMaker do
   @doc """
   List the contents of a hub.
   """
-  @spec list_hub_contents(map(), list_hub_contents_request(), list()) ::
+  @spec list_hub_contents(AWS.Client.t(), list_hub_contents_request(), Keyword.t()) ::
           {:ok, list_hub_contents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_hub_contents_errors()}
   def list_hub_contents(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHubContents", input, options)
   end
@@ -21633,11 +21055,12 @@ defmodule AWS.SageMaker do
   @doc """
   List all existing hubs.
   """
-  @spec list_hubs(map(), list_hubs_request(), list()) ::
+  @spec list_hubs(AWS.Client.t(), list_hubs_request(), Keyword.t()) ::
           {:ok, list_hubs_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_hubs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHubs", input, options)
   end
@@ -21645,11 +21068,12 @@ defmodule AWS.SageMaker do
   @doc """
   Returns information about the human task user interfaces in your account.
   """
-  @spec list_human_task_uis(map(), list_human_task_uis_request(), list()) ::
+  @spec list_human_task_uis(AWS.Client.t(), list_human_task_uis_request(), Keyword.t()) ::
           {:ok, list_human_task_uis_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_human_task_uis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHumanTaskUis", input, options)
   end
@@ -21657,51 +21081,48 @@ defmodule AWS.SageMaker do
   @doc """
   Gets a list of
   [HyperParameterTuningJobSummary](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobSummary.html)
-  objects that
-  describe
-  the hyperparameter tuning jobs launched in your account.
+  objects that describe the hyperparameter tuning jobs launched in your account.
   """
   @spec list_hyper_parameter_tuning_jobs(
-          map(),
+          AWS.Client.t(),
           list_hyper_parameter_tuning_jobs_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_hyper_parameter_tuning_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_hyper_parameter_tuning_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHyperParameterTuningJobs", input, options)
   end
 
   @doc """
-  Lists the versions of a specified image and their properties.
-
-  The list can be filtered
-  by creation time or modified time.
+  Lists the versions of a specified image and their properties. The list can be
+  filtered by creation time or modified time.
   """
-  @spec list_image_versions(map(), list_image_versions_request(), list()) ::
+  @spec list_image_versions(AWS.Client.t(), list_image_versions_request(), Keyword.t()) ::
           {:ok, list_image_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_image_versions_errors()}
   def list_image_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListImageVersions", input, options)
   end
 
   @doc """
-  Lists the images in your account and their properties.
-
-  The list can be filtered by
-  creation time or modified time, and whether the image name contains a specified
-  string.
+  Lists the images in your account and their properties. The list can be filtered
+  by creation time or modified time, and whether the image name contains a
+  specified string.
   """
-  @spec list_images(map(), list_images_request(), list()) ::
+  @spec list_images(AWS.Client.t(), list_images_request(), Keyword.t()) ::
           {:ok, list_images_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_images(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListImages", input, options)
   end
@@ -21709,11 +21130,12 @@ defmodule AWS.SageMaker do
   @doc """
   Lists the inference components in your account and their properties.
   """
-  @spec list_inference_components(map(), list_inference_components_input(), list()) ::
+  @spec list_inference_components(AWS.Client.t(), list_inference_components_input(), Keyword.t()) ::
           {:ok, list_inference_components_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_inference_components(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInferenceComponents", input, options)
   end
@@ -21721,31 +21143,34 @@ defmodule AWS.SageMaker do
   @doc """
   Returns the list of all inference experiments.
   """
-  @spec list_inference_experiments(map(), list_inference_experiments_request(), list()) ::
+  @spec list_inference_experiments(
+          AWS.Client.t(),
+          list_inference_experiments_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_inference_experiments_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_inference_experiments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInferenceExperiments", input, options)
   end
 
   @doc """
   Returns a list of the subtasks for an Inference Recommender job.
-
-  The supported subtasks are benchmarks, which evaluate the performance of your
-  model on different instance types.
   """
   @spec list_inference_recommendations_job_steps(
-          map(),
+          AWS.Client.t(),
           list_inference_recommendations_job_steps_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_inference_recommendations_job_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_inference_recommendations_job_steps_errors()}
   def list_inference_recommendations_job_steps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInferenceRecommendationsJobSteps", input, options)
   end
@@ -21754,14 +21179,15 @@ defmodule AWS.SageMaker do
   Lists recommendation jobs that satisfy various filters.
   """
   @spec list_inference_recommendations_jobs(
-          map(),
+          AWS.Client.t(),
           list_inference_recommendations_jobs_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_inference_recommendations_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_inference_recommendations_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInferenceRecommendationsJobs", input, options)
   end
@@ -21769,11 +21195,12 @@ defmodule AWS.SageMaker do
   @doc """
   Gets a list of labeling jobs.
   """
-  @spec list_labeling_jobs(map(), list_labeling_jobs_request(), list()) ::
+  @spec list_labeling_jobs(AWS.Client.t(), list_labeling_jobs_request(), Keyword.t()) ::
           {:ok, list_labeling_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_labeling_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLabelingJobs", input, options)
   end
@@ -21781,29 +21208,33 @@ defmodule AWS.SageMaker do
   @doc """
   Gets a list of labeling jobs assigned to a specified work team.
   """
-  @spec list_labeling_jobs_for_workteam(map(), list_labeling_jobs_for_workteam_request(), list()) ::
+  @spec list_labeling_jobs_for_workteam(
+          AWS.Client.t(),
+          list_labeling_jobs_for_workteam_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_labeling_jobs_for_workteam_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_labeling_jobs_for_workteam_errors()}
   def list_labeling_jobs_for_workteam(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLabelingJobsForWorkteam", input, options)
   end
 
   @doc """
-  A list of lineage groups shared with your Amazon Web Services account.
-
-  For more information, see [
-  Cross-Account Lineage Tracking
+  A list of lineage groups shared with your Amazon Web Services account. For more
+  information, see [ Cross-Account Lineage Tracking
   ](https://docs.aws.amazon.com/sagemaker/latest/dg/xaccount-lineage-tracking.html)
   in the *Amazon SageMaker Developer Guide*.
   """
-  @spec list_lineage_groups(map(), list_lineage_groups_request(), list()) ::
+  @spec list_lineage_groups(AWS.Client.t(), list_lineage_groups_request(), Keyword.t()) ::
           {:ok, list_lineage_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_lineage_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLineageGroups", input, options)
   end
@@ -21811,11 +21242,16 @@ defmodule AWS.SageMaker do
   @doc """
   Lists all MLflow Tracking Servers.
   """
-  @spec list_mlflow_tracking_servers(map(), list_mlflow_tracking_servers_request(), list()) ::
+  @spec list_mlflow_tracking_servers(
+          AWS.Client.t(),
+          list_mlflow_tracking_servers_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_mlflow_tracking_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_mlflow_tracking_servers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMlflowTrackingServers", input, options)
   end
@@ -21823,11 +21259,16 @@ defmodule AWS.SageMaker do
   @doc """
   Lists model bias jobs definitions that satisfy various filters.
   """
-  @spec list_model_bias_job_definitions(map(), list_model_bias_job_definitions_request(), list()) ::
+  @spec list_model_bias_job_definitions(
+          AWS.Client.t(),
+          list_model_bias_job_definitions_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_model_bias_job_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_model_bias_job_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelBiasJobDefinitions", input, options)
   end
@@ -21835,11 +21276,16 @@ defmodule AWS.SageMaker do
   @doc """
   List the export jobs for the Amazon SageMaker Model Card.
   """
-  @spec list_model_card_export_jobs(map(), list_model_card_export_jobs_request(), list()) ::
+  @spec list_model_card_export_jobs(
+          AWS.Client.t(),
+          list_model_card_export_jobs_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_model_card_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_model_card_export_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelCardExportJobs", input, options)
   end
@@ -21847,12 +21293,13 @@ defmodule AWS.SageMaker do
   @doc """
   List existing versions of an Amazon SageMaker Model Card.
   """
-  @spec list_model_card_versions(map(), list_model_card_versions_request(), list()) ::
+  @spec list_model_card_versions(AWS.Client.t(), list_model_card_versions_request(), Keyword.t()) ::
           {:ok, list_model_card_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_model_card_versions_errors()}
   def list_model_card_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelCardVersions", input, options)
   end
@@ -21860,11 +21307,12 @@ defmodule AWS.SageMaker do
   @doc """
   List existing model cards.
   """
-  @spec list_model_cards(map(), list_model_cards_request(), list()) ::
+  @spec list_model_cards(AWS.Client.t(), list_model_cards_request(), Keyword.t()) ::
           {:ok, list_model_cards_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_model_cards(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelCards", input, options)
   end
@@ -21873,27 +21321,29 @@ defmodule AWS.SageMaker do
   Lists model explainability job definitions that satisfy various filters.
   """
   @spec list_model_explainability_job_definitions(
-          map(),
+          AWS.Client.t(),
           list_model_explainability_job_definitions_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_model_explainability_job_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_model_explainability_job_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelExplainabilityJobDefinitions", input, options)
   end
 
   @doc """
-  Lists the domain, framework, task, and model name of standard
-  machine learning models found in common model zoos.
+  Lists the domain, framework, task, and model name of standard machine learning
+  models found in common model zoos.
   """
-  @spec list_model_metadata(map(), list_model_metadata_request(), list()) ::
+  @spec list_model_metadata(AWS.Client.t(), list_model_metadata_request(), Keyword.t()) ::
           {:ok, list_model_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_model_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelMetadata", input, options)
   end
@@ -21901,11 +21351,12 @@ defmodule AWS.SageMaker do
   @doc """
   Gets a list of the model groups in your Amazon Web Services account.
   """
-  @spec list_model_package_groups(map(), list_model_package_groups_input(), list()) ::
+  @spec list_model_package_groups(AWS.Client.t(), list_model_package_groups_input(), Keyword.t()) ::
           {:ok, list_model_package_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_model_package_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelPackageGroups", input, options)
   end
@@ -21913,11 +21364,12 @@ defmodule AWS.SageMaker do
   @doc """
   Lists the model packages that have been created.
   """
-  @spec list_model_packages(map(), list_model_packages_input(), list()) ::
+  @spec list_model_packages(AWS.Client.t(), list_model_packages_input(), Keyword.t()) ::
           {:ok, list_model_packages_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_model_packages(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelPackages", input, options)
   end
@@ -21926,14 +21378,15 @@ defmodule AWS.SageMaker do
   Gets a list of model quality monitoring job definitions in your account.
   """
   @spec list_model_quality_job_definitions(
-          map(),
+          AWS.Client.t(),
           list_model_quality_job_definitions_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_model_quality_job_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_model_quality_job_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelQualityJobDefinitions", input, options)
   end
@@ -21941,11 +21394,12 @@ defmodule AWS.SageMaker do
   @doc """
   Lists models created with the `CreateModel` API.
   """
-  @spec list_models(map(), list_models_input(), list()) ::
+  @spec list_models(AWS.Client.t(), list_models_input(), Keyword.t()) ::
           {:ok, list_models_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_models(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModels", input, options)
   end
@@ -21953,12 +21407,17 @@ defmodule AWS.SageMaker do
   @doc """
   Gets a list of past alerts in a model monitoring schedule.
   """
-  @spec list_monitoring_alert_history(map(), list_monitoring_alert_history_request(), list()) ::
+  @spec list_monitoring_alert_history(
+          AWS.Client.t(),
+          list_monitoring_alert_history_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_monitoring_alert_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_monitoring_alert_history_errors()}
   def list_monitoring_alert_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMonitoringAlertHistory", input, options)
   end
@@ -21966,12 +21425,13 @@ defmodule AWS.SageMaker do
   @doc """
   Gets the alerts for a single monitoring schedule.
   """
-  @spec list_monitoring_alerts(map(), list_monitoring_alerts_request(), list()) ::
+  @spec list_monitoring_alerts(AWS.Client.t(), list_monitoring_alerts_request(), Keyword.t()) ::
           {:ok, list_monitoring_alerts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_monitoring_alerts_errors()}
   def list_monitoring_alerts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMonitoringAlerts", input, options)
   end
@@ -21979,11 +21439,16 @@ defmodule AWS.SageMaker do
   @doc """
   Returns list of all monitoring job executions.
   """
-  @spec list_monitoring_executions(map(), list_monitoring_executions_request(), list()) ::
+  @spec list_monitoring_executions(
+          AWS.Client.t(),
+          list_monitoring_executions_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_monitoring_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_monitoring_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMonitoringExecutions", input, options)
   end
@@ -21991,11 +21456,16 @@ defmodule AWS.SageMaker do
   @doc """
   Returns list of all monitoring schedules.
   """
-  @spec list_monitoring_schedules(map(), list_monitoring_schedules_request(), list()) ::
+  @spec list_monitoring_schedules(
+          AWS.Client.t(),
+          list_monitoring_schedules_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_monitoring_schedules_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_monitoring_schedules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMonitoringSchedules", input, options)
   end
@@ -22006,28 +21476,29 @@ defmodule AWS.SageMaker do
   API.
   """
   @spec list_notebook_instance_lifecycle_configs(
-          map(),
+          AWS.Client.t(),
           list_notebook_instance_lifecycle_configs_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_notebook_instance_lifecycle_configs_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_notebook_instance_lifecycle_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListNotebookInstanceLifecycleConfigs", input, options)
   end
 
   @doc """
   Returns a list of the SageMaker notebook instances in the requester's account in
-  an
-  Amazon Web Services Region.
+  an Amazon Web Services Region.
   """
-  @spec list_notebook_instances(map(), list_notebook_instances_input(), list()) ::
+  @spec list_notebook_instances(AWS.Client.t(), list_notebook_instances_input(), Keyword.t()) ::
           {:ok, list_notebook_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_notebook_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListNotebookInstances", input, options)
   end
@@ -22035,11 +21506,12 @@ defmodule AWS.SageMaker do
   @doc """
   Lists the optimization jobs in your account and their properties.
   """
-  @spec list_optimization_jobs(map(), list_optimization_jobs_request(), list()) ::
+  @spec list_optimization_jobs(AWS.Client.t(), list_optimization_jobs_request(), Keyword.t()) ::
           {:ok, list_optimization_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_optimization_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOptimizationJobs", input, options)
   end
@@ -22047,12 +21519,17 @@ defmodule AWS.SageMaker do
   @doc """
   Gets a list of `PipeLineExecutionStep` objects.
   """
-  @spec list_pipeline_execution_steps(map(), list_pipeline_execution_steps_request(), list()) ::
+  @spec list_pipeline_execution_steps(
+          AWS.Client.t(),
+          list_pipeline_execution_steps_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_pipeline_execution_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pipeline_execution_steps_errors()}
   def list_pipeline_execution_steps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPipelineExecutionSteps", input, options)
   end
@@ -22060,12 +21537,13 @@ defmodule AWS.SageMaker do
   @doc """
   Gets a list of the pipeline executions.
   """
-  @spec list_pipeline_executions(map(), list_pipeline_executions_request(), list()) ::
+  @spec list_pipeline_executions(AWS.Client.t(), list_pipeline_executions_request(), Keyword.t()) ::
           {:ok, list_pipeline_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pipeline_executions_errors()}
   def list_pipeline_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPipelineExecutions", input, options)
   end
@@ -22074,15 +21552,16 @@ defmodule AWS.SageMaker do
   Gets a list of parameters for a pipeline execution.
   """
   @spec list_pipeline_parameters_for_execution(
-          map(),
+          AWS.Client.t(),
           list_pipeline_parameters_for_execution_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_pipeline_parameters_for_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pipeline_parameters_for_execution_errors()}
   def list_pipeline_parameters_for_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPipelineParametersForExecution", input, options)
   end
@@ -22090,11 +21569,12 @@ defmodule AWS.SageMaker do
   @doc """
   Gets a list of pipelines.
   """
-  @spec list_pipelines(map(), list_pipelines_request(), list()) ::
+  @spec list_pipelines(AWS.Client.t(), list_pipelines_request(), Keyword.t()) ::
           {:ok, list_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_pipelines(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPipelines", input, options)
   end
@@ -22102,11 +21582,12 @@ defmodule AWS.SageMaker do
   @doc """
   Lists processing jobs that satisfy various filters.
   """
-  @spec list_processing_jobs(map(), list_processing_jobs_request(), list()) ::
+  @spec list_processing_jobs(AWS.Client.t(), list_processing_jobs_request(), Keyword.t()) ::
           {:ok, list_processing_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_processing_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProcessingJobs", input, options)
   end
@@ -22114,26 +21595,26 @@ defmodule AWS.SageMaker do
   @doc """
   Gets a list of the projects in an Amazon Web Services account.
   """
-  @spec list_projects(map(), list_projects_input(), list()) ::
+  @spec list_projects(AWS.Client.t(), list_projects_input(), Keyword.t()) ::
           {:ok, list_projects_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_projects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProjects", input, options)
   end
 
   @doc """
-  Lists Amazon SageMaker Catalogs based on given filters and orders.
-
-  The maximum number of
-  `ResourceCatalog`s viewable is 1000.
+  Lists Amazon SageMaker Catalogs based on given filters and orders. The maximum
+  number of `ResourceCatalog`s viewable is 1000.
   """
-  @spec list_resource_catalogs(map(), list_resource_catalogs_request(), list()) ::
+  @spec list_resource_catalogs(AWS.Client.t(), list_resource_catalogs_request(), Keyword.t()) ::
           {:ok, list_resource_catalogs_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_resource_catalogs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourceCatalogs", input, options)
   end
@@ -22141,11 +21622,12 @@ defmodule AWS.SageMaker do
   @doc """
   Lists spaces.
   """
-  @spec list_spaces(map(), list_spaces_request(), list()) ::
+  @spec list_spaces(AWS.Client.t(), list_spaces_request(), Keyword.t()) ::
           {:ok, list_spaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_spaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSpaces", input, options)
   end
@@ -22154,43 +21636,50 @@ defmodule AWS.SageMaker do
   Lists devices allocated to the stage, containing detailed device information and
   deployment status.
   """
-  @spec list_stage_devices(map(), list_stage_devices_request(), list()) ::
+  @spec list_stage_devices(AWS.Client.t(), list_stage_devices_request(), Keyword.t()) ::
           {:ok, list_stage_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_stage_devices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStageDevices", input, options)
   end
 
   @doc """
   Lists the Amazon SageMaker Studio Lifecycle Configurations in your Amazon Web
-  Services
-  Account.
+  Services Account.
   """
-  @spec list_studio_lifecycle_configs(map(), list_studio_lifecycle_configs_request(), list()) ::
+  @spec list_studio_lifecycle_configs(
+          AWS.Client.t(),
+          list_studio_lifecycle_configs_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_studio_lifecycle_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_studio_lifecycle_configs_errors()}
   def list_studio_lifecycle_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStudioLifecycleConfigs", input, options)
   end
 
   @doc """
   Gets a list of the work teams that you are subscribed to in the Amazon Web
-  Services Marketplace.
-
-  The
-  list may be empty if no work team satisfies the filter specified in the
-  `NameContains` parameter.
+  Services Marketplace. The list may be empty if no work team satisfies the
+  filter specified in the `NameContains` parameter.
   """
-  @spec list_subscribed_workteams(map(), list_subscribed_workteams_request(), list()) ::
+  @spec list_subscribed_workteams(
+          AWS.Client.t(),
+          list_subscribed_workteams_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_subscribed_workteams_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_subscribed_workteams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSubscribedWorkteams", input, options)
   end
@@ -22198,46 +21687,25 @@ defmodule AWS.SageMaker do
   @doc """
   Returns the tags for the specified SageMaker resource.
   """
-  @spec list_tags(map(), list_tags_input(), list()) ::
+  @spec list_tags(AWS.Client.t(), list_tags_input(), Keyword.t()) ::
           {:ok, list_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTags", input, options)
   end
 
   @doc """
   Lists training jobs.
-
-  When `StatusEquals` and `MaxResults` are set at the same
-  time, the `MaxResults` number of training jobs are first retrieved
-  ignoring the `StatusEquals` parameter and then they are filtered by the
-  `StatusEquals` parameter, which is returned as a response.
-
-  For example, if `ListTrainingJobs` is invoked with the following
-  parameters:
-
-  `{ ... MaxResults: 100, StatusEquals: InProgress ... }`
-
-  First, 100 trainings jobs with any status, including those other than
-  `InProgress`, are selected (sorted according to the creation time,
-  from the most current to the oldest). Next, those with a status of
-  `InProgress` are returned.
-
-  You can quickly test the API using the following Amazon Web Services CLI
-  code.
-
-  ```
-  aws sagemaker list-training-jobs --max-results 100 --status-equals
-  InProgress
-  ```
   """
-  @spec list_training_jobs(map(), list_training_jobs_request(), list()) ::
+  @spec list_training_jobs(AWS.Client.t(), list_training_jobs_request(), Keyword.t()) ::
           {:ok, list_training_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_training_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTrainingJobs", input, options)
   end
@@ -22245,19 +21713,20 @@ defmodule AWS.SageMaker do
   @doc """
   Gets a list of
   [TrainingJobSummary](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html)
-  objects that describe the training jobs that a
-  hyperparameter tuning job launched.
+  objects that describe the training jobs that a hyperparameter tuning job
+  launched.
   """
   @spec list_training_jobs_for_hyper_parameter_tuning_job(
-          map(),
+          AWS.Client.t(),
           list_training_jobs_for_hyper_parameter_tuning_job_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_training_jobs_for_hyper_parameter_tuning_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_training_jobs_for_hyper_parameter_tuning_job_errors()}
   def list_training_jobs_for_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -22271,63 +21740,47 @@ defmodule AWS.SageMaker do
   @doc """
   Lists transform jobs.
   """
-  @spec list_transform_jobs(map(), list_transform_jobs_request(), list()) ::
+  @spec list_transform_jobs(AWS.Client.t(), list_transform_jobs_request(), Keyword.t()) ::
           {:ok, list_transform_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_transform_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTransformJobs", input, options)
   end
 
   @doc """
-  Lists the trial components in your account.
-
-  You can sort the list by trial component name
-  or creation time. You can filter the list to show only components that were
-  created in a
-  specific time range. You can also filter on one of the following:
-
-    *
-
-  `ExperimentName`
-
-    *
-
-  `SourceArn`
-
-    *
-
-  `TrialName`
+  Lists the trial components in your account. You can sort the list by trial
+  component name or creation time. You can filter the list to show only
+  components that were created in a specific time range. You can also filter on
+  one of the following:
   """
-  @spec list_trial_components(map(), list_trial_components_request(), list()) ::
+  @spec list_trial_components(AWS.Client.t(), list_trial_components_request(), Keyword.t()) ::
           {:ok, list_trial_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_trial_components_errors()}
   def list_trial_components(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTrialComponents", input, options)
   end
 
   @doc """
-  Lists the trials in your account.
-
-  Specify an experiment name to limit the list to the
-  trials that are part of that experiment. Specify a trial component name to limit
-  the list to
-  the trials that associated with that trial component. The list can be filtered
-  to show only
-  trials that were created in a specific time range. The list can be sorted by
-  trial name or
-  creation time.
+  Lists the trials in your account. Specify an experiment name to limit the list
+  to the trials that are part of that experiment. Specify a trial component name
+  to limit the list to the trials that associated with that trial component. The
+  list can be filtered to show only trials that were created in a specific time
+  range. The list can be sorted by trial name or creation time.
   """
-  @spec list_trials(map(), list_trials_request(), list()) ::
+  @spec list_trials(AWS.Client.t(), list_trials_request(), Keyword.t()) ::
           {:ok, list_trials_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_trials_errors()}
   def list_trials(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTrials", input, options)
   end
@@ -22335,80 +21788,80 @@ defmodule AWS.SageMaker do
   @doc """
   Lists user profiles.
   """
-  @spec list_user_profiles(map(), list_user_profiles_request(), list()) ::
+  @spec list_user_profiles(AWS.Client.t(), list_user_profiles_request(), Keyword.t()) ::
           {:ok, list_user_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_user_profiles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUserProfiles", input, options)
   end
 
   @doc """
   Use this operation to list all private and vendor workforces in an Amazon Web
-  Services Region.
-
-  Note that you can only
-  have one private workforce per Amazon Web Services Region.
+  Services Region. Note that you can only have one private workforce per Amazon
+  Web Services Region.
   """
-  @spec list_workforces(map(), list_workforces_request(), list()) ::
+  @spec list_workforces(AWS.Client.t(), list_workforces_request(), Keyword.t()) ::
           {:ok, list_workforces_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_workforces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkforces", input, options)
   end
 
   @doc """
-  Gets a list of private work teams that you have defined in a region.
-
-  The list may be empty if
-  no work team satisfies the filter specified in the `NameContains`
-  parameter.
+  Gets a list of private work teams that you have defined in a region. The list
+  may be empty if no work team satisfies the filter specified in the
+  `NameContains` parameter.
   """
-  @spec list_workteams(map(), list_workteams_request(), list()) ::
+  @spec list_workteams(AWS.Client.t(), list_workteams_request(), Keyword.t()) ::
           {:ok, list_workteams_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_workteams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkteams", input, options)
   end
 
   @doc """
-  Adds a resouce policy to control access to a model group.
-
-  For information about
+  Adds a resouce policy to control access to a model group. For information about
   resoure policies, see [Identity-based policies and resource-based
   policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html)
   in the *Amazon Web Services Identity and Access Management User Guide.*.
   """
-  @spec put_model_package_group_policy(map(), put_model_package_group_policy_input(), list()) ::
+  @spec put_model_package_group_policy(
+          AWS.Client.t(),
+          put_model_package_group_policy_input(),
+          Keyword.t()
+        ) ::
           {:ok, put_model_package_group_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_model_package_group_policy_errors()}
   def put_model_package_group_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutModelPackageGroupPolicy", input, options)
   end
 
   @doc """
   Use this action to inspect your lineage and discover relationships between
-  entities.
-
-  For more information, see [
-  Querying Lineage
+  entities. For more information, see [ Querying Lineage
   Entities](https://docs.aws.amazon.com/sagemaker/latest/dg/querying-lineage-entities.html)
   in the *Amazon SageMaker Developer Guide*.
   """
-  @spec query_lineage(map(), query_lineage_request(), list()) ::
+  @spec query_lineage(AWS.Client.t(), query_lineage_request(), Keyword.t()) ::
           {:ok, query_lineage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, query_lineage_errors()}
   def query_lineage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "QueryLineage", input, options)
   end
@@ -22416,12 +21869,13 @@ defmodule AWS.SageMaker do
   @doc """
   Register devices.
   """
-  @spec register_devices(map(), register_devices_request(), list()) ::
+  @spec register_devices(AWS.Client.t(), register_devices_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_devices_errors()}
   def register_devices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterDevices", input, options)
   end
@@ -22429,12 +21883,13 @@ defmodule AWS.SageMaker do
   @doc """
   Renders the UI template so that you can preview the worker's experience.
   """
-  @spec render_ui_template(map(), render_ui_template_request(), list()) ::
+  @spec render_ui_template(AWS.Client.t(), render_ui_template_request(), Keyword.t()) ::
           {:ok, render_ui_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, render_ui_template_errors()}
   def render_ui_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RenderUiTemplate", input, options)
   end
@@ -22442,82 +21897,72 @@ defmodule AWS.SageMaker do
   @doc """
   Retry the execution of the pipeline.
   """
-  @spec retry_pipeline_execution(map(), retry_pipeline_execution_request(), list()) ::
+  @spec retry_pipeline_execution(AWS.Client.t(), retry_pipeline_execution_request(), Keyword.t()) ::
           {:ok, retry_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retry_pipeline_execution_errors()}
   def retry_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RetryPipelineExecution", input, options)
   end
 
   @doc """
-  Finds SageMaker resources that match a search query.
-
-  Matching resources are returned
-  as a list of `SearchRecord` objects in the response. You can sort the search
-  results by any resource property in a ascending or descending order.
-
+  Finds SageMaker resources that match a search query. Matching resources are
+  returned as a list of `SearchRecord` objects in the response. You can sort the
+  search results by any resource property in a ascending or descending order.
   You can query against the following value types: numeric, text, Boolean, and
   timestamp.
-
-  The Search API may provide access to otherwise restricted data. See [Amazon SageMaker
-  API Permissions: Actions, Permissions, and Resources
-  Reference](https://docs.aws.amazon.com/sagemaker/latest/dg/api-permissions-reference.html)
-  for more
-  information.
   """
-  @spec search(map(), search_request(), list()) ::
+  @spec search(AWS.Client.t(), search_request(), Keyword.t()) ::
           {:ok, search_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def search(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Search", input, options)
   end
 
   @doc """
   Notifies the pipeline that the execution of a callback step failed, along with a
-  message describing why.
-
-  When a callback step is run, the pipeline generates a callback
-  token and includes the token in a message sent to Amazon Simple Queue Service
-  (Amazon SQS).
+  message describing why. When a callback step is run, the pipeline generates a
+  callback token and includes the token in a message sent to Amazon Simple Queue
+  Service (Amazon SQS).
   """
   @spec send_pipeline_execution_step_failure(
-          map(),
+          AWS.Client.t(),
           send_pipeline_execution_step_failure_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, send_pipeline_execution_step_failure_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_pipeline_execution_step_failure_errors()}
   def send_pipeline_execution_step_failure(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendPipelineExecutionStepFailure", input, options)
   end
 
   @doc """
   Notifies the pipeline that the execution of a callback step succeeded and
-  provides a
-  list of the step's output parameters.
-
-  When a callback step is run, the pipeline generates
-  a callback token and includes the token in a message sent to Amazon Simple Queue
-  Service (Amazon SQS).
+  provides a list of the step's output parameters. When a callback step is run,
+  the pipeline generates a callback token and includes the token in a message
+  sent to Amazon Simple Queue Service (Amazon SQS).
   """
   @spec send_pipeline_execution_step_success(
-          map(),
+          AWS.Client.t(),
           send_pipeline_execution_step_success_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, send_pipeline_execution_step_success_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_pipeline_execution_step_success_errors()}
   def send_pipeline_execution_step_success(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendPipelineExecutionStepSuccess", input, options)
   end
@@ -22525,11 +21970,16 @@ defmodule AWS.SageMaker do
   @doc """
   Starts a stage in an edge deployment plan.
   """
-  @spec start_edge_deployment_stage(map(), start_edge_deployment_stage_request(), list()) ::
+  @spec start_edge_deployment_stage(
+          AWS.Client.t(),
+          start_edge_deployment_stage_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def start_edge_deployment_stage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartEdgeDeploymentStage", input, options)
   end
@@ -22537,12 +21987,17 @@ defmodule AWS.SageMaker do
   @doc """
   Starts an inference experiment.
   """
-  @spec start_inference_experiment(map(), start_inference_experiment_request(), list()) ::
+  @spec start_inference_experiment(
+          AWS.Client.t(),
+          start_inference_experiment_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_inference_experiment_errors()}
   def start_inference_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartInferenceExperiment", input, options)
   end
@@ -22550,47 +22005,53 @@ defmodule AWS.SageMaker do
   @doc """
   Programmatically start an MLflow Tracking Server.
   """
-  @spec start_mlflow_tracking_server(map(), start_mlflow_tracking_server_request(), list()) ::
+  @spec start_mlflow_tracking_server(
+          AWS.Client.t(),
+          start_mlflow_tracking_server_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_mlflow_tracking_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_mlflow_tracking_server_errors()}
   def start_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMlflowTrackingServer", input, options)
   end
 
   @doc """
   Starts a previously stopped monitoring schedule.
-
-  By default, when you successfully create a new schedule, the status of a
-  monitoring
-  schedule is `scheduled`.
   """
-  @spec start_monitoring_schedule(map(), start_monitoring_schedule_request(), list()) ::
+  @spec start_monitoring_schedule(
+          AWS.Client.t(),
+          start_monitoring_schedule_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_monitoring_schedule_errors()}
   def start_monitoring_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMonitoringSchedule", input, options)
   end
 
   @doc """
   Launches an ML compute instance with the latest version of the libraries and
-  attaches your ML storage volume.
-
-  After configuring the notebook instance, SageMaker sets the
-  notebook instance status to `InService`. A notebook instance's status must be
-  `InService` before you can connect to your Jupyter notebook.
+  attaches your ML storage volume. After configuring the notebook instance,
+  SageMaker sets the notebook instance status to `InService`. A notebook
+  instance's status must be `InService` before you can connect to your Jupyter
+  notebook.
   """
-  @spec start_notebook_instance(map(), start_notebook_instance_input(), list()) ::
+  @spec start_notebook_instance(AWS.Client.t(), start_notebook_instance_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_notebook_instance_errors()}
   def start_notebook_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartNotebookInstance", input, options)
   end
@@ -22598,12 +22059,13 @@ defmodule AWS.SageMaker do
   @doc """
   Starts a pipeline execution.
   """
-  @spec start_pipeline_execution(map(), start_pipeline_execution_request(), list()) ::
+  @spec start_pipeline_execution(AWS.Client.t(), start_pipeline_execution_request(), Keyword.t()) ::
           {:ok, start_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_pipeline_execution_errors()}
   def start_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartPipelineExecution", input, options)
   end
@@ -22611,34 +22073,29 @@ defmodule AWS.SageMaker do
   @doc """
   A method for forcing a running job to shut down.
   """
-  @spec stop_auto_ml_job(map(), stop_auto_ml_job_request(), list()) ::
+  @spec stop_auto_ml_job(AWS.Client.t(), stop_auto_ml_job_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_auto_ml_job_errors()}
   def stop_auto_ml_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopAutoMLJob", input, options)
   end
 
   @doc """
-  Stops a model compilation job.
-
-  To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal. This
-  gracefully shuts the
-  job down. If the job hasn't stopped, it sends the SIGKILL signal.
-
-  When it receives a `StopCompilationJob` request, Amazon SageMaker changes the
-  `CompilationJobStatus` of the job to `Stopping`. After Amazon
-  SageMaker stops the job, it sets the `CompilationJobStatus` to
-  `Stopped`.
+  Stops a model compilation job. To stop a job, Amazon SageMaker sends the
+  algorithm the SIGTERM signal. This gracefully shuts the job down. If the job
+  hasn't stopped, it sends the SIGKILL signal.
   """
-  @spec stop_compilation_job(map(), stop_compilation_job_request(), list()) ::
+  @spec stop_compilation_job(AWS.Client.t(), stop_compilation_job_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_compilation_job_errors()}
   def stop_compilation_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopCompilationJob", input, options)
   end
@@ -22646,11 +22103,16 @@ defmodule AWS.SageMaker do
   @doc """
   Stops a stage in an edge deployment plan.
   """
-  @spec stop_edge_deployment_stage(map(), stop_edge_deployment_stage_request(), list()) ::
+  @spec stop_edge_deployment_stage(
+          AWS.Client.t(),
+          stop_edge_deployment_stage_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def stop_edge_deployment_stage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopEdgeDeploymentStage", input, options)
   end
@@ -22658,11 +22120,12 @@ defmodule AWS.SageMaker do
   @doc """
   Request to stop an edge packaging job.
   """
-  @spec stop_edge_packaging_job(map(), stop_edge_packaging_job_request(), list()) ::
+  @spec stop_edge_packaging_job(AWS.Client.t(), stop_edge_packaging_job_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def stop_edge_packaging_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopEdgePackagingJob", input, options)
   end
@@ -22670,21 +22133,18 @@ defmodule AWS.SageMaker do
   @doc """
   Stops a running hyperparameter tuning job and all running training jobs that the
   tuning job launched.
-
-  All model artifacts output from the training jobs are stored in Amazon Simple
-  Storage Service (Amazon S3). All
-  data that the training jobs write to Amazon CloudWatch Logs are still available
-  in CloudWatch. After the
-  tuning job moves to the `Stopped` state, it releases all
-  reserved
-  resources for the tuning job.
   """
-  @spec stop_hyper_parameter_tuning_job(map(), stop_hyper_parameter_tuning_job_request(), list()) ::
+  @spec stop_hyper_parameter_tuning_job(
+          AWS.Client.t(),
+          stop_hyper_parameter_tuning_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_hyper_parameter_tuning_job_errors()}
   def stop_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopHyperParameterTuningJob", input, options)
   end
@@ -22692,12 +22152,17 @@ defmodule AWS.SageMaker do
   @doc """
   Stops an inference experiment.
   """
-  @spec stop_inference_experiment(map(), stop_inference_experiment_request(), list()) ::
+  @spec stop_inference_experiment(
+          AWS.Client.t(),
+          stop_inference_experiment_request(),
+          Keyword.t()
+        ) ::
           {:ok, stop_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_inference_experiment_errors()}
   def stop_inference_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopInferenceExperiment", input, options)
   end
@@ -22706,31 +22171,32 @@ defmodule AWS.SageMaker do
   Stops an Inference Recommender job.
   """
   @spec stop_inference_recommendations_job(
-          map(),
+          AWS.Client.t(),
           stop_inference_recommendations_job_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_inference_recommendations_job_errors()}
   def stop_inference_recommendations_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopInferenceRecommendationsJob", input, options)
   end
 
   @doc """
-  Stops a running labeling job.
-
-  A job that is stopped cannot be restarted. Any results
-  obtained before the job is stopped are placed in the Amazon S3 output bucket.
+  Stops a running labeling job. A job that is stopped cannot be restarted. Any
+  results obtained before the job is stopped are placed in the Amazon S3 output
+  bucket.
   """
-  @spec stop_labeling_job(map(), stop_labeling_job_request(), list()) ::
+  @spec stop_labeling_job(AWS.Client.t(), stop_labeling_job_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_labeling_job_errors()}
   def stop_labeling_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopLabelingJob", input, options)
   end
@@ -22738,12 +22204,17 @@ defmodule AWS.SageMaker do
   @doc """
   Programmatically stop an MLflow Tracking Server.
   """
-  @spec stop_mlflow_tracking_server(map(), stop_mlflow_tracking_server_request(), list()) ::
+  @spec stop_mlflow_tracking_server(
+          AWS.Client.t(),
+          stop_mlflow_tracking_server_request(),
+          Keyword.t()
+        ) ::
           {:ok, stop_mlflow_tracking_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_mlflow_tracking_server_errors()}
   def stop_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopMlflowTrackingServer", input, options)
   end
@@ -22751,35 +22222,29 @@ defmodule AWS.SageMaker do
   @doc """
   Stops a previously started monitoring schedule.
   """
-  @spec stop_monitoring_schedule(map(), stop_monitoring_schedule_request(), list()) ::
+  @spec stop_monitoring_schedule(AWS.Client.t(), stop_monitoring_schedule_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_monitoring_schedule_errors()}
   def stop_monitoring_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopMonitoringSchedule", input, options)
   end
 
   @doc """
-  Terminates the ML compute instance.
-
-  Before terminating the instance, SageMaker
+  Terminates the ML compute instance. Before terminating the instance, SageMaker
   disconnects the ML storage volume from it. SageMaker preserves the ML storage
-  volume. SageMaker
-  stops charging you for the ML compute instance when you call
+  volume. SageMaker stops charging you for the ML compute instance when you call
   `StopNotebookInstance`.
-
-  To access data on the ML storage volume for a notebook instance that has been
-  terminated, call the `StartNotebookInstance` API.
-  `StartNotebookInstance` launches another ML compute instance, configures
-  it, and attaches the preserved ML storage volume so you can continue your work.
   """
-  @spec stop_notebook_instance(map(), stop_notebook_instance_input(), list()) ::
+  @spec stop_notebook_instance(AWS.Client.t(), stop_notebook_instance_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def stop_notebook_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopNotebookInstance", input, options)
   end
@@ -22787,57 +22252,27 @@ defmodule AWS.SageMaker do
   @doc """
   Ends a running inference optimization job.
   """
-  @spec stop_optimization_job(map(), stop_optimization_job_request(), list()) ::
+  @spec stop_optimization_job(AWS.Client.t(), stop_optimization_job_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_optimization_job_errors()}
   def stop_optimization_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopOptimizationJob", input, options)
   end
 
   @doc """
-  Stops a pipeline execution.
-
-  ## Callback Step
-
-  A pipeline execution won't stop while a callback step is running.
-  When you call `StopPipelineExecution`
-  on a pipeline execution with a running callback step, SageMaker Pipelines sends
-  an
-  additional Amazon SQS message to the specified SQS queue. The body of the SQS
-  message
-  contains a "Status" field which is set to "Stopping".
-
-  You should add logic to your Amazon SQS message consumer to take any needed
-  action (for
-  example, resource cleanup) upon receipt of the message followed by a call to
-  `SendPipelineExecutionStepSuccess` or
-  `SendPipelineExecutionStepFailure`.
-
-  Only when SageMaker Pipelines receives one of these calls will it stop the
-  pipeline execution.
-
-  ## Lambda Step
-
-  A pipeline execution can't be stopped while a lambda step is running because the
-  Lambda
-  function invoked by the lambda step can't be stopped. If you attempt to stop the
-  execution
-  while the Lambda function is running, the pipeline waits for the Lambda function
-  to finish
-  or until the timeout is hit, whichever occurs first, and then stops. If the
-  Lambda function
-  finishes, the pipeline execution status is `Stopped`. If the timeout is hit
-  the pipeline execution status is `Failed`.
+  Stops a pipeline execution. **Callback Step**
   """
-  @spec stop_pipeline_execution(map(), stop_pipeline_execution_request(), list()) ::
+  @spec stop_pipeline_execution(AWS.Client.t(), stop_pipeline_execution_request(), Keyword.t()) ::
           {:ok, stop_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_pipeline_execution_errors()}
   def stop_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopPipelineExecution", input, options)
   end
@@ -22845,56 +22280,44 @@ defmodule AWS.SageMaker do
   @doc """
   Stops a processing job.
   """
-  @spec stop_processing_job(map(), stop_processing_job_request(), list()) ::
+  @spec stop_processing_job(AWS.Client.t(), stop_processing_job_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_processing_job_errors()}
   def stop_processing_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopProcessingJob", input, options)
   end
 
   @doc """
-  Stops a training job.
-
-  To stop a job, SageMaker sends the algorithm the
-  `SIGTERM` signal, which delays job termination for 120 seconds.
-  Algorithms might use this 120-second window to save the model artifacts, so the
-  results
-  of the training is not lost.
-
-  When it receives a `StopTrainingJob` request, SageMaker changes the status of
-  the job to `Stopping`. After SageMaker stops the job, it sets the status to
-  `Stopped`.
+  Stops a training job. To stop a job, SageMaker sends the algorithm the `SIGTERM`
+  signal, which delays job termination for 120 seconds. Algorithms might use
+  this 120-second window to save the model artifacts, so the results of the
+  training is not lost.
   """
-  @spec stop_training_job(map(), stop_training_job_request(), list()) ::
+  @spec stop_training_job(AWS.Client.t(), stop_training_job_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_training_job_errors()}
   def stop_training_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopTrainingJob", input, options)
   end
 
   @doc """
   Stops a batch transform job.
-
-  When Amazon SageMaker receives a `StopTransformJob` request, the status of the
-  job
-  changes to `Stopping`. After Amazon SageMaker
-  stops
-  the job, the status is set to `Stopped`. When you stop a batch transform job
-  before
-  it is completed, Amazon SageMaker doesn't store the job's output in Amazon S3.
   """
-  @spec stop_transform_job(map(), stop_transform_job_request(), list()) ::
+  @spec stop_transform_job(AWS.Client.t(), stop_transform_job_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_transform_job_errors()}
   def stop_transform_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopTransformJob", input, options)
   end
@@ -22902,12 +22325,13 @@ defmodule AWS.SageMaker do
   @doc """
   Updates an action.
   """
-  @spec update_action(map(), update_action_request(), list()) ::
+  @spec update_action(AWS.Client.t(), update_action_request(), Keyword.t()) ::
           {:ok, update_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_action_errors()}
   def update_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAction", input, options)
   end
@@ -22915,12 +22339,13 @@ defmodule AWS.SageMaker do
   @doc """
   Updates the properties of an AppImageConfig.
   """
-  @spec update_app_image_config(map(), update_app_image_config_request(), list()) ::
+  @spec update_app_image_config(AWS.Client.t(), update_app_image_config_request(), Keyword.t()) ::
           {:ok, update_app_image_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_image_config_errors()}
   def update_app_image_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAppImageConfig", input, options)
   end
@@ -22928,12 +22353,13 @@ defmodule AWS.SageMaker do
   @doc """
   Updates an artifact.
   """
-  @spec update_artifact(map(), update_artifact_request(), list()) ::
+  @spec update_artifact(AWS.Client.t(), update_artifact_request(), Keyword.t()) ::
           {:ok, update_artifact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_artifact_errors()}
   def update_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateArtifact", input, options)
   end
@@ -22941,29 +22367,30 @@ defmodule AWS.SageMaker do
   @doc """
   Updates a SageMaker HyperPod cluster.
   """
-  @spec update_cluster(map(), update_cluster_request(), list()) ::
+  @spec update_cluster(AWS.Client.t(), update_cluster_request(), Keyword.t()) ::
           {:ok, update_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCluster", input, options)
   end
 
   @doc """
   Updates the platform software of a SageMaker HyperPod cluster for security
-  patching.
-
-  To learn how to
-  use this API, see [Update the SageMaker HyperPod platform software of a cluster](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-operate.html#sagemaker-hyperpod-operate-cli-command-update-cluster-software).
+  patching. To learn how to use this API, see [Update the SageMaker HyperPod
+  platform software of a
+  cluster](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-operate.html#sagemaker-hyperpod-operate-cli-command-update-cluster-software).
   """
-  @spec update_cluster_software(map(), update_cluster_software_request(), list()) ::
+  @spec update_cluster_software(AWS.Client.t(), update_cluster_software_request(), Keyword.t()) ::
           {:ok, update_cluster_software_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cluster_software_errors()}
   def update_cluster_software(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateClusterSoftware", input, options)
   end
@@ -22971,12 +22398,13 @@ defmodule AWS.SageMaker do
   @doc """
   Updates the specified Git repository with the specified values.
   """
-  @spec update_code_repository(map(), update_code_repository_input(), list()) ::
+  @spec update_code_repository(AWS.Client.t(), update_code_repository_input(), Keyword.t()) ::
           {:ok, update_code_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_code_repository_errors()}
   def update_code_repository(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCodeRepository", input, options)
   end
@@ -22984,12 +22412,13 @@ defmodule AWS.SageMaker do
   @doc """
   Updates a context.
   """
-  @spec update_context(map(), update_context_request(), list()) ::
+  @spec update_context(AWS.Client.t(), update_context_request(), Keyword.t()) ::
           {:ok, update_context_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_context_errors()}
   def update_context(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateContext", input, options)
   end
@@ -22997,12 +22426,13 @@ defmodule AWS.SageMaker do
   @doc """
   Updates a fleet of devices.
   """
-  @spec update_device_fleet(map(), update_device_fleet_request(), list()) ::
+  @spec update_device_fleet(AWS.Client.t(), update_device_fleet_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_device_fleet_errors()}
   def update_device_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDeviceFleet", input, options)
   end
@@ -23010,11 +22440,12 @@ defmodule AWS.SageMaker do
   @doc """
   Updates one or more devices in a fleet.
   """
-  @spec update_devices(map(), update_devices_request(), list()) ::
+  @spec update_devices(AWS.Client.t(), update_devices_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def update_devices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDevices", input, options)
   end
@@ -23022,48 +22453,38 @@ defmodule AWS.SageMaker do
   @doc """
   Updates the default settings for new user profiles in the domain.
   """
-  @spec update_domain(map(), update_domain_request(), list()) ::
+  @spec update_domain(AWS.Client.t(), update_domain_request(), Keyword.t()) ::
           {:ok, update_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_domain_errors()}
   def update_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDomain", input, options)
   end
 
   @doc """
   Deploys the `EndpointConfig` specified in the request to a new fleet of
-  instances.
-
-  SageMaker shifts endpoint traffic to the new instances with the updated endpoint
-  configuration and then deletes the old instances using the previous
-  `EndpointConfig` (there is no availability loss). For more information
-  about how to control the update and traffic shifting process, see [ Update models in
+  instances. SageMaker shifts endpoint traffic to the new instances with the
+  updated endpoint configuration and then deletes the old instances using the
+  previous `EndpointConfig` (there is no availability loss). For more
+  information about how to control the update and traffic shifting process, see
+  [ Update models in
   production](https://docs.aws.amazon.com/sagemaker/latest/dg/deployment-guardrails.html).
-
-  When SageMaker receives the request, it sets the endpoint status to `Updating`.
-  After updating the endpoint, it sets the status to `InService`. To check the
-  status of an endpoint, use the
+  When SageMaker receives the request, it sets the endpoint status to
+  `Updating`. After updating the endpoint, it sets the status to `InService`. To
+  check the status of an endpoint, use the
   [DescribeEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html)
   API.
-
-  You must not delete an `EndpointConfig` in use by an endpoint that is
-  live or while the `UpdateEndpoint` or `CreateEndpoint`
-  operations are being performed on the endpoint. To update an endpoint, you must
-  create a new `EndpointConfig`.
-
-  If you delete the `EndpointConfig` of an endpoint that is active or
-  being created or updated you may lose visibility into the instance type the
-  endpoint
-  is using. The endpoint must be deleted in order to stop incurring charges.
   """
-  @spec update_endpoint(map(), update_endpoint_input(), list()) ::
+  @spec update_endpoint(AWS.Client.t(), update_endpoint_input(), Keyword.t()) ::
           {:ok, update_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_endpoint_errors()}
   def update_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEndpoint", input, options)
   end
@@ -23071,71 +22492,56 @@ defmodule AWS.SageMaker do
   @doc """
   Updates variant weight of one or more variants associated with an existing
   endpoint, or capacity of one variant associated with an existing endpoint.
-
-  When it
-  receives the request, SageMaker sets the endpoint status to `Updating`. After
-  updating the endpoint, it sets the status to `InService`. To check the status
-  of an endpoint, use the
+  When it receives the request, SageMaker sets the endpoint status to
+  `Updating`. After updating the endpoint, it sets the status to `InService`. To
+  check the status of an endpoint, use the
   [DescribeEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html)
   API.
   """
   @spec update_endpoint_weights_and_capacities(
-          map(),
+          AWS.Client.t(),
           update_endpoint_weights_and_capacities_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_endpoint_weights_and_capacities_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_endpoint_weights_and_capacities_errors()}
   def update_endpoint_weights_and_capacities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEndpointWeightsAndCapacities", input, options)
   end
 
   @doc """
-  Adds, updates, or removes the description of an experiment.
-
-  Updates the display name of an
-  experiment.
+  Adds, updates, or removes the description of an experiment. Updates the display
+  name of an experiment.
   """
-  @spec update_experiment(map(), update_experiment_request(), list()) ::
+  @spec update_experiment(AWS.Client.t(), update_experiment_request(), Keyword.t()) ::
           {:ok, update_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_experiment_errors()}
   def update_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateExperiment", input, options)
   end
 
   @doc """
   Updates the feature group by either adding features or updating the online store
-  configuration.
-
-  Use one of the following request parameters at a time while using the
-  `UpdateFeatureGroup` API.
-
-  You can add features for your feature group using the `FeatureAdditions`
-  request parameter. Features cannot be removed from a feature group.
-
-  You can update the online store configuration by using the
-  `OnlineStoreConfig` request parameter. If a `TtlDuration` is
-  specified, the default `TtlDuration` applies for all records added to the
-  feature group *after the feature group is updated*. If a record level
-  `TtlDuration` exists from using the `PutRecord` API, the record
-  level `TtlDuration` applies to that record instead of the default
-  `TtlDuration`. To remove the default `TtlDuration` from an
-  existing feature group, use the `UpdateFeatureGroup` API and set the
-  `TtlDuration`
-  `Unit` and `Value` to `null`.
+  configuration. Use one of the following request parameters at a time while
+  using the `UpdateFeatureGroup` API. You can add features for your feature
+  group using the `FeatureAdditions` request parameter. Features cannot be
+  removed from a feature group.
   """
-  @spec update_feature_group(map(), update_feature_group_request(), list()) ::
+  @spec update_feature_group(AWS.Client.t(), update_feature_group_request(), Keyword.t()) ::
           {:ok, update_feature_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_feature_group_errors()}
   def update_feature_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFeatureGroup", input, options)
   end
@@ -23143,12 +22549,13 @@ defmodule AWS.SageMaker do
   @doc """
   Updates the description and parameters of the feature group.
   """
-  @spec update_feature_metadata(map(), update_feature_metadata_request(), list()) ::
+  @spec update_feature_metadata(AWS.Client.t(), update_feature_metadata_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_feature_metadata_errors()}
   def update_feature_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFeatureMetadata", input, options)
   end
@@ -23156,30 +22563,31 @@ defmodule AWS.SageMaker do
   @doc """
   Update a hub.
   """
-  @spec update_hub(map(), update_hub_request(), list()) ::
+  @spec update_hub(AWS.Client.t(), update_hub_request(), Keyword.t()) ::
           {:ok, update_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_hub_errors()}
   def update_hub(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateHub", input, options)
   end
 
   @doc """
-  Updates the properties of a SageMaker image.
-
-  To change the image's tags, use the
-  [AddTags](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html) and
+  Updates the properties of a SageMaker image. To change the image's tags, use the
+  [AddTags](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html)
+  and
   [DeleteTags](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteTags.html)
   APIs.
   """
-  @spec update_image(map(), update_image_request(), list()) ::
+  @spec update_image(AWS.Client.t(), update_image_request(), Keyword.t()) ::
           {:ok, update_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_image_errors()}
   def update_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateImage", input, options)
   end
@@ -23187,12 +22595,13 @@ defmodule AWS.SageMaker do
   @doc """
   Updates the properties of a SageMaker image version.
   """
-  @spec update_image_version(map(), update_image_version_request(), list()) ::
+  @spec update_image_version(AWS.Client.t(), update_image_version_request(), Keyword.t()) ::
           {:ok, update_image_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_image_version_errors()}
   def update_image_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateImageVersion", input, options)
   end
@@ -23200,12 +22609,17 @@ defmodule AWS.SageMaker do
   @doc """
   Updates an inference component.
   """
-  @spec update_inference_component(map(), update_inference_component_input(), list()) ::
+  @spec update_inference_component(
+          AWS.Client.t(),
+          update_inference_component_input(),
+          Keyword.t()
+        ) ::
           {:ok, update_inference_component_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_inference_component_errors()}
   def update_inference_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateInferenceComponent", input, options)
   end
@@ -23214,35 +22628,37 @@ defmodule AWS.SageMaker do
   Runtime settings for a model that is deployed with an inference component.
   """
   @spec update_inference_component_runtime_config(
-          map(),
+          AWS.Client.t(),
           update_inference_component_runtime_config_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_inference_component_runtime_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_inference_component_runtime_config_errors()}
   def update_inference_component_runtime_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateInferenceComponentRuntimeConfig", input, options)
   end
 
   @doc """
-
-  Updates an inference experiment that you created.
-
-  The status of the inference experiment has to be either
-  `Created`, `Running`. For more information on the status of an inference
-  experiment,
-  see
+  Updates an inference experiment that you created. The status of the inference
+  experiment has to be either `Created`, `Running`. For more information on the
+  status of an inference experiment, see
   [DescribeInferenceExperiment](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceExperiment.html).
   """
-  @spec update_inference_experiment(map(), update_inference_experiment_request(), list()) ::
+  @spec update_inference_experiment(
+          AWS.Client.t(),
+          update_inference_experiment_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_inference_experiment_errors()}
   def update_inference_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateInferenceExperiment", input, options)
   end
@@ -23250,28 +22666,31 @@ defmodule AWS.SageMaker do
   @doc """
   Updates properties of an existing MLflow Tracking Server.
   """
-  @spec update_mlflow_tracking_server(map(), update_mlflow_tracking_server_request(), list()) ::
+  @spec update_mlflow_tracking_server(
+          AWS.Client.t(),
+          update_mlflow_tracking_server_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_mlflow_tracking_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_mlflow_tracking_server_errors()}
   def update_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMlflowTrackingServer", input, options)
   end
 
   @doc """
   Update an Amazon SageMaker Model Card.
-
-  You cannot update both model card content and model card status in a single
-  call.
   """
-  @spec update_model_card(map(), update_model_card_request(), list()) ::
+  @spec update_model_card(AWS.Client.t(), update_model_card_request(), Keyword.t()) ::
           {:ok, update_model_card_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_model_card_errors()}
   def update_model_card(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateModelCard", input, options)
   end
@@ -23279,12 +22698,13 @@ defmodule AWS.SageMaker do
   @doc """
   Updates a versioned model.
   """
-  @spec update_model_package(map(), update_model_package_input(), list()) ::
+  @spec update_model_package(AWS.Client.t(), update_model_package_input(), Keyword.t()) ::
           {:ok, update_model_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_model_package_errors()}
   def update_model_package(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateModelPackage", input, options)
   end
@@ -23292,12 +22712,13 @@ defmodule AWS.SageMaker do
   @doc """
   Update the parameters of a model monitor alert.
   """
-  @spec update_monitoring_alert(map(), update_monitoring_alert_request(), list()) ::
+  @spec update_monitoring_alert(AWS.Client.t(), update_monitoring_alert_request(), Keyword.t()) ::
           {:ok, update_monitoring_alert_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_monitoring_alert_errors()}
   def update_monitoring_alert(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMonitoringAlert", input, options)
   end
@@ -23305,30 +22726,33 @@ defmodule AWS.SageMaker do
   @doc """
   Updates a previously created schedule.
   """
-  @spec update_monitoring_schedule(map(), update_monitoring_schedule_request(), list()) ::
+  @spec update_monitoring_schedule(
+          AWS.Client.t(),
+          update_monitoring_schedule_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_monitoring_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_monitoring_schedule_errors()}
   def update_monitoring_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMonitoringSchedule", input, options)
   end
 
   @doc """
-  Updates a notebook instance.
-
-  NotebookInstance updates include upgrading or
+  Updates a notebook instance. NotebookInstance updates include upgrading or
   downgrading the ML compute instance used for your notebook instance to
-  accommodate
-  changes in your workload requirements.
+  accommodate changes in your workload requirements.
   """
-  @spec update_notebook_instance(map(), update_notebook_instance_input(), list()) ::
+  @spec update_notebook_instance(AWS.Client.t(), update_notebook_instance_input(), Keyword.t()) ::
           {:ok, update_notebook_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_notebook_instance_errors()}
   def update_notebook_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateNotebookInstance", input, options)
   end
@@ -23339,15 +22763,16 @@ defmodule AWS.SageMaker do
   API.
   """
   @spec update_notebook_instance_lifecycle_config(
-          map(),
+          AWS.Client.t(),
           update_notebook_instance_lifecycle_config_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_notebook_instance_lifecycle_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_notebook_instance_lifecycle_config_errors()}
   def update_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateNotebookInstanceLifecycleConfig", input, options)
   end
@@ -23355,12 +22780,13 @@ defmodule AWS.SageMaker do
   @doc """
   Updates a pipeline.
   """
-  @spec update_pipeline(map(), update_pipeline_request(), list()) ::
+  @spec update_pipeline(AWS.Client.t(), update_pipeline_request(), Keyword.t()) ::
           {:ok, update_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pipeline_errors()}
   def update_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePipeline", input, options)
   end
@@ -23368,12 +22794,17 @@ defmodule AWS.SageMaker do
   @doc """
   Updates a pipeline execution.
   """
-  @spec update_pipeline_execution(map(), update_pipeline_execution_request(), list()) ::
+  @spec update_pipeline_execution(
+          AWS.Client.t(),
+          update_pipeline_execution_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pipeline_execution_errors()}
   def update_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePipelineExecution", input, options)
   end
@@ -23381,18 +22812,14 @@ defmodule AWS.SageMaker do
   @doc """
   Updates a machine learning (ML) project that is created from a template that
   sets up an ML pipeline from training to deploying an approved model.
-
-  You must not update a project that is in use. If you update the
-  `ServiceCatalogProvisioningUpdateDetails` of a project that is active
-  or being created, or updated, you may lose resources already created by the
-  project.
   """
-  @spec update_project(map(), update_project_input(), list()) ::
+  @spec update_project(AWS.Client.t(), update_project_input(), Keyword.t()) ::
           {:ok, update_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_errors()}
   def update_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProject", input, options)
   end
@@ -23400,27 +22827,28 @@ defmodule AWS.SageMaker do
   @doc """
   Updates the settings of a space.
   """
-  @spec update_space(map(), update_space_request(), list()) ::
+  @spec update_space(AWS.Client.t(), update_space_request(), Keyword.t()) ::
           {:ok, update_space_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_space_errors()}
   def update_space(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSpace", input, options)
   end
 
   @doc """
   Update a model training job to request a new Debugger profiling configuration or
-  to
-  change warm pool retention length.
+  to change warm pool retention length.
   """
-  @spec update_training_job(map(), update_training_job_request(), list()) ::
+  @spec update_training_job(AWS.Client.t(), update_training_job_request(), Keyword.t()) ::
           {:ok, update_training_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_training_job_errors()}
   def update_training_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTrainingJob", input, options)
   end
@@ -23428,12 +22856,13 @@ defmodule AWS.SageMaker do
   @doc """
   Updates the display name of a trial.
   """
-  @spec update_trial(map(), update_trial_request(), list()) ::
+  @spec update_trial(AWS.Client.t(), update_trial_request(), Keyword.t()) ::
           {:ok, update_trial_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_trial_errors()}
   def update_trial(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTrial", input, options)
   end
@@ -23441,12 +22870,13 @@ defmodule AWS.SageMaker do
   @doc """
   Updates one or more properties of a trial component.
   """
-  @spec update_trial_component(map(), update_trial_component_request(), list()) ::
+  @spec update_trial_component(AWS.Client.t(), update_trial_component_request(), Keyword.t()) ::
           {:ok, update_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_trial_component_errors()}
   def update_trial_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTrialComponent", input, options)
   end
@@ -23454,64 +22884,30 @@ defmodule AWS.SageMaker do
   @doc """
   Updates a user profile.
   """
-  @spec update_user_profile(map(), update_user_profile_request(), list()) ::
+  @spec update_user_profile(AWS.Client.t(), update_user_profile_request(), Keyword.t()) ::
           {:ok, update_user_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_profile_errors()}
   def update_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUserProfile", input, options)
   end
 
   @doc """
-  Use this operation to update your workforce.
-
-  You can use this operation to
-  require that workers use specific IP addresses to work on tasks
-  and to update your OpenID Connect (OIDC) Identity Provider (IdP) workforce
-  configuration.
-
+  Use this operation to update your workforce. You can use this operation to
+  require that workers use specific IP addresses to work on tasks and to update
+  your OpenID Connect (OIDC) Identity Provider (IdP) workforce configuration.
   The worker portal is now supported in VPC and public internet.
-
-  Use `SourceIpConfig` to restrict worker access to tasks to a specific range of
-  IP addresses.
-  You specify allowed IP addresses by creating a list of up to ten
-  [CIDRs](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html). By default, a workforce isn't restricted to specific IP addresses. If you
-  specify a
-  range of IP addresses, workers who attempt to access tasks using any IP address
-  outside
-  the specified range are denied and get a `Not Found` error message on
-  the worker portal.
-
-  To restrict access to all the workers in public internet, add the
-  `SourceIpConfig` CIDR value as "10.0.0.0/16".
-
-  Amazon SageMaker does not support Source Ip restriction for worker portals in
-  VPC.
-
-  Use `OidcConfig` to update the configuration of a workforce created using
-  your own OIDC IdP.
-
-  You can only update your OIDC IdP configuration when there are no work teams
-  associated with your workforce. You can delete work teams using the
-  [DeleteWorkteam](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkteam.html)
-  operation.
-
-  After restricting access to a range of IP addresses or updating your OIDC IdP
-  configuration with this operation, you
-  can view details about your update workforce using the
-  [DescribeWorkforce](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeWorkforce.html)
-  operation.
-
-  This operation only applies to private workforces.
   """
-  @spec update_workforce(map(), update_workforce_request(), list()) ::
+  @spec update_workforce(AWS.Client.t(), update_workforce_request(), Keyword.t()) ::
           {:ok, update_workforce_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workforce_errors()}
   def update_workforce(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWorkforce", input, options)
   end
@@ -23519,12 +22915,13 @@ defmodule AWS.SageMaker do
   @doc """
   Updates an existing work team with new member definitions or description.
   """
-  @spec update_workteam(map(), update_workteam_request(), list()) ::
+  @spec update_workteam(AWS.Client.t(), update_workteam_request(), Keyword.t()) ::
           {:ok, update_workteam_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workteam_errors()}
   def update_workteam(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWorkteam", input, options)
   end

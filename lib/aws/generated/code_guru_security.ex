@@ -3,23 +3,11 @@
 
 defmodule AWS.CodeGuruSecurity do
   @moduledoc """
-
-  Amazon CodeGuru Security is in preview release and is subject to change.
-
-  This section provides documentation for the Amazon CodeGuru Security API
-  operations.
-  CodeGuru Security is a service that uses program analysis and machine learning
-  to detect
-  security policy violations and vulnerabilities, and recommends ways to address
-  these security
-  risks.
-
-  By proactively detecting and providing recommendations for addressing security
-  risks,
-  CodeGuru Security improves the overall security of your application code. For
-  more information
-  about CodeGuru Security, see the
-  [Amazon CodeGuru Security User Guide](https://docs.aws.amazon.com/codeguru/latest/security-ug/what-is-codeguru-security.html).
+  Amazon CodeGuru Security is in preview release and is subject to change. This
+  section provides documentation for the Amazon CodeGuru Security API
+  operations. CodeGuru Security is a service that uses program analysis and
+  machine learning to detect security policy violations and vulnerabilities, and
+  recommends ways to address these security risks.
   """
 
   alias AWS.Client
@@ -772,8 +760,14 @@ defmodule AWS.CodeGuruSecurity do
 
   @doc """
   Returns a list of requested findings from standard scans.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20BatchGetFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_get_findings(map(), batch_get_findings_request(), list()) ::
+  @spec batch_get_findings(AWS.Client.t(), batch_get_findings_request(), Keyword.t()) ::
           {:ok, batch_get_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_findings_errors()}
@@ -782,7 +776,8 @@ defmodule AWS.CodeGuruSecurity do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -799,8 +794,14 @@ defmodule AWS.CodeGuruSecurity do
 
   @doc """
   Use to create a scan using code uploaded to an Amazon S3 bucket.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20CreateScan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_scan(map(), create_scan_request(), list()) ::
+  @spec create_scan(AWS.Client.t(), create_scan_request(), Keyword.t()) ::
           {:ok, create_scan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_scan_errors()}
@@ -809,7 +810,8 @@ defmodule AWS.CodeGuruSecurity do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -826,14 +828,15 @@ defmodule AWS.CodeGuruSecurity do
 
   @doc """
   Generates a pre-signed URL, request headers used to upload a code resource, and
-  code
-  artifact identifier for the uploaded resource.
+  code artifact identifier for the uploaded resource.
 
-  You can upload your code resource to the URL with the request headers using any
-  HTTP
-  client.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20CreateUploadUrl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_upload_url(map(), create_upload_url_request(), list()) ::
+  @spec create_upload_url(AWS.Client.t(), create_upload_url_request(), Keyword.t()) ::
           {:ok, create_upload_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_upload_url_errors()}
@@ -842,7 +845,8 @@ defmodule AWS.CodeGuruSecurity do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -859,239 +863,420 @@ defmodule AWS.CodeGuruSecurity do
 
   @doc """
   Use to get the encryption configuration for an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20GetAccountConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_account_configuration(map(), list()) ::
+  @spec get_account_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_configuration_errors()}
   def get_account_configuration(%Client{} = client, options \\ []) do
     url_path = "/accountConfiguration/get"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all findings generated by a particular scan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20GetFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:scan_name` (`t:string`) The name of the scan you want to retrieve findings
+    from.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of results to return in the response.
+    Use this parameter when paginating results. If additional results exist
+    beyond the number you specify, the nextToken element is returned in the
+    response. Use nextToken in a subsequent request to retrieve additional
+    results. If not specified, returns 1000 results.
+  * `:next_token` (`t:string`) A token to use for paginating results that are
+    returned in the response. Set the value of this parameter to null for the
+    first request. For subsequent calls, use the nextToken value returned from
+    the previous request to continue listing results after the first page.
+  * `:status` (`t:enum["ALL|CLOSED|OPEN"]`) The status of the findings you want to
+    get. Pass either Open, Closed, or All.
   """
-  @spec get_findings(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_findings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_findings_errors()}
-  def get_findings(
-        %Client{} = client,
-        scan_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def get_findings(%Client{} = client, scan_name, options \\ []) do
     url_path = "/findings/#{AWS.Util.encode_uri(scan_name)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a summary of metrics for an account from a specified date, including
-  number of open
-  findings, the categories with most findings, the scans with most open findings,
-  and scans with
-  most open critical findings.
+  number of open findings, the categories with most findings, the scans with
+  most open findings, and scans with most open critical findings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20GetMetricsSummary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:date` (`t:`) The date you want to retrieve summary metrics from, rounded to
+    the nearest day. The date must be within the past two years.
+
+  ## Optional parameters:
   """
-  @spec get_metrics_summary(map(), String.t(), list()) ::
+  @spec get_metrics_summary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_metrics_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_metrics_summary_errors()}
   def get_metrics_summary(%Client{} = client, date, options \\ []) do
     url_path = "/metrics/summary"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(date) do
-        [{"date", date} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"date", date}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns details about a scan, including whether or not a scan has completed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20GetScan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:scan_name` (`t:string`) The name of the scan you want to view details about.
+
+  ## Optional parameters:
+  * `:run_id` (`t:string`) UUID that identifies the individual scan run you want
+    to view details about. You retrieve this when you call the CreateScan
+    operation. Defaults to the latest scan run if missing.
   """
-  @spec get_scan(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_scan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_scan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_scan_errors()}
-  def get_scan(%Client{} = client, scan_name, run_id \\ nil, options \\ []) do
+  def get_scan(%Client{} = client, scan_name, options \\ []) do
     url_path = "/scans/#{AWS.Util.encode_uri(scan_name)}"
+
+    # Validate optional parameters
+    optional_params = [run_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(run_id) do
-        [{"runId", run_id} | query_params]
+      if opt_val = Keyword.get(options, :run_id) do
+        [{"runId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:run_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns metrics about all findings in an account within a specified time range.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20ListFindingsMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:end_date` (`t:`) The end date of the interval which you want to retrieve
+    metrics from. Round to the nearest day.
+  * `:start_date` (`t:`) The start date of the interval which you want to retrieve
+    metrics from. Rounds to the nearest day.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of results to return in the response.
+    Use this parameter when paginating results. If additional results exist
+    beyond the number you specify, the nextToken element is returned in the
+    response. Use nextToken in a subsequent request to retrieve additional
+    results. If not specified, returns 1000 results.
+  * `:next_token` (`t:string`) A token to use for paginating results that are
+    returned in the response. Set the value of this parameter to null for the
+    first request. For subsequent calls, use the nextToken value returned from
+    the previous request to continue listing results after the first page.
   """
-  @spec list_findings_metrics(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          list()
-        ) ::
+  @spec list_findings_metrics(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_findings_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_findings_metrics_errors()}
-  def list_findings_metrics(
-        %Client{} = client,
-        end_date,
-        max_results \\ nil,
-        next_token \\ nil,
-        start_date,
-        options \\ []
-      ) do
+  def list_findings_metrics(%Client{} = client, end_date, start_date, options \\ []) do
     url_path = "/metrics/findings"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"endDate", end_date}, {"startDate", start_date}]
+
+    # Optional query params
     query_params =
-      if !is_nil(start_date) do
-        [{"startDate", start_date} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    query_params =
-      if !is_nil(end_date) do
-        [{"endDate", end_date} | query_params]
-      else
-        query_params
-      end
-
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns a list of all scans in an account.
+  Returns a list of all scans in an account. Does not return `EXPRESS` scans.
 
-  Does not return `EXPRESS`
-  scans.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20ListScans&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of results to return in the response.
+    Use this parameter when paginating results. If additional results exist
+    beyond the number you specify, the nextToken element is returned in the
+    response. Use nextToken in a subsequent request to retrieve additional
+    results. If not specified, returns 100 results.
+  * `:next_token` (`t:string`) A token to use for paginating results that are
+    returned in the response. Set the value of this parameter to null for the
+    first request. For subsequent calls, use the nextToken value returned from
+    the previous request to continue listing results after the first page.
   """
-  @spec list_scans(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_scans(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_scans_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_scans_errors()}
-  def list_scans(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_scans(%Client{} = client, options \\ []) do
     url_path = "/scans"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all tags associated with a scan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the ScanName object. You can retrieve
+    this ARN by calling CreateScan, ListScans, or GetScan.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Use to add one or more tags to an existing scan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the ScanName object. You can retrieve
+    this ARN by calling CreateScan, ListScans, or GetScan.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1100,7 +1285,8 @@ defmodule AWS.CodeGuruSecurity do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1117,8 +1303,18 @@ defmodule AWS.CodeGuruSecurity do
 
   @doc """
   Use to remove one or more tags from an existing scan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the ScanName object. You can retrieve
+    this ARN by calling CreateScan, ListScans, or GetScan.
+  * `:tag_keys` (`t:list[com.amazonaws.codegurusecurity#TagKey]`) A list of keys
+    for each tag you want to remove from a scan.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1132,7 +1328,8 @@ defmodule AWS.CodeGuruSecurity do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1149,8 +1346,18 @@ defmodule AWS.CodeGuruSecurity do
 
   @doc """
   Use to update the encryption configuration for an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20UpdateAccountConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_account_configuration(map(), update_account_configuration_request(), list()) ::
+  @spec update_account_configuration(
+          AWS.Client.t(),
+          update_account_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_configuration_errors()}
@@ -1159,7 +1366,8 @@ defmodule AWS.CodeGuruSecurity do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

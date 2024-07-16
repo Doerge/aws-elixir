@@ -4,28 +4,18 @@
 defmodule AWS.DevOpsGuru do
   @moduledoc """
   Amazon DevOps Guru is a fully managed service that helps you identify anomalous
-  behavior in
-  business critical operational applications.
-
-  You specify the Amazon Web Services resources that you
-  want DevOps Guru to cover, then the Amazon CloudWatch metrics and Amazon Web
-  Services CloudTrail events related to those
-  resources are analyzed. When anomalous behavior is detected, DevOps Guru creates
-  an
-  *insight* that includes recommendations, related events, and
+  behavior in business critical operational applications. You specify the Amazon
+  Web Services resources that you want DevOps Guru to cover, then the Amazon
+  CloudWatch metrics and Amazon Web Services CloudTrail events related to those
+  resources are analyzed. When anomalous behavior is detected, DevOps Guru
+  creates an *insight* that includes recommendations, related events, and
   related metrics that can help you improve your operational applications. For
-  more
-  information, see [What is Amazon DevOps Guru](https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html).
-
+  more information, see [What is Amazon DevOps
+  Guru](https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html).
   You can specify 1 or 2 Amazon Simple Notification Service topics so you are
-  notified every time a new insight
-  is created. You can also enable DevOps Guru to generate an OpsItem in Amazon Web
-  Services Systems Manager for each
-  insight to help you manage and track your work addressing insights.
-
-  To learn about the DevOps Guru workflow, see [How DevOps Guru works](https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html#how-it-works).
-  To
-  learn about DevOps Guru concepts, see [Concepts in DevOps Guru](https://docs.aws.amazon.com/devops-guru/latest/userguide/concepts.html).
+  notified every time a new insight is created. You can also enable DevOps Guru
+  to generate an OpsItem in Amazon Web Services Systems Manager for each insight
+  to help you manage and track your work addressing insights.
   """
 
   alias AWS.Client
@@ -2313,25 +2303,17 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  Adds a notification channel to DevOps Guru.
+  Adds a notification channel to DevOps Guru. A notification channel is used to
+  notify you about important DevOps Guru events, such as when an insight is
+  generated.
 
-  A notification channel is used to notify you
-  about important DevOps Guru events, such as when an insight is generated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20AddNotificationChannel&this_doc_guide=API%2520Reference)
 
-  If you use an Amazon SNS topic in another account, you must attach a policy to
-  it that grants DevOps Guru permission
-  to send it notifications. DevOps Guru adds the required policy on your behalf to
-  send notifications using Amazon SNS in your account. DevOps Guru only supports
-  standard SNS topics.
-  For more information, see [Permissions for Amazon SNS
-  topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html).
+  ## Parameters:
 
-  If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key
-  Management Service customer-managed key (CMK), then you must add permissions
-  to the CMK. For more information, see [Permissions for Amazon Web Services KMS–encrypted Amazon SNS
-  topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html).
+  ## Optional parameters:
   """
-  @spec add_notification_channel(map(), add_notification_channel_request(), list()) ::
+  @spec add_notification_channel(AWS.Client.t(), add_notification_channel_request(), Keyword.t()) ::
           {:ok, add_notification_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_notification_channel_errors()}
@@ -2340,7 +2322,8 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -2348,8 +2331,15 @@ defmodule AWS.DevOpsGuru do
   @doc """
   Deletes the insight along with the associated anomalies, events and
   recommendations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DeleteInsight&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the insight.
+
+  ## Optional parameters:
   """
-  @spec delete_insight(map(), String.t(), delete_insight_request(), list()) ::
+  @spec delete_insight(AWS.Client.t(), String.t(), delete_insight_request(), Keyword.t()) ::
           {:ok, delete_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_insight_errors()}
@@ -2358,7 +2348,8 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2375,34 +2366,64 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   Returns the number of open reactive insights, the number of open proactive
-  insights,
-  and the number of metrics analyzed in your Amazon Web Services account.
+  insights, and the number of metrics analyzed in your Amazon Web Services
+  account. Use these numbers to gauge the health of operations in your Amazon
+  Web Services account.
 
-  Use these numbers to gauge the
-  health of operations in your Amazon Web Services account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeAccountHealth&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_account_health(map(), list()) ::
+  @spec describe_account_health(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_account_health_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_health_errors()}
   def describe_account_health(%Client{} = client, options \\ []) do
     url_path = "/accounts/health"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   For the time range passed in, returns the number of open reactive insight that
-  were
-  created, the number of open proactive insights that were created, and the Mean
-  Time to Recover (MTTR) for all
-  closed reactive insights.
+  were created, the number of open proactive insights that were created, and the
+  Mean Time to Recover (MTTR) for all closed reactive insights.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeAccountOverview&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_account_overview(map(), describe_account_overview_request(), list()) ::
+  @spec describe_account_overview(
+          AWS.Client.t(),
+          describe_account_overview_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_account_overview_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_overview_errors()}
@@ -2411,7 +2432,8 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2428,39 +2450,75 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   Returns details about an anomaly that you specify using its ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeAnomaly&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the anomaly.
+
+  ## Optional parameters:
+  * `:account_id` (`t:string`) The ID of the member account.
   """
-  @spec describe_anomaly(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_anomaly(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_anomaly_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_anomaly_errors()}
-  def describe_anomaly(%Client{} = client, id, account_id \\ nil, options \\ []) do
+  def describe_anomaly(%Client{} = client, id, options \\ []) do
     url_path = "/anomalies/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = [account_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(account_id) do
-        [{"AccountId", account_id} | query_params]
+      if opt_val = Keyword.get(options, :account_id) do
+        [{"AccountId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:account_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the integration status of services that are integrated with DevOps Guru
-  as Consumer
-  via EventBridge.
+  as Consumer via EventBridge. The one service that can be integrated with
+  DevOps Guru is Amazon CodeGuru Profiler, which can produce proactive
+  recommendations which can be stored and viewed in DevOps Guru.
 
-  The one service that can be integrated with DevOps Guru is Amazon CodeGuru
-  Profiler, which can produce proactive recommendations which can be stored and
-  viewed in
-  DevOps Guru.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeEventSourcesConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_event_sources_config(map(), describe_event_sources_config_request(), list()) ::
+  @spec describe_event_sources_config(
+          AWS.Client.t(),
+          describe_event_sources_config_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_event_sources_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_sources_config_errors()}
@@ -2469,7 +2527,8 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2487,8 +2546,14 @@ defmodule AWS.DevOpsGuru do
   @doc """
   Returns the most recent feedback submitted in the current Amazon Web Services
   account and Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeFeedback&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_feedback(map(), describe_feedback_request(), list()) ::
+  @spec describe_feedback(AWS.Client.t(), describe_feedback_request(), Keyword.t()) ::
           {:ok, describe_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_feedback_errors()}
@@ -2497,7 +2562,8 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2514,34 +2580,73 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   Returns details about an insight that you specify using its ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeInsight&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the insight.
+
+  ## Optional parameters:
+  * `:account_id` (`t:string`) The ID of the member account in the organization.
   """
-  @spec describe_insight(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_insight(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_insight_errors()}
-  def describe_insight(%Client{} = client, id, account_id \\ nil, options \\ []) do
+  def describe_insight(%Client{} = client, id, options \\ []) do
     url_path = "/insights/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = [account_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(account_id) do
-        [{"AccountId", account_id} | query_params]
+      if opt_val = Keyword.get(options, :account_id) do
+        [{"AccountId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:account_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns active insights, predictive insights, and resource hours analyzed in
-  last
-  hour.
+  last hour.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeOrganizationHealth&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_organization_health(map(), describe_organization_health_request(), list()) ::
+  @spec describe_organization_health(
+          AWS.Client.t(),
+          describe_organization_health_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_organization_health_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_organization_health_errors()}
@@ -2550,7 +2655,8 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2567,11 +2673,19 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   Returns an overview of your organization's history based on the specified time
-  range.
+  range. The overview includes the total reactive and proactive insights.
 
-  The overview includes the total reactive and proactive insights.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeOrganizationOverview&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_organization_overview(map(), describe_organization_overview_request(), list()) ::
+  @spec describe_organization_overview(
+          AWS.Client.t(),
+          describe_organization_overview_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_organization_overview_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_organization_overview_errors()}
@@ -2580,7 +2694,8 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2596,16 +2711,20 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  Provides an overview of your system's health.
+  Provides an overview of your system's health. If additional member accounts are
+  part of your organization, you can filter those accounts using the
+  `AccountIds` field.
 
-  If additional member accounts are part
-  of your organization, you can filter those accounts using the `AccountIds`
-  field.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeOrganizationResourceCollectionHealth&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec describe_organization_resource_collection_health(
-          map(),
+          AWS.Client.t(),
           describe_organization_resource_collection_health_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_organization_resource_collection_health_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2615,7 +2734,8 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2632,146 +2752,267 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   Returns the number of open proactive insights, open reactive insights, and the
-  Mean Time to Recover (MTTR)
-  for all closed insights in resource collections in your account.
+  Mean Time to Recover (MTTR) for all closed insights in resource collections in
+  your account. You specify the type of Amazon Web Services resources
+  collection. The two types of Amazon Web Services resource collections
+  supported are Amazon Web Services CloudFormation stacks and Amazon Web
+  Services resources that contain the same Amazon Web Services tag. DevOps Guru
+  can be configured to analyze the Amazon Web Services resources that are
+  defined in the stacks or that are tagged using the same tag *key*. You can
+  specify up to 500 Amazon Web Services CloudFormation stacks.
 
-  You specify the type of
-  Amazon Web Services resources collection. The two types of Amazon Web Services
-  resource collections supported are Amazon Web Services CloudFormation stacks and
-  Amazon Web Services resources that contain the same Amazon Web Services tag.
-  DevOps Guru can be configured to analyze
-  the Amazon Web Services resources that are defined in the stacks or that are
-  tagged using the same tag *key*. You can specify up to 500 Amazon Web Services
-  CloudFormation stacks.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeResourceCollectionHealth&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_collection_type`
+    (`t:enum["AWS_CLOUD_FORMATION|AWS_SERVICE|AWS_TAGS"]`) An Amazon Web
+    Services resource collection type. This type specifies how analyzed Amazon
+    Web Services resources are defined. The two types of Amazon Web Services
+    resource collections supported are Amazon Web Services CloudFormation stacks
+    and Amazon Web Services resources that contain the same Amazon Web Services
+    tag. DevOps Guru can be configured to analyze the Amazon Web Services
+    resources that are defined in the stacks or that are tagged using the same
+    tag key. You can specify up to 500 Amazon Web Services CloudFormation
+    stacks.
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) The pagination token to use to retrieve the next
+    page of results for this operation. If this value is null, it retrieves the
+    first page.
   """
-  @spec describe_resource_collection_health(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_resource_collection_health(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_resource_collection_health_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_resource_collection_health_errors()}
   def describe_resource_collection_health(
         %Client{} = client,
         resource_collection_type,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/accounts/health/resource-collection/#{AWS.Util.encode_uri(resource_collection_type)}"
 
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the integration status of services that are integrated with DevOps Guru.
+  The one service that can be integrated with DevOps Guru is Amazon Web Services
+  Systems Manager, which can be used to create an OpsItem for each generated
+  insight.
 
-  The one service that can be integrated with DevOps Guru
-  is Amazon Web Services Systems Manager, which can be used to create an OpsItem
-  for each generated insight.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeServiceIntegration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_service_integration(map(), list()) ::
+  @spec describe_service_integration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_service_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_service_integration_errors()}
   def describe_service_integration(%Client{} = client, options \\ []) do
     url_path = "/service-integrations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns an estimate of the monthly cost for DevOps Guru to analyze your Amazon
-  Web Services resources.
-
-  For more information,
-  see [Estimate your Amazon DevOps Guru
+  Web Services resources. For more information, see [Estimate your Amazon DevOps
+  Guru
   costs](https://docs.aws.amazon.com/devops-guru/latest/userguide/cost-estimate.html)
-  and
-  [Amazon DevOps Guru pricing](http://aws.amazon.com/devops-guru/pricing/).
+  and [Amazon DevOps Guru pricing](http://aws.amazon.com/devops-guru/pricing/).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20GetCostEstimation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) The pagination token to use to retrieve the next
+    page of results for this operation. If this value is null, it retrieves the
+    first page.
   """
-  @spec get_cost_estimation(map(), String.t() | nil, list()) ::
+  @spec get_cost_estimation(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_cost_estimation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cost_estimation_errors()}
-  def get_cost_estimation(%Client{} = client, next_token \\ nil, options \\ []) do
+  def get_cost_estimation(%Client{} = client, options \\ []) do
     url_path = "/cost-estimation"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns lists Amazon Web Services resources that are of the specified resource
-  collection type.
+  collection type. The two types of Amazon Web Services resource collections
+  supported are Amazon Web Services CloudFormation stacks and Amazon Web
+  Services resources that contain the same Amazon Web Services tag. DevOps Guru
+  can be configured to analyze the Amazon Web Services resources that are
+  defined in the stacks or that are tagged using the same tag *key*. You can
+  specify up to 500 Amazon Web Services CloudFormation stacks.
 
-  The two types of Amazon Web Services resource collections supported are Amazon
-  Web Services CloudFormation stacks and
-  Amazon Web Services resources that contain the same Amazon Web Services tag.
-  DevOps Guru can be configured to analyze
-  the Amazon Web Services resources that are defined in the stacks or that are
-  tagged using the same tag *key*. You can specify up to 500 Amazon Web Services
-  CloudFormation stacks.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20GetResourceCollection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_collection_type`
+    (`t:enum["AWS_CLOUD_FORMATION|AWS_SERVICE|AWS_TAGS"]`) The type of Amazon
+    Web Services resource collections to return. The one valid value is
+    CLOUD_FORMATION for Amazon Web Services CloudFormation stacks.
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) The pagination token to use to retrieve the next
+    page of results for this operation. If this value is null, it retrieves the
+    first page.
   """
-  @spec get_resource_collection(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_resource_collection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_collection_errors()}
-  def get_resource_collection(
-        %Client{} = client,
-        resource_collection_type,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_resource_collection(%Client{} = client, resource_collection_type, options \\ []) do
     url_path = "/resource-collections/#{AWS.Util.encode_uri(resource_collection_type)}"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of the anomalies that belong to an insight that you specify using
-  its
-  ID.
+  its ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20ListAnomaliesForInsight&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:insight_id` (`t:string`) The ID of the insight. The returned anomalies
+    belong to this insight.
+
+  ## Optional parameters:
   """
   @spec list_anomalies_for_insight(
-          map(),
+          AWS.Client.t(),
           String.t(),
           list_anomalies_for_insight_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_anomalies_for_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2781,7 +3022,8 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2797,10 +3039,19 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-
   Returns the list of log groups that contain log anomalies.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20ListAnomalousLogGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_anomalous_log_groups(map(), list_anomalous_log_groups_request(), list()) ::
+  @spec list_anomalous_log_groups(
+          AWS.Client.t(),
+          list_anomalous_log_groups_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_anomalous_log_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_anomalous_log_groups_errors()}
@@ -2809,7 +3060,8 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2826,11 +3078,15 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   Returns a list of the events emitted by the resources that are evaluated by
-  DevOps Guru.
+  DevOps Guru. You can use filters to specify which events are returned.
 
-  You can use filters to specify which events are returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20ListEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_events(map(), list_events_request(), list()) ::
+  @spec list_events(AWS.Client.t(), list_events_request(), Keyword.t()) ::
           {:ok, list_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_events_errors()}
@@ -2839,7 +3095,8 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2855,13 +3112,17 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  Returns a list of insights in your Amazon Web Services account.
+  Returns a list of insights in your Amazon Web Services account. You can specify
+  which insights are returned by their start time and status (`ONGOING`,
+  `CLOSED`, or `ANY`).
 
-  You can specify which insights are
-  returned by their start time and status (`ONGOING`, `CLOSED`, or
-  `ANY`).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20ListInsights&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_insights(map(), list_insights_request(), list()) ::
+  @spec list_insights(AWS.Client.t(), list_insights_request(), Keyword.t()) ::
           {:ok, list_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_insights_errors()}
@@ -2870,7 +3131,8 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2886,11 +3148,16 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-
   Returns the list of all log groups that are being monitored and tagged by DevOps
   Guru.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20ListMonitoredResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_monitored_resources(map(), list_monitored_resources_request(), list()) ::
+  @spec list_monitored_resources(AWS.Client.t(), list_monitored_resources_request(), Keyword.t()) ::
           {:ok, list_monitored_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_monitored_resources_errors()}
@@ -2899,7 +3166,8 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2915,16 +3183,23 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  Returns a list of notification channels configured for DevOps Guru.
+  Returns a list of notification channels configured for DevOps Guru. Each
+  notification channel is used to notify you when DevOps Guru generates an
+  insight that contains information about how to improve your operations. The
+  one supported notification channel is Amazon Simple Notification Service
+  (Amazon SNS).
 
-  Each notification
-  channel is used to notify you when DevOps Guru generates an insight that
-  contains information
-  about how to improve your operations. The one
-  supported notification channel is Amazon Simple Notification Service (Amazon
-  SNS).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20ListNotificationChannels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_notification_channels(map(), list_notification_channels_request(), list()) ::
+  @spec list_notification_channels(
+          AWS.Client.t(),
+          list_notification_channels_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_notification_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_notification_channels_errors()}
@@ -2933,7 +3208,8 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2950,8 +3226,18 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   Returns a list of insights associated with the account or OU Id.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20ListOrganizationInsights&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_organization_insights(map(), list_organization_insights_request(), list()) ::
+  @spec list_organization_insights(
+          AWS.Client.t(),
+          list_organization_insights_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_organization_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_organization_insights_errors()}
@@ -2960,7 +3246,8 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2976,12 +3263,16 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  Returns a list of a specified insight's recommendations.
+  Returns a list of a specified insight's recommendations. Each recommendation
+  includes a list of related metrics and a list of related events.
 
-  Each recommendation includes
-  a list of related metrics and a list of related events.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20ListRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_recommendations(map(), list_recommendations_request(), list()) ::
+  @spec list_recommendations(AWS.Client.t(), list_recommendations_request(), Keyword.t()) ::
           {:ok, list_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recommendations_errors()}
@@ -2990,7 +3281,8 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3007,8 +3299,14 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   Collects customer feedback about the specified insight.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20PutFeedback&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_feedback(map(), put_feedback_request(), list()) ::
+  @spec put_feedback(AWS.Client.t(), put_feedback_request(), Keyword.t()) ::
           {:ok, put_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_feedback_errors()}
@@ -3017,24 +3315,29 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Removes a notification channel from DevOps Guru.
+  Removes a notification channel from DevOps Guru. A notification channel is used
+  to notify you when DevOps Guru generates an insight that contains information
+  about how to improve your operations.
 
-  A notification channel is used to notify
-  you when DevOps Guru generates an insight that contains information about how to
-  improve your
-  operations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20RemoveNotificationChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the notification channel to be removed.
+
+  ## Optional parameters:
   """
   @spec remove_notification_channel(
-          map(),
+          AWS.Client.t(),
           String.t(),
           remove_notification_channel_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, remove_notification_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3044,7 +3347,8 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3060,19 +3364,18 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  Returns a list of insights in your Amazon Web Services account.
+  Returns a list of insights in your Amazon Web Services account. You can specify
+  which insights are returned by their start time, one or more statuses
+  (`ONGOING` or `CLOSED`), one or more severities (`LOW`, `MEDIUM`, and `HIGH`),
+  and type (`REACTIVE` or `PROACTIVE`).
 
-  You can specify which insights are
-  returned by their start time, one or more statuses (`ONGOING` or `CLOSED`), one
-  or more severities
-  (`LOW`, `MEDIUM`, and `HIGH`), and type
-  (`REACTIVE` or `PROACTIVE`).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20SearchInsights&this_doc_guide=API%2520Reference)
 
-  Use the `Filters` parameter to specify status and severity search
-  parameters. Use the `Type` parameter to specify `REACTIVE` or
-  `PROACTIVE` in your search.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec search_insights(map(), search_insights_request(), list()) ::
+  @spec search_insights(AWS.Client.t(), search_insights_request(), Keyword.t()) ::
           {:ok, search_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_insights_errors()}
@@ -3081,7 +3384,8 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3097,19 +3401,22 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  Returns a list of insights in your organization.
-
-  You can specify which insights are
-  returned by their start time, one or more statuses (`ONGOING`,
-  `CLOSED`, and `CLOSED`), one or more severities
-  (`LOW`, `MEDIUM`, and `HIGH`), and type
+  Returns a list of insights in your organization. You can specify which insights
+  are returned by their start time, one or more statuses (`ONGOING`, `CLOSED`,
+  and `CLOSED`), one or more severities (`LOW`, `MEDIUM`, and `HIGH`), and type
   (`REACTIVE` or `PROACTIVE`).
 
-  Use the `Filters` parameter to specify status and severity search
-  parameters. Use the `Type` parameter to specify `REACTIVE` or
-  `PROACTIVE` in your search.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20SearchOrganizationInsights&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec search_organization_insights(map(), search_organization_insights_request(), list()) ::
+  @spec search_organization_insights(
+          AWS.Client.t(),
+          search_organization_insights_request(),
+          Keyword.t()
+        ) ::
           {:ok, search_organization_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_organization_insights_errors()}
@@ -3118,7 +3425,8 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3135,10 +3443,15 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   Starts the creation of an estimate of the monthly cost to analyze your Amazon
-  Web Services
-  resources.
+  Web Services resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20StartCostEstimation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_cost_estimation(map(), start_cost_estimation_request(), list()) ::
+  @spec start_cost_estimation(AWS.Client.t(), start_cost_estimation_request(), Keyword.t()) ::
           {:ok, start_cost_estimation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_cost_estimation_errors()}
@@ -3147,22 +3460,29 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Enables or disables integration with a service that can be integrated with
-  DevOps Guru.
+  DevOps Guru. The one service that can be integrated with DevOps Guru is Amazon
+  CodeGuru Profiler, which can produce proactive recommendations which can be
+  stored and viewed in DevOps Guru.
 
-  The
-  one service that can be integrated with DevOps Guru is Amazon CodeGuru Profiler,
-  which
-  can produce proactive recommendations which can be stored and viewed in DevOps
-  Guru.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20UpdateEventSourcesConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_event_sources_config(map(), update_event_sources_config_request(), list()) ::
+  @spec update_event_sources_config(
+          AWS.Client.t(),
+          update_event_sources_config_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_event_sources_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_event_sources_config_errors()}
@@ -3171,24 +3491,33 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Updates the collection of resources that DevOps Guru analyzes.
+  Updates the collection of resources that DevOps Guru analyzes. The two types of
+  Amazon Web Services resource collections supported are Amazon Web Services
+  CloudFormation stacks and Amazon Web Services resources that contain the same
+  Amazon Web Services tag. DevOps Guru can be configured to analyze the Amazon
+  Web Services resources that are defined in the stacks or that are tagged using
+  the same tag *key*. You can specify up to 500 Amazon Web Services
+  CloudFormation stacks. This method also creates the IAM role required for you
+  to use DevOps Guru.
 
-  The two types of Amazon Web Services resource collections supported are Amazon
-  Web Services CloudFormation stacks and
-  Amazon Web Services resources that contain the same Amazon Web Services tag.
-  DevOps Guru can be configured to analyze
-  the Amazon Web Services resources that are defined in the stacks or that are
-  tagged using the same tag *key*. You can specify up to 500 Amazon Web Services
-  CloudFormation stacks. This method also creates the IAM role required for
-  you to use DevOps Guru.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20UpdateResourceCollection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_resource_collection(map(), update_resource_collection_request(), list()) ::
+  @spec update_resource_collection(
+          AWS.Client.t(),
+          update_resource_collection_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_resource_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resource_collection_errors()}
@@ -3197,21 +3526,29 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Enables or disables integration with a service that can be integrated with
-  DevOps Guru.
+  DevOps Guru. The one service that can be integrated with DevOps Guru is Amazon
+  Web Services Systems Manager, which can be used to create an OpsItem for each
+  generated insight.
 
-  The
-  one service that can be integrated with DevOps Guru is Amazon Web Services
-  Systems Manager, which can be used to create
-  an OpsItem for each generated insight.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20UpdateServiceIntegration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_service_integration(map(), update_service_integration_request(), list()) ::
+  @spec update_service_integration(
+          AWS.Client.t(),
+          update_service_integration_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_service_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_integration_errors()}
@@ -3220,7 +3557,8 @@ defmodule AWS.DevOpsGuru do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

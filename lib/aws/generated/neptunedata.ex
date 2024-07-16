@@ -4,16 +4,6 @@
 defmodule AWS.Neptunedata do
   @moduledoc """
   Neptune Data API
-
-  The Amazon Neptune data API provides SDK support for more than 40 of Neptune's
-  data
-  operations, including data loading, query execution, data inquiry, and machine
-  learning.
-
-  It supports the Gremlin and openCypher query languages, and is
-  available in all SDK languages. It automatically signs API requests and greatly
-  simplifies
-  integrating Neptune into your applications.
   """
 
   alias AWS.Client
@@ -2520,19 +2510,28 @@ defmodule AWS.Neptunedata do
   end
 
   @doc """
-  Cancels a Gremlin query.
-
-  See [Gremlin query
+  Cancels a Gremlin query. See [Gremlin query
   cancellation](https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-api-status-cancel.html)
-  for more information.
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
+  for more information. When invoking this operation in a Neptune cluster that
+  has IAM authentication enabled, the IAM user or role making the request must
   have a policy attached that allows the
   [neptune-db:CancelQuery](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelquery)
   IAM action in that cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20CancelGremlinQuery&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:query_id` (`t:`) The unique identifier that identifies the query to be
+    canceled.
+
+  ## Optional parameters:
   """
-  @spec cancel_gremlin_query(map(), String.t(), cancel_gremlin_query_input(), list()) ::
+  @spec cancel_gremlin_query(
+          AWS.Client.t(),
+          String.t(),
+          cancel_gremlin_query_input(),
+          Keyword.t()
+        ) ::
           {:ok, cancel_gremlin_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_gremlin_query_errors()}
@@ -2541,7 +2540,8 @@ defmodule AWS.Neptunedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2557,20 +2557,23 @@ defmodule AWS.Neptunedata do
   end
 
   @doc """
-  Cancels a specified load job.
-
-  This is an HTTP `DELETE`
-  request. See [Neptune Loader Get-Status
+  Cancels a specified load job. This is an HTTP `DELETE` request. See [Neptune
+  Loader Get-Status
   API](https://docs.aws.amazon.com/neptune/latest/userguide/load-api-reference-status.htm)
-  for more information.
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
+  for more information. When invoking this operation in a Neptune cluster that
+  has IAM authentication enabled, the IAM user or role making the request must
   have a policy attached that allows the
   [neptune-db:CancelLoaderJob](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelloaderjob)
   IAM action in that cluster..
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20CancelLoaderJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:load_id` (`t:`) The ID of the load job to be deleted.
+
+  ## Optional parameters:
   """
-  @spec cancel_loader_job(map(), String.t(), cancel_loader_job_input(), list()) ::
+  @spec cancel_loader_job(AWS.Client.t(), String.t(), cancel_loader_job_input(), Keyword.t()) ::
           {:ok, cancel_loader_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_loader_job_errors()}
@@ -2579,7 +2582,8 @@ defmodule AWS.Neptunedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2595,22 +2599,31 @@ defmodule AWS.Neptunedata do
   end
 
   @doc """
-  Cancels a Neptune ML data processing job.
-
-  See [The `dataprocessing`
+  Cancels a Neptune ML data processing job. See [The `dataprocessing`
   command](https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-dataprocessing.html).
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
+  When invoking this operation in a Neptune cluster that has IAM authentication
+  enabled, the IAM user or role making the request must have a policy attached
+  that allows the
   [neptune-db:CancelMLDataProcessingJob](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelmldataprocessingjob)
   IAM action in that cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20CancelMLDataProcessingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:`) The unique identifier of the data-processing job.
+
+  ## Optional parameters:
+  * `:clean` (`t:`) If set to TRUE, this flag specifies that all Neptune ML S3
+    artifacts should be deleted when the job is stopped. The default is FALSE.
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune
+    access to SageMaker and Amazon S3 resources. This must be listed in your DB
+    cluster parameter group or an error will occur.
   """
   @spec cancel_ml_data_processing_job(
-          map(),
+          AWS.Client.t(),
           String.t(),
           cancel_ml_data_processing_job_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, cancel_ml_data_processing_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2626,7 +2639,13 @@ defmodule AWS.Neptunedata do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:clean, :neptune_iam_role_arn])
 
     Request.request_rest(
       client,
@@ -2642,22 +2661,32 @@ defmodule AWS.Neptunedata do
   end
 
   @doc """
-  Cancels a Neptune ML model training job.
-
-  See [Model training using the `modeltraining`
+  Cancels a Neptune ML model training job. See [Model training using the
+  `modeltraining`
   command](https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-modeltraining.html).
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
+  When invoking this operation in a Neptune cluster that has IAM authentication
+  enabled, the IAM user or role making the request must have a policy attached
+  that allows the
   [neptune-db:CancelMLModelTrainingJob](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelmlmodeltrainingjob)
   IAM action in that cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20CancelMLModelTrainingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:`) The unique identifier of the model-training job to be canceled.
+
+  ## Optional parameters:
+  * `:clean` (`t:`) If set to TRUE, this flag specifies that all Amazon S3
+    artifacts should be deleted when the job is stopped. The default is FALSE.
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune
+    access to SageMaker and Amazon S3 resources. This must be listed in your DB
+    cluster parameter group or an error will occur.
   """
   @spec cancel_ml_model_training_job(
-          map(),
+          AWS.Client.t(),
           String.t(),
           cancel_ml_model_training_job_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, cancel_ml_model_training_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2673,7 +2702,13 @@ defmodule AWS.Neptunedata do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:clean, :neptune_iam_role_arn])
 
     Request.request_rest(
       client,
@@ -2689,22 +2724,32 @@ defmodule AWS.Neptunedata do
   end
 
   @doc """
-  Cancels a specified model transform job.
-
-  See [Use a trained model to generate new model
+  Cancels a specified model transform job. See [Use a trained model to generate
+  new model
   artifacts](https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-model-transform.html).
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
+  When invoking this operation in a Neptune cluster that has IAM authentication
+  enabled, the IAM user or role making the request must have a policy attached
+  that allows the
   [neptune-db:CancelMLModelTransformJob](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelmlmodeltransformjob)
   IAM action in that cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20CancelMLModelTransformJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:`) The unique ID of the model transform job to be canceled.
+
+  ## Optional parameters:
+  * `:clean` (`t:`) If this flag is set to TRUE, all Neptune ML S3 artifacts
+    should be deleted when the job is stopped. The default is FALSE.
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune
+    access to SageMaker and Amazon S3 resources. This must be listed in your DB
+    cluster parameter group or an error will occur.
   """
   @spec cancel_ml_model_transform_job(
-          map(),
+          AWS.Client.t(),
           String.t(),
           cancel_ml_model_transform_job_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, cancel_ml_model_transform_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2720,7 +2765,13 @@ defmodule AWS.Neptunedata do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:clean, :neptune_iam_role_arn])
 
     Request.request_rest(
       client,
@@ -2736,19 +2787,29 @@ defmodule AWS.Neptunedata do
   end
 
   @doc """
-  Cancels a specified openCypher query.
-
-  See [Neptune openCypher status
+  Cancels a specified openCypher query. See [Neptune openCypher status
   endpoint](https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher-status.html)
-  for more information.
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
+  for more information. When invoking this operation in a Neptune cluster that
+  has IAM authentication enabled, the IAM user or role making the request must
   have a policy attached that allows the
   [neptune-db:CancelQuery](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelquery)
   IAM action in that cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20CancelOpenCypherQuery&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:query_id` (`t:`) The unique ID of the openCypher query to cancel.
+
+  ## Optional parameters:
+  * `:silent` (`t:`) If set to TRUE, causes the cancelation of the openCypher
+    query to happen silently.
   """
-  @spec cancel_open_cypher_query(map(), String.t(), cancel_open_cypher_query_input(), list()) ::
+  @spec cancel_open_cypher_query(
+          AWS.Client.t(),
+          String.t(),
+          cancel_open_cypher_query_input(),
+          Keyword.t()
+        ) ::
           {:ok, cancel_open_cypher_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_open_cypher_query_errors()}
@@ -2762,7 +2823,13 @@ defmodule AWS.Neptunedata do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:silent])
 
     Request.request_rest(
       client,
@@ -2778,20 +2845,23 @@ defmodule AWS.Neptunedata do
   end
 
   @doc """
-  Creates a new Neptune ML inference endpoint that lets you query
-  one specific model that the model-training process constructed.
-
-  See
-  [Managing inference endpoints using the endpoints
+  Creates a new Neptune ML inference endpoint that lets you query one specific
+  model that the model-training process constructed. See [Managing inference
+  endpoints using the endpoints
   command](https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-endpoints.html).
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
+  When invoking this operation in a Neptune cluster that has IAM authentication
+  enabled, the IAM user or role making the request must have a policy attached
+  that allows the
   [neptune-db:CreateMLEndpoint](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#createmlendpoint)
   IAM action in that cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20CreateMLEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_ml_endpoint(map(), create_ml_endpoint_input(), list()) ::
+  @spec create_ml_endpoint(AWS.Client.t(), create_ml_endpoint_input(), Keyword.t()) ::
           {:ok, create_ml_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ml_endpoint_errors()}
@@ -2800,7 +2870,8 @@ defmodule AWS.Neptunedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2816,19 +2887,28 @@ defmodule AWS.Neptunedata do
   end
 
   @doc """
-  Cancels the creation of a Neptune ML inference endpoint.
-
-  See
-  [Managing inference endpoints using the endpoints
+  Cancels the creation of a Neptune ML inference endpoint. See [Managing inference
+  endpoints using the endpoints
   command](https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-endpoints.html).
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
+  When invoking this operation in a Neptune cluster that has IAM authentication
+  enabled, the IAM user or role making the request must have a policy attached
+  that allows the
   [neptune-db:DeleteMLEndpoint](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletemlendpoint)
   IAM action in that cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20DeleteMLEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:`) The unique identifier of the inference endpoint.
+
+  ## Optional parameters:
+  * `:clean` (`t:`) If this flag is set to TRUE, all Neptune ML S3 artifacts
+    should be deleted when the job is stopped. The default is FALSE.
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role providing Neptune access
+    to SageMaker and Amazon S3 resources. This must be listed in your DB cluster
+    parameter group or an error will be thrown.
   """
-  @spec delete_ml_endpoint(map(), String.t(), delete_ml_endpoint_input(), list()) ::
+  @spec delete_ml_endpoint(AWS.Client.t(), String.t(), delete_ml_endpoint_input(), Keyword.t()) ::
           {:ok, delete_ml_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ml_endpoint_errors()}
@@ -2843,7 +2923,13 @@ defmodule AWS.Neptunedata do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:clean, :neptune_iam_role_arn])
 
     Request.request_rest(
       client,
@@ -2859,16 +2945,15 @@ defmodule AWS.Neptunedata do
   end
 
   @doc """
-  Deletes statistics for Gremlin and openCypher (property graph)
-  data.
+  Deletes statistics for Gremlin and openCypher (property graph) data.
 
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
-  [neptune-db:DeleteStatistics](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletestatistics)
-  IAM action in that cluster.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20DeletePropertygraphStatistics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_propertygraph_statistics(map(), %{}, list()) ::
+  @spec delete_propertygraph_statistics(AWS.Client.t(), %{}, Keyword.t()) ::
           {:ok, delete_propertygraph_statistics_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_propertygraph_statistics_errors()}
@@ -2877,7 +2962,8 @@ defmodule AWS.Neptunedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2895,13 +2981,13 @@ defmodule AWS.Neptunedata do
   @doc """
   Deletes SPARQL statistics
 
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
-  [neptune-db:DeleteStatistics](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletestatistics)
-  IAM action in that cluster.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20DeleteSparqlStatistics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_sparql_statistics(map(), %{}, list()) ::
+  @spec delete_sparql_statistics(AWS.Client.t(), %{}, Keyword.t()) ::
           {:ok, delete_sparql_statistics_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sparql_statistics_errors()}
@@ -2910,7 +2996,8 @@ defmodule AWS.Neptunedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2926,22 +3013,16 @@ defmodule AWS.Neptunedata do
   end
 
   @doc """
-  The fast reset REST API lets you reset a Neptune graph quicky
-  and easily, removing all of its data.
+  The fast reset REST API lets you reset a Neptune graph quicky and easily,
+  removing all of its data.
 
-  Neptune fast reset is a two-step process. First you call `ExecuteFastReset`
-  with `action` set to `initiateDatabaseReset`. This returns a
-  UUID token which you then include when calling `ExecuteFastReset` again
-  with `action` set to `performDatabaseReset`. See [Empty an Amazon Neptune DB cluster using the fast reset
-  API](https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-fast-reset.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ExecuteFastReset&this_doc_guide=API%2520Reference)
 
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
-  [neptune-db:ResetDatabase](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#resetdatabase)
-  IAM action in that cluster.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec execute_fast_reset(map(), execute_fast_reset_input(), list()) ::
+  @spec execute_fast_reset(AWS.Client.t(), execute_fast_reset_input(), Keyword.t()) ::
           {:ok, execute_fast_reset_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_fast_reset_errors()}
@@ -2950,7 +3031,8 @@ defmodule AWS.Neptunedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2966,46 +3048,23 @@ defmodule AWS.Neptunedata do
   end
 
   @doc """
-  Executes a Gremlin Explain query.
+  Executes a Gremlin Explain query. Amazon Neptune has added a Gremlin feature
+  named `explain` that provides is a self-service tool for understanding the
+  execution approach being taken by the Neptune engine for the query. You invoke
+  it by adding an `explain` parameter to an HTTP call that submits a Gremlin
+  query.
 
-  Amazon Neptune has added a Gremlin feature named `explain`
-  that provides is a self-service tool for understanding the execution
-  approach being taken by the Neptune engine for the query. You invoke
-  it by adding an `explain` parameter to an HTTP call that
-  submits a Gremlin query.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ExecuteGremlinExplainQuery&this_doc_guide=API%2520Reference)
 
-  The explain feature provides information about the logical structure
-  of query execution plans. You can use this information to identify
-  potential evaluation and execution bottlenecks and to tune your query,
-  as explained in [Tuning Gremlin
-  queries](https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-traversal-tuning.html).
-  You can also use query hints to improve
-  query execution plans.
+  ## Parameters:
 
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows one of the following IAM actions
-  in that cluster, depending on the query:
-
-    *
-
-  [neptune-db:ReadDataViaQuery](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#readdataviaquery) 
-
-    *
-
-  [neptune-db:WriteDataViaQuery](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#writedataviaquery)
-
-    *
-
-  [neptune-db:DeleteDataViaQuery](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletedataviaquery) 
-
-  Note that the
-  [neptune-db:QueryLanguage:Gremlin](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys)
-  IAM condition key can be used in the policy document to restrict the use of
-  Gremlin queries (see [Condition keys available in Neptune IAM data-access policy
-  statements](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html)).
+  ## Optional parameters:
   """
-  @spec execute_gremlin_explain_query(map(), execute_gremlin_explain_query_input(), list()) ::
+  @spec execute_gremlin_explain_query(
+          AWS.Client.t(),
+          execute_gremlin_explain_query_input(),
+          Keyword.t()
+        ) ::
           {:ok, execute_gremlin_explain_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_gremlin_explain_query_errors()}
@@ -3014,7 +3073,8 @@ defmodule AWS.Neptunedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3030,26 +3090,27 @@ defmodule AWS.Neptunedata do
   end
 
   @doc """
-  Executes a Gremlin Profile query, which runs a specified traversal,
-  collects various metrics about the run, and produces a profile report
-  as output.
-
-  See [Gremlin profile API in
+  Executes a Gremlin Profile query, which runs a specified traversal, collects
+  various metrics about the run, and produces a profile report as output. See
+  [Gremlin profile API in
   Neptune](https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-profile-api.html)
-  for details.
+  for details. When invoking this operation in a Neptune cluster that has IAM
+  authentication enabled, the IAM user or role making the request must have a
+  policy attached that allows the
+  [neptune-db:ReadDataViaQuery](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#readdataviaquery)
+  IAM action in that cluster.
 
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
-  [neptune-db:ReadDataViaQuery](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#readdataviaquery) IAM action in that cluster.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ExecuteGremlinProfileQuery&this_doc_guide=API%2520Reference)
 
-  Note that the
-  [neptune-db:QueryLanguage:Gremlin](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys)
-  IAM condition key can be used in the policy document to restrict the use of
-  Gremlin queries (see [Condition keys available in Neptune IAM data-access policy
-  statements](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html)).
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec execute_gremlin_profile_query(map(), execute_gremlin_profile_query_input(), list()) ::
+  @spec execute_gremlin_profile_query(
+          AWS.Client.t(),
+          execute_gremlin_profile_query_input(),
+          Keyword.t()
+        ) ::
           {:ok, execute_gremlin_profile_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_gremlin_profile_query_errors()}
@@ -3058,7 +3119,8 @@ defmodule AWS.Neptunedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3074,44 +3136,42 @@ defmodule AWS.Neptunedata do
   end
 
   @doc """
-  This commands executes a Gremlin query.
-
-  Amazon Neptune is compatible
-  with Apache TinkerPop3 and Gremlin, so you can use the Gremlin traversal
-  language to query the graph, as described under [The Graph](https://tinkerpop.apache.org/docs/current/reference/#graph) in the Apache
-  TinkerPop3 documentation.
-  More details can also be found in [Accessing a Neptune graph with
+  This commands executes a Gremlin query. Amazon Neptune is compatible with Apache
+  TinkerPop3 and Gremlin, so you can use the Gremlin traversal language to query
+  the graph, as described under [The
+  Graph](https://tinkerpop.apache.org/docs/current/reference/#graph) in the
+  Apache TinkerPop3 documentation. More details can also be found in [Accessing
+  a Neptune graph with
   Gremlin](https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-gremlin.html).
+  When invoking this operation in a Neptune cluster that has IAM authentication
+  enabled, the IAM user or role making the request must have a policy attached
+  that enables one of the following IAM actions in that cluster, depending on
+  the query:
 
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that enables one of the following IAM actions
-  in that cluster, depending on the query:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ExecuteGremlinQuery&this_doc_guide=API%2520Reference)
 
-    *
+  ## Parameters:
 
-  [neptune-db:ReadDataViaQuery](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#readdataviaquery) 
-
-    *
-
-  [neptune-db:WriteDataViaQuery](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#writedataviaquery)
-
-    *
-
-  [neptune-db:DeleteDataViaQuery](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletedataviaquery) 
-
-  Note that the
-  [neptune-db:QueryLanguage:Gremlin](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys)
-  IAM condition key can be used in the policy document to restrict the use of
-  Gremlin queries (see [Condition keys available in Neptune IAM data-access policy
-  statements](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html)).
+  ## Optional parameters:
+  * `:serializer` (`t:`) If non-null, the query results are returned in a
+    serialized response message in the format specified by this parameter. See
+    the GraphSON section in the TinkerPop documentation for a list of the
+    formats that are currently supported.
   """
-  @spec execute_gremlin_query(map(), execute_gremlin_query_input(), list()) ::
+  @spec execute_gremlin_query(AWS.Client.t(), execute_gremlin_query_input(), Keyword.t()) ::
           {:ok, execute_gremlin_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_gremlin_query_errors()}
   def execute_gremlin_query(%Client{} = client, input, options \\ []) do
     url_path = "/gremlin"
+
+    optional_params = [serializer: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -3121,7 +3181,13 @@ defmodule AWS.Neptunedata do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:serializer])
 
     Request.request_rest(
       client,
@@ -3137,28 +3203,24 @@ defmodule AWS.Neptunedata do
   end
 
   @doc """
-  Executes an openCypher `explain` request.
-
-  See
-  [The openCypher explain
+  Executes an openCypher `explain` request. See [The openCypher explain
   feature](https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher-explain.html)
-  for more information.
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
+  for more information. When invoking this operation in a Neptune cluster that
+  has IAM authentication enabled, the IAM user or role making the request must
   have a policy attached that allows the
-  [neptune-db:ReadDataViaQuery](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#readdataviaquery) IAM action in that cluster.
+  [neptune-db:ReadDataViaQuery](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#readdataviaquery)
+  IAM action in that cluster.
 
-  Note that the
-  [neptune-db:QueryLanguage:OpenCypher](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys)
-  IAM condition key can be used in the policy document to restrict the use of
-  openCypher queries (see [Condition keys available in Neptune IAM data-access policy
-  statements](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html)).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ExecuteOpenCypherExplainQuery&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec execute_open_cypher_explain_query(
-          map(),
+          AWS.Client.t(),
           execute_open_cypher_explain_query_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, execute_open_cypher_explain_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3168,7 +3230,8 @@ defmodule AWS.Neptunedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3184,47 +3247,24 @@ defmodule AWS.Neptunedata do
   end
 
   @doc """
-  Executes an openCypher query.
-
-  See [Accessing the Neptune Graph with
+  Executes an openCypher query. See [Accessing the Neptune Graph with
   openCypher](https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher.html)
-  for more information.
+  for more information. Neptune supports building graph applications using
+  openCypher, which is currently one of the most popular query languages among
+  developers working with graph databases. Developers, business analysts, and
+  data scientists like openCypher's declarative, SQL-inspired syntax because it
+  provides a familiar structure in which to querying property graphs. The
+  openCypher language was originally developed by Neo4j, then open-sourced in
+  2015 and contributed to the [openCypher project](https://opencypher.org/)
+  under an Apache 2 open-source license.
 
-  Neptune supports building graph applications using openCypher,
-  which is currently one of the most popular query languages among
-  developers working with graph databases. Developers, business analysts,
-  and data scientists like openCypher's declarative, SQL-inspired syntax
-  because it provides a familiar structure in which to querying property
-  graphs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ExecuteOpenCypherQuery&this_doc_guide=API%2520Reference)
 
-  The openCypher language was originally developed by Neo4j, then
-  open-sourced in 2015 and contributed to the [openCypher project](https://opencypher.org/) under an Apache
-  2 open-source license.
+  ## Parameters:
 
-  Note that when invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows one of the following IAM actions
-  in that cluster, depending on the query:
-
-    *
-
-  [neptune-db:ReadDataViaQuery](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#readdataviaquery) 
-
-    *
-
-  [neptune-db:WriteDataViaQuery](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#writedataviaquery)
-
-    *
-
-  [neptune-db:DeleteDataViaQuery](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletedataviaquery) 
-
-  Note also that the
-  [neptune-db:QueryLanguage:OpenCypher](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys)
-  IAM condition key can be used in the policy document to restrict the use of
-  openCypher queries (see [Condition keys available in Neptune IAM data-access policy
-  statements](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html)).
+  ## Optional parameters:
   """
-  @spec execute_open_cypher_query(map(), execute_open_cypher_query_input(), list()) ::
+  @spec execute_open_cypher_query(AWS.Client.t(), execute_open_cypher_query_input(), Keyword.t()) ::
           {:ok, execute_open_cypher_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_open_cypher_query_errors()}
@@ -3233,7 +3273,8 @@ defmodule AWS.Neptunedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3251,22 +3292,40 @@ defmodule AWS.Neptunedata do
   @doc """
   Retrieves the status of the graph database on the host.
 
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
-  [neptune-db:GetEngineStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getenginestatus)
-  IAM action in that cluster.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetEngineStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_engine_status(map(), list()) ::
+  @spec get_engine_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_engine_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_engine_status_errors()}
   def get_engine_status(%Client{} = client, options \\ []) do
     url_path = "/status"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3274,248 +3333,379 @@ defmodule AWS.Neptunedata do
   @doc """
   Gets the status of a specified Gremlin query.
 
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
-  [neptune-db:GetQueryStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getquerystatus) IAM action in that cluster.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetGremlinQueryStatus&this_doc_guide=API%2520Reference)
 
-  Note that the
-  [neptune-db:QueryLanguage:Gremlin](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys)
-  IAM condition key can be used in the policy document to restrict the use of
-  Gremlin queries (see [Condition keys available in Neptune IAM data-access policy
-  statements](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html)).
+  ## Parameters:
+  * `:query_id` (`t:`) The unique identifier that identifies the Gremlin query.
+
+  ## Optional parameters:
   """
-  @spec get_gremlin_query_status(map(), String.t(), list()) ::
+  @spec get_gremlin_query_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_gremlin_query_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_gremlin_query_status_errors()}
   def get_gremlin_query_status(%Client{} = client, query_id, options \\ []) do
     url_path = "/gremlin/status/#{AWS.Util.encode_uri(query_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets status information about a specified load job.
+  Gets status information about a specified load job. Neptune keeps track of the
+  most recent 1,024 bulk load jobs, and stores the last 10,000 error details per
+  job.
 
-  Neptune keeps track of the most recent 1,024 bulk load jobs,
-  and stores the last 10,000 error details per job.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetLoaderJobStatus&this_doc_guide=API%2520Reference)
 
-  See [Neptune Loader Get-Status
-  API](https://docs.aws.amazon.com/neptune/latest/userguide/load-api-reference-status.htm)
-  for more information.
+  ## Parameters:
+  * `:load_id` (`t:`) The load ID of the load job to get the status of.
 
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
-  [neptune-db:GetLoaderJobStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getloaderjobstatus)
-  IAM action in that cluster..
+  ## Optional parameters:
+  * `:details` (`t:`) Flag indicating whether or not to include details beyond the
+    overall status (TRUE or FALSE; the default is FALSE).
+  * `:errors` (`t:`) Flag indicating whether or not to include a list of errors
+    encountered (TRUE or FALSE; the default is FALSE).
+  * `:errors_per_page` (`t:integer`) The number of errors returned in each page (a
+    positive integer; the default is 10). Only valid when the errors parameter
+    set to TRUE.
+  * `:page` (`t:integer`) The error page number (a positive integer; the default
+    is 1). Only valid when the errors parameter is set to TRUE.
   """
-  @spec get_loader_job_status(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_loader_job_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_loader_job_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_loader_job_status_errors()}
-  def get_loader_job_status(
-        %Client{} = client,
-        load_id,
-        details \\ nil,
-        errors \\ nil,
-        errors_per_page \\ nil,
-        page \\ nil,
-        options \\ []
-      ) do
+  def get_loader_job_status(%Client{} = client, load_id, options \\ []) do
     url_path = "/loader/#{AWS.Util.encode_uri(load_id)}"
+
+    # Validate optional parameters
+    optional_params = [details: nil, errors: nil, errors_per_page: nil, page: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page) do
-        [{"page", page} | query_params]
+      if opt_val = Keyword.get(options, :page) do
+        [{"page", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(errors_per_page) do
-        [{"errorsPerPage", errors_per_page} | query_params]
+      if opt_val = Keyword.get(options, :errors_per_page) do
+        [{"errorsPerPage", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(errors) do
-        [{"errors", errors} | query_params]
+      if opt_val = Keyword.get(options, :errors) do
+        [{"errors", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(details) do
-        [{"details", details} | query_params]
+      if opt_val = Keyword.get(options, :details) do
+        [{"details", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:details, :errors, :errors_per_page, :page])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves information about a specified data processing job.
-
-  See [The `dataprocessing`
+  Retrieves information about a specified data processing job. See [The
+  `dataprocessing`
   command](https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-dataprocessing.html).
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
+  When invoking this operation in a Neptune cluster that has IAM authentication
+  enabled, the IAM user or role making the request must have a policy attached
+  that allows the
   [neptune-db:neptune-db:GetMLDataProcessingJobStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getmldataprocessingjobstatus)
   IAM action in that cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetMLDataProcessingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:`) The unique identifier of the data-processing job to be retrieved.
+
+  ## Optional parameters:
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune
+    access to SageMaker and Amazon S3 resources. This must be listed in your DB
+    cluster parameter group or an error will occur.
   """
-  @spec get_ml_data_processing_job(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_ml_data_processing_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_ml_data_processing_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ml_data_processing_job_errors()}
-  def get_ml_data_processing_job(
-        %Client{} = client,
-        id,
-        neptune_iam_role_arn \\ nil,
-        options \\ []
-      ) do
+  def get_ml_data_processing_job(%Client{} = client, id, options \\ []) do
     url_path = "/ml/dataprocessing/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = [neptune_iam_role_arn: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(neptune_iam_role_arn) do
-        [{"neptuneIamRoleArn", neptune_iam_role_arn} | query_params]
+      if opt_val = Keyword.get(options, :neptune_iam_role_arn) do
+        [{"neptuneIamRoleArn", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:neptune_iam_role_arn])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves details about an inference endpoint.
-
-  See [Managing inference endpoints using the endpoints
+  Retrieves details about an inference endpoint. See [Managing inference endpoints
+  using the endpoints
   command](https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-endpoints.html).
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
+  When invoking this operation in a Neptune cluster that has IAM authentication
+  enabled, the IAM user or role making the request must have a policy attached
+  that allows the
   [neptune-db:GetMLEndpointStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getmlendpointstatus)
   IAM action in that cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetMLEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:`) The unique identifier of the inference endpoint.
+
+  ## Optional parameters:
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune
+    access to SageMaker and Amazon S3 resources. This must be listed in your DB
+    cluster parameter group or an error will occur.
   """
-  @spec get_ml_endpoint(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_ml_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_ml_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ml_endpoint_errors()}
-  def get_ml_endpoint(%Client{} = client, id, neptune_iam_role_arn \\ nil, options \\ []) do
+  def get_ml_endpoint(%Client{} = client, id, options \\ []) do
     url_path = "/ml/endpoints/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = [neptune_iam_role_arn: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(neptune_iam_role_arn) do
-        [{"neptuneIamRoleArn", neptune_iam_role_arn} | query_params]
+      if opt_val = Keyword.get(options, :neptune_iam_role_arn) do
+        [{"neptuneIamRoleArn", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:neptune_iam_role_arn])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves information about a Neptune ML model training job.
-
-  See [Model training using the `modeltraining`
+  Retrieves information about a Neptune ML model training job. See [Model training
+  using the `modeltraining`
   command](https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-modeltraining.html).
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
+  When invoking this operation in a Neptune cluster that has IAM authentication
+  enabled, the IAM user or role making the request must have a policy attached
+  that allows the
   [neptune-db:GetMLModelTrainingJobStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getmlmodeltrainingjobstatus)
   IAM action in that cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetMLModelTrainingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:`) The unique identifier of the model-training job to retrieve.
+
+  ## Optional parameters:
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune
+    access to SageMaker and Amazon S3 resources. This must be listed in your DB
+    cluster parameter group or an error will occur.
   """
-  @spec get_ml_model_training_job(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_ml_model_training_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_ml_model_training_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ml_model_training_job_errors()}
-  def get_ml_model_training_job(
-        %Client{} = client,
-        id,
-        neptune_iam_role_arn \\ nil,
-        options \\ []
-      ) do
+  def get_ml_model_training_job(%Client{} = client, id, options \\ []) do
     url_path = "/ml/modeltraining/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = [neptune_iam_role_arn: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(neptune_iam_role_arn) do
-        [{"neptuneIamRoleArn", neptune_iam_role_arn} | query_params]
+      if opt_val = Keyword.get(options, :neptune_iam_role_arn) do
+        [{"neptuneIamRoleArn", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:neptune_iam_role_arn])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets information about a specified model transform job.
-
-  See [Use a trained model to generate new model
+  Gets information about a specified model transform job. See [Use a trained model
+  to generate new model
   artifacts](https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-model-transform.html).
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
+  When invoking this operation in a Neptune cluster that has IAM authentication
+  enabled, the IAM user or role making the request must have a policy attached
+  that allows the
   [neptune-db:GetMLModelTransformJobStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getmlmodeltransformjobstatus)
   IAM action in that cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetMLModelTransformJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:`) The unique identifier of the model-transform job to be
+    reetrieved.
+
+  ## Optional parameters:
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune
+    access to SageMaker and Amazon S3 resources. This must be listed in your DB
+    cluster parameter group or an error will occur.
   """
-  @spec get_ml_model_transform_job(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_ml_model_transform_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_ml_model_transform_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ml_model_transform_job_errors()}
-  def get_ml_model_transform_job(
-        %Client{} = client,
-        id,
-        neptune_iam_role_arn \\ nil,
-        options \\ []
-      ) do
+  def get_ml_model_transform_job(%Client{} = client, id, options \\ []) do
     url_path = "/ml/modeltransform/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = [neptune_iam_role_arn: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(neptune_iam_role_arn) do
-        [{"neptuneIamRoleArn", neptune_iam_role_arn} | query_params]
+      if opt_val = Keyword.get(options, :neptune_iam_role_arn) do
+        [{"neptuneIamRoleArn", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:neptune_iam_role_arn])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3523,27 +3713,42 @@ defmodule AWS.Neptunedata do
   @doc """
   Retrieves the status of a specified openCypher query.
 
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
-  [neptune-db:GetQueryStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getquerystatus) IAM action in that cluster.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetOpenCypherQueryStatus&this_doc_guide=API%2520Reference)
 
-  Note that the
-  [neptune-db:QueryLanguage:OpenCypher](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys)
-  IAM condition key can be used in the policy document to restrict the use of
-  openCypher queries (see [Condition keys available in Neptune IAM data-access policy
-  statements](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html)).
+  ## Parameters:
+  * `:query_id` (`t:`) The unique ID of the openCypher query for which to retrieve
+    the query status.
+
+  ## Optional parameters:
   """
-  @spec get_open_cypher_query_status(map(), String.t(), list()) ::
+  @spec get_open_cypher_query_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_open_cypher_query_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_open_cypher_query_status_errors()}
   def get_open_cypher_query_status(%Client{} = client, query_id, options \\ []) do
     url_path = "/opencypher/status/#{AWS.Util.encode_uri(query_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3551,129 +3756,144 @@ defmodule AWS.Neptunedata do
   @doc """
   Gets property graph statistics (Gremlin and openCypher).
 
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
-  [neptune-db:GetStatisticsStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getstatisticsstatus)
-  IAM action in that cluster.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetPropertygraphStatistics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_propertygraph_statistics(map(), list()) ::
+  @spec get_propertygraph_statistics(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_propertygraph_statistics_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_propertygraph_statistics_errors()}
   def get_propertygraph_statistics(%Client{} = client, options \\ []) do
     url_path = "/propertygraph/statistics"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets a stream for a property graph.
+  Gets a stream for a property graph. With the Neptune Streams feature, you can
+  generate a complete sequence of change-log entries that record every change
+  made to your graph data as it happens. `GetPropertygraphStream` lets you
+  collect these change-log entries for a property graph.
 
-  With the Neptune Streams feature, you can generate a complete
-  sequence of change-log entries that record every change made to your
-  graph data as it happens. `GetPropertygraphStream` lets
-  you collect these change-log entries for a property graph.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetPropertygraphStream&this_doc_guide=API%2520Reference)
 
-  The Neptune streams feature needs to be enabled on your Neptune
-  DBcluster. To enable streams, set the
-  [neptune_streams](https://docs.aws.amazon.com/neptune/latest/userguide/parameters.html#parameters-db-cluster-parameters-neptune_streams) DB cluster parameter to `1`.
+  ## Parameters:
 
-  See [Capturing
-  graph changes in real time using Neptune
-  streams](https://docs.aws.amazon.com/neptune/latest/userguide/streams.html).
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
-  [neptune-db:GetStreamRecords](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getstreamrecords) IAM action in that cluster.
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that enables one of the following IAM actions,
-  depending on the query:
-
-  Note that you can restrict property-graph queries using the
-  following IAM context keys:
-
-    *
-
-  [neptune-db:QueryLanguage:Gremlin](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys)
-
-    *
-
-  [neptune-db:QueryLanguage:OpenCypher](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys) 
-
-  See [Condition
-  keys available in Neptune IAM data-access policy
-  statements](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html)).
+  ## Optional parameters:
+  * `:commit_num` (`t:`) The commit number of the starting record to read from the
+    change-log stream. This parameter is required when iteratorType
+    isAT_SEQUENCE_NUMBER or AFTER_SEQUENCE_NUMBER, and ignored when iteratorType
+    is TRIM_HORIZON or LATEST.
+  * `:iterator_type`
+    (`t:enum["AFTER_SEQUENCE_NUMBER|AT_SEQUENCE_NUMBER|LATEST|TRIM_HORIZON"]`)
+    Can be one of:
+  * `:limit` (`t:`) Specifies the maximum number of records to return. There is
+    also a size limit of 10 MB on the response that can't be modified and that
+    takes precedence over the number of records specified in the limit
+    parameter. The response does include a threshold-breaching record if the 10
+    MB limit was reached.
+  * `:op_num` (`t:`) The operation sequence number within the specified commit to
+    start reading from in the change-log stream data. The default is 1.
+  * `:encoding` (`t:enum["GZIP"]`) If set to TRUE, Neptune compresses the response
+    using gzip encoding.
   """
-  @spec get_propertygraph_stream(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_propertygraph_stream(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_propertygraph_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_propertygraph_stream_errors()}
-  def get_propertygraph_stream(
-        %Client{} = client,
-        commit_num \\ nil,
-        iterator_type \\ nil,
-        limit \\ nil,
-        op_num \\ nil,
-        encoding \\ nil,
-        options \\ []
-      ) do
+  def get_propertygraph_stream(%Client{} = client, options \\ []) do
     url_path = "/propertygraph/stream"
+
+    # Validate optional parameters
+    optional_params = [
+      commit_num: nil,
+      iterator_type: nil,
+      limit: nil,
+      op_num: nil,
+      encoding: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(encoding) do
-        [{"Accept-Encoding", encoding} | headers]
+      if opt_val = Keyword.get(options, :encoding) do
+        [{"Accept-Encoding", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(op_num) do
-        [{"opNum", op_num} | query_params]
+      if opt_val = Keyword.get(options, :op_num) do
+        [{"opNum", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if opt_val = Keyword.get(options, :limit) do
+        [{"limit", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(iterator_type) do
-        [{"iteratorType", iterator_type} | query_params]
+      if opt_val = Keyword.get(options, :iterator_type) do
+        [{"iteratorType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(commit_num) do
-        [{"commitNum", commit_num} | query_params]
+      if opt_val = Keyword.get(options, :commit_num) do
+        [{"commitNum", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:commit_num, :iterator_type, :limit, :op_num, :encoding])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3681,29 +3901,53 @@ defmodule AWS.Neptunedata do
   @doc """
   Gets a graph summary for a property graph.
 
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
-  [neptune-db:GetGraphSummary](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getgraphsummary)
-  IAM action in that cluster.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetPropertygraphSummary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:mode` (`t:enum["BASIC|DETAILED"]`) Mode can take one of two values: BASIC
+    (the default), and DETAILED.
   """
-  @spec get_propertygraph_summary(map(), String.t() | nil, list()) ::
+  @spec get_propertygraph_summary(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_propertygraph_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_propertygraph_summary_errors()}
-  def get_propertygraph_summary(%Client{} = client, mode \\ nil, options \\ []) do
+  def get_propertygraph_summary(%Client{} = client, options \\ []) do
     url_path = "/propertygraph/statistics/summary"
+
+    # Validate optional parameters
+    optional_params = [mode: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(mode) do
-        [{"mode", mode} | query_params]
+      if opt_val = Keyword.get(options, :mode) do
+        [{"mode", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:mode])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3711,440 +3955,667 @@ defmodule AWS.Neptunedata do
   @doc """
   Gets a graph summary for an RDF graph.
 
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
-  [neptune-db:GetGraphSummary](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getgraphsummary)
-  IAM action in that cluster.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetRDFGraphSummary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:mode` (`t:enum["BASIC|DETAILED"]`) Mode can take one of two values: BASIC
+    (the default), and DETAILED.
   """
-  @spec get_r_d_f_graph_summary(map(), String.t() | nil, list()) ::
+  @spec get_r_d_f_graph_summary(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_r_d_f_graph_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_r_d_f_graph_summary_errors()}
-  def get_r_d_f_graph_summary(%Client{} = client, mode \\ nil, options \\ []) do
+  def get_r_d_f_graph_summary(%Client{} = client, options \\ []) do
     url_path = "/rdf/statistics/summary"
+
+    # Validate optional parameters
+    optional_params = [mode: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(mode) do
-        [{"mode", mode} | query_params]
+      if opt_val = Keyword.get(options, :mode) do
+        [{"mode", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:mode])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets RDF statistics (SPARQL).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetSparqlStatistics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_sparql_statistics(map(), list()) ::
+  @spec get_sparql_statistics(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sparql_statistics_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sparql_statistics_errors()}
   def get_sparql_statistics(%Client{} = client, options \\ []) do
     url_path = "/sparql/statistics"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets a stream for an RDF graph.
+  Gets a stream for an RDF graph. With the Neptune Streams feature, you can
+  generate a complete sequence of change-log entries that record every change
+  made to your graph data as it happens. `GetSparqlStream` lets you collect
+  these change-log entries for an RDF graph.
 
-  With the Neptune Streams feature, you can generate a complete
-  sequence of change-log entries that record every change made to your
-  graph data as it happens. `GetSparqlStream` lets
-  you collect these change-log entries for an RDF graph.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetSparqlStream&this_doc_guide=API%2520Reference)
 
-  The Neptune streams feature needs to be enabled on your Neptune
-  DBcluster. To enable streams, set the
-  [neptune_streams](https://docs.aws.amazon.com/neptune/latest/userguide/parameters.html#parameters-db-cluster-parameters-neptune_streams) DB cluster parameter to `1`.
+  ## Parameters:
 
-  See [Capturing
-  graph changes in real time using Neptune
-  streams](https://docs.aws.amazon.com/neptune/latest/userguide/streams.html).
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
-  [neptune-db:GetStreamRecords](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getstreamrecords) IAM action in that cluster.
-
-  Note that the
-  [neptune-db:QueryLanguage:Sparql](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys)
-  IAM condition key can be used in the policy document to restrict the use of
-  SPARQL queries (see [Condition keys available in Neptune IAM data-access policy
-  statements](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html)).
+  ## Optional parameters:
+  * `:commit_num` (`t:`) The commit number of the starting record to read from the
+    change-log stream. This parameter is required when iteratorType
+    isAT_SEQUENCE_NUMBER or AFTER_SEQUENCE_NUMBER, and ignored when iteratorType
+    is TRIM_HORIZON or LATEST.
+  * `:iterator_type`
+    (`t:enum["AFTER_SEQUENCE_NUMBER|AT_SEQUENCE_NUMBER|LATEST|TRIM_HORIZON"]`)
+    Can be one of:
+  * `:limit` (`t:`) Specifies the maximum number of records to return. There is
+    also a size limit of 10 MB on the response that can't be modified and that
+    takes precedence over the number of records specified in the limit
+    parameter. The response does include a threshold-breaching record if the 10
+    MB limit was reached.
+  * `:op_num` (`t:`) The operation sequence number within the specified commit to
+    start reading from in the change-log stream data. The default is 1.
+  * `:encoding` (`t:enum["GZIP"]`) If set to TRUE, Neptune compresses the response
+    using gzip encoding.
   """
-  @spec get_sparql_stream(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_sparql_stream(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sparql_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sparql_stream_errors()}
-  def get_sparql_stream(
-        %Client{} = client,
-        commit_num \\ nil,
-        iterator_type \\ nil,
-        limit \\ nil,
-        op_num \\ nil,
-        encoding \\ nil,
-        options \\ []
-      ) do
+  def get_sparql_stream(%Client{} = client, options \\ []) do
     url_path = "/sparql/stream"
+
+    # Validate optional parameters
+    optional_params = [
+      commit_num: nil,
+      iterator_type: nil,
+      limit: nil,
+      op_num: nil,
+      encoding: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(encoding) do
-        [{"Accept-Encoding", encoding} | headers]
+      if opt_val = Keyword.get(options, :encoding) do
+        [{"Accept-Encoding", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(op_num) do
-        [{"opNum", op_num} | query_params]
+      if opt_val = Keyword.get(options, :op_num) do
+        [{"opNum", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if opt_val = Keyword.get(options, :limit) do
+        [{"limit", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(iterator_type) do
-        [{"iteratorType", iterator_type} | query_params]
+      if opt_val = Keyword.get(options, :iterator_type) do
+        [{"iteratorType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(commit_num) do
-        [{"commitNum", commit_num} | query_params]
+      if opt_val = Keyword.get(options, :commit_num) do
+        [{"commitNum", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:commit_num, :iterator_type, :limit, :op_num, :encoding])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists active Gremlin queries.
-
-  See [Gremlin query status
+  Lists active Gremlin queries. See [Gremlin query status
   API](https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-api-status.html)
-  for details about the output.
+  for details about the output. When invoking this operation in a Neptune
+  cluster that has IAM authentication enabled, the IAM user or role making the
+  request must have a policy attached that allows the
+  [neptune-db:GetQueryStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getquerystatus)
+  IAM action in that cluster.
 
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
-  [neptune-db:GetQueryStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getquerystatus) IAM action in that cluster.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ListGremlinQueries&this_doc_guide=API%2520Reference)
 
-  Note that the
-  [neptune-db:QueryLanguage:Gremlin](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys)
-  IAM condition key can be used in the policy document to restrict the use of
-  Gremlin queries (see [Condition keys available in Neptune IAM data-access policy
-  statements](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html)).
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:include_waiting` (`t:`) If set to TRUE, the list returned includes waiting
+    queries. The default is FALSE;
   """
-  @spec list_gremlin_queries(map(), String.t() | nil, list()) ::
+  @spec list_gremlin_queries(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_gremlin_queries_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_gremlin_queries_errors()}
-  def list_gremlin_queries(%Client{} = client, include_waiting \\ nil, options \\ []) do
+  def list_gremlin_queries(%Client{} = client, options \\ []) do
     url_path = "/gremlin/status"
+
+    # Validate optional parameters
+    optional_params = [include_waiting: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(include_waiting) do
-        [{"includeWaiting", include_waiting} | query_params]
+      if opt_val = Keyword.get(options, :include_waiting) do
+        [{"includeWaiting", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:include_waiting])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves a list of the `loadIds` for all active
-  loader jobs.
+  Retrieves a list of the `loadIds` for all active loader jobs.
 
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
-  [neptune-db:ListLoaderJobs](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listloaderjobs)
-  IAM action in that cluster..
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ListLoaderJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:include_queued_loads` (`t:`) An optional parameter that can be used to
+    exclude the load IDs of queued load requests when requesting a list of load
+    IDs by setting the parameter to FALSE. The default value is TRUE.
+  * `:limit` (`t:integer`) The number of load IDs to list. Must be a positive
+    integer greater than zero and not more than 100 (which is the default).
   """
-  @spec list_loader_jobs(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_loader_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_loader_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_loader_jobs_errors()}
-  def list_loader_jobs(
-        %Client{} = client,
-        include_queued_loads \\ nil,
-        limit \\ nil,
-        options \\ []
-      ) do
+  def list_loader_jobs(%Client{} = client, options \\ []) do
     url_path = "/loader"
+
+    # Validate optional parameters
+    optional_params = [include_queued_loads: nil, limit: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if opt_val = Keyword.get(options, :limit) do
+        [{"limit", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(include_queued_loads) do
-        [{"includeQueuedLoads", include_queued_loads} | query_params]
+      if opt_val = Keyword.get(options, :include_queued_loads) do
+        [{"includeQueuedLoads", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:include_queued_loads, :limit])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns a list of Neptune ML data processing jobs.
-
-  See [Listing active data-processing jobs using the Neptune ML dataprocessing
+  Returns a list of Neptune ML data processing jobs. See [Listing active
+  data-processing jobs using the Neptune ML dataprocessing
   command](https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-dataprocessing.html#machine-learning-api-dataprocessing-list-jobs).
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
+  When invoking this operation in a Neptune cluster that has IAM authentication
+  enabled, the IAM user or role making the request must have a policy attached
+  that allows the
   [neptune-db:ListMLDataProcessingJobs](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listmldataprocessingjobs)
   IAM action in that cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ListMLDataProcessingJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_items` (`t:integer`) The maximum number of items to return (from 1 to
+    1024; the default is 10).
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune
+    access to SageMaker and Amazon S3 resources. This must be listed in your DB
+    cluster parameter group or an error will occur.
   """
-  @spec list_ml_data_processing_jobs(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_ml_data_processing_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ml_data_processing_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ml_data_processing_jobs_errors()}
-  def list_ml_data_processing_jobs(
-        %Client{} = client,
-        max_items \\ nil,
-        neptune_iam_role_arn \\ nil,
-        options \\ []
-      ) do
+  def list_ml_data_processing_jobs(%Client{} = client, options \\ []) do
     url_path = "/ml/dataprocessing"
+
+    # Validate optional parameters
+    optional_params = [max_items: nil, neptune_iam_role_arn: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(neptune_iam_role_arn) do
-        [{"neptuneIamRoleArn", neptune_iam_role_arn} | query_params]
+      if opt_val = Keyword.get(options, :neptune_iam_role_arn) do
+        [{"neptuneIamRoleArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_items) do
-        [{"maxItems", max_items} | query_params]
+      if opt_val = Keyword.get(options, :max_items) do
+        [{"maxItems", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_items, :neptune_iam_role_arn])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists existing inference endpoints.
-
-  See [Managing inference endpoints using the endpoints
+  Lists existing inference endpoints. See [Managing inference endpoints using the
+  endpoints
   command](https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-endpoints.html).
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
+  When invoking this operation in a Neptune cluster that has IAM authentication
+  enabled, the IAM user or role making the request must have a policy attached
+  that allows the
   [neptune-db:ListMLEndpoints](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listmlendpoints)
   IAM action in that cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ListMLEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_items` (`t:integer`) The maximum number of items to return (from 1 to
+    1024; the default is 10.
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune
+    access to SageMaker and Amazon S3 resources. This must be listed in your DB
+    cluster parameter group or an error will occur.
   """
-  @spec list_ml_endpoints(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_ml_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ml_endpoints_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ml_endpoints_errors()}
-  def list_ml_endpoints(
-        %Client{} = client,
-        max_items \\ nil,
-        neptune_iam_role_arn \\ nil,
-        options \\ []
-      ) do
+  def list_ml_endpoints(%Client{} = client, options \\ []) do
     url_path = "/ml/endpoints"
+
+    # Validate optional parameters
+    optional_params = [max_items: nil, neptune_iam_role_arn: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(neptune_iam_role_arn) do
-        [{"neptuneIamRoleArn", neptune_iam_role_arn} | query_params]
+      if opt_val = Keyword.get(options, :neptune_iam_role_arn) do
+        [{"neptuneIamRoleArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_items) do
-        [{"maxItems", max_items} | query_params]
+      if opt_val = Keyword.get(options, :max_items) do
+        [{"maxItems", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_items, :neptune_iam_role_arn])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists Neptune ML model-training jobs.
-
-  See [Model training using the `modeltraining`
+  Lists Neptune ML model-training jobs. See [Model training using the
+  `modeltraining`
   command](https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-modeltraining.html).
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
+  When invoking this operation in a Neptune cluster that has IAM authentication
+  enabled, the IAM user or role making the request must have a policy attached
+  that allows the
   [neptune-db:neptune-db:ListMLModelTrainingJobs](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#neptune-db:listmlmodeltrainingjobs)
   IAM action in that cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ListMLModelTrainingJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_items` (`t:integer`) The maximum number of items to return (from 1 to
+    1024; the default is 10).
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune
+    access to SageMaker and Amazon S3 resources. This must be listed in your DB
+    cluster parameter group or an error will occur.
   """
-  @spec list_ml_model_training_jobs(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_ml_model_training_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ml_model_training_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ml_model_training_jobs_errors()}
-  def list_ml_model_training_jobs(
-        %Client{} = client,
-        max_items \\ nil,
-        neptune_iam_role_arn \\ nil,
-        options \\ []
-      ) do
+  def list_ml_model_training_jobs(%Client{} = client, options \\ []) do
     url_path = "/ml/modeltraining"
+
+    # Validate optional parameters
+    optional_params = [max_items: nil, neptune_iam_role_arn: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(neptune_iam_role_arn) do
-        [{"neptuneIamRoleArn", neptune_iam_role_arn} | query_params]
+      if opt_val = Keyword.get(options, :neptune_iam_role_arn) do
+        [{"neptuneIamRoleArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_items) do
-        [{"maxItems", max_items} | query_params]
+      if opt_val = Keyword.get(options, :max_items) do
+        [{"maxItems", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_items, :neptune_iam_role_arn])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns a list of model transform job IDs.
-
-  See [Use a trained model to generate new model
+  Returns a list of model transform job IDs. See [Use a trained model to generate
+  new model
   artifacts](https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-model-transform.html).
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
+  When invoking this operation in a Neptune cluster that has IAM authentication
+  enabled, the IAM user or role making the request must have a policy attached
+  that allows the
   [neptune-db:ListMLModelTransformJobs](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listmlmodeltransformjobs)
   IAM action in that cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ListMLModelTransformJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_items` (`t:integer`) The maximum number of items to return (from 1 to
+    1024; the default is 10).
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune
+    access to SageMaker and Amazon S3 resources. This must be listed in your DB
+    cluster parameter group or an error will occur.
   """
-  @spec list_ml_model_transform_jobs(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_ml_model_transform_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ml_model_transform_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ml_model_transform_jobs_errors()}
-  def list_ml_model_transform_jobs(
-        %Client{} = client,
-        max_items \\ nil,
-        neptune_iam_role_arn \\ nil,
-        options \\ []
-      ) do
+  def list_ml_model_transform_jobs(%Client{} = client, options \\ []) do
     url_path = "/ml/modeltransform"
+
+    # Validate optional parameters
+    optional_params = [max_items: nil, neptune_iam_role_arn: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(neptune_iam_role_arn) do
-        [{"neptuneIamRoleArn", neptune_iam_role_arn} | query_params]
+      if opt_val = Keyword.get(options, :neptune_iam_role_arn) do
+        [{"neptuneIamRoleArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_items) do
-        [{"maxItems", max_items} | query_params]
+      if opt_val = Keyword.get(options, :max_items) do
+        [{"maxItems", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_items, :neptune_iam_role_arn])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists active openCypher queries.
-
-  See [Neptune openCypher status
+  Lists active openCypher queries. See [Neptune openCypher status
   endpoint](https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher-status.html)
-  for more information.
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
+  for more information. When invoking this operation in a Neptune cluster that
+  has IAM authentication enabled, the IAM user or role making the request must
   have a policy attached that allows the
-  [neptune-db:GetQueryStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getquerystatus) IAM action in that cluster.
+  [neptune-db:GetQueryStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getquerystatus)
+  IAM action in that cluster.
 
-  Note that the
-  [neptune-db:QueryLanguage:OpenCypher](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys)
-  IAM condition key can be used in the policy document to restrict the use of
-  openCypher queries (see [Condition keys available in Neptune IAM data-access policy
-  statements](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html)).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ListOpenCypherQueries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:include_waiting` (`t:`) When set to TRUE and other parameters are not
+    present, causes status information to be returned for waiting queries as
+    well as for running queries.
   """
-  @spec list_open_cypher_queries(map(), String.t() | nil, list()) ::
+  @spec list_open_cypher_queries(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_open_cypher_queries_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_open_cypher_queries_errors()}
-  def list_open_cypher_queries(%Client{} = client, include_waiting \\ nil, options \\ []) do
+  def list_open_cypher_queries(%Client{} = client, options \\ []) do
     url_path = "/opencypher/status"
+
+    # Validate optional parameters
+    optional_params = [include_waiting: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(include_waiting) do
-        [{"includeWaiting", include_waiting} | query_params]
+      if opt_val = Keyword.get(options, :include_waiting) do
+        [{"includeWaiting", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:include_waiting])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4152,13 +4623,17 @@ defmodule AWS.Neptunedata do
   @doc """
   Manages the generation and use of property graph statistics.
 
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
-  [neptune-db:ManageStatistics](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#managestatistics)
-  IAM action in that cluster.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ManagePropertygraphStatistics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec manage_propertygraph_statistics(map(), manage_propertygraph_statistics_input(), list()) ::
+  @spec manage_propertygraph_statistics(
+          AWS.Client.t(),
+          manage_propertygraph_statistics_input(),
+          Keyword.t()
+        ) ::
           {:ok, manage_propertygraph_statistics_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, manage_propertygraph_statistics_errors()}
@@ -4167,7 +4642,8 @@ defmodule AWS.Neptunedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4185,13 +4661,13 @@ defmodule AWS.Neptunedata do
   @doc """
   Manages the generation and use of RDF graph statistics.
 
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
-  [neptune-db:ManageStatistics](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#managestatistics)
-  IAM action in that cluster.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ManageSparqlStatistics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec manage_sparql_statistics(map(), manage_sparql_statistics_input(), list()) ::
+  @spec manage_sparql_statistics(AWS.Client.t(), manage_sparql_statistics_input(), Keyword.t()) ::
           {:ok, manage_sparql_statistics_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, manage_sparql_statistics_errors()}
@@ -4200,7 +4676,8 @@ defmodule AWS.Neptunedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4216,19 +4693,22 @@ defmodule AWS.Neptunedata do
   end
 
   @doc """
-  Starts a Neptune bulk loader job to load data from an Amazon S3
-  bucket into a Neptune DB instance.
-
-  See [Using the Amazon Neptune Bulk Loader to Ingest
+  Starts a Neptune bulk loader job to load data from an Amazon S3 bucket into a
+  Neptune DB instance. See [Using the Amazon Neptune Bulk Loader to Ingest
   Data](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load.html).
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
+  When invoking this operation in a Neptune cluster that has IAM authentication
+  enabled, the IAM user or role making the request must have a policy attached
+  that allows the
   [neptune-db:StartLoaderJob](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#startloaderjob)
   IAM action in that cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20StartLoaderJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_loader_job(map(), start_loader_job_input(), list()) ::
+  @spec start_loader_job(AWS.Client.t(), start_loader_job_input(), Keyword.t()) ::
           {:ok, start_loader_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_loader_job_errors()}
@@ -4237,7 +4717,8 @@ defmodule AWS.Neptunedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4253,19 +4734,26 @@ defmodule AWS.Neptunedata do
   end
 
   @doc """
-  Creates a new Neptune ML data processing job for processing the
-  graph data exported from Neptune for training.
-
-  See [The `dataprocessing`
+  Creates a new Neptune ML data processing job for processing the graph data
+  exported from Neptune for training. See [The `dataprocessing`
   command](https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-dataprocessing.html).
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
+  When invoking this operation in a Neptune cluster that has IAM authentication
+  enabled, the IAM user or role making the request must have a policy attached
+  that allows the
   [neptune-db:StartMLModelDataProcessingJob](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#startmlmodeldataprocessingjob)
   IAM action in that cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20StartMLDataProcessingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_ml_data_processing_job(map(), start_ml_data_processing_job_input(), list()) ::
+  @spec start_ml_data_processing_job(
+          AWS.Client.t(),
+          start_ml_data_processing_job_input(),
+          Keyword.t()
+        ) ::
           {:ok, start_ml_data_processing_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_ml_data_processing_job_errors()}
@@ -4274,7 +4762,8 @@ defmodule AWS.Neptunedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4290,18 +4779,26 @@ defmodule AWS.Neptunedata do
   end
 
   @doc """
-  Creates a new Neptune ML model training job.
-
-  See [Model training using the `modeltraining`
+  Creates a new Neptune ML model training job. See [Model training using the
+  `modeltraining`
   command](https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-modeltraining.html).
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
+  When invoking this operation in a Neptune cluster that has IAM authentication
+  enabled, the IAM user or role making the request must have a policy attached
+  that allows the
   [neptune-db:StartMLModelTrainingJob](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#startmlmodeltrainingjob)
   IAM action in that cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20StartMLModelTrainingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_ml_model_training_job(map(), start_ml_model_training_job_input(), list()) ::
+  @spec start_ml_model_training_job(
+          AWS.Client.t(),
+          start_ml_model_training_job_input(),
+          Keyword.t()
+        ) ::
           {:ok, start_ml_model_training_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_ml_model_training_job_errors()}
@@ -4310,7 +4807,8 @@ defmodule AWS.Neptunedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4326,18 +4824,26 @@ defmodule AWS.Neptunedata do
   end
 
   @doc """
-  Creates a new model transform job.
-
-  See [Use a trained model to generate new model
+  Creates a new model transform job. See [Use a trained model to generate new
+  model
   artifacts](https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-model-transform.html).
-
-  When invoking this operation in a Neptune cluster that has IAM
-  authentication enabled, the IAM user or role making the request must
-  have a policy attached that allows the
+  When invoking this operation in a Neptune cluster that has IAM authentication
+  enabled, the IAM user or role making the request must have a policy attached
+  that allows the
   [neptune-db:StartMLModelTransformJob](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#startmlmodeltransformjob)
   IAM action in that cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20StartMLModelTransformJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_ml_model_transform_job(map(), start_ml_model_transform_job_input(), list()) ::
+  @spec start_ml_model_transform_job(
+          AWS.Client.t(),
+          start_ml_model_transform_job_input(),
+          Keyword.t()
+        ) ::
           {:ok, start_ml_model_transform_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_ml_model_transform_job_errors()}
@@ -4346,7 +4852,8 @@ defmodule AWS.Neptunedata do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

@@ -3,18 +3,14 @@
 
 defmodule AWS.FMS do
   @moduledoc """
-  This is the *Firewall Manager API Reference*.
-
-  This guide is for
-  developers who need detailed information about the Firewall Manager API actions,
-  data
-  types, and errors. For detailed information about Firewall Manager features, see
-  the
-  [Firewall Manager Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html).
-
-  Some API actions require explicit resource permissions. For information, see the
-  developer guide topic
-  [Service roles for Firewall Manager](https://docs.aws.amazon.com/waf/latest/developerguide/fms-security_iam_service-with-iam.html#fms-security_iam_service-with-iam-roles-service).
+  This is the *Firewall Manager API Reference*. This guide is for developers who
+  need detailed information about the Firewall Manager API actions, data types,
+  and errors. For detailed information about Firewall Manager features, see the
+  [Firewall Manager Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html).
+  Some API actions require explicit resource permissions. For information, see
+  the developer guide topic [Service roles for Firewall
+  Manager](https://docs.aws.amazon.com/waf/latest/developerguide/fms-security_iam_service-with-iam.html#fms-security_iam_service-with-iam-roles-service).
   """
 
   alias AWS.Client
@@ -2498,41 +2494,40 @@ defmodule AWS.FMS do
   end
 
   @doc """
-  Sets a Firewall Manager default administrator account.
-
-  The Firewall Manager default administrator account can manage third-party
-  firewalls and has full administrative scope that allows administration of all
-  policy types, accounts, organizational units, and Regions. This account must be
-  a member account of the organization in Organizations whose resources you want
-  to protect.
-
-  For information about working with Firewall Manager administrator accounts, see
-  [Managing Firewall Manager administrators](https://docs.aws.amazon.com/organizations/latest/userguide/fms-administrators.html)
-  in the *Firewall Manager Developer Guide*.
+  Sets a Firewall Manager default administrator account. The Firewall Manager
+  default administrator account can manage third-party firewalls and has full
+  administrative scope that allows administration of all policy types, accounts,
+  organizational units, and Regions. This account must be a member account of
+  the organization in Organizations whose resources you want to protect.
   """
-  @spec associate_admin_account(map(), associate_admin_account_request(), list()) ::
+  @spec associate_admin_account(AWS.Client.t(), associate_admin_account_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_admin_account_errors()}
   def associate_admin_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateAdminAccount", input, options)
   end
 
   @doc """
   Sets the Firewall Manager policy administrator as a tenant administrator of a
-  third-party firewall service.
-
-  A tenant is an instance of the third-party firewall service that's associated
-  with your Amazon Web Services customer account.
+  third-party firewall service. A tenant is an instance of the third-party
+  firewall service that's associated with your Amazon Web Services customer
+  account.
   """
-  @spec associate_third_party_firewall(map(), associate_third_party_firewall_request(), list()) ::
+  @spec associate_third_party_firewall(
+          AWS.Client.t(),
+          associate_third_party_firewall_request(),
+          Keyword.t()
+        ) ::
           {:ok, associate_third_party_firewall_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_third_party_firewall_errors()}
   def associate_third_party_firewall(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateThirdPartyFirewall", input, options)
   end
@@ -2540,12 +2535,13 @@ defmodule AWS.FMS do
   @doc """
   Associate resources to a Firewall Manager resource set.
   """
-  @spec batch_associate_resource(map(), batch_associate_resource_request(), list()) ::
+  @spec batch_associate_resource(AWS.Client.t(), batch_associate_resource_request(), Keyword.t()) ::
           {:ok, batch_associate_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_associate_resource_errors()}
   def batch_associate_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchAssociateResource", input, options)
   end
@@ -2553,12 +2549,17 @@ defmodule AWS.FMS do
   @doc """
   Disassociates resources from a Firewall Manager resource set.
   """
-  @spec batch_disassociate_resource(map(), batch_disassociate_resource_request(), list()) ::
+  @spec batch_disassociate_resource(
+          AWS.Client.t(),
+          batch_disassociate_resource_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_disassociate_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_disassociate_resource_errors()}
   def batch_disassociate_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDisassociateResource", input, options)
   end
@@ -2566,12 +2567,13 @@ defmodule AWS.FMS do
   @doc """
   Permanently deletes an Firewall Manager applications list.
   """
-  @spec delete_apps_list(map(), delete_apps_list_request(), list()) ::
+  @spec delete_apps_list(AWS.Client.t(), delete_apps_list_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_apps_list_errors()}
   def delete_apps_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAppsList", input, options)
   end
@@ -2581,12 +2583,17 @@ defmodule AWS.FMS do
   Notification Service (SNS) topic that is used to record Firewall Manager SNS
   logs.
   """
-  @spec delete_notification_channel(map(), delete_notification_channel_request(), list()) ::
+  @spec delete_notification_channel(
+          AWS.Client.t(),
+          delete_notification_channel_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_notification_channel_errors()}
   def delete_notification_channel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNotificationChannel", input, options)
   end
@@ -2594,12 +2601,13 @@ defmodule AWS.FMS do
   @doc """
   Permanently deletes an Firewall Manager policy.
   """
-  @spec delete_policy(map(), delete_policy_request(), list()) ::
+  @spec delete_policy(AWS.Client.t(), delete_policy_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePolicy", input, options)
   end
@@ -2607,12 +2615,13 @@ defmodule AWS.FMS do
   @doc """
   Permanently deletes an Firewall Manager protocols list.
   """
-  @spec delete_protocols_list(map(), delete_protocols_list_request(), list()) ::
+  @spec delete_protocols_list(AWS.Client.t(), delete_protocols_list_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_protocols_list_errors()}
   def delete_protocols_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProtocolsList", input, options)
   end
@@ -2620,85 +2629,86 @@ defmodule AWS.FMS do
   @doc """
   Deletes the specified `ResourceSet`.
   """
-  @spec delete_resource_set(map(), delete_resource_set_request(), list()) ::
+  @spec delete_resource_set(AWS.Client.t(), delete_resource_set_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_set_errors()}
   def delete_resource_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourceSet", input, options)
   end
 
   @doc """
-  Disassociates an Firewall Manager administrator account.
-
-  To set a different account as an Firewall Manager administrator, submit a
-  `PutAdminAccount` request. To set an account as a default administrator account,
-  you must submit an `AssociateAdminAccount` request.
-
-  Disassociation of the default administrator account follows the first in, last
-  out principle. If you are the default administrator, all Firewall Manager
-  administrators within the organization must first disassociate their accounts
-  before you can disassociate your account.
+  Disassociates an Firewall Manager administrator account. To set a different
+  account as an Firewall Manager administrator, submit a `PutAdminAccount`
+  request. To set an account as a default administrator account, you must submit
+  an `AssociateAdminAccount` request.
   """
-  @spec disassociate_admin_account(map(), disassociate_admin_account_request(), list()) ::
+  @spec disassociate_admin_account(
+          AWS.Client.t(),
+          disassociate_admin_account_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_admin_account_errors()}
   def disassociate_admin_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateAdminAccount", input, options)
   end
 
   @doc """
   Disassociates a Firewall Manager policy administrator from a third-party
-  firewall tenant.
-
-  When you call `DisassociateThirdPartyFirewall`, the third-party firewall vendor
-  deletes all of the firewalls that are associated with the account.
+  firewall tenant. When you call `DisassociateThirdPartyFirewall`, the
+  third-party firewall vendor deletes all of the firewalls that are associated
+  with the account.
   """
   @spec disassociate_third_party_firewall(
-          map(),
+          AWS.Client.t(),
           disassociate_third_party_firewall_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_third_party_firewall_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_third_party_firewall_errors()}
   def disassociate_third_party_firewall(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateThirdPartyFirewall", input, options)
   end
 
   @doc """
-  Returns the Organizations account that is associated with Firewall Manager
-  as the Firewall Manager default administrator.
+  Returns the Organizations account that is associated with Firewall Manager as
+  the Firewall Manager default administrator.
   """
-  @spec get_admin_account(map(), get_admin_account_request(), list()) ::
+  @spec get_admin_account(AWS.Client.t(), get_admin_account_request(), Keyword.t()) ::
           {:ok, get_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_admin_account_errors()}
   def get_admin_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAdminAccount", input, options)
   end
 
   @doc """
-  Returns information about the specified account's administrative scope.
-
-  The administrative scope defines the resources that an Firewall Manager
+  Returns information about the specified account's administrative scope. The
+  administrative scope defines the resources that an Firewall Manager
   administrator can manage.
   """
-  @spec get_admin_scope(map(), get_admin_scope_request(), list()) ::
+  @spec get_admin_scope(AWS.Client.t(), get_admin_scope_request(), Keyword.t()) ::
           {:ok, get_admin_scope_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_admin_scope_errors()}
   def get_admin_scope(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAdminScope", input, options)
   end
@@ -2706,46 +2716,44 @@ defmodule AWS.FMS do
   @doc """
   Returns information about the specified Firewall Manager applications list.
   """
-  @spec get_apps_list(map(), get_apps_list_request(), list()) ::
+  @spec get_apps_list(AWS.Client.t(), get_apps_list_request(), Keyword.t()) ::
           {:ok, get_apps_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_apps_list_errors()}
   def get_apps_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAppsList", input, options)
   end
 
   @doc """
   Returns detailed compliance information about the specified member account.
-
-  Details
-  include resources that are in and out of compliance with the specified policy.
-
-  The reasons for resources being considered compliant depend on the Firewall
-  Manager policy type.
+  Details include resources that are in and out of compliance with the specified
+  policy.
   """
-  @spec get_compliance_detail(map(), get_compliance_detail_request(), list()) ::
+  @spec get_compliance_detail(AWS.Client.t(), get_compliance_detail_request(), Keyword.t()) ::
           {:ok, get_compliance_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_compliance_detail_errors()}
   def get_compliance_detail(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetComplianceDetail", input, options)
   end
 
   @doc """
-  Information
-  about the Amazon Simple Notification Service (SNS) topic that is used to
-  record Firewall Manager SNS logs.
+  Information about the Amazon Simple Notification Service (SNS) topic that is
+  used to record Firewall Manager SNS logs.
   """
-  @spec get_notification_channel(map(), get_notification_channel_request(), list()) ::
+  @spec get_notification_channel(AWS.Client.t(), get_notification_channel_request(), Keyword.t()) ::
           {:ok, get_notification_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_notification_channel_errors()}
   def get_notification_channel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetNotificationChannel", input, options)
   end
@@ -2753,29 +2761,29 @@ defmodule AWS.FMS do
   @doc """
   Returns information about the specified Firewall Manager policy.
   """
-  @spec get_policy(map(), get_policy_request(), list()) ::
+  @spec get_policy(AWS.Client.t(), get_policy_request(), Keyword.t()) ::
           {:ok, get_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_policy_errors()}
   def get_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPolicy", input, options)
   end
 
   @doc """
   If you created a Shield Advanced policy, returns policy-level attack summary
-  information
-  in the event of a potential DDoS attack.
-
-  Other policy types are currently unsupported.
+  information in the event of a potential DDoS attack. Other policy types are
+  currently unsupported.
   """
-  @spec get_protection_status(map(), get_protection_status_request(), list()) ::
+  @spec get_protection_status(AWS.Client.t(), get_protection_status_request(), Keyword.t()) ::
           {:ok, get_protection_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_protection_status_errors()}
   def get_protection_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetProtectionStatus", input, options)
   end
@@ -2783,12 +2791,13 @@ defmodule AWS.FMS do
   @doc """
   Returns information about the specified Firewall Manager protocols list.
   """
-  @spec get_protocols_list(map(), get_protocols_list_request(), list()) ::
+  @spec get_protocols_list(AWS.Client.t(), get_protocols_list_request(), Keyword.t()) ::
           {:ok, get_protocols_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_protocols_list_errors()}
   def get_protocols_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetProtocolsList", input, options)
   end
@@ -2796,12 +2805,13 @@ defmodule AWS.FMS do
   @doc """
   Gets information about a specific resource set.
   """
-  @spec get_resource_set(map(), get_resource_set_request(), list()) ::
+  @spec get_resource_set(AWS.Client.t(), get_resource_set_request(), Keyword.t()) ::
           {:ok, get_resource_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_set_errors()}
   def get_resource_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourceSet", input, options)
   end
@@ -2811,15 +2821,16 @@ defmodule AWS.FMS do
   firewall vendor tenant.
   """
   @spec get_third_party_firewall_association_status(
-          map(),
+          AWS.Client.t(),
           get_third_party_firewall_association_status_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_third_party_firewall_association_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_third_party_firewall_association_status_errors()}
   def get_third_party_firewall_association_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetThirdPartyFirewallAssociationStatus", input, options)
   end
@@ -2828,12 +2839,13 @@ defmodule AWS.FMS do
   Retrieves violations for a resource based on the specified Firewall Manager
   policy and Amazon Web Services account.
   """
-  @spec get_violation_details(map(), get_violation_details_request(), list()) ::
+  @spec get_violation_details(AWS.Client.t(), get_violation_details_request(), Keyword.t()) ::
           {:ok, get_violation_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_violation_details_errors()}
   def get_violation_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetViolationDetails", input, options)
   end
@@ -2842,36 +2854,39 @@ defmodule AWS.FMS do
   Returns a `AdminAccounts` object that lists the Firewall Manager administrators
   within the organization that are onboarded to Firewall Manager by
   `AssociateAdminAccount`.
-
-  This operation can be called only from the organization's management account.
   """
   @spec list_admin_accounts_for_organization(
-          map(),
+          AWS.Client.t(),
           list_admin_accounts_for_organization_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_admin_accounts_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_admin_accounts_for_organization_errors()}
   def list_admin_accounts_for_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAdminAccountsForOrganization", input, options)
   end
 
   @doc """
   Lists the accounts that are managing the specified Organizations member account.
-
-  This is useful for any member account so that they can view the accounts who are
-  managing their account. This operation only returns the managing administrators
-  that have the requested account within their `AdminScope`.
+  This is useful for any member account so that they can view the accounts who
+  are managing their account. This operation only returns the managing
+  administrators that have the requested account within their `AdminScope`.
   """
-  @spec list_admins_managing_account(map(), list_admins_managing_account_request(), list()) ::
+  @spec list_admins_managing_account(
+          AWS.Client.t(),
+          list_admins_managing_account_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_admins_managing_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_admins_managing_account_errors()}
   def list_admins_managing_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAdminsManagingAccount", input, options)
   end
@@ -2879,29 +2894,29 @@ defmodule AWS.FMS do
   @doc """
   Returns an array of `AppsListDataSummary` objects.
   """
-  @spec list_apps_lists(map(), list_apps_lists_request(), list()) ::
+  @spec list_apps_lists(AWS.Client.t(), list_apps_lists_request(), Keyword.t()) ::
           {:ok, list_apps_lists_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_apps_lists_errors()}
   def list_apps_lists(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAppsLists", input, options)
   end
 
   @doc """
-  Returns an array of `PolicyComplianceStatus` objects.
-
-  Use
-  `PolicyComplianceStatus` to get a summary of which member accounts are protected
-  by the specified policy.
+  Returns an array of `PolicyComplianceStatus` objects. Use
+  `PolicyComplianceStatus` to get a summary of which member accounts are
+  protected by the specified policy.
   """
-  @spec list_compliance_status(map(), list_compliance_status_request(), list()) ::
+  @spec list_compliance_status(AWS.Client.t(), list_compliance_status_request(), Keyword.t()) ::
           {:ok, list_compliance_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_compliance_status_errors()}
   def list_compliance_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListComplianceStatus", input, options)
   end
@@ -2910,12 +2925,17 @@ defmodule AWS.FMS do
   Returns an array of resources in the organization's accounts that are available
   to be associated with a resource set.
   """
-  @spec list_discovered_resources(map(), list_discovered_resources_request(), list()) ::
+  @spec list_discovered_resources(
+          AWS.Client.t(),
+          list_discovered_resources_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_discovered_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_discovered_resources_errors()}
   def list_discovered_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDiscoveredResources", input, options)
   end
@@ -2923,16 +2943,14 @@ defmodule AWS.FMS do
   @doc """
   Returns a `MemberAccounts` object that lists the member accounts in the
   administrator's Amazon Web Services organization.
-
-  Either an Firewall Manager administrator or the organization's management
-  account can make this request.
   """
-  @spec list_member_accounts(map(), list_member_accounts_request(), list()) ::
+  @spec list_member_accounts(AWS.Client.t(), list_member_accounts_request(), Keyword.t()) ::
           {:ok, list_member_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_member_accounts_errors()}
   def list_member_accounts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMemberAccounts", input, options)
   end
@@ -2940,12 +2958,13 @@ defmodule AWS.FMS do
   @doc """
   Returns an array of `PolicySummary` objects.
   """
-  @spec list_policies(map(), list_policies_request(), list()) ::
+  @spec list_policies(AWS.Client.t(), list_policies_request(), Keyword.t()) ::
           {:ok, list_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_policies_errors()}
   def list_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPolicies", input, options)
   end
@@ -2953,12 +2972,13 @@ defmodule AWS.FMS do
   @doc """
   Returns an array of `ProtocolsListDataSummary` objects.
   """
-  @spec list_protocols_lists(map(), list_protocols_lists_request(), list()) ::
+  @spec list_protocols_lists(AWS.Client.t(), list_protocols_lists_request(), Keyword.t()) ::
           {:ok, list_protocols_lists_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_protocols_lists_errors()}
   def list_protocols_lists(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProtocolsLists", input, options)
   end
@@ -2966,12 +2986,17 @@ defmodule AWS.FMS do
   @doc """
   Returns an array of resources that are currently associated to a resource set.
   """
-  @spec list_resource_set_resources(map(), list_resource_set_resources_request(), list()) ::
+  @spec list_resource_set_resources(
+          AWS.Client.t(),
+          list_resource_set_resources_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_resource_set_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_set_resources_errors()}
   def list_resource_set_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourceSetResources", input, options)
   end
@@ -2979,12 +3004,13 @@ defmodule AWS.FMS do
   @doc """
   Returns an array of `ResourceSetSummary` objects.
   """
-  @spec list_resource_sets(map(), list_resource_sets_request(), list()) ::
+  @spec list_resource_sets(AWS.Client.t(), list_resource_sets_request(), Keyword.t()) ::
           {:ok, list_resource_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_sets_errors()}
   def list_resource_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourceSets", input, options)
   end
@@ -2992,12 +3018,13 @@ defmodule AWS.FMS do
   @doc """
   Retrieves the list of tags for the specified Amazon Web Services resource.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3007,38 +3034,39 @@ defmodule AWS.FMS do
   with the third-party firewall administrator's account.
   """
   @spec list_third_party_firewall_firewall_policies(
-          map(),
+          AWS.Client.t(),
           list_third_party_firewall_firewall_policies_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_third_party_firewall_firewall_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_third_party_firewall_firewall_policies_errors()}
   def list_third_party_firewall_firewall_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListThirdPartyFirewallFirewallPolicies", input, options)
   end
 
   @doc """
-  Creates or updates an Firewall Manager administrator account.
-
-  The account must be a member of the organization that was onboarded to Firewall
-  Manager by `AssociateAdminAccount`. Only the organization's management account
-  can create an Firewall Manager administrator account. When you create an
-  Firewall Manager administrator account, the service checks to see if the account
-  is already a delegated administrator within Organizations. If the account isn't
-  a delegated administrator, Firewall Manager calls Organizations to delegate the
-  account within Organizations. For more information about administrator accounts
-  within Organizations, see
-  [Managing the Amazon Web Services Accounts in Your Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html).
+  Creates or updates an Firewall Manager administrator account. The account must
+  be a member of the organization that was onboarded to Firewall Manager by
+  `AssociateAdminAccount`. Only the organization's management account can create
+  an Firewall Manager administrator account. When you create an Firewall Manager
+  administrator account, the service checks to see if the account is already a
+  delegated administrator within Organizations. If the account isn't a delegated
+  administrator, Firewall Manager calls Organizations to delegate the account
+  within Organizations. For more information about administrator accounts within
+  Organizations, see [Managing the Amazon Web Services Accounts in Your
+  Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html).
   """
-  @spec put_admin_account(map(), put_admin_account_request(), list()) ::
+  @spec put_admin_account(AWS.Client.t(), put_admin_account_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_admin_account_errors()}
   def put_admin_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAdminAccount", input, options)
   end
@@ -3046,12 +3074,13 @@ defmodule AWS.FMS do
   @doc """
   Creates an Firewall Manager applications list.
   """
-  @spec put_apps_list(map(), put_apps_list_request(), list()) ::
+  @spec put_apps_list(AWS.Client.t(), put_apps_list_request(), Keyword.t()) ::
           {:ok, put_apps_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_apps_list_errors()}
   def put_apps_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAppsList", input, options)
   end
@@ -3059,103 +3088,31 @@ defmodule AWS.FMS do
   @doc """
   Designates the IAM role and Amazon Simple Notification Service (SNS) topic that
   Firewall Manager uses to record SNS logs.
-
-  To perform this action outside of the console, you must first configure the SNS
-  topic's access policy to allow the `SnsRoleName` to publish SNS logs. If the
-  `SnsRoleName` provided is a role other than the `AWSServiceRoleForFMS`
-  service-linked role, this role must have a trust relationship configured to
-  allow the Firewall Manager service principal `fms.amazonaws.com` to assume this
-  role. For information about configuring an SNS access policy, see
-  [Service roles for Firewall Manager](https://docs.aws.amazon.com/waf/latest/developerguide/fms-security_iam_service-with-iam.html#fms-security_iam_service-with-iam-roles-service)
-  in the *Firewall Manager Developer Guide*.
   """
-  @spec put_notification_channel(map(), put_notification_channel_request(), list()) ::
+  @spec put_notification_channel(AWS.Client.t(), put_notification_channel_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_notification_channel_errors()}
   def put_notification_channel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutNotificationChannel", input, options)
   end
 
   @doc """
-  Creates an Firewall Manager policy.
-
-  A Firewall Manager policy is specific to the individual policy type. If you want
-  to enforce multiple
-  policy types across accounts, you can create multiple policies. You can create
-  more than one
+  Creates an Firewall Manager policy. A Firewall Manager policy is specific to the
+  individual policy type. If you want to enforce multiple policy types across
+  accounts, you can create multiple policies. You can create more than one
   policy for each type.
-
-  If you add a new account to an organization that you created with Organizations,
-  Firewall Manager
-  automatically applies the policy to the resources in that account that are
-  within scope of
-  the policy.
-
-  Firewall Manager provides the following types of policies:
-
-    *
-
-  **WAF policy** - This policy applies WAF web ACL
-  protections to specified accounts and resources.
-
-    *
-
-  **Shield Advanced policy** - This policy applies Shield Advanced
-  protection to specified accounts and resources.
-
-    *
-
-  **Security Groups policy** - This type of policy gives you
-  control over security groups that are in use throughout your organization in
-  Organizations and lets you enforce a baseline set of rules across your
-  organization.
-
-    *
-
-  **Network ACL policy** - This type of policy gives you
-  control over the network ACLs that are in use throughout your organization in
-  Organizations and lets you enforce a baseline set of first and last network ACL
-  rules across your organization.
-
-    *
-
-  **Network Firewall policy** - This policy applies
-  Network Firewall protection to your organization's VPCs.
-
-    *
-
-  **DNS Firewall policy** - This policy applies
-  Amazon Route 53 Resolver DNS Firewall protections to your organization's VPCs.
-
-    *
-
-  **Third-party firewall policy** - This policy applies third-party firewall
-  protections. Third-party firewalls are available by subscription through the
-  Amazon Web Services Marketplace console at [Amazon Web Services Marketplace](http://aws.amazon.com/marketplace).
-
-      *
-
-  **Palo Alto Networks Cloud NGFW policy** - This policy applies Palo Alto
-  Networks Cloud Next Generation Firewall (NGFW) protections and Palo Alto
-  Networks Cloud NGFW rulestacks to your organization's VPCs.
-
-      *
-
-  **Fortigate CNF policy** - This policy applies
-  Fortigate Cloud Native Firewall (CNF) protections. Fortigate CNF is a
-  cloud-centered solution that blocks Zero-Day threats and secures cloud
-  infrastructures with industry-leading advanced threat prevention, smart web
-  application firewalls (WAF), and API protection.
   """
-  @spec put_policy(map(), put_policy_request(), list()) ::
+  @spec put_policy(AWS.Client.t(), put_policy_request(), Keyword.t()) ::
           {:ok, put_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_policy_errors()}
   def put_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutPolicy", input, options)
   end
@@ -3163,28 +3120,27 @@ defmodule AWS.FMS do
   @doc """
   Creates an Firewall Manager protocols list.
   """
-  @spec put_protocols_list(map(), put_protocols_list_request(), list()) ::
+  @spec put_protocols_list(AWS.Client.t(), put_protocols_list_request(), Keyword.t()) ::
           {:ok, put_protocols_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_protocols_list_errors()}
   def put_protocols_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutProtocolsList", input, options)
   end
 
   @doc """
   Creates the resource set.
-
-  An Firewall Manager resource set defines the resources to import into an
-  Firewall Manager policy from another Amazon Web Services service.
   """
-  @spec put_resource_set(map(), put_resource_set_request(), list()) ::
+  @spec put_resource_set(AWS.Client.t(), put_resource_set_request(), Keyword.t()) ::
           {:ok, put_resource_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_set_errors()}
   def put_resource_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourceSet", input, options)
   end
@@ -3192,12 +3148,13 @@ defmodule AWS.FMS do
   @doc """
   Adds one or more tags to an Amazon Web Services resource.
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3205,12 +3162,13 @@ defmodule AWS.FMS do
   @doc """
   Removes one or more tags from an Amazon Web Services resource.
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

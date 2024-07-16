@@ -424,12 +424,16 @@ defmodule AWS.PinpointSMSVoice do
   end
 
   @doc """
-  Create a new configuration set.
+  Create a new configuration set. After you create the configuration set, you can
+  add one or more event destinations to it.
 
-  After you create the configuration set, you can add one or more event
-  destinations to it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoice%20CreateConfigurationSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_configuration_set(map(), create_configuration_set_request(), list()) ::
+  @spec create_configuration_set(AWS.Client.t(), create_configuration_set_request(), Keyword.t()) ::
           {:ok, create_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_set_errors()}
@@ -438,7 +442,8 @@ defmodule AWS.PinpointSMSVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -455,12 +460,19 @@ defmodule AWS.PinpointSMSVoice do
 
   @doc """
   Create a new event destination in a configuration set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoice%20CreateConfigurationSetEventDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec create_configuration_set_event_destination(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_configuration_set_event_destination_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -477,7 +489,8 @@ defmodule AWS.PinpointSMSVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -494,8 +507,20 @@ defmodule AWS.PinpointSMSVoice do
 
   @doc """
   Deletes an existing configuration set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoice%20DeleteConfigurationSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_configuration_set(map(), String.t(), delete_configuration_set_request(), list()) ::
+  @spec delete_configuration_set(
+          AWS.Client.t(),
+          String.t(),
+          delete_configuration_set_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_set_errors()}
@@ -504,7 +529,8 @@ defmodule AWS.PinpointSMSVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -521,13 +547,21 @@ defmodule AWS.PinpointSMSVoice do
 
   @doc """
   Deletes an event destination in a configuration set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoice%20DeleteConfigurationSetEventDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`)
+  * `:event_destination_name` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec delete_configuration_set_event_destination(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_configuration_set_event_destination_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -545,7 +579,8 @@ defmodule AWS.PinpointSMSVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -562,10 +597,17 @@ defmodule AWS.PinpointSMSVoice do
 
   @doc """
   Obtain information about an event destination, including the types of events it
-  reports, the Amazon Resource Name (ARN) of the destination, and the name of the
-  event destination.
+  reports, the Amazon Resource Name (ARN) of the destination, and the name of
+  the event destination.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoice%20GetConfigurationSetEventDestinations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_configuration_set_event_destinations(map(), String.t(), list()) ::
+  @spec get_configuration_set_event_destinations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configuration_set_event_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_set_event_destinations_errors()}
@@ -577,10 +619,27 @@ defmodule AWS.PinpointSMSVoice do
     url_path =
       "/v1/sms-voice/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -588,44 +647,75 @@ defmodule AWS.PinpointSMSVoice do
   @doc """
   List all of the configuration sets associated with your Amazon Pinpoint account
   in the current region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoice%20ListConfigurationSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`)
+  * `:page_size` (`t:string`)
   """
-  @spec list_configuration_sets(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_configuration_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configuration_sets_errors()}
-  def list_configuration_sets(
-        %Client{} = client,
-        next_token \\ nil,
-        page_size \\ nil,
-        options \\ []
-      ) do
+  def list_configuration_sets(%Client{} = client, options \\ []) do
     url_path = "/v1/sms-voice/configuration-sets"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"PageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Create a new voice message and send it to a recipient's phone number.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoice%20SendVoiceMessage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec send_voice_message(map(), send_voice_message_request(), list()) ::
+  @spec send_voice_message(AWS.Client.t(), send_voice_message_request(), Keyword.t()) ::
           {:ok, send_voice_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_voice_message_errors()}
@@ -634,7 +724,8 @@ defmodule AWS.PinpointSMSVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -650,18 +741,24 @@ defmodule AWS.PinpointSMSVoice do
   end
 
   @doc """
-  Update an event destination in a configuration set.
+  Update an event destination in a configuration set. An event destination is a
+  location that you publish information about your voice calls to. For example,
+  you can log an event to an Amazon CloudWatch destination when a call fails.
 
-  An event destination is a location that you publish information about your voice
-  calls to. For example, you can log an event to an Amazon CloudWatch destination
-  when a call fails.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoice%20UpdateConfigurationSetEventDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`)
+  * `:event_destination_name` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec update_configuration_set_event_destination(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_configuration_set_event_destination_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -679,7 +776,8 @@ defmodule AWS.PinpointSMSVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

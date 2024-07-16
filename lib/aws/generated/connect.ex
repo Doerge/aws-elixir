@@ -3,38 +3,8 @@
 
 defmodule AWS.Connect do
   @moduledoc """
-
-    *
-
-  [Amazon Connect actions](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Service.html)
-
-    *
-
-  [Amazon Connect data
-  types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Service.html)
-
-  Amazon Connect is a cloud-based contact center solution that you use to set up
-  and
-  manage a customer contact center and provide reliable customer engagement at any
-  scale.
-
-  Amazon Connect provides metrics and real-time reporting that enable you to
-  optimize
-  contact routing. You can also resolve customer issues more efficiently by
-  getting customers in
-  touch with the appropriate agents.
-
-  There are limits to the number of Amazon Connect resources that you can create.
-  There
-  are also limits to the number of requests that you can make per second. For more
-  information, see
-  [Amazon Connect Service Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
-  in the *Amazon Connect Administrator
-  Guide*.
-
-  You can connect programmatically to an Amazon Web Services service by using an
-  endpoint. For
-  a list of Amazon Connect endpoints, see [Amazon Connect Endpoints](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  * [Amazon Connect
+  actions](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Service.html)
   """
 
   alias AWS.Client
@@ -11327,18 +11297,26 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Activates an evaluation form in the specified Amazon Connect instance.
+  Activates an evaluation form in the specified Amazon Connect instance. After the
+  evaluation form is activated, it is available to start new evaluations based
+  on the form.
 
-  After the
-  evaluation form is activated, it is available to start new evaluations based on
-  the form.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ActivateEvaluationForm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:evaluation_form_id` (`t:string`) The unique identifier for the evaluation
+    form.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec activate_evaluation_form(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           activate_evaluation_form_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, activate_evaluation_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -11356,7 +11334,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -11374,15 +11353,19 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Associates the specified dataset for a Amazon Connect instance with the target
-  account.
-  You can associate only one dataset in a single call.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateAnalyticsDataSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec associate_analytics_data_set(
-          map(),
+          AWS.Client.t(),
           String.t(),
           associate_analytics_data_set_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_analytics_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -11392,7 +11375,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -11400,9 +11384,20 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Associates an approved origin to an Amazon Connect instance.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateApprovedOrigin&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec associate_approved_origin(map(), String.t(), associate_approved_origin_request(), list()) ::
+  @spec associate_approved_origin(
+          AWS.Client.t(),
+          String.t(),
+          associate_approved_origin_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_approved_origin_errors()}
@@ -11411,7 +11406,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -11419,10 +11415,15 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Allows the specified Amazon Connect instance to access the specified Amazon Lex
-  or Amazon Lex V2 bot.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateBot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec associate_bot(map(), String.t(), associate_bot_request(), list()) ::
+  @spec associate_bot(AWS.Client.t(), String.t(), associate_bot_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_bot_errors()}
@@ -11431,23 +11432,35 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Associates an existing vocabulary as the default.
+  Associates an existing vocabulary as the default. Contact Lens for Amazon
+  Connect uses the vocabulary in post-call and real-time analysis sessions for
+  the given language.
 
-  Contact Lens for Amazon Connect uses the vocabulary in post-call
-  and real-time analysis sessions for the given language.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateDefaultVocabulary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:language_code`
+    (`t:enum["AR_AE|DE_CH|DE_DE|EN_AB|EN_AU|EN_GB|EN_IE|EN_IN|EN_NZ|EN_US|EN_WL|EN_ZA|ES_ES|ES_US|FR_CA|FR_FR|HI_IN|IT_IT|JA_JP|KO_KR|PT_BR|PT_PT|ZH_CN"]`)
+    The language code of the vocabulary entries. For a list of languages and
+    their corresponding language codes, see What is Amazon Transcribe?
+
+  ## Optional parameters:
   """
   @spec associate_default_vocabulary(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           associate_default_vocabulary_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_default_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -11465,15 +11478,24 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Associates a connect resource to a flow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateFlow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec associate_flow(map(), String.t(), associate_flow_request(), list()) ::
+  @spec associate_flow(AWS.Client.t(), String.t(), associate_flow_request(), Keyword.t()) ::
           {:ok, associate_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_flow_errors()}
@@ -11482,31 +11504,32 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
-
   Associates a storage resource type for the first time. You can only associate
-  one type of
-  storage configuration in a single call. This means, for example, that you can't
-  define an
-  instance with multiple S3 buckets for storing chat transcripts.
+  one type of storage configuration in a single call. This means, for example,
+  that you can't define an instance with multiple S3 buckets for storing chat
+  transcripts.
 
-  This API does not create a resource that doesn't exist. It only associates it to
-  the
-  instance. Ensure that the resource being specified in the storage configuration,
-  like an S3
-  bucket, exists when being used for association.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateInstanceStorageConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec associate_instance_storage_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           associate_instance_storage_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_instance_storage_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -11516,7 +11539,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -11524,10 +11548,20 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Allows the specified Amazon Connect instance to access the specified Lambda
-  function.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateLambdaFunction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec associate_lambda_function(map(), String.t(), associate_lambda_function_request(), list()) ::
+  @spec associate_lambda_function(
+          AWS.Client.t(),
+          String.t(),
+          associate_lambda_function_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_lambda_function_errors()}
@@ -11536,7 +11570,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -11544,10 +11579,15 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Allows the specified Amazon Connect instance to access the specified Amazon Lex
-  V1 bot. This API only supports the association of Amazon Lex V1 bots.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateLexBot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec associate_lex_bot(map(), String.t(), associate_lex_bot_request(), list()) ::
+  @spec associate_lex_bot(AWS.Client.t(), String.t(), associate_lex_bot_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_lex_bot_errors()}
@@ -11556,7 +11596,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -11564,25 +11605,18 @@ defmodule AWS.Connect do
   @doc """
   Associates a flow with a phone number claimed to your Amazon Connect instance.
 
-  If the number is claimed to a traffic distribution group, and you are calling
-  this API using an instance in the
-  Amazon Web Services Region where the traffic distribution group was created, you
-  can use either a full phone number
-  ARN or UUID value for the `PhoneNumberId` URI request parameter. However, if the
-  number is claimed to a traffic distribution group and you are calling this API
-  using an instance in the alternate
-  Amazon Web Services Region associated with the traffic distribution group, you
-  must provide a full phone number ARN.
-  If a UUID is provided
-  in
-  this scenario, you will receive a
-  `ResourceNotFoundException`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociatePhoneNumberContactFlow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:phone_number_id` (`t:string`) A unique identifier for the phone number.
+
+  ## Optional parameters:
   """
   @spec associate_phone_number_contact_flow(
-          map(),
+          AWS.Client.t(),
           String.t(),
           associate_phone_number_contact_flow_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -11597,7 +11631,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -11605,14 +11640,21 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Associates a set of quick connects with a queue.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateQueueQuickConnects&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:queue_id` (`t:string`) The identifier for the queue.
+
+  ## Optional parameters:
   """
   @spec associate_queue_quick_connects(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           associate_queue_quick_connects_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -11630,7 +11672,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -11647,13 +11690,22 @@ defmodule AWS.Connect do
 
   @doc """
   Associates a set of queues with a routing profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateRoutingProfileQueues&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
+
+  ## Optional parameters:
   """
   @spec associate_routing_profile_queues(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           associate_routing_profile_queues_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -11671,7 +11723,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -11689,9 +11742,20 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Associates a security key to the instance.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateSecurityKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec associate_security_key(map(), String.t(), associate_security_key_request(), list()) ::
+  @spec associate_security_key(
+          AWS.Client.t(),
+          String.t(),
+          associate_security_key_request(),
+          Keyword.t()
+        ) ::
           {:ok, associate_security_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_security_key_errors()}
@@ -11700,19 +11764,30 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Associates an agent with a traffic distribution group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateTrafficDistributionGroupUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:traffic_distribution_group_id` (`t:string`) The identifier of the traffic
+    distribution group. This can be the ID or the ARN if the API is being called
+    in the Region where the traffic distribution group was created. The ARN must
+    be provided if the call is from the replicated Region.
+
+  ## Optional parameters:
   """
   @spec associate_traffic_distribution_group_user(
-          map(),
+          AWS.Client.t(),
           String.t(),
           associate_traffic_distribution_group_user_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_traffic_distribution_group_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -11729,20 +11804,30 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   >Associates a set of proficiencies with a user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20AssociateUserProficiencies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN of the instance).
+  * `:user_id` (`t:string`) The identifier of the user account.
+
+  ## Optional parameters:
   """
   @spec associate_user_proficiencies(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           associate_user_proficiencies_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -11754,7 +11839,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -11772,15 +11858,19 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Associates a list of analytics datasets for a given Amazon Connect instance to a
-  target
-  account. You can associate multiple datasets in a single call.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20BatchAssociateAnalyticsDataSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec batch_associate_analytics_data_set(
-          map(),
+          AWS.Client.t(),
           String.t(),
           batch_associate_analytics_data_set_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_associate_analytics_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -11790,7 +11880,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -11798,15 +11889,19 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Removes a list of analytics datasets associated with a given Amazon Connect
-  instance.
-  You can disassociate multiple datasets in a single call.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20BatchDisassociateAnalyticsDataSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec batch_disassociate_analytics_data_set(
-          map(),
+          AWS.Client.t(),
           String.t(),
           batch_disassociate_analytics_data_set_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_disassociate_analytics_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -11816,7 +11911,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -11833,16 +11929,23 @@ defmodule AWS.Connect do
 
   @doc """
   Allows you to retrieve metadata about multiple attached files on an associated
-  resource.
+  resource. Each attached file provided in the input list must be associated
+  with the input AssociatedResourceArn.
 
-  Each attached file provided in the input list must be associated with the input
-  AssociatedResourceArn.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20BatchGetAttachedFileMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The unique identifier of the Connect instance.
+  * `:associated_resource_arn` (`t:string`) The resource to which the attached
+    file is (being) uploaded to. Cases are the only current supported resource.
+
+  ## Optional parameters:
   """
   @spec batch_get_attached_file_metadata(
-          map(),
+          AWS.Client.t(),
           String.t(),
           batch_get_attached_file_metadata_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_get_attached_file_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -11857,7 +11960,8 @@ defmodule AWS.Connect do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -11874,12 +11978,20 @@ defmodule AWS.Connect do
 
   @doc """
   Retrieve the flow associations for the given resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20BatchGetFlowAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec batch_get_flow_association(
-          map(),
+          AWS.Client.t(),
           String.t(),
           batch_get_flow_association_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_get_flow_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -11889,7 +12001,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -11905,23 +12018,18 @@ defmodule AWS.Connect do
   end
 
   @doc """
-
   Only the Amazon Connect outbound campaigns service principal is allowed to
-  assume a
-  role in your account and call this API.
+  assume a role in your account and call this API.
 
-  Allows you to create a batch of contacts in Amazon Connect. The outbound
-  campaigns
-  capability ingests dial requests via the
-  [PutDialRequestBatch](https://docs.aws.amazon.com/connect-outbound/latest/APIReference/API_PutDialRequestBatch.html)
-  API. It then uses BatchPutContact to create contacts corresponding
-  to those dial requests. If agents are available, the dial requests are dialed
-  out, which results
-  in a voice call. The resulting voice call uses the same contactId that was
-  created by
-  BatchPutContact.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20BatchPutContact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec batch_put_contact(map(), String.t(), batch_put_contact_request(), list()) ::
+  @spec batch_put_contact(AWS.Client.t(), String.t(), batch_put_contact_request(), Keyword.t()) ::
           {:ok, batch_put_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_put_contact_errors()}
@@ -11930,58 +12038,36 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Claims an available phone number to your Amazon Connect instance or traffic
-  distribution
-  group.
-
-  You can call this API only in the same Amazon Web Services Region where the
-  Amazon Connect instance or traffic distribution group was created.
-
-  For more information about how to use this operation, see [Claim a phone number in your
+  distribution group. You can call this API only in the same Amazon Web Services
+  Region where the Amazon Connect instance or traffic distribution group was
+  created. For more information about how to use this operation, see [Claim a
+  phone number in your
   country](https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-number.html)
   and [Claim phone numbers to traffic distribution
   groups](https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-numbers-traffic-distribution-groups.html)
-  in the *Amazon Connect Administrator
-  Guide*.
-
-  You can call the
-  [SearchAvailablePhoneNumbers](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html) API for available phone numbers that you can claim. Call
-  the
+  in the *Amazon Connect Administrator Guide*. You can call the
+  [SearchAvailablePhoneNumbers](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html)
+  API for available phone numbers that you can claim. Call the
   [DescribePhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html)
   API to verify the status of a previous
   [ClaimPhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html)
   operation.
 
-  If you plan to claim and release numbers frequently,
-  contact us for a service quota exception. Otherwise, it is possible you will be
-  blocked from
-  claiming and releasing any more numbers until up to 180 days past the oldest
-  number
-  released has expired.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ClaimPhoneNumber&this_doc_guide=API%2520Reference)
 
-  By default you can claim and release up to 200% of your maximum number of active
-  phone numbers. If you claim and release phone numbers using
-  the UI or API during a rolling 180 day cycle that exceeds 200% of your phone
-  number
-  service level quota, you will be blocked from claiming any more numbers until
-  180
-  days past the oldest number released has expired.
+  ## Parameters:
 
-  For example, if you already have 99 claimed numbers and a service level quota of
-  99 phone numbers, and in any 180
-  day period you release 99, claim 99, and then release 99, you will have exceeded
-  the
-  200% limit. At that point you are blocked from claiming any more numbers until
-  you
-  open an Amazon Web Services support ticket.
+  ## Optional parameters:
   """
-  @spec claim_phone_number(map(), claim_phone_number_request(), list()) ::
+  @spec claim_phone_number(AWS.Client.t(), claim_phone_number_request(), Keyword.t()) ::
           {:ok, claim_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, claim_phone_number_errors()}
@@ -11990,7 +12076,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12007,15 +12094,25 @@ defmodule AWS.Connect do
 
   @doc """
   Allows you to confirm that the attached file has been uploaded using the
-  pre-signed URL
-  provided in the StartAttachedFileUpload API.
+  pre-signed URL provided in the StartAttachedFileUpload API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CompleteAttachedFileUpload&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:file_id` (`t:string`) The unique identifier of the attached file resource.
+  * `:instance_id` (`t:string`) The unique identifier of the Amazon Connect
+    instance.
+  * `:associated_resource_arn` (`t:string`) The resource to which the attached
+    file is (being) uploaded to. Cases are the only current supported resource.
+
+  ## Optional parameters:
   """
   @spec complete_attached_file_upload(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           complete_attached_file_upload_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, complete_attached_file_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -12038,7 +12135,8 @@ defmodule AWS.Connect do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12056,9 +12154,20 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Creates an agent status for the specified Amazon Connect instance.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateAgentStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec create_agent_status(map(), String.t(), create_agent_status_request(), list()) ::
+  @spec create_agent_status(
+          AWS.Client.t(),
+          String.t(),
+          create_agent_status_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_agent_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_agent_status_errors()}
@@ -12067,7 +12176,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -12075,10 +12185,19 @@ defmodule AWS.Connect do
   @doc """
   Creates a flow for the specified Amazon Connect instance.
 
-  You can also create and update flows using the [Amazon Connect Flow
-  language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateContactFlow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance.
+
+  ## Optional parameters:
   """
-  @spec create_contact_flow(map(), String.t(), create_contact_flow_request(), list()) ::
+  @spec create_contact_flow(
+          AWS.Client.t(),
+          String.t(),
+          create_contact_flow_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_contact_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_contact_flow_errors()}
@@ -12087,19 +12206,28 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a flow module for the specified Amazon Connect instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateContactFlowModule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec create_contact_flow_module(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_contact_flow_module_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_contact_flow_module_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -12109,22 +12237,32 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Creates an evaluation form in the specified Amazon Connect instance.
+  Creates an evaluation form in the specified Amazon Connect instance. The form
+  can be used to define questions related to agent performance, and create
+  sections to organize such questions. Question and section identifiers cannot
+  be duplicated within the same evaluation form.
 
-  The form can be
-  used to define questions related to agent performance, and create sections to
-  organize such
-  questions. Question and section identifiers cannot be duplicated within the same
-  evaluation
-  form.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateEvaluationForm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec create_evaluation_form(map(), String.t(), create_evaluation_form_request(), list()) ::
+  @spec create_evaluation_form(
+          AWS.Client.t(),
+          String.t(),
+          create_evaluation_form_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_evaluation_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_evaluation_form_errors()}
@@ -12133,7 +12271,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -12141,9 +12280,20 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Creates hours of operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateHoursOfOperation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec create_hours_of_operation(map(), String.t(), create_hours_of_operation_request(), list()) ::
+  @spec create_hours_of_operation(
+          AWS.Client.t(),
+          String.t(),
+          create_hours_of_operation_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_hours_of_operation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_hours_of_operation_errors()}
@@ -12152,29 +12302,26 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
+  Initiates an Amazon Connect instance with all the supported channels enabled.
+  It does not attach any storage, such as Amazon Simple Storage Service (Amazon
+  S3) or Amazon Kinesis. It also does not allow for any configurations on
+  features, such as Contact Lens for Amazon Connect.
 
-  Initiates an Amazon Connect instance with all the supported channels enabled. It
-  does
-  not attach any storage, such as Amazon Simple Storage Service (Amazon S3) or
-  Amazon Kinesis. It
-  also does not allow for any configurations on features, such as Contact Lens for
-  Amazon Connect.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateInstance&this_doc_guide=API%2520Reference)
 
-  Amazon Connect enforces a limit on the total number of instances that you can
-  create or delete in 30 days.
-  If you exceed this limit, you will get an error message indicating there has
-  been an excessive number of attempts at creating or deleting instances.
-  You must wait 30 days before you can restart creating and deleting instances in
-  your account.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_instance(map(), create_instance_request(), list()) ::
+  @spec create_instance(AWS.Client.t(), create_instance_request(), Keyword.t()) ::
           {:ok, create_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_instance_errors()}
@@ -12183,7 +12330,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -12191,12 +12339,20 @@ defmodule AWS.Connect do
   @doc """
   Creates an Amazon Web Services resource association with an Amazon Connect
   instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateIntegrationAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec create_integration_association(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_integration_association_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_integration_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -12206,18 +12362,24 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Adds a new participant into an on-going chat contact.
-
-  For more information, see [Customize chat flow experiences by integrating custom
+  Adds a new participant into an on-going chat contact. For more information, see
+  [Customize chat flow experiences by integrating custom
   participants](https://docs.aws.amazon.com/connect/latest/adminguide/chat-customize-flow.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateParticipant&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_participant(map(), create_participant_request(), list()) ::
+  @spec create_participant(AWS.Client.t(), create_participant_request(), Keyword.t()) ::
           {:ok, create_participant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_participant_errors()}
@@ -12226,7 +12388,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12242,19 +12405,28 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Enables rehydration of chats for the lifespan of a contact.
+  Enables rehydration of chats for the lifespan of a contact. For more information
+  about chat rehydration, see [Enable persistent
+  chat](https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html)
+  in the *Amazon Connect Administrator Guide*.
 
-  For more information about chat
-  rehydration, see [Enable persistent chat](https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html)
-  in the
-  *Amazon Connect Administrator Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreatePersistentContactAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:initial_contact_id` (`t:string`) This is the contactId of the current
+    contact that the CreatePersistentContactAssociation API is being called
+    from.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec create_persistent_contact_association(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           create_persistent_contact_association_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_persistent_contact_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -12272,7 +12444,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12289,12 +12462,20 @@ defmodule AWS.Connect do
 
   @doc """
   Creates a new predefined attribute for the specified Amazon Connect instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreatePredefinedAttribute&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec create_predefined_attribute(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_predefined_attribute_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -12304,20 +12485,27 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Creates a prompt.
+  Creates a prompt. For more information about prompts, such as supported file
+  types and maximum length, see [Create
+  prompts](https://docs.aws.amazon.com/connect/latest/adminguide/prompts.html)
+  in the *Amazon Connect Administrator Guide*.
 
-  For more information about prompts, such as supported file types and
-  maximum length, see [Create prompts](https://docs.aws.amazon.com/connect/latest/adminguide/prompts.html) in
-  the *Amazon Connect Administrator
-  Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreatePrompt&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec create_prompt(map(), String.t(), create_prompt_request(), list()) ::
+  @spec create_prompt(AWS.Client.t(), String.t(), create_prompt_request(), Keyword.t()) ::
           {:ok, create_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_prompt_errors()}
@@ -12326,44 +12514,25 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
-
   Creates a new queue for the specified Amazon Connect instance.
 
-    
-  If the phone number is claimed to a traffic distribution group that was created
-  in the
-  same Region as the Amazon Connect instance where you are calling this API, then
-  you can use a
-  full phone number ARN or a UUID for `OutboundCallerIdNumberId`. However, if the
-  phone number is claimed
-  to a traffic distribution group that is in one Region, and you are calling this
-  API from an instance in another Amazon Web Services Region that is associated
-  with the traffic distribution group, you must provide a full phone number ARN.
-  If a
-  UUID is provided in this scenario, you will receive a
-  `ResourceNotFoundException`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateQueue&this_doc_guide=API%2520Reference)
 
-    
-  Only use the phone number ARN format that doesn't contain `instance` in the
-  path, for example, `arn:aws:connect:us-east-1:1234567890:phone-number/uuid`.
-  This
-  is the same ARN format that is returned when you call the
-  [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html) API.
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
-    
-  If you plan to use IAM policies to allow/deny access to this API for phone
-  number resources claimed to a traffic distribution group, see [Allow or Deny
-  queue API actions for phone numbers in a replica
-  Region](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_resource-level-policy-examples.html#allow-deny-queue-actions-replica-region).
+  ## Optional parameters:
   """
-  @spec create_queue(map(), String.t(), create_queue_request(), list()) ::
+  @spec create_queue(AWS.Client.t(), String.t(), create_queue_request(), Keyword.t()) ::
           {:ok, create_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_queue_errors()}
@@ -12372,15 +12541,29 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a quick connect for the specified Amazon Connect instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateQuickConnect&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec create_quick_connect(map(), String.t(), create_quick_connect_request(), list()) ::
+  @spec create_quick_connect(
+          AWS.Client.t(),
+          String.t(),
+          create_quick_connect_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_quick_connect_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_quick_connect_errors()}
@@ -12389,15 +12572,29 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a new routing profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateRoutingProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec create_routing_profile(map(), String.t(), create_routing_profile_request(), list()) ::
+  @spec create_routing_profile(
+          AWS.Client.t(),
+          String.t(),
+          create_routing_profile_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_routing_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_routing_profile_errors()}
@@ -12406,7 +12603,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -12414,11 +12612,15 @@ defmodule AWS.Connect do
   @doc """
   Creates a rule for the specified Amazon Connect instance.
 
-  Use the [Rules Function language](https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html)
-  to
-  code conditions for the rule.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec create_rule(map(), String.t(), create_rule_request(), list()) ::
+  @spec create_rule(AWS.Client.t(), String.t(), create_rule_request(), Keyword.t()) ::
           {:ok, create_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rule_errors()}
@@ -12427,7 +12629,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12444,8 +12647,21 @@ defmodule AWS.Connect do
 
   @doc """
   Creates a security profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateSecurityProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec create_security_profile(map(), String.t(), create_security_profile_request(), list()) ::
+  @spec create_security_profile(
+          AWS.Client.t(),
+          String.t(),
+          create_security_profile_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_security_profile_errors()}
@@ -12454,15 +12670,29 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a new task template in the specified Amazon Connect instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateTaskTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec create_task_template(map(), String.t(), create_task_template_request(), list()) ::
+  @spec create_task_template(
+          AWS.Client.t(),
+          String.t(),
+          create_task_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_task_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_task_template_errors()}
@@ -12471,7 +12701,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -12480,23 +12711,16 @@ defmodule AWS.Connect do
   Creates a traffic distribution group given an Amazon Connect instance that has
   been replicated.
 
-  The `SignInConfig` distribution is available only on a
-  default `TrafficDistributionGroup` (see the `IsDefault` parameter in the
-  [TrafficDistributionGroup](https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html)  data type). If you call
-  `UpdateTrafficDistribution` with a modified `SignInConfig` and a non-default
-  `TrafficDistributionGroup`,
-  an `InvalidRequestException` is returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateTrafficDistributionGroup&this_doc_guide=API%2520Reference)
 
-  For more information about creating traffic distribution groups, see [Set up
-  traffic distribution
-  groups](https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html)
-  in
-  the *Amazon Connect Administrator Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_traffic_distribution_group(
-          map(),
+          AWS.Client.t(),
           create_traffic_distribution_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_traffic_distribution_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -12506,15 +12730,32 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a use case for an integration association.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateUseCase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:integration_association_id` (`t:string`) The identifier for the integration
+    association.
+
+  ## Optional parameters:
   """
-  @spec create_use_case(map(), String.t(), String.t(), create_use_case_request(), list()) ::
+  @spec create_use_case(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          create_use_case_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_use_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_use_case_errors()}
@@ -12531,7 +12772,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -12539,19 +12781,15 @@ defmodule AWS.Connect do
   @doc """
   Creates a user account for the specified Amazon Connect instance.
 
-  Certain
-  [UserIdentityInfo](https://docs.aws.amazon.com/connect/latest/APIReference/API_UserIdentityInfo.html) parameters
-  are required in some situations. For example, `Email` is required if you are
-  using
-  SAML for identity management. `FirstName` and `LastName` are required if
-  you are using Amazon Connect or SAML for identity management.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateUser&this_doc_guide=API%2520Reference)
 
-  For information about how to create users using the Amazon Connect admin
-  website, see [Add
-  Users](https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html)
-  in the *Amazon Connect Administrator Guide*.
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec create_user(map(), String.t(), create_user_request(), list()) ::
+  @spec create_user(AWS.Client.t(), String.t(), create_user_request(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
@@ -12560,19 +12798,28 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a new user hierarchy group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateUserHierarchyGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec create_user_hierarchy_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_user_hierarchy_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_user_hierarchy_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -12582,26 +12829,25 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Creates a new view with the possible status of `SAVED` or
-  `PUBLISHED`.
+  Creates a new view with the possible status of `SAVED` or `PUBLISHED`. The views
+  will have a unique name for each connect instance.
 
-  The views will have a unique name for each connect instance.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateView&this_doc_guide=API%2520Reference)
 
-  It performs basic content validation if the status is `SAVED` or full content
-  validation if the status is set to `PUBLISHED`. An error is returned if
-  validation
-  fails. It associates either the `$SAVED` qualifier or both of the `$SAVED`
-  and `$LATEST` qualifiers with the provided view content based on the status. The
-  view
-  is idempotent if ClientToken is provided.
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instanceId in the ARN of the instance.
+
+  ## Optional parameters:
   """
-  @spec create_view(map(), String.t(), create_view_request(), list()) ::
+  @spec create_view(AWS.Client.t(), String.t(), create_view_request(), Keyword.t()) ::
           {:ok, create_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_view_errors()}
@@ -12610,23 +12856,33 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Publishes a new version of the view identifier.
+  Publishes a new version of the view identifier. Versions are immutable and
+  monotonically increasing.
 
-  Versions are immutable and monotonically increasing.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateViewVersion&this_doc_guide=API%2520Reference)
 
-  It returns the highest version if there is no change in content compared to that
-  version. An
-  error is displayed if the supplied ViewContentSha256 is different from the
-  ViewContentSha256 of
-  the `$LATEST` alias.
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instanceId in the ARN of the instance.
+  * `:view_id` (`t:string`) The identifier of the view. Both ViewArn and ViewId
+    can be used.
+
+  ## Optional parameters:
   """
-  @spec create_view_version(map(), String.t(), String.t(), create_view_version_request(), list()) ::
+  @spec create_view_version(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          create_view_version_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_view_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_view_version_errors()}
@@ -12637,21 +12893,27 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Creates a custom vocabulary associated with your Amazon Connect instance.
+  Creates a custom vocabulary associated with your Amazon Connect instance. You
+  can set a custom vocabulary to be your default vocabulary for a given
+  language. Contact Lens for Amazon Connect uses the default vocabulary in
+  post-call and real-time contact analysis sessions for that language.
 
-  You can set a
-  custom vocabulary to be your default vocabulary for a given language. Contact
-  Lens for Amazon Connect uses the default
-  vocabulary in post-call and real-time contact analysis sessions for that
-  language.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20CreateVocabulary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec create_vocabulary(map(), String.t(), create_vocabulary_request(), list()) ::
+  @spec create_vocabulary(AWS.Client.t(), String.t(), create_vocabulary_request(), Keyword.t()) ::
           {:ok, create_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vocabulary_errors()}
@@ -12660,7 +12922,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12676,17 +12939,26 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Deactivates an evaluation form in the specified Amazon Connect instance.
+  Deactivates an evaluation form in the specified Amazon Connect instance. After a
+  form is deactivated, it is no longer available for users to start new
+  evaluations based on the form.
 
-  After a form is deactivated,
-  it is no longer available for users to start new evaluations based on the form.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeactivateEvaluationForm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:evaluation_form_id` (`t:string`) The unique identifier for the evaluation
+    form.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec deactivate_evaluation_form(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           deactivate_evaluation_form_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, deactivate_evaluation_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -12704,7 +12976,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12722,15 +12995,22 @@ defmodule AWS.Connect do
   @doc """
   Deletes an attached file along with the underlying S3 Object.
 
-  The attached file is **permanently deleted** if S3 bucket
-  versioning is not enabled.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteAttachedFile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:file_id` (`t:string`) The unique identifier of the attached file resource.
+  * `:instance_id` (`t:string`) The unique identifier of the Connect instance.
+  * `:associated_resource_arn` (`t:string`) The resource to which the attached
+    file is (being) uploaded to. Cases are the only current supported resource.
+
+  ## Optional parameters:
   """
   @spec delete_attached_file(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_attached_file_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_attached_file_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -12747,7 +13027,8 @@ defmodule AWS.Connect do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12764,13 +13045,22 @@ defmodule AWS.Connect do
 
   @doc """
   Deletes a contact evaluation in the specified Amazon Connect instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteContactEvaluation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:evaluation_id` (`t:string`) A unique identifier for the contact evaluation.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec delete_contact_evaluation(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_contact_evaluation_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -12788,7 +13078,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12805,8 +13096,23 @@ defmodule AWS.Connect do
 
   @doc """
   Deletes a flow for the specified Amazon Connect instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteContactFlow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:contact_flow_id` (`t:string`) The identifier of the flow.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec delete_contact_flow(map(), String.t(), String.t(), delete_contact_flow_request(), list()) ::
+  @spec delete_contact_flow(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_contact_flow_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_contact_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_contact_flow_errors()}
@@ -12817,7 +13123,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12834,13 +13141,22 @@ defmodule AWS.Connect do
 
   @doc """
   Deletes the specified flow module.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteContactFlowModule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:contact_flow_module_id` (`t:string`) The identifier of the flow module.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec delete_contact_flow_module(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_contact_flow_module_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_contact_flow_module_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -12858,7 +13174,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12876,20 +13193,24 @@ defmodule AWS.Connect do
   @doc """
   Deletes an evaluation form in the specified Amazon Connect instance.
 
-    *
-  If the version property is provided, only the specified version of the
-  evaluation form is
-  deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteEvaluationForm&this_doc_guide=API%2520Reference)
 
-    *
-  If no version is provided, then the full form (all versions) is deleted.
+  ## Parameters:
+  * `:evaluation_form_id` (`t:string`) The unique identifier for the evaluation
+    form.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:evaluation_form_version` (`t:integer`) The unique identifier for the
+    evaluation form.
   """
   @spec delete_evaluation_form(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_evaluation_form_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -12912,7 +13233,13 @@ defmodule AWS.Connect do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:evaluation_form_version])
 
     Request.request_rest(
       client,
@@ -12930,14 +13257,22 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Deletes an hours of operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteHoursOfOperation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:hours_of_operation_id` (`t:string`) The identifier for the hours of
+    operation.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec delete_hours_of_operation(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_hours_of_operation_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -12955,7 +13290,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12972,17 +13308,17 @@ defmodule AWS.Connect do
 
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
-
   Deletes the Amazon Connect instance.
 
-  Amazon Connect enforces a limit on the total number of instances that you can
-  create or delete in 30 days.
-  If you exceed this limit, you will get an error message indicating there has
-  been an excessive number of attempts at creating or deleting instances.
-  You must wait 30 days before you can restart creating and deleting instances in
-  your account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec delete_instance(map(), String.t(), delete_instance_request(), list()) ::
+  @spec delete_instance(AWS.Client.t(), String.t(), delete_instance_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_instance_errors()}
@@ -12991,7 +13327,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13008,17 +13345,24 @@ defmodule AWS.Connect do
 
   @doc """
   Deletes an Amazon Web Services resource association from an Amazon Connect
-  instance.
+  instance. The association must not have any use cases associated with it.
 
-  The
-  association must not have any use cases associated with it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteIntegrationAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:integration_association_id` (`t:string`) The identifier for the integration
+    association.
+
+  ## Optional parameters:
   """
   @spec delete_integration_association(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_integration_association_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -13036,7 +13380,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13053,13 +13398,22 @@ defmodule AWS.Connect do
 
   @doc """
   Deletes a predefined attribute from the specified Amazon Connect instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeletePredefinedAttribute&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:name` (`t:string`) The name of the predefined attribute.
+
+  ## Optional parameters:
   """
   @spec delete_predefined_attribute(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_predefined_attribute_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -13071,7 +13425,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13088,8 +13443,23 @@ defmodule AWS.Connect do
 
   @doc """
   Deletes a prompt.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeletePrompt&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:prompt_id` (`t:string`) A unique identifier for the prompt.
+
+  ## Optional parameters:
   """
-  @spec delete_prompt(map(), String.t(), String.t(), delete_prompt_request(), list()) ::
+  @spec delete_prompt(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_prompt_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_prompt_errors()}
@@ -13098,7 +13468,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13115,8 +13486,17 @@ defmodule AWS.Connect do
 
   @doc """
   Deletes a queue.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:queue_id` (`t:string`) The identifier for the queue.
+
+  ## Optional parameters:
   """
-  @spec delete_queue(map(), String.t(), String.t(), delete_queue_request(), list()) ::
+  @spec delete_queue(AWS.Client.t(), String.t(), String.t(), delete_queue_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_queue_errors()}
@@ -13125,7 +13505,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13143,31 +13524,21 @@ defmodule AWS.Connect do
   @doc """
   Deletes a quick connect.
 
-  After calling
-  [DeleteUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteUser.html), it's important to
-  call `DeleteQuickConnect` to delete any records related to the deleted users.
-  This
-  will help you:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteQuickConnect&this_doc_guide=API%2520Reference)
 
-    
-  Avoid dangling resources that impact your service quotas.
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:quick_connect_id` (`t:string`) The identifier for the quick connect.
 
-    
-  Remove deleted users so they don't appear to agents as transfer options.
-
-    
-  Avoid the disruption of other Amazon Connect processes, such as instance
-  replication
-  and syncing if you're using [Amazon Connect
-  Global
-  Resiliency](https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html).
+  ## Optional parameters:
   """
   @spec delete_quick_connect(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_quick_connect_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -13185,7 +13556,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13202,13 +13574,22 @@ defmodule AWS.Connect do
 
   @doc """
   Deletes a routing profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteRoutingProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
+
+  ## Optional parameters:
   """
   @spec delete_routing_profile(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_routing_profile_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -13226,7 +13607,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13243,8 +13625,17 @@ defmodule AWS.Connect do
 
   @doc """
   Deletes a rule for the specified Amazon Connect instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:rule_id` (`t:string`) A unique identifier for the rule.
+
+  ## Optional parameters:
   """
-  @spec delete_rule(map(), String.t(), String.t(), delete_rule_request(), list()) ::
+  @spec delete_rule(AWS.Client.t(), String.t(), String.t(), delete_rule_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rule_errors()}
@@ -13253,7 +13644,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13270,13 +13662,22 @@ defmodule AWS.Connect do
 
   @doc """
   Deletes a security profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteSecurityProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:security_profile_id` (`t:string`) The identifier for the security profle.
+
+  ## Optional parameters:
   """
   @spec delete_security_profile(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_security_profile_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -13294,7 +13695,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13311,13 +13713,22 @@ defmodule AWS.Connect do
 
   @doc """
   Deletes the task template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteTaskTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:task_template_id` (`t:string`) A unique identifier for the task template.
+
+  ## Optional parameters:
   """
   @spec delete_task_template(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_task_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_task_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13335,7 +13746,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13351,22 +13763,24 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Deletes a traffic distribution group.
+  Deletes a traffic distribution group. This API can be called only in the Region
+  where the traffic distribution group is created.
 
-  This API can be called only in the Region where the traffic distribution group
-  is
-  created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteTrafficDistributionGroup&this_doc_guide=API%2520Reference)
 
-  For more information about deleting traffic distribution groups, see [Delete traffic distribution
-  groups](https://docs.aws.amazon.com/connect/latest/adminguide/delete-traffic-distribution-groups.html)
-  in
-  the *Amazon Connect Administrator Guide*.
+  ## Parameters:
+  * `:traffic_distribution_group_id` (`t:string`) The identifier of the traffic
+    distribution group. This can be the ID or the ARN if the API is being called
+    in the Region where the traffic distribution group was created. The ARN must
+    be provided if the call is from the replicated Region.
+
+  ## Optional parameters:
   """
   @spec delete_traffic_distribution_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_traffic_distribution_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_traffic_distribution_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13381,7 +13795,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13398,14 +13813,25 @@ defmodule AWS.Connect do
 
   @doc """
   Deletes a use case from an integration association.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteUseCase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:integration_association_id` (`t:string`) The identifier for the integration
+    association.
+  * `:use_case_id` (`t:string`) The identifier for the use case.
+
+  ## Optional parameters:
   """
   @spec delete_use_case(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_use_case_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -13424,7 +13850,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13442,31 +13869,16 @@ defmodule AWS.Connect do
   @doc """
   Deletes a user account from the specified Amazon Connect instance.
 
-  For information about what happens to a user's data when their account is
-  deleted, see
-  [Delete Users from Your Amazon Connect
-  Instance](https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html)
-  in the *Amazon Connect Administrator
-  Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteUser&this_doc_guide=API%2520Reference)
 
-  After calling DeleteUser, call
-  [DeleteQuickConnect](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteQuickConnect.html) to
-  delete any records related to the deleted users. This will help you:
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier of the user.
 
-    
-  Avoid dangling resources that impact your service quotas.
-
-    
-  Remove deleted users so they don't appear to agents as transfer options.
-
-    
-  Avoid the disruption of other Amazon Connect processes, such as instance
-  replication
-  and syncing if you're using [Amazon Connect
-  Global
-  Resiliency](https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html).
+  ## Optional parameters:
   """
-  @spec delete_user(map(), String.t(), String.t(), delete_user_request(), list()) ::
+  @spec delete_user(AWS.Client.t(), String.t(), String.t(), delete_user_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_errors()}
@@ -13475,7 +13887,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13491,17 +13904,24 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Deletes an existing user hierarchy group.
+  Deletes an existing user hierarchy group. It must not be associated with any
+  agents or have any active child groups.
 
-  It must not be associated with any agents or have
-  any active child groups.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteUserHierarchyGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:hierarchy_group_id` (`t:string`) The identifier of the hierarchy group.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec delete_user_hierarchy_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_user_hierarchy_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -13519,7 +13939,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13535,12 +13956,20 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Deletes the view entirely.
+  Deletes the view entirely. It deletes the view and all associated qualifiers
+  (versions and aliases).
 
-  It deletes the view and all associated qualifiers (versions and
-  aliases).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteView&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instanceId in the ARN of the instance.
+  * `:view_id` (`t:string`) The identifier of the view. Both ViewArn and ViewId
+    can be used.
+
+  ## Optional parameters:
   """
-  @spec delete_view(map(), String.t(), String.t(), delete_view_request(), list()) ::
+  @spec delete_view(AWS.Client.t(), String.t(), String.t(), delete_view_request(), Keyword.t()) ::
           {:ok, delete_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_view_errors()}
@@ -13549,7 +13978,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13566,14 +13996,25 @@ defmodule AWS.Connect do
 
   @doc """
   Deletes the particular version specified in `ViewVersion` identifier.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteViewVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instanceId in the ARN of the instance.
+  * `:view_id` (`t:string`) The identifier of the view. Both ViewArn and ViewId
+    can be used.
+  * `:view_version` (`t:integer`) The version number of the view.
+
+  ## Optional parameters:
   """
   @spec delete_view_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_view_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_view_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13592,7 +14033,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13609,8 +14051,23 @@ defmodule AWS.Connect do
 
   @doc """
   Deletes the vocabulary that has the given identifier.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DeleteVocabulary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:vocabulary_id` (`t:string`) The identifier of the custom vocabulary.
+
+  ## Optional parameters:
   """
-  @spec delete_vocabulary(map(), String.t(), String.t(), delete_vocabulary_request(), list()) ::
+  @spec delete_vocabulary(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_vocabulary_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vocabulary_errors()}
@@ -13621,7 +14078,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13639,9 +14097,16 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Describes an agent status.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeAgentStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_status_id` (`t:string`) The identifier for the agent status.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec describe_agent_status(map(), String.t(), String.t(), list()) ::
+  @spec describe_agent_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_agent_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_agent_status_errors()}
@@ -13649,23 +14114,46 @@ defmodule AWS.Connect do
     url_path =
       "/agent-status/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(agent_status_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
-  To
+  This API is in preview release for Amazon Connect and is subject to change. To
   request access to this API, contact Amazon Web Services Support.
 
-  Describes the target authentication profile.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeAuthenticationProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:authentication_profile_id` (`t:string`) A unique identifier for the
+    authentication profile.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec describe_authentication_profile(map(), String.t(), String.t(), list()) ::
+  @spec describe_authentication_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_authentication_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_authentication_profile_errors()}
@@ -13678,44 +14166,89 @@ defmodule AWS.Connect do
     url_path =
       "/authentication-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(authentication_profile_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
-
   Describes the specified contact.
 
-  Contact information remains available in Amazon Connect for 24 months, and then
-  it is
-  deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeContact&this_doc_guide=API%2520Reference)
 
-  Only data from November 12, 2021, and later is returned by this
-  API.
+  ## Parameters:
+  * `:contact_id` (`t:string`) The identifier of the contact.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec describe_contact(map(), String.t(), String.t(), list()) ::
+  @spec describe_contact(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_contact_errors()}
   def describe_contact(%Client{} = client, contact_id, instance_id, options \\ []) do
     url_path = "/contacts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes a contact evaluation in the specified Amazon Connect instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeContactEvaluation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:evaluation_id` (`t:string`) A unique identifier for the contact evaluation.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec describe_contact_evaluation(map(), String.t(), String.t(), list()) ::
+  @spec describe_contact_evaluation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_contact_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_contact_evaluation_errors()}
@@ -13723,32 +14256,45 @@ defmodule AWS.Connect do
     url_path =
       "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Describes the specified flow.
-
-  You can also create and update flows using the [Amazon Connect Flow
+  Describes the specified flow. You can also create and update flows using the
+  [Amazon Connect Flow
   language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
 
-  Use the `$SAVED` alias in the request to describe the `SAVED` content
-  of a Flow. For example, `arn:aws:.../contact-flow/{id}:$SAVED`. Once a contact
-  flow is
-  published, `$SAVED` needs to be supplied to view saved content that has not been
-  published.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeContactFlow&this_doc_guide=API%2520Reference)
 
-  In the response, **Status** indicates the flow status as either
-  `SAVED` or `PUBLISHED`. The `PUBLISHED` status will initiate
-  validation on the content. `SAVED` does not initiate validation of the content.
-  `SAVED` | `PUBLISHED`
+  ## Parameters:
+  * `:contact_flow_id` (`t:string`) The identifier of the flow.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance.
+
+  ## Optional parameters:
   """
-  @spec describe_contact_flow(map(), String.t(), String.t(), list()) ::
+  @spec describe_contact_flow(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_contact_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_contact_flow_errors()}
@@ -13756,10 +14302,27 @@ defmodule AWS.Connect do
     url_path =
       "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -13767,13 +14330,16 @@ defmodule AWS.Connect do
   @doc """
   Describes the specified flow module.
 
-  Use the `$SAVED` alias in the request to describe the `SAVED` content
-  of a Flow. For example, `arn:aws:.../contact-flow/{id}:$SAVED`. Once a contact
-  flow is
-  published, `$SAVED` needs to be supplied to view saved content that has not been
-  published.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeContactFlowModule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:contact_flow_module_id` (`t:string`) The identifier of the flow module.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec describe_contact_flow_module(map(), String.t(), String.t(), list()) ::
+  @spec describe_contact_flow_module(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_contact_flow_module_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_contact_flow_module_errors()}
@@ -13786,46 +14352,87 @@ defmodule AWS.Connect do
     url_path =
       "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_module_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Describes an evaluation form in the specified Amazon Connect instance.
-
-  If the version
-  property is not provided, the latest version of the evaluation form is
+  Describes an evaluation form in the specified Amazon Connect instance. If the
+  version property is not provided, the latest version of the evaluation form is
   described.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeEvaluationForm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:evaluation_form_id` (`t:string`) A unique identifier for the contact
+    evaluation.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:evaluation_form_version` (`t:integer`) A version of the evaluation form.
   """
-  @spec describe_evaluation_form(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec describe_evaluation_form(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_evaluation_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_evaluation_form_errors()}
-  def describe_evaluation_form(
-        %Client{} = client,
-        evaluation_form_id,
-        instance_id,
-        evaluation_form_version \\ nil,
-        options \\ []
-      ) do
+  def describe_evaluation_form(%Client{} = client, evaluation_form_id, instance_id, options \\ []) do
     url_path =
       "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_form_id)}"
 
+    # Validate optional parameters
+    optional_params = [evaluation_form_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(evaluation_form_version) do
-        [{"version", evaluation_form_version} | query_params]
+      if opt_val = Keyword.get(options, :evaluation_form_version) do
+        [{"version", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:evaluation_form_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -13833,9 +14440,17 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Describes the hours of operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeHoursOfOperation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:hours_of_operation_id` (`t:string`) The identifier for the hours of
+    operation.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec describe_hours_of_operation(map(), String.t(), String.t(), list()) ::
+  @spec describe_hours_of_operation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_hours_of_operation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_hours_of_operation_errors()}
@@ -13848,37 +14463,72 @@ defmodule AWS.Connect do
     url_path =
       "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hours_of_operation_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
-
   Returns the current state of the specified instance identifier. It tracks the
-  instance while
-  it is being created and returns an error status, if applicable.
+  instance while it is being created and returns an error status, if applicable.
 
-  If an instance is not created successfully, the instance status reason field
-  returns details
-  relevant to the reason. The instance in a failed state is returned only for 24
-  hours after the
-  CreateInstance API was invoked.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec describe_instance(map(), String.t(), list()) ::
+  @spec describe_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instance_errors()}
   def describe_instance(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -13886,9 +14536,18 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Describes the specified instance attribute.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeInstanceAttribute&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:attribute_type`
+    (`t:enum["AUTO_RESOLVE_BEST_VOICES|CONTACTFLOW_LOGS|CONTACT_LENS|EARLY_MEDIA|ENHANCED_CHAT_MONITORING|ENHANCED_CONTACT_MONITORING|HIGH_VOLUME_OUTBOUND|INBOUND_CALLS|MULTI_PARTY_CONFERENCE|OUTBOUND_CALLS|USE_CUSTOM_TTS_VOICES"]`)
+    The type of attribute.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec describe_instance_attribute(map(), String.t(), String.t(), list()) ::
+  @spec describe_instance_attribute(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_instance_attribute_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instance_attribute_errors()}
@@ -13896,10 +14555,27 @@ defmodule AWS.Connect do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/attribute/#{AWS.Util.encode_uri(attribute_type)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -13907,11 +14583,27 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Retrieves the current storage configurations for the specified resource type,
-  association
-  ID, and instance ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeInstanceStorageConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:association_id` (`t:string`) The existing association identifier that
+    uniquely identifies the resource type and storage config for the given
+    instance ID.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:resource_type`
+    (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`)
+    A valid resource type.
+
+  ## Optional parameters:
   """
-  @spec describe_instance_storage_config(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_instance_storage_config(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, describe_instance_storage_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instance_storage_config_errors()}
@@ -13925,58 +14617,87 @@ defmodule AWS.Connect do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/storage-config/#{AWS.Util.encode_uri(association_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(resource_type) do
-        [{"resourceType", resource_type} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"resourceType", resource_type}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets details and status of a phone number that’s claimed to your Amazon Connect
-  instance
-  or traffic distribution group.
+  instance or traffic distribution group.
 
-  If the number is claimed to a traffic distribution group, and you are calling in
-  the Amazon Web Services Region
-  where the traffic distribution group was created, you can use either a phone
-  number ARN or UUID value for the
-  `PhoneNumberId` URI request parameter. However, if the number is claimed to a
-  traffic distribution group
-  and you are calling this API in the alternate Amazon Web Services Region
-  associated with the
-  traffic distribution group, you must provide a full phone number ARN. If a UUID
-  is provided
-  in
-  this scenario, you will receive a
-  `ResourceNotFoundException`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribePhoneNumber&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:phone_number_id` (`t:string`) A unique identifier for the phone number.
+
+  ## Optional parameters:
   """
-  @spec describe_phone_number(map(), String.t(), list()) ::
+  @spec describe_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_phone_number_errors()}
   def describe_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes a predefined attribute for the specified Amazon Connect instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribePredefinedAttribute&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:name` (`t:string`) The name of the predefined attribute.
+
+  ## Optional parameters:
   """
-  @spec describe_predefined_attribute(map(), String.t(), String.t(), list()) ::
+  @spec describe_predefined_attribute(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_predefined_attribute_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_predefined_attribute_errors()}
@@ -13984,27 +14705,71 @@ defmodule AWS.Connect do
     url_path =
       "/predefined-attributes/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes the prompt.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribePrompt&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:prompt_id` (`t:string`) A unique identifier for the prompt.
+
+  ## Optional parameters:
   """
-  @spec describe_prompt(map(), String.t(), String.t(), list()) ::
+  @spec describe_prompt(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_prompt_errors()}
   def describe_prompt(%Client{} = client, instance_id, prompt_id, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(prompt_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14012,26 +14777,60 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Describes the specified queue.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:queue_id` (`t:string`) The identifier for the queue.
+
+  ## Optional parameters:
   """
-  @spec describe_queue(map(), String.t(), String.t(), list()) ::
+  @spec describe_queue(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_queue_errors()}
   def describe_queue(%Client{} = client, instance_id, queue_id, options \\ []) do
     url_path = "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes the quick connect.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeQuickConnect&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:quick_connect_id` (`t:string`) The identifier for the quick connect.
+
+  ## Optional parameters:
   """
-  @spec describe_quick_connect(map(), String.t(), String.t(), list()) ::
+  @spec describe_quick_connect(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_quick_connect_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_quick_connect_errors()}
@@ -14039,18 +14838,44 @@ defmodule AWS.Connect do
     url_path =
       "/quick-connects/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(quick_connect_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes the specified routing profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeRoutingProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
+
+  ## Optional parameters:
   """
-  @spec describe_routing_profile(map(), String.t(), String.t(), list()) ::
+  @spec describe_routing_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_routing_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_routing_profile_errors()}
@@ -14058,35 +14883,88 @@ defmodule AWS.Connect do
     url_path =
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes a rule for the specified Amazon Connect instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:rule_id` (`t:string`) A unique identifier for the rule.
+
+  ## Optional parameters:
   """
-  @spec describe_rule(map(), String.t(), String.t(), list()) ::
+  @spec describe_rule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_rule_errors()}
   def describe_rule(%Client{} = client, instance_id, rule_id, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(rule_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets basic information about the security profle.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeSecurityProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:security_profile_id` (`t:string`) The identifier for the security profle.
+
+  ## Optional parameters:
   """
-  @spec describe_security_profile(map(), String.t(), String.t(), list()) ::
+  @spec describe_security_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_security_profile_errors()}
@@ -14099,18 +14977,45 @@ defmodule AWS.Connect do
     url_path =
       "/security-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(security_profile_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets details and status of a traffic distribution group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeTrafficDistributionGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:traffic_distribution_group_id` (`t:string`) The identifier of the traffic
+    distribution group. This can be the ID or the ARN if the API is being called
+    in the Region where the traffic distribution group was created. The ARN must
+    be provided if the call is from the replicated Region.
+
+  ## Optional parameters:
   """
-  @spec describe_traffic_distribution_group(map(), String.t(), list()) ::
+  @spec describe_traffic_distribution_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_traffic_distribution_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_traffic_distribution_group_errors()}
@@ -14120,39 +15025,93 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path = "/traffic-distribution-group/#{AWS.Util.encode_uri(traffic_distribution_group_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Describes the specified user.
+  Describes the specified user. You can [find the instance ID in the Amazon
+  Connect
+  console](https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html)
+  (it’s the final part of the ARN). The console does not display the user IDs.
+  Instead, list the users and note the IDs provided in the output.
 
-  You can [find the instance ID in the Amazon Connect console](https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html)
-  (it’s the final part of the ARN). The console does not display the
-  user IDs. Instead, list the users and note the IDs provided in the output.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier of the user account.
+
+  ## Optional parameters:
   """
-  @spec describe_user(map(), String.t(), String.t(), list()) ::
+  @spec describe_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_errors()}
   def describe_user(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path = "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes the specified hierarchy group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeUserHierarchyGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:hierarchy_group_id` (`t:string`) The identifier of the hierarchy group.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec describe_user_hierarchy_group(map(), String.t(), String.t(), list()) ::
+  @spec describe_user_hierarchy_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_user_hierarchy_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_hierarchy_group_errors()}
@@ -14165,65 +15124,133 @@ defmodule AWS.Connect do
     url_path =
       "/user-hierarchy-groups/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hierarchy_group_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes the hierarchy structure of the specified Amazon Connect instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeUserHierarchyStructure&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec describe_user_hierarchy_structure(map(), String.t(), list()) ::
+  @spec describe_user_hierarchy_structure(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_user_hierarchy_structure_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_hierarchy_structure_errors()}
   def describe_user_hierarchy_structure(%Client{} = client, instance_id, options \\ []) do
     url_path = "/user-hierarchy-structure/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the view for the specified Amazon Connect instance and view
-  identifier.
+  identifier. The view identifier can be supplied as a ViewId or ARN.
 
-  The view identifier can be supplied as a ViewId or ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeView&this_doc_guide=API%2520Reference)
 
-  `$SAVED` needs to be supplied if a view is unpublished.
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instanceId in the ARN of the instance.
+  * `:view_id` (`t:string`) The ViewId of the view. This must be an ARN for Amazon
+    Web Services managed views.
 
-  The view identifier can contain an optional qualifier, for example,
-  `:$SAVED`, which is either an actual version number or an Amazon Connect managed
-  qualifier `$SAVED | $LATEST`. If it is not supplied, then
-  `$LATEST` is assumed for customer managed views and an error is returned if
-  there is
-  no published content available. Version 1 is assumed for Amazon Web Services
-  managed views.
+  ## Optional parameters:
   """
-  @spec describe_view(map(), String.t(), String.t(), list()) ::
+  @spec describe_view(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_view_errors()}
   def describe_view(%Client{} = client, instance_id, view_id, options \\ []) do
     url_path = "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes the specified vocabulary.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DescribeVocabulary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:vocabulary_id` (`t:string`) The identifier of the custom vocabulary.
+
+  ## Optional parameters:
   """
-  @spec describe_vocabulary(map(), String.t(), String.t(), list()) ::
+  @spec describe_vocabulary(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_vocabulary_errors()}
@@ -14231,10 +15258,27 @@ defmodule AWS.Connect do
     url_path =
       "/vocabulary/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(vocabulary_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14242,13 +15286,19 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Removes the dataset ID associated with a given Amazon Connect instance.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateAnalyticsDataSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec disassociate_analytics_data_set(
-          map(),
+          AWS.Client.t(),
           String.t(),
           disassociate_analytics_data_set_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -14258,7 +15308,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14276,13 +15327,20 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Revokes access to integrated applications from Amazon Connect.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateApprovedOrigin&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:origin` (`t:string`) The domain URL of the integrated application.
+
+  ## Optional parameters:
   """
   @spec disassociate_approved_origin(
-          map(),
+          AWS.Client.t(),
           String.t(),
           disassociate_approved_origin_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -14297,7 +15355,8 @@ defmodule AWS.Connect do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14315,11 +15374,15 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Revokes authorization from the specified instance to access the specified Amazon
-  Lex or Amazon Lex V2
-  bot.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateBot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec disassociate_bot(map(), String.t(), disassociate_bot_request(), list()) ::
+  @spec disassociate_bot(AWS.Client.t(), String.t(), disassociate_bot_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_bot_errors()}
@@ -14328,7 +15391,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14345,14 +15409,24 @@ defmodule AWS.Connect do
 
   @doc """
   Disassociates a connect resource from a flow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateFlow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:resource_id` (`t:string`) The identifier of the resource.
+  * `:resource_type` (`t:enum["SMS_PHONE_NUMBER"]`) A valid resource type.
+
+  ## Optional parameters:
   """
   @spec disassociate_flow(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           disassociate_flow_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -14371,7 +15445,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14389,16 +15464,26 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Removes the storage type configurations for the specified resource type and
-  association
-  ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateInstanceStorageConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:association_id` (`t:string`) The existing association identifier that
+    uniquely identifies the resource type and storage config for the given
+    instance ID.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:resource_type`
+    (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`)
+    A valid resource type.
+
+  ## Optional parameters:
   """
   @spec disassociate_instance_storage_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           disassociate_instance_storage_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -14421,7 +15506,8 @@ defmodule AWS.Connect do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14439,14 +15525,21 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Remove the Lambda function from the dropdown options available in the relevant
-  flow blocks.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateLambdaFunction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance..
+  * `:function_arn` (`t:string`) The Amazon Resource Name (ARN) of the Lambda
+    function being disassociated.
+
+  ## Optional parameters:
   """
   @spec disassociate_lambda_function(
-          map(),
+          AWS.Client.t(),
           String.t(),
           disassociate_lambda_function_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -14461,7 +15554,8 @@ defmodule AWS.Connect do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14479,11 +15573,24 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Revokes authorization from the specified instance to access the specified Amazon
-  Lex
-  bot.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateLexBot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:bot_name` (`t:string`) The name of the Amazon Lex bot. Maximum character
+    limit of 50.
+  * `:lex_region` (`t:string`) The Amazon Web Services Region in which the Amazon
+    Lex bot has been created.
+
+  ## Optional parameters:
   """
-  @spec disassociate_lex_bot(map(), String.t(), disassociate_lex_bot_request(), list()) ::
+  @spec disassociate_lex_bot(
+          AWS.Client.t(),
+          String.t(),
+          disassociate_lex_bot_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_lex_bot_errors()}
@@ -14498,7 +15605,8 @@ defmodule AWS.Connect do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14517,23 +15625,20 @@ defmodule AWS.Connect do
   Removes the flow association from a phone number claimed to your Amazon Connect
   instance.
 
-  If the number is claimed to a traffic distribution group, and you are calling
-  this API using an instance in the
-  Amazon Web Services Region where the traffic distribution group was created, you
-  can use either a full phone number
-  ARN or UUID value for the `PhoneNumberId` URI request parameter. However, if the
-  number is claimed to a traffic distribution group and you are calling this API
-  using an instance in the alternate
-  Amazon Web Services Region associated with the traffic distribution group, you
-  must provide a full phone number ARN.
-  If a UUID is provided in this scenario, you will receive a
-  `ResourceNotFoundException`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociatePhoneNumberContactFlow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:phone_number_id` (`t:string`) A unique identifier for the phone number.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec disassociate_phone_number_contact_flow(
-          map(),
+          AWS.Client.t(),
           String.t(),
           disassociate_phone_number_contact_flow_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -14553,7 +15658,8 @@ defmodule AWS.Connect do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14571,14 +15677,21 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Disassociates a set of quick connects from a queue.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateQueueQuickConnects&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:queue_id` (`t:string`) The identifier for the queue.
+
+  ## Optional parameters:
   """
   @spec disassociate_queue_quick_connects(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           disassociate_queue_quick_connects_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -14596,7 +15709,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14613,13 +15727,22 @@ defmodule AWS.Connect do
 
   @doc """
   Disassociates a set of queues from a routing profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateRoutingProfileQueues&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
+
+  ## Optional parameters:
   """
   @spec disassociate_routing_profile_queues(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           disassociate_routing_profile_queues_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -14637,7 +15760,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14655,14 +15779,23 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Deletes the specified security key.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateSecurityKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:association_id` (`t:string`) The existing association identifier that
+    uniquely identifies the resource type and storage config for the given
+    instance ID.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec disassociate_security_key(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           disassociate_security_key_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -14680,7 +15813,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14697,12 +15831,26 @@ defmodule AWS.Connect do
 
   @doc """
   Disassociates an agent from a traffic distribution group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateTrafficDistributionGroupUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:traffic_distribution_group_id` (`t:string`) The identifier of the traffic
+    distribution group. This can be the ID or the ARN if the API is being called
+    in the Region where the traffic distribution group was created. The ARN must
+    be provided if the call is from the replicated Region.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier for the user. This can be the ID or the
+    ARN of the user.
+
+  ## Optional parameters:
   """
   @spec disassociate_traffic_distribution_group_user(
-          map(),
+          AWS.Client.t(),
           String.t(),
           disassociate_traffic_distribution_group_user_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_traffic_distribution_group_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -14725,7 +15873,8 @@ defmodule AWS.Connect do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14742,13 +15891,22 @@ defmodule AWS.Connect do
 
   @doc """
   Disassociates a set of proficiencies from a user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DisassociateUserProficiencies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier of the user account.
+
+  ## Optional parameters:
   """
   @spec disassociate_user_proficiencies(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           disassociate_user_proficiencies_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -14766,7 +15924,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14783,20 +15942,26 @@ defmodule AWS.Connect do
 
   @doc """
   Dismisses contacts from an agent’s CCP and returns the agent to an available
-  state, which
-  allows the agent to receive a new routed contact.
-
-  Contacts can only be dismissed if they are in a
-  `MISSED`, `ERROR`, `ENDED`, or `REJECTED` state in
-  the [Agent Event
+  state, which allows the agent to receive a new routed contact. Contacts can
+  only be dismissed if they are in a `MISSED`, `ERROR`, `ENDED`, or `REJECTED`
+  state in the [Agent Event
   Stream](https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20DismissUserContact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instanceId in the ARN of the instance.
+  * `:user_id` (`t:string`) The identifier of the user account.
+
+  ## Optional parameters:
   """
   @spec dismiss_user_contact(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           dismiss_user_contact_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, dismiss_user_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -14808,7 +15973,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14824,14 +15990,23 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Provides a pre-signed URL for download of an approved attached file.
+  Provides a pre-signed URL for download of an approved attached file. This API
+  also returns metadata about the attached file. It will only return a
+  downloadURL if the status of the attached file is `APPROVED`.
 
-  This API also returns
-  metadata about the attached file. It will only return a downloadURL if the
-  status of the attached
-  file is `APPROVED`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20GetAttachedFile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:file_id` (`t:string`) The unique identifier of the attached file resource.
+  * `:instance_id` (`t:string`) The unique identifier of the Connect instance.
+  * `:associated_resource_arn` (`t:string`) The resource to which the attached
+    file is (being) uploaded to. Cases are the only current supported resource.
+
+  ## Optional parameters:
+  * `:url_expiry_in_seconds` (`t:integer`) Optional override for the expiry of the
+    pre-signed S3 URL in seconds. The default value is 300.
   """
-  @spec get_attached_file(map(), String.t(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_attached_file(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_attached_file_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_attached_file_errors()}
@@ -14840,38 +16015,59 @@ defmodule AWS.Connect do
         file_id,
         instance_id,
         associated_resource_arn,
-        url_expiry_in_seconds \\ nil,
         options \\ []
       ) do
     url_path =
       "/attached-files/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(file_id)}"
 
+    # Validate optional parameters
+    optional_params = [url_expiry_in_seconds: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"associatedResourceArn", associated_resource_arn}]
+
+    # Optional query params
     query_params =
-      if !is_nil(url_expiry_in_seconds) do
-        [{"urlExpiryInSeconds", url_expiry_in_seconds} | query_params]
+      if opt_val = Keyword.get(options, :url_expiry_in_seconds) do
+        [{"urlExpiryInSeconds", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(associated_resource_arn) do
-        [{"associatedResourceArn", associated_resource_arn} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:url_expiry_in_seconds])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the contact attributes for the specified contact.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20GetContactAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:initial_contact_id` (`t:string`) The identifier of the initial contact.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance.
+
+  ## Optional parameters:
   """
-  @spec get_contact_attributes(map(), String.t(), String.t(), list()) ::
+  @spec get_contact_attributes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_contact_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_contact_attributes_errors()}
@@ -14879,10 +16075,27 @@ defmodule AWS.Connect do
     url_path =
       "/contact/attributes/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(initial_contact_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14890,10 +16103,20 @@ defmodule AWS.Connect do
   @doc """
   Gets the real-time metric data from the specified Amazon Connect instance.
 
-  For a description of each metric, see [Real-time Metrics Definitions](https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html)
-  in the *Amazon Connect Administrator Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20GetCurrentMetricData&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec get_current_metric_data(map(), String.t(), get_current_metric_data_request(), list()) ::
+  @spec get_current_metric_data(
+          AWS.Client.t(),
+          String.t(),
+          get_current_metric_data_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_current_metric_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_current_metric_data_errors()}
@@ -14902,7 +16125,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14919,8 +16143,21 @@ defmodule AWS.Connect do
 
   @doc """
   Gets the real-time active user data from the specified Amazon Connect instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20GetCurrentUserData&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec get_current_user_data(map(), String.t(), get_current_user_data_request(), list()) ::
+  @spec get_current_user_data(
+          AWS.Client.t(),
+          String.t(),
+          get_current_user_data_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_current_user_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_current_user_data_errors()}
@@ -14929,7 +16166,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14945,44 +16183,68 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Supports SAML sign-in for Amazon Connect.
-
-  Retrieves a token for federation. The token is
-  for the Amazon Connect user which corresponds to the IAM credentials that were
-  used to invoke this action.
-
-  For more information about how SAML sign-in works in Amazon Connect, see
-  [Configure SAML with IAM for Amazon Connect in the *Amazon Connect Administrator
+  Supports SAML sign-in for Amazon Connect. Retrieves a token for federation. The
+  token is for the Amazon Connect user which corresponds to the IAM credentials
+  that were used to invoke this action. For more information about how SAML
+  sign-in works in Amazon Connect, see [Configure SAML with IAM for Amazon
+  Connect in the *Amazon Connect Administrator
   Guide*.](https://docs.aws.amazon.com/connect/latest/adminguide/configure-saml.html
   )
 
-  This API doesn't support root users. If you try to invoke GetFederationToken
-  with root
-  credentials, an error message similar to the following one appears:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20GetFederationToken&this_doc_guide=API%2520Reference)
 
-  ```
-  Provided identity: Principal: .... User: .... cannot be used for federation with
-  Amazon Connect
-  ```
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec get_federation_token(map(), String.t(), list()) ::
+  @spec get_federation_token(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_federation_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_federation_token_errors()}
   def get_federation_token(%Client{} = client, instance_id, options \\ []) do
     url_path = "/user/federate/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the flow associated for a given resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20GetFlowAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:resource_id` (`t:string`) The identifier of the resource.
+  * `:resource_type` (`t:enum["SMS_PHONE_NUMBER"]`) A valid resource type.
+
+  ## Optional parameters:
   """
-  @spec get_flow_association(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_flow_association(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_flow_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_flow_association_errors()}
@@ -14996,10 +16258,27 @@ defmodule AWS.Connect do
     url_path =
       "/flow-associations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(resource_id)}/#{AWS.Util.encode_uri(resource_type)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15007,24 +16286,15 @@ defmodule AWS.Connect do
   @doc """
   Gets historical metric data from the specified Amazon Connect instance.
 
-  For a description of each historical metric, see [Historical Metrics Definitions](https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html)
-  in the *Amazon Connect Administrator Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20GetMetricData&this_doc_guide=API%2520Reference)
 
-  We recommend using the
-  [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html)
-  API. It
-  provides more flexibility, features, and the ability to query longer time ranges
-  than
-  `GetMetricData`. Use it to retrieve historical agent and contact metrics for the
-  last 3 months, at varying intervals. You can also use it to build custom
-  dashboards to measure
-  historical queue and agent performance. For example, you can track the number of
-  incoming
-  contacts for the last 7 days, with data split by day, to see how contact volume
-  changed per day
-  of the week.
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec get_metric_data(map(), String.t(), get_metric_data_request(), list()) ::
+  @spec get_metric_data(AWS.Client.t(), String.t(), get_metric_data_request(), Keyword.t()) ::
           {:ok, get_metric_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_metric_data_errors()}
@@ -15033,7 +16303,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -15051,21 +16322,13 @@ defmodule AWS.Connect do
   @doc """
   Gets metric data from the specified Amazon Connect instance.
 
-  `GetMetricDataV2` offers more features than
-  [GetMetricData](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html), the previous
-  version of this API. It has new metrics, offers filtering at a metric level, and
-  offers the
-  ability to filter and group data by channels, queues, routing profiles, agents,
-  and agent
-  hierarchy levels. It can retrieve historical data for the last 3 months, at
-  varying intervals.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20GetMetricDataV2&this_doc_guide=API%2520Reference)
 
-  For a description of the historical metrics that are supported by
-  `GetMetricDataV2` and `GetMetricData`, see [Historical metrics
-  definitions](https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html)
-  in the *Amazon Connect Administrator Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_metric_data_v2(map(), get_metric_data_v2_request(), list()) ::
+  @spec get_metric_data_v2(AWS.Client.t(), get_metric_data_v2_request(), Keyword.t()) ::
           {:ok, get_metric_data_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_metric_data_v2_errors()}
@@ -15074,7 +16337,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -15091,8 +16355,17 @@ defmodule AWS.Connect do
 
   @doc """
   Gets the prompt file.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20GetPromptFile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:prompt_id` (`t:string`) A unique identifier for the prompt.
+
+  ## Optional parameters:
   """
-  @spec get_prompt_file(map(), String.t(), String.t(), list()) ::
+  @spec get_prompt_file(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_prompt_file_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_prompt_file_errors()}
@@ -15100,10 +16373,27 @@ defmodule AWS.Connect do
     url_path =
       "/prompts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(prompt_id)}/file"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15111,32 +16401,58 @@ defmodule AWS.Connect do
   @doc """
   Gets details about a specific task template in the specified Amazon Connect
   instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20GetTaskTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:task_template_id` (`t:string`) A unique identifier for the task template.
+
+  ## Optional parameters:
+  * `:snapshot_version` (`t:string`) The system generated version of a task
+    template that is associated with a task, when the task is created.
   """
-  @spec get_task_template(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_task_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_task_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_task_template_errors()}
-  def get_task_template(
-        %Client{} = client,
-        instance_id,
-        task_template_id,
-        snapshot_version \\ nil,
-        options \\ []
-      ) do
+  def get_task_template(%Client{} = client, instance_id, task_template_id, options \\ []) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/task/template/#{AWS.Util.encode_uri(task_template_id)}"
 
+    # Validate optional parameters
+    optional_params = [snapshot_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(snapshot_version) do
-        [{"snapshotVersion", snapshot_version} | query_params]
+      if opt_val = Keyword.get(options, :snapshot_version) do
+        [{"snapshotVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:snapshot_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15144,60 +16460,64 @@ defmodule AWS.Connect do
   @doc """
   Retrieves the current traffic distribution for a given traffic distribution
   group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20GetTrafficDistribution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the traffic distribution group. This can
+    be the ID or the ARN if the API is being called in the Region where the
+    traffic distribution group was created. The ARN must be provided if the call
+    is from the replicated Region.
+
+  ## Optional parameters:
   """
-  @spec get_traffic_distribution(map(), String.t(), list()) ::
+  @spec get_traffic_distribution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_traffic_distribution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_traffic_distribution_errors()}
   def get_traffic_distribution(%Client{} = client, id, options \\ []) do
     url_path = "/traffic-distribution/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Imports a claimed phone number from an external service, such as Amazon
-  Pinpoint, into an
-  Amazon Connect instance.
-
-  You can call this API only in the same Amazon Web Services Region
-  where the Amazon Connect instance was created.
-
+  Pinpoint, into an Amazon Connect instance. You can call this API only in the
+  same Amazon Web Services Region where the Amazon Connect instance was created.
   Call the
   [DescribePhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html)
-  API
-  to verify the status of a previous `ImportPhoneNumber` operation.
+  API to verify the status of a previous `ImportPhoneNumber` operation.
 
-  If you plan to claim or import numbers and then release numbers frequently,
-  contact us for a
-  service quota exception. Otherwise, it is possible you will be blocked from
-  claiming and
-  releasing any more numbers until up to 180 days past the oldest number released
-  has expired.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ImportPhoneNumber&this_doc_guide=API%2520Reference)
 
-  By default you can claim or import and then release up to 200% of your maximum
-  number of
-  active phone numbers. If you claim or import and then release phone numbers
-  using the UI or API
-  during a rolling 180 day cycle that exceeds 200% of your phone number service
-  level quota, you
-  will be blocked from claiming or importing any more numbers until 180 days past
-  the oldest number
-  released has expired.
+  ## Parameters:
 
-  For example, if you already have 99 claimed or imported numbers and a service
-  level quota of
-  99 phone numbers, and in any 180 day period you release 99, claim 99, and then
-  release 99, you
-  will have exceeded the 200% limit. At that point you are blocked from claiming
-  any more numbers
-  until you open an Amazon Web Services Support ticket.
+  ## Optional parameters:
   """
-  @spec import_phone_number(map(), import_phone_number_request(), list()) ::
+  @spec import_phone_number(AWS.Client.t(), import_phone_number_request(), Keyword.t()) ::
           {:ok, import_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_phone_number_errors()}
@@ -15206,7 +16526,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -15224,53 +16545,73 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Lists agent statuses.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListAgentStatuses&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:agent_status_types` (`t:list[com.amazonaws.connect#AgentStatusType]`)
+    Available agent status types.
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_agent_statuses(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_agent_statuses(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_agent_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_agent_statuses_errors()}
-  def list_agent_statuses(
-        %Client{} = client,
-        instance_id,
-        agent_status_types \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_agent_statuses(%Client{} = client, instance_id, options \\ []) do
     url_path = "/agent-status/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = [agent_status_types: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(agent_status_types) do
-        [{"AgentStatusTypes", agent_status_types} | query_params]
+      if opt_val = Keyword.get(options, :agent_status_types) do
+        [{"AgentStatusTypes", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:agent_status_types, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15278,54 +16619,73 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Lists the association status of requested dataset ID for a given Amazon Connect
-  instance.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListAnalyticsDataAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:data_set_id` (`t:string`) The identifier of the dataset to get the
+    association status.
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_analytics_data_associations(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_analytics_data_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_analytics_data_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_analytics_data_associations_errors()}
-  def list_analytics_data_associations(
-        %Client{} = client,
-        instance_id,
-        data_set_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_analytics_data_associations(%Client{} = client, instance_id, options \\ []) do
     url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/association"
+
+    # Validate optional parameters
+    optional_params = [data_set_id: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(data_set_id) do
-        [{"DataSetId", data_set_id} | query_params]
+      if opt_val = Keyword.get(options, :data_set_id) do
+        [{"DataSetId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:data_set_id, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15333,87 +16693,130 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Returns a paginated list of all approved origins associated with the instance.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListApprovedOrigins&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_approved_origins(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_approved_origins(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_approved_origins_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_approved_origins_errors()}
-  def list_approved_origins(
-        %Client{} = client,
-        instance_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_approved_origins(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/approved-origins"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
-  To
+  This API is in preview release for Amazon Connect and is subject to change. To
   request access to this API, contact Amazon Web Services Support.
 
-  Provides summary information about the authentication profiles in a specified
-  Amazon Connect instance.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListAuthenticationProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_authentication_profiles(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_authentication_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_authentication_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_authentication_profiles_errors()}
-  def list_authentication_profiles(
-        %Client{} = client,
-        instance_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_authentication_profiles(%Client{} = client, instance_id, options \\ []) do
     url_path = "/authentication-profiles-summary/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15421,85 +16824,124 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  For the specified version of Amazon Lex, returns a paginated list of all the
-  Amazon Lex bots currently associated with the instance. Use this API to returns
-  both Amazon Lex V1 and V2 bots.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListBots&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:lex_version` (`t:enum["V1|V2"]`) The version of Amazon Lex or Amazon Lex V2.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_bots(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_bots(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bots_errors()}
-  def list_bots(
-        %Client{} = client,
-        instance_id,
-        lex_version,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_bots(%Client{} = client, instance_id, lex_version, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/bots"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"lexVersion", lex_version}]
+
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(lex_version) do
-        [{"lexVersion", lex_version} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists contact evaluations in the specified Amazon Connect instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListContactEvaluations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:contact_id` (`t:string`) The identifier of the contact in this instance of
+    Amazon Connect.
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_contact_evaluations(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec list_contact_evaluations(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_contact_evaluations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contact_evaluations_errors()}
-  def list_contact_evaluations(
-        %Client{} = client,
-        instance_id,
-        contact_id,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_contact_evaluations(%Client{} = client, instance_id, contact_id, options \\ []) do
     url_path = "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"contactId", contact_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(contact_id) do
-        [{"contactId", contact_id} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15507,52 +16949,74 @@ defmodule AWS.Connect do
   @doc """
   Provides information about the flow modules for the specified Amazon Connect
   instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListContactFlowModules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:contact_flow_module_state` (`t:enum["ACTIVE|ARCHIVED"]`) The state of the
+    flow module.
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_contact_flow_modules(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_contact_flow_modules(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_contact_flow_modules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contact_flow_modules_errors()}
-  def list_contact_flow_modules(
-        %Client{} = client,
-        instance_id,
-        contact_flow_module_state \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_contact_flow_modules(%Client{} = client, instance_id, options \\ []) do
     url_path = "/contact-flow-modules-summary/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = [contact_flow_module_state: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(contact_flow_module_state) do
-        [{"state", contact_flow_module_state} | query_params]
+      if opt_val = Keyword.get(options, :contact_flow_module_state) do
+        [{"state", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:contact_flow_module_state, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15560,59 +17024,74 @@ defmodule AWS.Connect do
   @doc """
   Provides information about the flows for the specified Amazon Connect instance.
 
-  You can also create and update flows using the [Amazon Connect Flow
-  language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListContactFlows&this_doc_guide=API%2520Reference)
 
-  For more information about flows, see
-  [Flows](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html)
-  in the
-  *Amazon Connect Administrator Guide*.
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:contact_flow_types` (`t:list[com.amazonaws.connect#ContactFlowType]`) The
+    type of flow.
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+    The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_contact_flows(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_contact_flows(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_contact_flows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contact_flows_errors()}
-  def list_contact_flows(
-        %Client{} = client,
-        instance_id,
-        contact_flow_types \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_contact_flows(%Client{} = client, instance_id, options \\ []) do
     url_path = "/contact-flows-summary/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = [contact_flow_types: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(contact_flow_types) do
-        [{"contactFlowTypes", contact_flow_types} | query_params]
+      if opt_val = Keyword.get(options, :contact_flow_types) do
+        [{"contactFlowTypes", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:contact_flow_types, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15620,18 +17099,21 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  For the specified `referenceTypes`, returns a list of references associated with
-  the contact. *References* are links to documents that are related to a
-  contact, such as emails, attachments, or URLs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListContactReferences&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:contact_id` (`t:string`) The identifier of the initial contact.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:reference_types` (`t:list[com.amazonaws.connect#ReferenceType]`) The type of
+    reference.
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_contact_references(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t(),
-          list()
-        ) ::
+  @spec list_contact_references(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_contact_references_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contact_references_errors()}
@@ -15639,39 +17121,65 @@ defmodule AWS.Connect do
         %Client{} = client,
         contact_id,
         instance_id,
-        next_token \\ nil,
         reference_types,
         options \\ []
       ) do
     url_path =
       "/contact/references/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
 
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"referenceTypes", reference_types}]
+
+    # Optional query params
     query_params =
-      if !is_nil(reference_types) do
-        [{"referenceTypes", reference_types} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the default vocabularies for the specified Amazon Connect instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListDefaultVocabularies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec list_default_vocabularies(map(), String.t(), list_default_vocabularies_request(), list()) ::
+  @spec list_default_vocabularies(
+          AWS.Client.t(),
+          String.t(),
+          list_default_vocabularies_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_default_vocabularies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_default_vocabularies_errors()}
@@ -15680,7 +17188,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -15697,15 +17206,22 @@ defmodule AWS.Connect do
 
   @doc """
   Lists versions of an evaluation form in the specified Amazon Connect instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListEvaluationFormVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:evaluation_form_id` (`t:string`) The unique identifier for the evaluation
+    form.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_evaluation_form_versions(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_evaluation_form_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_evaluation_form_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_evaluation_form_versions_errors()}
@@ -15713,163 +17229,255 @@ defmodule AWS.Connect do
         %Client{} = client,
         evaluation_form_id,
         instance_id,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_form_id)}/versions"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists evaluation forms in the specified Amazon Connect instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListEvaluationForms&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_evaluation_forms(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_evaluation_forms(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_evaluation_forms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_evaluation_forms_errors()}
-  def list_evaluation_forms(
-        %Client{} = client,
-        instance_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_evaluation_forms(%Client{} = client, instance_id, options \\ []) do
     url_path = "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List the flow association based on the filters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListFlowAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
+  * `:resource_type` (`t:enum["VOICE_PHONE_NUMBER"]`) A valid resource type.
   """
-  @spec list_flow_associations(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_flow_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_flow_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_flow_associations_errors()}
-  def list_flow_associations(
-        %Client{} = client,
-        instance_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        resource_type \\ nil,
-        options \\ []
-      ) do
+  def list_flow_associations(%Client{} = client, instance_id, options \\ []) do
     url_path = "/flow-associations-summary/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, resource_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(resource_type) do
-        [{"ResourceType", resource_type} | query_params]
+      if opt_val = Keyword.get(options, :resource_type) do
+        [{"ResourceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :resource_type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Provides information about the hours of operation for the specified Amazon
-  Connect
-  instance.
+  Connect instance.
 
-  For more information about hours of operation, see [Set the Hours of Operation for a
-  Queue](https://docs.aws.amazon.com/connect/latest/adminguide/set-hours-operation.html)
-  in the *Amazon Connect Administrator Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListHoursOfOperations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+    The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_hours_of_operations(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_hours_of_operations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_hours_of_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_hours_of_operations_errors()}
-  def list_hours_of_operations(
-        %Client{} = client,
-        instance_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_hours_of_operations(%Client{} = client, instance_id, options \\ []) do
     url_path = "/hours-of-operations-summary/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15877,38 +17485,64 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Returns a paginated list of all attribute types for the given instance.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListInstanceAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_instance_attributes(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_instance_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_instance_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instance_attributes_errors()}
-  def list_instance_attributes(
-        %Client{} = client,
-        instance_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_instance_attributes(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/attributes"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15916,55 +17550,67 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Returns a paginated list of storage configs for the identified instance and
-  resource
-  type.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListInstanceStorageConfigs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:resource_type`
+    (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`)
+    A valid resource type.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_instance_storage_configs(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          list()
-        ) ::
+  @spec list_instance_storage_configs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_instance_storage_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instance_storage_configs_errors()}
-  def list_instance_storage_configs(
-        %Client{} = client,
-        instance_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        resource_type,
-        options \\ []
-      ) do
+  def list_instance_storage_configs(%Client{} = client, instance_id, resource_type, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/storage-configs"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"resourceType", resource_type}]
+
+    # Optional query params
     query_params =
-      if !is_nil(resource_type) do
-        [{"resourceType", resource_type} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -15972,99 +17618,152 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Return a list of instances which are in active state, creation-in-progress
-  state, and failed
-  state. Instances that aren't successfully created (they are in a failed state)
-  are returned only
-  for 24 hours after the CreateInstance API was invoked.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_instances(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instances_errors()}
-  def list_instances(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_instances(%Client{} = client, options \\ []) do
     url_path = "/instance"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Provides summary information about the Amazon Web Services resource associations
-  for the
-  specified Amazon Connect instance.
+  for the specified Amazon Connect instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListIntegrationAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:integration_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    integration.
+  * `:integration_type`
+    (`t:enum["APPLICATION|CASES_DOMAIN|EVENT|FILE_SCANNER|PINPOINT_APP|VOICE_ID|WISDOM_ASSISTANT|WISDOM_KNOWLEDGE_BASE|WISDOM_QUICK_RESPONSES"]`)
+    The integration type.
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_integration_associations(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_integration_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_integration_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_integration_associations_errors()}
-  def list_integration_associations(
-        %Client{} = client,
-        instance_id,
-        integration_arn \\ nil,
-        integration_type \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_integration_associations(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations"
+
+    # Validate optional parameters
+    optional_params = [
+      integration_arn: nil,
+      integration_type: nil,
+      max_results: nil,
+      next_token: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(integration_type) do
-        [{"integrationType", integration_type} | query_params]
+      if opt_val = Keyword.get(options, :integration_type) do
+        [{"integrationType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(integration_arn) do
-        [{"integrationArn", integration_arn} | query_params]
+      if opt_val = Keyword.get(options, :integration_arn) do
+        [{"integrationArn", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:integration_arn, :integration_type, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -16072,40 +17771,64 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Returns a paginated list of all Lambda functions that display in the dropdown
-  options in the
-  relevant flow blocks.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListLambdaFunctions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_lambda_functions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_lambda_functions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_lambda_functions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lambda_functions_errors()}
-  def list_lambda_functions(
-        %Client{} = client,
-        instance_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_lambda_functions(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lambda-functions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -16113,42 +17836,65 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Returns a paginated list of all the Amazon Lex V1 bots currently associated with
-  the
-  instance. To return both Amazon Lex V1 and V2 bots, use the
-  [ListBots](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListBots.html)
-  API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListLexBots&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+    If no value is specified, the default is 10.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_lex_bots(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_lex_bots(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_lex_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lex_bots_errors()}
-  def list_lex_bots(
-        %Client{} = client,
-        instance_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_lex_bots(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lex-bots"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -16157,111 +17903,114 @@ defmodule AWS.Connect do
   Provides information about the phone numbers for the specified Amazon Connect
   instance.
 
-  For more information about phone numbers, see [Set Up Phone Numbers for Your Contact
-  Center](https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html)
-  in the *Amazon Connect Administrator
-  Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListPhoneNumbers&this_doc_guide=API%2520Reference)
 
-    
-  We recommend using
-  [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html) to
-  return phone number types. ListPhoneNumbers doesn't support number types `UIFN`,
-  `SHARED`, `THIRD_PARTY_TF`, and `THIRD_PARTY_DID`. While it
-  returns numbers of those types, it incorrectly lists them as `TOLL_FREE` or
-  `DID`.
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
-    
-  The phone number `Arn` value that is returned from each of the items in the
-  [PhoneNumberSummaryList](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbers.html#connect-ListPhoneNumbers-response-PhoneNumberSummaryList)
-  cannot be used to tag phone number resources. It will fail
-  with a `ResourceNotFoundException`. Instead, use the
-  [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html)
-  API.
-  It returns the new phone number ARN that can be used to tag phone number
-  resources.
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+    The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
+  * `:phone_number_country_codes`
+    (`t:list[com.amazonaws.connect#PhoneNumberCountryCode]`) The ISO country
+    code.
+  * `:phone_number_types` (`t:list[com.amazonaws.connect#PhoneNumberType]`) The
+    type of phone number.
   """
-  @spec list_phone_numbers(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_phone_numbers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_phone_numbers_errors()}
-  def list_phone_numbers(
-        %Client{} = client,
-        instance_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        phone_number_country_codes \\ nil,
-        phone_number_types \\ nil,
-        options \\ []
-      ) do
+  def list_phone_numbers(%Client{} = client, instance_id, options \\ []) do
     url_path = "/phone-numbers-summary/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = [
+      max_results: nil,
+      next_token: nil,
+      phone_number_country_codes: nil,
+      phone_number_types: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(phone_number_types) do
-        [{"phoneNumberTypes", phone_number_types} | query_params]
+      if opt_val = Keyword.get(options, :phone_number_types) do
+        [{"phoneNumberTypes", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(phone_number_country_codes) do
-        [{"phoneNumberCountryCodes", phone_number_country_codes} | query_params]
+      if opt_val = Keyword.get(options, :phone_number_country_codes) do
+        [{"phoneNumberCountryCodes", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :max_results,
+        :next_token,
+        :phone_number_country_codes,
+        :phone_number_types
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists phone numbers claimed to your Amazon Connect instance or traffic
-  distribution group.
-
-  If the provided
-  `TargetArn` is a traffic distribution group, you can call this API in both
-  Amazon Web Services Regions
-  associated with traffic distribution group.
-
-  For more information about phone numbers, see [Set Up Phone Numbers for Your Contact
+  distribution group. If the provided `TargetArn` is a traffic distribution
+  group, you can call this API in both Amazon Web Services Regions associated
+  with traffic distribution group. For more information about phone numbers, see
+  [Set Up Phone Numbers for Your Contact
   Center](https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html)
-  in the *Amazon Connect Administrator
-  Guide*.
+  in the *Amazon Connect Administrator Guide*.
 
-    
-  When given an instance ARN, `ListPhoneNumbersV2` returns only the phone
-  numbers claimed to the instance.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListPhoneNumbersV2&this_doc_guide=API%2520Reference)
 
-    
-  When given a traffic distribution group ARN `ListPhoneNumbersV2` returns only
-  the phone numbers
-  claimed to the traffic distribution group.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_phone_numbers_v2(map(), list_phone_numbers_v2_request(), list()) ::
+  @spec list_phone_numbers_v2(AWS.Client.t(), list_phone_numbers_v2_request(), Keyword.t()) ::
           {:ok, list_phone_numbers_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_phone_numbers_v2_errors()}
@@ -16270,7 +18019,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -16287,37 +18037,65 @@ defmodule AWS.Connect do
 
   @doc """
   Lists predefined attributes for the specified Amazon Connect instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListPredefinedAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_predefined_attributes(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_predefined_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_predefined_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_predefined_attributes_errors()}
-  def list_predefined_attributes(
-        %Client{} = client,
-        instance_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_predefined_attributes(%Client{} = client, instance_id, options \\ []) do
     url_path = "/predefined-attributes/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -16325,37 +18103,65 @@ defmodule AWS.Connect do
   @doc """
   Provides information about the prompts for the specified Amazon Connect
   instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListPrompts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+    The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_prompts(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_prompts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_prompts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_prompts_errors()}
-  def list_prompts(
-        %Client{} = client,
-        instance_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_prompts(%Client{} = client, instance_id, options \\ []) do
     url_path = "/prompts-summary/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -16363,110 +18169,145 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Lists the quick connects associated with a queue.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListQueueQuickConnects&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:queue_id` (`t:string`) The identifier for the queue.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+    The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_queue_quick_connects(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_queue_quick_connects(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_queue_quick_connects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_queue_quick_connects_errors()}
-  def list_queue_quick_connects(
-        %Client{} = client,
-        instance_id,
-        queue_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_queue_quick_connects(%Client{} = client, instance_id, queue_id, options \\ []) do
     url_path =
       "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/quick-connects"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Provides information about the queues for the specified Amazon Connect instance.
+  If you do not specify a `QueueTypes` parameter, both standard and agent queues
+  are returned. This might cause an unexpected truncation of results if you have
+  more than 1000 agents and you limit the number of results of the API call in
+  code.
 
-  If you do not specify a `QueueTypes`
-  parameter, both standard and agent queues are returned. This might cause an
-  unexpected truncation
-  of results if you have more than 1000 agents and you limit the number of results
-  of the API call
-  in code.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListQueues&this_doc_guide=API%2520Reference)
 
-  For more information about queues, see [Queues: Standard and Agent](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-queues-standard-and-agent.html)
-  in the *Amazon Connect Administrator Guide*.
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+    The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
+  * `:queue_types` (`t:list[com.amazonaws.connect#QueueType]`) The type of queue.
   """
-  @spec list_queues(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_queues(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_queues_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_queues_errors()}
-  def list_queues(
-        %Client{} = client,
-        instance_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        queue_types \\ nil,
-        options \\ []
-      ) do
+  def list_queues(%Client{} = client, instance_id, options \\ []) do
     url_path = "/queues-summary/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, queue_types: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(queue_types) do
-        [{"queueTypes", queue_types} | query_params]
+      if opt_val = Keyword.get(options, :queue_types) do
+        [{"queueTypes", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :queue_types])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -16474,65 +18315,100 @@ defmodule AWS.Connect do
   @doc """
   Provides information about the quick connects for the specified Amazon Connect
   instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListQuickConnects&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+    The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
+  * `:quick_connect_types` (`t:list[com.amazonaws.connect#QuickConnectType]`) The
+    type of quick connect. In the Amazon Connect admin website, when you create
+    a quick connect, you are prompted to assign one of the following types:
+    Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
   """
-  @spec list_quick_connects(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_quick_connects(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_quick_connects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_quick_connects_errors()}
-  def list_quick_connects(
-        %Client{} = client,
-        instance_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        quick_connect_types \\ nil,
-        options \\ []
-      ) do
+  def list_quick_connects(%Client{} = client, instance_id, options \\ []) do
     url_path = "/quick-connects/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, quick_connect_types: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(quick_connect_types) do
-        [{"QuickConnectTypes", quick_connect_types} | query_params]
+      if opt_val = Keyword.get(options, :quick_connect_types) do
+        [{"QuickConnectTypes", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :quick_connect_types])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Provides a list of analysis segments for a real-time analysis session.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListRealtimeContactAnalysisSegmentsV2&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:contact_id` (`t:string`) The identifier of the contact in this instance of
+    Amazon Connect.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec list_realtime_contact_analysis_segments_v2(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           list_realtime_contact_analysis_segments_v2_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_realtime_contact_analysis_segments_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -16550,7 +18426,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -16567,15 +18444,22 @@ defmodule AWS.Connect do
 
   @doc """
   Lists the queues associated with a routing profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListRoutingProfileQueues&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+    The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_routing_profile_queues(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_routing_profile_queues(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_routing_profile_queues_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_routing_profile_queues_errors()}
@@ -16583,135 +18467,206 @@ defmodule AWS.Connect do
         %Client{} = client,
         instance_id,
         routing_profile_id,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/queues"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Provides summary information about the routing profiles for the specified Amazon
-  Connect
-  instance.
+  Connect instance.
 
-  For more information about routing profiles, see [Routing Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing.html)
-  and [Create a Routing Profile](https://docs.aws.amazon.com/connect/latest/adminguide/routing-profiles.html)
-  in the *Amazon Connect Administrator Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListRoutingProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+    The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_routing_profiles(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_routing_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_routing_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_routing_profiles_errors()}
-  def list_routing_profiles(
-        %Client{} = client,
-        instance_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_routing_profiles(%Client{} = client, instance_id, options \\ []) do
     url_path = "/routing-profiles-summary/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List all rules for the specified Amazon Connect instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:event_source_name`
+    (`t:enum["OnCaseCreate|OnCaseUpdate|OnContactEvaluationSubmit|OnMetricDataUpdate|OnPostCallAnalysisAvailable|OnPostChatAnalysisAvailable|OnRealTimeCallAnalysisAvailable|OnRealTimeChatAnalysisAvailable|OnSalesforceCaseCreate|OnZendeskTicketCreate|OnZendeskTicketStatusUpdate"]`)
+    The name of the event source.
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
+  * `:publish_status` (`t:enum["DRAFT|PUBLISHED"]`) The publish status of the
+    rule.
   """
-  @spec list_rules(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_rules(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rules_errors()}
-  def list_rules(
-        %Client{} = client,
-        instance_id,
-        event_source_name \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        publish_status \\ nil,
-        options \\ []
-      ) do
+  def list_rules(%Client{} = client, instance_id, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = [
+      event_source_name: nil,
+      max_results: nil,
+      next_token: nil,
+      publish_status: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(publish_status) do
-        [{"publishStatus", publish_status} | query_params]
+      if opt_val = Keyword.get(options, :publish_status) do
+        [{"publishStatus", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(event_source_name) do
-        [{"eventSourceName", event_source_name} | query_params]
+      if opt_val = Keyword.get(options, :event_source_name) do
+        [{"eventSourceName", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:event_source_name, :max_results, :next_token, :publish_status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -16719,53 +18674,85 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Returns a paginated list of all security keys associated with the instance.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListSecurityKeys&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_security_keys(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_security_keys(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_security_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_security_keys_errors()}
-  def list_security_keys(
-        %Client{} = client,
-        instance_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_security_keys(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/security-keys"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of third-party applications in a specific security profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListSecurityProfileApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:security_profile_id` (`t:string`) The identifier for the security profle.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_security_profile_applications(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_security_profile_applications(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_security_profile_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_security_profile_applications_errors()}
@@ -16773,46 +18760,71 @@ defmodule AWS.Connect do
         %Client{} = client,
         instance_id,
         security_profile_id,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/security-profiles-applications/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(security_profile_id)}"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the permissions granted to a security profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListSecurityProfilePermissions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:security_profile_id` (`t:string`) The identifier for the security profle.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_security_profile_permissions(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_security_profile_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_security_profile_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_security_profile_permissions_errors()}
@@ -16820,31 +18832,50 @@ defmodule AWS.Connect do
         %Client{} = client,
         instance_id,
         security_profile_id,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/security-profiles-permissions/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(security_profile_id)}"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -16853,40 +18884,65 @@ defmodule AWS.Connect do
   Provides summary information about the security profiles for the specified
   Amazon Connect instance.
 
-  For more information about security profiles, see [Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html)
-  in the
-  *Amazon Connect Administrator Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListSecurityProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+    The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_security_profiles(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_security_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_security_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_security_profiles_errors()}
-  def list_security_profiles(
-        %Client{} = client,
-        instance_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_security_profiles(%Client{} = client, instance_id, options \\ []) do
     url_path = "/security-profiles-summary/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -16894,307 +18950,474 @@ defmodule AWS.Connect do
   @doc """
   Lists the tags for the specified resource.
 
-  For sample policies that use tags, see [Amazon Connect Identity-Based Policy
-  Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html)
-  in the *Amazon Connect Administrator
-  Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+    All Amazon Connect resources (instances, queues, flows, routing profiles,
+    etc) have an ARN. To locate the ARN for an instance, for example, see Find
+    your Amazon Connect instance ID/ARN.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists task templates for the specified Amazon Connect instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListTaskTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:name` (`t:string`) The name of the task template.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
+  * `:status` (`t:enum["ACTIVE|INACTIVE"]`) Marks a template as ACTIVE or INACTIVE
+    for a task to refer to it. Tasks can only be created from ACTIVE templates.
+    If a template is marked as INACTIVE, then a task that refers to this
+    template cannot be created.
   """
-  @spec list_task_templates(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_task_templates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_task_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_task_templates_errors()}
-  def list_task_templates(
-        %Client{} = client,
-        instance_id,
-        max_results \\ nil,
-        name \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_task_templates(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/task/template"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, name: nil, next_token: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
+      if opt_val = Keyword.get(options, :name) do
+        [{"name", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :name, :next_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists traffic distribution group users.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListTrafficDistributionGroupUsers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:traffic_distribution_group_id` (`t:string`) The identifier of the traffic
+    distribution group. This can be the ID or the ARN if the API is being called
+    in the Region where the traffic distribution group was created. The ARN must
+    be provided if the call is from the replicated Region.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_traffic_distribution_group_users(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_traffic_distribution_group_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_traffic_distribution_group_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_traffic_distribution_group_users_errors()}
   def list_traffic_distribution_group_users(
         %Client{} = client,
         traffic_distribution_group_id,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/traffic-distribution-group/#{AWS.Util.encode_uri(traffic_distribution_group_id)}/user"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists traffic distribution groups.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListTrafficDistributionGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_traffic_distribution_groups(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_traffic_distribution_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_traffic_distribution_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_traffic_distribution_groups_errors()}
-  def list_traffic_distribution_groups(
-        %Client{} = client,
-        instance_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_traffic_distribution_groups(%Client{} = client, options \\ []) do
     url_path = "/traffic-distribution-groups"
+
+    # Validate optional parameters
+    optional_params = [instance_id: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(instance_id) do
-        [{"instanceId", instance_id} | query_params]
+      if opt_val = Keyword.get(options, :instance_id) do
+        [{"instanceId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:instance_id, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the use cases for the integration association.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListUseCases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:integration_association_id` (`t:string`) The identifier for the integration
+    association.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_use_cases(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_use_cases(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_use_cases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_use_cases_errors()}
-  def list_use_cases(
-        %Client{} = client,
-        instance_id,
-        integration_association_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_use_cases(%Client{} = client, instance_id, integration_association_id, options \\ []) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations/#{AWS.Util.encode_uri(integration_association_id)}/use-cases"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Provides summary information about the hierarchy groups for the specified Amazon
-  Connect
-  instance.
+  Connect instance.
 
-  For more information about agent hierarchies, see [Set Up Agent Hierarchies](https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html)
-  in the
-  *Amazon Connect Administrator Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListUserHierarchyGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+    The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_user_hierarchy_groups(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_user_hierarchy_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_user_hierarchy_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_user_hierarchy_groups_errors()}
-  def list_user_hierarchy_groups(
-        %Client{} = client,
-        instance_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_user_hierarchy_groups(%Client{} = client, instance_id, options \\ []) do
     url_path = "/user-hierarchy-groups-summary/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists proficiencies associated with a user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListUserProficiencies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier of the user account.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_user_proficiencies(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_user_proficiencies(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_user_proficiencies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_user_proficiencies_errors()}
-  def list_user_proficiencies(
-        %Client{} = client,
-        instance_id,
-        user_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_user_proficiencies(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path =
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/proficiencies"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -17202,88 +19425,136 @@ defmodule AWS.Connect do
   @doc """
   Provides summary information about the users for the specified Amazon Connect
   instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListUsers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+    The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_users(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_users_errors()}
-  def list_users(
-        %Client{} = client,
-        instance_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_users(%Client{} = client, instance_id, options \\ []) do
     url_path = "/users-summary/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns all the available versions for the specified Amazon Connect instance and
-  view
-  identifier.
+  view identifier.
 
-  Results will be sorted from highest to lowest.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListViewVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instanceId in the ARN of the instance.
+  * `:view_id` (`t:string`) The identifier of the view. Both ViewArn and ViewId
+    can be used.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+    The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_view_versions(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_view_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_view_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_view_versions_errors()}
-  def list_view_versions(
-        %Client{} = client,
-        instance_id,
-        view_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_view_versions(%Client{} = client, instance_id, view_id, options \\ []) do
     url_path =
       "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}/versions"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -17291,65 +19562,89 @@ defmodule AWS.Connect do
   @doc """
   Returns views in the given instance.
 
-  Results are sorted primarily by type, and secondarily by name.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ListViews&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instanceId in the ARN of the instance.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+    The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
+  * `:type` (`t:enum["AWS_MANAGED|CUSTOMER_MANAGED"]`) The type of the view.
   """
-  @spec list_views(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_views(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_views_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_views_errors()}
-  def list_views(
-        %Client{} = client,
-        instance_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        type \\ nil,
-        options \\ []
-      ) do
+  def list_views(%Client{} = client, instance_id, options \\ []) do
     url_path = "/views/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
+      if opt_val = Keyword.get(options, :type) do
+        [{"type", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Initiates silent monitoring of a contact.
-
-  The Contact Control Panel (CCP) of the user
-  specified by *userId* will be set to silent monitoring mode on the
+  Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the
+  user specified by *userId* will be set to silent monitoring mode on the
   contact.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20MonitorContact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec monitor_contact(map(), monitor_contact_request(), list()) ::
+  @spec monitor_contact(AWS.Client.t(), monitor_contact_request(), Keyword.t()) ::
           {:ok, monitor_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, monitor_contact_errors()}
@@ -17358,7 +19653,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -17375,8 +19671,14 @@ defmodule AWS.Connect do
 
   @doc """
   Allows pausing an ongoing task contact.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20PauseContact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec pause_contact(map(), pause_contact_request(), list()) ::
+  @spec pause_contact(AWS.Client.t(), pause_contact_request(), Keyword.t()) ::
           {:ok, pause_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, pause_contact_errors()}
@@ -17385,7 +19687,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -17401,16 +19704,25 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Changes the current status of a user or agent in Amazon Connect.
-
-  If the agent is
+  Changes the current status of a user or agent in Amazon Connect. If the agent is
   currently handling a contact, this sets the agent's next status.
 
-  For more information, see [Agent status](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-agent-status.html)
-  and [Set your next status](https://docs.aws.amazon.com/connect/latest/adminguide/set-next-status.html)
-  in the *Amazon Connect Administrator Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20PutUserStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier of the user.
+
+  ## Optional parameters:
   """
-  @spec put_user_status(map(), String.t(), String.t(), put_user_status_request(), list()) ::
+  @spec put_user_status(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          put_user_status_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_user_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_user_status_errors()}
@@ -17419,53 +19731,39 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Releases a phone number previously claimed to an Amazon Connect instance or
-  traffic distribution group.
+  traffic distribution group. You can call this API only in the Amazon Web
+  Services Region where the number was claimed. To release phone numbers from a
+  traffic distribution group, use the `ReleasePhoneNumber` API, not the Amazon
+  Connect admin website. After releasing a phone number, the phone number enters
+  into a cooldown period for up to 180 days. It cannot be searched for or
+  claimed again until the period has ended. If you accidentally release a phone
+  number, contact Amazon Web Services Support.
 
-  You
-  can call this API only in the Amazon Web Services Region where the number was
-  claimed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ReleasePhoneNumber&this_doc_guide=API%2520Reference)
 
-  To release phone numbers from a traffic distribution group, use the
-  `ReleasePhoneNumber` API, not the
-  Amazon Connect admin website.
+  ## Parameters:
+  * `:phone_number_id` (`t:string`) A unique identifier for the phone number.
 
-  After releasing a phone number, the phone number enters into a cooldown period
-  for up to
-  180 days. It cannot be searched for or claimed again until the period has ended.
-  If you
-  accidentally release a phone number, contact Amazon Web Services Support.
-
-  If you plan to claim and release numbers frequently,
-  contact us for a service quota exception. Otherwise, it is possible you will be
-  blocked from
-  claiming and releasing any more numbers until up to 180 days past the oldest
-  number
-  released has expired.
-
-  By default you can claim and release up to 200% of your maximum number of active
-  phone numbers. If you claim and release phone numbers using
-  the UI or API during a rolling 180 day cycle that exceeds 200% of your phone
-  number
-  service level quota, you will be blocked from claiming any more numbers until
-  180
-  days past the oldest number released has expired.
-
-  For example, if you already have 99 claimed numbers and a service level quota of
-  99 phone numbers, and in any 180
-  day period you release 99, claim 99, and then release 99, you will have exceeded
-  the
-  200% limit. At that point you are blocked from claiming any more numbers until
-  you
-  open an Amazon Web Services support ticket.
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A unique, case-sensitive identifier that you
+    provide to ensure the idempotency of the request. If not provided, the
+    Amazon Web Services SDK populates this field. For more information about
+    idempotency, see Making retries safe with idempotent APIs.
   """
-  @spec release_phone_number(map(), String.t(), release_phone_number_request(), list()) ::
+  @spec release_phone_number(
+          AWS.Client.t(),
+          String.t(),
+          release_phone_number_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, release_phone_number_errors()}
@@ -17479,7 +19777,13 @@ defmodule AWS.Connect do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -17496,16 +19800,19 @@ defmodule AWS.Connect do
 
   @doc """
   Replicates an Amazon Connect instance in the specified Amazon Web Services
-  Region and
-  copies configuration information for Amazon Connect resources across Amazon Web
-  Services Regions.
+  Region and copies configuration information for Amazon Connect resources
+  across Amazon Web Services Regions.
 
-  For more information about replicating an Amazon Connect instance, see [Create a replica of your existing Amazon Connect
-  instance](https://docs.aws.amazon.com/connect/latest/adminguide/create-replica-connect-instance.html)
-  in the *Amazon Connect
-  Administrator Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ReplicateInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+    You can provide the InstanceId, or the entire ARN.
+
+  ## Optional parameters:
   """
-  @spec replicate_instance(map(), String.t(), replicate_instance_request(), list()) ::
+  @spec replicate_instance(AWS.Client.t(), String.t(), replicate_instance_request(), Keyword.t()) ::
           {:ok, replicate_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, replicate_instance_errors()}
@@ -17514,7 +19821,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -17531,8 +19839,14 @@ defmodule AWS.Connect do
 
   @doc """
   Allows resuming a task contact in a paused state.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ResumeContact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec resume_contact(map(), resume_contact_request(), list()) ::
+  @spec resume_contact(AWS.Client.t(), resume_contact_request(), Keyword.t()) ::
           {:ok, resume_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resume_contact_errors()}
@@ -17541,7 +19855,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -17559,15 +19874,16 @@ defmodule AWS.Connect do
   @doc """
   When a contact is being recorded, and the recording has been suspended using
   SuspendContactRecording, this API resumes recording whatever recording is
-  selected in the flow
-  configuration: call, screen, or both.
+  selected in the flow configuration: call, screen, or both. If only call
+  recording or only screen recording is enabled, then it would resume.
 
-  If only call recording or only screen recording is enabled,
-  then it would resume.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20ResumeContactRecording&this_doc_guide=API%2520Reference)
 
-  Voice and screen recordings are supported.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec resume_contact_recording(map(), resume_contact_recording_request(), list()) ::
+  @spec resume_contact_recording(AWS.Client.t(), resume_contact_recording_request(), Keyword.t()) ::
           {:ok, resume_contact_recording_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resume_contact_recording_errors()}
@@ -17576,7 +19892,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -17593,14 +19910,21 @@ defmodule AWS.Connect do
 
   @doc """
   Searches for available phone numbers that you can claim to your Amazon Connect
-  instance
-  or traffic distribution group.
+  instance or traffic distribution group. If the provided `TargetArn` is a
+  traffic distribution group, you can call this API in both Amazon Web Services
+  Regions associated with the traffic distribution group.
 
-  If the provided `TargetArn` is a traffic distribution group, you can call this
-  API in both
-  Amazon Web Services Regions associated with the traffic distribution group.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchAvailablePhoneNumbers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec search_available_phone_numbers(map(), search_available_phone_numbers_request(), list()) ::
+  @spec search_available_phone_numbers(
+          AWS.Client.t(),
+          search_available_phone_numbers_request(),
+          Keyword.t()
+        ) ::
           {:ok, search_available_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_available_phone_numbers_errors()}
@@ -17609,7 +19933,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -17627,8 +19952,18 @@ defmodule AWS.Connect do
   @doc """
   Searches the flow modules in an Amazon Connect instance, with optional
   filtering.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchContactFlowModules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec search_contact_flow_modules(map(), search_contact_flow_modules_request(), list()) ::
+  @spec search_contact_flow_modules(
+          AWS.Client.t(),
+          search_contact_flow_modules_request(),
+          Keyword.t()
+        ) ::
           {:ok, search_contact_flow_modules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_contact_flow_modules_errors()}
@@ -17637,7 +19972,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -17655,8 +19991,14 @@ defmodule AWS.Connect do
   @doc """
   Searches the contact flows in an Amazon Connect instance, with optional
   filtering.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchContactFlows&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec search_contact_flows(map(), search_contact_flows_request(), list()) ::
+  @spec search_contact_flows(AWS.Client.t(), search_contact_flows_request(), Keyword.t()) ::
           {:ok, search_contact_flows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_contact_flows_errors()}
@@ -17665,7 +20007,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -17682,8 +20025,14 @@ defmodule AWS.Connect do
 
   @doc """
   Searches contacts in an Amazon Connect instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchContacts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec search_contacts(map(), search_contacts_request(), list()) ::
+  @spec search_contacts(AWS.Client.t(), search_contacts_request(), Keyword.t()) ::
           {:ok, search_contacts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_contacts_errors()}
@@ -17692,7 +20041,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -17710,8 +20060,18 @@ defmodule AWS.Connect do
   @doc """
   Searches the hours of operation in an Amazon Connect instance, with optional
   filtering.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchHoursOfOperations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec search_hours_of_operations(map(), search_hours_of_operations_request(), list()) ::
+  @spec search_hours_of_operations(
+          AWS.Client.t(),
+          search_hours_of_operations_request(),
+          Keyword.t()
+        ) ::
           {:ok, search_hours_of_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_hours_of_operations_errors()}
@@ -17720,7 +20080,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -17737,8 +20098,18 @@ defmodule AWS.Connect do
 
   @doc """
   Predefined attributes that meet certain criteria.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchPredefinedAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec search_predefined_attributes(map(), search_predefined_attributes_request(), list()) ::
+  @spec search_predefined_attributes(
+          AWS.Client.t(),
+          search_predefined_attributes_request(),
+          Keyword.t()
+        ) ::
           {:ok, search_predefined_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_predefined_attributes_errors()}
@@ -17747,7 +20118,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -17764,8 +20136,14 @@ defmodule AWS.Connect do
 
   @doc """
   Searches prompts in an Amazon Connect instance, with optional filtering.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchPrompts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec search_prompts(map(), search_prompts_request(), list()) ::
+  @spec search_prompts(AWS.Client.t(), search_prompts_request(), Keyword.t()) ::
           {:ok, search_prompts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_prompts_errors()}
@@ -17774,7 +20152,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -17791,8 +20170,14 @@ defmodule AWS.Connect do
 
   @doc """
   Searches queues in an Amazon Connect instance, with optional filtering.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchQueues&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec search_queues(map(), search_queues_request(), list()) ::
+  @spec search_queues(AWS.Client.t(), search_queues_request(), Keyword.t()) ::
           {:ok, search_queues_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_queues_errors()}
@@ -17801,7 +20186,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -17818,8 +20204,14 @@ defmodule AWS.Connect do
 
   @doc """
   Searches quick connects in an Amazon Connect instance, with optional filtering.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchQuickConnects&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec search_quick_connects(map(), search_quick_connects_request(), list()) ::
+  @spec search_quick_connects(AWS.Client.t(), search_quick_connects_request(), Keyword.t()) ::
           {:ok, search_quick_connects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_quick_connects_errors()}
@@ -17828,7 +20220,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -17845,8 +20238,14 @@ defmodule AWS.Connect do
 
   @doc """
   Searches tags used in an Amazon Connect instance using optional search criteria.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchResourceTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec search_resource_tags(map(), search_resource_tags_request(), list()) ::
+  @spec search_resource_tags(AWS.Client.t(), search_resource_tags_request(), Keyword.t()) ::
           {:ok, search_resource_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_resource_tags_errors()}
@@ -17855,7 +20254,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -17873,8 +20273,14 @@ defmodule AWS.Connect do
   @doc """
   Searches routing profiles in an Amazon Connect instance, with optional
   filtering.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchRoutingProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec search_routing_profiles(map(), search_routing_profiles_request(), list()) ::
+  @spec search_routing_profiles(AWS.Client.t(), search_routing_profiles_request(), Keyword.t()) ::
           {:ok, search_routing_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_routing_profiles_errors()}
@@ -17883,7 +20289,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -17901,8 +20308,14 @@ defmodule AWS.Connect do
   @doc """
   Searches security profiles in an Amazon Connect instance, with optional
   filtering.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchSecurityProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec search_security_profiles(map(), search_security_profiles_request(), list()) ::
+  @spec search_security_profiles(AWS.Client.t(), search_security_profiles_request(), Keyword.t()) ::
           {:ok, search_security_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_security_profiles_errors()}
@@ -17911,7 +20324,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -17929,9 +20343,13 @@ defmodule AWS.Connect do
   @doc """
   Searches users in an Amazon Connect instance, with optional filtering.
 
-  `AfterContactWorkTimeLimit` is returned in milliseconds.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchUsers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec search_users(map(), search_users_request(), list()) ::
+  @spec search_users(AWS.Client.t(), search_users_request(), Keyword.t()) ::
           {:ok, search_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_users_errors()}
@@ -17940,7 +20358,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -17958,8 +20377,21 @@ defmodule AWS.Connect do
   @doc """
   Searches for vocabularies within a specific Amazon Connect instance using
   `State`, `NameStartsWith`, and `LanguageCode`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchVocabularies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec search_vocabularies(map(), String.t(), search_vocabularies_request(), list()) ::
+  @spec search_vocabularies(
+          AWS.Client.t(),
+          String.t(),
+          search_vocabularies_request(),
+          Keyword.t()
+        ) ::
           {:ok, search_vocabularies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_vocabularies_errors()}
@@ -17968,7 +20400,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -17985,29 +20418,19 @@ defmodule AWS.Connect do
 
   @doc """
   Processes chat integration events from Amazon Web Services or external
-  integrations to
-  Amazon Connect.
+  integrations to Amazon Connect. A chat integration event includes:
 
-  A chat integration event includes:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SendChatIntegrationEvent&this_doc_guide=API%2520Reference)
 
-    *
-  SourceId, DestinationId, and Subtype: a set of identifiers, uniquely
-  representing a
-  chat
+  ## Parameters:
 
-    *
-  ChatEvent: details of the chat action to perform such as sending a message,
-  event, or
-  disconnecting from a chat
-
-  When a chat integration event is sent with chat identifiers that do not map to
-  an active
-  chat contact, a new chat contact is also created before handling chat action.
-
-  Access to this API is currently restricted to Amazon Pinpoint for supporting SMS
-  integration.
+  ## Optional parameters:
   """
-  @spec send_chat_integration_event(map(), send_chat_integration_event_request(), list()) ::
+  @spec send_chat_integration_event(
+          AWS.Client.t(),
+          send_chat_integration_event_request(),
+          Keyword.t()
+        ) ::
           {:ok, send_chat_integration_event_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_chat_integration_event_errors()}
@@ -18016,7 +20439,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -18034,13 +20458,21 @@ defmodule AWS.Connect do
   @doc """
   Provides a pre-signed Amazon S3 URL in response for uploading your content.
 
-  You may only use this API to upload attachments to an [Amazon Connect Case](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20StartAttachedFileUpload&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The unique identifier of the Amazon Connect
+    instance.
+  * `:associated_resource_arn` (`t:string`) The resource to which the attached
+    file is (being) uploaded to. Cases are the only current supported resource.
+
+  ## Optional parameters:
   """
   @spec start_attached_file_upload(
-          map(),
+          AWS.Client.t(),
           String.t(),
           start_attached_file_upload_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_attached_file_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -18055,52 +20487,30 @@ defmodule AWS.Connect do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Initiates a flow to start a new chat for the customer.
-
-  Response of this API provides a token
-  required to obtain credentials from the
-  [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html) API in the Amazon Connect Participant Service.
-
-  When a new chat contact is successfully created, clients must subscribe to the
-  participant’s
-  connection for the created chat within 5 minutes. This is achieved by invoking
+  Initiates a flow to start a new chat for the customer. Response of this API
+  provides a token required to obtain credentials from the
   [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html)
-  with WEBSOCKET and CONNECTION_CREDENTIALS.
+  API in the Amazon Connect Participant Service. When a new chat contact is
+  successfully created, clients must subscribe to the participant’s connection
+  for the created chat within 5 minutes. This is achieved by invoking
+  [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html)
+  with WEBSOCKET and CONNECTION_CREDENTIALS. A 429 error occurs in the following
+  situations:
 
-  A 429 error occurs in the following situations:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20StartChatContact&this_doc_guide=API%2520Reference)
 
-    *
-  API rate limit is exceeded. API TPS throttling returns a `TooManyRequests`
-  exception.
+  ## Parameters:
 
-    *
-  The [quota for concurrent active chats](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
-  is exceeded. Active chat throttling returns a
-  `LimitExceededException`.
-
-  If you use the `ChatDurationInMinutes` parameter and receive a 400 error, your
-  account may not support the ability to configure custom chat durations. For more
-  information,
-  contact Amazon Web Services Support.
-
-  For more information about chat, see the following topics in the *Amazon Connect
-  Administrator Guide*:
-
-    *
-
-  [Concepts: Web and mobile messaging capabilities in Amazon Connect](https://docs.aws.amazon.com/connect/latest/adminguide/web-and-mobile-chat.html)
-
-    *
-
-  [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat)
+  ## Optional parameters:
   """
-  @spec start_chat_contact(map(), start_chat_contact_request(), list()) ::
+  @spec start_chat_contact(AWS.Client.t(), start_chat_contact_request(), Keyword.t()) ::
           {:ok, start_chat_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_chat_contact_errors()}
@@ -18109,26 +20519,33 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Starts an empty evaluation in the specified Amazon Connect instance, using the
-  given
-  evaluation form for the particular contact.
+  given evaluation form for the particular contact. The evaluation form version
+  used for the contact evaluation corresponds to the currently activated
+  version. If no version is activated for the evaluation form, the contact
+  evaluation cannot be started.
 
-  The evaluation form version used for the contact
-  evaluation corresponds to the currently activated version. If no version is
-  activated for the
-  evaluation form, the contact evaluation cannot be started.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20StartContactEvaluation&this_doc_guide=API%2520Reference)
 
-  Evaluations created through the public API do not contain answer values
-  suggested from
-  automation.
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec start_contact_evaluation(map(), String.t(), start_contact_evaluation_request(), list()) ::
+  @spec start_contact_evaluation(
+          AWS.Client.t(),
+          String.t(),
+          start_contact_evaluation_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_contact_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_contact_evaluation_errors()}
@@ -18137,7 +20554,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -18145,31 +20563,13 @@ defmodule AWS.Connect do
   @doc """
   Starts recording the contact:
 
-    *
-  If the API is called *before* the agent joins the call, recording
-  starts when the agent joins the call.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20StartContactRecording&this_doc_guide=API%2520Reference)
 
-    *
-  If the API is called *after* the agent joins the call, recording starts
-  at the time of the API call.
+  ## Parameters:
 
-  StartContactRecording is a one-time action. For example, if you use
-  StopContactRecording to
-  stop recording an ongoing call, you can't use StartContactRecording to restart
-  it. For scenarios
-  where the recording has started and you want to suspend and resume it, such as
-  when collecting
-  sensitive information (for example, a credit card number), use
-  SuspendContactRecording and
-  ResumeContactRecording.
-
-  You can use this API to override the recording behavior configured in the [Set recording
-  behavior](https://docs.aws.amazon.com/connect/latest/adminguide/set-recording-behavior.html)
-  block.
-
-  Only voice recordings are supported at this time.
+  ## Optional parameters:
   """
-  @spec start_contact_recording(map(), start_contact_recording_request(), list()) ::
+  @spec start_contact_recording(AWS.Client.t(), start_contact_recording_request(), Keyword.t()) ::
           {:ok, start_contact_recording_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_contact_recording_errors()}
@@ -18178,7 +20578,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -18194,23 +20595,19 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Initiates real-time message streaming for a new chat contact.
+  Initiates real-time message streaming for a new chat contact. For more
+  information about message streaming, see [Enable real-time chat message
+  streaming](https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html)
+  in the *Amazon Connect Administrator Guide*. For more information about chat,
+  see the following topics in the *Amazon Connect Administrator Guide*:
 
-  For more information about message streaming, see [Enable real-time chat message streaming](https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html)
-  in the *Amazon Connect Administrator Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20StartContactStreaming&this_doc_guide=API%2520Reference)
 
-  For more information about chat, see the following topics in the *Amazon Connect
-  Administrator Guide*:
+  ## Parameters:
 
-    *
-
-  [Concepts: Web and mobile messaging capabilities in Amazon Connect](https://docs.aws.amazon.com/connect/latest/adminguide/web-and-mobile-chat.html)
-
-    *
-
-  [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat)
+  ## Optional parameters:
   """
-  @spec start_contact_streaming(map(), start_contact_streaming_request(), list()) ::
+  @spec start_contact_streaming(AWS.Client.t(), start_contact_streaming_request(), Keyword.t()) ::
           {:ok, start_contact_streaming_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_contact_streaming_errors()}
@@ -18219,7 +20616,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -18235,34 +20633,23 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Places an outbound call to a contact, and then initiates the flow.
-
-  It performs the actions
-  in the flow that's specified (in `ContactFlowId`).
-
-  Agents do not initiate the outbound API, which means that they do not dial the
-  contact. If
+  Places an outbound call to a contact, and then initiates the flow. It performs
+  the actions in the flow that's specified (in `ContactFlowId`). Agents do not
+  initiate the outbound API, which means that they do not dial the contact. If
   the flow places an outbound call to a contact, and then puts the contact in
-  queue, the call is
-  then routed to the agent, like any other inbound case.
+  queue, the call is then routed to the agent, like any other inbound case.
 
-  There is a 60-second dialing timeout for this operation. If the call is not
-  connected after
-  60 seconds, it fails.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20StartOutboundVoiceContact&this_doc_guide=API%2520Reference)
 
-  UK numbers with a 447 prefix are not allowed by default. Before you can dial
-  these UK
-  mobile numbers, you must submit a service quota increase request. For more
-  information, see
-  [Amazon Connect Service Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
-  in the *Amazon Connect Administrator
-  Guide*.
+  ## Parameters:
 
-  Campaign calls are not allowed by default. Before you can make a call with
-  `TrafficType` = `CAMPAIGN`, you must submit a service quota increase
-  request to the quota [Amazon Connect campaigns](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas).
+  ## Optional parameters:
   """
-  @spec start_outbound_voice_contact(map(), start_outbound_voice_contact_request(), list()) ::
+  @spec start_outbound_voice_contact(
+          AWS.Client.t(),
+          start_outbound_voice_contact_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_outbound_voice_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_outbound_voice_contact_errors()}
@@ -18271,72 +20658,26 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Initiates a flow to start a new task contact.
-
-  For more information about task contacts, see
-  [Concepts: Tasks in Amazon
+  Initiates a flow to start a new task contact. For more information about task
+  contacts, see [Concepts: Tasks in Amazon
   Connect](https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html) in
-  the *Amazon Connect Administrator Guide*.
+  the *Amazon Connect Administrator Guide*. When using `PreviousContactId` and
+  `RelatedContactId` input parameters, note the following:
 
-  When using `PreviousContactId` and `RelatedContactId` input
-  parameters, note the following:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20StartTaskContact&this_doc_guide=API%2520Reference)
 
-    *
+  ## Parameters:
 
-  `PreviousContactId`
-
-      *
-  Any updates to user-defined task contact attributes on any contact linked
-  through the
-  same `PreviousContactId` will affect every contact in the chain.
-
-      *
-  There can be a maximum of 12 linked task contacts in a chain. That is, 12 task
-  contacts
-  can be created that share the same `PreviousContactId`.
-
-    *
-
-  `RelatedContactId`
-
-      *
-  Copies contact attributes from the related task contact to the new contact.
-
-      *
-  Any update on attributes in a new task contact does not update attributes on
-  previous
-  contact.
-
-      *
-  There’s no limit on the number of task contacts that can be created that use the
-  same
-  `RelatedContactId`.
-
-  In addition, when calling StartTaskContact include only one of these parameters:
-  `ContactFlowID`, `QuickConnectID`, or `TaskTemplateID`. Only
-  one parameter is required as long as the task template has a flow configured to
-  run it. If more
-  than one parameter is specified, or only the `TaskTemplateID` is specified but
-  it does
-  not have a flow configured, the request returns an error because Amazon Connect
-  cannot
-  identify the unique flow to run when the task is created.
-
-  A `ServiceQuotaExceededException` occurs when the number of open tasks exceeds
-  the active tasks quota or there are already 12 tasks referencing the same
-  `PreviousContactId`. For more information about service quotas for task
-  contacts, see
-  [Amazon Connect service quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
-  in the *Amazon Connect Administrator
-  Guide*.
+  ## Optional parameters:
   """
-  @spec start_task_contact(map(), start_task_contact_request(), list()) ::
+  @spec start_task_contact(AWS.Client.t(), start_task_contact_request(), Keyword.t()) ::
           {:ok, start_task_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_task_contact_errors()}
@@ -18345,20 +20686,25 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Places an inbound in-app, web, or video call to a contact, and then initiates
-  the flow.
+  the flow. It performs the actions in the flow that are specified (in
+  ContactFlowId) and present in the Amazon Connect instance (specified as
+  InstanceId).
 
-  It
-  performs the actions in the flow that are specified (in ContactFlowId) and
-  present in the Amazon Connect instance (specified as InstanceId).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20StartWebRTCContact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_web_r_t_c_contact(map(), start_web_r_t_c_contact_request(), list()) ::
+  @spec start_web_r_t_c_contact(AWS.Client.t(), start_web_r_t_c_contact_request(), Keyword.t()) ::
           {:ok, start_web_r_t_c_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_web_r_t_c_contact_errors()}
@@ -18367,36 +20713,23 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Ends the specified contact.
+  Ends the specified contact. Use this API to stop queued callbacks. It does not
+  work for voice contacts that use the following initiation methods:
 
-  Use this API to stop queued callbacks. It does not work for
-  voice contacts that use the following initiation methods:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20StopContact&this_doc_guide=API%2520Reference)
 
-    *
-  DISCONNECT
+  ## Parameters:
 
-    *
-  TRANSFER
-
-    *
-  QUEUE_TRANSFER
-
-    *
-  EXTERNAL_OUTBOUND
-
-    *
-  MONITOR
-
-  Chat and task contacts can be terminated in any state, regardless of initiation
-  method.
+  ## Optional parameters:
   """
-  @spec stop_contact(map(), stop_contact_request(), list()) ::
+  @spec stop_contact(AWS.Client.t(), stop_contact_request(), Keyword.t()) ::
           {:ok, stop_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_contact_errors()}
@@ -18405,7 +20738,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -18421,20 +20755,20 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Stops recording a call when a contact is being recorded.
+  Stops recording a call when a contact is being recorded. StopContactRecording is
+  a one-time action. If you use StopContactRecording to stop recording an
+  ongoing call, you can't use StartContactRecording to restart it. For scenarios
+  where the recording has started and you want to suspend it for sensitive
+  information (for example, to collect a credit card number), and then restart
+  it, use SuspendContactRecording and ResumeContactRecording.
 
-  StopContactRecording is a one-time
-  action. If you use StopContactRecording to stop recording an ongoing call, you
-  can't use
-  StartContactRecording to restart it. For scenarios where the recording has
-  started and you want
-  to suspend it for sensitive information (for example, to collect a credit card
-  number), and then
-  restart it, use SuspendContactRecording and ResumeContactRecording.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20StopContactRecording&this_doc_guide=API%2520Reference)
 
-  Only voice recordings are supported at this time.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec stop_contact_recording(map(), stop_contact_recording_request(), list()) ::
+  @spec stop_contact_recording(AWS.Client.t(), stop_contact_recording_request(), Keyword.t()) ::
           {:ok, stop_contact_recording_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_contact_recording_errors()}
@@ -18443,7 +20777,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -18459,14 +20794,18 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Ends message streaming on a specified contact.
-
-  To restart message streaming on that
-  contact, call the
+  Ends message streaming on a specified contact. To restart message streaming on
+  that contact, call the
   [StartContactStreaming](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html)
   API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20StopContactStreaming&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec stop_contact_streaming(map(), stop_contact_streaming_request(), list()) ::
+  @spec stop_contact_streaming(AWS.Client.t(), stop_contact_streaming_request(), Keyword.t()) ::
           {:ok, stop_contact_streaming_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_contact_streaming_errors()}
@@ -18475,7 +20814,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -18491,25 +20831,27 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Submits a contact evaluation in the specified Amazon Connect instance.
+  Submits a contact evaluation in the specified Amazon Connect instance. Answers
+  included in the request are merged with existing answers for the given
+  evaluation. If no answers or notes are passed, the evaluation is submitted
+  with the existing answers and notes. You can delete an answer or note by
+  passing an empty object (`{}`) to the question identifier.
 
-  Answers included
-  in the request are merged with existing answers for the given evaluation. If no
-  answers or notes
-  are passed, the evaluation is submitted with the existing answers and notes. You
-  can delete an
-  answer or note by passing an empty object (`{}`) to the question identifier.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SubmitContactEvaluation&this_doc_guide=API%2520Reference)
 
-  If a contact evaluation is already in submitted state, this operation will
-  trigger a
-  resubmission.
+  ## Parameters:
+  * `:evaluation_id` (`t:string`) A unique identifier for the contact evaluation.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec submit_contact_evaluation(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           submit_contact_evaluation_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, submit_contact_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -18527,7 +20869,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -18544,23 +20887,24 @@ defmodule AWS.Connect do
 
   @doc """
   When a contact is being recorded, this API suspends recording whatever is
-  selected in the
-  flow configuration: call, screen, or both.
+  selected in the flow configuration: call, screen, or both. If only call
+  recording or only screen recording is enabled, then it would be suspended. For
+  example, you might suspend the screen recording while collecting sensitive
+  information, such as a credit card number. Then use ResumeContactRecording to
+  restart recording the screen. The period of time that the recording is
+  suspended is filled with silence in the final recording.
 
-  If only call recording or only screen recording is
-  enabled, then it would be suspended. For example, you might suspend the screen
-  recording while
-  collecting sensitive information, such as a credit card number. Then use
-  ResumeContactRecording
-  to restart recording the screen.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SuspendContactRecording&this_doc_guide=API%2520Reference)
 
-  The period of time that the recording is suspended is filled with silence in the
-  final
-  recording.
+  ## Parameters:
 
-  Voice and screen recordings are supported.
+  ## Optional parameters:
   """
-  @spec suspend_contact_recording(map(), suspend_contact_recording_request(), list()) ::
+  @spec suspend_contact_recording(
+          AWS.Client.t(),
+          suspend_contact_recording_request(),
+          Keyword.t()
+        ) ::
           {:ok, suspend_contact_recording_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, suspend_contact_recording_errors()}
@@ -18569,7 +20913,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -18585,13 +20930,18 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Adds the specified tags to the contact resource.
-
-  For more information about this API is
-  used, see [Set up granular billing for a detailed view of your Amazon Connect
+  Adds the specified tags to the contact resource. For more information about this
+  API is used, see [Set up granular billing for a detailed view of your Amazon
+  Connect
   usage](https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20TagContact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec tag_contact(map(), tag_contact_request(), list()) ::
+  @spec tag_contact(AWS.Client.t(), tag_contact_request(), Keyword.t()) ::
           {:ok, tag_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_contact_errors()}
@@ -18600,7 +20950,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -18618,18 +20969,14 @@ defmodule AWS.Connect do
   @doc """
   Adds the specified tags to the specified resource.
 
-  Some of the supported resource types are agents, routing profiles, queues, quick
-  connects,
-  contact flows, agent statuses, hours of operation, phone numbers, security
-  profiles, and task
-  templates. For a complete list, see [Tagging resources in Amazon Connect](https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20TagResource&this_doc_guide=API%2520Reference)
 
-  For sample policies that use tags, see [Amazon Connect Identity-Based Policy
-  Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html)
-  in the *Amazon Connect Administrator
-  Guide*.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -18638,7 +20985,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -18655,36 +21003,19 @@ defmodule AWS.Connect do
 
   @doc """
   Transfers contacts from one agent or queue to another agent or queue at any
-  point after a
-  contact is created.
+  point after a contact is created. You can transfer a contact to another queue
+  by providing the flow which orchestrates the contact to the destination queue.
+  This gives you more control over contact handling and helps you adhere to the
+  service level agreement (SLA) guaranteed to your customers. Note the following
+  requirements:
 
-  You can transfer a contact to another queue by providing the flow which
-  orchestrates the contact to the destination queue. This gives you more control
-  over contact
-  handling and helps you adhere to the service level agreement (SLA) guaranteed to
-  your
-  customers.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20TransferContact&this_doc_guide=API%2520Reference)
 
-  Note the following requirements:
+  ## Parameters:
 
-    *
-  Transfer is supported for only `TASK` contacts.
-
-    *
-  Do not use both `QueueId` and `UserId` in the same call.
-
-    *
-  The following flow types are supported: Inbound flow, Transfer to agent flow,
-  and Transfer
-  to queue flow.
-
-    *
-  The `TransferContact` API can be called only on active contacts.
-
-    *
-  A contact cannot be transferred more than 11 times.
+  ## Optional parameters:
   """
-  @spec transfer_contact(map(), transfer_contact_request(), list()) ::
+  @spec transfer_contact(AWS.Client.t(), transfer_contact_request(), Keyword.t()) ::
           {:ok, transfer_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, transfer_contact_errors()}
@@ -18693,7 +21024,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -18709,13 +21041,31 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Removes the specified tags from the contact resource.
-
-  For more information about this API is
-  used, see [Set up granular billing for a detailed view of your Amazon Connect
+  Removes the specified tags from the contact resource. For more information about
+  this API is used, see [Set up granular billing for a detailed view of your
+  Amazon Connect
   usage](https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UntagContact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:contact_id` (`t:string`) The identifier of the contact in this instance of
+    Amazon Connect.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:tag_keys` (`t:list[com.amazonaws.connect#ContactTagKey]`) A list of tag
+    keys. Existing tags on the contact whose keys are members of this list will
+    be removed.
+
+  ## Optional parameters:
   """
-  @spec untag_contact(map(), String.t(), String.t(), untag_contact_request(), list()) ::
+  @spec untag_contact(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          untag_contact_request(),
+          Keyword.t()
+        ) ::
           {:ok, untag_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_contact_errors()}
@@ -18731,7 +21081,8 @@ defmodule AWS.Connect do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -18748,8 +21099,16 @@ defmodule AWS.Connect do
 
   @doc """
   Removes the specified tags from the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.connect#TagKey]`) The tag keys.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -18763,7 +21122,8 @@ defmodule AWS.Connect do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -18781,9 +21141,22 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Updates agent status.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateAgentStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_status_id` (`t:string`) The identifier of the agent status.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec update_agent_status(map(), String.t(), String.t(), update_agent_status_request(), list()) ::
+  @spec update_agent_status(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_agent_status_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_agent_status_errors()}
@@ -18794,7 +21167,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -18810,19 +21184,25 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
-  To
+  This API is in preview release for Amazon Connect and is subject to change. To
   request access to this API, contact Amazon Web Services Support.
 
-  Updates the selected authentication profile.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateAuthenticationProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:authentication_profile_id` (`t:string`) A unique identifier for the
+    authentication profile.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec update_authentication_profile(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_authentication_profile_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -18840,7 +21220,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -18856,17 +21237,28 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Amazon Connect and is subject to change. Adds
+  or updates user-defined contact information associated with the specified
+  contact. At least one field to be updated must be present in the request.
 
-  Adds or updates user-defined contact information associated with the specified
-  contact. At
-  least one field to be updated must be present in the request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateContact&this_doc_guide=API%2520Reference)
 
-  You can add or update user-defined contact information for both ongoing and
-  completed
-  contacts.
+  ## Parameters:
+  * `:contact_id` (`t:string`) The identifier of the contact. This is the
+    identifier of the contact associated with the first interaction with your
+    contact center.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
-  @spec update_contact(map(), String.t(), String.t(), update_contact_request(), list()) ::
+  @spec update_contact(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_contact_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_errors()}
@@ -18875,7 +21267,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -18891,32 +21284,27 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Creates or updates
-  user-defined contact attributes
-  associated with the specified contact.
+  Creates or updates user-defined contact attributes associated with the specified
+  contact. You can create or update user-defined attributes for both ongoing and
+  completed contacts. For example, while the call is active, you can update the
+  customer's name or the reason the customer called. You can add notes about
+  steps that the agent took during the call that display to the next agent that
+  takes the call. You can also update attributes for a contact using data from
+  your CRM application and save the data with the contact in Amazon Connect. You
+  could also flag calls for additional analysis, such as legal review or to
+  identify abusive callers.
 
-  You can create or update user-defined attributes for both ongoing and completed
-  contacts.
-  For example, while the call is active, you can update the customer's name or the
-  reason the
-  customer called. You can add notes about steps that the agent took during the
-  call that display
-  to the next agent that takes the call. You can also update attributes for a
-  contact using data
-  from your CRM application and save the data with the contact in Amazon Connect.
-  You could
-  also flag calls for additional analysis, such as legal review or to identify
-  abusive
-  callers.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateContactAttributes&this_doc_guide=API%2520Reference)
 
-  Contact attributes are available in Amazon Connect for 24 months, and are then
-  deleted.
-  For information about contact record retention and the maximum size of the
-  contact record
-  attributes section, see [Feature specifications](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits)
-  in the *Amazon Connect Administrator Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_contact_attributes(map(), update_contact_attributes_request(), list()) ::
+  @spec update_contact_attributes(
+          AWS.Client.t(),
+          update_contact_attributes_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_contact_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_attributes_errors()}
@@ -18925,7 +21313,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -18942,21 +21331,26 @@ defmodule AWS.Connect do
 
   @doc """
   Updates details about a contact evaluation in the specified Amazon Connect
-  instance.
+  instance. A contact evaluation must be in draft state. Answers included in the
+  request are merged with existing answers for the given evaluation. An answer
+  or note can be deleted by passing an empty object (`{}`) to the question
+  identifier.
 
-  A
-  contact evaluation must be in draft state. Answers included in the request are
-  merged with
-  existing answers for the given evaluation. An answer or note can be deleted by
-  passing an empty
-  object (`{}`) to the question identifier.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateContactEvaluation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:evaluation_id` (`t:string`) A unique identifier for the contact evaluation.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec update_contact_evaluation(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_contact_evaluation_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_contact_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -18974,7 +21368,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -18990,23 +21385,24 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Updates the specified flow.
-
-  You can also create and update flows using the [Amazon Connect Flow
+  Updates the specified flow. You can also create and update flows using the
+  [Amazon Connect Flow
   language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
 
-  Use the `$SAVED` alias in the request to describe the `SAVED` content
-  of a Flow. For example, `arn:aws:.../contact-flow/{id}:$SAVED`. Once a contact
-  flow is
-  published, `$SAVED` needs to be supplied to view saved content that has not been
-  published.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateContactFlowContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:contact_flow_id` (`t:string`) The identifier of the flow.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance.
+
+  ## Optional parameters:
   """
   @spec update_contact_flow_content(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_contact_flow_content_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_contact_flow_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -19024,7 +21420,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19041,13 +21438,22 @@ defmodule AWS.Connect do
 
   @doc """
   Updates metadata about specified flow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateContactFlowMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:contact_flow_id` (`t:string`) The identifier of the flow.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec update_contact_flow_metadata(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_contact_flow_metadata_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_contact_flow_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -19065,7 +21471,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19083,18 +21490,21 @@ defmodule AWS.Connect do
   @doc """
   Updates specified flow module for the specified Amazon Connect instance.
 
-  Use the `$SAVED` alias in the request to describe the `SAVED` content
-  of a Flow. For example, `arn:aws:.../contact-flow/{id}:$SAVED`. Once a contact
-  flow is
-  published, `$SAVED` needs to be supplied to view saved content that has not been
-  published.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateContactFlowModuleContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:contact_flow_module_id` (`t:string`) The identifier of the flow module.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec update_contact_flow_module_content(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_contact_flow_module_content_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_contact_flow_module_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -19112,7 +21522,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19129,13 +21540,22 @@ defmodule AWS.Connect do
 
   @doc """
   Updates metadata about specified flow module.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateContactFlowModuleMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:contact_flow_module_id` (`t:string`) The identifier of the flow module.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec update_contact_flow_module_metadata(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_contact_flow_module_metadata_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_contact_flow_module_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -19153,7 +21573,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19171,15 +21592,20 @@ defmodule AWS.Connect do
   @doc """
   The name of the flow.
 
-  You can also create and update flows using the [Amazon Connect Flow
-  language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateContactFlowName&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:contact_flow_id` (`t:string`) The identifier of the flow.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance.
+
+  ## Optional parameters:
   """
   @spec update_contact_flow_name(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_contact_flow_name_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_contact_flow_name_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -19197,7 +21623,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19214,32 +21641,33 @@ defmodule AWS.Connect do
 
   @doc """
   Updates routing priority and age on the contact (**QueuePriority** and
-  **QueueTimeAdjustmentInSeconds**).
-
-  These properties can be used to change a customer's position in the queue. For
-  example, you can
-  move a contact to the back of the queue by setting a lower routing priority
-  relative to other
+  **QueueTimeAdjustmentInSeconds**). These properties can be used to change a
+  customer's position in the queue. For example, you can move a contact to the
+  back of the queue by setting a lower routing priority relative to other
   contacts in queue; or you can move a contact to the front of the queue by
-  increasing the routing
-  age which will make the contact look artificially older and therefore higher up
-  in the
-  first-in-first-out routing order. Note that adjusting the routing age of a
-  contact affects only
-  its position in queue, and not its actual queue wait time as reported through
-  metrics. These
-  properties can also be updated by using [the Set routing priority / age flow block](https://docs.aws.amazon.com/connect/latest/adminguide/change-routing-priority.html).
+  increasing the routing age which will make the contact look artificially older
+  and therefore higher up in the first-in-first-out routing order. Note that
+  adjusting the routing age of a contact affects only its position in queue, and
+  not its actual queue wait time as reported through metrics. These properties
+  can also be updated by using [the Set routing priority / age flow
+  block](https://docs.aws.amazon.com/connect/latest/adminguide/change-routing-priority.html).
 
-  Either **QueuePriority** or **QueueTimeAdjustmentInSeconds** should be provided
-  within the request body, but not
-  both.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateContactRoutingData&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:contact_id` (`t:string`) The identifier of the contact in this instance of
+    Amazon Connect.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec update_contact_routing_data(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_contact_routing_data_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_contact_routing_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -19257,7 +21685,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19274,8 +21703,14 @@ defmodule AWS.Connect do
 
   @doc """
   Updates the scheduled time of a task contact that is already scheduled.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateContactSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_contact_schedule(map(), update_contact_schedule_request(), list()) ::
+  @spec update_contact_schedule(AWS.Client.t(), update_contact_schedule_request(), Keyword.t()) ::
           {:ok, update_contact_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_schedule_errors()}
@@ -19284,7 +21719,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19301,22 +21737,25 @@ defmodule AWS.Connect do
 
   @doc """
   Updates details about a specific evaluation form version in the specified Amazon
-  Connect
-  instance.
+  Connect instance. Question and section identifiers cannot be duplicated within
+  the same evaluation form.
 
-  Question and section identifiers cannot be duplicated within the same evaluation
-  form.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateEvaluationForm&this_doc_guide=API%2520Reference)
 
-  This operation does not support partial updates. Instead it does a full update
-  of evaluation
-  form content.
+  ## Parameters:
+  * `:evaluation_form_id` (`t:string`) The unique identifier for the evaluation
+    form.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec update_evaluation_form(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_evaluation_form_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_evaluation_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -19334,7 +21773,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -19342,14 +21782,22 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Updates the hours of operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateHoursOfOperation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:hours_of_operation_id` (`t:string`) The identifier of the hours of
+    operation.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec update_hours_of_operation(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_hours_of_operation_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -19367,7 +21815,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19385,14 +21834,23 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Updates the value for the specified attribute type.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateInstanceAttribute&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:attribute_type`
+    (`t:enum["AUTO_RESOLVE_BEST_VOICES|CONTACTFLOW_LOGS|CONTACT_LENS|EARLY_MEDIA|ENHANCED_CHAT_MONITORING|ENHANCED_CONTACT_MONITORING|HIGH_VOLUME_OUTBOUND|INBOUND_CALLS|MULTI_PARTY_CONFERENCE|OUTBOUND_CALLS|USE_CUSTOM_TTS_VOICES"]`)
+    The type of attribute.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec update_instance_attribute(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_instance_attribute_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -19410,7 +21868,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19428,14 +21887,26 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Updates an existing configuration for a resource type. This API is idempotent.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateInstanceStorageConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:association_id` (`t:string`) The existing association identifier that
+    uniquely identifies the resource type and storage config for the given
+    instance ID.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:resource_type`
+    (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`)
+    A valid resource type.
+
+  ## Optional parameters:
   """
   @spec update_instance_storage_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_instance_storage_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -19458,7 +21929,8 @@ defmodule AWS.Connect do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19475,32 +21947,25 @@ defmodule AWS.Connect do
 
   @doc """
   Updates timeouts for when human chat participants are to be considered idle, and
-  when agents
-  are automatically disconnected from a chat due to idleness.
+  when agents are automatically disconnected from a chat due to idleness. You
+  can set four timers:
 
-  You can set four timers:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateParticipantRoleConfig&this_doc_guide=API%2520Reference)
 
-    *
-  Customer idle timeout
+  ## Parameters:
+  * `:contact_id` (`t:string`) The identifier of the contact in this instance of
+    Amazon Connect.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
-    *
-  Customer auto-disconnect timeout
-
-    *
-  Agent idle timeout
-
-    *
-  Agent auto-disconnect timeout
-
-  For more information about how chat timeouts work, see
-  [Set up chat timeouts for human participants](https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html).
+  ## Optional parameters:
   """
   @spec update_participant_role_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_participant_role_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_participant_role_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -19518,32 +21983,30 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates your claimed phone number from its current Amazon Connect instance or
-  traffic distribution group to
-  another Amazon Connect instance or traffic distribution group in the same Amazon
-  Web Services Region.
+  traffic distribution group to another Amazon Connect instance or traffic
+  distribution group in the same Amazon Web Services Region.
 
-  After using this API, you must verify that the phone number is attached to the
-  correct flow
-  in the target instance or traffic distribution group. You need to do this
-  because the API
-  switches only the phone number to a new instance or traffic distribution group.
-  It doesn't
-  migrate the flow configuration of the phone number, too.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdatePhoneNumber&this_doc_guide=API%2520Reference)
 
-  You can call
-  [DescribePhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html) API
-  to verify the status of a previous
-  [UpdatePhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html)
-  operation.
+  ## Parameters:
+  * `:phone_number_id` (`t:string`) A unique identifier for the phone number.
+
+  ## Optional parameters:
   """
-  @spec update_phone_number(map(), String.t(), update_phone_number_request(), list()) ::
+  @spec update_phone_number(
+          AWS.Client.t(),
+          String.t(),
+          update_phone_number_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_phone_number_errors()}
@@ -19552,7 +22015,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -19560,15 +22024,19 @@ defmodule AWS.Connect do
   @doc """
   Updates a phone number’s metadata.
 
-  To verify the status of a previous UpdatePhoneNumberMetadata operation, call the
-  [DescribePhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html)
-  API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdatePhoneNumberMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:phone_number_id` (`t:string`) The Amazon Resource Name (ARN) or resource ID
+    of the phone number.
+
+  ## Optional parameters:
   """
   @spec update_phone_number_metadata(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_phone_number_metadata_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -19578,20 +22046,30 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a predefined attribute for the specified Amazon Connect instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdatePredefinedAttribute&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:name` (`t:string`) The name of the predefined attribute.
+
+  ## Optional parameters:
   """
   @spec update_predefined_attribute(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_predefined_attribute_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -19603,7 +22081,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19620,8 +22099,23 @@ defmodule AWS.Connect do
 
   @doc """
   Updates a prompt.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdatePrompt&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:prompt_id` (`t:string`) A unique identifier for the prompt.
+
+  ## Optional parameters:
   """
-  @spec update_prompt(map(), String.t(), String.t(), update_prompt_request(), list()) ::
+  @spec update_prompt(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_prompt_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_prompt_errors()}
@@ -19630,7 +22124,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19648,14 +22143,21 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Updates the hours of operation for the specified queue.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateQueueHoursOfOperation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:queue_id` (`t:string`) The identifier for the queue.
+
+  ## Optional parameters:
   """
   @spec update_queue_hours_of_operation(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_queue_hours_of_operation_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -19673,7 +22175,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19691,16 +22194,21 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Updates the maximum number of contacts allowed in a queue before it is
-  considered
-  full.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateQueueMaxContacts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:queue_id` (`t:string`) The identifier for the queue.
+
+  ## Optional parameters:
   """
   @spec update_queue_max_contacts(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_queue_max_contacts_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -19712,7 +22220,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19730,10 +22239,22 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Updates the name and description of a queue. At least `Name` or `Description`
-  must be provided.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateQueueName&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:queue_id` (`t:string`) The identifier for the queue.
+
+  ## Optional parameters:
   """
-  @spec update_queue_name(map(), String.t(), String.t(), update_queue_name_request(), list()) ::
+  @spec update_queue_name(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_queue_name_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_queue_name_errors()}
@@ -19742,7 +22263,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19759,44 +22281,24 @@ defmodule AWS.Connect do
 
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
-
   Updates the outbound caller ID name, number, and outbound whisper flow for a
-  specified
-  queue.
+  specified queue.
 
-    
-  If the phone number is claimed to a traffic distribution group that was created
-  in the
-  same Region as the Amazon Connect instance where you are calling this API, then
-  you can use a
-  full phone number ARN or a UUID for `OutboundCallerIdNumberId`. However, if the
-  phone number is claimed
-  to a traffic distribution group that is in one Region, and you are calling this
-  API from an instance in another Amazon Web Services Region that is associated
-  with the traffic distribution group, you must provide a full phone number ARN.
-  If a
-  UUID is provided in this scenario, you will receive a
-  `ResourceNotFoundException`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateQueueOutboundCallerConfig&this_doc_guide=API%2520Reference)
 
-    
-  Only use the phone number ARN format that doesn't contain `instance` in the
-  path, for example, `arn:aws:connect:us-east-1:1234567890:phone-number/uuid`.
-  This
-  is the same ARN format that is returned when you call the
-  [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html) API.
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:queue_id` (`t:string`) The identifier for the queue.
 
-    
-  If you plan to use IAM policies to allow/deny access to this API for phone
-  number resources claimed to a traffic distribution group, see [Allow or Deny
-  queue API actions for phone numbers in a replica
-  Region](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_resource-level-policy-examples.html#allow-deny-queue-actions-replica-region).
+  ## Optional parameters:
   """
   @spec update_queue_outbound_caller_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_queue_outbound_caller_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -19814,7 +22316,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19832,9 +22335,22 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Updates the status of the queue.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateQueueStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:queue_id` (`t:string`) The identifier for the queue.
+
+  ## Optional parameters:
   """
-  @spec update_queue_status(map(), String.t(), String.t(), update_queue_status_request(), list()) ::
+  @spec update_queue_status(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_queue_status_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_queue_status_errors()}
@@ -19845,7 +22361,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19862,13 +22379,22 @@ defmodule AWS.Connect do
 
   @doc """
   Updates the configuration settings for the specified quick connect.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateQuickConnectConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:quick_connect_id` (`t:string`) The identifier for the quick connect.
+
+  ## Optional parameters:
   """
   @spec update_quick_connect_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_quick_connect_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -19886,7 +22412,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19902,17 +22429,25 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Updates the name and description of a quick connect.
+  Updates the name and description of a quick connect. The request accepts the
+  following data in JSON format. At least `Name` or `Description` must be
+  provided.
 
-  The request accepts the following data in JSON format. At least `Name` or
-  `Description` must be provided.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateQuickConnectName&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:quick_connect_id` (`t:string`) The identifier for the quick connect.
+
+  ## Optional parameters:
   """
   @spec update_quick_connect_name(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_quick_connect_name_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -19930,7 +22465,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19947,16 +22483,24 @@ defmodule AWS.Connect do
 
   @doc """
   Whether agents with this routing profile will have their routing order
-  calculated based on
-  *time since their last inbound contact* or *longest idle
+  calculated based on *time since their last inbound contact* or *longest idle
   time*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateRoutingProfileAgentAvailabilityTimer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
+
+  ## Optional parameters:
   """
   @spec update_routing_profile_agent_availability_timer(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_routing_profile_agent_availability_timer_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -19974,7 +22518,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -19991,15 +22536,23 @@ defmodule AWS.Connect do
 
   @doc """
   Updates the channels that agents can handle in the Contact Control Panel (CCP)
-  for a routing
-  profile.
+  for a routing profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateRoutingProfileConcurrency&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
+
+  ## Optional parameters:
   """
   @spec update_routing_profile_concurrency(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_routing_profile_concurrency_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -20017,7 +22570,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -20034,13 +22588,22 @@ defmodule AWS.Connect do
 
   @doc """
   Updates the default outbound queue of a routing profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateRoutingProfileDefaultOutboundQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
+
+  ## Optional parameters:
   """
   @spec update_routing_profile_default_outbound_queue(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_routing_profile_default_outbound_queue_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -20058,7 +22621,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -20074,17 +22638,25 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Updates the name and description of a routing profile.
+  Updates the name and description of a routing profile. The request accepts the
+  following data in JSON format. At least `Name` or `Description` must be
+  provided.
 
-  The request accepts the following data in JSON format.
-  At least `Name` or `Description` must be provided.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateRoutingProfileName&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
+
+  ## Optional parameters:
   """
   @spec update_routing_profile_name(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_routing_profile_name_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -20102,7 +22674,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -20119,13 +22692,22 @@ defmodule AWS.Connect do
 
   @doc """
   Updates the properties associated with a set of queues for a routing profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateRoutingProfileQueues&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
+
+  ## Optional parameters:
   """
   @spec update_routing_profile_queues(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_routing_profile_queues_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -20143,7 +22725,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -20161,11 +22744,16 @@ defmodule AWS.Connect do
   @doc """
   Updates a rule for the specified Amazon Connect instance.
 
-  Use the [Rules Function language](https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html)
-  to
-  code conditions for the rule.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:rule_id` (`t:string`) A unique identifier for the rule.
+
+  ## Optional parameters:
   """
-  @spec update_rule(map(), String.t(), String.t(), update_rule_request(), list()) ::
+  @spec update_rule(AWS.Client.t(), String.t(), String.t(), update_rule_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rule_errors()}
@@ -20174,20 +22762,30 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a security profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateSecurityProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:security_profile_id` (`t:string`) The identifier for the security profle.
+
+  ## Optional parameters:
   """
   @spec update_security_profile(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_security_profile_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -20205,7 +22803,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -20222,18 +22821,24 @@ defmodule AWS.Connect do
 
   @doc """
   Updates details about a specific task template in the specified Amazon Connect
-  instance.
+  instance. This operation does not support partial updates. Instead it does a
+  full update of template content.
 
-  This operation does not support partial updates. Instead it does a full update
-  of template
-  content.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateTaskTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:task_template_id` (`t:string`) A unique identifier for the task template.
+
+  ## Optional parameters:
   """
   @spec update_task_template(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_task_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_task_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -20251,7 +22856,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -20269,24 +22875,21 @@ defmodule AWS.Connect do
   @doc """
   Updates the traffic distribution for a given traffic distribution group.
 
-  The `SignInConfig` distribution is available only on a
-  default `TrafficDistributionGroup` (see the `IsDefault` parameter in the
-  [TrafficDistributionGroup](https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html)  data type). If you call
-  `UpdateTrafficDistribution` with a modified `SignInConfig` and a non-default
-  `TrafficDistributionGroup`,
-  an `InvalidRequestException` is returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateTrafficDistribution&this_doc_guide=API%2520Reference)
 
-  For more information about updating a traffic distribution group, see [Update
-  telephony
-  traffic distribution across Amazon Web Services Regions
-  ](https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html)
-  in the *Amazon Connect Administrator Guide*.
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the traffic distribution group. This can
+    be the ID or the ARN if the API is being called in the Region where the
+    traffic distribution group was created. The ARN must be provided if the call
+    is from the replicated Region.
+
+  ## Optional parameters:
   """
   @spec update_traffic_distribution(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_traffic_distribution_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_traffic_distribution_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -20296,20 +22899,30 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Assigns the specified hierarchy group to the specified user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateUserHierarchy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier of the user account.
+
+  ## Optional parameters:
   """
   @spec update_user_hierarchy(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_user_hierarchy_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -20321,7 +22934,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -20338,13 +22952,22 @@ defmodule AWS.Connect do
 
   @doc """
   Updates the name of the user hierarchy group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateUserHierarchyGroupName&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:hierarchy_group_id` (`t:string`) The identifier of the hierarchy group.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec update_user_hierarchy_group_name(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_user_hierarchy_group_name_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -20362,7 +22985,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -20380,12 +23004,20 @@ defmodule AWS.Connect do
   @doc """
   Updates the user hierarchy structure: add, remove, and rename user hierarchy
   levels.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateUserHierarchyStructure&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+
+  ## Optional parameters:
   """
   @spec update_user_hierarchy_structure(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_user_hierarchy_structure_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -20395,7 +23027,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -20413,24 +23046,21 @@ defmodule AWS.Connect do
   @doc """
   Updates the identity information for the specified user.
 
-  We strongly recommend limiting who has the ability to invoke
-  `UpdateUserIdentityInfo`. Someone with that ability can change the login
-  credentials
-  of other users by changing their email address. This poses a security risk to
-  your organization.
-  They can change the email address of a user to the attacker's email address, and
-  then reset the
-  password through email. For more information, see [Best Practices for Security
-  Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html)
-  in the *Amazon Connect Administrator
-  Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateUserIdentityInfo&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier of the user account.
+
+  ## Optional parameters:
   """
   @spec update_user_identity_info(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_user_identity_info_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -20442,7 +23072,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -20459,13 +23090,22 @@ defmodule AWS.Connect do
 
   @doc """
   Updates the phone configuration settings for the specified user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateUserPhoneConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier of the user account.
+
+  ## Optional parameters:
   """
   @spec update_user_phone_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_user_phone_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -20477,7 +23117,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -20494,13 +23135,22 @@ defmodule AWS.Connect do
 
   @doc """
   Updates the properties associated with the proficiencies of a user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateUserProficiencies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier of the user account.
+
+  ## Optional parameters:
   """
   @spec update_user_proficiencies(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_user_proficiencies_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -20512,7 +23162,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -20529,13 +23180,22 @@ defmodule AWS.Connect do
 
   @doc """
   Assigns the specified routing profile to the specified user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateUserRoutingProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier of the user account.
+
+  ## Optional parameters:
   """
   @spec update_user_routing_profile(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_user_routing_profile_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -20547,7 +23207,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -20564,13 +23225,22 @@ defmodule AWS.Connect do
 
   @doc """
   Assigns the specified security profiles to the specified user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateUserSecurityProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier of the user account.
+
+  ## Optional parameters:
   """
   @spec update_user_security_profiles(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_user_security_profiles_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -20588,7 +23258,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -20605,15 +23276,25 @@ defmodule AWS.Connect do
 
   @doc """
   Updates the view content of the given view identifier in the specified Amazon
-  Connect
-  instance.
+  Connect instance.
 
-  It performs content validation if `Status` is set to `SAVED` and
-  performs full content validation if `Status` is `PUBLISHED`. Note that the
-  `$SAVED` alias' content will always be updated, but the `$LATEST` alias'
-  content will only be updated if `Status` is `PUBLISHED`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateViewContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instanceId in the ARN of the instance.
+  * `:view_id` (`t:string`) The identifier of the view. Both ViewArn and ViewId
+    can be used.
+
+  ## Optional parameters:
   """
-  @spec update_view_content(map(), String.t(), String.t(), update_view_content_request(), list()) ::
+  @spec update_view_content(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_view_content_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_view_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_view_content_errors()}
@@ -20622,7 +23303,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -20638,17 +23320,25 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Updates the view metadata.
+  Updates the view metadata. Note that either `Name` or `Description` must be
+  provided.
 
-  Note that either `Name` or `Description`
-  must be provided.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20UpdateViewMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
+    can find the instanceId in the ARN of the instance.
+  * `:view_id` (`t:string`) The identifier of the view. Both ViewArn and ViewId
+    can be used.
+
+  ## Optional parameters:
   """
   @spec update_view_metadata(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_view_metadata_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_view_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -20660,7 +23350,8 @@ defmodule AWS.Connect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

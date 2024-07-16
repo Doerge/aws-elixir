@@ -466,10 +466,20 @@ defmodule AWS.Account do
 
   @doc """
   Accepts the request that originated from `StartPrimaryEmailUpdate` to update the
-  primary email address (also known
-  as the root user email address) for the specified account.
+  primary email address (also known as the root user email address) for the
+  specified account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20AcceptPrimaryEmailUpdate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec accept_primary_email_update(map(), accept_primary_email_update_request(), list()) ::
+  @spec accept_primary_email_update(
+          AWS.Client.t(),
+          accept_primary_email_update_request(),
+          Keyword.t()
+        ) ::
           {:ok, accept_primary_email_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_primary_email_update_errors()}
@@ -478,7 +488,8 @@ defmodule AWS.Account do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -496,17 +507,13 @@ defmodule AWS.Account do
   @doc """
   Deletes the specified alternate contact from an Amazon Web Services account.
 
-  For complete details about how to use the alternate contact operations, see
-  [Access or updating the alternate
-  contacts](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20DeleteAlternateContact&this_doc_guide=API%2520Reference)
 
-  Before you can update the alternate contact information for an
-  Amazon Web Services account that is managed by Organizations, you must first
-  enable integration between Amazon Web Services Account Management
-  and Organizations. For more information, see [Enabling trusted access for Amazon Web Services Account
-  Management](https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html).
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_alternate_contact(map(), delete_alternate_contact_request(), list()) ::
+  @spec delete_alternate_contact(AWS.Client.t(), delete_alternate_contact_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_alternate_contact_errors()}
@@ -515,7 +522,8 @@ defmodule AWS.Account do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -533,10 +541,13 @@ defmodule AWS.Account do
   @doc """
   Disables (opts-out) a particular Region for an account.
 
-  The act of disabling a Region will remove all IAM access to any resources that
-  reside in that Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20DisableRegion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec disable_region(map(), disable_region_request(), list()) ::
+  @spec disable_region(AWS.Client.t(), disable_region_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_region_errors()}
@@ -545,7 +556,8 @@ defmodule AWS.Account do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -562,8 +574,14 @@ defmodule AWS.Account do
 
   @doc """
   Enables (opts-in) a particular Region for an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20EnableRegion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec enable_region(map(), enable_region_request(), list()) ::
+  @spec enable_region(AWS.Client.t(), enable_region_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_region_errors()}
@@ -572,7 +590,8 @@ defmodule AWS.Account do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -591,17 +610,13 @@ defmodule AWS.Account do
   Retrieves the specified alternate contact attached to an Amazon Web Services
   account.
 
-  For complete details about how to use the alternate contact operations, see
-  [Access or updating the alternate
-  contacts](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20GetAlternateContact&this_doc_guide=API%2520Reference)
 
-  Before you can update the alternate contact information for an
-  Amazon Web Services account that is managed by Organizations, you must first
-  enable integration between Amazon Web Services Account Management
-  and Organizations. For more information, see [Enabling trusted access for Amazon Web Services Account
-  Management](https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html).
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_alternate_contact(map(), get_alternate_contact_request(), list()) ::
+  @spec get_alternate_contact(AWS.Client.t(), get_alternate_contact_request(), Keyword.t()) ::
           {:ok, get_alternate_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_alternate_contact_errors()}
@@ -610,7 +625,8 @@ defmodule AWS.Account do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -628,11 +644,13 @@ defmodule AWS.Account do
   @doc """
   Retrieves the primary contact information of an Amazon Web Services account.
 
-  For complete details about how to use the primary contact operations, see
-  [Update the primary and alternate contact
-  information](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20GetContactInformation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_contact_information(map(), get_contact_information_request(), list()) ::
+  @spec get_contact_information(AWS.Client.t(), get_contact_information_request(), Keyword.t()) ::
           {:ok, get_contact_information_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_contact_information_errors()}
@@ -641,7 +659,8 @@ defmodule AWS.Account do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -658,8 +677,14 @@ defmodule AWS.Account do
 
   @doc """
   Retrieves the primary email address for the specified account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20GetPrimaryEmail&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_primary_email(map(), get_primary_email_request(), list()) ::
+  @spec get_primary_email(AWS.Client.t(), get_primary_email_request(), Keyword.t()) ::
           {:ok, get_primary_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_primary_email_errors()}
@@ -668,7 +693,8 @@ defmodule AWS.Account do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -685,8 +711,14 @@ defmodule AWS.Account do
 
   @doc """
   Retrieves the opt-in status of a particular Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20GetRegionOptStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_region_opt_status(map(), get_region_opt_status_request(), list()) ::
+  @spec get_region_opt_status(AWS.Client.t(), get_region_opt_status_request(), Keyword.t()) ::
           {:ok, get_region_opt_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_region_opt_status_errors()}
@@ -695,7 +727,8 @@ defmodule AWS.Account do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -712,11 +745,16 @@ defmodule AWS.Account do
 
   @doc """
   Lists all the Regions for a given account and their respective opt-in statuses.
-
   Optionally, this list can be filtered by the `region-opt-status-contains`
   parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20ListRegions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_regions(map(), list_regions_request(), list()) ::
+  @spec list_regions(AWS.Client.t(), list_regions_request(), Keyword.t()) ::
           {:ok, list_regions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_regions_errors()}
@@ -725,7 +763,8 @@ defmodule AWS.Account do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -744,17 +783,13 @@ defmodule AWS.Account do
   Modifies the specified alternate contact attached to an Amazon Web Services
   account.
 
-  For complete details about how to use the alternate contact operations, see
-  [Access or updating the alternate
-  contacts](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20PutAlternateContact&this_doc_guide=API%2520Reference)
 
-  Before you can update the alternate contact information for an
-  Amazon Web Services account that is managed by Organizations, you must first
-  enable integration between Amazon Web Services Account Management
-  and Organizations. For more information, see [Enabling trusted access for Amazon Web Services Account
-  Management](https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html).
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_alternate_contact(map(), put_alternate_contact_request(), list()) ::
+  @spec put_alternate_contact(AWS.Client.t(), put_alternate_contact_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_alternate_contact_errors()}
@@ -763,7 +798,8 @@ defmodule AWS.Account do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -781,11 +817,13 @@ defmodule AWS.Account do
   @doc """
   Updates the primary contact information of an Amazon Web Services account.
 
-  For complete details about how to use the primary contact operations, see
-  [Update the primary and alternate contact
-  information](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20PutContactInformation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_contact_information(map(), put_contact_information_request(), list()) ::
+  @spec put_contact_information(AWS.Client.t(), put_contact_information_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_contact_information_errors()}
@@ -794,7 +832,8 @@ defmodule AWS.Account do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -812,8 +851,18 @@ defmodule AWS.Account do
   @doc """
   Starts the process to update the primary email address for the specified
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20StartPrimaryEmailUpdate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_primary_email_update(map(), start_primary_email_update_request(), list()) ::
+  @spec start_primary_email_update(
+          AWS.Client.t(),
+          start_primary_email_update_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_primary_email_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_primary_email_update_errors()}
@@ -822,7 +871,8 @@ defmodule AWS.Account do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

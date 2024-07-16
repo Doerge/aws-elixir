@@ -4,61 +4,10 @@
 defmodule AWS.Budgets do
   @moduledoc """
   Use the Amazon Web Services Budgets API to plan your service usage, service
-  costs, and instance reservations.
-
-  This API reference provides descriptions, syntax, and usage examples for each of
-  the actions and data types for the Amazon Web Services Budgets feature.
-
-  Budgets provide you with a way to see the following information:
-
-    *
-  How close your plan is to your budgeted amount or to the free tier limits
-
-    *
-  Your usage-to-date, including how much you've used of your Reserved Instances
-  (RIs)
-
-    *
-  Your current estimated charges from Amazon Web Services, and how much your
-  predicted usage will accrue in charges by the end of the month
-
-    *
-  How much of your budget has been used
-
-  Amazon Web Services updates your budget status several times a day. Budgets
-  track your unblended costs, subscriptions, refunds, and RIs. You can create the
-  following types of budgets:
-
-    *
-
-  **Cost budgets** - Plan how much you want to spend on a service.
-
-    *
-
-  **Usage budgets** - Plan how much you want to use one or more services.
-
-    *
-
-  **RI utilization budgets** - Define a utilization threshold, and receive alerts
-  when your RI usage falls below that threshold. This lets you see if your RIs are
-  unused or under-utilized.
-
-    *
-
-  **RI coverage budgets** - Define a coverage threshold, and receive alerts when
-  the number of your instance hours that are covered by RIs fall below that
-  threshold. This lets you see how much of your instance usage is covered by a
-  reservation.
-
-  Service Endpoint
-
-  The Amazon Web Services Budgets API provides the following endpoint:
-
-    *
-  https://budgets.amazonaws.com
-
-  For information about costs that are associated with the Amazon Web Services
-  Budgets API, see [Amazon Web Services Cost Management Pricing](https://aws.amazon.com/aws-cost-management/pricing/).
+  costs, and instance reservations. This API reference provides descriptions,
+  syntax, and usage examples for each of the actions and data types for the
+  Amazon Web Services Budgets feature. Budgets provide you with a way to see the
+  following information:
   """
 
   alias AWS.Client
@@ -1362,213 +1311,196 @@ defmodule AWS.Budgets do
 
   @doc """
   Creates a budget and, if included, notifications and subscribers.
-
-  Only one of `BudgetLimit` or `PlannedBudgetLimits` can be present in the syntax
-  at one time. Use the syntax that matches your case. The Request Syntax section
-  shows the `BudgetLimit` syntax. For `PlannedBudgetLimits`, see the
-  [Examples](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_CreateBudget.html#API_CreateBudget_Examples)
-  section.
   """
-  @spec create_budget(map(), create_budget_request(), list()) ::
+  @spec create_budget(AWS.Client.t(), create_budget_request(), Keyword.t()) ::
           {:ok, create_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_budget_errors()}
   def create_budget(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBudget", input, options)
   end
 
   @doc """
-
   Creates a budget action.
   """
-  @spec create_budget_action(map(), create_budget_action_request(), list()) ::
+  @spec create_budget_action(AWS.Client.t(), create_budget_action_request(), Keyword.t()) ::
           {:ok, create_budget_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_budget_action_errors()}
   def create_budget_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBudgetAction", input, options)
   end
 
   @doc """
-  Creates a notification.
-
-  You must create the budget before you create the associated notification.
+  Creates a notification. You must create the budget before you create the
+  associated notification.
   """
-  @spec create_notification(map(), create_notification_request(), list()) ::
+  @spec create_notification(AWS.Client.t(), create_notification_request(), Keyword.t()) ::
           {:ok, create_notification_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_notification_errors()}
   def create_notification(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateNotification", input, options)
   end
 
   @doc """
-  Creates a subscriber.
-
-  You must create the associated budget and notification before you create the
-  subscriber.
+  Creates a subscriber. You must create the associated budget and notification
+  before you create the subscriber.
   """
-  @spec create_subscriber(map(), create_subscriber_request(), list()) ::
+  @spec create_subscriber(AWS.Client.t(), create_subscriber_request(), Keyword.t()) ::
           {:ok, create_subscriber_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_subscriber_errors()}
   def create_subscriber(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSubscriber", input, options)
   end
 
   @doc """
-  Deletes a budget.
-
-  You can delete your budget at any time.
-
-  Deleting a budget also deletes the notifications and subscribers that are
-  associated with that budget.
+  Deletes a budget. You can delete your budget at any time.
   """
-  @spec delete_budget(map(), delete_budget_request(), list()) ::
+  @spec delete_budget(AWS.Client.t(), delete_budget_request(), Keyword.t()) ::
           {:ok, delete_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_budget_errors()}
   def delete_budget(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBudget", input, options)
   end
 
   @doc """
-
   Deletes a budget action.
   """
-  @spec delete_budget_action(map(), delete_budget_action_request(), list()) ::
+  @spec delete_budget_action(AWS.Client.t(), delete_budget_action_request(), Keyword.t()) ::
           {:ok, delete_budget_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_budget_action_errors()}
   def delete_budget_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBudgetAction", input, options)
   end
 
   @doc """
   Deletes a notification.
-
-  Deleting a notification also deletes the subscribers that are associated with
-  the notification.
   """
-  @spec delete_notification(map(), delete_notification_request(), list()) ::
+  @spec delete_notification(AWS.Client.t(), delete_notification_request(), Keyword.t()) ::
           {:ok, delete_notification_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_notification_errors()}
   def delete_notification(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNotification", input, options)
   end
 
   @doc """
   Deletes a subscriber.
-
-  Deleting the last subscriber to a notification also deletes the notification.
   """
-  @spec delete_subscriber(map(), delete_subscriber_request(), list()) ::
+  @spec delete_subscriber(AWS.Client.t(), delete_subscriber_request(), Keyword.t()) ::
           {:ok, delete_subscriber_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_subscriber_errors()}
   def delete_subscriber(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSubscriber", input, options)
   end
 
   @doc """
   Describes a budget.
-
-  The Request Syntax section shows the `BudgetLimit` syntax. For
-  `PlannedBudgetLimits`, see the
-  [Examples](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudget.html#API_DescribeBudget_Examples)
-  section.
   """
-  @spec describe_budget(map(), describe_budget_request(), list()) ::
+  @spec describe_budget(AWS.Client.t(), describe_budget_request(), Keyword.t()) ::
           {:ok, describe_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_budget_errors()}
   def describe_budget(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBudget", input, options)
   end
 
   @doc """
-
   Describes a budget action detail.
   """
-  @spec describe_budget_action(map(), describe_budget_action_request(), list()) ::
+  @spec describe_budget_action(AWS.Client.t(), describe_budget_action_request(), Keyword.t()) ::
           {:ok, describe_budget_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_budget_action_errors()}
   def describe_budget_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBudgetAction", input, options)
   end
 
   @doc """
-
   Describes a budget action history detail.
   """
   @spec describe_budget_action_histories(
-          map(),
+          AWS.Client.t(),
           describe_budget_action_histories_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_budget_action_histories_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_budget_action_histories_errors()}
   def describe_budget_action_histories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBudgetActionHistories", input, options)
   end
 
   @doc """
-
   Describes all of the budget actions for an account.
   """
   @spec describe_budget_actions_for_account(
-          map(),
+          AWS.Client.t(),
           describe_budget_actions_for_account_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_budget_actions_for_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_budget_actions_for_account_errors()}
   def describe_budget_actions_for_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBudgetActionsForAccount", input, options)
   end
 
   @doc """
-
   Describes all of the budget actions for a budget.
   """
   @spec describe_budget_actions_for_budget(
-          map(),
+          AWS.Client.t(),
           describe_budget_actions_for_budget_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_budget_actions_for_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_budget_actions_for_budget_errors()}
   def describe_budget_actions_for_budget(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBudgetActionsForBudget", input, options)
   end
@@ -1577,52 +1509,49 @@ defmodule AWS.Budgets do
   Lists the budget names and notifications that are associated with an account.
   """
   @spec describe_budget_notifications_for_account(
-          map(),
+          AWS.Client.t(),
           describe_budget_notifications_for_account_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_budget_notifications_for_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_budget_notifications_for_account_errors()}
   def describe_budget_notifications_for_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBudgetNotificationsForAccount", input, options)
   end
 
   @doc """
-  Describes the history for `DAILY`, `MONTHLY`, and `QUARTERLY` budgets.
-
-  Budget history isn't available for `ANNUAL` budgets.
+  Describes the history for `DAILY`, `MONTHLY`, and `QUARTERLY` budgets. Budget
+  history isn't available for `ANNUAL` budgets.
   """
   @spec describe_budget_performance_history(
-          map(),
+          AWS.Client.t(),
           describe_budget_performance_history_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_budget_performance_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_budget_performance_history_errors()}
   def describe_budget_performance_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBudgetPerformanceHistory", input, options)
   end
 
   @doc """
   Lists the budgets that are associated with an account.
-
-  The Request Syntax section shows the `BudgetLimit` syntax. For
-  `PlannedBudgetLimits`, see the
-  [Examples](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudgets.html#API_DescribeBudgets_Examples)
-  section.
   """
-  @spec describe_budgets(map(), describe_budgets_request(), list()) ::
+  @spec describe_budgets(AWS.Client.t(), describe_budgets_request(), Keyword.t()) ::
           {:ok, describe_budgets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_budgets_errors()}
   def describe_budgets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBudgets", input, options)
   end
@@ -1631,15 +1560,16 @@ defmodule AWS.Budgets do
   Lists the notifications that are associated with a budget.
   """
   @spec describe_notifications_for_budget(
-          map(),
+          AWS.Client.t(),
           describe_notifications_for_budget_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_notifications_for_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_notifications_for_budget_errors()}
   def describe_notifications_for_budget(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeNotificationsForBudget", input, options)
   end
@@ -1648,29 +1578,30 @@ defmodule AWS.Budgets do
   Lists the subscribers that are associated with a notification.
   """
   @spec describe_subscribers_for_notification(
-          map(),
+          AWS.Client.t(),
           describe_subscribers_for_notification_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_subscribers_for_notification_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_subscribers_for_notification_errors()}
   def describe_subscribers_for_notification(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSubscribersForNotification", input, options)
   end
 
   @doc """
-
   Executes a budget action.
   """
-  @spec execute_budget_action(map(), execute_budget_action_request(), list()) ::
+  @spec execute_budget_action(AWS.Client.t(), execute_budget_action_request(), Keyword.t()) ::
           {:ok, execute_budget_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_budget_action_errors()}
   def execute_budget_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExecuteBudgetAction", input, options)
   end
@@ -1678,12 +1609,13 @@ defmodule AWS.Budgets do
   @doc """
   Lists tags associated with a budget or budget action resource.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1691,12 +1623,13 @@ defmodule AWS.Budgets do
   @doc """
   Creates tags for a budget or budget action resource.
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1704,49 +1637,44 @@ defmodule AWS.Budgets do
   @doc """
   Deletes tags associated with a budget or budget action resource.
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
-  Updates a budget.
-
-  You can change every part of a budget except for the `budgetName` and the
-  `calculatedSpend`. When you modify a budget, the `calculatedSpend` drops to zero
-  until Amazon Web Services has new usage data to use for forecasting.
-
-  Only one of `BudgetLimit` or `PlannedBudgetLimits` can be present in the syntax
-  at one time. Use the syntax that matches your case. The Request Syntax section
-  shows the `BudgetLimit` syntax. For `PlannedBudgetLimits`, see the
-  [Examples](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_UpdateBudget.html#API_UpdateBudget_Examples)
-  section.
+  Updates a budget. You can change every part of a budget except for the
+  `budgetName` and the `calculatedSpend`. When you modify a budget, the
+  `calculatedSpend` drops to zero until Amazon Web Services has new usage data
+  to use for forecasting.
   """
-  @spec update_budget(map(), update_budget_request(), list()) ::
+  @spec update_budget(AWS.Client.t(), update_budget_request(), Keyword.t()) ::
           {:ok, update_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_budget_errors()}
   def update_budget(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateBudget", input, options)
   end
 
   @doc """
-
   Updates a budget action.
   """
-  @spec update_budget_action(map(), update_budget_action_request(), list()) ::
+  @spec update_budget_action(AWS.Client.t(), update_budget_action_request(), Keyword.t()) ::
           {:ok, update_budget_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_budget_action_errors()}
   def update_budget_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateBudgetAction", input, options)
   end
@@ -1754,12 +1682,13 @@ defmodule AWS.Budgets do
   @doc """
   Updates a notification.
   """
-  @spec update_notification(map(), update_notification_request(), list()) ::
+  @spec update_notification(AWS.Client.t(), update_notification_request(), Keyword.t()) ::
           {:ok, update_notification_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_notification_errors()}
   def update_notification(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateNotification", input, options)
   end
@@ -1767,12 +1696,13 @@ defmodule AWS.Budgets do
   @doc """
   Updates a subscriber.
   """
-  @spec update_subscriber(map(), update_subscriber_request(), list()) ::
+  @spec update_subscriber(AWS.Client.t(), update_subscriber_request(), Keyword.t()) ::
           {:ok, update_subscriber_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_subscriber_errors()}
   def update_subscriber(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSubscriber", input, options)
   end

@@ -5,11 +5,9 @@ defmodule AWS.ChimeSDKVoice do
   @moduledoc """
   The Amazon Chime SDK telephony APIs in this section enable developers to create
   PSTN calling solutions that use Amazon Chime SDK Voice Connectors, and Amazon
-  Chime SDK SIP media applications.
-
-  Developers can
-  also order and manage phone numbers, create and manage Voice Connectors and SIP
-  media applications, and run voice analytics.
+  Chime SDK SIP media applications. Developers can also order and manage phone
+  numbers, create and manage Voice Connectors and SIP media applications, and
+  run voice analytics.
   """
 
   alias AWS.Client
@@ -3530,12 +3528,19 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Associates phone numbers with the specified Amazon Chime SDK Voice Connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20AssociatePhoneNumbersWithVoiceConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec associate_phone_numbers_with_voice_connector(
-          map(),
+          AWS.Client.t(),
           String.t(),
           associate_phone_numbers_with_voice_connector_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_phone_numbers_with_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3552,7 +3557,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3570,12 +3576,20 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Associates phone numbers with the specified Amazon Chime SDK Voice Connector
   group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20AssociatePhoneNumbersWithVoiceConnectorGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_group_id` (`t:string`) The Amazon Chime SDK Voice Connector
+    group ID.
+
+  ## Optional parameters:
   """
   @spec associate_phone_numbers_with_voice_connector_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           associate_phone_numbers_with_voice_connector_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_phone_numbers_with_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3592,7 +3606,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3608,17 +3623,21 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
+  Moves phone numbers into the **Deletion queue**. Phone numbers must be
+  disassociated from any users or Amazon Chime SDK Voice Connectors before they
+  can be deleted.
 
-  Moves phone numbers into the
-  **Deletion queue**.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20BatchDeletePhoneNumber&this_doc_guide=API%2520Reference)
 
-  Phone numbers must be disassociated from any users or Amazon Chime SDK Voice
-  Connectors before they can be deleted.
+  ## Parameters:
 
-  Phone numbers remain in the
-  **Deletion queue** for 7 days before they are deleted permanently.
+  ## Optional parameters:
   """
-  @spec batch_delete_phone_number(map(), batch_delete_phone_number_request(), list()) ::
+  @spec batch_delete_phone_number(
+          AWS.Client.t(),
+          batch_delete_phone_number_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_delete_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_phone_number_errors()}
@@ -3627,7 +3646,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3643,15 +3663,21 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Updates phone number product types, calling names, or phone number names.
+  Updates phone number product types, calling names, or phone number names. You
+  can update one attribute at a time for each `UpdatePhoneNumberRequestItem`.
+  For example, you can update the product type, the calling name, or phone name.
 
-  You can update one attribute at a time for each
-  `UpdatePhoneNumberRequestItem`. For example, you can update the product type,
-  the calling name, or phone name.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20BatchUpdatePhoneNumber&this_doc_guide=API%2520Reference)
 
-  You cannot have a duplicate `phoneNumberId` in a request.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_update_phone_number(map(), batch_update_phone_number_request(), list()) ::
+  @spec batch_update_phone_number(
+          AWS.Client.t(),
+          batch_update_phone_number_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_phone_number_errors()}
@@ -3660,7 +3686,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3676,12 +3703,21 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Creates an order for phone numbers to be provisioned.
+  Creates an order for phone numbers to be provisioned. For numbers outside the
+  U.S., you must use the Amazon Chime SDK SIP media application dial-in product
+  type.
 
-  For numbers outside the U.S., you must use the Amazon Chime SDK SIP media
-  application dial-in product type.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreatePhoneNumberOrder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_phone_number_order(map(), create_phone_number_order_request(), list()) ::
+  @spec create_phone_number_order(
+          AWS.Client.t(),
+          create_phone_number_order_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_phone_number_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_phone_number_order_errors()}
@@ -3690,7 +3726,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3708,8 +3745,20 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Creates a proxy session for the specified Amazon Chime SDK Voice Connector for
   the specified participant phone numbers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateProxySession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
-  @spec create_proxy_session(map(), String.t(), create_proxy_session_request(), list()) ::
+  @spec create_proxy_session(
+          AWS.Client.t(),
+          String.t(),
+          create_proxy_session_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_proxy_session_errors()}
@@ -3718,7 +3767,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3734,14 +3784,22 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Creates a SIP media application.
-
-  For more information about SIP media applications, see [Managing SIP media applications
-  and
+  Creates a SIP media application. For more information about SIP media
+  applications, see [Managing SIP media applications and
   rules](https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-sip-applications.html)
   in the *Amazon Chime SDK Administrator Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateSipMediaApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_sip_media_application(map(), create_sip_media_application_request(), list()) ::
+  @spec create_sip_media_application(
+          AWS.Client.t(),
+          create_sip_media_application_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sip_media_application_errors()}
@@ -3750,7 +3808,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3766,15 +3825,22 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Creates an outbound call to a phone number from the phone number specified
-  in the request, and it invokes the endpoint of the specified
+  Creates an outbound call to a phone number from the phone number specified in
+  the request, and it invokes the endpoint of the specified
   `sipMediaApplicationId`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateSipMediaApplicationCall&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sip_media_application_id` (`t:string`) The ID of the SIP media application.
+
+  ## Optional parameters:
   """
   @spec create_sip_media_application_call(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_sip_media_application_call_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_sip_media_application_call_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3789,7 +3855,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3806,13 +3873,18 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Creates a SIP rule, which can be used to run a SIP media application as a target
-  for a specific trigger type.
-
-  For more information about SIP rules, see [Managing SIP media applications and
+  for a specific trigger type. For more information about SIP rules, see
+  [Managing SIP media applications and
   rules](https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-sip-applications.html)
   in the *Amazon Chime SDK Administrator Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateSipRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_sip_rule(map(), create_sip_rule_request(), list()) ::
+  @spec create_sip_rule(AWS.Client.t(), create_sip_rule_request(), Keyword.t()) ::
           {:ok, create_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sip_rule_errors()}
@@ -3821,7 +3893,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3837,15 +3910,18 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Creates an Amazon Chime SDK Voice Connector.
+  Creates an Amazon Chime SDK Voice Connector. For more information about Voice
+  Connectors, see [Managing Amazon Chime SDK Voice Connector
+  groups](https://docs.aws.amazon.com/chime-sdk/latest/ag/voice-connector-groups.html)
+  in the *Amazon Chime SDK Administrator Guide*.
 
-  For more information about
-  Voice Connectors,
-  see [Managing Amazon Chime SDK Voice Connector groups](https://docs.aws.amazon.com/chime-sdk/latest/ag/voice-connector-groups.html)
-  in the *Amazon Chime SDK
-  Administrator Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateVoiceConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_voice_connector(map(), create_voice_connector_request(), list()) ::
+  @spec create_voice_connector(AWS.Client.t(), create_voice_connector_request(), Keyword.t()) ::
           {:ok, create_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_voice_connector_errors()}
@@ -3854,7 +3930,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3870,18 +3947,21 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Creates an Amazon Chime SDK Voice Connector group under the administrator's
-  AWS account.
+  Creates an Amazon Chime SDK Voice Connector group under the administrator's AWS
+  account. You can associate Amazon Chime SDK Voice Connectors with the Voice
+  Connector group by including `VoiceConnectorItems` in the request.
 
-  You can associate Amazon Chime SDK Voice Connectors with the
-  Voice Connector group by including `VoiceConnectorItems` in the
-  request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateVoiceConnectorGroup&this_doc_guide=API%2520Reference)
 
-  You can include Voice Connectors from different AWS Regions in your group.
-  This creates a fault tolerant mechanism for fallback in case of availability
-  events.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_voice_connector_group(map(), create_voice_connector_group_request(), list()) ::
+  @spec create_voice_connector_group(
+          AWS.Client.t(),
+          create_voice_connector_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_voice_connector_group_errors()}
@@ -3890,7 +3970,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3909,17 +3990,13 @@ defmodule AWS.ChimeSDKVoice do
   Creates a voice profile, which consists of an enrolled user and their latest
   voice print.
 
-  Before creating any voice profiles, you must provide all notices and obtain all
-  consents from the speaker as required under applicable privacy and biometrics
-  laws, and as required under the
-  [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateVoiceProfile&this_doc_guide=API%2520Reference)
 
-  For more information about voice profiles and voice analytics, see [Using Amazon
-  Chime SDK Voice
-  Analytics](https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html)
-  in the *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_voice_profile(map(), create_voice_profile_request(), list()) ::
+  @spec create_voice_profile(AWS.Client.t(), create_voice_profile_request(), Keyword.t()) ::
           {:ok, create_voice_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_voice_profile_errors()}
@@ -3928,7 +4005,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3947,17 +4025,17 @@ defmodule AWS.ChimeSDKVoice do
   Creates a voice profile domain, a collection of voice profiles, their voice
   prints, and encrypted enrollment audio.
 
-  Before creating any voice profiles, you must provide all notices and obtain all
-  consents from the speaker as required under applicable privacy and biometrics
-  laws, and as required under the
-  [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateVoiceProfileDomain&this_doc_guide=API%2520Reference)
 
-  For more information about voice profile domains, see [Using Amazon Chime SDK
-  Voice
-  Analytics](https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html)
-  in the *Amazon Chime SDK Developer Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_voice_profile_domain(map(), create_voice_profile_domain_request(), list()) ::
+  @spec create_voice_profile_domain(
+          AWS.Client.t(),
+          create_voice_profile_domain_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_voice_profile_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_voice_profile_domain_errors()}
@@ -3966,7 +4044,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3982,19 +4061,23 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Moves the specified phone number into the
-  **Deletion queue**.
+  Moves the specified phone number into the **Deletion queue**. A phone number
+  must be disassociated from any users or Amazon Chime SDK Voice Connectors
+  before it can be deleted.
 
-  A phone number must
-  be disassociated from any users or Amazon Chime SDK Voice Connectors before it
-  can be
-  deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeletePhoneNumber&this_doc_guide=API%2520Reference)
 
-  Deleted phone numbers remain in the
-  **Deletion queue** queue for 7 days before
-  they are deleted permanently.
+  ## Parameters:
+  * `:phone_number_id` (`t:string`) The phone number ID.
+
+  ## Optional parameters:
   """
-  @spec delete_phone_number(map(), String.t(), delete_phone_number_request(), list()) ::
+  @spec delete_phone_number(
+          AWS.Client.t(),
+          String.t(),
+          delete_phone_number_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_phone_number_errors()}
@@ -4003,7 +4086,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4021,13 +4105,21 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Deletes the specified proxy session from the specified Amazon Chime SDK Voice
   Connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteProxySession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:proxy_session_id` (`t:string`) The proxy session ID.
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec delete_proxy_session(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_proxy_session_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -4045,7 +4137,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4062,12 +4155,19 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Deletes a SIP media application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteSipMediaApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
+
+  ## Optional parameters:
   """
   @spec delete_sip_media_application(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_sip_media_application_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -4082,7 +4182,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4099,8 +4200,15 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Deletes a SIP rule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteSipRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sip_rule_id` (`t:string`) The SIP rule ID.
+
+  ## Optional parameters:
   """
-  @spec delete_sip_rule(map(), String.t(), delete_sip_rule_request(), list()) ::
+  @spec delete_sip_rule(AWS.Client.t(), String.t(), delete_sip_rule_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sip_rule_errors()}
@@ -4109,7 +4217,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4125,14 +4234,23 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Deletes an Amazon Chime SDK Voice Connector.
-
-  Any phone numbers associated
-  with the Amazon Chime SDK Voice Connector must be disassociated from it before
-  it
+  Deletes an Amazon Chime SDK Voice Connector. Any phone numbers associated with
+  the Amazon Chime SDK Voice Connector must be disassociated from it before it
   can be deleted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
-  @spec delete_voice_connector(map(), String.t(), delete_voice_connector_request(), list()) ::
+  @spec delete_voice_connector(
+          AWS.Client.t(),
+          String.t(),
+          delete_voice_connector_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_errors()}
@@ -4141,7 +4259,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4159,12 +4278,19 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Deletes the emergency calling details from the specified Amazon Chime SDK Voice
   Connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnectorEmergencyCallingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec delete_voice_connector_emergency_calling_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_voice_connector_emergency_calling_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -4181,7 +4307,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4197,17 +4324,22 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Deletes an Amazon Chime SDK Voice Connector group.
-
-  Any `VoiceConnectorItems`
-  and phone numbers associated with the group must be removed before it can be
+  Deletes an Amazon Chime SDK Voice Connector group. Any `VoiceConnectorItems` and
+  phone numbers associated with the group must be removed before it can be
   deleted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnectorGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_group_id` (`t:string`) The Voice Connector Group ID.
+
+  ## Optional parameters:
   """
   @spec delete_voice_connector_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_voice_connector_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -4222,7 +4354,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4241,14 +4374,18 @@ defmodule AWS.ChimeSDKVoice do
   Deletes the origination settings for the specified Amazon Chime SDK Voice
   Connector.
 
-  If emergency calling is configured for the Voice Connector, it must be
-  deleted prior to deleting the origination settings.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnectorOrigination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec delete_voice_connector_origination(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_voice_connector_origination_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -4263,7 +4400,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4281,12 +4419,19 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Deletes the proxy configuration from the specified Amazon Chime SDK Voice
   Connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnectorProxy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec delete_voice_connector_proxy(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_voice_connector_proxy_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -4298,7 +4443,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4315,12 +4461,19 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Deletes a Voice Connector's streaming configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnectorStreamingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec delete_voice_connector_streaming_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_voice_connector_streaming_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -4337,7 +4490,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4356,14 +4510,18 @@ defmodule AWS.ChimeSDKVoice do
   Deletes the termination settings for the specified Amazon Chime SDK Voice
   Connector.
 
-  If emergency calling is configured for the Voice Connector, it must be
-  deleted prior to deleting the termination settings.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnectorTermination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec delete_voice_connector_termination(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_voice_connector_termination_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -4378,7 +4536,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4394,14 +4553,21 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Deletes the specified SIP credentials used by your equipment to
-  authenticate during call termination.
+  Deletes the specified SIP credentials used by your equipment to authenticate
+  during call termination.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnectorTerminationCredentials&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec delete_voice_connector_termination_credentials(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_voice_connector_termination_credentials_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -4418,7 +4584,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4434,11 +4601,22 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Deletes a voice profile, including its voice print and enrollment data.
+  Deletes a voice profile, including its voice print and enrollment data. WARNING:
+  This action is not reversible.
 
-  WARNING: This action is not reversible.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_profile_id` (`t:string`) The voice profile ID.
+
+  ## Optional parameters:
   """
-  @spec delete_voice_profile(map(), String.t(), delete_voice_profile_request(), list()) ::
+  @spec delete_voice_profile(
+          AWS.Client.t(),
+          String.t(),
+          delete_voice_profile_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_profile_errors()}
@@ -4447,7 +4625,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4463,15 +4642,21 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Deletes all voice profiles in the domain.
+  Deletes all voice profiles in the domain. WARNING: This action is not
+  reversible.
 
-  WARNING: This action is not reversible.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceProfileDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_profile_domain_id` (`t:string`) The voice profile domain ID.
+
+  ## Optional parameters:
   """
   @spec delete_voice_profile_domain(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_voice_profile_domain_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -4486,7 +4671,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4502,14 +4688,21 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Disassociates the specified phone numbers from the specified
-  Amazon Chime SDK Voice Connector.
+  Disassociates the specified phone numbers from the specified Amazon Chime SDK
+  Voice Connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DisassociatePhoneNumbersFromVoiceConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec disassociate_phone_numbers_from_voice_connector(
-          map(),
+          AWS.Client.t(),
           String.t(),
           disassociate_phone_numbers_from_voice_connector_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_phone_numbers_from_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4526,7 +4719,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4543,14 +4737,20 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Disassociates the specified phone numbers from the specified Amazon Chime SDK
-  Voice
-  Connector group.
+  Voice Connector group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DisassociatePhoneNumbersFromVoiceConnectorGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_group_id` (`t:string`) The Voice Connector group ID.
+
+  ## Optional parameters:
   """
   @spec disassociate_phone_numbers_from_voice_connector_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           disassociate_phone_numbers_from_voice_connector_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_phone_numbers_from_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4567,7 +4767,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4585,17 +4786,41 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Retrieves the global settings for the Amazon Chime SDK Voice Connectors in an
   AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetGlobalSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_global_settings(map(), list()) ::
+  @spec get_global_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_global_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_global_settings_errors()}
   def get_global_settings(%Client{} = client, options \\ []) do
     url_path = "/settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4603,54 +4828,128 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Retrieves details for the specified phone number ID, such as associations,
   capabilities, and product type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetPhoneNumber&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:phone_number_id` (`t:string`) The phone number ID.
+
+  ## Optional parameters:
   """
-  @spec get_phone_number(map(), String.t(), list()) ::
+  @spec get_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_phone_number_errors()}
   def get_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves details for the specified phone number order, such as the order
-  creation timestamp, phone numbers in E.164 format, product type, and
-  order status.
+  creation timestamp, phone numbers in E.164 format, product type, and order
+  status.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetPhoneNumberOrder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:phone_number_order_id` (`t:string`) The ID of the phone number order .
+
+  ## Optional parameters:
   """
-  @spec get_phone_number_order(map(), String.t(), list()) ::
+  @spec get_phone_number_order(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_phone_number_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_phone_number_order_errors()}
   def get_phone_number_order(%Client{} = client, phone_number_order_id, options \\ []) do
     url_path = "/phone-number-orders/#{AWS.Util.encode_uri(phone_number_order_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves the phone number settings for the administrator's AWS account,
-  such as the default outbound calling name.
+  Retrieves the phone number settings for the administrator's AWS account, such as
+  the default outbound calling name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetPhoneNumberSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_phone_number_settings(map(), list()) ::
+  @spec get_phone_number_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_phone_number_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_phone_number_settings_errors()}
   def get_phone_number_settings(%Client{} = client, options \\ []) do
     url_path = "/settings/phone-number"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4658,8 +4957,16 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Retrieves the specified proxy session details for the specified Amazon Chime SDK
   Voice Connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetProxySession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:proxy_session_id` (`t:string`) The proxy session ID.
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
-  @spec get_proxy_session(map(), String.t(), String.t(), list()) ::
+  @spec get_proxy_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_proxy_session_errors()}
@@ -4667,28 +4974,70 @@ defmodule AWS.ChimeSDKVoice do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions/#{AWS.Util.encode_uri(proxy_session_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves the information for a SIP media application, including name,
-  AWS Region, and endpoints.
+  Retrieves the information for a SIP media application, including name, AWS
+  Region, and endpoints.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetSipMediaApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sip_media_application_id` (`t:string`) The SIP media application ID .
+
+  ## Optional parameters:
   """
-  @spec get_sip_media_application(map(), String.t(), list()) ::
+  @spec get_sip_media_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sip_media_application_errors()}
   def get_sip_media_application(%Client{} = client, sip_media_application_id, options \\ []) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4696,11 +5045,18 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Gets the Alexa Skill configuration for the SIP media application.
 
-  Due to changes made by the Amazon Alexa service, this API is no longer available
-  for use. For more information, refer to
-  the [Alexa Smart Properties](https://developer.amazon.com/en-US/alexa/alexasmartproperties) page.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetSipMediaApplicationAlexaSkillConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
+
+  ## Optional parameters:
   """
-  @spec get_sip_media_application_alexa_skill_configuration(map(), String.t(), list()) ::
+  @spec get_sip_media_application_alexa_skill_configuration(
+          AWS.Client.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, get_sip_media_application_alexa_skill_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sip_media_application_alexa_skill_configuration_errors()}
@@ -4712,18 +5068,42 @@ defmodule AWS.ChimeSDKVoice do
     url_path =
       "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}/alexa-skill-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the logging configuration for the specified SIP media application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetSipMediaApplicationLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
+
+  ## Optional parameters:
   """
-  @spec get_sip_media_application_logging_configuration(map(), String.t(), list()) ::
+  @spec get_sip_media_application_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sip_media_application_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sip_media_application_logging_configuration_errors()}
@@ -4735,10 +5115,27 @@ defmodule AWS.ChimeSDKVoice do
     url_path =
       "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}/logging-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4746,25 +5143,58 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Retrieves the details of a SIP rule, such as the rule ID, name, triggers, and
   target endpoints.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetSipRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sip_rule_id` (`t:string`) The SIP rule ID.
+
+  ## Optional parameters:
   """
-  @spec get_sip_rule(map(), String.t(), list()) ::
+  @spec get_sip_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sip_rule_errors()}
   def get_sip_rule(%Client{} = client, sip_rule_id, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the details of the specified speaker search task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetSpeakerSearchTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:speaker_search_task_id` (`t:string`) The ID of the speaker search task.
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
-  @spec get_speaker_search_task(map(), String.t(), String.t(), list()) ::
+  @spec get_speaker_search_task(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_speaker_search_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_speaker_search_task_errors()}
@@ -4777,10 +5207,27 @@ defmodule AWS.ChimeSDKVoice do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/speaker-search-tasks/#{AWS.Util.encode_uri(speaker_search_task_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4788,17 +5235,42 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Retrieves details for the specified Amazon Chime SDK Voice Connector, such as
   timestamps,name, outbound host, and encryption requirements.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
-  @spec get_voice_connector(map(), String.t(), list()) ::
+  @spec get_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_errors()}
   def get_voice_connector(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4806,8 +5278,19 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Retrieves the emergency calling configuration details for the specified Voice
   Connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorEmergencyCallingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
-  @spec get_voice_connector_emergency_calling_configuration(map(), String.t(), list()) ::
+  @spec get_voice_connector_emergency_calling_configuration(
+          AWS.Client.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, get_voice_connector_emergency_calling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_emergency_calling_configuration_errors()}
@@ -4819,39 +5302,87 @@ defmodule AWS.ChimeSDKVoice do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/emergency-calling-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves details for the specified Amazon Chime SDK Voice Connector group,
-  such as timestamps,name, and associated `VoiceConnectorItems`.
+  Retrieves details for the specified Amazon Chime SDK Voice Connector group, such
+  as timestamps,name, and associated `VoiceConnectorItems`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_group_id` (`t:string`) The Voice Connector group ID.
+
+  ## Optional parameters:
   """
-  @spec get_voice_connector_group(map(), String.t(), list()) ::
+  @spec get_voice_connector_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_group_errors()}
   def get_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
     url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the logging configuration settings for the specified Voice Connector.
-
   Shows whether SIP message logs are enabled for sending to Amazon CloudWatch
   Logs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
-  @spec get_voice_connector_logging_configuration(map(), String.t(), list()) ::
+  @spec get_voice_connector_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_logging_configuration_errors()}
@@ -4863,37 +5394,85 @@ defmodule AWS.ChimeSDKVoice do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/logging-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the origination settings for the specified Voice Connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorOrigination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
-  @spec get_voice_connector_origination(map(), String.t(), list()) ::
+  @spec get_voice_connector_origination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_origination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_origination_errors()}
   def get_voice_connector_origination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/origination"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the proxy configuration details for the specified Amazon Chime SDK
-  Voice
-  Connector.
+  Voice Connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorProxy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
-  @spec get_voice_connector_proxy(map(), String.t(), list()) ::
+  @spec get_voice_connector_proxy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_proxy_errors()}
@@ -4901,23 +5480,45 @@ defmodule AWS.ChimeSDKVoice do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the streaming configuration details for the specified Amazon Chime SDK
-  Voice Connector.
+  Voice Connector. Shows whether media streaming is enabled for sending to
+  Amazon Kinesis. It also shows the retention period, in hours, for the Amazon
+  Kinesis data.
 
-  Shows whether media streaming is enabled for sending to Amazon
-  Kinesis. It also shows the retention period, in hours, for the Amazon Kinesis
-  data.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorStreamingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
-  @spec get_voice_connector_streaming_configuration(map(), String.t(), list()) ::
+  @spec get_voice_connector_streaming_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_streaming_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_streaming_configuration_errors()}
@@ -4929,38 +5530,85 @@ defmodule AWS.ChimeSDKVoice do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/streaming-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the termination setting details for the specified Voice Connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorTermination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
-  @spec get_voice_connector_termination(map(), String.t(), list()) ::
+  @spec get_voice_connector_termination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_termination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_termination_errors()}
   def get_voice_connector_termination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves information about the last time a `SIP OPTIONS` ping
-  was received from your SIP infrastructure for the specified Amazon Chime SDK
-  Voice
-  Connector.
+  Retrieves information about the last time a `SIP OPTIONS` ping was received from
+  your SIP infrastructure for the specified Amazon Chime SDK Voice Connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorTerminationHealth&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
-  @spec get_voice_connector_termination_health(map(), String.t(), list()) ::
+  @spec get_voice_connector_termination_health(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_termination_health_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_termination_health_errors()}
@@ -4970,52 +5618,137 @@ defmodule AWS.ChimeSDKVoice do
         options \\ []
       ) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination/health"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the details of the specified voice profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_profile_id` (`t:string`) The voice profile ID.
+
+  ## Optional parameters:
   """
-  @spec get_voice_profile(map(), String.t(), list()) ::
+  @spec get_voice_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_profile_errors()}
   def get_voice_profile(%Client{} = client, voice_profile_id, options \\ []) do
     url_path = "/voice-profiles/#{AWS.Util.encode_uri(voice_profile_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the details of the specified voice profile domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceProfileDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_profile_domain_id` (`t:string`) The voice profile domain ID.
+
+  ## Optional parameters:
   """
-  @spec get_voice_profile_domain(map(), String.t(), list()) ::
+  @spec get_voice_profile_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_profile_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_profile_domain_errors()}
   def get_voice_profile_domain(%Client{} = client, voice_profile_domain_id, options \\ []) do
     url_path = "/voice-profile-domains/#{AWS.Util.encode_uri(voice_profile_domain_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the details of a voice tone analysis task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceToneAnalysisTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+  * `:voice_tone_analysis_task_id` (`t:string`) The ID of the voice tone anlysis
+    task.
+  * `:is_caller` (`t:boolean`) Specifies whether the voice being analyzed is the
+    caller (originator) or the callee (responder).
+
+  ## Optional parameters:
   """
-  @spec get_voice_tone_analysis_task(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_voice_tone_analysis_task(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, get_voice_tone_analysis_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_tone_analysis_task_errors()}
@@ -5029,17 +5762,27 @@ defmodule AWS.ChimeSDKVoice do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/voice-tone-analysis-tasks/#{AWS.Util.encode_uri(voice_tone_analysis_task_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(is_caller) do
-        [{"isCaller", is_caller} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"isCaller", is_caller}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5047,313 +5790,505 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Lists the available AWS Regions in which you can create an Amazon Chime SDK
   Voice Connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListAvailableVoiceConnectorRegions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_available_voice_connector_regions(map(), list()) ::
+  @spec list_available_voice_connector_regions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_available_voice_connector_regions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_available_voice_connector_regions_errors()}
   def list_available_voice_connector_regions(%Client{} = client, options \\ []) do
     url_path = "/voice-connector-regions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the phone numbers for an administrator's Amazon Chime SDK account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListPhoneNumberOrders&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
+  * `:next_token` (`t:string`) The token used to retrieve the next page of
+    results.
   """
-  @spec list_phone_number_orders(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_phone_number_orders(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_phone_number_orders_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_phone_number_orders_errors()}
-  def list_phone_number_orders(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_phone_number_orders(%Client{} = client, options \\ []) do
     url_path = "/phone-number-orders"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the phone numbers for the specified Amazon Chime SDK account,
-  Amazon Chime SDK user, Amazon Chime SDK Voice Connector, or Amazon Chime SDK
-  Voice
+  Lists the phone numbers for the specified Amazon Chime SDK account, Amazon Chime
+  SDK user, Amazon Chime SDK Voice Connector, or Amazon Chime SDK Voice
   Connector group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListPhoneNumbers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:filter_name` (`t:enum["SipRuleId|VoiceConnectorGroupId|VoiceConnectorId"]`)
+    The filter to limit the number of results.
+  * `:filter_value` (`t:string`) The filter value.
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
+  * `:next_token` (`t:string`) The token used to return the next page of results.
+  * `:product_type` (`t:enum["SipMediaApplicationDialIn|VoiceConnector"]`) The
+    phone number product types.
+  * `:status` (`t:string`) The status of your organization's phone numbers.
   """
-  @spec list_phone_numbers(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_phone_numbers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_phone_numbers_errors()}
-  def list_phone_numbers(
-        %Client{} = client,
-        filter_name \\ nil,
-        filter_value \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        product_type \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_phone_numbers(%Client{} = client, options \\ []) do
     url_path = "/phone-numbers"
+
+    # Validate optional parameters
+    optional_params = [
+      filter_name: nil,
+      filter_value: nil,
+      max_results: nil,
+      next_token: nil,
+      product_type: nil,
+      status: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(product_type) do
-        [{"product-type", product_type} | query_params]
+      if opt_val = Keyword.get(options, :product_type) do
+        [{"product-type", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(filter_value) do
-        [{"filter-value", filter_value} | query_params]
+      if opt_val = Keyword.get(options, :filter_value) do
+        [{"filter-value", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(filter_name) do
-        [{"filter-name", filter_name} | query_params]
+      if opt_val = Keyword.get(options, :filter_name) do
+        [{"filter-name", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :filter_name,
+        :filter_value,
+        :max_results,
+        :next_token,
+        :product_type,
+        :status
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the proxy sessions for the specified Amazon Chime SDK Voice Connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListProxySessions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
+  * `:next_token` (`t:string`) The token used to retrieve the next page of
+    results.
+  * `:status` (`t:enum["Closed|InProgress|Open"]`) The proxy session status.
   """
-  @spec list_proxy_sessions(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_proxy_sessions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_proxy_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_proxy_sessions_errors()}
-  def list_proxy_sessions(
-        %Client{} = client,
-        voice_connector_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_proxy_sessions(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the SIP media applications under the administrator's AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListSipMediaApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call. Defaults to 100.
+  * `:next_token` (`t:string`) The token used to return the next page of results.
   """
-  @spec list_sip_media_applications(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_sip_media_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sip_media_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sip_media_applications_errors()}
-  def list_sip_media_applications(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_sip_media_applications(%Client{} = client, options \\ []) do
     url_path = "/sip-media-applications"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the SIP rules under the administrator's AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListSipRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call. Defaults to 100.
+  * `:next_token` (`t:string`) The token used to return the next page of results.
+  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
   """
-  @spec list_sip_rules(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_sip_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sip_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sip_rules_errors()}
-  def list_sip_rules(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        sip_media_application_id \\ nil,
-        options \\ []
-      ) do
+  def list_sip_rules(%Client{} = client, options \\ []) do
     url_path = "/sip-rules"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, sip_media_application_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(sip_media_application_id) do
-        [{"sip-media-application", sip_media_application_id} | query_params]
+      if opt_val = Keyword.get(options, :sip_media_application_id) do
+        [{"sip-media-application", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :sip_media_application_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the countries that you can order phone numbers from.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListSupportedPhoneNumberCountries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:product_type` (`t:enum["SipMediaApplicationDialIn|VoiceConnector"]`) The
+    phone number product type.
+
+  ## Optional parameters:
   """
-  @spec list_supported_phone_number_countries(map(), String.t(), list()) ::
+  @spec list_supported_phone_number_countries(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_supported_phone_number_countries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_supported_phone_number_countries_errors()}
   def list_supported_phone_number_countries(%Client{} = client, product_type, options \\ []) do
     url_path = "/phone-number-countries"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(product_type) do
-        [{"product-type", product_type} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"product-type", product_type}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of the tags in a given resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource ARN.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(resource_arn) do
-        [{"arn", resource_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"arn", resource_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5361,44 +6296,77 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Lists the Amazon Chime SDK Voice Connector groups in the administrator's AWS
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListVoiceConnectorGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
+  * `:next_token` (`t:string`) The token used to return the next page of results.
   """
-  @spec list_voice_connector_groups(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_voice_connector_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_voice_connector_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_connector_groups_errors()}
-  def list_voice_connector_groups(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_voice_connector_groups(%Client{} = client, options \\ []) do
     url_path = "/voice-connector-groups"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the SIP credentials for the specified Amazon Chime SDK Voice Connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListVoiceConnectorTerminationCredentials&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
-  @spec list_voice_connector_termination_credentials(map(), String.t(), list()) ::
+  @spec list_voice_connector_termination_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_voice_connector_termination_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_connector_termination_credentials_errors()}
@@ -5410,127 +6378,214 @@ defmodule AWS.ChimeSDKVoice do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination/credentials"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the Amazon Chime SDK Voice Connectors in the administrators
-  AWS account.
+  Lists the Amazon Chime SDK Voice Connectors in the administrators AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListVoiceConnectors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
+  * `:next_token` (`t:string`) The token used to return the next page of results.
   """
-  @spec list_voice_connectors(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_voice_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_voice_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_connectors_errors()}
-  def list_voice_connectors(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_voice_connectors(%Client{} = client, options \\ []) do
     url_path = "/voice-connectors"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the specified voice profile domains in the administrator's AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListVoiceProfileDomains&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
+  * `:next_token` (`t:string`) The token used to return the next page of results.
   """
-  @spec list_voice_profile_domains(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_voice_profile_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_voice_profile_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_profile_domains_errors()}
-  def list_voice_profile_domains(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_voice_profile_domains(%Client{} = client, options \\ []) do
     url_path = "/voice-profile-domains"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the voice profiles in a voice profile domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListVoiceProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_profile_domain_id` (`t:string`) The ID of the voice profile domain.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results in the request.
+  * `:next_token` (`t:string`) The token used to retrieve the next page of
+    results.
   """
-  @spec list_voice_profiles(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
+  @spec list_voice_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_voice_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_profiles_errors()}
-  def list_voice_profiles(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        voice_profile_domain_id,
-        options \\ []
-      ) do
+  def list_voice_profiles(%Client{} = client, voice_profile_domain_id, options \\ []) do
     url_path = "/voice-profiles"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"voice-profile-domain-id", voice_profile_domain_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(voice_profile_domain_id) do
-        [{"voice-profile-domain-id", voice_profile_domain_id} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5538,15 +6593,18 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Updates the Alexa Skill configuration for the SIP media application.
 
-  Due to changes made by the Amazon Alexa service, this API is no longer available
-  for use. For more information, refer to
-  the [Alexa Smart Properties](https://developer.amazon.com/en-US/alexa/alexasmartproperties) page.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutSipMediaApplicationAlexaSkillConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
+
+  ## Optional parameters:
   """
   @spec put_sip_media_application_alexa_skill_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_sip_media_application_alexa_skill_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_sip_media_application_alexa_skill_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5563,19 +6621,27 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the logging configuration for the specified SIP media application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutSipMediaApplicationLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
+
+  ## Optional parameters:
   """
   @spec put_sip_media_application_logging_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_sip_media_application_logging_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_sip_media_application_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5592,19 +6658,27 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a Voice Connector's emergency calling configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutVoiceConnectorEmergencyCallingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec put_voice_connector_emergency_calling_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_voice_connector_emergency_calling_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_voice_connector_emergency_calling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5621,19 +6695,27 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a Voice Connector's logging configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutVoiceConnectorLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec put_voice_connector_logging_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_voice_connector_logging_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_voice_connector_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5650,19 +6732,27 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a Voice Connector's origination settings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutVoiceConnectorOrigination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec put_voice_connector_origination(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_voice_connector_origination_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_voice_connector_origination_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5677,7 +6767,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -5685,8 +6776,20 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Puts the specified proxy configuration to the specified Amazon Chime SDK Voice
   Connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutVoiceConnectorProxy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
-  @spec put_voice_connector_proxy(map(), String.t(), put_voice_connector_proxy_request(), list()) ::
+  @spec put_voice_connector_proxy(
+          AWS.Client.t(),
+          String.t(),
+          put_voice_connector_proxy_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_voice_connector_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_proxy_errors()}
@@ -5697,19 +6800,27 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a Voice Connector's streaming configuration settings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutVoiceConnectorStreamingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec put_voice_connector_streaming_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_voice_connector_streaming_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_voice_connector_streaming_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5726,19 +6837,27 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a Voice Connector's termination settings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutVoiceConnectorTermination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec put_voice_connector_termination(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_voice_connector_termination_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_voice_connector_termination_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5753,19 +6872,27 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a Voice Connector's termination credentials.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutVoiceConnectorTerminationCredentials&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec put_voice_connector_termination_credentials(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_voice_connector_termination_credentials_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -5782,7 +6909,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5799,8 +6927,20 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Restores a deleted phone number.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20RestorePhoneNumber&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:phone_number_id` (`t:string`) The ID of the phone number being restored.
+
+  ## Optional parameters:
   """
-  @spec restore_phone_number(map(), String.t(), restore_phone_number_request(), list()) ::
+  @spec restore_phone_number(
+          AWS.Client.t(),
+          String.t(),
+          restore_phone_number_request(),
+          Keyword.t()
+        ) ::
           {:ok, restore_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_phone_number_errors()}
@@ -5809,7 +6949,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5826,95 +6967,134 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Searches the provisioned phone numbers in an organization.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20SearchAvailablePhoneNumbers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:area_code` (`t:string`) Confines a search to just the phone numbers
+    associated with the specified area code.
+  * `:city` (`t:string`) Confines a search to just the phone numbers associated
+    with the specified city.
+  * `:country` (`t:string`) Confines a search to just the phone numbers associated
+    with the specified country.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token used to return the next page of results.
+  * `:phone_number_type` (`t:enum["Local|TollFree"]`) Confines a search to just
+    the phone numbers associated with the specified phone number type, either
+    local or toll-free.
+  * `:state` (`t:string`) Confines a search to just the phone numbers associated
+    with the specified state.
+  * `:toll_free_prefix` (`t:string`) Confines a search to just the phone numbers
+    associated with the specified toll-free prefix.
   """
-  @spec search_available_phone_numbers(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec search_available_phone_numbers(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_available_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_available_phone_numbers_errors()}
-  def search_available_phone_numbers(
-        %Client{} = client,
-        area_code \\ nil,
-        city \\ nil,
-        country \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        phone_number_type \\ nil,
-        state \\ nil,
-        toll_free_prefix \\ nil,
-        options \\ []
-      ) do
+  def search_available_phone_numbers(%Client{} = client, options \\ []) do
     url_path = "/search?type=phone-numbers"
+
+    # Validate optional parameters
+    optional_params = [
+      area_code: nil,
+      city: nil,
+      country: nil,
+      max_results: nil,
+      next_token: nil,
+      phone_number_type: nil,
+      state: nil,
+      toll_free_prefix: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(toll_free_prefix) do
-        [{"toll-free-prefix", toll_free_prefix} | query_params]
+      if opt_val = Keyword.get(options, :toll_free_prefix) do
+        [{"toll-free-prefix", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(state) do
-        [{"state", state} | query_params]
+      if opt_val = Keyword.get(options, :state) do
+        [{"state", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(phone_number_type) do
-        [{"phone-number-type", phone_number_type} | query_params]
+      if opt_val = Keyword.get(options, :phone_number_type) do
+        [{"phone-number-type", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(country) do
-        [{"country", country} | query_params]
+      if opt_val = Keyword.get(options, :country) do
+        [{"country", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(city) do
-        [{"city", city} | query_params]
+      if opt_val = Keyword.get(options, :city) do
+        [{"city", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(area_code) do
-        [{"area-code", area_code} | query_params]
+      if opt_val = Keyword.get(options, :area_code) do
+        [{"area-code", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :area_code,
+        :city,
+        :country,
+        :max_results,
+        :next_token,
+        :phone_number_type,
+        :state,
+        :toll_free_prefix
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5922,13 +7102,19 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Starts a speaker search task.
 
-  Before starting any speaker search tasks, you must provide all notices and
-  obtain all consents from the speaker as required under applicable privacy and
-  biometrics laws, and as required under the
-  [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime
-  SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20StartSpeakerSearchTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
-  @spec start_speaker_search_task(map(), String.t(), start_speaker_search_task_request(), list()) ::
+  @spec start_speaker_search_task(
+          AWS.Client.t(),
+          String.t(),
+          start_speaker_search_task_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_speaker_search_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_speaker_search_task_errors()}
@@ -5937,7 +7123,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5953,23 +7140,27 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Starts a voice tone analysis task.
+  Starts a voice tone analysis task. For more information about voice tone
+  analysis, see [Using Amazon Chime SDK voice
+  analytics](https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html)
+  in the *Amazon Chime SDK Developer Guide*. Before starting any voice tone
+  analysis tasks, you must provide all notices and obtain all consents from the
+  speaker as required under applicable privacy and biometrics laws, and as
+  required under the [AWS service terms](https://aws.amazon.com/service-terms/)
+  for the Amazon Chime SDK.
 
-  For more information about voice tone analysis, see
-  [Using Amazon Chime SDK voice analytics](https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html)
-  in the *Amazon Chime SDK Developer Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20StartVoiceToneAnalysisTask&this_doc_guide=API%2520Reference)
 
-  Before starting any voice tone analysis tasks, you must provide all notices and
-  obtain all consents from the speaker as required under applicable privacy and
-  biometrics laws, and as required under the
-  [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime
-  SDK.
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec start_voice_tone_analysis_task(
-          map(),
+          AWS.Client.t(),
           String.t(),
           start_voice_tone_analysis_task_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_voice_tone_analysis_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5981,7 +7172,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5998,13 +7190,21 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Stops a speaker search task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20StopSpeakerSearchTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:speaker_search_task_id` (`t:string`) The speaker search task ID.
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec stop_speaker_search_task(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           stop_speaker_search_task_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -6022,7 +7222,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6039,13 +7240,22 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Stops a voice tone analysis task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20StopVoiceToneAnalysisTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+  * `:voice_tone_analysis_task_id` (`t:string`) The ID of the voice tone analysis
+    task.
+
+  ## Optional parameters:
   """
   @spec stop_voice_tone_analysis_task(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           stop_voice_tone_analysis_task_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -6063,7 +7273,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6080,8 +7291,14 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Adds a tag to the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -6090,7 +7307,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6107,8 +7325,14 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Removes tags from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -6117,7 +7341,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6135,8 +7360,14 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Updates global settings for the Amazon Chime SDK Voice Connectors in an AWS
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateGlobalSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_global_settings(map(), update_global_settings_request(), list()) ::
+  @spec update_global_settings(AWS.Client.t(), update_global_settings_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_global_settings_errors()}
@@ -6145,29 +7376,32 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
   end
 
   @doc """
   Updates phone number details, such as product type, calling name, or phone
-  number name for the
-  specified phone number ID.
+  number name for the specified phone number ID. You can update one phone number
+  detail at a time. For example, you can update either the product type, calling
+  name, or phone number name in one action. For numbers outside the U.S., you
+  must use the Amazon Chime SDK SIP Media Application Dial-In product type.
 
-  You can update one phone number detail at a time. For
-  example, you can update either the product type, calling name, or phone number
-  name in one action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdatePhoneNumber&this_doc_guide=API%2520Reference)
 
-  For numbers outside the U.S., you must use the Amazon Chime SDK SIP Media
-  Application Dial-In product type.
+  ## Parameters:
+  * `:phone_number_id` (`t:string`) The phone number ID.
 
-  Updates to outbound calling names can take 72 hours to complete. Pending
-  updates to outbound calling names must be complete before you can request
-  another
-  update.
+  ## Optional parameters:
   """
-  @spec update_phone_number(map(), String.t(), update_phone_number_request(), list()) ::
+  @spec update_phone_number(
+          AWS.Client.t(),
+          String.t(),
+          update_phone_number_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_phone_number_errors()}
@@ -6176,7 +7410,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6192,14 +7427,22 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Updates the phone number settings for the administrator's AWS account, such
-  as the default outbound calling name.
-
-  You can update the default outbound calling
+  Updates the phone number settings for the administrator's AWS account, such as
+  the default outbound calling name. You can update the default outbound calling
   name once every seven days. Outbound calling names can take up to 72 hours to
   update.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdatePhoneNumberSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_phone_number_settings(map(), update_phone_number_settings_request(), list()) ::
+  @spec update_phone_number_settings(
+          AWS.Client.t(),
+          update_phone_number_settings_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_phone_number_settings_errors()}
@@ -6208,20 +7451,29 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
   end
 
   @doc """
   Updates the specified proxy session details, such as voice or SMS capabilities.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateProxySession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:proxy_session_id` (`t:string`) The proxy session ID.
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec update_proxy_session(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_proxy_session_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6239,7 +7491,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6256,12 +7509,19 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Updates the details of the specified SIP media application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateSipMediaApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
+
+  ## Optional parameters:
   """
   @spec update_sip_media_application(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_sip_media_application_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6276,24 +7536,32 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Invokes the AWS Lambda function associated with the SIP media application and
-  transaction ID in an update request.
+  transaction ID in an update request. The Lambda function can then return a new
+  set of actions.
 
-  The Lambda function can then return a new set
-  of actions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateSipMediaApplicationCall&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sip_media_application_id` (`t:string`) The ID of the SIP media application
+    handling the call.
+  * `:transaction_id` (`t:string`) The ID of the call transaction.
+
+  ## Optional parameters:
   """
   @spec update_sip_media_application_call(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_sip_media_application_call_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_sip_media_application_call_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6311,7 +7579,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6328,8 +7597,15 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Updates the details of the specified SIP rule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateSipRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sip_rule_id` (`t:string`) The SIP rule ID.
+
+  ## Optional parameters:
   """
-  @spec update_sip_rule(map(), String.t(), update_sip_rule_request(), list()) ::
+  @spec update_sip_rule(AWS.Client.t(), String.t(), update_sip_rule_request(), Keyword.t()) ::
           {:ok, update_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sip_rule_errors()}
@@ -6338,15 +7614,28 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
   Updates the details for the specified Amazon Chime SDK Voice Connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateVoiceConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
-  @spec update_voice_connector(map(), String.t(), update_voice_connector_request(), list()) ::
+  @spec update_voice_connector(
+          AWS.Client.t(),
+          String.t(),
+          update_voice_connector_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_voice_connector_errors()}
@@ -6355,19 +7644,27 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the settings for the specified Amazon Chime SDK Voice Connector group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateVoiceConnectorGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_group_id` (`t:string`) The Voice Connector ID.
+
+  ## Optional parameters:
   """
   @spec update_voice_connector_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_voice_connector_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6382,7 +7679,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
@@ -6391,22 +7689,19 @@ defmodule AWS.ChimeSDKVoice do
   Updates the specified voice profile’s voice print and refreshes its expiration
   timestamp.
 
-  As a condition of using this feature, you acknowledge that the collection, use,
-  storage, and retention of
-  your caller’s biometric identifiers and biometric information (“biometric data”)
-  in the form of a digital voiceprint
-  requires the caller’s informed consent via a written release. Such consent is
-  required under various state laws,
-  including biometrics laws in Illinois, Texas, Washington and other state privacy
-  laws.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateVoiceProfile&this_doc_guide=API%2520Reference)
 
-  You must provide a written release to each caller through a process that clearly
-  reflects each caller’s informed
-  consent before using Amazon Chime SDK Voice Insights service, as required under
-  the terms of your agreement
-  with AWS governing your use of the service.
+  ## Parameters:
+  * `:voice_profile_id` (`t:string`) The profile ID.
+
+  ## Optional parameters:
   """
-  @spec update_voice_profile(map(), String.t(), update_voice_profile_request(), list()) ::
+  @spec update_voice_profile(
+          AWS.Client.t(),
+          String.t(),
+          update_voice_profile_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_voice_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_voice_profile_errors()}
@@ -6415,19 +7710,27 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the settings for the specified voice profile domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateVoiceProfileDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_profile_domain_id` (`t:string`) The domain ID.
+
+  ## Optional parameters:
   """
   @spec update_voice_profile_domain(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_voice_profile_domain_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_voice_profile_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6442,21 +7745,26 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Validates an address to be used for 911 calls made with Amazon Chime SDK Voice
-  Connectors.
+  Connectors. You can use validated addresses in a Presence Information Data
+  Format Location Object file that you include in SIP requests. That helps
+  ensure that addresses are routed to the appropriate Public Safety Answering
+  Point.
 
-  You can use validated addresses in a Presence Information Data Format
-  Location Object file that you include in SIP requests. That helps ensure that
-  addresses
-  are routed to the appropriate Public Safety Answering Point.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ValidateE911Address&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec validate_e911_address(map(), validate_e911_address_request(), list()) ::
+  @spec validate_e911_address(AWS.Client.t(), validate_e911_address_request(), Keyword.t()) ::
           {:ok, validate_e911_address_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_e911_address_errors()}
@@ -6465,7 +7773,8 @@ defmodule AWS.ChimeSDKVoice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

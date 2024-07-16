@@ -4,13 +4,10 @@
 defmodule AWS.PrivateNetworks do
   @moduledoc """
   Amazon Web Services Private 5G is a managed service that makes it easy to
-  deploy, operate, and scale
-  your own private mobile network at your on-premises location.
-
-  Private 5G provides the
-  pre-configured hardware and software for mobile networks, helps automate setup,
-  and
-  scales capacity on demand to support additional devices as needed.
+  deploy, operate, and scale your own private mobile network at your on-premises
+  location. Private 5G provides the pre-configured hardware and software for
+  mobile networks, helps automate setup, and scales capacity on demand to
+  support additional devices as needed.
   """
 
   alias AWS.Client
@@ -1039,8 +1036,18 @@ defmodule AWS.PrivateNetworks do
 
   @doc """
   Acknowledges that the specified network order was received.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20AcknowledgeOrderReceipt&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec acknowledge_order_receipt(map(), acknowledge_order_receipt_request(), list()) ::
+  @spec acknowledge_order_receipt(
+          AWS.Client.t(),
+          acknowledge_order_receipt_request(),
+          Keyword.t()
+        ) ::
           {:ok, acknowledge_order_receipt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, acknowledge_order_receipt_errors()}
@@ -1049,7 +1056,8 @@ defmodule AWS.PrivateNetworks do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1066,8 +1074,18 @@ defmodule AWS.PrivateNetworks do
 
   @doc """
   Activates the specified device identifier.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ActivateDeviceIdentifier&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec activate_device_identifier(map(), activate_device_identifier_request(), list()) ::
+  @spec activate_device_identifier(
+          AWS.Client.t(),
+          activate_device_identifier_request(),
+          Keyword.t()
+        ) ::
           {:ok, activate_device_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, activate_device_identifier_errors()}
@@ -1076,7 +1094,8 @@ defmodule AWS.PrivateNetworks do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1093,8 +1112,14 @@ defmodule AWS.PrivateNetworks do
 
   @doc """
   Activates the specified network site.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ActivateNetworkSite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec activate_network_site(map(), activate_network_site_request(), list()) ::
+  @spec activate_network_site(AWS.Client.t(), activate_network_site_request(), Keyword.t()) ::
           {:ok, activate_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, activate_network_site_errors()}
@@ -1103,7 +1128,8 @@ defmodule AWS.PrivateNetworks do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1121,15 +1147,13 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Configures the specified network resource.
 
-  Use this action to specify the geographic position of the hardware. You must
-  provide
-  Certified Professional Installer (CPI) credentials in the request so that we can
-  obtain
-  spectrum grants. For more information, see [Radio units](https://docs.aws.amazon.com/private-networks/latest/userguide/radio-units.html)
-  in the
-  *Amazon Web Services Private 5G User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ConfigureAccessPoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec configure_access_point(map(), configure_access_point_request(), list()) ::
+  @spec configure_access_point(AWS.Client.t(), configure_access_point_request(), Keyword.t()) ::
           {:ok, configure_access_point_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, configure_access_point_errors()}
@@ -1138,7 +1162,8 @@ defmodule AWS.PrivateNetworks do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1155,8 +1180,14 @@ defmodule AWS.PrivateNetworks do
 
   @doc """
   Creates a network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20CreateNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_network(map(), create_network_request(), list()) ::
+  @spec create_network(AWS.Client.t(), create_network_request(), Keyword.t()) ::
           {:ok, create_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_network_errors()}
@@ -1165,7 +1196,8 @@ defmodule AWS.PrivateNetworks do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1182,8 +1214,14 @@ defmodule AWS.PrivateNetworks do
 
   @doc """
   Creates a network site.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20CreateNetworkSite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_network_site(map(), create_network_site_request(), list()) ::
+  @spec create_network_site(AWS.Client.t(), create_network_site_request(), Keyword.t()) ::
           {:ok, create_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_network_site_errors()}
@@ -1192,7 +1230,8 @@ defmodule AWS.PrivateNetworks do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1209,8 +1248,18 @@ defmodule AWS.PrivateNetworks do
 
   @doc """
   Deactivates the specified device identifier.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20DeactivateDeviceIdentifier&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec deactivate_device_identifier(map(), deactivate_device_identifier_request(), list()) ::
+  @spec deactivate_device_identifier(
+          AWS.Client.t(),
+          deactivate_device_identifier_request(),
+          Keyword.t()
+        ) ::
           {:ok, deactivate_device_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deactivate_device_identifier_errors()}
@@ -1219,7 +1268,8 @@ defmodule AWS.PrivateNetworks do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1235,15 +1285,22 @@ defmodule AWS.PrivateNetworks do
   end
 
   @doc """
-  Deletes the specified network.
-
-  You must delete network sites before you delete the
-  network. For more information, see
+  Deletes the specified network. You must delete network sites before you delete
+  the network. For more information, see
   [DeleteNetworkSite](https://docs.aws.amazon.com/private-networks/latest/APIReference/API_DeleteNetworkSite.html)
-  in the *API Reference for Amazon Web Services Private
-  5G*.
+  in the *API Reference for Amazon Web Services Private 5G*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20DeleteNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:network_arn` (`t:string`) The Amazon Resource Name (ARN) of the network.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
+    provide to ensure the idempotency of the request. For more information, see
+    How to ensure idempotency.
   """
-  @spec delete_network(map(), String.t(), delete_network_request(), list()) ::
+  @spec delete_network(AWS.Client.t(), String.t(), delete_network_request(), Keyword.t()) ::
           {:ok, delete_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_network_errors()}
@@ -1257,7 +1314,13 @@ defmodule AWS.PrivateNetworks do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -1273,15 +1336,29 @@ defmodule AWS.PrivateNetworks do
   end
 
   @doc """
-  Deletes the specified network site.
+  Deletes the specified network site. Return the hardware after you delete the
+  network site. You are responsible for minimum charges. For more information,
+  see [Hardware
+  returns](https://docs.aws.amazon.com/private-networks/latest/userguide/hardware-maintenance.html)
+  in the *Amazon Web Services Private 5G User Guide*.
 
-  Return the hardware after you delete the network
-  site. You are responsible for minimum charges. For more information, see
-  [Hardware returns](https://docs.aws.amazon.com/private-networks/latest/userguide/hardware-maintenance.html)
-  in the *Amazon Web Services Private 5G User
-  Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20DeleteNetworkSite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:network_site_arn` (`t:string`) The Amazon Resource Name (ARN) of the network
+    site.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
+    provide to ensure the idempotency of the request. For more information, see
+    How to ensure idempotency.
   """
-  @spec delete_network_site(map(), String.t(), delete_network_site_request(), list()) ::
+  @spec delete_network_site(
+          AWS.Client.t(),
+          String.t(),
+          delete_network_site_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_network_site_errors()}
@@ -1295,7 +1372,13 @@ defmodule AWS.PrivateNetworks do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -1312,101 +1395,229 @@ defmodule AWS.PrivateNetworks do
 
   @doc """
   Gets the specified device identifier.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20GetDeviceIdentifier&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_identifier_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    device identifier.
+
+  ## Optional parameters:
   """
-  @spec get_device_identifier(map(), String.t(), list()) ::
+  @spec get_device_identifier(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_identifier_errors()}
   def get_device_identifier(%Client{} = client, device_identifier_arn, options \\ []) do
     url_path = "/v1/device-identifiers/#{AWS.Util.encode_uri(device_identifier_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the specified network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20GetNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:network_arn` (`t:string`) The Amazon Resource Name (ARN) of the network.
+
+  ## Optional parameters:
   """
-  @spec get_network(map(), String.t(), list()) ::
+  @spec get_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_errors()}
   def get_network(%Client{} = client, network_arn, options \\ []) do
     url_path = "/v1/networks/#{AWS.Util.encode_uri(network_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the specified network resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20GetNetworkResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:network_resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    network resource.
+
+  ## Optional parameters:
   """
-  @spec get_network_resource(map(), String.t(), list()) ::
+  @spec get_network_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_resource_errors()}
   def get_network_resource(%Client{} = client, network_resource_arn, options \\ []) do
     url_path = "/v1/network-resources/#{AWS.Util.encode_uri(network_resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the specified network site.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20GetNetworkSite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:network_site_arn` (`t:string`) The Amazon Resource Name (ARN) of the network
+    site.
+
+  ## Optional parameters:
   """
-  @spec get_network_site(map(), String.t(), list()) ::
+  @spec get_network_site(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_site_errors()}
   def get_network_site(%Client{} = client, network_site_arn, options \\ []) do
     url_path = "/v1/network-sites/#{AWS.Util.encode_uri(network_site_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the specified order.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20GetOrder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:order_arn` (`t:string`) The Amazon Resource Name (ARN) of the order.
+
+  ## Optional parameters:
   """
-  @spec get_order(map(), String.t(), list()) ::
+  @spec get_order(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_order_errors()}
   def get_order(%Client{} = client, order_arn, options \\ []) do
     url_path = "/v1/orders/#{AWS.Util.encode_uri(order_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists device identifiers.
+  Lists device identifiers. Add filters to your request to return a more specific
+  list of results. Use filters to match the Amazon Resource Name (ARN) of an
+  order, the status of device identifiers, or the ARN of the traffic group.
 
-  Add filters to your request to return a more specific list
-  of results. Use filters to match the Amazon Resource Name (ARN) of an order, the
-  status
-  of device identifiers, or the ARN of the traffic group.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ListDeviceIdentifiers&this_doc_guide=API%2520Reference)
 
-  If you specify multiple filters, filters are joined with an OR, and the request
-  returns results that match all of the specified filters.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_device_identifiers(map(), list_device_identifiers_request(), list()) ::
+  @spec list_device_identifiers(AWS.Client.t(), list_device_identifiers_request(), Keyword.t()) ::
           {:ok, list_device_identifiers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_device_identifiers_errors()}
@@ -1415,7 +1626,8 @@ defmodule AWS.PrivateNetworks do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1431,17 +1643,17 @@ defmodule AWS.PrivateNetworks do
   end
 
   @doc """
-  Lists network resources.
+  Lists network resources. Add filters to your request to return a more specific
+  list of results. Use filters to match the Amazon Resource Name (ARN) of an
+  order or the status of network resources.
 
-  Add filters to your request to return a more specific list of
-  results. Use filters to match the Amazon Resource Name (ARN) of an order or the
-  status
-  of network resources.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ListNetworkResources&this_doc_guide=API%2520Reference)
 
-  If you specify multiple filters, filters are joined with an OR, and the request
-  returns results that match all of the specified filters.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_network_resources(map(), list_network_resources_request(), list()) ::
+  @spec list_network_resources(AWS.Client.t(), list_network_resources_request(), Keyword.t()) ::
           {:ok, list_network_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_network_resources_errors()}
@@ -1450,7 +1662,8 @@ defmodule AWS.PrivateNetworks do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1466,12 +1679,16 @@ defmodule AWS.PrivateNetworks do
   end
 
   @doc """
-  Lists network sites.
+  Lists network sites. Add filters to your request to return a more specific list
+  of results. Use filters to match the status of the network site.
 
-  Add filters to your request to return a more specific list of
-  results. Use filters to match the status of the network site.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ListNetworkSites&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_network_sites(map(), list_network_sites_request(), list()) ::
+  @spec list_network_sites(AWS.Client.t(), list_network_sites_request(), Keyword.t()) ::
           {:ok, list_network_sites_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_network_sites_errors()}
@@ -1480,7 +1697,8 @@ defmodule AWS.PrivateNetworks do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1496,12 +1714,16 @@ defmodule AWS.PrivateNetworks do
   end
 
   @doc """
-  Lists networks.
+  Lists networks. Add filters to your request to return a more specific list of
+  results. Use filters to match the status of the network.
 
-  Add filters to your request to return a more specific list of results.
-  Use filters to match the status of the network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ListNetworks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_networks(map(), list_networks_request(), list()) ::
+  @spec list_networks(AWS.Client.t(), list_networks_request(), Keyword.t()) ::
           {:ok, list_networks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_networks_errors()}
@@ -1510,7 +1732,8 @@ defmodule AWS.PrivateNetworks do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1526,17 +1749,17 @@ defmodule AWS.PrivateNetworks do
   end
 
   @doc """
-  Lists orders.
+  Lists orders. Add filters to your request to return a more specific list of
+  results. Use filters to match the Amazon Resource Name (ARN) of the network
+  site or the status of the order.
 
-  Add filters to your request to return a more specific list of results.
-  Use filters to match the Amazon Resource Name (ARN) of the network site or the
-  status of
-  the order.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ListOrders&this_doc_guide=API%2520Reference)
 
-  If you specify multiple filters, filters are joined with an OR, and the request
-  returns results that match all of the specified filters.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_orders(map(), list_orders_request(), list()) ::
+  @spec list_orders(AWS.Client.t(), list_orders_request(), Keyword.t()) ::
           {:ok, list_orders_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_orders_errors()}
@@ -1545,7 +1768,8 @@ defmodule AWS.PrivateNetworks do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1562,34 +1786,83 @@ defmodule AWS.PrivateNetworks do
 
   @doc """
   Lists the tags for the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Checks the health of the service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20Ping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec ping(map(), list()) ::
+  @spec ping(AWS.Client.t(), Keyword.t()) ::
           {:ok, ping_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, ping_errors()}
   def ping(%Client{} = client, options \\ []) do
     url_path = "/ping"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1597,26 +1870,17 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Use this action to do the following tasks:
 
-    *
-  Update the duration and renewal status of the commitment period for a radio
-  unit.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20StartNetworkResourceUpdate&this_doc_guide=API%2520Reference)
 
-  The update goes into effect immediately.
+  ## Parameters:
 
-    *
-  Request a replacement for a network resource.
-
-    *
-  Request that you return a network resource.
-
-  After you submit a request to replace or return a network resource, the status
-  of the
-  network resource changes to `CREATING_SHIPPING_LABEL`. The shipping label is
-  available when the status of the network resource is `PENDING_RETURN`. After
-  the network resource is successfully returned, its status changes to
-  `DELETED`. For more information, see [Return a radio unit](https://docs.aws.amazon.com/private-networks/latest/userguide/radio-units.html#return-radio-unit).
+  ## Optional parameters:
   """
-  @spec start_network_resource_update(map(), start_network_resource_update_request(), list()) ::
+  @spec start_network_resource_update(
+          AWS.Client.t(),
+          start_network_resource_update_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_network_resource_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_network_resource_update_errors()}
@@ -1625,7 +1889,8 @@ defmodule AWS.PrivateNetworks do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1642,8 +1907,15 @@ defmodule AWS.PrivateNetworks do
 
   @doc """
   Adds tags to the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1652,7 +1924,8 @@ defmodule AWS.PrivateNetworks do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1669,8 +1942,16 @@ defmodule AWS.PrivateNetworks do
 
   @doc """
   Removes tags from the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.privatenetworks#TagKey]`) The tag keys.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1684,7 +1965,8 @@ defmodule AWS.PrivateNetworks do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1701,8 +1983,14 @@ defmodule AWS.PrivateNetworks do
 
   @doc """
   Updates the specified network site.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20UpdateNetworkSite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_network_site(map(), update_network_site_request(), list()) ::
+  @spec update_network_site(AWS.Client.t(), update_network_site_request(), Keyword.t()) ::
           {:ok, update_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_network_site_errors()}
@@ -1711,15 +1999,22 @@ defmodule AWS.PrivateNetworks do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the specified network site plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20UpdateNetworkSitePlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_network_site_plan(map(), update_network_site_plan_request(), list()) ::
+  @spec update_network_site_plan(AWS.Client.t(), update_network_site_plan_request(), Keyword.t()) ::
           {:ok, update_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_network_site_plan_errors()}
@@ -1728,7 +2023,8 @@ defmodule AWS.PrivateNetworks do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

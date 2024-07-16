@@ -4,7 +4,6 @@
 defmodule AWS.MachineLearning do
   @moduledoc """
   Definition of the public APIs
-  exposed by Amazon Machine Learning
   """
 
   alias AWS.Client
@@ -1284,340 +1283,219 @@ defmodule AWS.MachineLearning do
   end
 
   @doc """
-  Adds one or more tags to an object, up to a limit of 10.
-
-  Each tag consists of a key
-  and an optional value. If you add a tag using a key that is already associated
-  with the ML object,
-  `AddTags` updates the tag's value.
+  Adds one or more tags to an object, up to a limit of 10. Each tag consists of a
+  key and an optional value. If you add a tag using a key that is already
+  associated with the ML object, `AddTags` updates the tag's value.
   """
-  @spec add_tags(map(), add_tags_input(), list()) ::
+  @spec add_tags(AWS.Client.t(), add_tags_input(), Keyword.t()) ::
           {:ok, add_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTags", input, options)
   end
 
   @doc """
-  Generates predictions for a group of observations.
-
-  The observations to process exist in one or more data files referenced
-  by a `DataSource`. This operation creates a new `BatchPrediction`, and uses an
-  `MLModel` and the data
-  files referenced by the `DataSource` as information sources.
-
-  `CreateBatchPrediction` is an asynchronous operation. In response to
-  `CreateBatchPrediction`,
-  Amazon Machine Learning (Amazon ML) immediately returns and sets the
-  `BatchPrediction` status to `PENDING`.
-  After the `BatchPrediction` completes, Amazon ML sets the status to `COMPLETED`.
-
-  You can poll for status updates by using the `GetBatchPrediction` operation and
-  checking the `Status` parameter of the result. After the `COMPLETED` status
-  appears,
-  the results are available in the location specified by the `OutputUri`
-  parameter.
+  Generates predictions for a group of observations. The observations to process
+  exist in one or more data files referenced by a `DataSource`. This operation
+  creates a new `BatchPrediction`, and uses an `MLModel` and the data files
+  referenced by the `DataSource` as information sources.
   """
-  @spec create_batch_prediction(map(), create_batch_prediction_input(), list()) ::
+  @spec create_batch_prediction(AWS.Client.t(), create_batch_prediction_input(), Keyword.t()) ::
           {:ok, create_batch_prediction_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_batch_prediction_errors()}
   def create_batch_prediction(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBatchPrediction", input, options)
   end
 
   @doc """
-  Creates a `DataSource` object from an [ Amazon Relational Database Service](http://aws.amazon.com/rds/) (Amazon RDS).
-
-  A `DataSource` references data that can be used to perform `CreateMLModel`,
-  `CreateEvaluation`, or `CreateBatchPrediction` operations.
-
-  `CreateDataSourceFromRDS` is an asynchronous operation. In response to
-  `CreateDataSourceFromRDS`,
-  Amazon Machine Learning (Amazon ML) immediately returns and sets the
-  `DataSource` status to `PENDING`.
-  After the `DataSource` is created and ready for use, Amazon ML sets the `Status`
-  parameter to `COMPLETED`.
-  `DataSource` in the `COMPLETED` or `PENDING` state can
-  be used only to perform `>CreateMLModel`>, `CreateEvaluation`, or
+  Creates a `DataSource` object from an [ Amazon Relational Database
+  Service](http://aws.amazon.com/rds/) (Amazon RDS). A `DataSource` references
+  data that can be used to perform `CreateMLModel`, `CreateEvaluation`, or
   `CreateBatchPrediction` operations.
-
-  If Amazon ML cannot accept the input source, it sets the `Status` parameter to
-  `FAILED` and includes an error message in the `Message` attribute of the
-  `GetDataSource` operation response.
   """
-  @spec create_data_source_from_rds(map(), create_data_source_from_rds_input(), list()) ::
+  @spec create_data_source_from_rds(
+          AWS.Client.t(),
+          create_data_source_from_rds_input(),
+          Keyword.t()
+        ) ::
           {:ok, create_data_source_from_rds_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_source_from_rds_errors()}
   def create_data_source_from_rds(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataSourceFromRDS", input, options)
   end
 
   @doc """
-  Creates a `DataSource` from a database hosted on an Amazon Redshift cluster.
-
-  A
-  `DataSource` references data that can be used to perform either `CreateMLModel`,
-  `CreateEvaluation`, or `CreateBatchPrediction`
-  operations.
-
-  `CreateDataSourceFromRedshift` is an asynchronous operation. In response to
-  `CreateDataSourceFromRedshift`, Amazon Machine Learning (Amazon ML) immediately
-  returns and sets the `DataSource` status to `PENDING`.
-  After the `DataSource` is created and ready for use, Amazon ML sets the `Status`
-  parameter to `COMPLETED`.
-  `DataSource` in `COMPLETED` or `PENDING` states can be
-  used to perform only `CreateMLModel`, `CreateEvaluation`, or
-  `CreateBatchPrediction` operations.
-
-  If Amazon ML can't accept the input source, it sets the `Status` parameter to
-  `FAILED` and includes an error message in the `Message`
-  attribute of the `GetDataSource` operation response.
-
-  The observations should be contained in the database hosted on an Amazon
-  Redshift cluster
-  and should be specified by a `SelectSqlQuery` query. Amazon ML executes an
-  `Unload` command in Amazon Redshift to transfer the result set of
-  the `SelectSqlQuery` query to `S3StagingLocation`.
-
-  After the `DataSource` has been created, it's ready for use in evaluations and
-  batch predictions. If you plan to use the `DataSource` to train an
-  `MLModel`, the `DataSource` also requires a recipe. A recipe
-  describes how each input variable will be used in training an `MLModel`. Will
-  the variable be included or excluded from training? Will the variable be
-  manipulated;
-  for example, will it be combined with another variable or will it be split apart
-  into
-  word combinations? The recipe provides answers to these questions.
-
-  You can't change an existing datasource, but you can copy and modify the
-  settings from an
-  existing Amazon Redshift datasource to create a new datasource. To do so, call
-  `GetDataSource` for an existing datasource and copy the values to a
-  `CreateDataSource` call. Change the settings that you want to change and
-  make sure that all required fields have the appropriate values.
+  Creates a `DataSource` from a database hosted on an Amazon Redshift cluster. A
+  `DataSource` references data that can be used to perform either
+  `CreateMLModel`, `CreateEvaluation`, or `CreateBatchPrediction` operations.
   """
-  @spec create_data_source_from_redshift(map(), create_data_source_from_redshift_input(), list()) ::
+  @spec create_data_source_from_redshift(
+          AWS.Client.t(),
+          create_data_source_from_redshift_input(),
+          Keyword.t()
+        ) ::
           {:ok, create_data_source_from_redshift_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_source_from_redshift_errors()}
   def create_data_source_from_redshift(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataSourceFromRedshift", input, options)
   end
 
   @doc """
-  Creates a `DataSource` object.
-
-  A `DataSource` references data that
-  can be used to perform `CreateMLModel`, `CreateEvaluation`, or
-  `CreateBatchPrediction` operations.
-
-  `CreateDataSourceFromS3` is an asynchronous operation. In response to
-  `CreateDataSourceFromS3`, Amazon Machine Learning (Amazon ML) immediately
-  returns and sets the `DataSource` status to `PENDING`. After the
-  `DataSource` has been created and is ready for use, Amazon ML sets the
-  `Status` parameter to `COMPLETED`. `DataSource` in
-  the `COMPLETED` or `PENDING` state can be used to perform only
-  `CreateMLModel`, `CreateEvaluation` or
-  `CreateBatchPrediction` operations.
-
-  If Amazon ML can't accept the input source, it sets the `Status` parameter to
-  `FAILED` and includes an error message in the `Message`
-  attribute of the `GetDataSource` operation response.
-
-  The observation data used in a `DataSource` should be ready to use; that is,
-  it should have a consistent structure, and missing data values should be kept to
-  a
-  minimum. The observation data must reside in one or more .csv files in an Amazon
-  Simple
-  Storage Service (Amazon S3) location, along with a schema that describes the
-  data items
-  by name and type. The same schema must be used for all of the data files
-  referenced by
-  the `DataSource`.
-
-  After the `DataSource` has been created, it's ready to use in evaluations and
-  batch predictions. If you plan to use the `DataSource` to train an
-  `MLModel`, the `DataSource` also needs a recipe. A recipe
-  describes how each input variable will be used in training an `MLModel`. Will
-  the variable be included or excluded from training? Will the variable be
-  manipulated;
-  for example, will it be combined with another variable or will it be split apart
-  into
-  word combinations? The recipe provides answers to these questions.
+  Creates a `DataSource` object. A `DataSource` references data that can be used
+  to perform `CreateMLModel`, `CreateEvaluation`, or `CreateBatchPrediction`
+  operations.
   """
-  @spec create_data_source_from_s3(map(), create_data_source_from_s3_input(), list()) ::
+  @spec create_data_source_from_s3(
+          AWS.Client.t(),
+          create_data_source_from_s3_input(),
+          Keyword.t()
+        ) ::
           {:ok, create_data_source_from_s3_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_source_from_s3_errors()}
   def create_data_source_from_s3(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataSourceFromS3", input, options)
   end
 
   @doc """
-  Creates a new `Evaluation` of an `MLModel`.
-
-  An `MLModel` is evaluated on a set of observations associated to a `DataSource`.
-  Like a `DataSource`
-  for an `MLModel`, the `DataSource` for an `Evaluation` contains values for the
+  Creates a new `Evaluation` of an `MLModel`. An `MLModel` is evaluated on a set
+  of observations associated to a `DataSource`. Like a `DataSource` for an
+  `MLModel`, the `DataSource` for an `Evaluation` contains values for the
   `Target Variable`. The `Evaluation` compares the predicted result for each
-  observation to the actual outcome and provides a
-  summary so that you know how effective the `MLModel` functions on the test
-  data. Evaluation generates a relevant performance metric, such as BinaryAUC,
-  RegressionRMSE or MulticlassAvgFScore based on the corresponding `MLModelType`:
-  `BINARY`, `REGRESSION` or `MULTICLASS`.
-
-  `CreateEvaluation` is an asynchronous operation. In response to
-  `CreateEvaluation`, Amazon Machine Learning (Amazon ML) immediately
-  returns and sets the evaluation status to `PENDING`. After the `Evaluation` is
-  created and ready for use,
-  Amazon ML sets the status to `COMPLETED`.
-
-  You can use the `GetEvaluation` operation to check progress of the evaluation
-  during the creation operation.
+  observation to the actual outcome and provides a summary so that you know how
+  effective the `MLModel` functions on the test data. Evaluation generates a
+  relevant performance metric, such as BinaryAUC, RegressionRMSE or
+  MulticlassAvgFScore based on the corresponding `MLModelType`: `BINARY`,
+  `REGRESSION` or `MULTICLASS`. `CreateEvaluation` is an asynchronous operation.
+  In response to `CreateEvaluation`, Amazon Machine Learning (Amazon ML)
+  immediately returns and sets the evaluation status to `PENDING`. After the
+  `Evaluation` is created and ready for use, Amazon ML sets the status to
+  `COMPLETED`.
   """
-  @spec create_evaluation(map(), create_evaluation_input(), list()) ::
+  @spec create_evaluation(AWS.Client.t(), create_evaluation_input(), Keyword.t()) ::
           {:ok, create_evaluation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_evaluation_errors()}
   def create_evaluation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEvaluation", input, options)
   end
 
   @doc """
-  Creates a new `MLModel` using the `DataSource` and the recipe as
-  information sources.
-
-  An `MLModel` is nearly immutable. Users can update only the
-  `MLModelName` and the `ScoreThreshold` in an
-  `MLModel` without creating a new `MLModel`.
-
-  `CreateMLModel` is an asynchronous operation. In response to
-  `CreateMLModel`, Amazon Machine Learning (Amazon ML) immediately returns
-  and sets the `MLModel` status to `PENDING`. After the
-  `MLModel` has been created and ready is for use, Amazon ML sets the
-  status to `COMPLETED`.
-
-  You can use the `GetMLModel` operation to check the progress of the
-  `MLModel` during the creation operation.
-
-  `CreateMLModel` requires a `DataSource` with computed statistics,
-  which can be created by setting `ComputeStatistics` to `true` in
-  `CreateDataSourceFromRDS`, `CreateDataSourceFromS3`, or
-  `CreateDataSourceFromRedshift` operations.
+  Creates a new `MLModel` using the `DataSource` and the recipe as information
+  sources. An `MLModel` is nearly immutable. Users can update only the
+  `MLModelName` and the `ScoreThreshold` in an `MLModel` without creating a new
+  `MLModel`.
   """
-  @spec create_ml_model(map(), create_ml_model_input(), list()) ::
+  @spec create_ml_model(AWS.Client.t(), create_ml_model_input(), Keyword.t()) ::
           {:ok, create_ml_model_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ml_model_errors()}
   def create_ml_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMLModel", input, options)
   end
 
   @doc """
-  Creates a real-time endpoint for the `MLModel`.
-
-  The endpoint contains the URI of the `MLModel`; that is, the location to send
-  real-time prediction requests for the specified `MLModel`.
+  Creates a real-time endpoint for the `MLModel`. The endpoint contains the URI of
+  the `MLModel`; that is, the location to send real-time prediction requests for
+  the specified `MLModel`.
   """
-  @spec create_realtime_endpoint(map(), create_realtime_endpoint_input(), list()) ::
+  @spec create_realtime_endpoint(AWS.Client.t(), create_realtime_endpoint_input(), Keyword.t()) ::
           {:ok, create_realtime_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_realtime_endpoint_errors()}
   def create_realtime_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRealtimeEndpoint", input, options)
   end
 
   @doc """
-  Assigns the DELETED status to a `BatchPrediction`, rendering it unusable.
-
-  After using the `DeleteBatchPrediction` operation, you can use the
-  `GetBatchPrediction`
-  operation to verify that the status of the `BatchPrediction` changed to DELETED.
-
-  **Caution:** The result of the `DeleteBatchPrediction` operation is
-  irreversible.
+  Assigns the DELETED status to a `BatchPrediction`, rendering it unusable. After
+  using the `DeleteBatchPrediction` operation, you can use the
+  `GetBatchPrediction` operation to verify that the status of the
+  `BatchPrediction` changed to DELETED.
   """
-  @spec delete_batch_prediction(map(), delete_batch_prediction_input(), list()) ::
+  @spec delete_batch_prediction(AWS.Client.t(), delete_batch_prediction_input(), Keyword.t()) ::
           {:ok, delete_batch_prediction_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_batch_prediction_errors()}
   def delete_batch_prediction(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBatchPrediction", input, options)
   end
 
   @doc """
-  Assigns the DELETED status to a `DataSource`, rendering it unusable.
-
-  After using the `DeleteDataSource` operation, you can use the `GetDataSource`
-  operation to verify that the status of the `DataSource` changed to DELETED.
-
-  **Caution:** The results of the `DeleteDataSource` operation are irreversible.
+  Assigns the DELETED status to a `DataSource`, rendering it unusable. After using
+  the `DeleteDataSource` operation, you can use the `GetDataSource` operation to
+  verify that the status of the `DataSource` changed to DELETED.
   """
-  @spec delete_data_source(map(), delete_data_source_input(), list()) ::
+  @spec delete_data_source(AWS.Client.t(), delete_data_source_input(), Keyword.t()) ::
           {:ok, delete_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_source_errors()}
   def delete_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDataSource", input, options)
   end
 
   @doc """
-  Assigns the `DELETED` status to an `Evaluation`, rendering it unusable.
-
-  After invoking the `DeleteEvaluation` operation, you can use the
-  `GetEvaluation` operation to verify that the status of the `Evaluation` changed
-  to `DELETED`.
-
-  **Caution:** The results of the `DeleteEvaluation` operation are irreversible.
+  Assigns the `DELETED` status to an `Evaluation`, rendering it unusable. After
+  invoking the `DeleteEvaluation` operation, you can use the `GetEvaluation`
+  operation to verify that the status of the `Evaluation` changed to `DELETED`.
   """
-  @spec delete_evaluation(map(), delete_evaluation_input(), list()) ::
+  @spec delete_evaluation(AWS.Client.t(), delete_evaluation_input(), Keyword.t()) ::
           {:ok, delete_evaluation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_evaluation_errors()}
   def delete_evaluation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEvaluation", input, options)
   end
 
   @doc """
-  Assigns the `DELETED` status to an `MLModel`, rendering it unusable.
-
-  After using the `DeleteMLModel` operation, you can use the
-  `GetMLModel` operation to verify that the status of the `MLModel` changed to
-  DELETED.
-
-  **Caution:** The result of the `DeleteMLModel` operation is irreversible.
+  Assigns the `DELETED` status to an `MLModel`, rendering it unusable. After using
+  the `DeleteMLModel` operation, you can use the `GetMLModel` operation to
+  verify that the status of the `MLModel` changed to DELETED.
   """
-  @spec delete_ml_model(map(), delete_ml_model_input(), list()) ::
+  @spec delete_ml_model(AWS.Client.t(), delete_ml_model_input(), Keyword.t()) ::
           {:ok, delete_ml_model_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ml_model_errors()}
   def delete_ml_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMLModel", input, options)
   end
@@ -1625,29 +1503,28 @@ defmodule AWS.MachineLearning do
   @doc """
   Deletes a real time endpoint of an `MLModel`.
   """
-  @spec delete_realtime_endpoint(map(), delete_realtime_endpoint_input(), list()) ::
+  @spec delete_realtime_endpoint(AWS.Client.t(), delete_realtime_endpoint_input(), Keyword.t()) ::
           {:ok, delete_realtime_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_realtime_endpoint_errors()}
   def delete_realtime_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRealtimeEndpoint", input, options)
   end
 
   @doc """
-  Deletes the specified tags associated with an ML object.
-
-  After this operation is complete, you can't recover deleted tags.
-
-  If you specify a tag that doesn't exist, Amazon ML ignores it.
+  Deletes the specified tags associated with an ML object. After this operation is
+  complete, you can't recover deleted tags.
   """
-  @spec delete_tags(map(), delete_tags_input(), list()) ::
+  @spec delete_tags(AWS.Client.t(), delete_tags_input(), Keyword.t()) ::
           {:ok, delete_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tags_errors()}
   def delete_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTags", input, options)
   end
@@ -1656,12 +1533,17 @@ defmodule AWS.MachineLearning do
   Returns a list of `BatchPrediction` operations that match the search criteria in
   the request.
   """
-  @spec describe_batch_predictions(map(), describe_batch_predictions_input(), list()) ::
+  @spec describe_batch_predictions(
+          AWS.Client.t(),
+          describe_batch_predictions_input(),
+          Keyword.t()
+        ) ::
           {:ok, describe_batch_predictions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_batch_predictions_errors()}
   def describe_batch_predictions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBatchPredictions", input, options)
   end
@@ -1669,12 +1551,13 @@ defmodule AWS.MachineLearning do
   @doc """
   Returns a list of `DataSource` that match the search criteria in the request.
   """
-  @spec describe_data_sources(map(), describe_data_sources_input(), list()) ::
+  @spec describe_data_sources(AWS.Client.t(), describe_data_sources_input(), Keyword.t()) ::
           {:ok, describe_data_sources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_sources_errors()}
   def describe_data_sources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataSources", input, options)
   end
@@ -1683,12 +1566,13 @@ defmodule AWS.MachineLearning do
   Returns a list of `DescribeEvaluations` that match the search criteria in the
   request.
   """
-  @spec describe_evaluations(map(), describe_evaluations_input(), list()) ::
+  @spec describe_evaluations(AWS.Client.t(), describe_evaluations_input(), Keyword.t()) ::
           {:ok, describe_evaluations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_evaluations_errors()}
   def describe_evaluations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvaluations", input, options)
   end
@@ -1696,12 +1580,13 @@ defmodule AWS.MachineLearning do
   @doc """
   Returns a list of `MLModel` that match the search criteria in the request.
   """
-  @spec describe_ml_models(map(), describe_ml_models_input(), list()) ::
+  @spec describe_ml_models(AWS.Client.t(), describe_ml_models_input(), Keyword.t()) ::
           {:ok, describe_ml_models_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_ml_models_errors()}
   def describe_ml_models(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMLModels", input, options)
   end
@@ -1709,27 +1594,28 @@ defmodule AWS.MachineLearning do
   @doc """
   Describes one or more of the tags for your Amazon ML object.
   """
-  @spec describe_tags(map(), describe_tags_input(), list()) ::
+  @spec describe_tags(AWS.Client.t(), describe_tags_input(), Keyword.t()) ::
           {:ok, describe_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
   end
 
   @doc """
   Returns a `BatchPrediction` that includes detailed metadata, status, and data
-  file information for a
-  `Batch Prediction` request.
+  file information for a `Batch Prediction` request.
   """
-  @spec get_batch_prediction(map(), get_batch_prediction_input(), list()) ::
+  @spec get_batch_prediction(AWS.Client.t(), get_batch_prediction_input(), Keyword.t()) ::
           {:ok, get_batch_prediction_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_batch_prediction_errors()}
   def get_batch_prediction(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBatchPrediction", input, options)
   end
@@ -1737,17 +1623,14 @@ defmodule AWS.MachineLearning do
   @doc """
   Returns a `DataSource` that includes metadata and data file information, as well
   as the current status of the `DataSource`.
-
-  `GetDataSource` provides results in normal or verbose format. The verbose format
-  adds the schema description and the list of files pointed to by the DataSource
-  to the normal format.
   """
-  @spec get_data_source(map(), get_data_source_input(), list()) ::
+  @spec get_data_source(AWS.Client.t(), get_data_source_input(), Keyword.t()) ::
           {:ok, get_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_source_errors()}
   def get_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataSource", input, options)
   end
@@ -1756,12 +1639,13 @@ defmodule AWS.MachineLearning do
   Returns an `Evaluation` that includes metadata as well as the current status of
   the `Evaluation`.
   """
-  @spec get_evaluation(map(), get_evaluation_input(), list()) ::
+  @spec get_evaluation(AWS.Client.t(), get_evaluation_input(), Keyword.t()) ::
           {:ok, get_evaluation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_evaluation_errors()}
   def get_evaluation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEvaluation", input, options)
   end
@@ -1769,95 +1653,84 @@ defmodule AWS.MachineLearning do
   @doc """
   Returns an `MLModel` that includes detailed metadata, data source information,
   and the current status of the `MLModel`.
-
-  `GetMLModel` provides results in normal or verbose format.
   """
-  @spec get_ml_model(map(), get_ml_model_input(), list()) ::
+  @spec get_ml_model(AWS.Client.t(), get_ml_model_input(), Keyword.t()) ::
           {:ok, get_ml_model_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ml_model_errors()}
   def get_ml_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMLModel", input, options)
   end
 
   @doc """
   Generates a prediction for the observation using the specified `ML Model`.
-
-  **Note:** Not all response parameters will be populated. Whether a
-  response parameter is populated depends on the type of model requested.
   """
-  @spec predict(map(), predict_input(), list()) ::
+  @spec predict(AWS.Client.t(), predict_input(), Keyword.t()) ::
           {:ok, predict_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, predict_errors()}
   def predict(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Predict", input, options)
   end
 
   @doc """
   Updates the `BatchPredictionName` of a `BatchPrediction`.
-
-  You can use the `GetBatchPrediction` operation to view the contents of the
-  updated data element.
   """
-  @spec update_batch_prediction(map(), update_batch_prediction_input(), list()) ::
+  @spec update_batch_prediction(AWS.Client.t(), update_batch_prediction_input(), Keyword.t()) ::
           {:ok, update_batch_prediction_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_batch_prediction_errors()}
   def update_batch_prediction(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateBatchPrediction", input, options)
   end
 
   @doc """
   Updates the `DataSourceName` of a `DataSource`.
-
-  You can use the `GetDataSource` operation to view the contents of the updated
-  data element.
   """
-  @spec update_data_source(map(), update_data_source_input(), list()) ::
+  @spec update_data_source(AWS.Client.t(), update_data_source_input(), Keyword.t()) ::
           {:ok, update_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_source_errors()}
   def update_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDataSource", input, options)
   end
 
   @doc """
   Updates the `EvaluationName` of an `Evaluation`.
-
-  You can use the `GetEvaluation` operation to view the contents of the updated
-  data element.
   """
-  @spec update_evaluation(map(), update_evaluation_input(), list()) ::
+  @spec update_evaluation(AWS.Client.t(), update_evaluation_input(), Keyword.t()) ::
           {:ok, update_evaluation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_evaluation_errors()}
   def update_evaluation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEvaluation", input, options)
   end
 
   @doc """
   Updates the `MLModelName` and the `ScoreThreshold` of an `MLModel`.
-
-  You can use the `GetMLModel` operation to view the contents of the updated data
-  element.
   """
-  @spec update_ml_model(map(), update_ml_model_input(), list()) ::
+  @spec update_ml_model(AWS.Client.t(), update_ml_model_input(), Keyword.t()) ::
           {:ok, update_ml_model_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ml_model_errors()}
   def update_ml_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMLModel", input, options)
   end

@@ -4,8 +4,8 @@
 defmodule AWS.VoiceID do
   @moduledoc """
   Amazon Connect Voice ID provides real-time caller authentication and fraud risk
-  detection, which
-  make voice interactions in contact centers more secure and efficient.
+  detection, which make voice interactions in contact centers more secure and
+  efficient.
   """
 
   alias AWS.Client
@@ -1429,30 +1429,29 @@ defmodule AWS.VoiceID do
   @doc """
   Associates the fraudsters with the watchlist specified in the same domain.
   """
-  @spec associate_fraudster(map(), associate_fraudster_request(), list()) ::
+  @spec associate_fraudster(AWS.Client.t(), associate_fraudster_request(), Keyword.t()) ::
           {:ok, associate_fraudster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_fraudster_errors()}
   def associate_fraudster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateFraudster", input, options)
   end
 
   @doc """
   Creates a domain that contains all Amazon Connect Voice ID data, such as
-  speakers, fraudsters,
-  customer audio, and voiceprints.
-
-  Every domain is created with a default watchlist that fraudsters can be a part
-  of.
+  speakers, fraudsters, customer audio, and voiceprints. Every domain is created
+  with a default watchlist that fraudsters can be a part of.
   """
-  @spec create_domain(map(), create_domain_request(), list()) ::
+  @spec create_domain(AWS.Client.t(), create_domain_request(), Keyword.t()) ::
           {:ok, create_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDomain", input, options)
   end
@@ -1460,12 +1459,13 @@ defmodule AWS.VoiceID do
   @doc """
   Creates a watchlist that fraudsters can be a part of.
   """
-  @spec create_watchlist(map(), create_watchlist_request(), list()) ::
+  @spec create_watchlist(AWS.Client.t(), create_watchlist_request(), Keyword.t()) ::
           {:ok, create_watchlist_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_watchlist_errors()}
   def create_watchlist(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWatchlist", input, options)
   end
@@ -1473,27 +1473,28 @@ defmodule AWS.VoiceID do
   @doc """
   Deletes the specified domain from Voice ID.
   """
-  @spec delete_domain(map(), delete_domain_request(), list()) ::
+  @spec delete_domain(AWS.Client.t(), delete_domain_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDomain", input, options)
   end
 
   @doc """
-  Deletes the specified fraudster from Voice ID.
-
-  This action disassociates the fraudster from any watchlists it is a part of.
+  Deletes the specified fraudster from Voice ID. This action disassociates the
+  fraudster from any watchlists it is a part of.
   """
-  @spec delete_fraudster(map(), delete_fraudster_request(), list()) ::
+  @spec delete_fraudster(AWS.Client.t(), delete_fraudster_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fraudster_errors()}
   def delete_fraudster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFraudster", input, options)
   end
@@ -1501,31 +1502,30 @@ defmodule AWS.VoiceID do
   @doc """
   Deletes the specified speaker from Voice ID.
   """
-  @spec delete_speaker(map(), delete_speaker_request(), list()) ::
+  @spec delete_speaker(AWS.Client.t(), delete_speaker_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_speaker_errors()}
   def delete_speaker(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSpeaker", input, options)
   end
 
   @doc """
-  Deletes the specified watchlist from Voice ID.
-
-  This API throws an exception when
+  Deletes the specified watchlist from Voice ID. This API throws an exception when
   there are fraudsters in the watchlist that you are trying to delete. You must
-  delete the
-  fraudsters, and then delete the watchlist. Every domain has a default watchlist
-  which cannot be deleted.
+  delete the fraudsters, and then delete the watchlist. Every domain has a
+  default watchlist which cannot be deleted.
   """
-  @spec delete_watchlist(map(), delete_watchlist_request(), list()) ::
+  @spec delete_watchlist(AWS.Client.t(), delete_watchlist_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_watchlist_errors()}
   def delete_watchlist(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWatchlist", input, options)
   end
@@ -1533,12 +1533,13 @@ defmodule AWS.VoiceID do
   @doc """
   Describes the specified domain.
   """
-  @spec describe_domain(map(), describe_domain_request(), list()) ::
+  @spec describe_domain(AWS.Client.t(), describe_domain_request(), Keyword.t()) ::
           {:ok, describe_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_errors()}
   def describe_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDomain", input, options)
   end
@@ -1546,12 +1547,13 @@ defmodule AWS.VoiceID do
   @doc """
   Describes the specified fraudster.
   """
-  @spec describe_fraudster(map(), describe_fraudster_request(), list()) ::
+  @spec describe_fraudster(AWS.Client.t(), describe_fraudster_request(), Keyword.t()) ::
           {:ok, describe_fraudster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fraudster_errors()}
   def describe_fraudster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFraudster", input, options)
   end
@@ -1560,15 +1562,16 @@ defmodule AWS.VoiceID do
   Describes the specified fraudster registration job.
   """
   @spec describe_fraudster_registration_job(
-          map(),
+          AWS.Client.t(),
           describe_fraudster_registration_job_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_fraudster_registration_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fraudster_registration_job_errors()}
   def describe_fraudster_registration_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFraudsterRegistrationJob", input, options)
   end
@@ -1576,12 +1579,13 @@ defmodule AWS.VoiceID do
   @doc """
   Describes the specified speaker.
   """
-  @spec describe_speaker(map(), describe_speaker_request(), list()) ::
+  @spec describe_speaker(AWS.Client.t(), describe_speaker_request(), Keyword.t()) ::
           {:ok, describe_speaker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_speaker_errors()}
   def describe_speaker(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSpeaker", input, options)
   end
@@ -1589,12 +1593,17 @@ defmodule AWS.VoiceID do
   @doc """
   Describes the specified speaker enrollment job.
   """
-  @spec describe_speaker_enrollment_job(map(), describe_speaker_enrollment_job_request(), list()) ::
+  @spec describe_speaker_enrollment_job(
+          AWS.Client.t(),
+          describe_speaker_enrollment_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_speaker_enrollment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_speaker_enrollment_job_errors()}
   def describe_speaker_enrollment_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSpeakerEnrollmentJob", input, options)
   end
@@ -1602,30 +1611,30 @@ defmodule AWS.VoiceID do
   @doc """
   Describes the specified watchlist.
   """
-  @spec describe_watchlist(map(), describe_watchlist_request(), list()) ::
+  @spec describe_watchlist(AWS.Client.t(), describe_watchlist_request(), Keyword.t()) ::
           {:ok, describe_watchlist_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_watchlist_errors()}
   def describe_watchlist(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWatchlist", input, options)
   end
 
   @doc """
-  Disassociates the fraudsters from the watchlist specified.
-
-  Voice ID always expects a
-  fraudster to be a part of at least one watchlist. If
-  you try to disassociate a fraudster from its only watchlist, a
-  `ValidationException` is thrown.
+  Disassociates the fraudsters from the watchlist specified. Voice ID always
+  expects a fraudster to be a part of at least one watchlist. If you try to
+  disassociate a fraudster from its only watchlist, a `ValidationException` is
+  thrown.
   """
-  @spec disassociate_fraudster(map(), disassociate_fraudster_request(), list()) ::
+  @spec disassociate_fraudster(AWS.Client.t(), disassociate_fraudster_request(), Keyword.t()) ::
           {:ok, disassociate_fraudster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_fraudster_errors()}
   def disassociate_fraudster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateFraudster", input, options)
   end
@@ -1634,12 +1643,13 @@ defmodule AWS.VoiceID do
   Evaluates a specified session based on audio data accumulated during a streaming
   Amazon Connect Voice ID call.
   """
-  @spec evaluate_session(map(), evaluate_session_request(), list()) ::
+  @spec evaluate_session(AWS.Client.t(), evaluate_session_request(), Keyword.t()) ::
           {:ok, evaluate_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, evaluate_session_errors()}
   def evaluate_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EvaluateSession", input, options)
   end
@@ -1647,33 +1657,33 @@ defmodule AWS.VoiceID do
   @doc """
   Lists all the domains in the Amazon Web Services account.
   """
-  @spec list_domains(map(), list_domains_request(), list()) ::
+  @spec list_domains(AWS.Client.t(), list_domains_request(), Keyword.t()) ::
           {:ok, list_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domains_errors()}
   def list_domains(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDomains", input, options)
   end
 
   @doc """
   Lists all the fraudster registration jobs in the domain with the given
-  `JobStatus`.
-
-  If `JobStatus` is not provided, this lists all
-  fraudster registration jobs in the given domain.
+  `JobStatus`. If `JobStatus` is not provided, this lists all fraudster
+  registration jobs in the given domain.
   """
   @spec list_fraudster_registration_jobs(
-          map(),
+          AWS.Client.t(),
           list_fraudster_registration_jobs_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_fraudster_registration_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fraudster_registration_jobs_errors()}
   def list_fraudster_registration_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFraudsterRegistrationJobs", input, options)
   end
@@ -1681,29 +1691,33 @@ defmodule AWS.VoiceID do
   @doc """
   Lists all fraudsters in a specified watchlist or domain.
   """
-  @spec list_fraudsters(map(), list_fraudsters_request(), list()) ::
+  @spec list_fraudsters(AWS.Client.t(), list_fraudsters_request(), Keyword.t()) ::
           {:ok, list_fraudsters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fraudsters_errors()}
   def list_fraudsters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFraudsters", input, options)
   end
 
   @doc """
   Lists all the speaker enrollment jobs in the domain with the specified
-  `JobStatus`.
-
-  If `JobStatus` is not provided, this lists all
-  jobs with all possible speaker enrollment job statuses.
+  `JobStatus`. If `JobStatus` is not provided, this lists all jobs with all
+  possible speaker enrollment job statuses.
   """
-  @spec list_speaker_enrollment_jobs(map(), list_speaker_enrollment_jobs_request(), list()) ::
+  @spec list_speaker_enrollment_jobs(
+          AWS.Client.t(),
+          list_speaker_enrollment_jobs_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_speaker_enrollment_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_speaker_enrollment_jobs_errors()}
   def list_speaker_enrollment_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSpeakerEnrollmentJobs", input, options)
   end
@@ -1711,12 +1725,13 @@ defmodule AWS.VoiceID do
   @doc """
   Lists all speakers in a specified domain.
   """
-  @spec list_speakers(map(), list_speakers_request(), list()) ::
+  @spec list_speakers(AWS.Client.t(), list_speakers_request(), Keyword.t()) ::
           {:ok, list_speakers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_speakers_errors()}
   def list_speakers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSpeakers", input, options)
   end
@@ -1724,12 +1739,13 @@ defmodule AWS.VoiceID do
   @doc """
   Lists all tags associated with a specified Voice ID resource.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1737,35 +1753,32 @@ defmodule AWS.VoiceID do
   @doc """
   Lists all watchlists in a specified domain.
   """
-  @spec list_watchlists(map(), list_watchlists_request(), list()) ::
+  @spec list_watchlists(AWS.Client.t(), list_watchlists_request(), Keyword.t()) ::
           {:ok, list_watchlists_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_watchlists_errors()}
   def list_watchlists(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWatchlists", input, options)
   end
 
   @doc """
-  Opts out a speaker from Voice ID.
-
-  A speaker can be opted out regardless of whether or
-  not they already exist in Voice ID. If they don't yet exist, a new speaker is
-  created
-  in an opted out state. If they already exist, their existing status is
-  overridden and
-  they are opted out. Enrollment and evaluation authentication requests are
-  rejected for
-  opted out speakers, and opted out speakers have no voice embeddings stored in
-  Voice ID.
+  Opts out a speaker from Voice ID. A speaker can be opted out regardless of
+  whether or not they already exist in Voice ID. If they don't yet exist, a new
+  speaker is created in an opted out state. If they already exist, their
+  existing status is overridden and they are opted out. Enrollment and
+  evaluation authentication requests are rejected for opted out speakers, and
+  opted out speakers have no voice embeddings stored in Voice ID.
   """
-  @spec opt_out_speaker(map(), opt_out_speaker_request(), list()) ::
+  @spec opt_out_speaker(AWS.Client.t(), opt_out_speaker_request(), Keyword.t()) ::
           {:ok, opt_out_speaker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, opt_out_speaker_errors()}
   def opt_out_speaker(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "OptOutSpeaker", input, options)
   end
@@ -1774,15 +1787,16 @@ defmodule AWS.VoiceID do
   Starts a new batch fraudster registration job using provided details.
   """
   @spec start_fraudster_registration_job(
-          map(),
+          AWS.Client.t(),
           start_fraudster_registration_job_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_fraudster_registration_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_fraudster_registration_job_errors()}
   def start_fraudster_registration_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartFraudsterRegistrationJob", input, options)
   end
@@ -1790,12 +1804,17 @@ defmodule AWS.VoiceID do
   @doc """
   Starts a new batch speaker enrollment job using specified details.
   """
-  @spec start_speaker_enrollment_job(map(), start_speaker_enrollment_job_request(), list()) ::
+  @spec start_speaker_enrollment_job(
+          AWS.Client.t(),
+          start_speaker_enrollment_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_speaker_enrollment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_speaker_enrollment_job_errors()}
   def start_speaker_enrollment_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartSpeakerEnrollmentJob", input, options)
   end
@@ -1803,12 +1822,13 @@ defmodule AWS.VoiceID do
   @doc """
   Tags a Voice ID resource with the provided list of tags.
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1816,45 +1836,44 @@ defmodule AWS.VoiceID do
   @doc """
   Removes specified tags from a specified Amazon Connect Voice ID resource.
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
-  Updates the specified domain.
-
-  This API has clobber behavior, and clears and replaces
-  all attributes. If an optional field, such as 'Description' is not provided, it
-  is
-  removed from the domain.
+  Updates the specified domain. This API has clobber behavior, and clears and
+  replaces all attributes. If an optional field, such as 'Description' is not
+  provided, it is removed from the domain.
   """
-  @spec update_domain(map(), update_domain_request(), list()) ::
+  @spec update_domain(AWS.Client.t(), update_domain_request(), Keyword.t()) ::
           {:ok, update_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_domain_errors()}
   def update_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDomain", input, options)
   end
 
   @doc """
-  Updates the specified watchlist.
-
-  Every domain has a default watchlist which cannot be updated.
+  Updates the specified watchlist. Every domain has a default watchlist which
+  cannot be updated.
   """
-  @spec update_watchlist(map(), update_watchlist_request(), list()) ::
+  @spec update_watchlist(AWS.Client.t(), update_watchlist_request(), Keyword.t()) ::
           {:ok, update_watchlist_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_watchlist_errors()}
   def update_watchlist(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWatchlist", input, options)
   end

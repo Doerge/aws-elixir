@@ -4,9 +4,8 @@
 defmodule AWS.Inspector2 do
   @moduledoc """
   Amazon Inspector is a vulnerability discovery service that automates continuous
-  scanning for
-  security vulnerabilities within your Amazon EC2, Amazon ECR, and Amazon Web
-  Services Lambda environments.
+  scanning for security vulnerabilities within your Amazon EC2, Amazon ECR, and
+  Amazon Web Services Lambda environments.
   """
 
   alias AWS.Client
@@ -3985,16 +3984,21 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Associates an Amazon Web Services account with an Amazon Inspector delegated
-  administrator.
-
-  An HTTP 200 response indicates the association was successfully started, but
-  doesn’t indicate whether it was completed. You can check if the association
-  completed by using
-  [ListMembers](https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListMembers.html) for multiple accounts or
+  administrator. An HTTP 200 response indicates the association was successfully
+  started, but doesn’t indicate whether it was completed. You can check if the
+  association completed by using
+  [ListMembers](https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListMembers.html)
+  for multiple accounts or
   [GetMembers](https://docs.aws.amazon.com/inspector/v2/APIReference/API_GetMember.html)
   for a single account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20AssociateMember&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec associate_member(map(), associate_member_request(), list()) ::
+  @spec associate_member(AWS.Client.t(), associate_member_request(), Keyword.t()) ::
           {:ok, associate_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_member_errors()}
@@ -4003,7 +4007,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4021,8 +4026,14 @@ defmodule AWS.Inspector2 do
   @doc """
   Retrieves the Amazon Inspector status of multiple Amazon Web Services accounts
   within your environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchGetAccountStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_get_account_status(map(), batch_get_account_status_request(), list()) ::
+  @spec batch_get_account_status(AWS.Client.t(), batch_get_account_status_request(), Keyword.t()) ::
           {:ok, batch_get_account_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_account_status_errors()}
@@ -4031,7 +4042,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4049,8 +4061,14 @@ defmodule AWS.Inspector2 do
   @doc """
   Retrieves code snippets from findings that Amazon Inspector detected code
   vulnerabilities in.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchGetCodeSnippet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_get_code_snippet(map(), batch_get_code_snippet_request(), list()) ::
+  @spec batch_get_code_snippet(AWS.Client.t(), batch_get_code_snippet_request(), Keyword.t()) ::
           {:ok, batch_get_code_snippet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_code_snippet_errors()}
@@ -4059,7 +4077,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4076,8 +4095,18 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Gets vulnerability details for findings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchGetFindingDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_get_finding_details(map(), batch_get_finding_details_request(), list()) ::
+  @spec batch_get_finding_details(
+          AWS.Client.t(),
+          batch_get_finding_details_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_get_finding_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_finding_details_errors()}
@@ -4086,7 +4115,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4103,8 +4133,18 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Gets free trial status for multiple Amazon Web Services accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchGetFreeTrialInfo&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_get_free_trial_info(map(), batch_get_free_trial_info_request(), list()) ::
+  @spec batch_get_free_trial_info(
+          AWS.Client.t(),
+          batch_get_free_trial_info_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_get_free_trial_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_free_trial_info_errors()}
@@ -4113,7 +4153,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4130,15 +4171,19 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Retrieves Amazon Inspector deep inspection activation status of multiple member
-  accounts within your organization.
+  accounts within your organization. You must be the delegated administrator of
+  an organization in Amazon Inspector to use this API.
 
-  You must be the delegated administrator of an organization in Amazon Inspector
-  to use this API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchGetMemberEc2DeepInspectionStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec batch_get_member_ec2_deep_inspection_status(
-          map(),
+          AWS.Client.t(),
           batch_get_member_ec2_deep_inspection_status_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_get_member_ec2_deep_inspection_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4148,7 +4193,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4165,15 +4211,19 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Activates or deactivates Amazon Inspector deep inspection for the provided
-  member accounts in your organization.
+  member accounts in your organization. You must be the delegated administrator
+  of an organization in Amazon Inspector to use this API.
 
-  You must be the delegated administrator of an organization in Amazon Inspector
-  to use this API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchUpdateMemberEc2DeepInspectionStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec batch_update_member_ec2_deep_inspection_status(
-          map(),
+          AWS.Client.t(),
           batch_update_member_ec2_deep_inspection_status_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_update_member_ec2_deep_inspection_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4183,7 +4233,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4200,8 +4251,14 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Cancels the given findings report.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CancelFindingsReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec cancel_findings_report(map(), cancel_findings_report_request(), list()) ::
+  @spec cancel_findings_report(AWS.Client.t(), cancel_findings_report_request(), Keyword.t()) ::
           {:ok, cancel_findings_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_findings_report_errors()}
@@ -4210,7 +4267,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4227,8 +4285,14 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Cancels a software bill of materials (SBOM) report.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CancelSbomExport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec cancel_sbom_export(map(), cancel_sbom_export_request(), list()) ::
+  @spec cancel_sbom_export(AWS.Client.t(), cancel_sbom_export_request(), Keyword.t()) ::
           {:ok, cancel_sbom_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_sbom_export_errors()}
@@ -4237,7 +4301,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4254,8 +4319,18 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Creates a CIS scan configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CreateCisScanConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_cis_scan_configuration(map(), create_cis_scan_configuration_request(), list()) ::
+  @spec create_cis_scan_configuration(
+          AWS.Client.t(),
+          create_cis_scan_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_cis_scan_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cis_scan_configuration_errors()}
@@ -4264,7 +4339,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4280,12 +4356,16 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
-  Creates a filter resource using specified filter criteria.
+  Creates a filter resource using specified filter criteria. When the filter
+  action is set to `SUPPRESS` this action creates a suppression rule.
 
-  When the filter action is set to `SUPPRESS` this action creates a suppression
-  rule.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CreateFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_filter(map(), create_filter_request(), list()) ::
+  @spec create_filter(AWS.Client.t(), create_filter_request(), Keyword.t()) ::
           {:ok, create_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_filter_errors()}
@@ -4294,7 +4374,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4310,13 +4391,17 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
-  Creates a finding report.
+  Creates a finding report. By default only `ACTIVE` findings are returned in the
+  report. To see `SUPRESSED` or `CLOSED` findings you must specify a value for
+  the `findingStatus` filter criteria.
 
-  By default only `ACTIVE` findings are returned in the report. To see `SUPRESSED`
-  or `CLOSED` findings you must specify a value for the `findingStatus` filter
-  criteria.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CreateFindingsReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_findings_report(map(), create_findings_report_request(), list()) ::
+  @spec create_findings_report(AWS.Client.t(), create_findings_report_request(), Keyword.t()) ::
           {:ok, create_findings_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_findings_report_errors()}
@@ -4325,7 +4410,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4342,8 +4428,14 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Creates a software bill of materials (SBOM) report.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CreateSbomExport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_sbom_export(map(), create_sbom_export_request(), list()) ::
+  @spec create_sbom_export(AWS.Client.t(), create_sbom_export_request(), Keyword.t()) ::
           {:ok, create_sbom_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sbom_export_errors()}
@@ -4352,7 +4444,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4369,8 +4462,18 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Deletes a CIS scan configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20DeleteCisScanConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_cis_scan_configuration(map(), delete_cis_scan_configuration_request(), list()) ::
+  @spec delete_cis_scan_configuration(
+          AWS.Client.t(),
+          delete_cis_scan_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_cis_scan_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cis_scan_configuration_errors()}
@@ -4379,7 +4482,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4396,8 +4500,14 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Deletes a filter resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20DeleteFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_filter(map(), delete_filter_request(), list()) ::
+  @spec delete_filter(AWS.Client.t(), delete_filter_request(), Keyword.t()) ::
           {:ok, delete_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_filter_errors()}
@@ -4406,7 +4516,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4424,11 +4535,17 @@ defmodule AWS.Inspector2 do
   @doc """
   Describe Amazon Inspector configuration settings for an Amazon Web Services
   organization.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20DescribeOrganizationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec describe_organization_configuration(
-          map(),
+          AWS.Client.t(),
           describe_organization_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4438,7 +4555,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4455,11 +4573,15 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Disables Amazon Inspector scans for one or more Amazon Web Services accounts.
+  Disabling all scan types in an account disables the Amazon Inspector service.
 
-  Disabling all scan types in an account
-  disables the Amazon Inspector service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20Disable&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec disable(map(), disable_request(), list()) ::
+  @spec disable(AWS.Client.t(), disable_request(), Keyword.t()) ::
           {:ok, disable_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_errors()}
@@ -4468,7 +4590,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4485,8 +4608,18 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Disables the Amazon Inspector delegated administrator for your organization.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20DisableDelegatedAdminAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec disable_delegated_admin_account(map(), disable_delegated_admin_account_request(), list()) ::
+  @spec disable_delegated_admin_account(
+          AWS.Client.t(),
+          disable_delegated_admin_account_request(),
+          Keyword.t()
+        ) ::
           {:ok, disable_delegated_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_delegated_admin_account_errors()}
@@ -4495,7 +4628,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4512,8 +4646,14 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Disassociates a member account from an Amazon Inspector delegated administrator.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20DisassociateMember&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec disassociate_member(map(), disassociate_member_request(), list()) ::
+  @spec disassociate_member(AWS.Client.t(), disassociate_member_request(), Keyword.t()) ::
           {:ok, disassociate_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_member_errors()}
@@ -4522,7 +4662,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4539,8 +4680,14 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Enables Amazon Inspector scans for one or more Amazon Web Services accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20Enable&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec enable(map(), enable_request(), list()) ::
+  @spec enable(AWS.Client.t(), enable_request(), Keyword.t()) ::
           {:ok, enable_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_errors()}
@@ -4549,7 +4696,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4567,8 +4715,18 @@ defmodule AWS.Inspector2 do
   @doc """
   Enables the Amazon Inspector delegated administrator for your Organizations
   organization.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20EnableDelegatedAdminAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec enable_delegated_admin_account(map(), enable_delegated_admin_account_request(), list()) ::
+  @spec enable_delegated_admin_account(
+          AWS.Client.t(),
+          enable_delegated_admin_account_request(),
+          Keyword.t()
+        ) ::
           {:ok, enable_delegated_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_delegated_admin_account_errors()}
@@ -4577,7 +4735,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4594,8 +4753,14 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Retrieves a CIS scan report.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetCisScanReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_cis_scan_report(map(), get_cis_scan_report_request(), list()) ::
+  @spec get_cis_scan_report(AWS.Client.t(), get_cis_scan_report_request(), Keyword.t()) ::
           {:ok, get_cis_scan_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cis_scan_report_errors()}
@@ -4604,7 +4769,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4621,8 +4787,18 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Retrieves CIS scan result details.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetCisScanResultDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_cis_scan_result_details(map(), get_cis_scan_result_details_request(), list()) ::
+  @spec get_cis_scan_result_details(
+          AWS.Client.t(),
+          get_cis_scan_result_details_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_cis_scan_result_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cis_scan_result_details_errors()}
@@ -4631,7 +4807,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4648,8 +4825,14 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Retrieves setting configurations for Inspector scans.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_configuration(map(), get_configuration_request(), list()) ::
+  @spec get_configuration(AWS.Client.t(), get_configuration_request(), Keyword.t()) ::
           {:ok, get_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_errors()}
@@ -4658,7 +4841,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4675,10 +4859,19 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Retrieves information about the Amazon Inspector delegated administrator for
-  your
-  organization.
+  your organization.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetDelegatedAdminAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_delegated_admin_account(map(), get_delegated_admin_account_request(), list()) ::
+  @spec get_delegated_admin_account(
+          AWS.Client.t(),
+          get_delegated_admin_account_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_delegated_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_delegated_admin_account_errors()}
@@ -4687,7 +4880,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4705,11 +4899,17 @@ defmodule AWS.Inspector2 do
   @doc """
   Retrieves the activation status of Amazon Inspector deep inspection and custom
   paths associated with your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetEc2DeepInspectionConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec get_ec2_deep_inspection_configuration(
-          map(),
+          AWS.Client.t(),
           get_ec2_deep_inspection_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_ec2_deep_inspection_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4719,7 +4919,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4736,39 +4937,61 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Gets an encryption key.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetEncryptionKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_type` (`t:string`) The resource type the key encrypts.
+  * `:scan_type` (`t:string`) The scan type the key encrypts.
+
+  ## Optional parameters:
   """
-  @spec get_encryption_key(map(), String.t(), String.t(), list()) ::
+  @spec get_encryption_key(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_encryption_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_encryption_key_errors()}
   def get_encryption_key(%Client{} = client, resource_type, scan_type, options \\ []) do
     url_path = "/encryptionkey/get"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(scan_type) do
-        [{"scanType", scan_type} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    query_params =
-      if !is_nil(resource_type) do
-        [{"resourceType", resource_type} | query_params]
-      else
-        query_params
-      end
+    # Required query params
+    query_params = [{"resourceType", resource_type}, {"scanType", scan_type}]
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the status of a findings report.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetFindingsReportStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_findings_report_status(map(), get_findings_report_status_request(), list()) ::
+  @spec get_findings_report_status(
+          AWS.Client.t(),
+          get_findings_report_status_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_findings_report_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_findings_report_status_errors()}
@@ -4777,7 +5000,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4794,8 +5018,14 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Gets member information for your organization.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetMember&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_member(map(), get_member_request(), list()) ::
+  @spec get_member(AWS.Client.t(), get_member_request(), Keyword.t()) ::
           {:ok, get_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_member_errors()}
@@ -4804,7 +5034,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4821,8 +5052,14 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Gets details of a software bill of materials (SBOM) report.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetSbomExport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_sbom_export(map(), get_sbom_export_request(), list()) ::
+  @spec get_sbom_export(AWS.Client.t(), get_sbom_export_request(), Keyword.t()) ::
           {:ok, get_sbom_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sbom_export_errors()}
@@ -4831,7 +5068,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4848,8 +5086,14 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Lists the permissions an account has to configure Amazon Inspector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListAccountPermissions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_account_permissions(map(), list_account_permissions_request(), list()) ::
+  @spec list_account_permissions(AWS.Client.t(), list_account_permissions_request(), Keyword.t()) ::
           {:ok, list_account_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_account_permissions_errors()}
@@ -4858,7 +5102,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4875,8 +5120,18 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Lists CIS scan configurations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCisScanConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_cis_scan_configurations(map(), list_cis_scan_configurations_request(), list()) ::
+  @spec list_cis_scan_configurations(
+          AWS.Client.t(),
+          list_cis_scan_configurations_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_cis_scan_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cis_scan_configurations_errors()}
@@ -4885,7 +5140,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4902,11 +5158,17 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Lists scan results aggregated by checks.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCisScanResultsAggregatedByChecks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec list_cis_scan_results_aggregated_by_checks(
-          map(),
+          AWS.Client.t(),
           list_cis_scan_results_aggregated_by_checks_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_cis_scan_results_aggregated_by_checks_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4916,7 +5178,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4933,11 +5196,17 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Lists scan results aggregated by a target resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCisScanResultsAggregatedByTargetResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec list_cis_scan_results_aggregated_by_target_resource(
-          map(),
+          AWS.Client.t(),
           list_cis_scan_results_aggregated_by_target_resource_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_cis_scan_results_aggregated_by_target_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4951,7 +5220,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4968,8 +5238,14 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Returns a CIS scan list.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCisScans&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_cis_scans(map(), list_cis_scans_request(), list()) ::
+  @spec list_cis_scans(AWS.Client.t(), list_cis_scans_request(), Keyword.t()) ::
           {:ok, list_cis_scans_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cis_scans_errors()}
@@ -4978,7 +5254,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4995,8 +5272,14 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Lists coverage details for you environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCoverage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_coverage(map(), list_coverage_request(), list()) ::
+  @spec list_coverage(AWS.Client.t(), list_coverage_request(), Keyword.t()) ::
           {:ok, list_coverage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_coverage_errors()}
@@ -5005,7 +5288,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5022,8 +5306,14 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Lists Amazon Inspector coverage statistics for your environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCoverageStatistics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_coverage_statistics(map(), list_coverage_statistics_request(), list()) ::
+  @spec list_coverage_statistics(AWS.Client.t(), list_coverage_statistics_request(), Keyword.t()) ::
           {:ok, list_coverage_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_coverage_statistics_errors()}
@@ -5032,7 +5322,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5050,8 +5341,18 @@ defmodule AWS.Inspector2 do
   @doc """
   Lists information about the Amazon Inspector delegated administrator of your
   organization.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListDelegatedAdminAccounts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_delegated_admin_accounts(map(), list_delegated_admin_accounts_request(), list()) ::
+  @spec list_delegated_admin_accounts(
+          AWS.Client.t(),
+          list_delegated_admin_accounts_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_delegated_admin_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_delegated_admin_accounts_errors()}
@@ -5060,7 +5361,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5077,8 +5379,14 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Lists the filters associated with your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListFilters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_filters(map(), list_filters_request(), list()) ::
+  @spec list_filters(AWS.Client.t(), list_filters_request(), Keyword.t()) ::
           {:ok, list_filters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_filters_errors()}
@@ -5087,7 +5395,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5104,8 +5413,18 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Lists aggregated finding data for your environment based on specific criteria.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListFindingAggregations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_finding_aggregations(map(), list_finding_aggregations_request(), list()) ::
+  @spec list_finding_aggregations(
+          AWS.Client.t(),
+          list_finding_aggregations_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_finding_aggregations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_finding_aggregations_errors()}
@@ -5114,7 +5433,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5131,8 +5451,14 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Lists findings for your environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_findings(map(), list_findings_request(), list()) ::
+  @spec list_findings(AWS.Client.t(), list_findings_request(), Keyword.t()) ::
           {:ok, list_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_findings_errors()}
@@ -5141,7 +5467,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5158,10 +5485,15 @@ defmodule AWS.Inspector2 do
 
   @doc """
   List members associated with the Amazon Inspector delegated administrator for
-  your
-  organization.
+  your organization.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListMembers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_members(map(), list_members_request(), list()) ::
+  @spec list_members(AWS.Client.t(), list_members_request(), Keyword.t()) ::
           {:ok, list_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_members_errors()}
@@ -5170,7 +5502,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5187,25 +5520,57 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Lists all tags attached to a given resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon resource number (ARN) of the resource
+    to list tags of.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the Amazon Inspector usage totals over the last 30 days.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListUsageTotals&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_usage_totals(map(), list_usage_totals_request(), list()) ::
+  @spec list_usage_totals(AWS.Client.t(), list_usage_totals_request(), Keyword.t()) ::
           {:ok, list_usage_totals_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_usage_totals_errors()}
@@ -5214,7 +5579,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5230,12 +5596,16 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
-  Resets an encryption key.
+  Resets an encryption key. After the key is reset your resources will be
+  encrypted by an Amazon Web Services owned key.
 
-  After the key is reset your resources will be encrypted by an Amazon Web
-  Services owned key.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ResetEncryptionKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec reset_encryption_key(map(), reset_encryption_key_request(), list()) ::
+  @spec reset_encryption_key(AWS.Client.t(), reset_encryption_key_request(), Keyword.t()) ::
           {:ok, reset_encryption_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_encryption_key_errors()}
@@ -5244,15 +5614,22 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Lists Amazon Inspector coverage details for a specific vulnerability.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20SearchVulnerabilities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec search_vulnerabilities(map(), search_vulnerabilities_request(), list()) ::
+  @spec search_vulnerabilities(AWS.Client.t(), search_vulnerabilities_request(), Keyword.t()) ::
           {:ok, search_vulnerabilities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_vulnerabilities_errors()}
@@ -5261,7 +5638,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5277,15 +5655,18 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Sends a CIS session health. This API is used by the Amazon Inspector SSM plugin
+  to communicate with the Amazon Inspector service. The Amazon Inspector SSM
+  plugin calls this API to start a CIS scan session for the scan ID supplied by
+  the service.
 
-  Sends a CIS session health.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20SendCisSessionHealth&this_doc_guide=API%2520Reference)
 
-  This API is used by the Amazon Inspector SSM plugin to communicate with the
-  Amazon Inspector service.
-  The Amazon Inspector SSM plugin calls this API to start a CIS scan session for
-  the scan ID supplied by the service.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec send_cis_session_health(map(), send_cis_session_health_request(), list()) ::
+  @spec send_cis_session_health(AWS.Client.t(), send_cis_session_health_request(), Keyword.t()) ::
           {:ok, send_cis_session_health_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_cis_session_health_errors()}
@@ -5294,21 +5675,29 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
+  Sends a CIS session telemetry. This API is used by the Amazon Inspector SSM
+  plugin to communicate with the Amazon Inspector service. The Amazon Inspector
+  SSM plugin calls this API to start a CIS scan session for the scan ID supplied
+  by the service.
 
-  Sends a CIS session telemetry.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20SendCisSessionTelemetry&this_doc_guide=API%2520Reference)
 
-  This API is used by the Amazon Inspector SSM plugin to communicate with the
-  Amazon Inspector service.
-  The Amazon Inspector SSM plugin calls this API to start a CIS scan session for
-  the scan ID supplied by the service.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec send_cis_session_telemetry(map(), send_cis_session_telemetry_request(), list()) ::
+  @spec send_cis_session_telemetry(
+          AWS.Client.t(),
+          send_cis_session_telemetry_request(),
+          Keyword.t()
+        ) ::
           {:ok, send_cis_session_telemetry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_cis_session_telemetry_errors()}
@@ -5317,21 +5706,25 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
+  Starts a CIS session. This API is used by the Amazon Inspector SSM plugin to
+  communicate with the Amazon Inspector service. The Amazon Inspector SSM plugin
+  calls this API to start a CIS scan session for the scan ID supplied by the
+  service.
 
-  Starts a CIS session.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20StartCisSession&this_doc_guide=API%2520Reference)
 
-  This API is used by the Amazon Inspector SSM plugin to communicate with the
-  Amazon Inspector service.
-  The Amazon Inspector SSM plugin calls this API to start a CIS scan session for
-  the scan ID supplied by the service.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_cis_session(map(), start_cis_session_request(), list()) ::
+  @spec start_cis_session(AWS.Client.t(), start_cis_session_request(), Keyword.t()) ::
           {:ok, start_cis_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_cis_session_errors()}
@@ -5340,21 +5733,25 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
+  Stops a CIS session. This API is used by the Amazon Inspector SSM plugin to
+  communicate with the Amazon Inspector service. The Amazon Inspector SSM plugin
+  calls this API to start a CIS scan session for the scan ID supplied by the
+  service.
 
-  Stops a CIS session.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20StopCisSession&this_doc_guide=API%2520Reference)
 
-  This API is used by the Amazon Inspector SSM plugin to communicate with the
-  Amazon Inspector service.
-  The Amazon Inspector SSM plugin calls this API to start a CIS scan session for
-  the scan ID supplied by the service.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec stop_cis_session(map(), stop_cis_session_request(), list()) ::
+  @spec stop_cis_session(AWS.Client.t(), stop_cis_session_request(), Keyword.t()) ::
           {:ok, stop_cis_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_cis_session_errors()}
@@ -5363,15 +5760,24 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Adds tags to a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
+    apply a tag to.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -5380,7 +5786,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5397,8 +5804,18 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Removes tags from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
+    to remove tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.inspector2#TagKey]`) The tag keys to remove
+    from the resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -5412,7 +5829,8 @@ defmodule AWS.Inspector2 do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5429,8 +5847,18 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Updates a CIS scan configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateCisScanConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_cis_scan_configuration(map(), update_cis_scan_configuration_request(), list()) ::
+  @spec update_cis_scan_configuration(
+          AWS.Client.t(),
+          update_cis_scan_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_cis_scan_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cis_scan_configuration_errors()}
@@ -5439,7 +5867,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5455,13 +5884,18 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
-  Updates setting configurations for your Amazon Inspector account.
+  Updates setting configurations for your Amazon Inspector account. When you use
+  this API as an Amazon Inspector delegated administrator this updates the
+  setting for all accounts you manage. Member accounts in an organization cannot
+  update this setting.
 
-  When you use this API as an Amazon Inspector delegated administrator this
-  updates the setting for all accounts you manage. Member accounts in an
-  organization cannot update this setting.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_configuration(map(), update_configuration_request(), list()) ::
+  @spec update_configuration(AWS.Client.t(), update_configuration_request(), Keyword.t()) ::
           {:ok, update_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configuration_errors()}
@@ -5470,7 +5904,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5488,11 +5923,17 @@ defmodule AWS.Inspector2 do
   @doc """
   Activates, deactivates Amazon Inspector deep inspection, or updates custom paths
   for your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateEc2DeepInspectionConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec update_ec2_deep_inspection_configuration(
-          map(),
+          AWS.Client.t(),
           update_ec2_deep_inspection_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_ec2_deep_inspection_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5502,7 +5943,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5518,12 +5960,16 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
-  Updates an encryption key.
+  Updates an encryption key. A `ResourceNotFoundException` means that an Amazon
+  Web Services owned key is being used for encryption.
 
-  A `ResourceNotFoundException` means that an Amazon Web Services owned key is
-  being used for encryption.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateEncryptionKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_encryption_key(map(), update_encryption_key_request(), list()) ::
+  @spec update_encryption_key(AWS.Client.t(), update_encryption_key_request(), Keyword.t()) ::
           {:ok, update_encryption_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_encryption_key_errors()}
@@ -5532,7 +5978,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -5540,8 +5987,14 @@ defmodule AWS.Inspector2 do
   @doc """
   Specifies the action that is to be applied to the findings that match the
   filter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_filter(map(), update_filter_request(), list()) ::
+  @spec update_filter(AWS.Client.t(), update_filter_request(), Keyword.t()) ::
           {:ok, update_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_filter_errors()}
@@ -5550,7 +6003,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5567,13 +6021,18 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Updates the Amazon Inspector deep inspection custom paths for your organization.
-
   You must be an Amazon Inspector delegated administrator to use this API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateOrgEc2DeepInspectionConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec update_org_ec2_deep_inspection_configuration(
-          map(),
+          AWS.Client.t(),
           update_org_ec2_deep_inspection_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_org_ec2_deep_inspection_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5583,7 +6042,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5600,11 +6060,17 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Updates the configurations for your Amazon Inspector organization.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateOrganizationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec update_organization_configuration(
-          map(),
+          AWS.Client.t(),
           update_organization_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5614,7 +6080,8 @@ defmodule AWS.Inspector2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

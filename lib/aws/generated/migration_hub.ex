@@ -4,15 +4,8 @@
 defmodule AWS.MigrationHub do
   @moduledoc """
   The AWS Migration Hub API methods help to obtain server and application
-  migration status
-  and integrate your resource-specific migration tool by providing a programmatic
-  interface
-  to Migration Hub.
-
-  Remember that you must set your AWS Migration Hub home region before you call
-  any of
-  these APIs, or a `HomeRegionNotSetException` error will be returned. Also, you
-  must make the API calls while in your home region.
+  migration status and integrate your resource-specific migration tool by
+  providing a programmatic interface to Migration Hub.
   """
 
   alias AWS.Client
@@ -824,114 +817,81 @@ defmodule AWS.MigrationHub do
 
   @doc """
   Associates a created artifact of an AWS cloud resource, the target receiving the
-  migration, with the migration task performed by a migration tool.
-
-  This API has the
-  following traits:
-
-    *
-  Migration tools can call the `AssociateCreatedArtifact` operation to
-  indicate which AWS artifact is associated with a migration task.
-
-    *
-  The created artifact name must be provided in ARN (Amazon Resource Name) format
-  which will contain information about type and region; for example:
-  `arn:aws:ec2:us-east-1:488216288981:image/ami-6d0ba87b`.
-
-    *
-  Examples of the AWS resource behind the created artifact are, AMI's, EC2
-  instance,
-  or DMS endpoint, etc.
+  migration, with the migration task performed by a migration tool. This API has
+  the following traits:
   """
-  @spec associate_created_artifact(map(), associate_created_artifact_request(), list()) ::
+  @spec associate_created_artifact(
+          AWS.Client.t(),
+          associate_created_artifact_request(),
+          Keyword.t()
+        ) ::
           {:ok, associate_created_artifact_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_created_artifact_errors()}
   def associate_created_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateCreatedArtifact", input, options)
   end
 
   @doc """
   Associates a discovered resource ID from Application Discovery Service with a
-  migration
-  task.
+  migration task.
   """
-  @spec associate_discovered_resource(map(), associate_discovered_resource_request(), list()) ::
+  @spec associate_discovered_resource(
+          AWS.Client.t(),
+          associate_discovered_resource_request(),
+          Keyword.t()
+        ) ::
           {:ok, associate_discovered_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_discovered_resource_errors()}
   def associate_discovered_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateDiscoveredResource", input, options)
   end
 
   @doc """
   Creates a progress update stream which is an AWS resource used for access
-  control as
-  well as a namespace for migration task names that is implicitly linked to your
-  AWS account.
-
-  It must uniquely identify the migration tool as it is used for all updates made
-  by the
-  tool; however, it does not need to be unique for each AWS account because it is
-  scoped to
-  the AWS account.
+  control as well as a namespace for migration task names that is implicitly
+  linked to your AWS account. It must uniquely identify the migration tool as it
+  is used for all updates made by the tool; however, it does not need to be
+  unique for each AWS account because it is scoped to the AWS account.
   """
-  @spec create_progress_update_stream(map(), create_progress_update_stream_request(), list()) ::
+  @spec create_progress_update_stream(
+          AWS.Client.t(),
+          create_progress_update_stream_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_progress_update_stream_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_progress_update_stream_errors()}
   def create_progress_update_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProgressUpdateStream", input, options)
   end
 
   @doc """
   Deletes a progress update stream, including all of its tasks, which was
-  previously
-  created as an AWS resource used for access control.
-
-  This API has the following
-  traits:
-
-    *
-  The only parameter needed for `DeleteProgressUpdateStream` is the
-  stream name (same as a `CreateProgressUpdateStream` call).
-
-    *
-  The call will return, and a background process will asynchronously delete the
-  stream and all of its resources (tasks, associated resources, resource
-  attributes,
-  created artifacts).
-
-    *
-  If the stream takes time to be deleted, it might still show up on a
-  `ListProgressUpdateStreams` call.
-
-    *
-
-  `CreateProgressUpdateStream`, `ImportMigrationTask`,
-  `NotifyMigrationTaskState`, and all Associate[*] APIs related to the
-  tasks belonging to the stream will throw "InvalidInputException" if the stream
-  of the
-  same name is in the process of being deleted.
-
-    *
-  Once the stream and all of its resources are deleted,
-  `CreateProgressUpdateStream` for a stream of the same name will
-  succeed, and that stream will be an entirely new logical resource (without any
-  resources associated with the old stream).
+  previously created as an AWS resource used for access control. This API has
+  the following traits:
   """
-  @spec delete_progress_update_stream(map(), delete_progress_update_stream_request(), list()) ::
+  @spec delete_progress_update_stream(
+          AWS.Client.t(),
+          delete_progress_update_stream_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_progress_update_stream_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_progress_update_stream_errors()}
   def delete_progress_update_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProgressUpdateStream", input, options)
   end
@@ -939,12 +899,17 @@ defmodule AWS.MigrationHub do
   @doc """
   Gets the migration status of an application.
   """
-  @spec describe_application_state(map(), describe_application_state_request(), list()) ::
+  @spec describe_application_state(
+          AWS.Client.t(),
+          describe_application_state_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_application_state_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_application_state_errors()}
   def describe_application_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplicationState", input, options)
   end
@@ -952,125 +917,98 @@ defmodule AWS.MigrationHub do
   @doc """
   Retrieves a list of all attributes associated with a specific migration task.
   """
-  @spec describe_migration_task(map(), describe_migration_task_request(), list()) ::
+  @spec describe_migration_task(AWS.Client.t(), describe_migration_task_request(), Keyword.t()) ::
           {:ok, describe_migration_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_migration_task_errors()}
   def describe_migration_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMigrationTask", input, options)
   end
 
   @doc """
   Disassociates a created artifact of an AWS resource with a migration task
-  performed by a
-  migration tool that was previously associated.
-
-  This API has the following traits:
-
-    *
-  A migration user can call the `DisassociateCreatedArtifacts` operation
-  to disassociate a created AWS Artifact from a migration task.
-
-    *
-  The created artifact name must be provided in ARN (Amazon Resource Name) format
-  which will contain information about type and region; for example:
-  `arn:aws:ec2:us-east-1:488216288981:image/ami-6d0ba87b`.
-
-    *
-  Examples of the AWS resource behind the created artifact are, AMI's, EC2
-  instance,
-  or RDS instance, etc.
+  performed by a migration tool that was previously associated. This API has the
+  following traits:
   """
-  @spec disassociate_created_artifact(map(), disassociate_created_artifact_request(), list()) ::
+  @spec disassociate_created_artifact(
+          AWS.Client.t(),
+          disassociate_created_artifact_request(),
+          Keyword.t()
+        ) ::
           {:ok, disassociate_created_artifact_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_created_artifact_errors()}
   def disassociate_created_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateCreatedArtifact", input, options)
   end
 
   @doc """
   Disassociate an Application Discovery Service discovered resource from a
-  migration
-  task.
+  migration task.
   """
   @spec disassociate_discovered_resource(
-          map(),
+          AWS.Client.t(),
           disassociate_discovered_resource_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_discovered_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_discovered_resource_errors()}
   def disassociate_discovered_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateDiscoveredResource", input, options)
   end
 
   @doc """
   Registers a new migration task which represents a server, database, etc., being
-  migrated
-  to AWS by a migration tool.
-
-  This API is a prerequisite to calling the `NotifyMigrationTaskState` API as
-  the migration tool must first register the migration task with Migration Hub.
+  migrated to AWS by a migration tool.
   """
-  @spec import_migration_task(map(), import_migration_task_request(), list()) ::
+  @spec import_migration_task(AWS.Client.t(), import_migration_task_request(), Keyword.t()) ::
           {:ok, import_migration_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_migration_task_errors()}
   def import_migration_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportMigrationTask", input, options)
   end
 
   @doc """
-  Lists all the migration statuses for your applications.
-
-  If you use the optional
-  `ApplicationIds` parameter, only the migration statuses for those
-  applications will be returned.
+  Lists all the migration statuses for your applications. If you use the optional
+  `ApplicationIds` parameter, only the migration statuses for those applications
+  will be returned.
   """
-  @spec list_application_states(map(), list_application_states_request(), list()) ::
+  @spec list_application_states(AWS.Client.t(), list_application_states_request(), Keyword.t()) ::
           {:ok, list_application_states_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_states_errors()}
   def list_application_states(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApplicationStates", input, options)
   end
 
   @doc """
   Lists the created artifacts attached to a given migration task in an update
-  stream.
-
-  This
-  API has the following traits:
-
-    *
-  Gets the list of the created artifacts while
-  migration is taking place.
-
-    *
-  Shows the artifacts created by the migration tool that was associated by the
-  `AssociateCreatedArtifact` API.
-
-    *
-  Lists created artifacts in a paginated interface.
+  stream. This API has the following traits:
   """
-  @spec list_created_artifacts(map(), list_created_artifacts_request(), list()) ::
+  @spec list_created_artifacts(AWS.Client.t(), list_created_artifacts_request(), Keyword.t()) ::
           {:ok, list_created_artifacts_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_created_artifacts_errors()}
   def list_created_artifacts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCreatedArtifacts", input, options)
   end
@@ -1078,39 +1016,32 @@ defmodule AWS.MigrationHub do
   @doc """
   Lists discovered resources associated with the given `MigrationTask`.
   """
-  @spec list_discovered_resources(map(), list_discovered_resources_request(), list()) ::
+  @spec list_discovered_resources(
+          AWS.Client.t(),
+          list_discovered_resources_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_discovered_resources_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_discovered_resources_errors()}
   def list_discovered_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDiscoveredResources", input, options)
   end
 
   @doc """
   Lists all, or filtered by resource name, migration tasks associated with the
-  user
-  account making this call.
-
-  This API has the following traits:
-
-    *
-  Can show a summary list of the most recent migration tasks.
-
-    *
-  Can show a summary list of migration tasks associated with a given discovered
-  resource.
-
-    *
-  Lists migration tasks in a paginated interface.
+  user account making this call. This API has the following traits:
   """
-  @spec list_migration_tasks(map(), list_migration_tasks_request(), list()) ::
+  @spec list_migration_tasks(AWS.Client.t(), list_migration_tasks_request(), Keyword.t()) ::
           {:ok, list_migration_tasks_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_migration_tasks_errors()}
   def list_migration_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMigrationTasks", input, options)
   end
@@ -1118,104 +1049,77 @@ defmodule AWS.MigrationHub do
   @doc """
   Lists progress update streams associated with the user account making this call.
   """
-  @spec list_progress_update_streams(map(), list_progress_update_streams_request(), list()) ::
+  @spec list_progress_update_streams(
+          AWS.Client.t(),
+          list_progress_update_streams_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_progress_update_streams_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_progress_update_streams_errors()}
   def list_progress_update_streams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProgressUpdateStreams", input, options)
   end
 
   @doc """
-  Sets the migration state of an application.
-
-  For a given application identified by the
-  value passed to `ApplicationId`, its status is set or updated by passing one of
-  three values to `Status`:
-
-  ```
-  NOT_STARTED | IN_PROGRESS |
-  COMPLETED
-  ```
-
-  .
+  Sets the migration state of an application. For a given application identified
+  by the value passed to `ApplicationId`, its status is set or updated by
+  passing one of three values to `Status`: ``` NOT_STARTED | IN_PROGRESS |
+  COMPLETED ``` .
   """
-  @spec notify_application_state(map(), notify_application_state_request(), list()) ::
+  @spec notify_application_state(AWS.Client.t(), notify_application_state_request(), Keyword.t()) ::
           {:ok, notify_application_state_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, notify_application_state_errors()}
   def notify_application_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "NotifyApplicationState", input, options)
   end
 
   @doc """
   Notifies Migration Hub of the current status, progress, or other detail
-  regarding a
-  migration task.
-
-  This API has the following traits:
-
-    *
-  Migration tools will call the `NotifyMigrationTaskState` API to share
-  the latest progress and status.
-
-    *
-
-  `MigrationTaskName` is used for addressing updates to the correct
-  target.
-
-    *
-
-  `ProgressUpdateStream` is used for access control and to provide a
-  namespace for each migration tool.
+  regarding a migration task. This API has the following traits:
   """
-  @spec notify_migration_task_state(map(), notify_migration_task_state_request(), list()) ::
+  @spec notify_migration_task_state(
+          AWS.Client.t(),
+          notify_migration_task_state_request(),
+          Keyword.t()
+        ) ::
           {:ok, notify_migration_task_state_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, notify_migration_task_state_errors()}
   def notify_migration_task_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "NotifyMigrationTaskState", input, options)
   end
 
   @doc """
   Provides identifying details of the resource being migrated so that it can be
-  associated
-  in the Application Discovery Service repository.
-
-  This association occurs asynchronously
-  after `PutResourceAttributes` returns.
-
-    
-  Keep in mind that subsequent calls to PutResourceAttributes will override
-  previously stored attributes. For example, if it is first called with a MAC
-  address, but later, it is desired to *add* an IP address, it
-  will then be required to call it with *both* the IP and MAC
-  addresses to prevent overriding the MAC address.
-
-    
-  Note the instructions regarding the special use case of the [
+  associated in the Application Discovery Service repository. This association
+  occurs asynchronously after `PutResourceAttributes` returns. Keep in mind that
+  subsequent calls to PutResourceAttributes will override previously stored
+  attributes. For example, if it is first called with a MAC address, but later,
+  it is desired to *add* an IP address, it will then be required to call it with
+  *both* the IP and MAC addresses to prevent overriding the MAC address. Note
+  the instructions regarding the special use case of the [
   `ResourceAttributeList`
   ](https://docs.aws.amazon.com/migrationhub/latest/ug/API_PutResourceAttributes.html#migrationhub-PutResourceAttributes-request-ResourceAttributeList)
-  parameter when specifying any
-  "VM" related value.
-
-  Because this is an asynchronous call, it will always return 200, whether an
-  association occurs or not. To confirm if an association was found based on the
-  provided
-  details, call `ListDiscoveredResources`.
+  parameter when specifying any "VM" related value.
   """
-  @spec put_resource_attributes(map(), put_resource_attributes_request(), list()) ::
+  @spec put_resource_attributes(AWS.Client.t(), put_resource_attributes_request(), Keyword.t()) ::
           {:ok, put_resource_attributes_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_attributes_errors()}
   def put_resource_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourceAttributes", input, options)
   end

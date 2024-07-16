@@ -4,28 +4,14 @@
 defmodule AWS.CostandUsageReport do
   @moduledoc """
   You can use the Amazon Web Services Cost and Usage Report API to
-  programmatically create, query, and delete
-  Amazon Web Services Cost and Usage Report definitions.
-
-  Amazon Web Services Cost and Usage Report track the monthly Amazon Web Services
-  costs and usage
-  associated with your Amazon Web Services account.
-
-  The report contains line items for each unique combination of Amazon Web
-  Services product,
-  usage type, and operation that your Amazon Web Services account uses.
-
-  You can configure the Amazon Web Services Cost and Usage Report to show only the
-  data that you want, using the
-  Amazon Web Services Cost and Usage Report API.
-
-  Service Endpoint
-
-  The Amazon Web Services Cost and Usage Report API provides the following
-  endpoint:
-
-    *
-  cur.us-east-1.amazonaws.com
+  programmatically create, query, and delete Amazon Web Services Cost and Usage
+  Report definitions. Amazon Web Services Cost and Usage Report track the
+  monthly Amazon Web Services costs and usage associated with your Amazon Web
+  Services account. The report contains line items for each unique combination
+  of Amazon Web Services product, usage type, and operation that your Amazon Web
+  Services account uses. You can configure the Amazon Web Services Cost and
+  Usage Report to show only the data that you want, using the Amazon Web
+  Services Cost and Usage Report API.
   """
 
   alias AWS.Client
@@ -324,17 +310,16 @@ defmodule AWS.CostandUsageReport do
   end
 
   @doc """
-  Deletes the specified report.
-
-  Any tags associated with the report are also
+  Deletes the specified report. Any tags associated with the report are also
   deleted.
   """
-  @spec delete_report_definition(map(), delete_report_definition_request(), list()) ::
+  @spec delete_report_definition(AWS.Client.t(), delete_report_definition_request(), Keyword.t()) ::
           {:ok, delete_report_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_report_definition_errors()}
   def delete_report_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReportDefinition", input, options)
   end
@@ -342,12 +327,17 @@ defmodule AWS.CostandUsageReport do
   @doc """
   Lists the Amazon Web Services Cost and Usage Report available to this account.
   """
-  @spec describe_report_definitions(map(), describe_report_definitions_request(), list()) ::
+  @spec describe_report_definitions(
+          AWS.Client.t(),
+          describe_report_definitions_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_report_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_report_definitions_errors()}
   def describe_report_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReportDefinitions", input, options)
   end
@@ -355,12 +345,13 @@ defmodule AWS.CostandUsageReport do
   @doc """
   Lists the tags associated with the specified report definition.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -368,12 +359,13 @@ defmodule AWS.CostandUsageReport do
   @doc """
   Allows you to programmatically update your report preferences.
   """
-  @spec modify_report_definition(map(), modify_report_definition_request(), list()) ::
+  @spec modify_report_definition(AWS.Client.t(), modify_report_definition_request(), Keyword.t()) ::
           {:ok, modify_report_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_report_definition_errors()}
   def modify_report_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyReportDefinition", input, options)
   end
@@ -381,12 +373,13 @@ defmodule AWS.CostandUsageReport do
   @doc """
   Creates a new report using the description that you provide.
   """
-  @spec put_report_definition(map(), put_report_definition_request(), list()) ::
+  @spec put_report_definition(AWS.Client.t(), put_report_definition_request(), Keyword.t()) ::
           {:ok, put_report_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_report_definition_errors()}
   def put_report_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutReportDefinition", input, options)
   end
@@ -394,12 +387,13 @@ defmodule AWS.CostandUsageReport do
   @doc """
   Associates a set of tags with a report definition.
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -407,12 +401,13 @@ defmodule AWS.CostandUsageReport do
   @doc """
   Disassociates a set of tags from a report definition.
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

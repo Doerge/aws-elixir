@@ -1150,8 +1150,14 @@ defmodule AWS.Schemas do
 
   @doc """
   Creates a discoverer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20CreateDiscoverer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_discoverer(map(), create_discoverer_request(), list()) ::
+  @spec create_discoverer(AWS.Client.t(), create_discoverer_request(), Keyword.t()) ::
           {:ok, create_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_discoverer_errors()}
@@ -1160,7 +1166,8 @@ defmodule AWS.Schemas do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1177,8 +1184,15 @@ defmodule AWS.Schemas do
 
   @doc """
   Creates a registry.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20CreateRegistry&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:registry_name` (`t:string`) The name of the registry.
+
+  ## Optional parameters:
   """
-  @spec create_registry(map(), String.t(), create_registry_request(), list()) ::
+  @spec create_registry(AWS.Client.t(), String.t(), create_registry_request(), Keyword.t()) ::
           {:ok, create_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_registry_errors()}
@@ -1187,7 +1201,8 @@ defmodule AWS.Schemas do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1205,9 +1220,21 @@ defmodule AWS.Schemas do
   @doc """
   Creates a schema definition.
 
-  Inactive schemas will be deleted after two years.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20CreateSchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:registry_name` (`t:string`) The name of the registry.
+  * `:schema_name` (`t:string`) The name of the schema.
+
+  ## Optional parameters:
   """
-  @spec create_schema(map(), String.t(), String.t(), create_schema_request(), list()) ::
+  @spec create_schema(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          create_schema_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_schema_errors()}
@@ -1218,7 +1245,8 @@ defmodule AWS.Schemas do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1235,8 +1263,15 @@ defmodule AWS.Schemas do
 
   @doc """
   Deletes a discoverer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DeleteDiscoverer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:discoverer_id` (`t:string`) The ID of the discoverer.
+
+  ## Optional parameters:
   """
-  @spec delete_discoverer(map(), String.t(), delete_discoverer_request(), list()) ::
+  @spec delete_discoverer(AWS.Client.t(), String.t(), delete_discoverer_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_discoverer_errors()}
@@ -1245,7 +1280,8 @@ defmodule AWS.Schemas do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1262,8 +1298,15 @@ defmodule AWS.Schemas do
 
   @doc """
   Deletes a Registry.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DeleteRegistry&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:registry_name` (`t:string`) The name of the registry.
+
+  ## Optional parameters:
   """
-  @spec delete_registry(map(), String.t(), delete_registry_request(), list()) ::
+  @spec delete_registry(AWS.Client.t(), String.t(), delete_registry_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_registry_errors()}
@@ -1272,7 +1315,8 @@ defmodule AWS.Schemas do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1289,8 +1333,15 @@ defmodule AWS.Schemas do
 
   @doc """
   Delete the resource-based policy attached to the specified registry.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:registry_name` (`t:string`) The name of the registry.
   """
-  @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
+  @spec delete_resource_policy(AWS.Client.t(), delete_resource_policy_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
@@ -1304,7 +1355,13 @@ defmodule AWS.Schemas do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:registry_name])
 
     Request.request_rest(
       client,
@@ -1321,8 +1378,22 @@ defmodule AWS.Schemas do
 
   @doc """
   Delete a schema definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DeleteSchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:registry_name` (`t:string`) The name of the registry.
+  * `:schema_name` (`t:string`) The name of the schema.
+
+  ## Optional parameters:
   """
-  @spec delete_schema(map(), String.t(), String.t(), delete_schema_request(), list()) ::
+  @spec delete_schema(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_schema_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_schema_errors()}
@@ -1333,7 +1404,8 @@ defmodule AWS.Schemas do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1350,14 +1422,23 @@ defmodule AWS.Schemas do
 
   @doc """
   Delete the schema version definition
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DeleteSchemaVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:registry_name` (`t:string`) The name of the registry.
+  * `:schema_name` (`t:string`) The name of the schema.
+  * `:schema_version` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec delete_schema_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_schema_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -1376,7 +1457,8 @@ defmodule AWS.Schemas do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1393,8 +1475,19 @@ defmodule AWS.Schemas do
 
   @doc """
   Describe the code binding URI.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DescribeCodeBinding&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:language` (`t:string`) The language of the code binding.
+  * `:registry_name` (`t:string`) The name of the registry.
+  * `:schema_name` (`t:string`) The name of the schema.
+
+  ## Optional parameters:
+  * `:schema_version` (`t:string`) Specifying this limits the results to only this
+    schema version.
   """
-  @spec describe_code_binding(map(), String.t(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec describe_code_binding(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_code_binding_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_code_binding_errors()}
@@ -1403,141 +1496,247 @@ defmodule AWS.Schemas do
         language,
         registry_name,
         schema_name,
-        schema_version \\ nil,
         options \\ []
       ) do
     url_path =
       "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}/language/#{AWS.Util.encode_uri(language)}"
 
+    # Validate optional parameters
+    optional_params = [schema_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(schema_version) do
-        [{"schemaVersion", schema_version} | query_params]
+      if opt_val = Keyword.get(options, :schema_version) do
+        [{"schemaVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:schema_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes the discoverer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DescribeDiscoverer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:discoverer_id` (`t:string`) The ID of the discoverer.
+
+  ## Optional parameters:
   """
-  @spec describe_discoverer(map(), String.t(), list()) ::
+  @spec describe_discoverer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_discoverer_errors()}
   def describe_discoverer(%Client{} = client, discoverer_id, options \\ []) do
     url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes the registry.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DescribeRegistry&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:registry_name` (`t:string`) The name of the registry.
+
+  ## Optional parameters:
   """
-  @spec describe_registry(map(), String.t(), list()) ::
+  @spec describe_registry(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_registry_errors()}
   def describe_registry(%Client{} = client, registry_name, options \\ []) do
     url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve the schema definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DescribeSchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:registry_name` (`t:string`) The name of the registry.
+  * `:schema_name` (`t:string`) The name of the schema.
+
+  ## Optional parameters:
+  * `:schema_version` (`t:string`) Specifying this limits the results to only this
+    schema version.
   """
-  @spec describe_schema(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec describe_schema(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_schema_errors()}
-  def describe_schema(
-        %Client{} = client,
-        registry_name,
-        schema_name,
-        schema_version \\ nil,
-        options \\ []
-      ) do
+  def describe_schema(%Client{} = client, registry_name, schema_name, options \\ []) do
     url_path =
       "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}"
 
+    # Validate optional parameters
+    optional_params = [schema_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(schema_version) do
-        [{"schemaVersion", schema_version} | query_params]
+      if opt_val = Keyword.get(options, :schema_version) do
+        [{"schemaVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:schema_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
-  @spec export_schema(map(), String.t(), String.t(), String.t() | nil, String.t(), list()) ::
+  @spec export_schema(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, export_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_schema_errors()}
-  def export_schema(
-        %Client{} = client,
-        registry_name,
-        schema_name,
-        schema_version \\ nil,
-        type,
-        options \\ []
-      ) do
+  def export_schema(%Client{} = client, registry_name, schema_name, type, options \\ []) do
     url_path =
       "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}/export"
 
+    # Validate optional parameters
+    optional_params = [schema_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"type", type}]
+
+    # Optional query params
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
+      if opt_val = Keyword.get(options, :schema_version) do
+        [{"schemaVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(schema_version) do
-        [{"schemaVersion", schema_version} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:schema_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get the code binding source URI.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20GetCodeBindingSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:language` (`t:string`) The language of the code binding.
+  * `:registry_name` (`t:string`) The name of the registry.
+  * `:schema_name` (`t:string`) The name of the schema.
+
+  ## Optional parameters:
+  * `:schema_version` (`t:string`) Specifying this limits the results to only this
+    schema version.
   """
-  @spec get_code_binding_source(
-          map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_code_binding_source(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_code_binding_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_code_binding_source_errors()}
@@ -1546,31 +1745,57 @@ defmodule AWS.Schemas do
         language,
         registry_name,
         schema_name,
-        schema_version \\ nil,
         options \\ []
       ) do
     url_path =
       "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}/language/#{AWS.Util.encode_uri(language)}/source"
 
+    # Validate optional parameters
+    optional_params = [schema_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(schema_version) do
-        [{"schemaVersion", schema_version} | query_params]
+      if opt_val = Keyword.get(options, :schema_version) do
+        [{"schemaVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:schema_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get the discovered schema that was generated based on sampled events.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20GetDiscoveredSchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_discovered_schema(map(), get_discovered_schema_request(), list()) ::
+  @spec get_discovered_schema(AWS.Client.t(), get_discovered_schema_request(), Keyword.t()) ::
           {:ok, get_discovered_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_discovered_schema_errors()}
@@ -1579,7 +1804,8 @@ defmodule AWS.Schemas do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1596,272 +1822,426 @@ defmodule AWS.Schemas do
 
   @doc """
   Retrieves the resource-based policy attached to a given registry.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20GetResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:registry_name` (`t:string`) The name of the registry.
   """
-  @spec get_resource_policy(map(), String.t() | nil, list()) ::
+  @spec get_resource_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
-  def get_resource_policy(%Client{} = client, registry_name \\ nil, options \\ []) do
+  def get_resource_policy(%Client{} = client, options \\ []) do
     url_path = "/v1/policy"
+
+    # Validate optional parameters
+    optional_params = [registry_name: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(registry_name) do
-        [{"registryName", registry_name} | query_params]
+      if opt_val = Keyword.get(options, :registry_name) do
+        [{"registryName", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:registry_name])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List the discoverers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20ListDiscoverers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:discoverer_id_prefix` (`t:string`) Specifying this limits the results to
+    only those discoverer IDs that start with the specified prefix.
+  * `:limit` (`t:integer`)
+  * `:next_token` (`t:string`) The token that specifies the next page of results
+    to return. To request the first page, leave NextToken empty. The token will
+    expire in 24 hours, and cannot be shared with other accounts.
+  * `:source_arn_prefix` (`t:string`) Specifying this limits the results to only
+    those ARNs that start with the specified prefix.
   """
-  @spec list_discoverers(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_discoverers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_discoverers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_discoverers_errors()}
-  def list_discoverers(
-        %Client{} = client,
-        discoverer_id_prefix \\ nil,
-        limit \\ nil,
-        next_token \\ nil,
-        source_arn_prefix \\ nil,
-        options \\ []
-      ) do
+  def list_discoverers(%Client{} = client, options \\ []) do
     url_path = "/v1/discoverers"
+
+    # Validate optional parameters
+    optional_params = [
+      discoverer_id_prefix: nil,
+      limit: nil,
+      next_token: nil,
+      source_arn_prefix: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(source_arn_prefix) do
-        [{"sourceArnPrefix", source_arn_prefix} | query_params]
+      if opt_val = Keyword.get(options, :source_arn_prefix) do
+        [{"sourceArnPrefix", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if opt_val = Keyword.get(options, :limit) do
+        [{"limit", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(discoverer_id_prefix) do
-        [{"discovererIdPrefix", discoverer_id_prefix} | query_params]
+      if opt_val = Keyword.get(options, :discoverer_id_prefix) do
+        [{"discovererIdPrefix", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:discoverer_id_prefix, :limit, :next_token, :source_arn_prefix])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List the registries.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20ListRegistries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:limit` (`t:integer`)
+  * `:next_token` (`t:string`) The token that specifies the next page of results
+    to return. To request the first page, leave NextToken empty. The token will
+    expire in 24 hours, and cannot be shared with other accounts.
+  * `:registry_name_prefix` (`t:string`) Specifying this limits the results to
+    only those registry names that start with the specified prefix.
+  * `:scope` (`t:string`) Can be set to Local or AWS to limit responses to your
+    custom registries, or the ones provided by AWS.
   """
-  @spec list_registries(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_registries(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_registries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_registries_errors()}
-  def list_registries(
-        %Client{} = client,
-        limit \\ nil,
-        next_token \\ nil,
-        registry_name_prefix \\ nil,
-        scope \\ nil,
-        options \\ []
-      ) do
+  def list_registries(%Client{} = client, options \\ []) do
     url_path = "/v1/registries"
+
+    # Validate optional parameters
+    optional_params = [limit: nil, next_token: nil, registry_name_prefix: nil, scope: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(scope) do
-        [{"scope", scope} | query_params]
+      if opt_val = Keyword.get(options, :scope) do
+        [{"scope", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(registry_name_prefix) do
-        [{"registryNamePrefix", registry_name_prefix} | query_params]
+      if opt_val = Keyword.get(options, :registry_name_prefix) do
+        [{"registryNamePrefix", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if opt_val = Keyword.get(options, :limit) do
+        [{"limit", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:limit, :next_token, :registry_name_prefix, :scope])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Provides a list of the schema versions and related information.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20ListSchemaVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:registry_name` (`t:string`) The name of the registry.
+  * `:schema_name` (`t:string`) The name of the schema.
+
+  ## Optional parameters:
+  * `:limit` (`t:integer`)
+  * `:next_token` (`t:string`) The token that specifies the next page of results
+    to return. To request the first page, leave NextToken empty. The token will
+    expire in 24 hours, and cannot be shared with other accounts.
   """
-  @spec list_schema_versions(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_schema_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_schema_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schema_versions_errors()}
-  def list_schema_versions(
-        %Client{} = client,
-        registry_name,
-        schema_name,
-        limit \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_schema_versions(%Client{} = client, registry_name, schema_name, options \\ []) do
     url_path =
       "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}/versions"
 
+    # Validate optional parameters
+    optional_params = [limit: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if opt_val = Keyword.get(options, :limit) do
+        [{"limit", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:limit, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List the schemas.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20ListSchemas&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:registry_name` (`t:string`) The name of the registry.
+
+  ## Optional parameters:
+  * `:limit` (`t:integer`)
+  * `:next_token` (`t:string`) The token that specifies the next page of results
+    to return. To request the first page, leave NextToken empty. The token will
+    expire in 24 hours, and cannot be shared with other accounts.
+  * `:schema_name_prefix` (`t:string`) Specifying this limits the results to only
+    those schema names that start with the specified prefix.
   """
-  @spec list_schemas(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_schemas(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schemas_errors()}
-  def list_schemas(
-        %Client{} = client,
-        registry_name,
-        limit \\ nil,
-        next_token \\ nil,
-        schema_name_prefix \\ nil,
-        options \\ []
-      ) do
+  def list_schemas(%Client{} = client, registry_name, options \\ []) do
     url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas"
+
+    # Validate optional parameters
+    optional_params = [limit: nil, next_token: nil, schema_name_prefix: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(schema_name_prefix) do
-        [{"schemaNamePrefix", schema_name_prefix} | query_params]
+      if opt_val = Keyword.get(options, :schema_name_prefix) do
+        [{"schemaNamePrefix", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if opt_val = Keyword.get(options, :limit) do
+        [{"limit", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:limit, :next_token, :schema_name_prefix])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get tags for resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Put code binding URI
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20PutCodeBinding&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:language` (`t:string`) The language of the code binding.
+  * `:registry_name` (`t:string`) The name of the registry.
+  * `:schema_name` (`t:string`) The name of the schema.
+
+  ## Optional parameters:
+  * `:schema_version` (`t:string`) Specifying this limits the results to only this
+    schema version.
   """
   @spec put_code_binding(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           put_code_binding_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_code_binding_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1885,7 +2265,13 @@ defmodule AWS.Schemas do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:schema_version])
 
     Request.request_rest(
       client,
@@ -1902,8 +2288,15 @@ defmodule AWS.Schemas do
 
   @doc """
   The name of the policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20PutResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:registry_name` (`t:string`) The name of the registry.
   """
-  @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
+  @spec put_resource_policy(AWS.Client.t(), put_resource_policy_request(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
@@ -1917,60 +2310,94 @@ defmodule AWS.Schemas do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:registry_name])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Search the schemas
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20SearchSchemas&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:registry_name` (`t:string`) The name of the registry.
+  * `:keywords` (`t:string`) Specifying this limits the results to only schemas
+    that include the provided keywords.
+
+  ## Optional parameters:
+  * `:limit` (`t:integer`)
+  * `:next_token` (`t:string`) The token that specifies the next page of results
+    to return. To request the first page, leave NextToken empty. The token will
+    expire in 24 hours, and cannot be shared with other accounts.
   """
-  @spec search_schemas(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec search_schemas(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, search_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_schemas_errors()}
-  def search_schemas(
-        %Client{} = client,
-        registry_name,
-        keywords,
-        limit \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def search_schemas(%Client{} = client, registry_name, keywords, options \\ []) do
     url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/search"
+
+    # Validate optional parameters
+    optional_params = [limit: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"keywords", keywords}]
+
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if opt_val = Keyword.get(options, :limit) do
+        [{"limit", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(keywords) do
-        [{"keywords", keywords} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:limit, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Starts the discoverer
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20StartDiscoverer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:discoverer_id` (`t:string`) The ID of the discoverer.
+
+  ## Optional parameters:
   """
-  @spec start_discoverer(map(), String.t(), start_discoverer_request(), list()) ::
+  @spec start_discoverer(AWS.Client.t(), String.t(), start_discoverer_request(), Keyword.t()) ::
           {:ok, start_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_discoverer_errors()}
@@ -1979,7 +2406,8 @@ defmodule AWS.Schemas do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1996,8 +2424,15 @@ defmodule AWS.Schemas do
 
   @doc """
   Stops the discoverer
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20StopDiscoverer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:discoverer_id` (`t:string`) The ID of the discoverer.
+
+  ## Optional parameters:
   """
-  @spec stop_discoverer(map(), String.t(), stop_discoverer_request(), list()) ::
+  @spec stop_discoverer(AWS.Client.t(), String.t(), stop_discoverer_request(), Keyword.t()) ::
           {:ok, stop_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_discoverer_errors()}
@@ -2006,7 +2441,8 @@ defmodule AWS.Schemas do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2023,8 +2459,15 @@ defmodule AWS.Schemas do
 
   @doc """
   Add tags to a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2033,7 +2476,8 @@ defmodule AWS.Schemas do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2050,8 +2494,17 @@ defmodule AWS.Schemas do
 
   @doc """
   Removes tags from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.schemas#__string]`) Keys of key-value
+    pairs.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2065,7 +2518,8 @@ defmodule AWS.Schemas do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2082,8 +2536,15 @@ defmodule AWS.Schemas do
 
   @doc """
   Updates the discoverer
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20UpdateDiscoverer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:discoverer_id` (`t:string`) The ID of the discoverer.
+
+  ## Optional parameters:
   """
-  @spec update_discoverer(map(), String.t(), update_discoverer_request(), list()) ::
+  @spec update_discoverer(AWS.Client.t(), String.t(), update_discoverer_request(), Keyword.t()) ::
           {:ok, update_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_discoverer_errors()}
@@ -2092,15 +2553,23 @@ defmodule AWS.Schemas do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a registry.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20UpdateRegistry&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:registry_name` (`t:string`) The name of the registry.
+
+  ## Optional parameters:
   """
-  @spec update_registry(map(), String.t(), update_registry_request(), list()) ::
+  @spec update_registry(AWS.Client.t(), String.t(), update_registry_request(), Keyword.t()) ::
           {:ok, update_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_registry_errors()}
@@ -2109,7 +2578,8 @@ defmodule AWS.Schemas do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -2117,9 +2587,21 @@ defmodule AWS.Schemas do
   @doc """
   Updates the schema definition
 
-  Inactive schemas will be deleted after two years.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20UpdateSchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:registry_name` (`t:string`) The name of the registry.
+  * `:schema_name` (`t:string`) The name of the schema.
+
+  ## Optional parameters:
   """
-  @spec update_schema(map(), String.t(), String.t(), update_schema_request(), list()) ::
+  @spec update_schema(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_schema_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_schema_errors()}
@@ -2130,7 +2612,8 @@ defmodule AWS.Schemas do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

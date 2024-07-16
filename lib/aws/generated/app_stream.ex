@@ -3,32 +3,13 @@
 
 defmodule AWS.AppStream do
   @moduledoc """
-  Amazon AppStream 2.0
-
-  This is the *Amazon AppStream 2.0 API Reference*.
-
-  This documentation provides descriptions and syntax for each of the actions and
+  Amazon AppStream 2.0 This is the *Amazon AppStream 2.0 API Reference*. This
+  documentation provides descriptions and syntax for each of the actions and
   data types in AppStream 2.0. AppStream 2.0 is a fully managed, secure
-  application streaming service that lets you stream desktop applications to users
-  without rewriting applications. AppStream 2.0 manages the AWS resources that are
-  required to host and run your applications, scales automatically, and provides
-  access to your users on demand.
-
-  You can call the AppStream 2.0 API operations by using an interface VPC endpoint
-  (interface endpoint). For more information, see [Access AppStream 2.0 API Operations and CLI Commands Through an Interface VPC
-  Endpoint](https://docs.aws.amazon.com/appstream2/latest/developerguide/access-api-cli-through-interface-vpc-endpoint.html)
-  in the *Amazon AppStream 2.0 Administration Guide*.
-
-  To learn more about AppStream 2.0, see the following resources:
-
-    *
-
-  [Amazon AppStream 2.0 product page](http://aws.amazon.com/appstream2) 
-
-    *
-
-  [Amazon AppStream 2.0
-  documentation](http://aws.amazon.com/documentation/appstream2)
+  application streaming service that lets you stream desktop applications to
+  users without rewriting applications. AppStream 2.0 manages the AWS resources
+  that are required to host and run your applications, scales automatically, and
+  provides access to your users on demand.
   """
 
   alias AWS.Client
@@ -3084,7 +3065,7 @@ defmodule AWS.AppStream do
       protocol: "json",
       service_id: "AppStream",
       signature_version: "v4",
-      signing_name: "appstream",
+      signing_name: "appstream2",
       target_prefix: "PhotonAdminProxyService"
     }
   end
@@ -3093,30 +3074,35 @@ defmodule AWS.AppStream do
   Associates the specified app block builder with the specified app block.
   """
   @spec associate_app_block_builder_app_block(
-          map(),
+          AWS.Client.t(),
           associate_app_block_builder_app_block_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_app_block_builder_app_block_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_app_block_builder_app_block_errors()}
   def associate_app_block_builder_app_block(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateAppBlockBuilderAppBlock", input, options)
   end
 
   @doc """
-  Associates the specified application with the specified fleet.
-
-  This is only supported for Elastic fleets.
+  Associates the specified application with the specified fleet. This is only
+  supported for Elastic fleets.
   """
-  @spec associate_application_fleet(map(), associate_application_fleet_request(), list()) ::
+  @spec associate_application_fleet(
+          AWS.Client.t(),
+          associate_application_fleet_request(),
+          Keyword.t()
+        ) ::
           {:ok, associate_application_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_application_fleet_errors()}
   def associate_application_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateApplicationFleet", input, options)
   end
@@ -3125,15 +3111,16 @@ defmodule AWS.AppStream do
   Associates an application to entitle.
   """
   @spec associate_application_to_entitlement(
-          map(),
+          AWS.Client.t(),
           associate_application_to_entitlement_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_application_to_entitlement_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_application_to_entitlement_errors()}
   def associate_application_to_entitlement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateApplicationToEntitlement", input, options)
   end
@@ -3141,28 +3128,33 @@ defmodule AWS.AppStream do
   @doc """
   Associates the specified fleet with the specified stack.
   """
-  @spec associate_fleet(map(), associate_fleet_request(), list()) ::
+  @spec associate_fleet(AWS.Client.t(), associate_fleet_request(), Keyword.t()) ::
           {:ok, associate_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_fleet_errors()}
   def associate_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateFleet", input, options)
   end
 
   @doc """
-  Associates the specified users with the specified stacks.
-
-  Users in a user pool cannot be assigned to stacks with fleets that are joined to
-  an Active Directory domain.
+  Associates the specified users with the specified stacks. Users in a user pool
+  cannot be assigned to stacks with fleets that are joined to an Active
+  Directory domain.
   """
-  @spec batch_associate_user_stack(map(), batch_associate_user_stack_request(), list()) ::
+  @spec batch_associate_user_stack(
+          AWS.Client.t(),
+          batch_associate_user_stack_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_associate_user_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_associate_user_stack_errors()}
   def batch_associate_user_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchAssociateUserStack", input, options)
   end
@@ -3170,53 +3162,51 @@ defmodule AWS.AppStream do
   @doc """
   Disassociates the specified users from the specified stacks.
   """
-  @spec batch_disassociate_user_stack(map(), batch_disassociate_user_stack_request(), list()) ::
+  @spec batch_disassociate_user_stack(
+          AWS.Client.t(),
+          batch_disassociate_user_stack_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_disassociate_user_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_disassociate_user_stack_errors()}
   def batch_disassociate_user_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDisassociateUserStack", input, options)
   end
 
   @doc """
   Copies the image within the same region or to a new region within the same AWS
-  account.
-
-  Note that any tags you added to the image will not be copied.
+  account. Note that any tags you added to the image will not be copied.
   """
-  @spec copy_image(map(), copy_image_request(), list()) ::
+  @spec copy_image(AWS.Client.t(), copy_image_request(), Keyword.t()) ::
           {:ok, copy_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_image_errors()}
   def copy_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyImage", input, options)
   end
 
   @doc """
-  Creates an app block.
-
-  App blocks are an Amazon AppStream 2.0 resource that stores the details about
-  the
-  virtual hard disk in an S3 bucket. It also stores the setup script with details
-  about
-  how to mount the virtual hard disk. The virtual hard disk includes the
-  application
-  binaries and other files necessary to launch your applications. Multiple
-  applications
-  can be assigned to a single app block.
-
-  This is only supported for Elastic fleets.
+  Creates an app block. App blocks are an Amazon AppStream 2.0 resource that
+  stores the details about the virtual hard disk in an S3 bucket. It also stores
+  the setup script with details about how to mount the virtual hard disk. The
+  virtual hard disk includes the application binaries and other files necessary
+  to launch your applications. Multiple applications can be assigned to a single
+  app block.
   """
-  @spec create_app_block(map(), create_app_block_request(), list()) ::
+  @spec create_app_block(AWS.Client.t(), create_app_block_request(), Keyword.t()) ::
           {:ok, create_app_block_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_block_errors()}
   def create_app_block(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAppBlock", input, options)
   end
@@ -3224,12 +3214,13 @@ defmodule AWS.AppStream do
   @doc """
   Creates an app block builder.
   """
-  @spec create_app_block_builder(map(), create_app_block_builder_request(), list()) ::
+  @spec create_app_block_builder(AWS.Client.t(), create_app_block_builder_request(), Keyword.t()) ::
           {:ok, create_app_block_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_block_builder_errors()}
   def create_app_block_builder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAppBlockBuilder", input, options)
   end
@@ -3238,112 +3229,100 @@ defmodule AWS.AppStream do
   Creates a URL to start a create app block builder streaming session.
   """
   @spec create_app_block_builder_streaming_url(
-          map(),
+          AWS.Client.t(),
           create_app_block_builder_streaming_url_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_app_block_builder_streaming_url_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_block_builder_streaming_url_errors()}
   def create_app_block_builder_streaming_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAppBlockBuilderStreamingURL", input, options)
   end
 
   @doc """
-  Creates an application.
-
-  Applications are an Amazon AppStream 2.0 resource that stores the details about
-  how to
-  launch applications on Elastic fleet streaming instances. An application
-  consists of the
-  launch details, icon, and display name. Applications are associated with an app
-  block
-  that contains the application binaries and other files. The applications
-  assigned to an
-  Elastic fleet are the applications users can launch.
-
-  This is only supported for Elastic fleets.
+  Creates an application. Applications are an Amazon AppStream 2.0 resource that
+  stores the details about how to launch applications on Elastic fleet streaming
+  instances. An application consists of the launch details, icon, and display
+  name. Applications are associated with an app block that contains the
+  application binaries and other files. The applications assigned to an Elastic
+  fleet are the applications users can launch.
   """
-  @spec create_application(map(), create_application_request(), list()) ::
+  @spec create_application(AWS.Client.t(), create_application_request(), Keyword.t()) ::
           {:ok, create_application_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApplication", input, options)
   end
 
   @doc """
-  Creates a Directory Config object in AppStream 2.0.
-
-  This object includes the configuration information required to join fleets and
-  image builders to Microsoft Active Directory domains.
+  Creates a Directory Config object in AppStream 2.0. This object includes the
+  configuration information required to join fleets and image builders to
+  Microsoft Active Directory domains.
   """
-  @spec create_directory_config(map(), create_directory_config_request(), list()) ::
+  @spec create_directory_config(AWS.Client.t(), create_directory_config_request(), Keyword.t()) ::
           {:ok, create_directory_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_directory_config_errors()}
   def create_directory_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDirectoryConfig", input, options)
   end
 
   @doc """
-  Creates a new entitlement.
-
-  Entitlements control access to specific applications within
-  a stack, based on user attributes. Entitlements apply to SAML 2.0 federated user
-  identities. Amazon AppStream 2.0 user pool and streaming URL users are entitled
-  to all
-  applications in a stack. Entitlements don't apply to the desktop stream view
-  application, or to applications managed by a dynamic app provider using the
-  Dynamic
-  Application Framework.
+  Creates a new entitlement. Entitlements control access to specific applications
+  within a stack, based on user attributes. Entitlements apply to SAML 2.0
+  federated user identities. Amazon AppStream 2.0 user pool and streaming URL
+  users are entitled to all applications in a stack. Entitlements don't apply to
+  the desktop stream view application, or to applications managed by a dynamic
+  app provider using the Dynamic Application Framework.
   """
-  @spec create_entitlement(map(), create_entitlement_request(), list()) ::
+  @spec create_entitlement(AWS.Client.t(), create_entitlement_request(), Keyword.t()) ::
           {:ok, create_entitlement_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_entitlement_errors()}
   def create_entitlement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEntitlement", input, options)
   end
 
   @doc """
-  Creates a fleet.
-
-  A fleet consists of streaming instances that your users access for their
-  applications and desktops.
+  Creates a fleet. A fleet consists of streaming instances that your users access
+  for their applications and desktops.
   """
-  @spec create_fleet(map(), create_fleet_request(), list()) ::
+  @spec create_fleet(AWS.Client.t(), create_fleet_request(), Keyword.t()) ::
           {:ok, create_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_fleet_errors()}
   def create_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFleet", input, options)
   end
 
   @doc """
-  Creates an image builder.
-
-  An image builder is a virtual machine that is used to create an image.
-
-  The initial state of the builder is `PENDING`. When it is ready, the state is
-  `RUNNING`.
+  Creates an image builder. An image builder is a virtual machine that is used to
+  create an image.
   """
-  @spec create_image_builder(map(), create_image_builder_request(), list()) ::
+  @spec create_image_builder(AWS.Client.t(), create_image_builder_request(), Keyword.t()) ::
           {:ok, create_image_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_image_builder_errors()}
   def create_image_builder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateImageBuilder", input, options)
   end
@@ -3352,47 +3331,47 @@ defmodule AWS.AppStream do
   Creates a URL to start an image builder streaming session.
   """
   @spec create_image_builder_streaming_url(
-          map(),
+          AWS.Client.t(),
           create_image_builder_streaming_url_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_image_builder_streaming_url_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_image_builder_streaming_url_errors()}
   def create_image_builder_streaming_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateImageBuilderStreamingURL", input, options)
   end
 
   @doc """
-  Creates a stack to start streaming applications to users.
-
-  A stack consists of an associated fleet, user access policies, and storage
-  configurations.
+  Creates a stack to start streaming applications to users. A stack consists of an
+  associated fleet, user access policies, and storage configurations.
   """
-  @spec create_stack(map(), create_stack_request(), list()) ::
+  @spec create_stack(AWS.Client.t(), create_stack_request(), Keyword.t()) ::
           {:ok, create_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_stack_errors()}
   def create_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStack", input, options)
   end
 
   @doc """
   Creates a temporary URL to start an AppStream 2.0 streaming session for the
-  specified user.
-
-  A streaming URL enables application streaming to be tested without user setup.
+  specified user. A streaming URL enables application streaming to be tested
+  without user setup.
   """
-  @spec create_streaming_url(map(), create_streaming_url_request(), list()) ::
+  @spec create_streaming_url(AWS.Client.t(), create_streaming_url_request(), Keyword.t()) ::
           {:ok, create_streaming_url_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_streaming_url_errors()}
   def create_streaming_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStreamingURL", input, options)
   end
@@ -3400,36 +3379,32 @@ defmodule AWS.AppStream do
   @doc """
   Creates a new image with the latest Windows operating system updates, driver
   updates, and AppStream 2.0 agent software.
-
-  For more information, see the "Update an Image by Using
-  Managed AppStream 2.0 Image Updates" section in [Administer Your AppStream 2.0 Images](https://docs.aws.amazon.com/appstream2/latest/developerguide/administer-images.html),
-  in the *Amazon AppStream 2.0 Administration Guide*.
   """
-  @spec create_updated_image(map(), create_updated_image_request(), list()) ::
+  @spec create_updated_image(AWS.Client.t(), create_updated_image_request(), Keyword.t()) ::
           {:ok, create_updated_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_updated_image_errors()}
   def create_updated_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUpdatedImage", input, options)
   end
 
   @doc """
-  Creates a usage report subscription.
-
-  Usage reports are generated daily.
+  Creates a usage report subscription. Usage reports are generated daily.
   """
   @spec create_usage_report_subscription(
-          map(),
+          AWS.Client.t(),
           create_usage_report_subscription_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_usage_report_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_usage_report_subscription_errors()}
   def create_usage_report_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUsageReportSubscription", input, options)
   end
@@ -3437,12 +3412,13 @@ defmodule AWS.AppStream do
   @doc """
   Creates a new user in the user pool.
   """
-  @spec create_user(map(), create_user_request(), list()) ::
+  @spec create_user(AWS.Client.t(), create_user_request(), Keyword.t()) ::
           {:ok, create_user_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUser", input, options)
   end
@@ -3450,28 +3426,27 @@ defmodule AWS.AppStream do
   @doc """
   Deletes an app block.
   """
-  @spec delete_app_block(map(), delete_app_block_request(), list()) ::
+  @spec delete_app_block(AWS.Client.t(), delete_app_block_request(), Keyword.t()) ::
           {:ok, delete_app_block_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_block_errors()}
   def delete_app_block(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAppBlock", input, options)
   end
 
   @doc """
   Deletes an app block builder.
-
-  An app block builder can only be deleted when it has no association with an app
-  block.
   """
-  @spec delete_app_block_builder(map(), delete_app_block_builder_request(), list()) ::
+  @spec delete_app_block_builder(AWS.Client.t(), delete_app_block_builder_request(), Keyword.t()) ::
           {:ok, delete_app_block_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_block_builder_errors()}
   def delete_app_block_builder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAppBlockBuilder", input, options)
   end
@@ -3479,28 +3454,29 @@ defmodule AWS.AppStream do
   @doc """
   Deletes an application.
   """
-  @spec delete_application(map(), delete_application_request(), list()) ::
+  @spec delete_application(AWS.Client.t(), delete_application_request(), Keyword.t()) ::
           {:ok, delete_application_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplication", input, options)
   end
 
   @doc """
-  Deletes the specified Directory Config object from AppStream 2.0.
-
-  This object includes the information required to join streaming instances to an
-  Active Directory domain.
+  Deletes the specified Directory Config object from AppStream 2.0. This object
+  includes the information required to join streaming instances to an Active
+  Directory domain.
   """
-  @spec delete_directory_config(map(), delete_directory_config_request(), list()) ::
+  @spec delete_directory_config(AWS.Client.t(), delete_directory_config_request(), Keyword.t()) ::
           {:ok, delete_directory_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_directory_config_errors()}
   def delete_directory_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDirectoryConfig", input, options)
   end
@@ -3508,12 +3484,13 @@ defmodule AWS.AppStream do
   @doc """
   Deletes the specified entitlement.
   """
-  @spec delete_entitlement(map(), delete_entitlement_request(), list()) ::
+  @spec delete_entitlement(AWS.Client.t(), delete_entitlement_request(), Keyword.t()) ::
           {:ok, delete_entitlement_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_entitlement_errors()}
   def delete_entitlement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEntitlement", input, options)
   end
@@ -3521,28 +3498,28 @@ defmodule AWS.AppStream do
   @doc """
   Deletes the specified fleet.
   """
-  @spec delete_fleet(map(), delete_fleet_request(), list()) ::
+  @spec delete_fleet(AWS.Client.t(), delete_fleet_request(), Keyword.t()) ::
           {:ok, delete_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fleet_errors()}
   def delete_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFleet", input, options)
   end
 
   @doc """
-  Deletes the specified image.
-
-  You cannot delete an image when it is in use.
-  After you delete an image, you cannot provision new capacity using the image.
+  Deletes the specified image. You cannot delete an image when it is in use. After
+  you delete an image, you cannot provision new capacity using the image.
   """
-  @spec delete_image(map(), delete_image_request(), list()) ::
+  @spec delete_image(AWS.Client.t(), delete_image_request(), Keyword.t()) ::
           {:ok, delete_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_image_errors()}
   def delete_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteImage", input, options)
   end
@@ -3550,45 +3527,46 @@ defmodule AWS.AppStream do
   @doc """
   Deletes the specified image builder and releases the capacity.
   """
-  @spec delete_image_builder(map(), delete_image_builder_request(), list()) ::
+  @spec delete_image_builder(AWS.Client.t(), delete_image_builder_request(), Keyword.t()) ::
           {:ok, delete_image_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_image_builder_errors()}
   def delete_image_builder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteImageBuilder", input, options)
   end
 
   @doc """
-  Deletes permissions for the specified private image.
-
-  After you delete permissions for an image, AWS accounts to which you previously
-  granted these permissions can no longer use the image.
+  Deletes permissions for the specified private image. After you delete
+  permissions for an image, AWS accounts to which you previously granted these
+  permissions can no longer use the image.
   """
-  @spec delete_image_permissions(map(), delete_image_permissions_request(), list()) ::
+  @spec delete_image_permissions(AWS.Client.t(), delete_image_permissions_request(), Keyword.t()) ::
           {:ok, delete_image_permissions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_image_permissions_errors()}
   def delete_image_permissions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteImagePermissions", input, options)
   end
 
   @doc """
-  Deletes the specified stack.
-
-  After the stack is deleted, the application streaming environment provided by
-  the stack is no longer available to users. Also, any reservations made for
-  application streaming sessions for the stack are released.
+  Deletes the specified stack. After the stack is deleted, the application
+  streaming environment provided by the stack is no longer available to users.
+  Also, any reservations made for application streaming sessions for the stack
+  are released.
   """
-  @spec delete_stack(map(), delete_stack_request(), list()) ::
+  @spec delete_stack(AWS.Client.t(), delete_stack_request(), Keyword.t()) ::
           {:ok, delete_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_stack_errors()}
   def delete_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStack", input, options)
   end
@@ -3597,15 +3575,16 @@ defmodule AWS.AppStream do
   Disables usage report generation.
   """
   @spec delete_usage_report_subscription(
-          map(),
+          AWS.Client.t(),
           delete_usage_report_subscription_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_usage_report_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_usage_report_subscription_errors()}
   def delete_usage_report_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUsageReportSubscription", input, options)
   end
@@ -3613,12 +3592,13 @@ defmodule AWS.AppStream do
   @doc """
   Deletes a user from the user pool.
   """
-  @spec delete_user(map(), delete_user_request(), list()) ::
+  @spec delete_user(AWS.Client.t(), delete_user_request(), Keyword.t()) ::
           {:ok, delete_user_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUser", input, options)
   end
@@ -3627,15 +3607,16 @@ defmodule AWS.AppStream do
   Retrieves a list that describes one or more app block builder associations.
   """
   @spec describe_app_block_builder_app_block_associations(
-          map(),
+          AWS.Client.t(),
           describe_app_block_builder_app_block_associations_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_app_block_builder_app_block_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_block_builder_app_block_associations_errors()}
   def describe_app_block_builder_app_block_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -3649,12 +3630,17 @@ defmodule AWS.AppStream do
   @doc """
   Retrieves a list that describes one or more app block builders.
   """
-  @spec describe_app_block_builders(map(), describe_app_block_builders_request(), list()) ::
+  @spec describe_app_block_builders(
+          AWS.Client.t(),
+          describe_app_block_builders_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_app_block_builders_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_block_builders_errors()}
   def describe_app_block_builders(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAppBlockBuilders", input, options)
   end
@@ -3662,31 +3648,32 @@ defmodule AWS.AppStream do
   @doc """
   Retrieves a list that describes one or more app blocks.
   """
-  @spec describe_app_blocks(map(), describe_app_blocks_request(), list()) ::
+  @spec describe_app_blocks(AWS.Client.t(), describe_app_blocks_request(), Keyword.t()) ::
           {:ok, describe_app_blocks_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_blocks_errors()}
   def describe_app_blocks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAppBlocks", input, options)
   end
 
   @doc """
   Retrieves a list that describes one or more application fleet associations.
-
   Either ApplicationArn or FleetName must be specified.
   """
   @spec describe_application_fleet_associations(
-          map(),
+          AWS.Client.t(),
           describe_application_fleet_associations_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_application_fleet_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_application_fleet_associations_errors()}
   def describe_application_fleet_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplicationFleetAssociations", input, options)
   end
@@ -3694,33 +3681,35 @@ defmodule AWS.AppStream do
   @doc """
   Retrieves a list that describes one or more applications.
   """
-  @spec describe_applications(map(), describe_applications_request(), list()) ::
+  @spec describe_applications(AWS.Client.t(), describe_applications_request(), Keyword.t()) ::
           {:ok, describe_applications_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_applications_errors()}
   def describe_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplications", input, options)
   end
 
   @doc """
   Retrieves a list that describes one or more specified Directory Config objects
-  for AppStream 2.0, if the names for these objects are provided.
-
-  Otherwise, all Directory Config objects in the account are described. These
-  objects include the configuration information required to join fleets and image
-  builders to Microsoft Active Directory domains.
-
-  Although the response syntax in this topic includes the account password, this
-  password is not returned in the actual response.
+  for AppStream 2.0, if the names for these objects are provided. Otherwise, all
+  Directory Config objects in the account are described. These objects include
+  the configuration information required to join fleets and image builders to
+  Microsoft Active Directory domains.
   """
-  @spec describe_directory_configs(map(), describe_directory_configs_request(), list()) ::
+  @spec describe_directory_configs(
+          AWS.Client.t(),
+          describe_directory_configs_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_directory_configs_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_directory_configs_errors()}
   def describe_directory_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDirectoryConfigs", input, options)
   end
@@ -3728,44 +3717,44 @@ defmodule AWS.AppStream do
   @doc """
   Retrieves a list that describes one of more entitlements.
   """
-  @spec describe_entitlements(map(), describe_entitlements_request(), list()) ::
+  @spec describe_entitlements(AWS.Client.t(), describe_entitlements_request(), Keyword.t()) ::
           {:ok, describe_entitlements_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_entitlements_errors()}
   def describe_entitlements(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEntitlements", input, options)
   end
 
   @doc """
   Retrieves a list that describes one or more specified fleets, if the fleet names
-  are provided.
-
-  Otherwise, all fleets in the account are described.
+  are provided. Otherwise, all fleets in the account are described.
   """
-  @spec describe_fleets(map(), describe_fleets_request(), list()) ::
+  @spec describe_fleets(AWS.Client.t(), describe_fleets_request(), Keyword.t()) ::
           {:ok, describe_fleets_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleets_errors()}
   def describe_fleets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleets", input, options)
   end
 
   @doc """
   Retrieves a list that describes one or more specified image builders, if the
-  image builder names are provided.
-
-  Otherwise, all image builders in the account are described.
+  image builder names are provided. Otherwise, all image builders in the account
+  are described.
   """
-  @spec describe_image_builders(map(), describe_image_builders_request(), list()) ::
+  @spec describe_image_builders(AWS.Client.t(), describe_image_builders_request(), Keyword.t()) ::
           {:ok, describe_image_builders_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_image_builders_errors()}
   def describe_image_builders(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeImageBuilders", input, options)
   end
@@ -3774,63 +3763,65 @@ defmodule AWS.AppStream do
   Retrieves a list that describes the permissions for shared AWS account IDs on a
   private image that you own.
   """
-  @spec describe_image_permissions(map(), describe_image_permissions_request(), list()) ::
+  @spec describe_image_permissions(
+          AWS.Client.t(),
+          describe_image_permissions_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_image_permissions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_image_permissions_errors()}
   def describe_image_permissions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeImagePermissions", input, options)
   end
 
   @doc """
   Retrieves a list that describes one or more specified images, if the image names
-  or image ARNs are provided.
-
-  Otherwise, all images in the account are described.
+  or image ARNs are provided. Otherwise, all images in the account are
+  described.
   """
-  @spec describe_images(map(), describe_images_request(), list()) ::
+  @spec describe_images(AWS.Client.t(), describe_images_request(), Keyword.t()) ::
           {:ok, describe_images_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_images_errors()}
   def describe_images(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeImages", input, options)
   end
 
   @doc """
   Retrieves a list that describes the streaming sessions for a specified stack and
-  fleet.
-
-  If a UserId is provided for the stack and fleet,
-  only streaming sessions for that user are described. If an authentication type
-  is not provided,
-  the default is to authenticate users using a streaming URL.
+  fleet. If a UserId is provided for the stack and fleet, only streaming
+  sessions for that user are described. If an authentication type is not
+  provided, the default is to authenticate users using a streaming URL.
   """
-  @spec describe_sessions(map(), describe_sessions_request(), list()) ::
+  @spec describe_sessions(AWS.Client.t(), describe_sessions_request(), Keyword.t()) ::
           {:ok, describe_sessions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_sessions_errors()}
   def describe_sessions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSessions", input, options)
   end
 
   @doc """
   Retrieves a list that describes one or more specified stacks, if the stack names
-  are provided.
-
-  Otherwise, all stacks in the account are described.
+  are provided. Otherwise, all stacks in the account are described.
   """
-  @spec describe_stacks(map(), describe_stacks_request(), list()) ::
+  @spec describe_stacks(AWS.Client.t(), describe_stacks_request(), Keyword.t()) ::
           {:ok, describe_stacks_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_stacks_errors()}
   def describe_stacks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStacks", input, options)
   end
@@ -3839,41 +3830,35 @@ defmodule AWS.AppStream do
   Retrieves a list that describes one or more usage report subscriptions.
   """
   @spec describe_usage_report_subscriptions(
-          map(),
+          AWS.Client.t(),
           describe_usage_report_subscriptions_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_usage_report_subscriptions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_usage_report_subscriptions_errors()}
   def describe_usage_report_subscriptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUsageReportSubscriptions", input, options)
   end
 
   @doc """
-  Retrieves a list that describes the UserStackAssociation objects.
-
-  You must specify either or both of the following:
-
-    *
-  The stack name
-
-    *
-  The user name (email address of the user associated with the stack) and the
-  authentication type for the user
+  Retrieves a list that describes the UserStackAssociation objects. You must
+  specify either or both of the following:
   """
   @spec describe_user_stack_associations(
-          map(),
+          AWS.Client.t(),
           describe_user_stack_associations_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_user_stack_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_stack_associations_errors()}
   def describe_user_stack_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUserStackAssociations", input, options)
   end
@@ -3881,28 +3866,28 @@ defmodule AWS.AppStream do
   @doc """
   Retrieves a list that describes one or more specified users in the user pool.
   """
-  @spec describe_users(map(), describe_users_request(), list()) ::
+  @spec describe_users(AWS.Client.t(), describe_users_request(), Keyword.t()) ::
           {:ok, describe_users_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_users_errors()}
   def describe_users(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUsers", input, options)
   end
 
   @doc """
-  Disables the specified user in the user pool.
-
-  Users can't sign in to AppStream 2.0 until they are re-enabled. This action does
-  not delete the user.
+  Disables the specified user in the user pool. Users can't sign in to AppStream
+  2.0 until they are re-enabled. This action does not delete the user.
   """
-  @spec disable_user(map(), disable_user_request(), list()) ::
+  @spec disable_user(AWS.Client.t(), disable_user_request(), Keyword.t()) ::
           {:ok, disable_user_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_user_errors()}
   def disable_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableUser", input, options)
   end
@@ -3911,15 +3896,16 @@ defmodule AWS.AppStream do
   Disassociates a specified app block builder from a specified app block.
   """
   @spec disassociate_app_block_builder_app_block(
-          map(),
+          AWS.Client.t(),
           disassociate_app_block_builder_app_block_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_app_block_builder_app_block_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_app_block_builder_app_block_errors()}
   def disassociate_app_block_builder_app_block(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateAppBlockBuilderAppBlock", input, options)
   end
@@ -3927,12 +3913,17 @@ defmodule AWS.AppStream do
   @doc """
   Disassociates the specified application from the fleet.
   """
-  @spec disassociate_application_fleet(map(), disassociate_application_fleet_request(), list()) ::
+  @spec disassociate_application_fleet(
+          AWS.Client.t(),
+          disassociate_application_fleet_request(),
+          Keyword.t()
+        ) ::
           {:ok, disassociate_application_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_application_fleet_errors()}
   def disassociate_application_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateApplicationFleet", input, options)
   end
@@ -3941,15 +3932,16 @@ defmodule AWS.AppStream do
   Deletes the specified application from the specified entitlement.
   """
   @spec disassociate_application_from_entitlement(
-          map(),
+          AWS.Client.t(),
           disassociate_application_from_entitlement_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_application_from_entitlement_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_application_from_entitlement_errors()}
   def disassociate_application_from_entitlement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateApplicationFromEntitlement", input, options)
   end
@@ -3957,28 +3949,29 @@ defmodule AWS.AppStream do
   @doc """
   Disassociates the specified fleet from the specified stack.
   """
-  @spec disassociate_fleet(map(), disassociate_fleet_request(), list()) ::
+  @spec disassociate_fleet(AWS.Client.t(), disassociate_fleet_request(), Keyword.t()) ::
           {:ok, disassociate_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_fleet_errors()}
   def disassociate_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateFleet", input, options)
   end
 
   @doc """
-  Enables a user in the user pool.
-
-  After being enabled, users can sign in to AppStream 2.0 and open applications
-  from the stacks to which they are assigned.
+  Enables a user in the user pool. After being enabled, users can sign in to
+  AppStream 2.0 and open applications from the stacks to which they are
+  assigned.
   """
-  @spec enable_user(map(), enable_user_request(), list()) ::
+  @spec enable_user(AWS.Client.t(), enable_user_request(), Keyword.t()) ::
           {:ok, enable_user_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_user_errors()}
   def enable_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableUser", input, options)
   end
@@ -3986,11 +3979,12 @@ defmodule AWS.AppStream do
   @doc """
   Immediately stops the specified streaming session.
   """
-  @spec expire_session(map(), expire_session_request(), list()) ::
+  @spec expire_session(AWS.Client.t(), expire_session_request(), Keyword.t()) ::
           {:ok, expire_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
   def expire_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExpireSession", input, options)
   end
@@ -3998,11 +3992,12 @@ defmodule AWS.AppStream do
   @doc """
   Retrieves the name of the fleet that is associated with the specified stack.
   """
-  @spec list_associated_fleets(map(), list_associated_fleets_request(), list()) ::
+  @spec list_associated_fleets(AWS.Client.t(), list_associated_fleets_request(), Keyword.t()) ::
           {:ok, list_associated_fleets_result(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_associated_fleets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAssociatedFleets", input, options)
   end
@@ -4010,11 +4005,12 @@ defmodule AWS.AppStream do
   @doc """
   Retrieves the name of the stack with which the specified fleet is associated.
   """
-  @spec list_associated_stacks(map(), list_associated_stacks_request(), list()) ::
+  @spec list_associated_stacks(AWS.Client.t(), list_associated_stacks_request(), Keyword.t()) ::
           {:ok, list_associated_stacks_result(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_associated_stacks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAssociatedStacks", input, options)
   end
@@ -4022,50 +4018,47 @@ defmodule AWS.AppStream do
   @doc """
   Retrieves a list of entitled applications.
   """
-  @spec list_entitled_applications(map(), list_entitled_applications_request(), list()) ::
+  @spec list_entitled_applications(
+          AWS.Client.t(),
+          list_entitled_applications_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_entitled_applications_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_entitled_applications_errors()}
   def list_entitled_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEntitledApplications", input, options)
   end
 
   @doc """
-  Retrieves a list of all tags for the specified AppStream 2.0 resource.
-
-  You can tag AppStream 2.0 image builders, images, fleets, and stacks.
-
-  For more information about tags, see [Tagging Your Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html)
-  in the *Amazon AppStream 2.0 Administration Guide*.
+  Retrieves a list of all tags for the specified AppStream 2.0 resource. You can
+  tag AppStream 2.0 image builders, images, fleets, and stacks.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
-  Starts an app block builder.
-
-  An app block builder can only be started when it's associated with an app
-  block.
-
-  Starting an app block builder starts a new instance, which is equivalent to an
-  elastic
-  fleet instance with application builder assistance functionality.
+  Starts an app block builder. An app block builder can only be started when it's
+  associated with an app block.
   """
-  @spec start_app_block_builder(map(), start_app_block_builder_request(), list()) ::
+  @spec start_app_block_builder(AWS.Client.t(), start_app_block_builder_request(), Keyword.t()) ::
           {:ok, start_app_block_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_app_block_builder_errors()}
   def start_app_block_builder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartAppBlockBuilder", input, options)
   end
@@ -4073,12 +4066,13 @@ defmodule AWS.AppStream do
   @doc """
   Starts the specified fleet.
   """
-  @spec start_fleet(map(), start_fleet_request(), list()) ::
+  @spec start_fleet(AWS.Client.t(), start_fleet_request(), Keyword.t()) ::
           {:ok, start_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_fleet_errors()}
   def start_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartFleet", input, options)
   end
@@ -4086,29 +4080,27 @@ defmodule AWS.AppStream do
   @doc """
   Starts the specified image builder.
   """
-  @spec start_image_builder(map(), start_image_builder_request(), list()) ::
+  @spec start_image_builder(AWS.Client.t(), start_image_builder_request(), Keyword.t()) ::
           {:ok, start_image_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_image_builder_errors()}
   def start_image_builder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartImageBuilder", input, options)
   end
 
   @doc """
   Stops an app block builder.
-
-  Stopping an app block builder terminates the instance, and the instance state is
-  not
-  persisted.
   """
-  @spec stop_app_block_builder(map(), stop_app_block_builder_request(), list()) ::
+  @spec stop_app_block_builder(AWS.Client.t(), stop_app_block_builder_request(), Keyword.t()) ::
           {:ok, stop_app_block_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_app_block_builder_errors()}
   def stop_app_block_builder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopAppBlockBuilder", input, options)
   end
@@ -4116,12 +4108,13 @@ defmodule AWS.AppStream do
   @doc """
   Stops the specified fleet.
   """
-  @spec stop_fleet(map(), stop_fleet_request(), list()) ::
+  @spec stop_fleet(AWS.Client.t(), stop_fleet_request(), Keyword.t()) ::
           {:ok, stop_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_fleet_errors()}
   def stop_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopFleet", input, options)
   end
@@ -4129,75 +4122,60 @@ defmodule AWS.AppStream do
   @doc """
   Stops the specified image builder.
   """
-  @spec stop_image_builder(map(), stop_image_builder_request(), list()) ::
+  @spec stop_image_builder(AWS.Client.t(), stop_image_builder_request(), Keyword.t()) ::
           {:ok, stop_image_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_image_builder_errors()}
   def stop_image_builder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopImageBuilder", input, options)
   end
 
   @doc """
   Adds or overwrites one or more tags for the specified AppStream 2.0 resource.
-
-  You can tag AppStream 2.0 image builders, images, fleets, and stacks.
-
-  Each tag consists of a key and an optional value. If a resource already has a
-  tag with the same key,
-  this operation updates its value.
-
-  To list the current tags for your resources, use `ListTagsForResource`.
-  To disassociate tags from your resources, use `UntagResource`.
-
-  For more information about tags, see [Tagging Your Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html)
-  in the *Amazon AppStream 2.0 Administration Guide*.
+  You can tag AppStream 2.0 image builders, images, fleets, and stacks. Each tag
+  consists of a key and an optional value. If a resource already has a tag with
+  the same key, this operation updates its value.
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Disassociates one or more specified tags from the specified AppStream 2.0
-  resource.
-
-  To list the current tags for your resources, use `ListTagsForResource`.
-
-  For more information about tags, see [Tagging Your Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html)
-  in the *Amazon AppStream 2.0 Administration Guide*.
+  resource. To list the current tags for your resources, use
+  `ListTagsForResource`.
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
   Updates an app block builder.
-
-  If the app block builder is in the `STARTING` or `STOPPING`
-  state, you can't update it. If the app block builder is in the `RUNNING`
-  state, you can only update the DisplayName and Description. If the app block
-  builder is
-  in the `STOPPED` state, you can update any attribute except the Name.
   """
-  @spec update_app_block_builder(map(), update_app_block_builder_request(), list()) ::
+  @spec update_app_block_builder(AWS.Client.t(), update_app_block_builder_request(), Keyword.t()) ::
           {:ok, update_app_block_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_block_builder_errors()}
   def update_app_block_builder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAppBlockBuilder", input, options)
   end
@@ -4205,28 +4183,29 @@ defmodule AWS.AppStream do
   @doc """
   Updates the specified application.
   """
-  @spec update_application(map(), update_application_request(), list()) ::
+  @spec update_application(AWS.Client.t(), update_application_request(), Keyword.t()) ::
           {:ok, update_application_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApplication", input, options)
   end
 
   @doc """
-  Updates the specified Directory Config object in AppStream 2.0.
-
-  This object includes the configuration information required to join fleets and
-  image builders to Microsoft Active Directory domains.
+  Updates the specified Directory Config object in AppStream 2.0. This object
+  includes the configuration information required to join fleets and image
+  builders to Microsoft Active Directory domains.
   """
-  @spec update_directory_config(map(), update_directory_config_request(), list()) ::
+  @spec update_directory_config(AWS.Client.t(), update_directory_config_request(), Keyword.t()) ::
           {:ok, update_directory_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_directory_config_errors()}
   def update_directory_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDirectoryConfig", input, options)
   end
@@ -4234,49 +4213,28 @@ defmodule AWS.AppStream do
   @doc """
   Updates the specified entitlement.
   """
-  @spec update_entitlement(map(), update_entitlement_request(), list()) ::
+  @spec update_entitlement(AWS.Client.t(), update_entitlement_request(), Keyword.t()) ::
           {:ok, update_entitlement_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_entitlement_errors()}
   def update_entitlement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEntitlement", input, options)
   end
 
   @doc """
-  Updates the specified fleet.
-
-  If the fleet is in the `STOPPED` state, you can update any attribute except
-  the fleet name.
-
-  If the fleet is in the `RUNNING` state, you can update the following based
-  on the fleet type:
-
-    *
-  Always-On and On-Demand fleet types
-
-  You can update the `DisplayName`, `ComputeCapacity`,
-  `ImageARN`, `ImageName`,
-  `IdleDisconnectTimeoutInSeconds`, and
-  `DisconnectTimeoutInSeconds` attributes.
-
-    *
-  Elastic fleet type
-
-  You can update the `DisplayName`,
-  `IdleDisconnectTimeoutInSeconds`,
-  `DisconnectTimeoutInSeconds`, `MaxConcurrentSessions`, `SessionScriptS3Location`
-  and `UsbDeviceFilterStrings` attributes.
-
-  If the fleet is in the `STARTING` or `STOPPED` state, you can't update it.
+  Updates the specified fleet. If the fleet is in the `STOPPED` state, you can
+  update any attribute except the fleet name.
   """
-  @spec update_fleet(map(), update_fleet_request(), list()) ::
+  @spec update_fleet(AWS.Client.t(), update_fleet_request(), Keyword.t()) ::
           {:ok, update_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_fleet_errors()}
   def update_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFleet", input, options)
   end
@@ -4284,12 +4242,13 @@ defmodule AWS.AppStream do
   @doc """
   Adds or updates permissions for the specified private image.
   """
-  @spec update_image_permissions(map(), update_image_permissions_request(), list()) ::
+  @spec update_image_permissions(AWS.Client.t(), update_image_permissions_request(), Keyword.t()) ::
           {:ok, update_image_permissions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_image_permissions_errors()}
   def update_image_permissions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateImagePermissions", input, options)
   end
@@ -4297,12 +4256,13 @@ defmodule AWS.AppStream do
   @doc """
   Updates the specified fields for the specified stack.
   """
-  @spec update_stack(map(), update_stack_request(), list()) ::
+  @spec update_stack(AWS.Client.t(), update_stack_request(), Keyword.t()) ::
           {:ok, update_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_stack_errors()}
   def update_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateStack", input, options)
   end

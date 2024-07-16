@@ -4539,8 +4539,14 @@ defmodule AWS.Macie2 do
   @doc """
   Accepts an Amazon Macie membership invitation that was received from a specific
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20AcceptInvitation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec accept_invitation(map(), accept_invitation_request(), list()) ::
+  @spec accept_invitation(AWS.Client.t(), accept_invitation_request(), Keyword.t()) ::
           {:ok, accept_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_invitation_errors()}
@@ -4549,7 +4555,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4566,11 +4573,17 @@ defmodule AWS.Macie2 do
 
   @doc """
   Retrieves information about one or more custom data identifiers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20BatchGetCustomDataIdentifiers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec batch_get_custom_data_identifiers(
-          map(),
+          AWS.Client.t(),
           batch_get_custom_data_identifiers_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_get_custom_data_identifiers_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4580,7 +4593,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4598,11 +4612,17 @@ defmodule AWS.Macie2 do
   @doc """
   Changes the status of automated sensitive data discovery for one or more
   accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20BatchUpdateAutomatedDiscoveryAccounts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec batch_update_automated_discovery_accounts(
-          map(),
+          AWS.Client.t(),
           batch_update_automated_discovery_accounts_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_update_automated_discovery_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4612,7 +4632,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4629,8 +4650,14 @@ defmodule AWS.Macie2 do
 
   @doc """
   Creates and defines the settings for an allow list.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20CreateAllowList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_allow_list(map(), create_allow_list_request(), list()) ::
+  @spec create_allow_list(AWS.Client.t(), create_allow_list_request(), Keyword.t()) ::
           {:ok, create_allow_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_allow_list_errors()}
@@ -4639,7 +4666,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4656,8 +4684,18 @@ defmodule AWS.Macie2 do
 
   @doc """
   Creates and defines the settings for a classification job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20CreateClassificationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_classification_job(map(), create_classification_job_request(), list()) ::
+  @spec create_classification_job(
+          AWS.Client.t(),
+          create_classification_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_classification_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_classification_job_errors()}
@@ -4666,7 +4704,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4684,8 +4723,18 @@ defmodule AWS.Macie2 do
   @doc """
   Creates and defines the criteria and other settings for a custom data
   identifier.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20CreateCustomDataIdentifier&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_custom_data_identifier(map(), create_custom_data_identifier_request(), list()) ::
+  @spec create_custom_data_identifier(
+          AWS.Client.t(),
+          create_custom_data_identifier_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_custom_data_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_custom_data_identifier_errors()}
@@ -4694,7 +4743,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4711,8 +4761,14 @@ defmodule AWS.Macie2 do
 
   @doc """
   Creates and defines the criteria and other settings for a findings filter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20CreateFindingsFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_findings_filter(map(), create_findings_filter_request(), list()) ::
+  @spec create_findings_filter(AWS.Client.t(), create_findings_filter_request(), Keyword.t()) ::
           {:ok, create_findings_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_findings_filter_errors()}
@@ -4721,7 +4777,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4738,8 +4795,14 @@ defmodule AWS.Macie2 do
 
   @doc """
   Sends an Amazon Macie membership invitation to one or more accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20CreateInvitations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_invitations(map(), create_invitations_request(), list()) ::
+  @spec create_invitations(AWS.Client.t(), create_invitations_request(), Keyword.t()) ::
           {:ok, create_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_invitations_errors()}
@@ -4748,7 +4811,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4765,8 +4829,14 @@ defmodule AWS.Macie2 do
 
   @doc """
   Associates an account with an Amazon Macie administrator account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20CreateMember&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_member(map(), create_member_request(), list()) ::
+  @spec create_member(AWS.Client.t(), create_member_request(), Keyword.t()) ::
           {:ok, create_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_member_errors()}
@@ -4775,7 +4845,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4792,8 +4863,14 @@ defmodule AWS.Macie2 do
 
   @doc """
   Creates sample findings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20CreateSampleFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_sample_findings(map(), create_sample_findings_request(), list()) ::
+  @spec create_sample_findings(AWS.Client.t(), create_sample_findings_request(), Keyword.t()) ::
           {:ok, create_sample_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sample_findings_errors()}
@@ -4802,7 +4879,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4820,8 +4898,14 @@ defmodule AWS.Macie2 do
   @doc """
   Declines Amazon Macie membership invitations that were received from specific
   accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DeclineInvitations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec decline_invitations(map(), decline_invitations_request(), list()) ::
+  @spec decline_invitations(AWS.Client.t(), decline_invitations_request(), Keyword.t()) ::
           {:ok, decline_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, decline_invitations_errors()}
@@ -4830,7 +4914,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4847,8 +4932,19 @@ defmodule AWS.Macie2 do
 
   @doc """
   Deletes an allow list.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DeleteAllowList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
+
+  ## Optional parameters:
+  * `:ignore_job_checks` (`t:string`) Specifies whether to force deletion of the
+    allow list, even if active classification jobs are configured to use the
+    list.
   """
-  @spec delete_allow_list(map(), String.t(), delete_allow_list_request(), list()) ::
+  @spec delete_allow_list(AWS.Client.t(), String.t(), delete_allow_list_request(), Keyword.t()) ::
           {:ok, delete_allow_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_allow_list_errors()}
@@ -4862,7 +4958,13 @@ defmodule AWS.Macie2 do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:ignore_job_checks])
 
     Request.request_rest(
       client,
@@ -4879,12 +4981,20 @@ defmodule AWS.Macie2 do
 
   @doc """
   Soft deletes a custom data identifier.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DeleteCustomDataIdentifier&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
+
+  ## Optional parameters:
   """
   @spec delete_custom_data_identifier(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_custom_data_identifier_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_custom_data_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4894,7 +5004,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4911,8 +5022,21 @@ defmodule AWS.Macie2 do
 
   @doc """
   Deletes a findings filter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DeleteFindingsFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
+
+  ## Optional parameters:
   """
-  @spec delete_findings_filter(map(), String.t(), delete_findings_filter_request(), list()) ::
+  @spec delete_findings_filter(
+          AWS.Client.t(),
+          String.t(),
+          delete_findings_filter_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_findings_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_findings_filter_errors()}
@@ -4921,7 +5045,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4939,8 +5064,14 @@ defmodule AWS.Macie2 do
   @doc """
   Deletes Amazon Macie membership invitations that were received from specific
   accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DeleteInvitations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_invitations(map(), delete_invitations_request(), list()) ::
+  @spec delete_invitations(AWS.Client.t(), delete_invitations_request(), Keyword.t()) ::
           {:ok, delete_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_invitations_errors()}
@@ -4949,7 +5080,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4967,8 +5099,16 @@ defmodule AWS.Macie2 do
   @doc """
   Deletes the association between an Amazon Macie administrator account and an
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DeleteMember&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
+
+  ## Optional parameters:
   """
-  @spec delete_member(map(), String.t(), delete_member_request(), list()) ::
+  @spec delete_member(AWS.Client.t(), String.t(), delete_member_request(), Keyword.t()) ::
           {:ok, delete_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_member_errors()}
@@ -4977,7 +5117,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4995,8 +5136,14 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves (queries) statistical data and other information about one or more S3
   buckets that Amazon Macie monitors and analyzes for an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DescribeBuckets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_buckets(map(), describe_buckets_request(), list()) ::
+  @spec describe_buckets(AWS.Client.t(), describe_buckets_request(), Keyword.t()) ::
           {:ok, describe_buckets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_buckets_errors()}
@@ -5005,7 +5152,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5022,17 +5170,42 @@ defmodule AWS.Macie2 do
 
   @doc """
   Retrieves the status and settings for a classification job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DescribeClassificationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The unique identifier for the classification job.
+
+  ## Optional parameters:
   """
-  @spec describe_classification_job(map(), String.t(), list()) ::
+  @spec describe_classification_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_classification_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_classification_job_errors()}
   def describe_classification_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5040,17 +5213,41 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves the Amazon Macie configuration settings for an organization in
   Organizations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DescribeOrganizationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_organization_configuration(map(), list()) ::
+  @spec describe_organization_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_organization_configuration_errors()}
   def describe_organization_configuration(%Client{} = client, options \\ []) do
     url_path = "/admin/configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5058,8 +5255,14 @@ defmodule AWS.Macie2 do
   @doc """
   Disables Amazon Macie and deletes all settings and resources for a Macie
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DisableMacie&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec disable_macie(map(), disable_macie_request(), list()) ::
+  @spec disable_macie(AWS.Client.t(), disable_macie_request(), Keyword.t()) ::
           {:ok, disable_macie_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_macie_errors()}
@@ -5068,7 +5271,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5086,11 +5290,19 @@ defmodule AWS.Macie2 do
   @doc """
   Disables an account as the delegated Amazon Macie administrator account for an
   organization in Organizations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DisableOrganizationAdminAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:admin_account_id` (`t:string`) The Amazon Web Services account ID of the
+    delegated Amazon Macie administrator account.
+
+  ## Optional parameters:
   """
   @spec disable_organization_admin_account(
-          map(),
+          AWS.Client.t(),
           disable_organization_admin_account_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disable_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5105,7 +5317,8 @@ defmodule AWS.Macie2 do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5122,11 +5335,17 @@ defmodule AWS.Macie2 do
 
   @doc """
   Disassociates a member account from its Amazon Macie administrator account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DisassociateFromAdministratorAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec disassociate_from_administrator_account(
-          map(),
+          AWS.Client.t(),
           disassociate_from_administrator_account_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_from_administrator_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5136,7 +5355,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5153,15 +5373,19 @@ defmodule AWS.Macie2 do
 
   @doc """
   (Deprecated) Disassociates a member account from its Amazon Macie administrator
-  account.
+  account. This operation has been replaced by the
+  DisassociateFromAdministratorAccount operation.
 
-  This operation has been replaced by the DisassociateFromAdministratorAccount
-  operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DisassociateFromMasterAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec disassociate_from_master_account(
-          map(),
+          AWS.Client.t(),
           disassociate_from_master_account_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_from_master_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5171,7 +5395,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5188,8 +5413,21 @@ defmodule AWS.Macie2 do
 
   @doc """
   Disassociates an Amazon Macie administrator account from a member account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DisassociateMember&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
+
+  ## Optional parameters:
   """
-  @spec disassociate_member(map(), String.t(), disassociate_member_request(), list()) ::
+  @spec disassociate_member(
+          AWS.Client.t(),
+          String.t(),
+          disassociate_member_request(),
+          Keyword.t()
+        ) ::
           {:ok, disassociate_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_member_errors()}
@@ -5198,7 +5436,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5216,8 +5455,14 @@ defmodule AWS.Macie2 do
   @doc """
   Enables Amazon Macie and specifies the configuration settings for a Macie
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20EnableMacie&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec enable_macie(map(), enable_macie_request(), list()) ::
+  @spec enable_macie(AWS.Client.t(), enable_macie_request(), Keyword.t()) ::
           {:ok, enable_macie_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_macie_errors()}
@@ -5226,7 +5471,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5244,11 +5490,17 @@ defmodule AWS.Macie2 do
   @doc """
   Designates an account as the delegated Amazon Macie administrator account for an
   organization in Organizations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20EnableOrganizationAdminAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec enable_organization_admin_account(
-          map(),
+          AWS.Client.t(),
           enable_organization_admin_account_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, enable_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5258,7 +5510,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5276,34 +5529,84 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves information about the Amazon Macie administrator account for an
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetAdministratorAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_administrator_account(map(), list()) ::
+  @spec get_administrator_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_administrator_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_administrator_account_errors()}
   def get_administrator_account(%Client{} = client, options \\ []) do
     url_path = "/administrator"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the settings and status of an allow list.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetAllowList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
+
+  ## Optional parameters:
   """
-  @spec get_allow_list(map(), String.t(), list()) ::
+  @spec get_allow_list(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_allow_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_allow_list_errors()}
   def get_allow_list(%Client{} = client, id, options \\ []) do
     url_path = "/allow-lists/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5311,17 +5614,41 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves the configuration settings and status of automated sensitive data
   discovery for an organization or standalone account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetAutomatedDiscoveryConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_automated_discovery_configuration(map(), list()) ::
+  @spec get_automated_discovery_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_automated_discovery_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_automated_discovery_configuration_errors()}
   def get_automated_discovery_configuration(%Client{} = client, options \\ []) do
     url_path = "/automated-discovery/configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5329,8 +5656,14 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves (queries) aggregated statistical data about all the S3 buckets that
   Amazon Macie monitors and analyzes for an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetBucketStatistics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_bucket_statistics(map(), get_bucket_statistics_request(), list()) ::
+  @spec get_bucket_statistics(AWS.Client.t(), get_bucket_statistics_request(), Keyword.t()) ::
           {:ok, get_bucket_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bucket_statistics_errors()}
@@ -5339,7 +5672,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5356,59 +5690,141 @@ defmodule AWS.Macie2 do
 
   @doc """
   Retrieves the configuration settings for storing data classification results.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetClassificationExportConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_classification_export_configuration(map(), list()) ::
+  @spec get_classification_export_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_classification_export_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_classification_export_configuration_errors()}
   def get_classification_export_configuration(%Client{} = client, options \\ []) do
     url_path = "/classification-export-configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the classification scope settings for an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetClassificationScope&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
+
+  ## Optional parameters:
   """
-  @spec get_classification_scope(map(), String.t(), list()) ::
+  @spec get_classification_scope(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_classification_scope_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_classification_scope_errors()}
   def get_classification_scope(%Client{} = client, id, options \\ []) do
     url_path = "/classification-scopes/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the criteria and other settings for a custom data identifier.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetCustomDataIdentifier&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
+
+  ## Optional parameters:
   """
-  @spec get_custom_data_identifier(map(), String.t(), list()) ::
+  @spec get_custom_data_identifier(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_custom_data_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_custom_data_identifier_errors()}
   def get_custom_data_identifier(%Client{} = client, id, options \\ []) do
     url_path = "/custom-data-identifiers/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves (queries) aggregated statistical data about findings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetFindingStatistics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_finding_statistics(map(), get_finding_statistics_request(), list()) ::
+  @spec get_finding_statistics(AWS.Client.t(), get_finding_statistics_request(), Keyword.t()) ::
           {:ok, get_finding_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_finding_statistics_errors()}
@@ -5417,7 +5833,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5434,8 +5851,14 @@ defmodule AWS.Macie2 do
 
   @doc """
   Retrieves the details of one or more findings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_findings(map(), get_findings_request(), list()) ::
+  @spec get_findings(AWS.Client.t(), get_findings_request(), Keyword.t()) ::
           {:ok, get_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_findings_errors()}
@@ -5444,7 +5867,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5461,34 +5885,84 @@ defmodule AWS.Macie2 do
 
   @doc """
   Retrieves the criteria and other settings for a findings filter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetFindingsFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
+
+  ## Optional parameters:
   """
-  @spec get_findings_filter(map(), String.t(), list()) ::
+  @spec get_findings_filter(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_findings_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_findings_filter_errors()}
   def get_findings_filter(%Client{} = client, id, options \\ []) do
     url_path = "/findingsfilters/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the configuration settings for publishing findings to Security Hub.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetFindingsPublicationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_findings_publication_configuration(map(), list()) ::
+  @spec get_findings_publication_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_findings_publication_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_findings_publication_configuration_errors()}
   def get_findings_publication_configuration(%Client{} = client, options \\ []) do
     url_path = "/findings-publication-configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5496,54 +5970,125 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves the count of Amazon Macie membership invitations that were received by
   an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetInvitationsCount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_invitations_count(map(), list()) ::
+  @spec get_invitations_count(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_invitations_count_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_invitations_count_errors()}
   def get_invitations_count(%Client{} = client, options \\ []) do
     url_path = "/invitations/count"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the status and configuration settings for an Amazon Macie account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetMacieSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_macie_session(map(), list()) ::
+  @spec get_macie_session(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_macie_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_macie_session_errors()}
   def get_macie_session(%Client{} = client, options \\ []) do
     url_path = "/macie"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   (Deprecated) Retrieves information about the Amazon Macie administrator account
-  for an account.
+  for an account. This operation has been replaced by the
+  GetAdministratorAccount operation.
 
-  This operation has been replaced by the GetAdministratorAccount operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetMasterAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_master_account(map(), list()) ::
+  @spec get_master_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_master_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_master_account_errors()}
   def get_master_account(%Client{} = client, options \\ []) do
     url_path = "/master"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5551,17 +6096,43 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves information about an account that's associated with an Amazon Macie
   administrator account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetMember&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
+
+  ## Optional parameters:
   """
-  @spec get_member(map(), String.t(), list()) ::
+  @spec get_member(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_member_errors()}
   def get_member(%Client{} = client, id, options \\ []) do
     url_path = "/members/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5569,24 +6140,43 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves (queries) sensitive data discovery statistics and the sensitivity
   score for an S3 bucket.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetResourceProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 bucket
+    that the request applies to.
+
+  ## Optional parameters:
   """
-  @spec get_resource_profile(map(), String.t(), list()) ::
+  @spec get_resource_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_profile_errors()}
   def get_resource_profile(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resource-profiles"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(resource_arn) do
-        [{"resourceArn", resource_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"resourceArn", resource_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5594,76 +6184,182 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves the status and configuration settings for retrieving occurrences of
   sensitive data reported by findings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetRevealConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_reveal_configuration(map(), list()) ::
+  @spec get_reveal_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_reveal_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_reveal_configuration_errors()}
   def get_reveal_configuration(%Client{} = client, options \\ []) do
     url_path = "/reveal-configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves occurrences of sensitive data reported by a finding.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetSensitiveDataOccurrences&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:finding_id` (`t:string`) The unique identifier for the finding.
+
+  ## Optional parameters:
   """
-  @spec get_sensitive_data_occurrences(map(), String.t(), list()) ::
+  @spec get_sensitive_data_occurrences(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sensitive_data_occurrences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sensitive_data_occurrences_errors()}
   def get_sensitive_data_occurrences(%Client{} = client, finding_id, options \\ []) do
     url_path = "/findings/#{AWS.Util.encode_uri(finding_id)}/reveal"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Checks whether occurrences of sensitive data can be retrieved for a finding.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetSensitiveDataOccurrencesAvailability&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:finding_id` (`t:string`) The unique identifier for the finding.
+
+  ## Optional parameters:
   """
-  @spec get_sensitive_data_occurrences_availability(map(), String.t(), list()) ::
+  @spec get_sensitive_data_occurrences_availability(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sensitive_data_occurrences_availability_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sensitive_data_occurrences_availability_errors()}
   def get_sensitive_data_occurrences_availability(%Client{} = client, finding_id, options \\ []) do
     url_path = "/findings/#{AWS.Util.encode_uri(finding_id)}/reveal/availability"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the settings for the sensitivity inspection template for an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetSensitivityInspectionTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
+
+  ## Optional parameters:
   """
-  @spec get_sensitivity_inspection_template(map(), String.t(), list()) ::
+  @spec get_sensitivity_inspection_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sensitivity_inspection_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sensitivity_inspection_template_errors()}
   def get_sensitivity_inspection_template(%Client{} = client, id, options \\ []) do
     url_path = "/templates/sensitivity-inspections/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves (queries) quotas and aggregated usage data for one or more accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetUsageStatistics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_usage_statistics(map(), get_usage_statistics_request(), list()) ::
+  @spec get_usage_statistics(AWS.Client.t(), get_usage_statistics_request(), Keyword.t()) ::
           {:ok, get_usage_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_usage_statistics_errors()}
@@ -5672,7 +6368,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5689,55 +6386,120 @@ defmodule AWS.Macie2 do
 
   @doc """
   Retrieves (queries) aggregated usage data for an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetUsageTotals&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:time_range` (`t:string`) The inclusive time period to retrieve the data for.
+    Valid values are: MONTH_TO_DATE, for the current calendar month to date;
+    and, PAST_30_DAYS, for the preceding 30 days. If you don't specify a value
+    for this parameter, Amazon Macie provides aggregated usage data for the
+    preceding 30 days.
   """
-  @spec get_usage_totals(map(), String.t() | nil, list()) ::
+  @spec get_usage_totals(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_usage_totals_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_usage_totals_errors()}
-  def get_usage_totals(%Client{} = client, time_range \\ nil, options \\ []) do
+  def get_usage_totals(%Client{} = client, options \\ []) do
     url_path = "/usage"
+
+    # Validate optional parameters
+    optional_params = [time_range: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(time_range) do
-        [{"timeRange", time_range} | query_params]
+      if opt_val = Keyword.get(options, :time_range) do
+        [{"timeRange", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:time_range])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a subset of information about all the allow lists for an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListAllowLists&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to include in each
+    page of a paginated response.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of
+    results to return in a paginated response.
   """
-  @spec list_allow_lists(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_allow_lists(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_allow_lists_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_allow_lists_errors()}
-  def list_allow_lists(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_allow_lists(%Client{} = client, options \\ []) do
     url_path = "/allow-lists"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5745,58 +6507,89 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves the status of automated sensitive data discovery for one or more
   accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListAutomatedDiscoveryAccounts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:account_ids` (`t:list[com.amazonaws.macie2#__string]`) The Amazon Web
+    Services account ID for each account, for as many as 50 accounts. To
+    retrieve the status for multiple accounts, append the accountIds parameter
+    and argument for each account, separated by an ampersand (&). To retrieve
+    the status for all the accounts in an organization, omit this parameter.
+  * `:max_results` (`t:integer`) The maximum number of items to include in each
+    page of a paginated response.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of
+    results to return in a paginated response.
   """
-  @spec list_automated_discovery_accounts(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_automated_discovery_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_automated_discovery_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_automated_discovery_accounts_errors()}
-  def list_automated_discovery_accounts(
-        %Client{} = client,
-        account_ids \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_automated_discovery_accounts(%Client{} = client, options \\ []) do
     url_path = "/automated-discovery/accounts"
+
+    # Validate optional parameters
+    optional_params = [account_ids: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(account_ids) do
-        [{"accountIds", account_ids} | query_params]
+      if opt_val = Keyword.get(options, :account_ids) do
+        [{"accountIds", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:account_ids, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a subset of information about one or more classification jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListClassificationJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_classification_jobs(map(), list_classification_jobs_request(), list()) ::
+  @spec list_classification_jobs(AWS.Client.t(), list_classification_jobs_request(), Keyword.t()) ::
           {:ok, list_classification_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_classification_jobs_errors()}
@@ -5805,7 +6598,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5822,36 +6616,63 @@ defmodule AWS.Macie2 do
 
   @doc """
   Retrieves a subset of information about the classification scope for an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListClassificationScopes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:name` (`t:string`) The name of the classification scope to retrieve the
+    unique identifier for.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of
+    results to return in a paginated response.
   """
-  @spec list_classification_scopes(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_classification_scopes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_classification_scopes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_classification_scopes_errors()}
-  def list_classification_scopes(
-        %Client{} = client,
-        name \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_classification_scopes(%Client{} = client, options \\ []) do
     url_path = "/classification-scopes"
+
+    # Validate optional parameters
+    optional_params = [name: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
+      if opt_val = Keyword.get(options, :name) do
+        [{"name", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:name, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5859,8 +6680,18 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves a subset of information about all the custom data identifiers for an
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListCustomDataIdentifiers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_custom_data_identifiers(map(), list_custom_data_identifiers_request(), list()) ::
+  @spec list_custom_data_identifiers(
+          AWS.Client.t(),
+          list_custom_data_identifiers_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_custom_data_identifiers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_data_identifiers_errors()}
@@ -5869,7 +6700,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5886,8 +6718,14 @@ defmodule AWS.Macie2 do
 
   @doc """
   Retrieves a subset of information about one or more findings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_findings(map(), list_findings_request(), list()) ::
+  @spec list_findings(AWS.Client.t(), list_findings_request(), Keyword.t()) ::
           {:ok, list_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_findings_errors()}
@@ -5896,7 +6734,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5913,36 +6752,63 @@ defmodule AWS.Macie2 do
 
   @doc """
   Retrieves a subset of information about all the findings filters for an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListFindingsFilters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to include in each
+    page of a paginated response.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of
+    results to return in a paginated response.
   """
-  @spec list_findings_filters(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_findings_filters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_findings_filters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_findings_filters_errors()}
-  def list_findings_filters(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_findings_filters(%Client{} = client, options \\ []) do
     url_path = "/findingsfilters"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5950,31 +6816,63 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves information about Amazon Macie membership invitations that were
   received by an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListInvitations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to include in each
+    page of a paginated response.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of
+    results to return in a paginated response.
   """
-  @spec list_invitations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_invitations_errors()}
-  def list_invitations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_invitations(%Client{} = client, options \\ []) do
     url_path = "/invitations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5982,8 +6880,18 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves information about all the managed data identifiers that Amazon Macie
   currently provides.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListManagedDataIdentifiers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_managed_data_identifiers(map(), list_managed_data_identifiers_request(), list()) ::
+  @spec list_managed_data_identifiers(
+          AWS.Client.t(),
+          list_managed_data_identifiers_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_managed_data_identifiers_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_managed_data_identifiers(%Client{} = client, input, options \\ []) do
@@ -5991,7 +6899,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6009,44 +6918,74 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves information about the accounts that are associated with an Amazon
   Macie administrator account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListMembers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to include in each
+    page of a paginated response.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of
+    results to return in a paginated response.
+  * `:only_associated` (`t:string`) Specifies which accounts to include in the
+    response, based on the status of an account's relationship with the
+    administrator account. By default, the response includes only current member
+    accounts. To include all accounts, set this value to false.
   """
-  @spec list_members(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_members_errors()}
-  def list_members(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        only_associated \\ nil,
-        options \\ []
-      ) do
+  def list_members(%Client{} = client, options \\ []) do
     url_path = "/members"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, only_associated: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(only_associated) do
-        [{"onlyAssociated", only_associated} | query_params]
+      if opt_val = Keyword.get(options, :only_associated) do
+        [{"onlyAssociated", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :only_associated])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -6054,36 +6993,63 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves information about the delegated Amazon Macie administrator account for
   an organization in Organizations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListOrganizationAdminAccounts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to include in each
+    page of a paginated response.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of
+    results to return in a paginated response.
   """
-  @spec list_organization_admin_accounts(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_organization_admin_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_organization_admin_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_organization_admin_accounts_errors()}
-  def list_organization_admin_accounts(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_organization_admin_accounts(%Client{} = client, options \\ []) do
     url_path = "/admin"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -6091,36 +7057,56 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves information about objects that Amazon Macie selected from an S3 bucket
   for automated sensitive data discovery.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListResourceProfileArtifacts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 bucket
+    that the request applies to.
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of
+    results to return in a paginated response.
   """
-  @spec list_resource_profile_artifacts(map(), String.t() | nil, String.t(), list()) ::
+  @spec list_resource_profile_artifacts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_resource_profile_artifacts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_profile_artifacts_errors()}
-  def list_resource_profile_artifacts(
-        %Client{} = client,
-        next_token \\ nil,
-        resource_arn,
-        options \\ []
-      ) do
+  def list_resource_profile_artifacts(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resource-profiles/artifacts"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"resourceArn", resource_arn}]
+
+    # Optional query params
     query_params =
-      if !is_nil(resource_arn) do
-        [{"resourceArn", resource_arn} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -6128,50 +7114,65 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves information about the types and amount of sensitive data that Amazon
   Macie found in an S3 bucket.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListResourceProfileDetections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 bucket
+    that the request applies to.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to include in each
+    page of a paginated response.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of
+    results to return in a paginated response.
   """
-  @spec list_resource_profile_detections(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          list()
-        ) ::
+  @spec list_resource_profile_detections(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_resource_profile_detections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_profile_detections_errors()}
-  def list_resource_profile_detections(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        resource_arn,
-        options \\ []
-      ) do
+  def list_resource_profile_detections(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resource-profiles/detections"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"resourceArn", resource_arn}]
+
+    # Optional query params
     query_params =
-      if !is_nil(resource_arn) do
-        [{"resourceArn", resource_arn} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -6179,36 +7180,63 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves a subset of information about the sensitivity inspection template for
   an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListSensitivityInspectionTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to include in each
+    page of a paginated response.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of
+    results to return in a paginated response.
   """
-  @spec list_sensitivity_inspection_templates(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_sensitivity_inspection_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sensitivity_inspection_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sensitivity_inspection_templates_errors()}
-  def list_sensitivity_inspection_templates(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_sensitivity_inspection_templates(%Client{} = client, options \\ []) do
     url_path = "/templates/sensitivity-inspections"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -6216,16 +7244,41 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves the tags (keys and values) that are associated with an Amazon Macie
   resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -6233,11 +7286,17 @@ defmodule AWS.Macie2 do
   @doc """
   Adds or updates the configuration settings for storing data classification
   results.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20PutClassificationExportConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec put_classification_export_configuration(
-          map(),
+          AWS.Client.t(),
           put_classification_export_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_classification_export_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6247,18 +7306,25 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the configuration settings for publishing findings to Security Hub.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20PutFindingsPublicationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec put_findings_publication_configuration(
-          map(),
+          AWS.Client.t(),
           put_findings_publication_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_findings_publication_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6268,7 +7334,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -6276,8 +7343,14 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves (queries) statistical data and other information about Amazon Web
   Services resources that Amazon Macie monitors and analyzes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20SearchResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec search_resources(map(), search_resources_request(), list()) ::
+  @spec search_resources(AWS.Client.t(), search_resources_request(), Keyword.t()) ::
           {:ok, search_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_resources_errors()}
@@ -6286,7 +7359,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6304,8 +7378,15 @@ defmodule AWS.Macie2 do
   @doc """
   Adds or updates one or more tags (keys and values) that are associated with an
   Amazon Macie resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
@@ -6313,7 +7394,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6330,8 +7412,18 @@ defmodule AWS.Macie2 do
 
   @doc """
   Tests criteria for a custom data identifier.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20TestCustomDataIdentifier&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec test_custom_data_identifier(map(), test_custom_data_identifier_request(), list()) ::
+  @spec test_custom_data_identifier(
+          AWS.Client.t(),
+          test_custom_data_identifier_request(),
+          Keyword.t()
+        ) ::
           {:ok, test_custom_data_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_custom_data_identifier_errors()}
@@ -6340,7 +7432,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6357,8 +7450,19 @@ defmodule AWS.Macie2 do
 
   @doc """
   Removes one or more tags (keys and values) from an Amazon Macie resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.macie2#__string]`) One or more tags (keys)
+    to remove from the resource. In an HTTP request to remove multiple tags,
+    append the tagKeys parameter and argument for each tag to remove, separated
+    by an ampersand (&).
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
@@ -6371,7 +7475,8 @@ defmodule AWS.Macie2 do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6388,8 +7493,16 @@ defmodule AWS.Macie2 do
 
   @doc """
   Updates the settings for an allow list.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateAllowList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
+
+  ## Optional parameters:
   """
-  @spec update_allow_list(map(), String.t(), update_allow_list_request(), list()) ::
+  @spec update_allow_list(AWS.Client.t(), String.t(), update_allow_list_request(), Keyword.t()) ::
           {:ok, update_allow_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_allow_list_errors()}
@@ -6398,7 +7511,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -6406,11 +7520,17 @@ defmodule AWS.Macie2 do
   @doc """
   Changes the configuration settings and status of automated sensitive data
   discovery for an organization or standalone account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateAutomatedDiscoveryConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec update_automated_discovery_configuration(
-          map(),
+          AWS.Client.t(),
           update_automated_discovery_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_automated_discovery_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6420,15 +7540,28 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Changes the status of a classification job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateClassificationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The unique identifier for the classification job.
+
+  ## Optional parameters:
   """
-  @spec update_classification_job(map(), String.t(), update_classification_job_request(), list()) ::
+  @spec update_classification_job(
+          AWS.Client.t(),
+          String.t(),
+          update_classification_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_classification_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_classification_job_errors()}
@@ -6437,7 +7570,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6454,12 +7588,20 @@ defmodule AWS.Macie2 do
 
   @doc """
   Updates the classification scope settings for an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateClassificationScope&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
+
+  ## Optional parameters:
   """
   @spec update_classification_scope(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_classification_scope_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_classification_scope_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6469,7 +7611,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6486,8 +7629,21 @@ defmodule AWS.Macie2 do
 
   @doc """
   Updates the criteria and other settings for a findings filter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateFindingsFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
+
+  ## Optional parameters:
   """
-  @spec update_findings_filter(map(), String.t(), update_findings_filter_request(), list()) ::
+  @spec update_findings_filter(
+          AWS.Client.t(),
+          String.t(),
+          update_findings_filter_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_findings_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_findings_filter_errors()}
@@ -6496,7 +7652,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6514,8 +7671,14 @@ defmodule AWS.Macie2 do
   @doc """
   Suspends or re-enables Amazon Macie, or updates the configuration settings for a
   Macie account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateMacieSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_macie_session(map(), update_macie_session_request(), list()) ::
+  @spec update_macie_session(AWS.Client.t(), update_macie_session_request(), Keyword.t()) ::
           {:ok, update_macie_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_macie_session_errors()}
@@ -6524,7 +7687,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6542,8 +7706,21 @@ defmodule AWS.Macie2 do
   @doc """
   Enables an Amazon Macie administrator to suspend or re-enable Macie for a member
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateMemberSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
+
+  ## Optional parameters:
   """
-  @spec update_member_session(map(), String.t(), update_member_session_request(), list()) ::
+  @spec update_member_session(
+          AWS.Client.t(),
+          String.t(),
+          update_member_session_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_member_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_member_session_errors()}
@@ -6552,7 +7729,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6570,11 +7748,17 @@ defmodule AWS.Macie2 do
   @doc """
   Updates the Amazon Macie configuration settings for an organization in
   Organizations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateOrganizationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec update_organization_configuration(
-          map(),
+          AWS.Client.t(),
           update_organization_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6584,7 +7768,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6601,8 +7786,16 @@ defmodule AWS.Macie2 do
 
   @doc """
   Updates the sensitivity score for an S3 bucket.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateResourceProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 bucket
+    that the request applies to.
+
+  ## Optional parameters:
   """
-  @spec update_resource_profile(map(), update_resource_profile_request(), list()) ::
+  @spec update_resource_profile(AWS.Client.t(), update_resource_profile_request(), Keyword.t()) ::
           {:ok, update_resource_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resource_profile_errors()}
@@ -6616,7 +7809,8 @@ defmodule AWS.Macie2 do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6633,11 +7827,19 @@ defmodule AWS.Macie2 do
 
   @doc """
   Updates the sensitivity scoring settings for an S3 bucket.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateResourceProfileDetections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 bucket
+    that the request applies to.
+
+  ## Optional parameters:
   """
   @spec update_resource_profile_detections(
-          map(),
+          AWS.Client.t(),
           update_resource_profile_detections_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_resource_profile_detections_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6652,7 +7854,8 @@ defmodule AWS.Macie2 do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6670,8 +7873,18 @@ defmodule AWS.Macie2 do
   @doc """
   Updates the status and configuration settings for retrieving occurrences of
   sensitive data reported by findings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateRevealConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_reveal_configuration(map(), update_reveal_configuration_request(), list()) ::
+  @spec update_reveal_configuration(
+          AWS.Client.t(),
+          update_reveal_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_reveal_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_reveal_configuration_errors()}
@@ -6680,19 +7893,28 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the settings for the sensitivity inspection template for an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateSensitivityInspectionTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
+
+  ## Optional parameters:
   """
   @spec update_sensitivity_inspection_template(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_sensitivity_inspection_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_sensitivity_inspection_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6702,7 +7924,8 @@ defmodule AWS.Macie2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

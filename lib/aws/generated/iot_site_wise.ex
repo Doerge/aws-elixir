@@ -3,13 +3,12 @@
 
 defmodule AWS.IoTSiteWise do
   @moduledoc """
-  Welcome to the IoT SiteWise API Reference.
-
-  IoT SiteWise is an Amazon Web Services service that connects [Industrial Internet of Things
+  Welcome to the IoT SiteWise API Reference. IoT SiteWise is an Amazon Web
+  Services service that connects [Industrial Internet of Things
   (IIoT)](https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications)
-  devices to the power of the Amazon Web Services Cloud. For more information, see
-  the
-  [IoT SiteWise User Guide](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/). For
+  devices to the power of the Amazon Web Services Cloud. For more information,
+  see the [IoT SiteWise User
+  Guide](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/). For
   information about IoT SiteWise quotas, see
   [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html)
   in the *IoT SiteWise User Guide*.
@@ -4346,14 +4345,21 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Associates a child asset with the given parent asset through a hierarchy defined
-  in the
-  parent asset's model.
+  in the parent asset's model. For more information, see [Associating
+  assets](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/add-associated-assets.html)
+  in the *IoT SiteWise User Guide*.
 
-  For more information, see [Associating assets](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/add-associated-assets.html)
-  in the
-  *IoT SiteWise User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20AssociateAssets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_id` (`t:string`) The ID of the parent asset. This can be either the
+    actual ID in UUID format, or else externalId: followed by the external ID,
+    if it has one. For more information, see Referencing objects with external
+    IDs in the IoT SiteWise User Guide.
+
+  ## Optional parameters:
   """
-  @spec associate_assets(map(), String.t(), associate_assets_request(), list()) ::
+  @spec associate_assets(AWS.Client.t(), String.t(), associate_assets_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_assets_errors()}
@@ -4362,7 +4368,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -4379,11 +4386,27 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Associates a time series (data stream) with an asset property.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20AssociateTimeSeriesToAssetProperty&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:alias` (`t:string`) The alias that identifies the time series.
+  * `:asset_id` (`t:string`) The ID of the asset in which the asset property was
+    created. This can be either the actual ID in UUID format, or else
+    externalId: followed by the external ID, if it has one. For more
+    information, see Referencing objects with external IDs in the IoT SiteWise
+    User Guide.
+  * `:property_id` (`t:string`) The ID of the asset property. This can be either
+    the actual ID in UUID format, or else externalId: followed by the external
+    ID, if it has one. For more information, see Referencing objects with
+    external IDs in the IoT SiteWise User Guide.
+
+  ## Optional parameters:
   """
   @spec associate_time_series_to_asset_property(
-          map(),
+          AWS.Client.t(),
           associate_time_series_to_asset_property_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -4400,7 +4423,8 @@ defmodule AWS.IoTSiteWise do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -4417,12 +4441,20 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Associates a group (batch) of assets with an IoT SiteWise Monitor project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20BatchAssociateProjectAssets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project_id` (`t:string`) The ID of the project to which to associate the
+    assets.
+
+  ## Optional parameters:
   """
   @spec batch_associate_project_assets(
-          map(),
+          AWS.Client.t(),
           String.t(),
           batch_associate_project_assets_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_associate_project_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4432,7 +4464,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "monitor.")
 
     Request.request_rest(
       client,
@@ -4449,12 +4482,20 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Disassociates a group (batch) of assets from an IoT SiteWise Monitor project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20BatchDisassociateProjectAssets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project_id` (`t:string`) The ID of the project from which to disassociate
+    the assets.
+
+  ## Optional parameters:
   """
   @spec batch_disassociate_project_assets(
-          map(),
+          AWS.Client.t(),
           String.t(),
           batch_disassociate_project_assets_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_disassociate_project_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4464,7 +4505,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "monitor.")
 
     Request.request_rest(
       client,
@@ -4481,17 +4523,20 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Gets aggregated values (for example, average, minimum, and maximum) for one or
-  more asset
-  properties.
+  more asset properties. For more information, see [Querying
+  aggregates](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates)
+  in the *IoT SiteWise User Guide*.
 
-  For more information, see [Querying aggregates](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates)
-  in the
-  *IoT SiteWise User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20BatchGetAssetPropertyAggregates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec batch_get_asset_property_aggregates(
-          map(),
+          AWS.Client.t(),
           batch_get_asset_property_aggregates_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_get_asset_property_aggregates_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4501,7 +4546,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "data.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "data.")
 
     Request.request_rest(
       client,
@@ -4517,13 +4563,22 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Gets the current value for one or more asset properties.
-
-  For more information, see [Querying current
+  Gets the current value for one or more asset properties. For more information,
+  see [Querying current
   values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values)
   in the *IoT SiteWise User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20BatchGetAssetPropertyValue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_get_asset_property_value(map(), batch_get_asset_property_value_request(), list()) ::
+  @spec batch_get_asset_property_value(
+          AWS.Client.t(),
+          batch_get_asset_property_value_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_get_asset_property_value_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_asset_property_value_errors()}
@@ -4532,7 +4587,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "data.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "data.")
 
     Request.request_rest(
       client,
@@ -4548,16 +4604,21 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Gets the historical values for one or more asset properties.
-
-  For more information, see
-  [Querying historical values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values)
+  Gets the historical values for one or more asset properties. For more
+  information, see [Querying historical
+  values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values)
   in the *IoT SiteWise User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20BatchGetAssetPropertyValueHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec batch_get_asset_property_value_history(
-          map(),
+          AWS.Client.t(),
           batch_get_asset_property_value_history_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_get_asset_property_value_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4567,7 +4628,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "data.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "data.")
 
     Request.request_rest(
       client,
@@ -4583,43 +4645,24 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Sends a list of asset property values to IoT SiteWise.
+  Sends a list of asset property values to IoT SiteWise. Each value is a
+  timestamp-quality-value (TQV) data point. For more information, see [Ingesting
+  data using the
+  API](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html)
+  in the *IoT SiteWise User Guide*. To identify an asset property, you must
+  specify one of the following:
 
-  Each value is a timestamp-quality-value
-  (TQV) data point. For more information, see [Ingesting data using the API](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html)
-  in the
-  *IoT SiteWise User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20BatchPutAssetPropertyValue&this_doc_guide=API%2520Reference)
 
-  To identify an asset property, you must specify one of the following:
+  ## Parameters:
 
-    *
-  The `assetId` and `propertyId` of an asset property.
-
-    *
-  A `propertyAlias`, which is a data stream alias (for example,
-  `/company/windfarm/3/turbine/7/temperature`). To define an asset property's
-  alias, see
-  [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html). 
-
-  With respect to Unix epoch time, IoT SiteWise accepts only TQVs that have a
-  timestamp of no more
-  than 7 days in the past and no more than 10 minutes in the future. IoT SiteWise
-  rejects timestamps
-  outside of the inclusive range of [-7 days, +10 minutes] and returns a
-  `TimestampOutOfRangeException` error.
-
-  For each asset property, IoT SiteWise overwrites TQVs with duplicate timestamps
-  unless the newer
-  TQV has a different quality. For example, if you store a TQV `{T1, GOOD, V1}`,
-  then storing `{T1, GOOD, V2}` replaces the existing TQV.
-
-  IoT SiteWise authorizes access to each `BatchPutAssetPropertyValue` entry
-  individually.
-  For more information, see [BatchPutAssetPropertyValue authorization](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action)
-  in the
-  *IoT SiteWise User Guide*.
+  ## Optional parameters:
   """
-  @spec batch_put_asset_property_value(map(), batch_put_asset_property_value_request(), list()) ::
+  @spec batch_put_asset_property_value(
+          AWS.Client.t(),
+          batch_put_asset_property_value_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_put_asset_property_value_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_put_asset_property_value_errors()}
@@ -4628,7 +4671,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "data.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "data.")
 
     Request.request_rest(
       client,
@@ -4645,11 +4689,16 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Creates an access policy that grants the specified identity (IAM Identity Center
-  user, IAM Identity Center group, or
-  IAM user) access to the specified IoT SiteWise Monitor portal or project
-  resource.
+  user, IAM Identity Center group, or IAM user) access to the specified IoT
+  SiteWise Monitor portal or project resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateAccessPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_access_policy(map(), create_access_policy_request(), list()) ::
+  @spec create_access_policy(AWS.Client.t(), create_access_policy_request(), Keyword.t()) ::
           {:ok, create_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_access_policy_errors()}
@@ -4658,7 +4707,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "monitor.")
 
     Request.request_rest(
       client,
@@ -4674,13 +4724,18 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Creates an asset from an existing asset model.
+  Creates an asset from an existing asset model. For more information, see
+  [Creating
+  assets](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-assets.html)
+  in the *IoT SiteWise User Guide*.
 
-  For more information, see [Creating assets](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-assets.html)
-  in the
-  *IoT SiteWise User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_asset(map(), create_asset_request(), list()) ::
+  @spec create_asset(AWS.Client.t(), create_asset_request(), Keyword.t()) ::
           {:ok, create_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_asset_errors()}
@@ -4689,7 +4744,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -4705,31 +4761,22 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Creates an asset model from specified property and hierarchy definitions.
+  Creates an asset model from specified property and hierarchy definitions. You
+  create assets from asset models. With asset models, you can easily create
+  assets of the same type that have standardized definitions. Each asset created
+  from a model inherits the asset model's property and hierarchy definitions.
+  For more information, see [Defining asset
+  models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html)
+  in the *IoT SiteWise User Guide*. You can create two types of asset models,
+  `ASSET_MODEL` or `COMPONENT_MODEL`.
 
-  You create
-  assets from asset models. With asset models, you can easily create assets of the
-  same type
-  that have standardized definitions. Each asset created from a model inherits the
-  asset model's
-  property and hierarchy definitions. For more information, see [Defining asset models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html)
-  in the
-  *IoT SiteWise User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateAssetModel&this_doc_guide=API%2520Reference)
 
-  You can create two types of asset models, `ASSET_MODEL` or `COMPONENT_MODEL`.
+  ## Parameters:
 
-    *
-
-  **ASSET_MODEL** – (default) An asset model that you can use to create assets.
-  Can't be included as a component in another asset model.
-
-    *
-
-  **COMPONENT_MODEL** – A reusable component that you can include in the composite
-  models of other asset models. You can't create assets directly from this type of
-  asset model.
+  ## Optional parameters:
   """
-  @spec create_asset_model(map(), create_asset_model_request(), list()) ::
+  @spec create_asset_model(AWS.Client.t(), create_asset_model_request(), Keyword.t()) ::
           {:ok, create_asset_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_asset_model_errors()}
@@ -4738,7 +4785,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -4755,38 +4803,29 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Creates a custom composite model from specified property and hierarchy
-  definitions.
+  definitions. There are two types of custom composite models, `inline` and
+  `component-model-based`. Use component-model-based custom composite models to
+  define standard, reusable components. A component-model-based custom composite
+  model consists of a name, a description, and the ID of the component model it
+  references. A component-model-based custom composite model has no properties
+  of its own; its referenced component model provides its associated properties
+  to any created assets. For more information, see [Custom composite models
+  (Components)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html)
+  in the *IoT SiteWise User Guide*.
 
-  There are two types of custom composite models,
-  `inline` and `component-model-based`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateAssetModelCompositeModel&this_doc_guide=API%2520Reference)
 
-  Use component-model-based custom composite models to define standard, reusable
-  components. A component-model-based custom composite model consists of a name,
-  a description, and the ID of the component model it references. A
-  component-model-based custom composite model has no properties of its own; its
-  referenced
-  component model provides its associated properties to any created assets. For
-  more information, see
-  [Custom composite models (Components)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html)
-  in the
-  *IoT SiteWise User Guide*.
+  ## Parameters:
+  * `:asset_model_id` (`t:string`) The ID of the asset model this composite model
+    is a part of.
 
-  Use inline custom composite models to organize the properties of an asset model.
-  The properties of inline custom composite models are local to the asset model
-  where they are
-  included and can't be used to create multiple assets.
-
-  To create a component-model-based model, specify the `composedAssetModelId` of
-  an existing asset model with `assetModelType` of `COMPONENT_MODEL`.
-
-  To create an inline model, specify the `assetModelCompositeModelProperties` and
-  don't include an `composedAssetModelId`.
+  ## Optional parameters:
   """
   @spec create_asset_model_composite_model(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_asset_model_composite_model_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_asset_model_composite_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4796,7 +4835,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -4812,22 +4852,24 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Defines a job to ingest data to IoT SiteWise from Amazon S3.
-
-  For more information, see [Create a bulk import job
+  Defines a job to ingest data to IoT SiteWise from Amazon S3. For more
+  information, see [Create a bulk import job
   (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html)
-  in the *Amazon Simple Storage Service User Guide*.
-
-  Before you create a bulk import job, you must enable IoT SiteWise warm tier or
-  IoT SiteWise cold tier.
+  in the *Amazon Simple Storage Service User Guide*. Before you create a bulk
+  import job, you must enable IoT SiteWise warm tier or IoT SiteWise cold tier.
   For more information about how to configure storage settings, see
   [PutStorageConfiguration](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html).
-
   Bulk import is designed to store historical data to IoT SiteWise. It does not
-  trigger computations or notifications on
-  IoT SiteWise warm or cold tier storage.
+  trigger computations or notifications on IoT SiteWise warm or cold tier
+  storage.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateBulkImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_bulk_import_job(map(), create_bulk_import_job_request(), list()) ::
+  @spec create_bulk_import_job(AWS.Client.t(), create_bulk_import_job_request(), Keyword.t()) ::
           {:ok, create_bulk_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bulk_import_job_errors()}
@@ -4836,7 +4878,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "data.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "data.")
 
     Request.request_rest(
       client,
@@ -4853,8 +4896,14 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Creates a dashboard in an IoT SiteWise Monitor project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateDashboard&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_dashboard(map(), create_dashboard_request(), list()) ::
+  @spec create_dashboard(AWS.Client.t(), create_dashboard_request(), Keyword.t()) ::
           {:ok, create_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dashboard_errors()}
@@ -4863,7 +4912,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "monitor.")
 
     Request.request_rest(
       client,
@@ -4880,14 +4930,18 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Creates a gateway, which is a virtual or edge device that delivers industrial
-  data streams
-  from local servers to IoT SiteWise.
+  data streams from local servers to IoT SiteWise. For more information, see
+  [Ingesting data using a
+  gateway](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html)
+  in the *IoT SiteWise User Guide*.
 
-  For more information, see [Ingesting data using a gateway](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html)
-  in the
-  *IoT SiteWise User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateGateway&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_gateway(map(), create_gateway_request(), list()) ::
+  @spec create_gateway(AWS.Client.t(), create_gateway_request(), Keyword.t()) ::
           {:ok, create_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_gateway_errors()}
@@ -4896,7 +4950,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -4912,17 +4967,17 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Creates a portal, which can contain projects and dashboards.
+  Creates a portal, which can contain projects and dashboards. IoT SiteWise
+  Monitor uses IAM Identity Center or IAM to authenticate portal users and
+  manage user permissions.
 
-  IoT SiteWise Monitor uses IAM Identity Center or IAM
-  to authenticate portal users and manage user permissions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreatePortal&this_doc_guide=API%2520Reference)
 
-  Before you can sign in to a new portal, you must add at least one identity to
-  that
-  portal. For more information, see [Adding or removing portal administrators](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins)
-  in the *IoT SiteWise User Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_portal(map(), create_portal_request(), list()) ::
+  @spec create_portal(AWS.Client.t(), create_portal_request(), Keyword.t()) ::
           {:ok, create_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_portal_errors()}
@@ -4931,7 +4986,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "monitor.")
 
     Request.request_rest(
       client,
@@ -4949,10 +5005,13 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Creates a project in the specified portal.
 
-  Make sure that the project name and description don't contain confidential
-  information.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_project(map(), create_project_request(), list()) ::
+  @spec create_project(AWS.Client.t(), create_project_request(), Keyword.t()) ::
           {:ok, create_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_errors()}
@@ -4961,7 +5020,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "monitor.")
 
     Request.request_rest(
       client,
@@ -4978,13 +5038,25 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Deletes an access policy that grants the specified identity access to the
-  specified
-  IoT SiteWise Monitor resource.
+  specified IoT SiteWise Monitor resource. You can use this operation to revoke
+  access to an IoT SiteWise Monitor resource.
 
-  You can use this operation to revoke access to an IoT SiteWise Monitor
-  resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteAccessPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:access_policy_id` (`t:string`) The ID of the access policy to be deleted.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
-  @spec delete_access_policy(map(), String.t(), delete_access_policy_request(), list()) ::
+  @spec delete_access_policy(
+          AWS.Client.t(),
+          String.t(),
+          delete_access_policy_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_access_policy_errors()}
@@ -4998,7 +5070,13 @@ defmodule AWS.IoTSiteWise do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "monitor.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -5014,16 +5092,27 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Deletes an asset.
-
-  This action can't be undone. For more information, see [Deleting assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html)
-  in the *IoT SiteWise User Guide*.
-
-  You can't delete an asset that's associated to another asset. For more
-  information, see
+  Deletes an asset. This action can't be undone. For more information, see
+  [Deleting assets and
+  models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html)
+  in the *IoT SiteWise User Guide*. You can't delete an asset that's associated
+  to another asset. For more information, see
   [DisassociateAssets](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DisassociateAssets.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_id` (`t:string`) The ID of the asset to delete. This can be either the
+    actual ID in UUID format, or else externalId: followed by the external ID,
+    if it has one. For more information, see Referencing objects with external
+    IDs in the IoT SiteWise User Guide.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
-  @spec delete_asset(map(), String.t(), delete_asset_request(), list()) ::
+  @spec delete_asset(AWS.Client.t(), String.t(), delete_asset_request(), Keyword.t()) ::
           {:ok, delete_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_asset_errors()}
@@ -5037,7 +5126,13 @@ defmodule AWS.IoTSiteWise do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -5053,19 +5148,28 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Deletes an asset model.
-
-  This action can't be undone. You must delete all assets created
-  from an asset model before you can delete the model. Also, you can't delete an
-  asset model if
-  a parent asset model exists that contains a property formula expression that
-  depends on the
-  asset model that you want to delete. For more information, see [Deleting assets and
+  Deletes an asset model. This action can't be undone. You must delete all assets
+  created from an asset model before you can delete the model. Also, you can't
+  delete an asset model if a parent asset model exists that contains a property
+  formula expression that depends on the asset model that you want to delete.
+  For more information, see [Deleting assets and
   models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html)
-  in the
-  *IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteAssetModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_model_id` (`t:string`) The ID of the asset model to delete. This can
+    be either the actual ID in UUID format, or else externalId: followed by the
+    external ID, if it has one. For more information, see Referencing objects
+    with external IDs in the IoT SiteWise User Guide.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
-  @spec delete_asset_model(map(), String.t(), delete_asset_model_request(), list()) ::
+  @spec delete_asset_model(AWS.Client.t(), String.t(), delete_asset_model_request(), Keyword.t()) ::
           {:ok, delete_asset_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_asset_model_errors()}
@@ -5079,7 +5183,13 @@ defmodule AWS.IoTSiteWise do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -5095,24 +5205,32 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Deletes a composite model.
-
-  This action can't be undone. You must delete all assets created
-  from a composite model before you can delete the model. Also, you can't delete a
-  composite model if
-  a parent asset model exists that contains a property formula expression that
-  depends on the
-  asset model that you want to delete. For more information, see [Deleting assets and
+  Deletes a composite model. This action can't be undone. You must delete all
+  assets created from a composite model before you can delete the model. Also,
+  you can't delete a composite model if a parent asset model exists that
+  contains a property formula expression that depends on the asset model that
+  you want to delete. For more information, see [Deleting assets and
   models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html)
-  in the
-  *IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteAssetModelCompositeModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_model_composite_model_id` (`t:string`) The ID of a composite model on
+    this asset model.
+  * `:asset_model_id` (`t:string`) The ID of the asset model, in UUID format.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
   @spec delete_asset_model_composite_model(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_asset_model_composite_model_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_asset_model_composite_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5135,7 +5253,13 @@ defmodule AWS.IoTSiteWise do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -5152,8 +5276,18 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Deletes a dashboard from IoT SiteWise Monitor.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteDashboard&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dashboard_id` (`t:string`) The ID of the dashboard to delete.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
-  @spec delete_dashboard(map(), String.t(), delete_dashboard_request(), list()) ::
+  @spec delete_dashboard(AWS.Client.t(), String.t(), delete_dashboard_request(), Keyword.t()) ::
           {:ok, delete_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dashboard_errors()}
@@ -5167,7 +5301,13 @@ defmodule AWS.IoTSiteWise do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "monitor.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -5183,12 +5323,17 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Deletes a gateway from IoT SiteWise.
+  Deletes a gateway from IoT SiteWise. When you delete a gateway, some of the
+  gateway's files remain in your gateway's file system.
 
-  When you delete a gateway, some of the gateway's files remain
-  in your gateway's file system.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteGateway&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:gateway_id` (`t:string`) The ID of the gateway to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_gateway(map(), String.t(), delete_gateway_request(), list()) ::
+  @spec delete_gateway(AWS.Client.t(), String.t(), delete_gateway_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_gateway_errors()}
@@ -5197,7 +5342,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -5214,8 +5360,18 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Deletes a portal from IoT SiteWise Monitor.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeletePortal&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:portal_id` (`t:string`) The ID of the portal to delete.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
-  @spec delete_portal(map(), String.t(), delete_portal_request(), list()) ::
+  @spec delete_portal(AWS.Client.t(), String.t(), delete_portal_request(), Keyword.t()) ::
           {:ok, delete_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_portal_errors()}
@@ -5229,7 +5385,13 @@ defmodule AWS.IoTSiteWise do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "monitor.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -5246,8 +5408,18 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Deletes a project from IoT SiteWise Monitor.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project_id` (`t:string`) The ID of the project.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
-  @spec delete_project(map(), String.t(), delete_project_request(), list()) ::
+  @spec delete_project(AWS.Client.t(), String.t(), delete_project_request(), Keyword.t()) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_errors()}
@@ -5261,7 +5433,13 @@ defmodule AWS.IoTSiteWise do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "monitor.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -5277,30 +5455,28 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Deletes a time series (data stream).
+  Deletes a time series (data stream). If you delete a time series that's
+  associated with an asset property, the asset property still exists, but the
+  time series will no longer be associated with this asset property. To identify
+  a time series, do one of the following:
 
-  If you delete a time series that's associated with an
-  asset property, the asset property still exists, but the time series will no
-  longer be
-  associated with this asset property.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteTimeSeries&this_doc_guide=API%2520Reference)
 
-  To identify a time series, do one of the following:
+  ## Parameters:
 
-    *
-  If the time series isn't associated with an asset property,
-  specify the `alias` of the time series.
-
-    *
-  If the time series is associated with an asset property,
-  specify one of the following:
-
-      *
-  The `alias` of the time series.
-
-      *
-  The `assetId` and `propertyId` that identifies the asset property.
+  ## Optional parameters:
+  * `:alias` (`t:string`) The alias that identifies the time series.
+  * `:asset_id` (`t:string`) The ID of the asset in which the asset property was
+    created. This can be either the actual ID in UUID format, or else
+    externalId: followed by the external ID, if it has one. For more
+    information, see Referencing objects with external IDs in the IoT SiteWise
+    User Guide.
+  * `:property_id` (`t:string`) The ID of the asset property. This can be either
+    the actual ID in UUID format, or else externalId: followed by the external
+    ID, if it has one. For more information, see Referencing objects with
+    external IDs in the IoT SiteWise User Guide.
   """
-  @spec delete_time_series(map(), delete_time_series_request(), list()) ::
+  @spec delete_time_series(AWS.Client.t(), delete_time_series_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_time_series_errors()}
@@ -5316,7 +5492,13 @@ defmodule AWS.IoTSiteWise do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:alias, :asset_id, :property_id])
 
     Request.request_rest(
       client,
@@ -5333,73 +5515,169 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Describes an access policy, which specifies an identity's access to an IoT
-  SiteWise Monitor portal or
-  project.
+  SiteWise Monitor portal or project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeAccessPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:access_policy_id` (`t:string`) The ID of the access policy.
+
+  ## Optional parameters:
   """
-  @spec describe_access_policy(map(), String.t(), list()) ::
+  @spec describe_access_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_access_policy_errors()}
   def describe_access_policy(%Client{} = client, access_policy_id, options \\ []) do
     url_path = "/access-policies/#{AWS.Util.encode_uri(access_policy_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "monitor.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about an action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:action_id` (`t:string`) The ID of the action.
+
+  ## Optional parameters:
   """
-  @spec describe_action(map(), String.t(), list()) ::
+  @spec describe_action(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_action_errors()}
   def describe_action(%Client{} = client, action_id, options \\ []) do
     url_path = "/actions/#{AWS.Util.encode_uri(action_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about an asset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID
+    in UUID format, or else externalId: followed by the external ID, if it has
+    one. For more information, see Referencing objects with external IDs in the
+    IoT SiteWise User Guide.
+
+  ## Optional parameters:
+  * `:exclude_properties` (`t:boolean`) Whether or not to exclude asset properties
+    from the response.
   """
-  @spec describe_asset(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_asset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_asset_errors()}
-  def describe_asset(%Client{} = client, asset_id, exclude_properties \\ nil, options \\ []) do
+  def describe_asset(%Client{} = client, asset_id, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}"
+
+    # Validate optional parameters
+    optional_params = [exclude_properties: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(exclude_properties) do
-        [{"excludeProperties", exclude_properties} | query_params]
+      if opt_val = Keyword.get(options, :exclude_properties) do
+        [{"excludeProperties", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:exclude_properties])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about an asset composite model (also known as an asset
-  component).
-
-  An `AssetCompositeModel` is an instance of an `AssetModelCompositeModel`. If you
-  want to see information about the model this is based on, call
+  component). An `AssetCompositeModel` is an instance of an
+  `AssetModelCompositeModel`. If you want to see information about the model
+  this is based on, call
   [DescribeAssetModelCompositeModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModelCompositeModel.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeAssetCompositeModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_composite_model_id` (`t:string`) The ID of a composite model on this
+    asset. This can be either the actual ID in UUID format, or else externalId:
+    followed by the external ID, if it has one. For more information, see
+    Referencing objects with external IDs in the IoT SiteWise User Guide.
+  * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID
+    in UUID format, or else externalId: followed by the external ID, if it has
+    one. For more information, see Referencing objects with external IDs in the
+    IoT SiteWise User Guide.
+
+  ## Optional parameters:
   """
-  @spec describe_asset_composite_model(map(), String.t(), String.t(), list()) ::
+  @spec describe_asset_composite_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_composite_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_asset_composite_model_errors()}
@@ -5412,51 +5690,111 @@ defmodule AWS.IoTSiteWise do
     url_path =
       "/assets/#{AWS.Util.encode_uri(asset_id)}/composite-models/#{AWS.Util.encode_uri(asset_composite_model_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about an asset model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeAssetModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either
+    the actual ID in UUID format, or else externalId: followed by the external
+    ID, if it has one. For more information, see Referencing objects with
+    external IDs in the IoT SiteWise User Guide.
+
+  ## Optional parameters:
+  * `:exclude_properties` (`t:boolean`) Whether or not to exclude asset model
+    properties from the response.
   """
-  @spec describe_asset_model(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_asset_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_asset_model_errors()}
-  def describe_asset_model(
-        %Client{} = client,
-        asset_model_id,
-        exclude_properties \\ nil,
-        options \\ []
-      ) do
+  def describe_asset_model(%Client{} = client, asset_model_id, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}"
+
+    # Validate optional parameters
+    optional_params = [exclude_properties: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(exclude_properties) do
-        [{"excludeProperties", exclude_properties} | query_params]
+      if opt_val = Keyword.get(options, :exclude_properties) do
+        [{"excludeProperties", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:exclude_properties])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about an asset model composite model (also known as an
-  asset model component).
-
-  For more information, see [Custom composite models (Components)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html)
+  asset model component). For more information, see [Custom composite models
+  (Components)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html)
   in the *IoT SiteWise User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeAssetModelCompositeModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_model_composite_model_id` (`t:string`) The ID of a composite model on
+    this asset model. This can be either the actual ID in UUID format, or else
+    externalId: followed by the external ID, if it has one. For more
+    information, see Referencing objects with external IDs in the IoT SiteWise
+    User Guide.
+  * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either
+    the actual ID in UUID format, or else externalId: followed by the external
+    ID, if it has one. For more information, see Referencing objects with
+    external IDs in the IoT SiteWise User Guide.
+
+  ## Optional parameters:
   """
-  @spec describe_asset_model_composite_model(map(), String.t(), String.t(), list()) ::
+  @spec describe_asset_model_composite_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_model_composite_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_asset_model_composite_model_errors()}
@@ -5469,29 +5807,52 @@ defmodule AWS.IoTSiteWise do
     url_path =
       "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/composite-models/#{AWS.Util.encode_uri(asset_model_composite_model_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves information about an asset property.
+  Retrieves information about an asset property. When you call this operation for
+  an attribute property, this response includes the default attribute value that
+  you define in the asset model. If you update the default value in the model,
+  this operation's response includes the new default value.
 
-  When you call this operation for an attribute property, this response includes
-  the
-  default attribute value that you define in the asset model. If you update the
-  default value
-  in the model, this operation's response includes the new default value.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeAssetProperty&this_doc_guide=API%2520Reference)
 
-  This operation doesn't return the value of the asset property. To get the value
-  of an
-  asset property, use
-  [GetAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_GetAssetPropertyValue.html).
+  ## Parameters:
+  * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID
+    in UUID format, or else externalId: followed by the external ID, if it has
+    one. For more information, see Referencing objects with external IDs in the
+    IoT SiteWise User Guide.
+  * `:property_id` (`t:string`) The ID of the asset property. This can be either
+    the actual ID in UUID format, or else externalId: followed by the external
+    ID, if it has one. For more information, see Referencing objects with
+    external IDs in the IoT SiteWise User Guide.
+
+  ## Optional parameters:
   """
-  @spec describe_asset_property(map(), String.t(), String.t(), list()) ::
+  @spec describe_asset_property(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_property_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_asset_property_errors()}
@@ -5499,105 +5860,232 @@ defmodule AWS.IoTSiteWise do
     url_path =
       "/assets/#{AWS.Util.encode_uri(asset_id)}/properties/#{AWS.Util.encode_uri(property_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves information about a bulk import job request.
-
-  For more information, see [Describe a bulk import job
+  Retrieves information about a bulk import job request. For more information, see
+  [Describe a bulk import job
   (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/DescribeBulkImportJob.html)
   in the *Amazon Simple Storage Service User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeBulkImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The ID of the job.
+
+  ## Optional parameters:
   """
-  @spec describe_bulk_import_job(map(), String.t(), list()) ::
+  @spec describe_bulk_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_bulk_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_bulk_import_job_errors()}
   def describe_bulk_import_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "data.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "data.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a dashboard.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeDashboard&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dashboard_id` (`t:string`) The ID of the dashboard.
+
+  ## Optional parameters:
   """
-  @spec describe_dashboard(map(), String.t(), list()) ::
+  @spec describe_dashboard(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dashboard_errors()}
   def describe_dashboard(%Client{} = client, dashboard_id, options \\ []) do
     url_path = "/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "monitor.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about the default encryption configuration for the Amazon
-  Web Services account in
-  the default or specified Region.
+  Web Services account in the default or specified Region. For more information,
+  see [Key
+  management](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html)
+  in the *IoT SiteWise User Guide*.
 
-  For more information, see [Key management](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html)
-  in the
-  *IoT SiteWise User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeDefaultEncryptionConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_default_encryption_configuration(map(), list()) ::
+  @spec describe_default_encryption_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_default_encryption_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_default_encryption_configuration_errors()}
   def describe_default_encryption_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration/account/encryption"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a gateway.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeGateway&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:gateway_id` (`t:string`) The ID of the gateway device.
+
+  ## Optional parameters:
   """
-  @spec describe_gateway(map(), String.t(), list()) ::
+  @spec describe_gateway(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_gateway_errors()}
   def describe_gateway(%Client{} = client, gateway_id, options \\ []) do
     url_path = "/20200301/gateways/#{AWS.Util.encode_uri(gateway_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves information about a gateway capability configuration.
-
-  Each gateway capability defines data sources for a gateway. A capability
-  configuration
-  can contain multiple data source configurations. If you define OPC-UA sources
-  for a gateway in
-  the IoT SiteWise console, all of your OPC-UA sources are stored in one
-  capability configuration. To
-  list all capability configurations for a gateway, use
+  Retrieves information about a gateway capability configuration. Each gateway
+  capability defines data sources for a gateway. A capability configuration can
+  contain multiple data source configurations. If you define OPC-UA sources for
+  a gateway in the IoT SiteWise console, all of your OPC-UA sources are stored
+  in one capability configuration. To list all capability configurations for a
+  gateway, use
   [DescribeGateway](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeGatewayCapabilityConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:capability_namespace` (`t:string`) The namespace of the capability
+    configuration. For example, if you configure OPC-UA sources from the IoT
+    SiteWise console, your OPC-UA capability configuration has the namespace
+    iotsitewise:opcuacollector:version, where version is a number such as 1.
+  * `:gateway_id` (`t:string`) The ID of the gateway that defines the capability
+    configuration.
+
+  ## Optional parameters:
   """
-  @spec describe_gateway_capability_configuration(map(), String.t(), String.t(), list()) ::
+  @spec describe_gateway_capability_configuration(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, describe_gateway_capability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_gateway_capability_configuration_errors()}
@@ -5610,148 +6098,295 @@ defmodule AWS.IoTSiteWise do
     url_path =
       "/20200301/gateways/#{AWS.Util.encode_uri(gateway_id)}/capability/#{AWS.Util.encode_uri(capability_namespace)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the current IoT SiteWise logging options.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeLoggingOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_logging_options(map(), list()) ::
+  @spec describe_logging_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_logging_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_logging_options_errors()}
   def describe_logging_options(%Client{} = client, options \\ []) do
     url_path = "/logging"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a portal.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribePortal&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:portal_id` (`t:string`) The ID of the portal.
+
+  ## Optional parameters:
   """
-  @spec describe_portal(map(), String.t(), list()) ::
+  @spec describe_portal(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_portal_errors()}
   def describe_portal(%Client{} = client, portal_id, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_uri(portal_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "monitor.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project_id` (`t:string`) The ID of the project.
+
+  ## Optional parameters:
   """
-  @spec describe_project(map(), String.t(), list()) ::
+  @spec describe_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_project_errors()}
   def describe_project(%Client{} = client, project_id, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "monitor.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about the storage configuration for IoT SiteWise.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeStorageConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_storage_configuration(map(), list()) ::
+  @spec describe_storage_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_storage_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_storage_configuration_errors()}
   def describe_storage_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration/account/storage"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves information about a time series (data stream).
+  Retrieves information about a time series (data stream). To identify a time
+  series, do one of the following:
 
-  To identify a time series, do one of the following:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeTimeSeries&this_doc_guide=API%2520Reference)
 
-    *
-  If the time series isn't associated with an asset property,
-  specify the `alias` of the time series.
+  ## Parameters:
 
-    *
-  If the time series is associated with an asset property,
-  specify one of the following:
-
-      *
-  The `alias` of the time series.
-
-      *
-  The `assetId` and `propertyId` that identifies the asset property.
+  ## Optional parameters:
+  * `:alias` (`t:string`) The alias that identifies the time series.
+  * `:asset_id` (`t:string`) The ID of the asset in which the asset property was
+    created. This can be either the actual ID in UUID format, or else
+    externalId: followed by the external ID, if it has one. For more
+    information, see Referencing objects with external IDs in the IoT SiteWise
+    User Guide.
+  * `:property_id` (`t:string`) The ID of the asset property. This can be either
+    the actual ID in UUID format, or else externalId: followed by the external
+    ID, if it has one. For more information, see Referencing objects with
+    external IDs in the IoT SiteWise User Guide.
   """
-  @spec describe_time_series(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec describe_time_series(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_time_series_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_time_series_errors()}
-  def describe_time_series(
-        %Client{} = client,
-        alias \\ nil,
-        asset_id \\ nil,
-        property_id \\ nil,
-        options \\ []
-      ) do
+  def describe_time_series(%Client{} = client, options \\ []) do
     url_path = "/timeseries/describe"
+
+    # Validate optional parameters
+    optional_params = [alias: nil, asset_id: nil, property_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(property_id) do
-        [{"propertyId", property_id} | query_params]
+      if opt_val = Keyword.get(options, :property_id) do
+        [{"propertyId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(asset_id) do
-        [{"assetId", asset_id} | query_params]
+      if opt_val = Keyword.get(options, :asset_id) do
+        [{"assetId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(alias) do
-        [{"alias", alias} | query_params]
+      if opt_val = Keyword.get(options, :alias) do
+        [{"alias", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:alias, :asset_id, :property_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Disassociates a child asset from the given parent asset through a hierarchy
-  defined in the
-  parent asset's model.
+  defined in the parent asset's model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DisassociateAssets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_id` (`t:string`) The ID of the parent asset from which to disassociate
+    the child asset. This can be either the actual ID in UUID format, or else
+    externalId: followed by the external ID, if it has one. For more
+    information, see Referencing objects with external IDs in the IoT SiteWise
+    User Guide.
+
+  ## Optional parameters:
   """
-  @spec disassociate_assets(map(), String.t(), disassociate_assets_request(), list()) ::
+  @spec disassociate_assets(
+          AWS.Client.t(),
+          String.t(),
+          disassociate_assets_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_assets_errors()}
@@ -5760,7 +6395,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -5777,11 +6413,27 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Disassociates a time series (data stream) from an asset property.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DisassociateTimeSeriesFromAssetProperty&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:alias` (`t:string`) The alias that identifies the time series.
+  * `:asset_id` (`t:string`) The ID of the asset in which the asset property was
+    created. This can be either the actual ID in UUID format, or else
+    externalId: followed by the external ID, if it has one. For more
+    information, see Referencing objects with external IDs in the IoT SiteWise
+    User Guide.
+  * `:property_id` (`t:string`) The ID of the asset property. This can be either
+    the actual ID in UUID format, or else externalId: followed by the external
+    ID, if it has one. For more information, see Referencing objects with
+    external IDs in the IoT SiteWise User Guide.
+
+  ## Optional parameters:
   """
   @spec disassociate_time_series_from_asset_property(
-          map(),
+          AWS.Client.t(),
           disassociate_time_series_from_asset_property_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -5798,7 +6450,8 @@ defmodule AWS.IoTSiteWise do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -5815,8 +6468,14 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Executes an action on a target resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ExecuteAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec execute_action(map(), execute_action_request(), list()) ::
+  @spec execute_action(AWS.Client.t(), execute_action_request(), Keyword.t()) ::
           {:ok, execute_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_action_errors()}
@@ -5825,7 +6484,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -5843,8 +6503,14 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Run SQL queries to retrieve metadata and time-series data from asset models,
   assets, measurements, metrics, transforms, and aggregates.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ExecuteQuery&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec execute_query(map(), execute_query_request(), list()) ::
+  @spec execute_query(AWS.Client.t(), execute_query_request(), Keyword.t()) ::
           {:ok, execute_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_query_errors()}
@@ -5853,7 +6519,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "data.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "data.")
 
     Request.request_rest(
       client,
@@ -5869,36 +6536,48 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Gets aggregated values for an asset property.
+  Gets aggregated values for an asset property. For more information, see
+  [Querying
+  aggregates](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates)
+  in the *IoT SiteWise User Guide*. To identify an asset property, you must
+  specify one of the following:
 
-  For more information, see [Querying aggregates](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates)
-  in the *IoT SiteWise User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20GetAssetPropertyAggregates&this_doc_guide=API%2520Reference)
 
-  To identify an asset property, you must specify one of the following:
+  ## Parameters:
+  * `:aggregate_types` (`t:list[com.amazonaws.iotsitewise#AggregateType]`) The
+    data aggregating function.
+  * `:end_date` (`t:timestamp`) The inclusive end of the range from which to query
+    historical data, expressed in seconds in Unix epoch time.
+  * `:resolution` (`t:string`) The time interval over which to aggregate data.
+  * `:start_date` (`t:timestamp`) The exclusive start of the range from which to
+    query historical data, expressed in seconds in Unix epoch time.
 
-    *
-  The `assetId` and `propertyId` of an asset property.
-
-    *
-  A `propertyAlias`, which is a data stream alias (for example,
-  `/company/windfarm/3/turbine/7/temperature`). To define an asset property's
-  alias, see
-  [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html).
+  ## Optional parameters:
+  * `:asset_id` (`t:string`) The ID of the asset, in UUID format.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request. A result set is returned in the two cases, whichever
+    occurs first.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
+  * `:property_alias` (`t:string`) The alias that identifies the property, such as
+    an OPC-UA server data stream path (for example,
+    /company/windfarm/3/turbine/7/temperature). For more information, see
+    Mapping industrial data streams to asset properties in the IoT SiteWise User
+    Guide.
+  * `:property_id` (`t:string`) The ID of the asset property, in UUID format.
+  * `:qualities` (`t:list[com.amazonaws.iotsitewise#Quality]`) The quality by
+    which to filter asset data.
+  * `:time_ordering` (`t:enum["ASCENDING|DESCENDING"]`) The chronological sorting
+    order of the requested information.
   """
   @spec get_asset_property_aggregates(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          AWS.Client.t(),
           String.t(),
           String.t(),
-          String.t() | nil,
-          list()
+          String.t(),
+          String.t(),
+          Keyword.t()
         ) ::
           {:ok, get_asset_property_aggregates_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5906,1032 +6585,1333 @@ defmodule AWS.IoTSiteWise do
   def get_asset_property_aggregates(
         %Client{} = client,
         aggregate_types,
-        asset_id \\ nil,
         end_date,
-        max_results \\ nil,
-        next_token \\ nil,
-        property_alias \\ nil,
-        property_id \\ nil,
-        qualities \\ nil,
         resolution,
         start_date,
-        time_ordering \\ nil,
         options \\ []
       ) do
     url_path = "/properties/aggregates"
+
+    # Validate optional parameters
+    optional_params = [
+      asset_id: nil,
+      max_results: nil,
+      next_token: nil,
+      property_alias: nil,
+      property_id: nil,
+      qualities: nil,
+      time_ordering: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [
+      {"aggregateTypes", aggregate_types},
+      {"endDate", end_date},
+      {"resolution", resolution},
+      {"startDate", start_date}
+    ]
+
+    # Optional query params
     query_params =
-      if !is_nil(time_ordering) do
-        [{"timeOrdering", time_ordering} | query_params]
+      if opt_val = Keyword.get(options, :time_ordering) do
+        [{"timeOrdering", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(start_date) do
-        [{"startDate", start_date} | query_params]
+      if opt_val = Keyword.get(options, :qualities) do
+        [{"qualities", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(resolution) do
-        [{"resolution", resolution} | query_params]
+      if opt_val = Keyword.get(options, :property_id) do
+        [{"propertyId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(qualities) do
-        [{"qualities", qualities} | query_params]
+      if opt_val = Keyword.get(options, :property_alias) do
+        [{"propertyAlias", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(property_id) do
-        [{"propertyId", property_id} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(property_alias) do
-        [{"propertyAlias", property_alias} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :asset_id) do
+        [{"assetId", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "data.")
 
-    query_params =
-      if !is_nil(end_date) do
-        [{"endDate", end_date} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(asset_id) do
-        [{"assetId", asset_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(aggregate_types) do
-        [{"aggregateTypes", aggregate_types} | query_params]
-      else
-        query_params
-      end
-
-    meta = metadata() |> Map.put_new(:host_prefix, "data.")
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :asset_id,
+        :max_results,
+        :next_token,
+        :property_alias,
+        :property_id,
+        :qualities,
+        :time_ordering
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets an asset property's current value.
-
-  For more information, see [Querying current
+  Gets an asset property's current value. For more information, see [Querying
+  current
   values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values)
-  in the *IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*. To identify an asset property, you must
+  specify one of the following:
 
-  To identify an asset property, you must specify one of the following:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20GetAssetPropertyValue&this_doc_guide=API%2520Reference)
 
-    *
-  The `assetId` and `propertyId` of an asset property.
+  ## Parameters:
 
-    *
-  A `propertyAlias`, which is a data stream alias (for example,
-  `/company/windfarm/3/turbine/7/temperature`). To define an asset property's
-  alias, see
-  [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html).
+  ## Optional parameters:
+  * `:asset_id` (`t:string`) The ID of the asset, in UUID format.
+  * `:property_alias` (`t:string`) The alias that identifies the property, such as
+    an OPC-UA server data stream path (for example,
+    /company/windfarm/3/turbine/7/temperature). For more information, see
+    Mapping industrial data streams to asset properties in the IoT SiteWise User
+    Guide.
+  * `:property_id` (`t:string`) The ID of the asset property, in UUID format.
   """
-  @spec get_asset_property_value(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_asset_property_value(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_asset_property_value_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_asset_property_value_errors()}
-  def get_asset_property_value(
-        %Client{} = client,
-        asset_id \\ nil,
-        property_alias \\ nil,
-        property_id \\ nil,
-        options \\ []
-      ) do
+  def get_asset_property_value(%Client{} = client, options \\ []) do
     url_path = "/properties/latest"
+
+    # Validate optional parameters
+    optional_params = [asset_id: nil, property_alias: nil, property_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(property_id) do
-        [{"propertyId", property_id} | query_params]
+      if opt_val = Keyword.get(options, :property_id) do
+        [{"propertyId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(property_alias) do
-        [{"propertyAlias", property_alias} | query_params]
+      if opt_val = Keyword.get(options, :property_alias) do
+        [{"propertyAlias", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(asset_id) do
-        [{"assetId", asset_id} | query_params]
+      if opt_val = Keyword.get(options, :asset_id) do
+        [{"assetId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "data.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "data.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:asset_id, :property_alias, :property_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets the history of an asset property's values.
-
-  For more information, see [Querying historical
+  Gets the history of an asset property's values. For more information, see
+  [Querying historical
   values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values)
-  in the *IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*. To identify an asset property, you must
+  specify one of the following:
 
-  To identify an asset property, you must specify one of the following:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20GetAssetPropertyValueHistory&this_doc_guide=API%2520Reference)
 
-    *
-  The `assetId` and `propertyId` of an asset property.
+  ## Parameters:
 
-    *
-  A `propertyAlias`, which is a data stream alias (for example,
-  `/company/windfarm/3/turbine/7/temperature`). To define an asset property's
-  alias, see
-  [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html).
+  ## Optional parameters:
+  * `:asset_id` (`t:string`) The ID of the asset, in UUID format.
+  * `:end_date` (`t:timestamp`) The inclusive end of the range from which to query
+    historical data, expressed in seconds in Unix epoch time.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request. A result set is returned in the two cases, whichever
+    occurs first.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
+  * `:property_alias` (`t:string`) The alias that identifies the property, such as
+    an OPC-UA server data stream path (for example,
+    /company/windfarm/3/turbine/7/temperature). For more information, see
+    Mapping industrial data streams to asset properties in the IoT SiteWise User
+    Guide.
+  * `:property_id` (`t:string`) The ID of the asset property, in UUID format.
+  * `:qualities` (`t:list[com.amazonaws.iotsitewise#Quality]`) The quality by
+    which to filter asset data.
+  * `:start_date` (`t:timestamp`) The exclusive start of the range from which to
+    query historical data, expressed in seconds in Unix epoch time.
+  * `:time_ordering` (`t:enum["ASCENDING|DESCENDING"]`) The chronological sorting
+    order of the requested information.
   """
-  @spec get_asset_property_value_history(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_asset_property_value_history(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_asset_property_value_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_asset_property_value_history_errors()}
-  def get_asset_property_value_history(
-        %Client{} = client,
-        asset_id \\ nil,
-        end_date \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        property_alias \\ nil,
-        property_id \\ nil,
-        qualities \\ nil,
-        start_date \\ nil,
-        time_ordering \\ nil,
-        options \\ []
-      ) do
+  def get_asset_property_value_history(%Client{} = client, options \\ []) do
     url_path = "/properties/history"
+
+    # Validate optional parameters
+    optional_params = [
+      asset_id: nil,
+      end_date: nil,
+      max_results: nil,
+      next_token: nil,
+      property_alias: nil,
+      property_id: nil,
+      qualities: nil,
+      start_date: nil,
+      time_ordering: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(time_ordering) do
-        [{"timeOrdering", time_ordering} | query_params]
+      if opt_val = Keyword.get(options, :time_ordering) do
+        [{"timeOrdering", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(start_date) do
-        [{"startDate", start_date} | query_params]
+      if opt_val = Keyword.get(options, :start_date) do
+        [{"startDate", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(qualities) do
-        [{"qualities", qualities} | query_params]
+      if opt_val = Keyword.get(options, :qualities) do
+        [{"qualities", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(property_id) do
-        [{"propertyId", property_id} | query_params]
+      if opt_val = Keyword.get(options, :property_id) do
+        [{"propertyId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(property_alias) do
-        [{"propertyAlias", property_alias} | query_params]
+      if opt_val = Keyword.get(options, :property_alias) do
+        [{"propertyAlias", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(end_date) do
-        [{"endDate", end_date} | query_params]
+      if opt_val = Keyword.get(options, :end_date) do
+        [{"endDate", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(asset_id) do
-        [{"assetId", asset_id} | query_params]
+      if opt_val = Keyword.get(options, :asset_id) do
+        [{"assetId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "data.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "data.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :asset_id,
+        :end_date,
+        :max_results,
+        :next_token,
+        :property_alias,
+        :property_id,
+        :qualities,
+        :start_date,
+        :time_ordering
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get interpolated values for an asset property for a specified time interval,
-  during a
-  period of time.
+  during a period of time. If your time series is missing data points during the
+  specified time interval, you can use interpolation to estimate the missing
+  data. For example, you can use this operation to return the interpolated
+  temperature values for a wind turbine every 24 hours over a duration of 7
+  days.
 
-  If your time series is missing data points during the specified time interval,
-  you can use interpolation to estimate the missing data.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20GetInterpolatedAssetPropertyValues&this_doc_guide=API%2520Reference)
 
-  For example, you can use this operation to return the interpolated temperature
-  values for
-  a wind turbine every 24 hours over a duration of 7 days.
+  ## Parameters:
+  * `:end_time_in_seconds` (`t:long`) The inclusive end of the range from which to
+    interpolate data, expressed in seconds in Unix epoch time.
+  * `:interval_in_seconds` (`t:long`) The time interval in seconds over which to
+    interpolate data. Each interval starts when the previous one ends.
+  * `:quality` (`t:enum["BAD|GOOD|UNCERTAIN"]`) The quality of the asset property
+    value. You can use this parameter as a filter to choose only the asset
+    property values that have a specific quality.
+  * `:start_time_in_seconds` (`t:long`) The exclusive start of the range from
+    which to interpolate data, expressed in seconds in Unix epoch time.
+  * `:type` (`t:string`) The interpolation type.
 
-  To identify an asset property, you must specify one of the following:
-
-    *
-  The `assetId` and `propertyId` of an asset property.
-
-    *
-  A `propertyAlias`, which is a data stream alias (for example,
-  `/company/windfarm/3/turbine/7/temperature`). To define an asset property's
-  alias, see
-  [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html).
+  ## Optional parameters:
+  * `:asset_id` (`t:string`) The ID of the asset, in UUID format.
+  * `:end_time_offset_in_nanos` (`t:integer`) The nanosecond offset converted from
+    endTimeInSeconds.
+  * `:interval_window_in_seconds` (`t:long`) The query interval for the window, in
+    seconds. IoT SiteWise computes each interpolated value by using data points
+    from the timestamp of each interval, minus the window to the timestamp of
+    each interval plus the window. If not specified, the window ranges between
+    the start time minus the interval and the end time plus the interval.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request. If not specified, the default value is 10.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
+  * `:property_alias` (`t:string`) The alias that identifies the property, such as
+    an OPC-UA server data stream path (for example,
+    /company/windfarm/3/turbine/7/temperature). For more information, see
+    Mapping industrial data streams to asset properties in the IoT SiteWise User
+    Guide.
+  * `:property_id` (`t:string`) The ID of the asset property, in UUID format.
+  * `:start_time_offset_in_nanos` (`t:integer`) The nanosecond offset converted
+    from startTimeInSeconds.
   """
   @spec get_interpolated_asset_property_values(
-          map(),
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          AWS.Client.t(),
           String.t(),
           String.t(),
-          String.t() | nil,
           String.t(),
-          list()
+          String.t(),
+          String.t(),
+          Keyword.t()
         ) ::
           {:ok, get_interpolated_asset_property_values_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_interpolated_asset_property_values_errors()}
   def get_interpolated_asset_property_values(
         %Client{} = client,
-        asset_id \\ nil,
         end_time_in_seconds,
-        end_time_offset_in_nanos \\ nil,
         interval_in_seconds,
-        interval_window_in_seconds \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        property_alias \\ nil,
-        property_id \\ nil,
         quality,
         start_time_in_seconds,
-        start_time_offset_in_nanos \\ nil,
         type,
         options \\ []
       ) do
     url_path = "/properties/interpolated"
+
+    # Validate optional parameters
+    optional_params = [
+      asset_id: nil,
+      end_time_offset_in_nanos: nil,
+      interval_window_in_seconds: nil,
+      max_results: nil,
+      next_token: nil,
+      property_alias: nil,
+      property_id: nil,
+      start_time_offset_in_nanos: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [
+      {"endTimeInSeconds", end_time_in_seconds},
+      {"intervalInSeconds", interval_in_seconds},
+      {"quality", quality},
+      {"startTimeInSeconds", start_time_in_seconds},
+      {"type", type}
+    ]
+
+    # Optional query params
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
+      if opt_val = Keyword.get(options, :start_time_offset_in_nanos) do
+        [{"startTimeOffsetInNanos", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(start_time_offset_in_nanos) do
-        [{"startTimeOffsetInNanos", start_time_offset_in_nanos} | query_params]
+      if opt_val = Keyword.get(options, :property_id) do
+        [{"propertyId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(start_time_in_seconds) do
-        [{"startTimeInSeconds", start_time_in_seconds} | query_params]
+      if opt_val = Keyword.get(options, :property_alias) do
+        [{"propertyAlias", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(quality) do
-        [{"quality", quality} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(property_id) do
-        [{"propertyId", property_id} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(property_alias) do
-        [{"propertyAlias", property_alias} | query_params]
+      if opt_val = Keyword.get(options, :interval_window_in_seconds) do
+        [{"intervalWindowInSeconds", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :end_time_offset_in_nanos) do
+        [{"endTimeOffsetInNanos", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :asset_id) do
+        [{"assetId", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(interval_window_in_seconds) do
-        [{"intervalWindowInSeconds", interval_window_in_seconds} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "data.")
 
-    query_params =
-      if !is_nil(interval_in_seconds) do
-        [{"intervalInSeconds", interval_in_seconds} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(end_time_offset_in_nanos) do
-        [{"endTimeOffsetInNanos", end_time_offset_in_nanos} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(end_time_in_seconds) do
-        [{"endTimeInSeconds", end_time_in_seconds} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(asset_id) do
-        [{"assetId", asset_id} | query_params]
-      else
-        query_params
-      end
-
-    meta = metadata() |> Map.put_new(:host_prefix, "data.")
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :asset_id,
+        :end_time_offset_in_nanos,
+        :interval_window_in_seconds,
+        :max_results,
+        :next_token,
+        :property_alias,
+        :property_id,
+        :start_time_offset_in_nanos
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a paginated list of access policies for an identity (an IAM Identity
-  Center user, an IAM Identity Center
-  group, or an IAM user) or an IoT SiteWise Monitor resource (a portal or
-  project).
+  Center user, an IAM Identity Center group, or an IAM user) or an IoT SiteWise
+  Monitor resource (a portal or project).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAccessPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:iam_arn` (`t:string`) The ARN of the IAM user. For more information, see IAM
+    ARNs in the IAM User Guide. This parameter is required if you specify IAM
+    for identityType.
+  * `:identity_id` (`t:string`) The ID of the identity. This parameter is required
+    if you specify USER or GROUP for identityType.
+  * `:identity_type` (`t:enum["GROUP|IAM|USER"]`) The type of identity (IAM
+    Identity Center user, IAM Identity Center group, or IAM user). This
+    parameter is required if you specify identityId.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
+  * `:resource_id` (`t:string`) The ID of the resource. This parameter is required
+    if you specify resourceType.
+  * `:resource_type` (`t:enum["PORTAL|PROJECT"]`) The type of resource (portal or
+    project). This parameter is required if you specify resourceId.
   """
-  @spec list_access_policies(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_access_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_access_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_access_policies_errors()}
-  def list_access_policies(
-        %Client{} = client,
-        iam_arn \\ nil,
-        identity_id \\ nil,
-        identity_type \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        resource_id \\ nil,
-        resource_type \\ nil,
-        options \\ []
-      ) do
+  def list_access_policies(%Client{} = client, options \\ []) do
     url_path = "/access-policies"
+
+    # Validate optional parameters
+    optional_params = [
+      iam_arn: nil,
+      identity_id: nil,
+      identity_type: nil,
+      max_results: nil,
+      next_token: nil,
+      resource_id: nil,
+      resource_type: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(resource_type) do
-        [{"resourceType", resource_type} | query_params]
+      if opt_val = Keyword.get(options, :resource_type) do
+        [{"resourceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(resource_id) do
-        [{"resourceId", resource_id} | query_params]
+      if opt_val = Keyword.get(options, :resource_id) do
+        [{"resourceId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(identity_type) do
-        [{"identityType", identity_type} | query_params]
+      if opt_val = Keyword.get(options, :identity_type) do
+        [{"identityType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(identity_id) do
-        [{"identityId", identity_id} | query_params]
+      if opt_val = Keyword.get(options, :identity_id) do
+        [{"identityId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(iam_arn) do
-        [{"iamArn", iam_arn} | query_params]
+      if opt_val = Keyword.get(options, :iam_arn) do
+        [{"iamArn", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "monitor.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :iam_arn,
+        :identity_id,
+        :identity_type,
+        :max_results,
+        :next_token,
+        :resource_id,
+        :resource_type
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a paginated list of actions for a specific target resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:target_resource_id` (`t:string`) The ID of the target resource.
+  * `:target_resource_type` (`t:enum["ASSET"]`) The type of resource.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
-  @spec list_actions(map(), String.t() | nil, String.t() | nil, String.t(), String.t(), list()) ::
+  @spec list_actions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_actions_errors()}
-  def list_actions(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        target_resource_id,
-        target_resource_type,
-        options \\ []
-      ) do
+  def list_actions(%Client{} = client, target_resource_id, target_resource_type, options \\ []) do
     url_path = "/actions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [
+      {"targetResourceId", target_resource_id},
+      {"targetResourceType", target_resource_type}
+    ]
+
+    # Optional query params
     query_params =
-      if !is_nil(target_resource_type) do
-        [{"targetResourceType", target_resource_type} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(target_resource_id) do
-        [{"targetResourceId", target_resource_id} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a paginated list of composite models associated with the asset model
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAssetModelCompositeModels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either
+    the actual ID in UUID format, or else externalId: followed by the external
+    ID, if it has one. For more information, see Referencing objects with
+    external IDs in the IoT SiteWise User Guide.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
-  @spec list_asset_model_composite_models(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_asset_model_composite_models(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_model_composite_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_model_composite_models_errors()}
-  def list_asset_model_composite_models(
-        %Client{} = client,
-        asset_model_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_asset_model_composite_models(%Client{} = client, asset_model_id, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/composite-models"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves a paginated list of properties associated with an asset model.
+  Retrieves a paginated list of properties associated with an asset model. If you
+  update properties associated with the model before you finish listing all the
+  properties, you need to start all over again.
 
-  If you update properties associated with the model before you finish listing all
-  the properties,
-  you need to start all over again.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAssetModelProperties&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either
+    the actual ID in UUID format, or else externalId: followed by the external
+    ID, if it has one. For more information, see Referencing objects with
+    external IDs in the IoT SiteWise User Guide.
+
+  ## Optional parameters:
+  * `:filter` (`t:enum["ALL|BASE"]`) Filters the requested list of asset model
+    properties. You can choose one of the following options:
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request. If not specified, the default value is 50.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
-  @spec list_asset_model_properties(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_asset_model_properties(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_model_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_model_properties_errors()}
-  def list_asset_model_properties(
-        %Client{} = client,
-        asset_model_id,
-        filter \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_asset_model_properties(%Client{} = client, asset_model_id, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/properties"
+
+    # Validate optional parameters
+    optional_params = [filter: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(filter) do
-        [{"filter", filter} | query_params]
+      if opt_val = Keyword.get(options, :filter) do
+        [{"filter", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:filter, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a paginated list of summaries of all asset models.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAssetModels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:asset_model_types` (`t:list[com.amazonaws.iotsitewise#AssetModelType]`) The
+    type of asset model.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
-  @spec list_asset_models(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_asset_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_asset_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_models_errors()}
-  def list_asset_models(
-        %Client{} = client,
-        asset_model_types \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_asset_models(%Client{} = client, options \\ []) do
     url_path = "/asset-models"
+
+    # Validate optional parameters
+    optional_params = [asset_model_types: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(asset_model_types) do
-        [{"assetModelTypes", asset_model_types} | query_params]
+      if opt_val = Keyword.get(options, :asset_model_types) do
+        [{"assetModelTypes", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:asset_model_types, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves a paginated list of properties associated with an asset.
+  Retrieves a paginated list of properties associated with an asset. If you update
+  properties associated with the model before you finish listing all the
+  properties, you need to start all over again.
 
-  If you update properties associated with the model before you finish listing all
-  the properties,
-  you need to start all over again.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAssetProperties&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID
+    in UUID format, or else externalId: followed by the external ID, if it has
+    one. For more information, see Referencing objects with external IDs in the
+    IoT SiteWise User Guide.
+
+  ## Optional parameters:
+  * `:filter` (`t:enum["ALL|BASE"]`) Filters the requested list of asset
+    properties. You can choose one of the following options:
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request. If not specified, the default value is 50.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
-  @spec list_asset_properties(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_asset_properties(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_properties_errors()}
-  def list_asset_properties(
-        %Client{} = client,
-        asset_id,
-        filter \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_asset_properties(%Client{} = client, asset_id, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/properties"
+
+    # Validate optional parameters
+    optional_params = [filter: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(filter) do
-        [{"filter", filter} | query_params]
+      if opt_val = Keyword.get(options, :filter) do
+        [{"filter", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:filter, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves a paginated list of asset relationships for an asset.
+  Retrieves a paginated list of asset relationships for an asset. You can use this
+  operation to identify an asset's root asset and all associated assets between
+  that asset and its root.
 
-  You can use this operation
-  to identify an asset's root asset and all associated assets between that asset
-  and its
-  root.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAssetRelationships&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID
+    in UUID format, or else externalId: followed by the external ID, if it has
+    one. For more information, see Referencing objects with external IDs in the
+    IoT SiteWise User Guide.
+  * `:traversal_type` (`t:enum["PATH_TO_ROOT"]`) The type of traversal to use to
+    identify asset relationships. Choose the following option:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
-  @spec list_asset_relationships(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          list()
-        ) ::
+  @spec list_asset_relationships(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_relationships_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_relationships_errors()}
-  def list_asset_relationships(
-        %Client{} = client,
-        asset_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        traversal_type,
-        options \\ []
-      ) do
+  def list_asset_relationships(%Client{} = client, asset_id, traversal_type, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/assetRelationships"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"traversalType", traversal_type}]
+
+    # Optional query params
     query_params =
-      if !is_nil(traversal_type) do
-        [{"traversalType", traversal_type} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves a paginated list of asset summaries.
+  Retrieves a paginated list of asset summaries. You can use this operation to do
+  the following:
 
-  You can use this operation to do the following:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAssets&this_doc_guide=API%2520Reference)
 
-    *
-  List assets based on a specific asset model.
+  ## Parameters:
 
-    *
-  List top-level assets.
-
-  You can't use this operation to list all assets. To retrieve summaries for all
-  of your
-  assets, use
-  [ListAssetModels](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListAssetModels.html)
-  to get all of your asset model IDs. Then, use ListAssets to get all
-  assets for each asset model.
+  ## Optional parameters:
+  * `:asset_model_id` (`t:string`) The ID of the asset model by which to filter
+    the list of assets. This parameter is required if you choose ALL for filter.
+    This can be either the actual ID in UUID format, or else externalId:
+    followed by the external ID, if it has one. For more information, see
+    Referencing objects with external IDs in the IoT SiteWise User Guide.
+  * `:filter` (`t:enum["ALL|TOP_LEVEL"]`) The filter for the requested list of
+    assets. Choose one of the following options:
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
-  @spec list_assets(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_assets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assets_errors()}
-  def list_assets(
-        %Client{} = client,
-        asset_model_id \\ nil,
-        filter \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_assets(%Client{} = client, options \\ []) do
     url_path = "/assets"
+
+    # Validate optional parameters
+    optional_params = [asset_model_id: nil, filter: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(filter) do
-        [{"filter", filter} | query_params]
+      if opt_val = Keyword.get(options, :filter) do
+        [{"filter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(asset_model_id) do
-        [{"assetModelId", asset_model_id} | query_params]
+      if opt_val = Keyword.get(options, :asset_model_id) do
+        [{"assetModelId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:asset_model_id, :filter, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves a paginated list of associated assets.
+  Retrieves a paginated list of associated assets. You can use this operation to
+  do the following:
 
-  You can use this operation to do the following:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAssociatedAssets&this_doc_guide=API%2520Reference)
 
-    *
-  List child assets associated to a parent asset by a hierarchy that you specify.
+  ## Parameters:
+  * `:asset_id` (`t:string`) The ID of the asset to query. This can be either the
+    actual ID in UUID format, or else externalId: followed by the external ID,
+    if it has one. For more information, see Referencing objects with external
+    IDs in the IoT SiteWise User Guide.
 
-    *
-  List an asset's parent asset.
+  ## Optional parameters:
+  * `:hierarchy_id` (`t:string`) The ID of the hierarchy by which child assets are
+    associated to the asset. (This can be either the actual ID in UUID format,
+    or else externalId: followed by the external ID, if it has one. For more
+    information, see Referencing objects with external IDs in the IoT SiteWise
+    User Guide.) To find a hierarchy ID, use the DescribeAsset or
+    DescribeAssetModel operations. This parameter is required if you choose
+    CHILD for traversalDirection.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
+  * `:traversal_direction` (`t:enum["CHILD|PARENT"]`) The direction to list
+    associated assets. Choose one of the following options:
   """
-  @spec list_associated_assets(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_associated_assets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_associated_assets_errors()}
-  def list_associated_assets(
-        %Client{} = client,
-        asset_id,
-        hierarchy_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        traversal_direction \\ nil,
-        options \\ []
-      ) do
+  def list_associated_assets(%Client{} = client, asset_id, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/hierarchies"
+
+    # Validate optional parameters
+    optional_params = [
+      hierarchy_id: nil,
+      max_results: nil,
+      next_token: nil,
+      traversal_direction: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(traversal_direction) do
-        [{"traversalDirection", traversal_direction} | query_params]
+      if opt_val = Keyword.get(options, :traversal_direction) do
+        [{"traversalDirection", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(hierarchy_id) do
-        [{"hierarchyId", hierarchy_id} | query_params]
+      if opt_val = Keyword.get(options, :hierarchy_id) do
+        [{"hierarchyId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:hierarchy_id, :max_results, :next_token, :traversal_direction])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves a paginated list of bulk import job requests.
-
-  For more information, see [List bulk import jobs
+  Retrieves a paginated list of bulk import job requests. For more information,
+  see [List bulk import jobs
   (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ListBulkImportJobs.html)
   in the *IoT SiteWise User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListBulkImportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:filter`
+    (`t:enum["ALL|CANCELLED|COMPLETED|COMPLETED_WITH_FAILURES|FAILED|PENDING|RUNNING"]`)
+    You can use a filter to select the bulk import jobs that you want to
+    retrieve.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
-  @spec list_bulk_import_jobs(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_bulk_import_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_bulk_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bulk_import_jobs_errors()}
-  def list_bulk_import_jobs(
-        %Client{} = client,
-        filter \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_bulk_import_jobs(%Client{} = client, options \\ []) do
     url_path = "/jobs"
+
+    # Validate optional parameters
+    optional_params = [filter: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(filter) do
-        [{"filter", filter} | query_params]
+      if opt_val = Keyword.get(options, :filter) do
+        [{"filter", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "data.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "data.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:filter, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -6939,149 +7919,257 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves a paginated list of composition relationships for an asset model of
   type `COMPONENT_MODEL`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListCompositionRelationships&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either
+    the actual ID in UUID format, or else externalId: followed by the external
+    ID, if it has one. For more information, see Referencing objects with
+    external IDs in the IoT SiteWise User Guide.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
-  @spec list_composition_relationships(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_composition_relationships(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_composition_relationships_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_composition_relationships_errors()}
-  def list_composition_relationships(
-        %Client{} = client,
-        asset_model_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_composition_relationships(%Client{} = client, asset_model_id, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/composition-relationships"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a paginated list of dashboards for an IoT SiteWise Monitor project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListDashboards&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project_id` (`t:string`) The ID of the project.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
-  @spec list_dashboards(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
+  @spec list_dashboards(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_dashboards_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dashboards_errors()}
-  def list_dashboards(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        project_id,
-        options \\ []
-      ) do
+  def list_dashboards(%Client{} = client, project_id, options \\ []) do
     url_path = "/dashboards"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"projectId", project_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(project_id) do
-        [{"projectId", project_id} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a paginated list of gateways.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListGateways&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
-  @spec list_gateways(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_gateways(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_gateways_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_gateways_errors()}
-  def list_gateways(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_gateways(%Client{} = client, options \\ []) do
     url_path = "/20200301/gateways"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a paginated list of IoT SiteWise Monitor portals.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListPortals&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
-  @spec list_portals(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_portals(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_portals_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_portals_errors()}
-  def list_portals(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_portals(%Client{} = client, options \\ []) do
     url_path = "/portals"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "monitor.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -7089,189 +8177,288 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves a paginated list of assets associated with an IoT SiteWise Monitor
   project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListProjectAssets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project_id` (`t:string`) The ID of the project.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
-  @spec list_project_assets(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_project_assets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_project_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_project_assets_errors()}
-  def list_project_assets(
-        %Client{} = client,
-        project_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_project_assets(%Client{} = client, project_id, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}/assets"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "monitor.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a paginated list of projects for an IoT SiteWise Monitor portal.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListProjects&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:portal_id` (`t:string`) The ID of the portal.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
-  @spec list_projects(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
+  @spec list_projects(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_projects_errors()}
-  def list_projects(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        portal_id,
-        options \\ []
-      ) do
+  def list_projects(%Client{} = client, portal_id, options \\ []) do
     url_path = "/projects"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"portalId", portal_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(portal_id) do
-        [{"portalId", portal_id} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the list of tags for an IoT SiteWise resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(resource_arn) do
-        [{"resourceArn", resource_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Required query params
+    query_params = [{"resourceArn", resource_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a paginated list of time series (data streams).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListTimeSeries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:alias_prefix` (`t:string`) The alias prefix of the time series.
+  * `:asset_id` (`t:string`) The ID of the asset in which the asset property was
+    created. This can be either the actual ID in UUID format, or else
+    externalId: followed by the external ID, if it has one. For more
+    information, see Referencing objects with external IDs in the IoT SiteWise
+    User Guide.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
+  * `:time_series_type` (`t:enum["ASSOCIATED|DISASSOCIATED"]`) The type of the
+    time series. The time series type can be one of the following values:
   """
-  @spec list_time_series(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_time_series(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_time_series_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_time_series_errors()}
-  def list_time_series(
-        %Client{} = client,
-        alias_prefix \\ nil,
-        asset_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        time_series_type \\ nil,
-        options \\ []
-      ) do
+  def list_time_series(%Client{} = client, options \\ []) do
     url_path = "/timeseries"
+
+    # Validate optional parameters
+    optional_params = [
+      alias_prefix: nil,
+      asset_id: nil,
+      max_results: nil,
+      next_token: nil,
+      time_series_type: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(time_series_type) do
-        [{"timeSeriesType", time_series_type} | query_params]
+      if opt_val = Keyword.get(options, :time_series_type) do
+        [{"timeSeriesType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(asset_id) do
-        [{"assetId", asset_id} | query_params]
+      if opt_val = Keyword.get(options, :asset_id) do
+        [{"assetId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(alias_prefix) do
-        [{"aliasPrefix", alias_prefix} | query_params]
+      if opt_val = Keyword.get(options, :alias_prefix) do
+        [{"aliasPrefix", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:alias_prefix, :asset_id, :max_results, :next_token, :time_series_type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Sets the default encryption configuration for the Amazon Web Services account.
+  For more information, see [Key
+  management](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html)
+  in the *IoT SiteWise User Guide*.
 
-  For more information, see
-  [Key management](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html)
-  in
-  the *IoT SiteWise User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20PutDefaultEncryptionConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec put_default_encryption_configuration(
-          map(),
+          AWS.Client.t(),
           put_default_encryption_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_default_encryption_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7281,7 +8468,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -7298,8 +8486,14 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Sets logging options for IoT SiteWise.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20PutLoggingOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_logging_options(map(), put_logging_options_request(), list()) ::
+  @spec put_logging_options(AWS.Client.t(), put_logging_options_request(), Keyword.t()) ::
           {:ok, put_logging_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_logging_options_errors()}
@@ -7308,15 +8502,26 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Configures storage settings for IoT SiteWise.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20PutStorageConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_storage_configuration(map(), put_storage_configuration_request(), list()) ::
+  @spec put_storage_configuration(
+          AWS.Client.t(),
+          put_storage_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_storage_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_storage_configuration_errors()}
@@ -7325,7 +8530,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -7341,12 +8547,17 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Adds tags to an IoT SiteWise resource.
+  Adds tags to an IoT SiteWise resource. If a tag already exists for the resource,
+  this operation updates the tag's value.
 
-  If a tag already exists for the resource, this operation
-  updates the tag's value.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource to tag.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -7360,7 +8571,8 @@ defmodule AWS.IoTSiteWise do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -7377,8 +8589,17 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Removes a tag from an IoT SiteWise resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource to untag.
+  * `:tag_keys` (`t:list[com.amazonaws.iotsitewise#TagKey]`) A list of keys for
+    tags to remove from the resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -7393,7 +8614,8 @@ defmodule AWS.IoTSiteWise do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -7410,10 +8632,21 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Updates an existing access policy that specifies an identity's access to an IoT
-  SiteWise Monitor
-  portal or project resource.
+  SiteWise Monitor portal or project resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateAccessPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:access_policy_id` (`t:string`) The ID of the access policy.
+
+  ## Optional parameters:
   """
-  @spec update_access_policy(map(), String.t(), update_access_policy_request(), list()) ::
+  @spec update_access_policy(
+          AWS.Client.t(),
+          String.t(),
+          update_access_policy_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_access_policy_errors()}
@@ -7422,19 +8655,28 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "monitor.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Updates an asset's name.
+  Updates an asset's name. For more information, see [Updating assets and
+  models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html)
+  in the *IoT SiteWise User Guide*.
 
-  For more information, see [Updating assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html)
-  in the
-  *IoT SiteWise User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_id` (`t:string`) The ID of the asset to update. This can be either the
+    actual ID in UUID format, or else externalId: followed by the external ID,
+    if it has one. For more information, see Referencing objects with external
+    IDs in the IoT SiteWise User Guide.
+
+  ## Optional parameters:
   """
-  @spec update_asset(map(), String.t(), update_asset_request(), list()) ::
+  @spec update_asset(AWS.Client.t(), String.t(), update_asset_request(), Keyword.t()) ::
           {:ok, update_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_asset_errors()}
@@ -7443,37 +8685,38 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
   Updates an asset model and all of the assets that were created from the model.
-
-  Each asset
-  created from the model inherits the updated asset model's property and hierarchy
-  definitions.
-  For more information, see [Updating assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html)
-  in the
-  *IoT SiteWise User Guide*.
-
-  This operation overwrites the existing model with the provided model. To avoid
-  deleting
-  your asset model's properties or hierarchies, you must include their IDs and
-  definitions in
-  the updated asset model payload. For more information, see
+  Each asset created from the model inherits the updated asset model's property
+  and hierarchy definitions. For more information, see [Updating assets and
+  models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html)
+  in the *IoT SiteWise User Guide*. This operation overwrites the existing model
+  with the provided model. To avoid deleting your asset model's properties or
+  hierarchies, you must include their IDs and definitions in the updated asset
+  model payload. For more information, see
   [DescribeAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html).
+  If you remove a property from an asset model, IoT SiteWise deletes all
+  previous data for that property. If you remove a hierarchy definition from an
+  asset model, IoT SiteWise disassociates every asset associated with that
+  hierarchy. You can't change the type or data type of an existing property.
 
-  If you remove a property from an asset model, IoT SiteWise deletes all previous
-  data for that
-  property. If you remove a hierarchy definition from an asset model, IoT SiteWise
-  disassociates every
-  asset associated with that hierarchy. You can't change the type or data type of
-  an existing
-  property.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateAssetModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_model_id` (`t:string`) The ID of the asset model to update. This can
+    be either the actual ID in UUID format, or else externalId: followed by the
+    external ID, if it has one. For more information, see Referencing objects
+    with external IDs in the IoT SiteWise User Guide.
+
+  ## Optional parameters:
   """
-  @spec update_asset_model(map(), String.t(), update_asset_model_request(), list()) ::
+  @spec update_asset_model(AWS.Client.t(), String.t(), update_asset_model_request(), Keyword.t()) ::
           {:ok, update_asset_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_asset_model_errors()}
@@ -7482,44 +8725,35 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
   Updates a composite model and all of the assets that were created from the
-  model.
+  model. Each asset created from the model inherits the updated asset model's
+  property and hierarchy definitions. For more information, see [Updating assets
+  and
+  models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html)
+  in the *IoT SiteWise User Guide*.
 
-  Each asset
-  created from the model inherits the updated asset model's property and hierarchy
-  definitions.
-  For more information, see [Updating assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html)
-  in the
-  *IoT SiteWise User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateAssetModelCompositeModel&this_doc_guide=API%2520Reference)
 
-  If you remove a property from a composite asset model, IoT SiteWise deletes all
-  previous data for that property. You can’t change the type or data type of an
-  existing property.
+  ## Parameters:
+  * `:asset_model_composite_model_id` (`t:string`) The ID of a composite model on
+    this asset model.
+  * `:asset_model_id` (`t:string`) The ID of the asset model, in UUID format.
 
-  To replace an existing composite asset model property with a new one with the
-  same `name`, do the following:
-
-    
-  Submit an `UpdateAssetModelCompositeModel` request with the entire existing
-  property removed.
-
-    
-  Submit a second `UpdateAssetModelCompositeModel` request that includes the new
-  property. The new asset property will have the same
-  `name` as the previous one and IoT SiteWise will generate a new unique `id`.
+  ## Optional parameters:
   """
   @spec update_asset_model_composite_model(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_asset_model_composite_model_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_asset_model_composite_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7537,7 +8771,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
@@ -7545,19 +8780,26 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Updates an asset property's alias and notification state.
 
-  This operation overwrites the property's existing alias and notification state.
-  To keep
-  your existing property's alias or notification state, you must include the
-  existing values
-  in the UpdateAssetProperty request. For more information, see
-  [DescribeAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetProperty.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateAssetProperty&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_id` (`t:string`) The ID of the asset to be updated. This can be either
+    the actual ID in UUID format, or else externalId: followed by the external
+    ID, if it has one. For more information, see Referencing objects with
+    external IDs in the IoT SiteWise User Guide.
+  * `:property_id` (`t:string`) The ID of the asset property to be updated. This
+    can be either the actual ID in UUID format, or else externalId: followed by
+    the external ID, if it has one. For more information, see Referencing
+    objects with external IDs in the IoT SiteWise User Guide.
+
+  ## Optional parameters:
   """
   @spec update_asset_property(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_asset_property_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -7569,15 +8811,23 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates an IoT SiteWise Monitor dashboard.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateDashboard&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dashboard_id` (`t:string`) The ID of the dashboard to update.
+
+  ## Optional parameters:
   """
-  @spec update_dashboard(map(), String.t(), update_dashboard_request(), list()) ::
+  @spec update_dashboard(AWS.Client.t(), String.t(), update_dashboard_request(), Keyword.t()) ::
           {:ok, update_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dashboard_errors()}
@@ -7586,15 +8836,23 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "monitor.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a gateway's name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateGateway&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:gateway_id` (`t:string`) The ID of the gateway to update.
+
+  ## Optional parameters:
   """
-  @spec update_gateway(map(), String.t(), update_gateway_request(), list()) ::
+  @spec update_gateway(AWS.Client.t(), String.t(), update_gateway_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_gateway_errors()}
@@ -7603,29 +8861,33 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a gateway capability configuration or defines a new capability
-  configuration.
-
-  Each gateway capability defines data sources for a gateway. A capability
-  configuration
-  can contain multiple data source configurations. If you define OPC-UA sources
-  for a gateway in
-  the IoT SiteWise console, all of your OPC-UA sources are stored in one
-  capability configuration. To
-  list all capability configurations for a gateway, use
+  configuration. Each gateway capability defines data sources for a gateway. A
+  capability configuration can contain multiple data source configurations. If
+  you define OPC-UA sources for a gateway in the IoT SiteWise console, all of
+  your OPC-UA sources are stored in one capability configuration. To list all
+  capability configurations for a gateway, use
   [DescribeGateway](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateGatewayCapabilityConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:gateway_id` (`t:string`) The ID of the gateway to be updated.
+
+  ## Optional parameters:
   """
   @spec update_gateway_capability_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_gateway_capability_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_gateway_capability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7640,7 +8902,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -7657,8 +8920,15 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Updates an IoT SiteWise Monitor portal.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdatePortal&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:portal_id` (`t:string`) The ID of the portal to update.
+
+  ## Optional parameters:
   """
-  @spec update_portal(map(), String.t(), update_portal_request(), list()) ::
+  @spec update_portal(AWS.Client.t(), String.t(), update_portal_request(), Keyword.t()) ::
           {:ok, update_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_portal_errors()}
@@ -7667,15 +8937,23 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "monitor.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
   Updates an IoT SiteWise Monitor project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project_id` (`t:string`) The ID of the project to update.
+
+  ## Optional parameters:
   """
-  @spec update_project(map(), String.t(), update_project_request(), list()) ::
+  @spec update_project(AWS.Client.t(), String.t(), update_project_request(), Keyword.t()) ::
           {:ok, update_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_errors()}
@@ -7684,7 +8962,8 @@ defmodule AWS.IoTSiteWise do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "monitor.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

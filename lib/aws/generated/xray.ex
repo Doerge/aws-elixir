@@ -4,8 +4,7 @@
 defmodule AWS.XRay do
   @moduledoc """
   Amazon Web Services X-Ray provides APIs for managing debug traces and retrieving
-  service maps
-  and other data created by processing those traces.
+  service maps and other data created by processing those traces.
   """
 
   alias AWS.Client
@@ -1734,14 +1733,17 @@ defmodule AWS.XRay do
   end
 
   @doc """
-  Retrieves a list of traces specified by ID.
+  Retrieves a list of traces specified by ID. Each trace is a collection of
+  segment documents that originates from a single request. Use
+  `GetTraceSummaries` to get a list of trace IDs.
 
-  Each trace is a collection of segment
-  documents that originates from a single request. Use `GetTraceSummaries` to get
-  a
-  list of trace IDs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20BatchGetTraces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_get_traces(map(), batch_get_traces_request(), list()) ::
+  @spec batch_get_traces(AWS.Client.t(), batch_get_traces_request(), Keyword.t()) ::
           {:ok, batch_get_traces_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_traces_errors()}
@@ -1750,7 +1752,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1767,8 +1770,14 @@ defmodule AWS.XRay do
 
   @doc """
   Creates a group resource with a name and a filter expression.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20CreateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_group(map(), create_group_request(), list()) ::
+  @spec create_group(AWS.Client.t(), create_group_request(), Keyword.t()) ::
           {:ok, create_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_errors()}
@@ -1777,7 +1786,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1794,21 +1804,22 @@ defmodule AWS.XRay do
 
   @doc """
   Creates a rule to control sampling behavior for instrumented applications.
-
-  Services
-  retrieve rules with
-  [GetSamplingRules](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html), and evaluate each rule in ascending
-  order of *priority* for each request. If a rule matches, the service
-  records a trace, borrowing it from the reservoir size. After 10 seconds, the
-  service
-  reports back to X-Ray with
+  Services retrieve rules with
+  [GetSamplingRules](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html),
+  and evaluate each rule in ascending order of *priority* for each request. If a
+  rule matches, the service records a trace, borrowing it from the reservoir
+  size. After 10 seconds, the service reports back to X-Ray with
   [GetSamplingTargets](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html)
-  to get updated versions of
-  each in-use rule. The updated rule contains a trace quota that the service can
-  use instead
-  of borrowing from the reservoir.
+  to get updated versions of each in-use rule. The updated rule contains a trace
+  quota that the service can use instead of borrowing from the reservoir.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20CreateSamplingRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_sampling_rule(map(), create_sampling_rule_request(), list()) ::
+  @spec create_sampling_rule(AWS.Client.t(), create_sampling_rule_request(), Keyword.t()) ::
           {:ok, create_sampling_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sampling_rule_errors()}
@@ -1817,7 +1828,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1834,8 +1846,14 @@ defmodule AWS.XRay do
 
   @doc """
   Deletes a group resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20DeleteGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_group(map(), delete_group_request(), list()) ::
+  @spec delete_group(AWS.Client.t(), delete_group_request(), Keyword.t()) ::
           {:ok, delete_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_group_errors()}
@@ -1844,7 +1862,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1861,8 +1880,14 @@ defmodule AWS.XRay do
 
   @doc """
   Deletes a resource policy from the target Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
+  @spec delete_resource_policy(AWS.Client.t(), delete_resource_policy_request(), Keyword.t()) ::
           {:ok, delete_resource_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
@@ -1871,7 +1896,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1888,8 +1914,14 @@ defmodule AWS.XRay do
 
   @doc """
   Deletes a sampling rule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20DeleteSamplingRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_sampling_rule(map(), delete_sampling_rule_request(), list()) ::
+  @spec delete_sampling_rule(AWS.Client.t(), delete_sampling_rule_request(), Keyword.t()) ::
           {:ok, delete_sampling_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sampling_rule_errors()}
@@ -1898,7 +1930,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1915,8 +1948,14 @@ defmodule AWS.XRay do
 
   @doc """
   Retrieves the current encryption configuration for X-Ray data.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetEncryptionConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_encryption_config(map(), get_encryption_config_request(), list()) ::
+  @spec get_encryption_config(AWS.Client.t(), get_encryption_config_request(), Keyword.t()) ::
           {:ok, get_encryption_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_encryption_config_errors()}
@@ -1925,7 +1964,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1942,8 +1982,14 @@ defmodule AWS.XRay do
 
   @doc """
   Retrieves group resource details.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_group(map(), get_group_request(), list()) ::
+  @spec get_group(AWS.Client.t(), get_group_request(), Keyword.t()) ::
           {:ok, get_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_errors()}
@@ -1952,7 +1998,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1969,8 +2016,14 @@ defmodule AWS.XRay do
 
   @doc """
   Retrieves all active group details.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_groups(map(), get_groups_request(), list()) ::
+  @spec get_groups(AWS.Client.t(), get_groups_request(), Keyword.t()) ::
           {:ok, get_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_groups_errors()}
@@ -1979,7 +2032,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1995,14 +2049,17 @@ defmodule AWS.XRay do
   end
 
   @doc """
-  Retrieves the summary information of an insight.
+  Retrieves the summary information of an insight. This includes impact to clients
+  and root cause services, the top anomalous services, the category, the state
+  of the insight, and the start and end time of the insight.
 
-  This includes impact to clients and
-  root cause services, the top anomalous services, the category, the state of the
-  insight,
-  and the start and end time of the insight.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetInsight&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_insight(map(), get_insight_request(), list()) ::
+  @spec get_insight(AWS.Client.t(), get_insight_request(), Keyword.t()) ::
           {:ok, get_insight_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insight_errors()}
@@ -2011,7 +2068,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2028,14 +2086,16 @@ defmodule AWS.XRay do
 
   @doc """
   X-Ray reevaluates insights periodically until they're resolved, and records each
-  intermediate state as an
-  event.
+  intermediate state as an event. You can review an insight's events in the
+  Impact Timeline on the Inspect page in the X-Ray console.
 
-  You can review an insight's events in the Impact Timeline on the Inspect page in
-  the X-Ray
-  console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetInsightEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_insight_events(map(), get_insight_events_request(), list()) ::
+  @spec get_insight_events(AWS.Client.t(), get_insight_events_request(), Keyword.t()) ::
           {:ok, get_insight_events_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insight_events_errors()}
@@ -2044,7 +2104,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2060,13 +2121,17 @@ defmodule AWS.XRay do
   end
 
   @doc """
-  Retrieves a service graph structure filtered by the specified insight.
+  Retrieves a service graph structure filtered by the specified insight. The
+  service graph is limited to only structural information. For a complete
+  service graph, use this API with the GetServiceGraph API.
 
-  The service graph is limited to only
-  structural information. For a complete service graph, use this API with the
-  GetServiceGraph API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetInsightImpactGraph&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_insight_impact_graph(map(), get_insight_impact_graph_request(), list()) ::
+  @spec get_insight_impact_graph(AWS.Client.t(), get_insight_impact_graph_request(), Keyword.t()) ::
           {:ok, get_insight_impact_graph_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insight_impact_graph_errors()}
@@ -2075,7 +2140,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2093,8 +2159,14 @@ defmodule AWS.XRay do
   @doc """
   Retrieves the summaries of all insights in the specified group matching the
   provided filter values.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetInsightSummaries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_insight_summaries(map(), get_insight_summaries_request(), list()) ::
+  @spec get_insight_summaries(AWS.Client.t(), get_insight_summaries_request(), Keyword.t()) ::
           {:ok, get_insight_summaries_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insight_summaries_errors()}
@@ -2103,7 +2175,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2120,8 +2193,14 @@ defmodule AWS.XRay do
 
   @doc """
   Retrieves all sampling rules.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetSamplingRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_sampling_rules(map(), get_sampling_rules_request(), list()) ::
+  @spec get_sampling_rules(AWS.Client.t(), get_sampling_rules_request(), Keyword.t()) ::
           {:ok, get_sampling_rules_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sampling_rules_errors()}
@@ -2130,7 +2209,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2147,11 +2227,17 @@ defmodule AWS.XRay do
 
   @doc """
   Retrieves information about recent sampling results for all sampling rules.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetSamplingStatisticSummaries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec get_sampling_statistic_summaries(
-          map(),
+          AWS.Client.t(),
           get_sampling_statistic_summaries_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_sampling_statistic_summaries_result(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2161,7 +2247,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2179,8 +2266,14 @@ defmodule AWS.XRay do
   @doc """
   Requests a sampling quota for rules that the service is using to sample
   requests.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetSamplingTargets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_sampling_targets(map(), get_sampling_targets_request(), list()) ::
+  @spec get_sampling_targets(AWS.Client.t(), get_sampling_targets_request(), Keyword.t()) ::
           {:ok, get_sampling_targets_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sampling_targets_errors()}
@@ -2189,7 +2282,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2206,16 +2300,20 @@ defmodule AWS.XRay do
 
   @doc """
   Retrieves a document that describes services that process incoming requests, and
-  downstream services that they call as a result.
-
-  Root services process incoming requests and
-  make calls to downstream services. Root services are applications that use the
-  [Amazon Web Services X-Ray SDK](https://docs.aws.amazon.com/xray/index.html).
-  Downstream services can be other applications, Amazon Web Services resources,
-  HTTP web APIs, or SQL
+  downstream services that they call as a result. Root services process incoming
+  requests and make calls to downstream services. Root services are applications
+  that use the [Amazon Web Services X-Ray
+  SDK](https://docs.aws.amazon.com/xray/index.html). Downstream services can be
+  other applications, Amazon Web Services resources, HTTP web APIs, or SQL
   databases.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetServiceGraph&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_service_graph(map(), get_service_graph_request(), list()) ::
+  @spec get_service_graph(AWS.Client.t(), get_service_graph_request(), Keyword.t()) ::
           {:ok, get_service_graph_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_graph_errors()}
@@ -2224,7 +2322,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2240,13 +2339,18 @@ defmodule AWS.XRay do
   end
 
   @doc """
-  Get an aggregation of service statistics defined by a specific time
-  range.
+  Get an aggregation of service statistics defined by a specific time range.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetTimeSeriesServiceStatistics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec get_time_series_service_statistics(
-          map(),
+          AWS.Client.t(),
           get_time_series_service_statistics_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_time_series_service_statistics_result(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2256,7 +2360,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2273,8 +2378,14 @@ defmodule AWS.XRay do
 
   @doc """
   Retrieves a service graph for one or more specific trace IDs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetTraceGraph&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_trace_graph(map(), get_trace_graph_request(), list()) ::
+  @spec get_trace_graph(AWS.Client.t(), get_trace_graph_request(), Keyword.t()) ::
           {:ok, get_trace_graph_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_trace_graph_errors()}
@@ -2283,7 +2394,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2300,31 +2412,19 @@ defmodule AWS.XRay do
 
   @doc """
   Retrieves IDs and annotations for traces available for a specified time frame
-  using an
-  optional filter.
+  using an optional filter. To get the full traces, pass the trace IDs to
+  `BatchGetTraces`. A filter expression can target traced requests that hit
+  specific service nodes or edges, have errors, or come from a known user. For
+  example, the following filter expression targets traces that pass through
+  `api.example.com`:
 
-  To get the full traces, pass the trace IDs to
-  `BatchGetTraces`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetTraceSummaries&this_doc_guide=API%2520Reference)
 
-  A filter expression can target traced requests that hit specific service nodes
-  or
-  edges, have errors, or come from a known user. For example, the following filter
-  expression
-  targets traces that pass through `api.example.com`:
+  ## Parameters:
 
-  `service("api.example.com")`
-
-  This filter expression finds traces that have an annotation named `account`
-  with the value `12345`:
-
-  `annotation.account = "12345"`
-
-  For a full list of indexed fields and keywords that you can use in filter
-  expressions,
-  see [Using Filter Expressions](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html)
-  in the *Amazon Web Services X-Ray Developer Guide*.
+  ## Optional parameters:
   """
-  @spec get_trace_summaries(map(), get_trace_summaries_request(), list()) ::
+  @spec get_trace_summaries(AWS.Client.t(), get_trace_summaries_request(), Keyword.t()) ::
           {:ok, get_trace_summaries_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_trace_summaries_errors()}
@@ -2333,7 +2433,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2350,8 +2451,14 @@ defmodule AWS.XRay do
 
   @doc """
   Returns the list of resource policies in the target Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20ListResourcePolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_resource_policies(map(), list_resource_policies_request(), list()) ::
+  @spec list_resource_policies(AWS.Client.t(), list_resource_policies_request(), Keyword.t()) ::
           {:ok, list_resource_policies_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_policies_errors()}
@@ -2360,7 +2467,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2378,8 +2486,14 @@ defmodule AWS.XRay do
   @doc """
   Returns a list of tags that are applied to the specified Amazon Web Services
   X-Ray group or sampling rule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
@@ -2388,7 +2502,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2405,8 +2520,14 @@ defmodule AWS.XRay do
 
   @doc """
   Updates the encryption configuration for X-Ray data.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20PutEncryptionConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_encryption_config(map(), put_encryption_config_request(), list()) ::
+  @spec put_encryption_config(AWS.Client.t(), put_encryption_config_request(), Keyword.t()) ::
           {:ok, put_encryption_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_encryption_config_errors()}
@@ -2415,7 +2536,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2431,18 +2553,19 @@ defmodule AWS.XRay do
   end
 
   @doc """
-
   Sets the resource policy to grant one or more Amazon Web Services services and
-  accounts permissions to
-  access X-Ray.
+  accounts permissions to access X-Ray. Each resource policy will be associated
+  with a specific Amazon Web Services account. Each Amazon Web Services account
+  can have a maximum of 5 resource policies, and each policy name must be unique
+  within that account. The maximum size of each resource policy is 5KB.
 
-  Each resource policy will be associated with a specific Amazon Web Services
-  account.
-  Each Amazon Web Services account can have a maximum of 5 resource policies, and
-  each policy name must be
-  unique within that account. The maximum size of each resource policy is 5KB.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20PutResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
+  @spec put_resource_policy(AWS.Client.t(), put_resource_policy_request(), Keyword.t()) ::
           {:ok, put_resource_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
@@ -2451,7 +2574,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2468,8 +2592,14 @@ defmodule AWS.XRay do
 
   @doc """
   Used by the Amazon Web Services X-Ray daemon to upload telemetry.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20PutTelemetryRecords&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_telemetry_records(map(), put_telemetry_records_request(), list()) ::
+  @spec put_telemetry_records(AWS.Client.t(), put_telemetry_records_request(), Keyword.t()) ::
           {:ok, put_telemetry_records_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_telemetry_records_errors()}
@@ -2478,7 +2608,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2494,80 +2625,23 @@ defmodule AWS.XRay do
   end
 
   @doc """
-  Uploads segment documents to Amazon Web Services X-Ray.
-
-  The [X-Ray SDK](https://docs.aws.amazon.com/xray/index.html) generates segment documents and sends them to the X-Ray daemon, which uploads them in
-  batches. A segment document can be a completed segment, an in-progress segment,
-  or an array of
-  subsegments.
-
-  Segments must include the following fields. For the full segment document
-  schema, see
-  [Amazon Web Services X-Ray
-  Segment
+  Uploads segment documents to Amazon Web Services X-Ray. The [X-Ray
+  SDK](https://docs.aws.amazon.com/xray/index.html) generates segment documents
+  and sends them to the X-Ray daemon, which uploads them in batches. A segment
+  document can be a completed segment, an in-progress segment, or an array of
+  subsegments. Segments must include the following fields. For the full segment
+  document schema, see [Amazon Web Services X-Ray Segment
   Documents](https://docs.aws.amazon.com/xray/latest/devguide/xray-api-segmentdocuments.html)
-  in the *Amazon Web Services X-Ray Developer Guide*.
+  in the *Amazon Web Services X-Ray Developer Guide*. **Required segment
+  document fields**
 
-  ## Required segment document fields
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20PutTraceSegments&this_doc_guide=API%2520Reference)
 
-    *
+  ## Parameters:
 
-  `name` - The name of the service that handled the request.
-
-    *
-
-  `id` - A 64-bit identifier for the segment, unique among segments in the same
-  trace, in 16
-  hexadecimal digits.
-
-    *
-
-  `trace_id` - A unique identifier that connects all segments and subsegments
-  originating from
-  a single client request.
-
-    *
-
-  `start_time` - Time the segment or subsegment was created, in floating point
-  seconds in
-  epoch time, accurate to milliseconds. For example, `1480615200.010` or
-  `1.480615200010E9`.
-
-    *
-
-  `end_time` - Time the segment or subsegment was closed. For example,
-  `1480615200.090` or `1.480615200090E9`. Specify either an `end_time` or
-  `in_progress`.
-
-    *
-
-  `in_progress` - Set to `true` instead of specifying an `end_time` to
-  record that a segment has been started, but is not complete. Send an in-progress
-  segment when your application
-  receives a request that will take a long time to serve, to trace that the
-  request was received. When the
-  response is sent, send the complete segment to overwrite the in-progress
-  segment.
-
-  A `trace_id` consists of three numbers separated by hyphens. For example,
-  1-58406520-a006649127e371903a2de979. This includes:
-
-  ## Trace ID Format
-
-    *
-  The version number, for instance, `1`.
-
-    *
-  The time of the original request, in Unix epoch time, in 8 hexadecimal digits.
-  For
-  example, 10:00AM December 2nd, 2016 PST in epoch time is `1480615200` seconds,
-  or `58406520` in hexadecimal.
-
-    *
-  A 96-bit identifier for the trace, globally unique, in 24 hexadecimal
-  digits.
+  ## Optional parameters:
   """
-  @spec put_trace_segments(map(), put_trace_segments_request(), list()) ::
+  @spec put_trace_segments(AWS.Client.t(), put_trace_segments_request(), Keyword.t()) ::
           {:ok, put_trace_segments_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_trace_segments_errors()}
@@ -2576,7 +2650,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2593,8 +2668,14 @@ defmodule AWS.XRay do
 
   @doc """
   Applies tags to an existing Amazon Web Services X-Ray group or sampling rule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2603,7 +2684,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2619,12 +2701,16 @@ defmodule AWS.XRay do
   end
 
   @doc """
-  Removes tags from an Amazon Web Services X-Ray group or sampling rule.
+  Removes tags from an Amazon Web Services X-Ray group or sampling rule. You
+  cannot edit or delete system tags (those with an `aws:` prefix).
 
-  You cannot edit or delete system
-  tags (those with an `aws:` prefix).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2633,7 +2719,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2650,8 +2737,14 @@ defmodule AWS.XRay do
 
   @doc """
   Updates a group resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20UpdateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_group(map(), update_group_request(), list()) ::
+  @spec update_group(AWS.Client.t(), update_group_request(), Keyword.t()) ::
           {:ok, update_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_group_errors()}
@@ -2660,7 +2753,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2677,8 +2771,14 @@ defmodule AWS.XRay do
 
   @doc """
   Modifies a sampling rule's configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20UpdateSamplingRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_sampling_rule(map(), update_sampling_rule_request(), list()) ::
+  @spec update_sampling_rule(AWS.Client.t(), update_sampling_rule_request(), Keyword.t()) ::
           {:ok, update_sampling_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sampling_rule_errors()}
@@ -2687,7 +2787,8 @@ defmodule AWS.XRay do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

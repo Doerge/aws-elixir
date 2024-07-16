@@ -4,12 +4,10 @@
 defmodule AWS.OSIS do
   @moduledoc """
   Use the Amazon OpenSearch Ingestion API to create and manage ingestion
-  pipelines.
-
-  OpenSearch Ingestion is a
-  fully managed data collector that delivers real-time log and trace data to
-  OpenSearch Service domains. For more information, see
-  [Getting data into your cluster using OpenSearch Ingestion](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ingestion.html).
+  pipelines. OpenSearch Ingestion is a fully managed data collector that
+  delivers real-time log and trace data to OpenSearch Service domains. For more
+  information, see [Getting data into your cluster using OpenSearch
+  Ingestion](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ingestion.html).
   """
 
   alias AWS.Client
@@ -793,11 +791,17 @@ defmodule AWS.OSIS do
   end
 
   @doc """
-  Creates an OpenSearch Ingestion pipeline.
+  Creates an OpenSearch Ingestion pipeline. For more information, see [Creating
+  Amazon OpenSearch Ingestion
+  pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html).
 
-  For more information, see [Creating Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20CreatePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_pipeline(map(), create_pipeline_request(), list()) ::
+  @spec create_pipeline(AWS.Client.t(), create_pipeline_request(), Keyword.t()) ::
           {:ok, create_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pipeline_errors()}
@@ -806,7 +810,8 @@ defmodule AWS.OSIS do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -822,11 +827,18 @@ defmodule AWS.OSIS do
   end
 
   @doc """
-  Deletes an OpenSearch Ingestion pipeline.
+  Deletes an OpenSearch Ingestion pipeline. For more information, see [Deleting
+  Amazon OpenSearch Ingestion
+  pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/delete-pipeline.html).
 
-  For more information, see [Deleting Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/delete-pipeline.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20DeletePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:pipeline_name` (`t:string`) The name of the pipeline to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_pipeline(map(), String.t(), delete_pipeline_request(), list()) ::
+  @spec delete_pipeline(AWS.Client.t(), String.t(), delete_pipeline_request(), Keyword.t()) ::
           {:ok, delete_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pipeline_errors()}
@@ -835,7 +847,8 @@ defmodule AWS.OSIS do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -852,81 +865,159 @@ defmodule AWS.OSIS do
 
   @doc """
   Retrieves information about an OpenSearch Ingestion pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20GetPipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:pipeline_name` (`t:string`) The name of the pipeline.
+
+  ## Optional parameters:
   """
-  @spec get_pipeline(map(), String.t(), list()) ::
+  @spec get_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_pipeline_errors()}
   def get_pipeline(%Client{} = client, pipeline_name, options \\ []) do
     url_path = "/2022-01-01/osis/getPipeline/#{AWS.Util.encode_uri(pipeline_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a specific blueprint for OpenSearch Ingestion.
-
-  Blueprints are
-  templates for the configuration needed for a `CreatePipeline` request. For more
-  information, see [Using blueprints to create a
+  Blueprints are templates for the configuration needed for a `CreatePipeline`
+  request. For more information, see [Using blueprints to create a
   pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20GetPipelineBlueprint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:blueprint_name` (`t:string`) The name of the blueprint to retrieve.
+
+  ## Optional parameters:
+  * `:format` (`t:string`) The format format of the blueprint to retrieve.
   """
-  @spec get_pipeline_blueprint(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_pipeline_blueprint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_pipeline_blueprint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_pipeline_blueprint_errors()}
-  def get_pipeline_blueprint(%Client{} = client, blueprint_name, format \\ nil, options \\ []) do
+  def get_pipeline_blueprint(%Client{} = client, blueprint_name, options \\ []) do
     url_path = "/2022-01-01/osis/getPipelineBlueprint/#{AWS.Util.encode_uri(blueprint_name)}"
+
+    # Validate optional parameters
+    optional_params = [format: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(format) do
-        [{"format", format} | query_params]
+      if opt_val = Keyword.get(options, :format) do
+        [{"format", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:format])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns progress information for the current change happening on an OpenSearch
-  Ingestion
-  pipeline.
+  Ingestion pipeline. Currently, this operation only returns information when a
+  pipeline is being created.
 
-  Currently, this operation only returns information when a pipeline is being
-  created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20GetPipelineChangeProgress&this_doc_guide=API%2520Reference)
 
-  For more information, see [Tracking the status of pipeline creation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#get-pipeline-progress).
+  ## Parameters:
+  * `:pipeline_name` (`t:string`) The name of the pipeline.
+
+  ## Optional parameters:
   """
-  @spec get_pipeline_change_progress(map(), String.t(), list()) ::
+  @spec get_pipeline_change_progress(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_pipeline_change_progress_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_pipeline_change_progress_errors()}
   def get_pipeline_change_progress(%Client{} = client, pipeline_name, options \\ []) do
     url_path = "/2022-01-01/osis/getPipelineChangeProgress/#{AWS.Util.encode_uri(pipeline_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves a list of all available blueprints for Data Prepper.
+  Retrieves a list of all available blueprints for Data Prepper. For more
+  information, see [Using blueprints to create a
+  pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint).
 
-  For more information, see
-  [Using blueprints to create a pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20ListPipelineBlueprints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_pipeline_blueprints(map(), list_pipeline_blueprints_request(), list()) ::
+  @spec list_pipeline_blueprints(AWS.Client.t(), list_pipeline_blueprints_request(), Keyword.t()) ::
           {:ok, list_pipeline_blueprints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pipeline_blueprints_errors()}
@@ -935,7 +1026,8 @@ defmodule AWS.OSIS do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -952,72 +1044,130 @@ defmodule AWS.OSIS do
 
   @doc """
   Lists all OpenSearch Ingestion pipelines in the current Amazon Web Services
-  account and Region.
+  account and Region. For more information, see [Viewing Amazon OpenSearch
+  Ingestion
+  pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/list-pipeline.html).
 
-  For
-  more information, see [Viewing Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/list-pipeline.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20ListPipelines&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
+    number of results to return. You can use nextToken to get the next page of
+    results.
+  * `:next_token` (`t:string`) If your initial ListPipelines operation returns a
+    nextToken, you can include the returned nextToken in subsequent
+    ListPipelines operations, which returns results in the next page.
   """
-  @spec list_pipelines(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pipelines_errors()}
-  def list_pipelines(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_pipelines(%Client{} = client, options \\ []) do
     url_path = "/2022-01-01/osis/listPipelines"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists all resource tags associated with an OpenSearch Ingestion pipeline.
+  Lists all resource tags associated with an OpenSearch Ingestion pipeline. For
+  more information, see [Tagging Amazon OpenSearch Ingestion
+  pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
 
-  For more information,
-  see [Tagging Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the pipeline to retrieve
+    tags for.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, arn, options \\ []) do
     url_path = "/2022-01-01/osis/listTagsForResource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(arn) do
-        [{"arn", arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"arn", arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Starts an OpenSearch Ingestion pipeline.
+  Starts an OpenSearch Ingestion pipeline. For more information, see [Starting an
+  OpenSearch Ingestion
+  pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--start).
 
-  For more information, see [Starting an OpenSearch Ingestion pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--start).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20StartPipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:pipeline_name` (`t:string`) The name of the pipeline to start.
+
+  ## Optional parameters:
   """
-  @spec start_pipeline(map(), String.t(), start_pipeline_request(), list()) ::
+  @spec start_pipeline(AWS.Client.t(), String.t(), start_pipeline_request(), Keyword.t()) ::
           {:ok, start_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_pipeline_errors()}
@@ -1026,17 +1176,25 @@ defmodule AWS.OSIS do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Stops an OpenSearch Ingestion pipeline.
+  Stops an OpenSearch Ingestion pipeline. For more information, see [Stopping an
+  OpenSearch Ingestion
+  pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--stop).
 
-  For more information, see [Stopping an OpenSearch Ingestion pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--stop).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20StopPipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:pipeline_name` (`t:string`) The name of the pipeline to stop.
+
+  ## Optional parameters:
   """
-  @spec stop_pipeline(map(), String.t(), stop_pipeline_request(), list()) ::
+  @spec stop_pipeline(AWS.Client.t(), String.t(), stop_pipeline_request(), Keyword.t()) ::
           {:ok, stop_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_pipeline_errors()}
@@ -1045,17 +1203,25 @@ defmodule AWS.OSIS do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Tags an OpenSearch Ingestion pipeline.
+  Tags an OpenSearch Ingestion pipeline. For more information, see [Tagging Amazon
+  OpenSearch Ingestion
+  pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
 
-  For more information, see [Tagging Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the pipeline to tag.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1069,7 +1235,8 @@ defmodule AWS.OSIS do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1085,12 +1252,19 @@ defmodule AWS.OSIS do
   end
 
   @doc """
-  Removes one or more tags from an OpenSearch Ingestion pipeline.
-
-  For more information, see [Tagging Amazon OpenSearch Ingestion
+  Removes one or more tags from an OpenSearch Ingestion pipeline. For more
+  information, see [Tagging Amazon OpenSearch Ingestion
   pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the pipeline to remove
+    tags from.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1104,7 +1278,8 @@ defmodule AWS.OSIS do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1120,11 +1295,18 @@ defmodule AWS.OSIS do
   end
 
   @doc """
-  Updates an OpenSearch Ingestion pipeline.
+  Updates an OpenSearch Ingestion pipeline. For more information, see [Updating
+  Amazon OpenSearch Ingestion
+  pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/update-pipeline.html).
 
-  For more information, see [Updating Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/update-pipeline.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20UpdatePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:pipeline_name` (`t:string`) The name of the pipeline to update.
+
+  ## Optional parameters:
   """
-  @spec update_pipeline(map(), String.t(), update_pipeline_request(), list()) ::
+  @spec update_pipeline(AWS.Client.t(), String.t(), update_pipeline_request(), Keyword.t()) ::
           {:ok, update_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pipeline_errors()}
@@ -1133,20 +1315,24 @@ defmodule AWS.OSIS do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Checks whether an OpenSearch Ingestion pipeline configuration is valid prior to
-  creation.
-
-  For
-  more information, see [Creating Amazon OpenSearch Ingestion
+  creation. For more information, see [Creating Amazon OpenSearch Ingestion
   pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20ValidatePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec validate_pipeline(map(), validate_pipeline_request(), list()) ::
+  @spec validate_pipeline(AWS.Client.t(), validate_pipeline_request(), Keyword.t()) ::
           {:ok, validate_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_pipeline_errors()}
@@ -1155,7 +1341,8 @@ defmodule AWS.OSIS do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

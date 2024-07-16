@@ -4,10 +4,9 @@
 defmodule AWS.NeptuneGraph do
   @moduledoc """
   Neptune Analytics is a new analytics database engine for Amazon Neptune that
-  helps customers get to
-  insights faster by quickly processing large amounts of graph data, invoking
-  popular graph analytic
-  algorithms in low-latency queries, and getting analytics results in seconds.
+  helps customers get to insights faster by quickly processing large amounts of
+  graph data, invoking popular graph analytic algorithms in low-latency queries,
+  and getting analytics results in seconds.
   """
 
   alias AWS.Client
@@ -1266,8 +1265,15 @@ defmodule AWS.NeptuneGraph do
 
   @doc """
   Deletes the specified import task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20CancelImportTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:task_identifier` (`t:string`) The unique identifier of the import task.
+
+  ## Optional parameters:
   """
-  @spec cancel_import_task(map(), String.t(), cancel_import_task_input(), list()) ::
+  @spec cancel_import_task(AWS.Client.t(), String.t(), cancel_import_task_input(), Keyword.t()) ::
           {:ok, cancel_import_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_import_task_errors()}
@@ -1276,7 +1282,8 @@ defmodule AWS.NeptuneGraph do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1293,13 +1300,30 @@ defmodule AWS.NeptuneGraph do
 
   @doc """
   Cancels a specified query.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20CancelQuery&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:query_id` (`t:`) The unique identifier of the query to cancel.
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
+
+  ## Optional parameters:
   """
-  @spec cancel_query(map(), String.t(), cancel_query_input(), list()) ::
+  @spec cancel_query(AWS.Client.t(), String.t(), cancel_query_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_query_errors()}
   def cancel_query(%Client{} = client, query_id, input, options \\ []) do
     url_path = "/queries/#{AWS.Util.encode_uri(query_id)}"
+
+    optional_params = [graph_identifier: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -1309,7 +1333,8 @@ defmodule AWS.NeptuneGraph do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "{graphIdentifier}.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "{graphIdentifier}.")
 
     Request.request_rest(
       client,
@@ -1326,8 +1351,14 @@ defmodule AWS.NeptuneGraph do
 
   @doc """
   Creates a new Neptune Analytics graph.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20CreateGraph&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_graph(map(), create_graph_input(), list()) ::
+  @spec create_graph(AWS.Client.t(), create_graph_input(), Keyword.t()) ::
           {:ok, create_graph_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_graph_errors()}
@@ -1336,7 +1367,8 @@ defmodule AWS.NeptuneGraph do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1353,8 +1385,14 @@ defmodule AWS.NeptuneGraph do
 
   @doc """
   Creates a snapshot of the specific graph.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20CreateGraphSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_graph_snapshot(map(), create_graph_snapshot_input(), list()) ::
+  @spec create_graph_snapshot(AWS.Client.t(), create_graph_snapshot_input(), Keyword.t()) ::
           {:ok, create_graph_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_graph_snapshot_errors()}
@@ -1363,7 +1401,8 @@ defmodule AWS.NeptuneGraph do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1380,14 +1419,20 @@ defmodule AWS.NeptuneGraph do
 
   @doc """
   Creates a new Neptune Analytics graph and imports data into it, either from
-  Amazon Simple Storage Service (S3) or from a Neptune database
-  or a Neptune database snapshot.
+  Amazon Simple Storage Service (S3) or from a Neptune database or a Neptune
+  database snapshot.
 
-  The data can be loaded from files in S3 that in either the [Gremlin CSV format](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html)
-  or the [openCypher load
-  format](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20CreateGraphUsingImportTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_graph_using_import_task(map(), create_graph_using_import_task_input(), list()) ::
+  @spec create_graph_using_import_task(
+          AWS.Client.t(),
+          create_graph_using_import_task_input(),
+          Keyword.t()
+        ) ::
           {:ok, create_graph_using_import_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_graph_using_import_task_errors()}
@@ -1396,7 +1441,8 @@ defmodule AWS.NeptuneGraph do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1413,18 +1459,21 @@ defmodule AWS.NeptuneGraph do
 
   @doc """
   Create a private graph endpoint to allow private access from to the graph from
-  within
-  a VPC.
+  within a VPC. You can attach security groups to the private graph endpoint.
 
-  You can attach security groups to the private graph endpoint.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20CreatePrivateGraphEndpoint&this_doc_guide=API%2520Reference)
 
-  VPC endpoint charges apply.
+  ## Parameters:
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
+
+  ## Optional parameters:
   """
   @spec create_private_graph_endpoint(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_private_graph_endpoint_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_private_graph_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1434,7 +1483,8 @@ defmodule AWS.NeptuneGraph do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1450,11 +1500,22 @@ defmodule AWS.NeptuneGraph do
   end
 
   @doc """
-  Deletes the specified graph.
+  Deletes the specified graph. Graphs cannot be deleted if delete-protection is
+  enabled.
 
-  Graphs cannot be deleted if delete-protection is enabled.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20DeleteGraph&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
+  * `:skip_snapshot` (`t:`) Determines whether a final graph snapshot is created
+    before the graph is deleted. If true is specified, no graph snapshot is
+    created. If false is specified, a graph snapshot is created before the graph
+    is deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_graph(map(), String.t(), delete_graph_input(), list()) ::
+  @spec delete_graph(AWS.Client.t(), String.t(), delete_graph_input(), Keyword.t()) ::
           {:ok, delete_graph_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_graph_errors()}
@@ -1468,7 +1529,8 @@ defmodule AWS.NeptuneGraph do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1485,8 +1547,20 @@ defmodule AWS.NeptuneGraph do
 
   @doc """
   Deletes the specifed graph snapshot.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20DeleteGraphSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:snapshot_identifier` (`t:string`) ID of the graph snapshot to be deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_graph_snapshot(map(), String.t(), delete_graph_snapshot_input(), list()) ::
+  @spec delete_graph_snapshot(
+          AWS.Client.t(),
+          String.t(),
+          delete_graph_snapshot_input(),
+          Keyword.t()
+        ) ::
           {:ok, delete_graph_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_graph_snapshot_errors()}
@@ -1495,7 +1569,8 @@ defmodule AWS.NeptuneGraph do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1512,13 +1587,23 @@ defmodule AWS.NeptuneGraph do
 
   @doc """
   Deletes a private graph endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20DeletePrivateGraphEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
+  * `:vpc_id` (`t:string`) The ID of the VPC where the private endpoint is
+    located.
+
+  ## Optional parameters:
   """
   @spec delete_private_graph_endpoint(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_private_graph_endpoint_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_private_graph_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1536,7 +1621,8 @@ defmodule AWS.NeptuneGraph do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1552,28 +1638,33 @@ defmodule AWS.NeptuneGraph do
   end
 
   @doc """
-  Execute an openCypher query.
-
-  When invoking this operation in a Neptune Analytics cluster, the IAM user or
-  role making the request must have a policy attached
+  Execute an openCypher query. When invoking this operation in a Neptune Analytics
+  cluster, the IAM user or role making the request must have a policy attached
   that allows one of the following IAM actions in that cluster, depending on the
   query:
 
-    *
-  neptune-graph:ReadDataViaQuery
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ExecuteQuery&this_doc_guide=API%2520Reference)
 
-    *
-  neptune-graph:WriteDataViaQuery
+  ## Parameters:
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
 
-    *
-  neptune-graph:DeleteDataViaQuery
+  ## Optional parameters:
   """
-  @spec execute_query(map(), execute_query_input(), list()) ::
+  @spec execute_query(AWS.Client.t(), execute_query_input(), Keyword.t()) ::
           {:ok, execute_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_query_errors()}
   def execute_query(%Client{} = client, input, options \\ []) do
     url_path = "/queries"
+
+    optional_params = [graph_identifier: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -1583,7 +1674,8 @@ defmodule AWS.NeptuneGraph do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "{graphIdentifier}.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "{graphIdentifier}.")
 
     Request.request_rest(
       client,
@@ -1600,91 +1692,201 @@ defmodule AWS.NeptuneGraph do
 
   @doc """
   Gets information about a specified graph.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20GetGraph&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
+
+  ## Optional parameters:
   """
-  @spec get_graph(map(), String.t(), list()) ::
+  @spec get_graph(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_graph_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_graph_errors()}
   def get_graph(%Client{} = client, graph_identifier, options \\ []) do
     url_path = "/graphs/#{AWS.Util.encode_uri(graph_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a specified graph snapshot.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20GetGraphSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:snapshot_identifier` (`t:string`) The ID of the snapshot to retrieve.
+
+  ## Optional parameters:
   """
-  @spec get_graph_snapshot(map(), String.t(), list()) ::
+  @spec get_graph_snapshot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_graph_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_graph_snapshot_errors()}
   def get_graph_snapshot(%Client{} = client, snapshot_identifier, options \\ []) do
     url_path = "/snapshots/#{AWS.Util.encode_uri(snapshot_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a graph summary for a property graph.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20GetGraphSummary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
+
+  ## Optional parameters:
+  * `:mode` (`t:enum["BASIC|DETAILED"]`) The summary mode can take one of two
+    values: basic (the default), and detailed.
   """
-  @spec get_graph_summary(map(), String.t() | nil, String.t(), list()) ::
+  @spec get_graph_summary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_graph_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_graph_summary_errors()}
-  def get_graph_summary(%Client{} = client, mode \\ nil, graph_identifier, options \\ []) do
+  def get_graph_summary(%Client{} = client, graph_identifier, options \\ []) do
     url_path = "/summary"
-    headers = []
 
-    headers =
-      if !is_nil(graph_identifier) do
-        [{"graphIdentifier", graph_identifier} | headers]
-      else
-        headers
-      end
+    # Validate optional parameters
+    optional_params = [mode: nil]
 
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = [{"graphIdentifier", graph_identifier}]
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(mode) do
-        [{"mode", mode} | query_params]
+      if opt_val = Keyword.get(options, :mode) do
+        [{"mode", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "{graphIdentifier}.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "{graphIdentifier}.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:mode])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a specified import task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20GetImportTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:task_identifier` (`t:string`) The unique identifier of the import task.
+
+  ## Optional parameters:
   """
-  @spec get_import_task(map(), String.t(), list()) ::
+  @spec get_import_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_import_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_import_task_errors()}
   def get_import_task(%Client{} = client, task_identifier, options \\ []) do
     url_path = "/importtasks/#{AWS.Util.encode_uri(task_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a specified private endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20GetPrivateGraphEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
+  * `:vpc_id` (`t:string`) The ID of the VPC where the private endpoint is
+    located.
+
+  ## Optional parameters:
   """
-  @spec get_private_graph_endpoint(map(), String.t(), String.t(), list()) ::
+  @spec get_private_graph_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_private_graph_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_private_graph_endpoint_errors()}
@@ -1692,10 +1894,27 @@ defmodule AWS.NeptuneGraph do
     url_path =
       "/graphs/#{AWS.Util.encode_uri(graph_identifier)}/endpoints/#{AWS.Util.encode_uri(vpc_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1703,241 +1922,416 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Retrieves the status of a specified query.
 
-  When invoking this operation in a Neptune Analytics cluster, the IAM user or
-  role making the request must have the
-  `neptune-graph:GetQueryStatus` IAM action attached.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20GetQuery&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:query_id` (`t:`) The ID of the query in question.
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
+
+  ## Optional parameters:
   """
-  @spec get_query(map(), String.t(), String.t(), list()) ::
+  @spec get_query(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_query_errors()}
   def get_query(%Client{} = client, query_id, graph_identifier, options \\ []) do
     url_path = "/queries/#{AWS.Util.encode_uri(query_id)}"
-    headers = []
 
-    headers =
-      if !is_nil(graph_identifier) do
-        [{"graphIdentifier", graph_identifier} | headers]
-      else
-        headers
-      end
+    # Validate optional parameters
+    optional_params = []
 
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = [{"graphIdentifier", graph_identifier}]
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "{graphIdentifier}.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "{graphIdentifier}.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists available snapshots of a specified Neptune Analytics graph.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ListGraphSnapshots&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
+  * `:max_results` (`t:integer`) The total number of records to return in the
+    command's output.
+  * `:next_token` (`t:string`) Pagination token used to paginate output.
   """
-  @spec list_graph_snapshots(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_graph_snapshots(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_graph_snapshots_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_graph_snapshots_errors()}
-  def list_graph_snapshots(
-        %Client{} = client,
-        graph_identifier \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_graph_snapshots(%Client{} = client, options \\ []) do
     url_path = "/snapshots"
+
+    # Validate optional parameters
+    optional_params = [graph_identifier: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(graph_identifier) do
-        [{"graphIdentifier", graph_identifier} | query_params]
+      if opt_val = Keyword.get(options, :graph_identifier) do
+        [{"graphIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:graph_identifier, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists available Neptune Analytics graphs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ListGraphs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The total number of records to return in the
+    command's output.
+  * `:next_token` (`t:string`) Pagination token used to paginate output.
   """
-  @spec list_graphs(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_graphs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_graphs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_graphs_errors()}
-  def list_graphs(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_graphs(%Client{} = client, options \\ []) do
     url_path = "/graphs"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists import tasks.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ListImportTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The total number of records to return in the
+    command's output.
+  * `:next_token` (`t:string`) Pagination token used to paginate output.
   """
-  @spec list_import_tasks(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_import_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_import_tasks_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_import_tasks_errors()}
-  def list_import_tasks(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_import_tasks(%Client{} = client, options \\ []) do
     url_path = "/importtasks"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists private endpoints for a specified Neptune Analytics graph.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ListPrivateGraphEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The total number of records to return in the
+    command's output.
+  * `:next_token` (`t:string`) Pagination token used to paginate output.
   """
-  @spec list_private_graph_endpoints(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_private_graph_endpoints(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_private_graph_endpoints_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_private_graph_endpoints_errors()}
-  def list_private_graph_endpoints(
-        %Client{} = client,
-        graph_identifier,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_private_graph_endpoints(%Client{} = client, graph_identifier, options \\ []) do
     url_path = "/graphs/#{AWS.Util.encode_uri(graph_identifier)}/endpoints/"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists active openCypher queries.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ListQueries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:max_results` (`t:`) The maximum number of results to be fetched by the API.
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
+
+  ## Optional parameters:
+  * `:state` (`t:enum["ALL|CANCELLING|RUNNING|WAITING"]`) Filtered list of queries
+    based on state.
   """
-  @spec list_queries(map(), String.t(), String.t() | nil, String.t(), list()) ::
+  @spec list_queries(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_queries_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_queries_errors()}
-  def list_queries(%Client{} = client, max_results, state \\ nil, graph_identifier, options \\ []) do
+  def list_queries(%Client{} = client, max_results, graph_identifier, options \\ []) do
     url_path = "/queries"
-    headers = []
 
-    headers =
-      if !is_nil(graph_identifier) do
-        [{"graphIdentifier", graph_identifier} | headers]
-      else
-        headers
-      end
+    # Validate optional parameters
+    optional_params = [state: nil]
 
-    query_params = []
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
+    # Required headers
+    headers = [{"graphIdentifier", graph_identifier}]
+
+    # Optional headers
+
+    # Required query params
+    query_params = [{"maxResults", max_results}]
+
+    # Optional query params
     query_params =
-      if !is_nil(state) do
-        [{"state", state} | query_params]
+      if opt_val = Keyword.get(options, :state) do
+        [{"state", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "{graphIdentifier}.")
 
-    meta = metadata() |> Map.put_new(:host_prefix, "{graphIdentifier}.")
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:state])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists tags associated with a specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Empties the data from a specified Neptune Analytics graph.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ResetGraph&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:graph_identifier` (`t:string`) ID of the graph to reset.
+
+  ## Optional parameters:
   """
-  @spec reset_graph(map(), String.t(), reset_graph_input(), list()) ::
+  @spec reset_graph(AWS.Client.t(), String.t(), reset_graph_input(), Keyword.t()) ::
           {:ok, reset_graph_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_graph_errors()}
@@ -1946,19 +2340,27 @@ defmodule AWS.NeptuneGraph do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Restores a graph from a snapshot.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20RestoreGraphFromSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:snapshot_identifier` (`t:string`) The ID of the snapshot in question.
+
+  ## Optional parameters:
   """
   @spec restore_graph_from_snapshot(
-          map(),
+          AWS.Client.t(),
           String.t(),
           restore_graph_from_snapshot_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, restore_graph_from_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1968,7 +2370,8 @@ defmodule AWS.NeptuneGraph do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1985,11 +2388,17 @@ defmodule AWS.NeptuneGraph do
 
   @doc """
   Import data into existing Neptune Analytics graph from Amazon Simple Storage
-  Service (S3).
+  Service (S3). The graph needs to be empty and in the AVAILABLE state.
 
-  The graph needs to be empty and in the AVAILABLE state.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20StartImportTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
+
+  ## Optional parameters:
   """
-  @spec start_import_task(map(), String.t(), start_import_task_input(), list()) ::
+  @spec start_import_task(AWS.Client.t(), String.t(), start_import_task_input(), Keyword.t()) ::
           {:ok, start_import_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_import_task_errors()}
@@ -1998,7 +2407,8 @@ defmodule AWS.NeptuneGraph do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2015,8 +2425,16 @@ defmodule AWS.NeptuneGraph do
 
   @doc """
   Adds tags to the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) ARN of the resource for which tags need to be
+    added.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_input(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2025,7 +2443,8 @@ defmodule AWS.NeptuneGraph do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2042,8 +2461,18 @@ defmodule AWS.NeptuneGraph do
 
   @doc """
   Removes the specified tags from the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) ARN of the resource whose tag needs to be
+    removed.
+  * `:tag_keys` (`t:list[com.amazonaws.neptunegraph#TagKey]`) Tag keys for the
+    tags to be removed.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2057,7 +2486,8 @@ defmodule AWS.NeptuneGraph do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2074,8 +2504,16 @@ defmodule AWS.NeptuneGraph do
 
   @doc """
   Updates the configuration of a specified Neptune Analytics graph
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20UpdateGraph&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
+
+  ## Optional parameters:
   """
-  @spec update_graph(map(), String.t(), update_graph_input(), list()) ::
+  @spec update_graph(AWS.Client.t(), String.t(), update_graph_input(), Keyword.t()) ::
           {:ok, update_graph_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_graph_errors()}
@@ -2084,7 +2522,8 @@ defmodule AWS.NeptuneGraph do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

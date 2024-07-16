@@ -4,27 +4,16 @@
 defmodule AWS.GreengrassV2 do
   @moduledoc """
   IoT Greengrass brings local compute, messaging, data management, sync, and ML
-  inference capabilities
-  to edge devices.
-
-  This enables devices to collect and analyze data closer to the source of
-  information, react autonomously to local events, and communicate securely with
-  each other on
-  local networks. Local devices can also communicate securely with Amazon Web
-  Services IoT Core and export IoT data
-  to the Amazon Web Services Cloud. IoT Greengrass developers can use Lambda
-  functions and components to create and
-  deploy applications to fleets of edge devices for local operation.
-
-  IoT Greengrass Version 2 provides a new major version of the IoT Greengrass Core
-  software, new APIs, and a new console.
-  Use this API reference to learn how to use the IoT Greengrass V2 API operations
-  to manage components,
-  manage deployments, and core devices.
-
-  For more information, see [What is IoT Greengrass?](https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html)
-  in the
-  *IoT Greengrass V2 Developer Guide*.
+  inference capabilities to edge devices. This enables devices to collect and
+  analyze data closer to the source of information, react autonomously to local
+  events, and communicate securely with each other on local networks. Local
+  devices can also communicate securely with Amazon Web Services IoT Core and
+  export IoT data to the Amazon Web Services Cloud. IoT Greengrass developers
+  can use Lambda functions and components to create and deploy applications to
+  fleets of edge devices for local operation. IoT Greengrass Version 2 provides
+  a new major version of the IoT Greengrass Core software, new APIs, and a new
+  console. Use this API reference to learn how to use the IoT Greengrass V2 API
+  operations to manage components, manage deployments, and core devices.
   """
 
   alias AWS.Client
@@ -1527,23 +1516,26 @@ defmodule AWS.GreengrassV2 do
 
   @doc """
   Associates a Greengrass service role with IoT Greengrass for your Amazon Web
-  Services account in this Amazon Web Services Region.
-
-  IoT Greengrass
-  uses this role to verify the identity of client devices and manage core device
-  connectivity
-  information. The role must include the
-  [AWSGreengrassResourceAccessRolePolicy](https://console.aws.amazon.com/iam/home#/policies/arn:awsiam::aws:policy/service-role/AWSGreengrassResourceAccessRolePolicy) managed policy or a custom policy that
-  defines equivalent permissions for the IoT Greengrass features that you use. For
-  more information, see
-  [Greengrass service
+  Services account in this Amazon Web Services Region. IoT Greengrass uses this
+  role to verify the identity of client devices and manage core device
+  connectivity information. The role must include the
+  [AWSGreengrassResourceAccessRolePolicy](https://console.aws.amazon.com/iam/home#/policies/arn:awsiam::aws:policy/service-role/AWSGreengrassResourceAccessRolePolicy)
+  managed policy or a custom policy that defines equivalent permissions for the
+  IoT Greengrass features that you use. For more information, see [Greengrass
+  service
   role](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html)
   in the *IoT Greengrass Version 2 Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20AssociateServiceRoleToAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec associate_service_role_to_account(
-          map(),
+          AWS.Client.t(),
           associate_service_role_to_account_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_service_role_to_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1553,37 +1545,41 @@ defmodule AWS.GreengrassV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Associates a list of client devices with a core device.
-
-  Use this API operation to specify
-  which client devices can discover a core device through cloud discovery. With
-  cloud discovery,
-  client devices connect to IoT Greengrass to retrieve associated core devices'
-  connectivity information
-  and certificates. For more information, see [Configure cloud discovery](https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-cloud-discovery.html)
-  in the *IoT Greengrass V2 Developer Guide*.
-
-  Client devices are local IoT devices that connect to and communicate with an IoT
-  Greengrass core
-  device over MQTT. You can connect client devices to a core device to sync MQTT
-  messages and
-  data to Amazon Web Services IoT Core and interact with client devices in
-  Greengrass components. For more information,
-  see [Interact with local IoT
+  Associates a list of client devices with a core device. Use this API operation
+  to specify which client devices can discover a core device through cloud
+  discovery. With cloud discovery, client devices connect to IoT Greengrass to
+  retrieve associated core devices' connectivity information and certificates.
+  For more information, see [Configure cloud
+  discovery](https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-cloud-discovery.html)
+  in the *IoT Greengrass V2 Developer Guide*. Client devices are local IoT
+  devices that connect to and communicate with an IoT Greengrass core device
+  over MQTT. You can connect client devices to a core device to sync MQTT
+  messages and data to Amazon Web Services IoT Core and interact with client
+  devices in Greengrass components. For more information, see [Interact with
+  local IoT
   devices](https://docs.aws.amazon.com/greengrass/v2/developerguide/interact-with-local-iot-devices.html)
   in the *IoT Greengrass V2 Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20BatchAssociateClientDeviceWithCoreDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_device_thing_name` (`t:string`) The name of the core device. This is
+    also the name of the IoT thing.
+
+  ## Optional parameters:
   """
   @spec batch_associate_client_device_with_core_device(
-          map(),
+          AWS.Client.t(),
           String.t(),
           batch_associate_client_device_with_core_device_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_associate_client_device_with_core_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1600,7 +1596,8 @@ defmodule AWS.GreengrassV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1616,18 +1613,24 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
-  Disassociates a list of client devices from a core device.
+  Disassociates a list of client devices from a core device. After you
+  disassociate a client device from a core device, the client device won't be
+  able to use cloud discovery to retrieve the core device's connectivity
+  information and certificates.
 
-  After you disassociate a client
-  device from a core device, the client device won't be able to use cloud
-  discovery to retrieve
-  the core device's connectivity information and certificates.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20BatchDisassociateClientDeviceFromCoreDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_device_thing_name` (`t:string`) The name of the core device. This is
+    also the name of the IoT thing.
+
+  ## Optional parameters:
   """
   @spec batch_disassociate_client_device_from_core_device(
-          map(),
+          AWS.Client.t(),
           String.t(),
           batch_disassociate_client_device_from_core_device_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_disassociate_client_device_from_core_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1644,7 +1647,8 @@ defmodule AWS.GreengrassV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1660,14 +1664,18 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
-  Cancels a deployment.
+  Cancels a deployment. This operation cancels the deployment for devices that
+  haven't yet received it. If a device already received the deployment, this
+  operation doesn't change anything for that device.
 
-  This operation cancels the deployment for devices that haven't yet
-  received it. If a device already received the deployment, this operation doesn't
-  change
-  anything for that device.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20CancelDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:deployment_id` (`t:string`) The ID of the deployment.
+
+  ## Optional parameters:
   """
-  @spec cancel_deployment(map(), String.t(), cancel_deployment_request(), list()) ::
+  @spec cancel_deployment(AWS.Client.t(), String.t(), cancel_deployment_request(), Keyword.t()) ::
           {:ok, cancel_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_deployment_errors()}
@@ -1676,7 +1684,8 @@ defmodule AWS.GreengrassV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1692,51 +1701,19 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
-  Creates a component.
+  Creates a component. Components are software that run on Greengrass core
+  devices. After you develop and test a component on your core device, you can
+  use this operation to upload your component to IoT Greengrass. Then, you can
+  deploy the component to other core devices. You can use this operation to do
+  the following:
 
-  Components are software that run on Greengrass core devices. After you
-  develop and test a component on your core device, you can use this operation to
-  upload your
-  component to IoT Greengrass. Then, you can deploy the component to other core
-  devices.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20CreateComponentVersion&this_doc_guide=API%2520Reference)
 
-  You can use this operation to do the following:
+  ## Parameters:
 
-    *
-
-  ## Create components from recipes
-
-  Create a component from a recipe, which is a file that defines the component's
-  metadata, parameters, dependencies, lifecycle, artifacts, and platform
-  capability. For
-  more information, see [IoT Greengrass component recipe reference](https://docs.aws.amazon.com/greengrass/v2/developerguide/component-recipe-reference.html)
-  in the *IoT Greengrass V2 Developer Guide*.
-
-  To create a component from a recipe, specify `inlineRecipe` when you call
-  this operation.
-
-    *
-
-  ## Create components from Lambda functions
-
-  Create a component from an Lambda function that runs on IoT Greengrass. This
-  creates a recipe
-  and artifacts from the Lambda function's deployment package. You can use this
-  operation to
-  migrate Lambda functions from IoT Greengrass V1 to IoT Greengrass V2.
-
-  This function accepts Lambda functions in all supported versions of Python,
-  Node.js,
-  and Java runtimes. IoT Greengrass doesn't apply any additional restrictions on
-  deprecated Lambda
-  runtime versions.
-
-  To create a component from a Lambda function, specify `lambdaFunction` when
-  you call this operation.
-
-  IoT Greengrass currently supports Lambda functions on only Linux core devices.
+  ## Optional parameters:
   """
-  @spec create_component_version(map(), create_component_version_request(), list()) ::
+  @spec create_component_version(AWS.Client.t(), create_component_version_request(), Keyword.t()) ::
           {:ok, create_component_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_component_version_errors()}
@@ -1745,7 +1722,8 @@ defmodule AWS.GreengrassV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1762,29 +1740,20 @@ defmodule AWS.GreengrassV2 do
 
   @doc """
   Creates a continuous deployment for a target, which is a Greengrass core device
-  or group of core
-  devices.
+  or group of core devices. When you add a new core device to a group of core
+  devices that has a deployment, IoT Greengrass deploys that group's deployment
+  to the new device. You can define one deployment for each target. When you
+  create a new deployment for a target that has an existing deployment, you
+  replace the previous deployment. IoT Greengrass applies the new deployment to
+  the target devices.
 
-  When you add a new core device to a group of core devices that has a deployment,
-  IoT Greengrass
-  deploys that group's deployment to the new device.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20CreateDeployment&this_doc_guide=API%2520Reference)
 
-  You can define one deployment for each target. When you create a new deployment
-  for a
-  target that has an existing deployment, you replace the previous deployment. IoT
-  Greengrass applies the
-  new deployment to the target devices.
+  ## Parameters:
 
-  Every deployment has a revision number that indicates how many deployment
-  revisions you
-  define for a target. Use this operation to create a new revision of an existing
-  deployment.
-
-  For more information, see the [Create deployments](https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html)
-  in the
-  *IoT Greengrass V2 Developer Guide*.
+  ## Optional parameters:
   """
-  @spec create_deployment(map(), create_deployment_request(), list()) ::
+  @spec create_deployment(AWS.Client.t(), create_deployment_request(), Keyword.t()) ::
           {:ok, create_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deployment_errors()}
@@ -1793,7 +1762,8 @@ defmodule AWS.GreengrassV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1811,15 +1781,14 @@ defmodule AWS.GreengrassV2 do
   @doc """
   Deletes a version of a component from IoT Greengrass.
 
-  This operation deletes the component's recipe and artifacts. As a result,
-  deployments
-  that refer to this component version will fail. If you have deployments that use
-  this
-  component version, you can remove the component from the deployment or update
-  the deployment
-  to use a valid version.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20DeleteComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The ARN of the component version.
+
+  ## Optional parameters:
   """
-  @spec delete_component(map(), String.t(), delete_component_request(), list()) ::
+  @spec delete_component(AWS.Client.t(), String.t(), delete_component_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_component_errors()}
@@ -1828,7 +1797,8 @@ defmodule AWS.GreengrassV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1844,17 +1814,21 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
-  Deletes a Greengrass core device, which is an IoT thing.
-
-  This operation removes the core
-  device from the list of core devices. This operation doesn't delete the IoT
-  thing. For more
-  information about how to delete the IoT thing, see
+  Deletes a Greengrass core device, which is an IoT thing. This operation removes
+  the core device from the list of core devices. This operation doesn't delete
+  the IoT thing. For more information about how to delete the IoT thing, see
   [DeleteThing](https://docs.aws.amazon.com/iot/latest/apireference/API_DeleteThing.html)
-  in the
-  *IoT API Reference*.
+  in the *IoT API Reference*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20DeleteCoreDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_device_thing_name` (`t:string`) The name of the core device. This is
+    also the name of the IoT thing.
+
+  ## Optional parameters:
   """
-  @spec delete_core_device(map(), String.t(), delete_core_device_request(), list()) ::
+  @spec delete_core_device(AWS.Client.t(), String.t(), delete_core_device_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_core_device_errors()}
@@ -1863,7 +1837,8 @@ defmodule AWS.GreengrassV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1879,19 +1854,18 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
-  Deletes a deployment.
-
-  To delete an active deployment, you must first cancel it. For more
-  information, see
+  Deletes a deployment. To delete an active deployment, you must first cancel it.
+  For more information, see
   [CancelDeployment](https://docs.aws.amazon.com/iot/latest/apireference/API_CancelDeployment.html).
 
-  Deleting a deployment doesn't affect core devices that run that deployment,
-  because core
-  devices store the deployment's configuration on the device. Additionally, core
-  devices can
-  roll back to a previous deployment that has been deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20DeleteDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:deployment_id` (`t:string`) The ID of the deployment.
+
+  ## Optional parameters:
   """
-  @spec delete_deployment(map(), String.t(), delete_deployment_request(), list()) ::
+  @spec delete_deployment(AWS.Client.t(), String.t(), delete_deployment_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_deployment_errors()}
@@ -1900,7 +1874,8 @@ defmodule AWS.GreengrassV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1917,35 +1892,65 @@ defmodule AWS.GreengrassV2 do
 
   @doc """
   Retrieves metadata for a version of a component.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20DescribeComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The ARN of the component version.
+
+  ## Optional parameters:
   """
-  @spec describe_component(map(), String.t(), list()) ::
+  @spec describe_component(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_component_errors()}
   def describe_component(%Client{} = client, arn, options \\ []) do
     url_path = "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}/metadata"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Disassociates the Greengrass service role from IoT Greengrass for your Amazon
-  Web Services account in this Amazon Web Services Region.
+  Web Services account in this Amazon Web Services Region. Without a service
+  role, IoT Greengrass can't verify the identity of client devices or manage
+  core device connectivity information. For more information, see [Greengrass
+  service
+  role](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html)
+  in the *IoT Greengrass Version 2 Developer Guide*.
 
-  Without a service role, IoT Greengrass can't verify the identity of client
-  devices or manage core device
-  connectivity information. For more information, see [Greengrass service role](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html)
-  in
-  the *IoT Greengrass Version 2 Developer Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20DisassociateServiceRoleFromAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec disassociate_service_role_from_account(
-          map(),
+          AWS.Client.t(),
           disassociate_service_role_from_account_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_service_role_from_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1955,7 +1960,8 @@ defmodule AWS.GreengrassV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1972,77 +1978,124 @@ defmodule AWS.GreengrassV2 do
 
   @doc """
   Gets the recipe for a version of a component.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20GetComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The ARN of the component version.
+
+  ## Optional parameters:
+  * `:recipe_output_format` (`t:enum["JSON|YAML"]`) The format of the recipe.
   """
-  @spec get_component(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_component(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_component_errors()}
-  def get_component(%Client{} = client, arn, recipe_output_format \\ nil, options \\ []) do
+  def get_component(%Client{} = client, arn, options \\ []) do
     url_path = "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}"
+
+    # Validate optional parameters
+    optional_params = [recipe_output_format: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(recipe_output_format) do
-        [{"recipeOutputFormat", recipe_output_format} | query_params]
+      if opt_val = Keyword.get(options, :recipe_output_format) do
+        [{"recipeOutputFormat", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:recipe_output_format])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the pre-signed URL to download a public or a Lambda component artifact.
+  Core devices call this operation to identify the URL that they can use to
+  download an artifact to install.
 
-  Core devices
-  call this operation to identify the URL that they can use to download an
-  artifact to
-  install.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20GetComponentVersionArtifact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The ARN of the component version. Specify the ARN of a
+    public or a Lambda component version.
+  * `:artifact_name` (`t:string`) The name of the artifact.
+
+  ## Optional parameters:
+  * `:s3_endpoint_type` (`t:enum["GLOBAL|REGIONAL"]`) Specifies the endpoint to
+    use when getting Amazon S3 pre-signed URLs.
+  * `:iot_endpoint_type` (`t:enum["fips|standard"]`) Determines if the Amazon S3
+    URL returned is a FIPS pre-signed URL endpoint. Specify fips if you want the
+    returned Amazon S3 pre-signed URL to point to an Amazon S3 FIPS endpoint. If
+    you don't specify a value, the default is standard.
   """
-  @spec get_component_version_artifact(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_component_version_artifact(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_component_version_artifact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_component_version_artifact_errors()}
-  def get_component_version_artifact(
-        %Client{} = client,
-        arn,
-        artifact_name,
-        s3_endpoint_type \\ nil,
-        iot_endpoint_type \\ nil,
-        options \\ []
-      ) do
+  def get_component_version_artifact(%Client{} = client, arn, artifact_name, options \\ []) do
     url_path =
       "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}/artifacts/#{AWS.Util.encode_multi_segment_uri(artifact_name)}"
 
+    # Validate optional parameters
+    optional_params = [s3_endpoint_type: nil, iot_endpoint_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(iot_endpoint_type) do
-        [{"x-amz-iot-endpoint-type", iot_endpoint_type} | headers]
+      if opt_val = Keyword.get(options, :iot_endpoint_type) do
+        [{"x-amz-iot-endpoint-type", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(s3_endpoint_type) do
-        [{"s3EndpointType", s3_endpoint_type} | query_params]
+      if opt_val = Keyword.get(options, :s3_endpoint_type) do
+        [{"s3EndpointType", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:s3_endpoint_type, :iot_endpoint_type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2050,25 +2103,42 @@ defmodule AWS.GreengrassV2 do
   @doc """
   Retrieves connectivity information for a Greengrass core device.
 
-  Connectivity information includes endpoints and ports where client devices
-  can connect to an MQTT broker on the core device. When a client device
-  calls the [IoT Greengrass discovery API](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-discover-api.html),
-  IoT Greengrass returns connectivity information for all of the core devices
-  where the client device can
-  connect. For more information, see [Connect client devices to core
-  devices](https://docs.aws.amazon.com/greengrass/v2/developerguide/connect-client-devices.html)
-  in the *IoT Greengrass Version 2 Developer Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20GetConnectivityInfo&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_name` (`t:string`) The name of the core device. This is also the name
+    of the IoT thing.
+
+  ## Optional parameters:
   """
-  @spec get_connectivity_info(map(), String.t(), list()) ::
+  @spec get_connectivity_info(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connectivity_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connectivity_info_errors()}
   def get_connectivity_info(%Client{} = client, thing_name, options \\ []) do
     url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/connectivityInfo"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2076,88 +2146,131 @@ defmodule AWS.GreengrassV2 do
   @doc """
   Retrieves metadata for a Greengrass core device.
 
-  IoT Greengrass relies on individual devices to send status updates to the Amazon
-  Web Services Cloud. If the
-  IoT Greengrass Core software isn't running on the device, or if device isn't
-  connected to the Amazon Web Services Cloud,
-  then the reported status of that device might not reflect its current status.
-  The status
-  timestamp indicates when the device status was last updated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20GetCoreDevice&this_doc_guide=API%2520Reference)
 
-  Core devices send status updates at the following times:
+  ## Parameters:
+  * `:core_device_thing_name` (`t:string`) The name of the core device. This is
+    also the name of the IoT thing.
 
-    
-  When the IoT Greengrass Core software starts
-
-    
-  When the core device receives a deployment from the Amazon Web Services Cloud
-
-    
-  When the status of any component on the core device becomes
-  `BROKEN`
-
-    
-  At a [regular interval that you can configure](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss),
-  which defaults to 24 hours
-
-    
-  For IoT Greengrass Core v2.7.0, the core device sends status updates upon local
-  deployment and
-  cloud deployment
+  ## Optional parameters:
   """
-  @spec get_core_device(map(), String.t(), list()) ::
+  @spec get_core_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_core_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_core_device_errors()}
   def get_core_device(%Client{} = client, core_device_thing_name, options \\ []) do
     url_path = "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets a deployment.
+  Gets a deployment. Deployments define the components that run on Greengrass core
+  devices.
 
-  Deployments define the components that run on Greengrass core devices.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20GetDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:deployment_id` (`t:string`) The ID of the deployment.
+
+  ## Optional parameters:
   """
-  @spec get_deployment(map(), String.t(), list()) ::
+  @spec get_deployment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_errors()}
   def get_deployment(%Client{} = client, deployment_id, options \\ []) do
     url_path = "/greengrass/v2/deployments/#{AWS.Util.encode_uri(deployment_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the service role associated with IoT Greengrass for your Amazon Web
-  Services account in this Amazon Web Services Region.
+  Services account in this Amazon Web Services Region. IoT Greengrass uses this
+  role to verify the identity of client devices and manage core device
+  connectivity information. For more information, see [Greengrass service
+  role](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html)
+  in the *IoT Greengrass Version 2 Developer Guide*.
 
-  IoT Greengrass uses this role to verify the identity of client devices and
-  manage core device
-  connectivity information. For more information, see [Greengrass service role](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html)
-  in
-  the *IoT Greengrass Version 2 Developer Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20GetServiceRoleForAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_service_role_for_account(map(), list()) ::
+  @spec get_service_role_for_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_service_role_for_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_role_for_account_errors()}
   def get_service_role_for_account(%Client{} = client, options \\ []) do
     url_path = "/greengrass/servicerole"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2165,132 +2278,207 @@ defmodule AWS.GreengrassV2 do
   @doc """
   Retrieves a paginated list of client devices that are associated with a core
   device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20ListClientDevicesAssociatedWithCoreDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_device_thing_name` (`t:string`) The name of the core device. This is
+    also the name of the IoT thing.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
-  @spec list_client_devices_associated_with_core_device(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_client_devices_associated_with_core_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_client_devices_associated_with_core_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_client_devices_associated_with_core_device_errors()}
   def list_client_devices_associated_with_core_device(
         %Client{} = client,
         core_device_thing_name,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}/associatedClientDevices"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves a paginated list of all versions for a component.
+  Retrieves a paginated list of all versions for a component. Greater versions are
+  listed first.
 
-  Greater versions are listed
-  first.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20ListComponentVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The ARN of the component.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
-  @spec list_component_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_component_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_component_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_component_versions_errors()}
-  def list_component_versions(
-        %Client{} = client,
-        arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_component_versions(%Client{} = client, arn, options \\ []) do
     url_path = "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}/versions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves a paginated list of component summaries.
+  Retrieves a paginated list of component summaries. This list includes components
+  that you have permission to view.
 
-  This list includes components that you
-  have permission to view.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20ListComponents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
+  * `:scope` (`t:enum["PRIVATE|PUBLIC"]`) The scope of the components to list.
   """
-  @spec list_components(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_components(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_components_errors()}
-  def list_components(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        scope \\ nil,
-        options \\ []
-      ) do
+  def list_components(%Client{} = client, options \\ []) do
     url_path = "/greengrass/v2/components"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, scope: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(scope) do
-        [{"scope", scope} | query_params]
+      if opt_val = Keyword.get(options, :scope) do
+        [{"scope", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :scope])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2298,155 +2486,185 @@ defmodule AWS.GreengrassV2 do
   @doc """
   Retrieves a paginated list of Greengrass core devices.
 
-  IoT Greengrass relies on individual devices to send status updates to the Amazon
-  Web Services Cloud. If the
-  IoT Greengrass Core software isn't running on the device, or if device isn't
-  connected to the Amazon Web Services Cloud,
-  then the reported status of that device might not reflect its current status.
-  The status
-  timestamp indicates when the device status was last updated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20ListCoreDevices&this_doc_guide=API%2520Reference)
 
-  Core devices send status updates at the following times:
+  ## Parameters:
 
-    
-  When the IoT Greengrass Core software starts
-
-    
-  When the core device receives a deployment from the Amazon Web Services Cloud
-
-    
-  When the status of any component on the core device becomes
-  `BROKEN`
-
-    
-  At a [regular interval that you can configure](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss),
-  which defaults to 24 hours
-
-    
-  For IoT Greengrass Core v2.7.0, the core device sends status updates upon local
-  deployment and
-  cloud deployment
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
+  * `:status` (`t:enum["HEALTHY|UNHEALTHY"]`) The core device status by which to
+    filter. If you specify this parameter, the list includes only core devices
+    that have this status. Choose one of the following options:
+  * `:thing_group_arn` (`t:string`) The ARN of the IoT thing group by which to
+    filter. If you specify this parameter, the list includes only core devices
+    that have successfully deployed a deployment that targets the thing group.
+    When you remove a core device from a thing group, the list continues to
+    include that core device.
   """
-  @spec list_core_devices(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_core_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_core_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_core_devices_errors()}
-  def list_core_devices(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        thing_group_arn \\ nil,
-        options \\ []
-      ) do
+  def list_core_devices(%Client{} = client, options \\ []) do
     url_path = "/greengrass/v2/coreDevices"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, status: nil, thing_group_arn: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(thing_group_arn) do
-        [{"thingGroupArn", thing_group_arn} | query_params]
+      if opt_val = Keyword.get(options, :thing_group_arn) do
+        [{"thingGroupArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :status, :thing_group_arn])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a paginated list of deployments.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20ListDeployments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:history_filter` (`t:enum["ALL|LATEST_ONLY"]`) The filter for the list of
+    deployments. Choose one of the following options:
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
+  * `:parent_target_arn` (`t:string`) The parent deployment's target ARN within a
+    subdeployment.
+  * `:target_arn` (`t:string`) The ARN of the target IoT thing or thing group.
   """
-  @spec list_deployments(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_deployments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployments_errors()}
-  def list_deployments(
-        %Client{} = client,
-        history_filter \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        parent_target_arn \\ nil,
-        target_arn \\ nil,
-        options \\ []
-      ) do
+  def list_deployments(%Client{} = client, options \\ []) do
     url_path = "/greengrass/v2/deployments"
+
+    # Validate optional parameters
+    optional_params = [
+      history_filter: nil,
+      max_results: nil,
+      next_token: nil,
+      parent_target_arn: nil,
+      target_arn: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(target_arn) do
-        [{"targetArn", target_arn} | query_params]
+      if opt_val = Keyword.get(options, :target_arn) do
+        [{"targetArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(parent_target_arn) do
-        [{"parentTargetArn", parent_target_arn} | query_params]
+      if opt_val = Keyword.get(options, :parent_target_arn) do
+        [{"parentTargetArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(history_filter) do
-        [{"historyFilter", history_filter} | query_params]
+      if opt_val = Keyword.get(options, :history_filter) do
+        [{"historyFilter", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :history_filter,
+        :max_results,
+        :next_token,
+        :parent_target_arn,
+        :target_arn
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2454,176 +2672,211 @@ defmodule AWS.GreengrassV2 do
   @doc """
   Retrieves a paginated list of deployment jobs that IoT Greengrass sends to
   Greengrass core devices.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20ListEffectiveDeployments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_device_thing_name` (`t:string`) The name of the core device. This is
+    also the name of the IoT thing.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
-  @spec list_effective_deployments(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_effective_deployments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_effective_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_effective_deployments_errors()}
-  def list_effective_deployments(
-        %Client{} = client,
-        core_device_thing_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_effective_deployments(%Client{} = client, core_device_thing_name, options \\ []) do
     url_path =
       "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}/effectiveDeployments"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a paginated list of the components that a Greengrass core device runs.
+  By default, this list doesn't include components that are deployed as
+  dependencies of other components. To include dependencies in the response, set
+  the `topologyFilter` parameter to `ALL`.
 
-  By default,
-  this list doesn't include components that are deployed as dependencies of other
-  components. To
-  include dependencies in the response, set the `topologyFilter` parameter to
-  `ALL`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20ListInstalledComponents&this_doc_guide=API%2520Reference)
 
-  IoT Greengrass relies on individual devices to send status updates to the Amazon
-  Web Services Cloud. If the
-  IoT Greengrass Core software isn't running on the device, or if device isn't
-  connected to the Amazon Web Services Cloud,
-  then the reported status of that device might not reflect its current status.
-  The status
-  timestamp indicates when the device status was last updated.
+  ## Parameters:
+  * `:core_device_thing_name` (`t:string`) The name of the core device. This is
+    also the name of the IoT thing.
 
-  Core devices send status updates at the following times:
-
-    
-  When the IoT Greengrass Core software starts
-
-    
-  When the core device receives a deployment from the Amazon Web Services Cloud
-
-    
-  When the status of any component on the core device becomes
-  `BROKEN`
-
-    
-  At a [regular interval that you can configure](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss),
-  which defaults to 24 hours
-
-    
-  For IoT Greengrass Core v2.7.0, the core device sends status updates upon local
-  deployment and
-  cloud deployment
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
+  * `:topology_filter` (`t:enum["ALL|ROOT"]`) The filter for the list of
+    components. Choose from the following options:
   """
-  @spec list_installed_components(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_installed_components(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_installed_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_installed_components_errors()}
-  def list_installed_components(
-        %Client{} = client,
-        core_device_thing_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        topology_filter \\ nil,
-        options \\ []
-      ) do
+  def list_installed_components(%Client{} = client, core_device_thing_name, options \\ []) do
     url_path =
       "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}/installedComponents"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, topology_filter: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(topology_filter) do
-        [{"topologyFilter", topology_filter} | query_params]
+      if opt_val = Keyword.get(options, :topology_filter) do
+        [{"topologyFilter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :topology_filter])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the list of tags for an IoT Greengrass resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of components that meet the component, version, and platform
-  requirements
-  of a deployment.
-
-  Greengrass core devices call this operation when they receive a deployment to
-  identify the components to install.
-
-  This operation identifies components that meet all dependency requirements for a
+  requirements of a deployment. Greengrass core devices call this operation when
+  they receive a deployment to identify the components to install. This
+  operation identifies components that meet all dependency requirements for a
   deployment. If the requirements conflict, then this operation returns an error
-  and the
-  deployment fails. For example, this occurs if component `A` requires version
-  `>2.0.0` and component `B` requires version `<2.0.0`
-  of a component dependency.
+  and the deployment fails. For example, this occurs if component `A` requires
+  version `>2.0.0` and component `B` requires version `<2.0.0` of a component
+  dependency.
 
-  When you specify the component candidates to resolve, IoT Greengrass compares
-  each component's
-  digest from the core device with the component's digest in the Amazon Web
-  Services Cloud. If the digests
-  don't match, then IoT Greengrass specifies to use the version from the Amazon
-  Web Services Cloud.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20ResolveComponentCandidates&this_doc_guide=API%2520Reference)
 
-  To use this operation, you must use the data plane API endpoint and authenticate
-  with an
-  IoT device certificate. For more information, see [IoT Greengrass endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/greengrass.html).
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec resolve_component_candidates(map(), resolve_component_candidates_request(), list()) ::
+  @spec resolve_component_candidates(
+          AWS.Client.t(),
+          resolve_component_candidates_request(),
+          Keyword.t()
+        ) ::
           {:ok, resolve_component_candidates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resolve_component_candidates_errors()}
@@ -2632,7 +2885,8 @@ defmodule AWS.GreengrassV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2648,12 +2902,17 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
-  Adds tags to an IoT Greengrass resource.
+  Adds tags to an IoT Greengrass resource. If a tag already exists for the
+  resource, this operation updates the tag's value.
 
-  If a tag already exists for the resource, this operation
-  updates the tag's value.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource to tag.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2662,7 +2921,8 @@ defmodule AWS.GreengrassV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2679,8 +2939,17 @@ defmodule AWS.GreengrassV2 do
 
   @doc """
   Removes a tag from an IoT Greengrass resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource to untag.
+  * `:tag_keys` (`t:list[com.amazonaws.greengrassv2#TagKey]`) A list of keys for
+    tags to remove from the resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2694,7 +2963,8 @@ defmodule AWS.GreengrassV2 do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2712,16 +2982,20 @@ defmodule AWS.GreengrassV2 do
   @doc """
   Updates connectivity information for a Greengrass core device.
 
-  Connectivity information includes endpoints and ports where client devices
-  can connect to an MQTT broker on the core device. When a client device
-  calls the [IoT Greengrass discovery API](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-discover-api.html),
-  IoT Greengrass returns connectivity information for all of the core devices
-  where the client device can
-  connect. For more information, see [Connect client devices to core
-  devices](https://docs.aws.amazon.com/greengrass/v2/developerguide/connect-client-devices.html)
-  in the *IoT Greengrass Version 2 Developer Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20UpdateConnectivityInfo&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_name` (`t:string`) The name of the core device. This is also the name
+    of the IoT thing.
+
+  ## Optional parameters:
   """
-  @spec update_connectivity_info(map(), String.t(), update_connectivity_info_request(), list()) ::
+  @spec update_connectivity_info(
+          AWS.Client.t(),
+          String.t(),
+          update_connectivity_info_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_connectivity_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connectivity_info_errors()}
@@ -2730,7 +3004,8 @@ defmodule AWS.GreengrassV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

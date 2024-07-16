@@ -4,11 +4,9 @@
 defmodule AWS.IoTEvents do
   @moduledoc """
   AWS IoT Events monitors your equipment or device fleets for failures or changes
-  in operation, and
-  triggers actions when such events occur.
-
-  You can use AWS IoT Events API operations to create, read,
-  update, and delete inputs and detector models, and to list their versions.
+  in operation, and triggers actions when such events occur. You can use AWS IoT
+  Events API operations to create, read, update, and delete inputs and detector
+  models, and to list their versions.
   """
 
   alias AWS.Client
@@ -1735,15 +1733,19 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Creates an alarm model to monitor an AWS IoT Events input attribute.
-
-  You can use the alarm to get
-  notified when the value is outside a specified range. For more information, see
-  [Create an alarm
+  Creates an alarm model to monitor an AWS IoT Events input attribute. You can use
+  the alarm to get notified when the value is outside a specified range. For
+  more information, see [Create an alarm
   model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html)
   in the *AWS IoT Events Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20CreateAlarmModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_alarm_model(map(), create_alarm_model_request(), list()) ::
+  @spec create_alarm_model(AWS.Client.t(), create_alarm_model_request(), Keyword.t()) ::
           {:ok, create_alarm_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_alarm_model_errors()}
@@ -1752,7 +1754,8 @@ defmodule AWS.IoTEvents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1769,8 +1772,14 @@ defmodule AWS.IoTEvents do
 
   @doc """
   Creates a detector model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20CreateDetectorModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_detector_model(map(), create_detector_model_request(), list()) ::
+  @spec create_detector_model(AWS.Client.t(), create_detector_model_request(), Keyword.t()) ::
           {:ok, create_detector_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_detector_model_errors()}
@@ -1779,7 +1788,8 @@ defmodule AWS.IoTEvents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1796,8 +1806,14 @@ defmodule AWS.IoTEvents do
 
   @doc """
   Creates an input.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20CreateInput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_input(map(), create_input_request(), list()) ::
+  @spec create_input(AWS.Client.t(), create_input_request(), Keyword.t()) ::
           {:ok, create_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_input_errors()}
@@ -1806,7 +1822,8 @@ defmodule AWS.IoTEvents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1822,12 +1839,17 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Deletes an alarm model.
+  Deletes an alarm model. Any alarm instances that were created based on this
+  alarm model are also deleted. This action can't be undone.
 
-  Any alarm instances that were created based on this alarm model
-  are also deleted. This action can't be undone.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DeleteAlarmModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:alarm_model_name` (`t:string`) The name of the alarm model.
+
+  ## Optional parameters:
   """
-  @spec delete_alarm_model(map(), String.t(), delete_alarm_model_request(), list()) ::
+  @spec delete_alarm_model(AWS.Client.t(), String.t(), delete_alarm_model_request(), Keyword.t()) ::
           {:ok, delete_alarm_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_alarm_model_errors()}
@@ -1836,7 +1858,8 @@ defmodule AWS.IoTEvents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1852,12 +1875,23 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Deletes a detector model.
-
-  Any active instances of the detector model are also
+  Deletes a detector model. Any active instances of the detector model are also
   deleted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DeleteDetectorModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_model_name` (`t:string`) The name of the detector model to be
+    deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_detector_model(map(), String.t(), delete_detector_model_request(), list()) ::
+  @spec delete_detector_model(
+          AWS.Client.t(),
+          String.t(),
+          delete_detector_model_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_detector_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_detector_model_errors()}
@@ -1866,7 +1900,8 @@ defmodule AWS.IoTEvents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1883,8 +1918,15 @@ defmodule AWS.IoTEvents do
 
   @doc """
   Deletes an input.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DeleteInput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_name` (`t:string`) The name of the input to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_input(map(), String.t(), delete_input_request(), list()) ::
+  @spec delete_input(AWS.Client.t(), String.t(), delete_input_request(), Keyword.t()) ::
           {:ok, delete_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_input_errors()}
@@ -1893,7 +1935,8 @@ defmodule AWS.IoTEvents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1909,65 +1952,111 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Retrieves information about an alarm model.
-
-  If you don't specify a value for the
+  Retrieves information about an alarm model. If you don't specify a value for the
   `alarmModelVersion` parameter, the latest version is returned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DescribeAlarmModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:alarm_model_name` (`t:string`) The name of the alarm model.
+
+  ## Optional parameters:
+  * `:alarm_model_version` (`t:string`) The version of the alarm model.
   """
-  @spec describe_alarm_model(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_alarm_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_alarm_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_alarm_model_errors()}
-  def describe_alarm_model(
-        %Client{} = client,
-        alarm_model_name,
-        alarm_model_version \\ nil,
-        options \\ []
-      ) do
+  def describe_alarm_model(%Client{} = client, alarm_model_name, options \\ []) do
     url_path = "/alarm-models/#{AWS.Util.encode_uri(alarm_model_name)}"
+
+    # Validate optional parameters
+    optional_params = [alarm_model_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(alarm_model_version) do
-        [{"version", alarm_model_version} | query_params]
+      if opt_val = Keyword.get(options, :alarm_model_version) do
+        [{"version", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:alarm_model_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Describes a detector model.
-
-  If the `version` parameter is not specified,
+  Describes a detector model. If the `version` parameter is not specified,
   information about the latest version is returned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DescribeDetectorModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_model_name` (`t:string`) The name of the detector model.
+
+  ## Optional parameters:
+  * `:detector_model_version` (`t:string`) The version of the detector model.
   """
-  @spec describe_detector_model(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_detector_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_detector_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_detector_model_errors()}
-  def describe_detector_model(
-        %Client{} = client,
-        detector_model_name,
-        detector_model_version \\ nil,
-        options \\ []
-      ) do
+  def describe_detector_model(%Client{} = client, detector_model_name, options \\ []) do
     url_path = "/detector-models/#{AWS.Util.encode_uri(detector_model_name)}"
+
+    # Validate optional parameters
+    optional_params = [detector_model_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(detector_model_version) do
-        [{"version", detector_model_version} | query_params]
+      if opt_val = Keyword.get(options, :detector_model_version) do
+        [{"version", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:detector_model_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1975,53 +2064,125 @@ defmodule AWS.IoTEvents do
   @doc """
   Retrieves runtime information about a detector model analysis.
 
-  After AWS IoT Events starts analyzing your detector model, you have up to 24
-  hours to retrieve the analysis results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DescribeDetectorModelAnalysis&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:analysis_id` (`t:string`) The ID of the analysis result that you want to
+    retrieve.
+
+  ## Optional parameters:
   """
-  @spec describe_detector_model_analysis(map(), String.t(), list()) ::
+  @spec describe_detector_model_analysis(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_detector_model_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_detector_model_analysis_errors()}
   def describe_detector_model_analysis(%Client{} = client, analysis_id, options \\ []) do
     url_path = "/analysis/detector-models/#{AWS.Util.encode_uri(analysis_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes an input.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DescribeInput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_name` (`t:string`) The name of the input.
+
+  ## Optional parameters:
   """
-  @spec describe_input(map(), String.t(), list()) ::
+  @spec describe_input(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_input_errors()}
   def describe_input(%Client{} = client, input_name, options \\ []) do
     url_path = "/inputs/#{AWS.Util.encode_uri(input_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the current settings of the AWS IoT Events logging options.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DescribeLoggingOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_logging_options(map(), list()) ::
+  @spec describe_logging_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_logging_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_logging_options_errors()}
   def describe_logging_options(%Client{} = client, options \\ []) do
     url_path = "/logging"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2029,213 +2190,337 @@ defmodule AWS.IoTEvents do
   @doc """
   Retrieves one or more analysis results of the detector model.
 
-  After AWS IoT Events starts analyzing your detector model, you have up to 24
-  hours to retrieve the analysis results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20GetDetectorModelAnalysisResults&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:analysis_id` (`t:string`) The ID of the analysis result that you want to
+    retrieve.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    request.
+  * `:next_token` (`t:string`) The token that you can use to return the next set
+    of results.
   """
-  @spec get_detector_model_analysis_results(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_detector_model_analysis_results(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_detector_model_analysis_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_detector_model_analysis_results_errors()}
-  def get_detector_model_analysis_results(
-        %Client{} = client,
-        analysis_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_detector_model_analysis_results(%Client{} = client, analysis_id, options \\ []) do
     url_path = "/analysis/detector-models/#{AWS.Util.encode_uri(analysis_id)}/results"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists all the versions of an alarm model.
+  Lists all the versions of an alarm model. The operation returns only the
+  metadata associated with each alarm model version.
 
-  The operation returns only the metadata
-  associated with each alarm model version.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListAlarmModelVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:alarm_model_name` (`t:string`) The name of the alarm model.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    request.
+  * `:next_token` (`t:string`) The token that you can use to return the next set
+    of results.
   """
-  @spec list_alarm_model_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_alarm_model_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_alarm_model_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_alarm_model_versions_errors()}
-  def list_alarm_model_versions(
-        %Client{} = client,
-        alarm_model_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_alarm_model_versions(%Client{} = client, alarm_model_name, options \\ []) do
     url_path = "/alarm-models/#{AWS.Util.encode_uri(alarm_model_name)}/versions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the alarm models that you created.
-
-  The operation returns only the metadata
+  Lists the alarm models that you created. The operation returns only the metadata
   associated with each alarm model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListAlarmModels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    request.
+  * `:next_token` (`t:string`) The token that you can use to return the next set
+    of results.
   """
-  @spec list_alarm_models(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_alarm_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_alarm_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_alarm_models_errors()}
-  def list_alarm_models(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_alarm_models(%Client{} = client, options \\ []) do
     url_path = "/alarm-models"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists all the versions of a detector model.
+  Lists all the versions of a detector model. Only the metadata associated with
+  each detector model version is returned.
 
-  Only the metadata associated with each
-  detector model version is returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListDetectorModelVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_model_name` (`t:string`) The name of the detector model whose
+    versions are returned.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    request.
+  * `:next_token` (`t:string`) The token that you can use to return the next set
+    of results.
   """
-  @spec list_detector_model_versions(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_detector_model_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_detector_model_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_detector_model_versions_errors()}
-  def list_detector_model_versions(
-        %Client{} = client,
-        detector_model_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_detector_model_versions(%Client{} = client, detector_model_name, options \\ []) do
     url_path = "/detector-models/#{AWS.Util.encode_uri(detector_model_name)}/versions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the detector models you have created.
+  Lists the detector models you have created. Only the metadata associated with
+  each detector model is returned.
 
-  Only the metadata associated with each
-  detector model is returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListDetectorModels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    request.
+  * `:next_token` (`t:string`) The token that you can use to return the next set
+    of results.
   """
-  @spec list_detector_models(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_detector_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_detector_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_detector_models_errors()}
-  def list_detector_models(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_detector_models(%Client{} = client, options \\ []) do
     url_path = "/detector-models"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Lists one or more input routings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListInputRoutings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_input_routings(map(), list_input_routings_request(), list()) ::
+  @spec list_input_routings(AWS.Client.t(), list_input_routings_request(), Keyword.t()) ::
           {:ok, list_input_routings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_input_routings_errors()}
@@ -2244,7 +2529,8 @@ defmodule AWS.IoTEvents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2261,55 +2547,105 @@ defmodule AWS.IoTEvents do
 
   @doc """
   Lists the inputs you have created.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListInputs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    request.
+  * `:next_token` (`t:string`) The token that you can use to return the next set
+    of results.
   """
-  @spec list_inputs(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_inputs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_inputs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_inputs_errors()}
-  def list_inputs(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_inputs(%Client{} = client, options \\ []) do
     url_path = "/inputs"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the tags (metadata) you have assigned to the resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(resource_arn) do
-        [{"resourceArn", resource_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"resourceArn", resource_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2317,13 +2653,13 @@ defmodule AWS.IoTEvents do
   @doc """
   Sets or updates the AWS IoT Events logging options.
 
-  If you update the value of any `loggingOptions` field, it takes up to one
-  minute for the change to take effect. If you change the policy attached to the
-  role you
-  specified in the `roleArn` field (for example, to correct an invalid policy), it
-  takes up to five minutes for that change to take effect.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20PutLoggingOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_logging_options(map(), put_logging_options_request(), list()) ::
+  @spec put_logging_options(AWS.Client.t(), put_logging_options_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_logging_options_errors()}
@@ -2332,19 +2668,29 @@ defmodule AWS.IoTEvents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Performs an analysis of your detector model.
-
-  For more information,
-  see [Troubleshooting a detector model](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html)
+  Performs an analysis of your detector model. For more information, see
+  [Troubleshooting a detector
+  model](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html)
   in the *AWS IoT Events Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20StartDetectorModelAnalysis&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_detector_model_analysis(map(), start_detector_model_analysis_request(), list()) ::
+  @spec start_detector_model_analysis(
+          AWS.Client.t(),
+          start_detector_model_analysis_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_detector_model_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_detector_model_analysis_errors()}
@@ -2353,7 +2699,8 @@ defmodule AWS.IoTEvents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2369,12 +2716,17 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Adds to or modifies the tags of the given resource.
+  Adds to or modifies the tags of the given resource. Tags are metadata that can
+  be used to manage a resource.
 
-  Tags are metadata that can be used to
-  manage a resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2388,7 +2740,8 @@ defmodule AWS.IoTEvents do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2405,8 +2758,17 @@ defmodule AWS.IoTEvents do
 
   @doc """
   Removes the given tags (metadata) from the resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.iotevents#TagKey]`) A list of the keys of
+    the tags to be removed from the resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2421,7 +2783,8 @@ defmodule AWS.IoTEvents do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2437,12 +2800,17 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Updates an alarm model.
+  Updates an alarm model. Any alarms that were created based on the previous
+  version are deleted and then created again as new data arrives.
 
-  Any alarms that were created based on the previous version are
-  deleted and then created again as new data arrives.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20UpdateAlarmModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:alarm_model_name` (`t:string`) The name of the alarm model.
+
+  ## Optional parameters:
   """
-  @spec update_alarm_model(map(), String.t(), update_alarm_model_request(), list()) ::
+  @spec update_alarm_model(AWS.Client.t(), String.t(), update_alarm_model_request(), Keyword.t()) ::
           {:ok, update_alarm_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_alarm_model_errors()}
@@ -2451,7 +2819,8 @@ defmodule AWS.IoTEvents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2467,12 +2836,23 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Updates a detector model.
+  Updates a detector model. Detectors (instances) spawned by the previous version
+  are deleted and then re-created as new inputs arrive.
 
-  Detectors (instances) spawned by the previous version are
-  deleted and then re-created as new inputs arrive.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20UpdateDetectorModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_model_name` (`t:string`) The name of the detector model that is
+    updated.
+
+  ## Optional parameters:
   """
-  @spec update_detector_model(map(), String.t(), update_detector_model_request(), list()) ::
+  @spec update_detector_model(
+          AWS.Client.t(),
+          String.t(),
+          update_detector_model_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_detector_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_detector_model_errors()}
@@ -2481,7 +2861,8 @@ defmodule AWS.IoTEvents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2498,8 +2879,15 @@ defmodule AWS.IoTEvents do
 
   @doc """
   Updates an input.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20UpdateInput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_name` (`t:string`) The name of the input you want to update.
+
+  ## Optional parameters:
   """
-  @spec update_input(map(), String.t(), update_input_request(), list()) ::
+  @spec update_input(AWS.Client.t(), String.t(), update_input_request(), Keyword.t()) ::
           {:ok, update_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_input_errors()}
@@ -2508,7 +2896,8 @@ defmodule AWS.IoTEvents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

@@ -4,21 +4,9 @@
 defmodule AWS.Deadline do
   @moduledoc """
   The Amazon Web Services Deadline Cloud API provides infrastructure and
-  centralized management for your
-  projects.
-
-  Use the Deadline Cloud API to onboard users, assign projects, and attach
-  permissions
-  specific to their job function.
-
-  With Deadline Cloud, content production teams can deploy resources for their
-  workforce securely
-  in the cloud, reducing the costs of added physical infrastructure. Keep your
-  content
-  production operations secure, while allowing your contributors to access the
-  tools they
-  need, such as scalable high-speed storage, licenses, and cost management
-  services.
+  centralized management for your projects. Use the Deadline Cloud API to
+  onboard users, assign projects, and attach permissions specific to their job
+  function.
   """
 
   alias AWS.Client
@@ -4857,13 +4845,22 @@ defmodule AWS.Deadline do
 
   @doc """
   Assigns a farm membership level to a member.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssociateMemberToFarm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The ID of the farm to associate with the member.
+  * `:principal_id` (`t:string`) The member's principal ID to associate with the
+    farm.
+
+  ## Optional parameters:
   """
   @spec associate_member_to_farm(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           associate_member_to_farm_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_member_to_farm_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4875,21 +4872,32 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Assigns a fleet membership level to a member.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssociateMemberToFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the fleet to associate with the member.
+  * `:fleet_id` (`t:string`) The ID of the fleet to associate with a member.
+  * `:principal_id` (`t:string`) The member's principal ID to associate with a
+    fleet.
+
+  ## Optional parameters:
   """
   @spec associate_member_to_fleet(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           associate_member_to_fleet_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_member_to_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4908,22 +4916,34 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Assigns a job membership level to a member
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssociateMemberToJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the job to associate with the member.
+  * `:job_id` (`t:string`) The job ID to associate with the member.
+  * `:principal_id` (`t:string`) The member's principal ID to associate with the
+    job.
+  * `:queue_id` (`t:string`) The queue ID to associate to the member.
+
+  ## Optional parameters:
   """
   @spec associate_member_to_job(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
           associate_member_to_job_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_member_to_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4943,21 +4963,32 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Assigns a queue membership level to a member
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssociateMemberToQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the queue to associate with the member.
+  * `:principal_id` (`t:string`) The member's principal ID to associate with the
+    queue.
+  * `:queue_id` (`t:string`) The ID of the queue to associate to the member.
+
+  ## Optional parameters:
   """
   @spec associate_member_to_queue(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           associate_member_to_queue_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_member_to_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4976,18 +5007,25 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Get Amazon Web Services credentials from the fleet role.
+  Get Amazon Web Services credentials from the fleet role. The IAM permissions of
+  the credentials are scoped down to have read-only access.
 
-  The IAM permissions of the credentials are
-  scoped down to have read-only access.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssumeFleetRoleForRead&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the fleet's farm.
+  * `:fleet_id` (`t:string`) The fleet ID.
+
+  ## Optional parameters:
   """
-  @spec assume_fleet_role_for_read(map(), String.t(), String.t(), list()) ::
+  @spec assume_fleet_role_for_read(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, assume_fleet_role_for_read_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, assume_fleet_role_for_read_errors()}
@@ -4995,18 +5033,50 @@ defmodule AWS.Deadline do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/read-roles"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get credentials from the fleet role for a worker.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssumeFleetRoleForWorker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the fleet's farm.
+  * `:fleet_id` (`t:string`) The fleet ID that contains the worker.
+  * `:worker_id` (`t:string`) The ID of the worker assuming the fleet role.
+
+  ## Optional parameters:
   """
-  @spec assume_fleet_role_for_worker(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec assume_fleet_role_for_worker(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, assume_fleet_role_for_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, assume_fleet_role_for_worker_errors()}
@@ -5020,21 +5090,44 @@ defmodule AWS.Deadline do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/workers/#{AWS.Util.encode_uri(worker_id)}/fleet-roles"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "scheduling.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "scheduling.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets Amazon Web Services credentials from the queue role.
+  Gets Amazon Web Services credentials from the queue role. The IAM permissions of
+  the credentials are scoped down to have read-only access.
 
-  The IAM permissions of the credentials are
-  scoped down to have read-only access.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssumeQueueRoleForRead&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm containing the queue.
+  * `:queue_id` (`t:string`) The queue ID.
+
+  ## Optional parameters:
   """
-  @spec assume_queue_role_for_read(map(), String.t(), String.t(), list()) ::
+  @spec assume_queue_role_for_read(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, assume_queue_role_for_read_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, assume_queue_role_for_read_errors()}
@@ -5042,18 +5135,45 @@ defmodule AWS.Deadline do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/read-roles"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Allows a user to assume a role for a queue.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssumeQueueRoleForUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the queue that the user assumes the
+    role for.
+  * `:queue_id` (`t:string`) The queue ID of the queue that the user assumes the
+    role for.
+
+  ## Optional parameters:
   """
-  @spec assume_queue_role_for_user(map(), String.t(), String.t(), list()) ::
+  @spec assume_queue_role_for_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, assume_queue_role_for_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, assume_queue_role_for_user_errors()}
@@ -5061,24 +5181,51 @@ defmodule AWS.Deadline do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/user-roles"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Allows a worker to assume a queue role.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssumeQueueRoleForWorker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the worker assuming the queue role.
+  * `:fleet_id` (`t:string`) The fleet ID of the worker assuming the queue role.
+  * `:worker_id` (`t:string`) The worker ID of the worker assuming the queue role.
+  * `:queue_id` (`t:string`) The queue ID of the worker assuming the queue role.
+
+  ## Optional parameters:
   """
   @spec assume_queue_role_for_worker(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, assume_queue_role_for_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5094,31 +5241,53 @@ defmodule AWS.Deadline do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/workers/#{AWS.Util.encode_uri(worker_id)}/queue-roles"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(queue_id) do
-        [{"queueId", queue_id} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata() |> Map.put_new(:host_prefix, "scheduling.")
+    # Required query params
+    query_params = [{"queueId", queue_id}]
+
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "scheduling.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get batched job details for a worker.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20BatchGetJobEntity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the worker that's fetching job details.
+    The worker must have an assignment on a job to fetch job details.
+  * `:fleet_id` (`t:string`) The fleet ID of the worker that's fetching job
+    details. The worker must have an assignment on a job to fetch job details.
+  * `:worker_id` (`t:string`) The worker ID of the worker containing the job
+    details to get.
+
+  ## Optional parameters:
   """
   @spec batch_get_job_entity(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           batch_get_job_entity_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_get_job_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5130,7 +5299,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "scheduling.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "scheduling.")
 
     Request.request_rest(
       client,
@@ -5147,14 +5317,23 @@ defmodule AWS.Deadline do
 
   @doc """
   Copies a job template to an Amazon S3 bucket.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CopyJobTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID to copy.
+  * `:job_id` (`t:string`) The job ID to copy.
+  * `:queue_id` (`t:string`) The queue ID to copy.
+
+  ## Optional parameters:
   """
   @spec copy_job_template(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           copy_job_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, copy_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5166,7 +5345,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -5183,14 +5363,31 @@ defmodule AWS.Deadline do
 
   @doc """
   Creates a budget to set spending thresholds for your rendering activity.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateBudget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID to include in this budget.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
-  @spec create_budget(map(), String.t(), create_budget_request(), list()) ::
+  @spec create_budget(AWS.Client.t(), String.t(), create_budget_request(), Keyword.t()) ::
           {:ok, create_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_budget_errors()}
   def create_budget(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/budgets"
 
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"clientToken", "X-Amz-Client-Token"}
@@ -5199,7 +5396,13 @@ defmodule AWS.Deadline do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -5215,22 +5418,34 @@ defmodule AWS.Deadline do
   end
 
   @doc """
-  Creates a farm to allow space for queues and fleets.
+  Creates a farm to allow space for queues and fleets. Farms are the space where
+  the components of your renders gather and are pieced together in the cloud.
+  Farms contain budgets and allow you to enforce permissions. Deadline Cloud
+  farms are a useful container for large projects.
 
-  Farms are the space where the
-  components of your renders gather and are pieced together in the cloud. Farms
-  contain
-  budgets and allow you to enforce permissions. Deadline Cloud farms are a useful
-  container for
-  large projects.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateFarm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
-  @spec create_farm(map(), create_farm_request(), list()) ::
+  @spec create_farm(AWS.Client.t(), create_farm_request(), Keyword.t()) ::
           {:ok, create_farm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_farm_errors()}
   def create_farm(%Client{} = client, input, options \\ []) do
     url_path = "/2023-10-12/farms"
 
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"clientToken", "X-Amz-Client-Token"}
@@ -5239,7 +5454,13 @@ defmodule AWS.Deadline do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -5255,20 +5476,34 @@ defmodule AWS.Deadline do
   end
 
   @doc """
-  Creates a fleet.
+  Creates a fleet. Fleets gather information relating to compute, or capacity, for
+  renders within your farms. You can choose to manage your own capacity or opt
+  to have fleets fully managed by Deadline Cloud.
 
-  Fleets gather information relating to compute, or capacity, for renders
-  within your farms. You can choose to manage your own capacity or opt to have
-  fleets fully
-  managed by Deadline Cloud.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm to connect to the fleet.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
-  @spec create_fleet(map(), String.t(), create_fleet_request(), list()) ::
+  @spec create_fleet(AWS.Client.t(), String.t(), create_fleet_request(), Keyword.t()) ::
           {:ok, create_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_fleet_errors()}
   def create_fleet(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets"
 
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"clientToken", "X-Amz-Client-Token"}
@@ -5277,7 +5512,13 @@ defmodule AWS.Deadline do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -5293,12 +5534,20 @@ defmodule AWS.Deadline do
   end
 
   @doc """
-  Creates a job.
+  Creates a job. A job is a render submission submitted by a user. It contains
+  specific job properties outlined as steps and tasks.
 
-  A job is a render submission submitted by a user. It contains specific
-  job properties outlined as steps and tasks.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm to connect to the job.
+  * `:queue_id` (`t:string`) The ID of the queue that the job is submitted to.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
-  @spec create_job(map(), String.t(), String.t(), create_job_request(), list()) ::
+  @spec create_job(AWS.Client.t(), String.t(), String.t(), create_job_request(), Keyword.t()) ::
           {:ok, create_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_errors()}
@@ -5306,6 +5555,14 @@ defmodule AWS.Deadline do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs"
 
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"clientToken", "X-Amz-Client-Token"}
@@ -5314,7 +5571,13 @@ defmodule AWS.Deadline do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -5332,13 +5595,29 @@ defmodule AWS.Deadline do
   @doc """
   Creates a license endpoint to integrate your various licensed software used for
   rendering on Deadline Cloud.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateLicenseEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
-  @spec create_license_endpoint(map(), create_license_endpoint_request(), list()) ::
+  @spec create_license_endpoint(AWS.Client.t(), create_license_endpoint_request(), Keyword.t()) ::
           {:ok, create_license_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_license_endpoint_errors()}
   def create_license_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/2023-10-12/license-endpoints"
+
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -5348,7 +5627,13 @@ defmodule AWS.Deadline do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -5365,19 +5650,32 @@ defmodule AWS.Deadline do
 
   @doc """
   Creates an Amazon Web Services Deadline Cloud monitor that you can use to view
-  your farms, queues, and
-  fleets.
+  your farms, queues, and fleets. After you submit a job, you can track the
+  progress of the tasks and steps that make up the job, and then download the
+  job's results.
 
-  After you submit a job, you can track the progress of the tasks and steps that
-  make
-  up the job, and then download the job's results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateMonitor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
-  @spec create_monitor(map(), create_monitor_request(), list()) ::
+  @spec create_monitor(AWS.Client.t(), create_monitor_request(), Keyword.t()) ::
           {:ok, create_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_monitor_errors()}
   def create_monitor(%Client{} = client, input, options \\ []) do
     url_path = "/2023-10-12/monitors"
+
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -5387,7 +5685,13 @@ defmodule AWS.Deadline do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -5403,17 +5707,33 @@ defmodule AWS.Deadline do
   end
 
   @doc """
-  Creates a queue to coordinate the order in which jobs run on a farm.
+  Creates a queue to coordinate the order in which jobs run on a farm. A queue can
+  also specify where to pull resources and indicate where to output completed
+  jobs.
 
-  A queue can also
-  specify where to pull resources and indicate where to output completed jobs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm to connect to the queue.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
-  @spec create_queue(map(), String.t(), create_queue_request(), list()) ::
+  @spec create_queue(AWS.Client.t(), String.t(), create_queue_request(), Keyword.t()) ::
           {:ok, create_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_queue_errors()}
   def create_queue(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues"
+
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -5423,7 +5743,13 @@ defmodule AWS.Deadline do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -5440,13 +5766,23 @@ defmodule AWS.Deadline do
 
   @doc """
   Creates an environment for a queue that defines how jobs in the queue run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateQueueEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm to connect to the environment.
+  * `:queue_id` (`t:string`) The queue ID to connect the queue and environment.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec create_queue_environment(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           create_queue_environment_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_queue_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5454,6 +5790,14 @@ defmodule AWS.Deadline do
   def create_queue_environment(%Client{} = client, farm_id, queue_id, input, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/environments"
+
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -5463,7 +5807,13 @@ defmodule AWS.Deadline do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -5480,12 +5830,19 @@ defmodule AWS.Deadline do
 
   @doc """
   Creates an association between a queue and a fleet.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateQueueFleetAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The ID of the farm that the queue and fleet belong to.
+
+  ## Optional parameters:
   """
   @spec create_queue_fleet_association(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_queue_fleet_association_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_queue_fleet_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5495,22 +5852,45 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a storage profile that specifies the operating system, file type, and
-  file
-  location of resources used on a farm.
+  file location of resources used on a farm.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateStorageProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm to connect to the storage
+    profile.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
-  @spec create_storage_profile(map(), String.t(), create_storage_profile_request(), list()) ::
+  @spec create_storage_profile(
+          AWS.Client.t(),
+          String.t(),
+          create_storage_profile_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_storage_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_storage_profile_errors()}
   def create_storage_profile(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/storage-profiles"
+
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -5520,7 +5900,13 @@ defmodule AWS.Deadline do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -5536,22 +5922,42 @@ defmodule AWS.Deadline do
   end
 
   @doc """
-  Creates a worker.
+  Creates a worker. A worker tells your instance how much processing power (vCPU),
+  and memory (GiB) you’ll need to assemble the digital assets held within a
+  particular instance. You can specify certain instance types to use, or let the
+  worker know which instances types to exclude.
 
-  A worker tells your instance how much processing power (vCPU), and
-  memory (GiB) you’ll need to assemble the digital assets held within a particular
-  instance.
-  You can specify certain instance types to use, or let the worker know which
-  instances types
-  to exclude.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateWorker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm to connect to the worker.
+  * `:fleet_id` (`t:string`) The fleet ID to connect to the worker.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
-  @spec create_worker(map(), String.t(), String.t(), create_worker_request(), list()) ::
+  @spec create_worker(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          create_worker_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_worker_errors()}
   def create_worker(%Client{} = client, farm_id, fleet_id, input, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/workers"
+
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -5561,7 +5967,13 @@ defmodule AWS.Deadline do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "scheduling.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "scheduling.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -5578,8 +5990,22 @@ defmodule AWS.Deadline do
 
   @doc """
   Deletes a budget.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteBudget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:budget_id` (`t:string`) The budget ID of the budget to delete.
+  * `:farm_id` (`t:string`) The farm ID of the farm to remove from the budget.
+
+  ## Optional parameters:
   """
-  @spec delete_budget(map(), String.t(), String.t(), delete_budget_request(), list()) ::
+  @spec delete_budget(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_budget_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_budget_errors()}
@@ -5590,7 +6016,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -5607,8 +6034,15 @@ defmodule AWS.Deadline do
 
   @doc """
   Deletes a farm.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteFarm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_farm(map(), String.t(), delete_farm_request(), list()) ::
+  @spec delete_farm(AWS.Client.t(), String.t(), delete_farm_request(), Keyword.t()) ::
           {:ok, delete_farm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_farm_errors()}
@@ -5617,7 +6051,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -5634,14 +6069,32 @@ defmodule AWS.Deadline do
 
   @doc """
   Deletes a fleet.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm to remove from the fleet.
+  * `:fleet_id` (`t:string`) The fleet ID of the fleet to delete.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
-  @spec delete_fleet(map(), String.t(), String.t(), delete_fleet_request(), list()) ::
+  @spec delete_fleet(AWS.Client.t(), String.t(), String.t(), delete_fleet_request(), Keyword.t()) ::
           {:ok, delete_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fleet_errors()}
   def delete_fleet(%Client{} = client, farm_id, fleet_id, input, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}"
+
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -5651,7 +6104,13 @@ defmodule AWS.Deadline do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -5668,8 +6127,21 @@ defmodule AWS.Deadline do
 
   @doc """
   Deletes a license endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteLicenseEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:license_endpoint_id` (`t:string`) The license endpoint ID of the license
+    endpoint to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_license_endpoint(map(), String.t(), delete_license_endpoint_request(), list()) ::
+  @spec delete_license_endpoint(
+          AWS.Client.t(),
+          String.t(),
+          delete_license_endpoint_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_license_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_license_endpoint_errors()}
@@ -5678,7 +6150,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -5695,13 +6168,22 @@ defmodule AWS.Deadline do
 
   @doc """
   Deletes a metered product.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteMeteredProduct&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:license_endpoint_id` (`t:string`) The ID of the license endpoint from which
+    to remove the metered product.
+  * `:product_id` (`t:string`) The product ID to remove from the license endpoint.
+
+  ## Optional parameters:
   """
   @spec delete_metered_product(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_metered_product_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_metered_product_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5719,7 +6201,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -5735,12 +6218,19 @@ defmodule AWS.Deadline do
   end
 
   @doc """
-  Removes a Deadline Cloud monitor.
+  Removes a Deadline Cloud monitor. After you delete a monitor, you can create a
+  new one and attach farms to the monitor.
 
-  After you delete a monitor, you can create a new one and
-  attach farms to the monitor.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteMonitor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:monitor_id` (`t:string`) The unique identifier of the monitor to delete.
+    This ID is returned by the CreateMonitor operation, and is included in the
+    response to the GetMonitor operation.
+
+  ## Optional parameters:
   """
-  @spec delete_monitor(map(), String.t(), delete_monitor_request(), list()) ::
+  @spec delete_monitor(AWS.Client.t(), String.t(), delete_monitor_request(), Keyword.t()) ::
           {:ok, delete_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_monitor_errors()}
@@ -5749,7 +6239,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -5766,8 +6257,16 @@ defmodule AWS.Deadline do
 
   @doc """
   Deletes a queue.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The ID of the farm from which to remove the queue.
+  * `:queue_id` (`t:string`) The queue ID of the queue to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_queue(map(), String.t(), String.t(), delete_queue_request(), list()) ::
+  @spec delete_queue(AWS.Client.t(), String.t(), String.t(), delete_queue_request(), Keyword.t()) ::
           {:ok, delete_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_queue_errors()}
@@ -5778,7 +6277,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -5795,14 +6295,25 @@ defmodule AWS.Deadline do
 
   @doc """
   Deletes a queue environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteQueueEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm from which to remove the queue
+    environment.
+  * `:queue_environment_id` (`t:string`) The queue environment ID of the queue
+    environment to delete.
+  * `:queue_id` (`t:string`) The queue ID of the queue environment to delete.
+
+  ## Optional parameters:
   """
   @spec delete_queue_environment(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_queue_environment_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_queue_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5821,7 +6332,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -5838,14 +6350,24 @@ defmodule AWS.Deadline do
 
   @doc """
   Deletes a queue-fleet association.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteQueueFleetAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm that holds the queue-fleet
+    association.
+  * `:fleet_id` (`t:string`) The fleet ID of the queue-fleet association.
+  * `:queue_id` (`t:string`) The queue ID of the queue-fleet association.
+
+  ## Optional parameters:
   """
   @spec delete_queue_fleet_association(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_queue_fleet_association_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_queue_fleet_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5864,7 +6386,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -5881,13 +6404,23 @@ defmodule AWS.Deadline do
 
   @doc """
   Deletes a storage profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteStorageProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm from which to remove the
+    storage profile.
+  * `:storage_profile_id` (`t:string`) The storage profile ID of the storage
+    profile to delete.
+
+  ## Optional parameters:
   """
   @spec delete_storage_profile(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_storage_profile_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_storage_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5905,7 +6438,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -5922,8 +6456,24 @@ defmodule AWS.Deadline do
 
   @doc """
   Deletes a worker.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteWorker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the worker to delete.
+  * `:fleet_id` (`t:string`) The fleet ID of the worker to delete.
+  * `:worker_id` (`t:string`) The worker ID of the worker to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_worker(map(), String.t(), String.t(), String.t(), delete_worker_request(), list()) ::
+  @spec delete_worker(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_worker_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_worker_errors()}
@@ -5934,7 +6484,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -5951,13 +6502,23 @@ defmodule AWS.Deadline do
 
   @doc """
   Disassociates a member from a farm.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DisassociateMemberFromFarm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm to disassociate from the
+    member.
+  * `:principal_id` (`t:string`) A member's principal ID to disassociate from a
+    farm.
+
+  ## Optional parameters:
   """
   @spec disassociate_member_from_farm(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           disassociate_member_from_farm_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_member_from_farm_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5975,7 +6536,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -5992,14 +6554,26 @@ defmodule AWS.Deadline do
 
   @doc """
   Disassociates a member from a fleet.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DisassociateMemberFromFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the fleet to disassociate a member
+    from.
+  * `:fleet_id` (`t:string`) The fleet ID of the fleet to from which to
+    disassociate a member.
+  * `:principal_id` (`t:string`) A member's principal ID to disassociate from a
+    fleet.
+
+  ## Optional parameters:
   """
   @spec disassociate_member_from_fleet(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           disassociate_member_from_fleet_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_member_from_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6018,7 +6592,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -6035,15 +6610,28 @@ defmodule AWS.Deadline do
 
   @doc """
   Disassociates a member from a job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DisassociateMemberFromJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the job to disassociate from the
+    member.
+  * `:job_id` (`t:string`) The job ID to disassociate from a member in a job.
+  * `:principal_id` (`t:string`) A member's principal ID to disassociate from a
+    job.
+  * `:queue_id` (`t:string`) The queue ID connected to a job for which you're
+    disassociating a member.
+
+  ## Optional parameters:
   """
   @spec disassociate_member_from_job(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
           disassociate_member_from_job_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_member_from_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6063,7 +6651,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -6080,14 +6669,26 @@ defmodule AWS.Deadline do
 
   @doc """
   Disassociates a member from a queue.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DisassociateMemberFromQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the queue to disassociate from a
+    member.
+  * `:principal_id` (`t:string`) A member's principal ID to disassociate from a
+    queue.
+  * `:queue_id` (`t:string`) The queue ID of the queue in which you're
+    disassociating from a member.
+
+  ## Optional parameters:
   """
   @spec disassociate_member_from_queue(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           disassociate_member_from_queue_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_member_from_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6106,7 +6707,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -6123,8 +6725,16 @@ defmodule AWS.Deadline do
 
   @doc """
   Get a budget.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetBudget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:budget_id` (`t:string`) The budget ID.
+  * `:farm_id` (`t:string`) The farm ID of the farm connected to the budget.
+
+  ## Optional parameters:
   """
-  @spec get_budget(map(), String.t(), String.t(), list()) ::
+  @spec get_budget(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_budget_errors()}
@@ -6132,35 +6742,85 @@ defmodule AWS.Deadline do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/budgets/#{AWS.Util.encode_uri(budget_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get a farm.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetFarm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm.
+
+  ## Optional parameters:
   """
-  @spec get_farm(map(), String.t(), list()) ::
+  @spec get_farm(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_farm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_farm_errors()}
   def get_farm(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get a fleet.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm in the fleet.
+  * `:fleet_id` (`t:string`) The fleet ID of the fleet to get.
+
+  ## Optional parameters:
   """
-  @spec get_fleet(map(), String.t(), String.t(), list()) ::
+  @spec get_fleet(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_fleet_errors()}
@@ -6168,18 +6828,44 @@ defmodule AWS.Deadline do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a Deadline Cloud job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm in the job.
+  * `:job_id` (`t:string`) The job ID.
+  * `:queue_id` (`t:string`) The queue ID associated with the job.
+
+  ## Optional parameters:
   """
-  @spec get_job(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_job(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_errors()}
@@ -6187,52 +6873,128 @@ defmodule AWS.Deadline do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a licence endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetLicenseEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:license_endpoint_id` (`t:string`) The license endpoint ID.
+
+  ## Optional parameters:
   """
-  @spec get_license_endpoint(map(), String.t(), list()) ::
+  @spec get_license_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_license_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_license_endpoint_errors()}
   def get_license_endpoint(%Client{} = client, license_endpoint_id, options \\ []) do
     url_path = "/2023-10-12/license-endpoints/#{AWS.Util.encode_uri(license_endpoint_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about the specified monitor.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetMonitor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:monitor_id` (`t:string`) The unique identifier for the monitor. This ID is
+    returned by the CreateMonitor operation.
+
+  ## Optional parameters:
   """
-  @spec get_monitor(map(), String.t(), list()) ::
+  @spec get_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_monitor_errors()}
   def get_monitor(%Client{} = client, monitor_id, options \\ []) do
     url_path = "/2023-10-12/monitors/#{AWS.Util.encode_uri(monitor_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a queue.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm in the queue.
+  * `:queue_id` (`t:string`) The queue ID for the queue to retrieve.
+
+  ## Optional parameters:
   """
-  @spec get_queue(map(), String.t(), String.t(), list()) ::
+  @spec get_queue(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_queue_errors()}
@@ -6240,18 +7002,44 @@ defmodule AWS.Deadline do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a queue environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetQueueEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the queue environment.
+  * `:queue_environment_id` (`t:string`) The queue environment ID.
+  * `:queue_id` (`t:string`) The queue ID for the queue environment.
+
+  ## Optional parameters:
   """
-  @spec get_queue_environment(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_queue_environment(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_queue_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_queue_environment_errors()}
@@ -6265,18 +7053,51 @@ defmodule AWS.Deadline do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/environments/#{AWS.Util.encode_uri(queue_environment_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a queue-fleet association.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetQueueFleetAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm that contains the queue-fleet
+    association.
+  * `:fleet_id` (`t:string`) The fleet ID for the queue-fleet association.
+  * `:queue_id` (`t:string`) The queue ID for the queue-fleet association.
+
+  ## Optional parameters:
   """
-  @spec get_queue_fleet_association(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_queue_fleet_association(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, get_queue_fleet_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_queue_fleet_association_errors()}
@@ -6284,18 +7105,45 @@ defmodule AWS.Deadline do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queue-fleet-associations/#{AWS.Util.encode_uri(queue_id)}/#{AWS.Util.encode_uri(fleet_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a session.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the session.
+  * `:job_id` (`t:string`) The job ID for the session.
+  * `:queue_id` (`t:string`) The queue ID for the session.
+  * `:session_id` (`t:string`) The session ID.
+
+  ## Optional parameters:
   """
-  @spec get_session(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_session(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_session_errors()}
@@ -6303,18 +7151,52 @@ defmodule AWS.Deadline do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a session action for the job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetSessionAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the session action.
+  * `:job_id` (`t:string`) The job ID for the session.
+  * `:queue_id` (`t:string`) The queue ID for the session action.
+  * `:session_action_id` (`t:string`) The session action ID for the session.
+
+  ## Optional parameters:
   """
-  @spec get_session_action(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_session_action(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, get_session_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_session_action_errors()}
@@ -6329,30 +7211,54 @@ defmodule AWS.Deadline do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/session-actions/#{AWS.Util.encode_uri(session_action_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets a set of statistics for queues or farms.
-
-  Before you can call the
+  Gets a set of statistics for queues or farms. Before you can call the
   `GetSessionStatisticsAggregation` operation, you must first call the
-  `StartSessionsStatisticsAggregation` operation. Statistics are available for
-  1 hour after you call the `StartSessionsStatisticsAggregation` operation.
+  `StartSessionsStatisticsAggregation` operation. Statistics are available for 1
+  hour after you call the `StartSessionsStatisticsAggregation` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetSessionsStatisticsAggregation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The identifier of the farm to include in the
+    statistics. This should be the same as the farm ID used in the call to the
+    StartSessionsStatisticsAggregation operation.
+  * `:aggregation_id` (`t:string`) The identifier returned by the
+    StartSessionsStatisticsAggregation operation that identifies the aggregated
+    statistics.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
-  @spec get_sessions_statistics_aggregation(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_sessions_statistics_aggregation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_sessions_statistics_aggregation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sessions_statistics_aggregation_errors()}
@@ -6360,44 +7266,67 @@ defmodule AWS.Deadline do
         %Client{} = client,
         farm_id,
         aggregation_id,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/sessions-statistics-aggregation"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"aggregationId", aggregation_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(aggregation_id) do
-        [{"aggregationId", aggregation_id} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a step.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetStep&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the step.
+  * `:job_id` (`t:string`) The job ID for the step.
+  * `:queue_id` (`t:string`) The queue ID for the step.
+  * `:step_id` (`t:string`) The step ID.
+
+  ## Optional parameters:
   """
-  @spec get_step(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_step(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_step_errors()}
@@ -6405,18 +7334,43 @@ defmodule AWS.Deadline do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/steps/#{AWS.Util.encode_uri(step_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a storage profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetStorageProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the storage profile.
+  * `:storage_profile_id` (`t:string`) The storage profile ID.
+
+  ## Optional parameters:
   """
-  @spec get_storage_profile(map(), String.t(), String.t(), list()) ::
+  @spec get_storage_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_storage_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_storage_profile_errors()}
@@ -6424,18 +7378,51 @@ defmodule AWS.Deadline do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/storage-profiles/#{AWS.Util.encode_uri(storage_profile_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a storage profile for a queue.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetStorageProfileForQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the queue in storage profile.
+  * `:queue_id` (`t:string`) The queue ID the queue in the storage profile.
+  * `:storage_profile_id` (`t:string`) The storage profile ID for the storage
+    profile in the queue.
+
+  ## Optional parameters:
   """
-  @spec get_storage_profile_for_queue(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_storage_profile_for_queue(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, get_storage_profile_for_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_storage_profile_for_queue_errors()}
@@ -6449,18 +7436,54 @@ defmodule AWS.Deadline do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/storage-profiles/#{AWS.Util.encode_uri(storage_profile_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm connected to the task.
+  * `:job_id` (`t:string`) The job ID of the job connected to the task.
+  * `:queue_id` (`t:string`) The queue ID for the queue connected to the task.
+  * `:step_id` (`t:string`) The step ID for the step connected to the task.
+  * `:task_id` (`t:string`) The task ID.
+
+  ## Optional parameters:
   """
-  @spec get_task(map(), String.t(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_task(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, get_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_task_errors()}
@@ -6468,18 +7491,44 @@ defmodule AWS.Deadline do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/steps/#{AWS.Util.encode_uri(step_id)}/tasks/#{AWS.Util.encode_uri(task_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a worker.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetWorker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the worker.
+  * `:fleet_id` (`t:string`) The fleet ID of the worker.
+  * `:worker_id` (`t:string`) The worker ID.
+
+  ## Optional parameters:
   """
-  @spec get_worker(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_worker(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_worker_errors()}
@@ -6487,955 +7536,1410 @@ defmodule AWS.Deadline do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/workers/#{AWS.Util.encode_uri(worker_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   A list of the available metered products.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListAvailableMeteredProducts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
-  @spec list_available_metered_products(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_available_metered_products(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_available_metered_products_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_available_metered_products_errors()}
-  def list_available_metered_products(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_available_metered_products(%Client{} = client, options \\ []) do
     url_path = "/2023-10-12/metered-products"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   A list of budgets in a farm.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListBudgets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID associated with the budgets.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
+  * `:status` (`t:enum["ACTIVE|INACTIVE"]`) The status to list for the budgets.
   """
-  @spec list_budgets(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_budgets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_budgets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_budgets_errors()}
-  def list_budgets(
-        %Client{} = client,
-        farm_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_budgets(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/budgets"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the members of a farm.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListFarmMembers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
-  @spec list_farm_members(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_farm_members(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_farm_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_farm_members_errors()}
-  def list_farm_members(
-        %Client{} = client,
-        farm_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_farm_members(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/members"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists farms.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListFarms&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
+  * `:principal_id` (`t:string`) The principal ID of the member to list on the
+    farm.
   """
-  @spec list_farms(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_farms(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_farms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_farms_errors()}
-  def list_farms(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        principal_id \\ nil,
-        options \\ []
-      ) do
+  def list_farms(%Client{} = client, options \\ []) do
     url_path = "/2023-10-12/farms"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, principal_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(principal_id) do
-        [{"principalId", principal_id} | query_params]
+      if opt_val = Keyword.get(options, :principal_id) do
+        [{"principalId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :principal_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists fleet members.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListFleetMembers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the fleet.
+  * `:fleet_id` (`t:string`) The fleet ID to include on the list.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
-  @spec list_fleet_members(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_fleet_members(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_fleet_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fleet_members_errors()}
-  def list_fleet_members(
-        %Client{} = client,
-        farm_id,
-        fleet_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_fleet_members(%Client{} = client, farm_id, fleet_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/members"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists fleets.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListFleets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the fleets.
+
+  ## Optional parameters:
+  * `:display_name` (`t:string`) The display names of a list of fleets.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
+  * `:principal_id` (`t:string`) The principal ID of the members to include in the
+    fleet.
+  * `:status`
+    (`t:enum["ACTIVE|CREATE_FAILED|CREATE_IN_PROGRESS|UPDATE_FAILED|UPDATE_IN_PROGRESS"]`)
+    The status of the fleet.
   """
-  @spec list_fleets(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_fleets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_fleets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fleets_errors()}
-  def list_fleets(
-        %Client{} = client,
-        farm_id,
-        display_name \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        principal_id \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_fleets(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets"
+
+    # Validate optional parameters
+    optional_params = [
+      display_name: nil,
+      max_results: nil,
+      next_token: nil,
+      principal_id: nil,
+      status: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(principal_id) do
-        [{"principalId", principal_id} | query_params]
+      if opt_val = Keyword.get(options, :principal_id) do
+        [{"principalId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(display_name) do
-        [{"displayName", display_name} | query_params]
+      if opt_val = Keyword.get(options, :display_name) do
+        [{"displayName", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:display_name, :max_results, :next_token, :principal_id, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists members on a job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListJobMembers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the job to list.
+  * `:job_id` (`t:string`) The job ID to include on the list.
+  * `:queue_id` (`t:string`) The queue ID to include on the list.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
-  @spec list_job_members(
-          map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_job_members(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_job_members_errors()}
-  def list_job_members(
-        %Client{} = client,
-        farm_id,
-        job_id,
-        queue_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_job_members(%Client{} = client, farm_id, job_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/members"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the jobs.
+  * `:queue_id` (`t:string`) The queue ID for the job.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
+  * `:principal_id` (`t:string`) The principal ID of the members on the jobs.
   """
-  @spec list_jobs(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_jobs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_errors()}
-  def list_jobs(
-        %Client{} = client,
-        farm_id,
-        queue_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        principal_id \\ nil,
-        options \\ []
-      ) do
+  def list_jobs(%Client{} = client, farm_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, principal_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(principal_id) do
-        [{"principalId", principal_id} | query_params]
+      if opt_val = Keyword.get(options, :principal_id) do
+        [{"principalId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :principal_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists license endpoints.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListLicenseEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
-  @spec list_license_endpoints(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_license_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_license_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_license_endpoints_errors()}
-  def list_license_endpoints(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_license_endpoints(%Client{} = client, options \\ []) do
     url_path = "/2023-10-12/license-endpoints"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists metered products.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListMeteredProducts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:license_endpoint_id` (`t:string`) The license endpoint ID to include on the
+    list of metered products.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
-  @spec list_metered_products(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_metered_products(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_metered_products_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_metered_products_errors()}
-  def list_metered_products(
-        %Client{} = client,
-        license_endpoint_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_metered_products(%Client{} = client, license_endpoint_id, options \\ []) do
     url_path =
       "/2023-10-12/license-endpoints/#{AWS.Util.encode_uri(license_endpoint_id)}/metered-products"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a list of your monitors in Deadline Cloud.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListMonitors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
-  @spec list_monitors(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_monitors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_monitors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_monitors_errors()}
-  def list_monitors(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_monitors(%Client{} = client, options \\ []) do
     url_path = "/2023-10-12/monitors"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists queue environments.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListQueueEnvironments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the queue environment list.
+  * `:queue_id` (`t:string`) The queue ID for the queue environment list.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
-  @spec list_queue_environments(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_queue_environments(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_queue_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_queue_environments_errors()}
-  def list_queue_environments(
-        %Client{} = client,
-        farm_id,
-        queue_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_queue_environments(%Client{} = client, farm_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/environments"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists queue-fleet associations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListQueueFleetAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the queue-fleet association list.
+
+  ## Optional parameters:
+  * `:fleet_id` (`t:string`) The fleet ID for the queue-fleet association list.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
+  * `:queue_id` (`t:string`) The queue ID for the queue-fleet association list.
   """
-  @spec list_queue_fleet_associations(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_queue_fleet_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_queue_fleet_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_queue_fleet_associations_errors()}
-  def list_queue_fleet_associations(
-        %Client{} = client,
-        farm_id,
-        fleet_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        queue_id \\ nil,
-        options \\ []
-      ) do
+  def list_queue_fleet_associations(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queue-fleet-associations"
+
+    # Validate optional parameters
+    optional_params = [fleet_id: nil, max_results: nil, next_token: nil, queue_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(queue_id) do
-        [{"queueId", queue_id} | query_params]
+      if opt_val = Keyword.get(options, :queue_id) do
+        [{"queueId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(fleet_id) do
-        [{"fleetId", fleet_id} | query_params]
+      if opt_val = Keyword.get(options, :fleet_id) do
+        [{"fleetId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:fleet_id, :max_results, :next_token, :queue_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the members in a queue.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListQueueMembers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the queue.
+  * `:queue_id` (`t:string`) The queue ID to include on the list.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
-  @spec list_queue_members(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_queue_members(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_queue_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_queue_members_errors()}
-  def list_queue_members(
-        %Client{} = client,
-        farm_id,
-        queue_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_queue_members(%Client{} = client, farm_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/members"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists queues.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListQueues&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the queue.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
+  * `:principal_id` (`t:string`) The principal ID. This filter is only valid when
+    using Nimble Studio credentials and should match the user ID in the
+    credentials of the caller.
+  * `:status` (`t:enum["IDLE|SCHEDULING|SCHEDULING_BLOCKED"]`) The status of the
+    queues listed.
   """
-  @spec list_queues(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_queues(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_queues_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_queues_errors()}
-  def list_queues(
-        %Client{} = client,
-        farm_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        principal_id \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_queues(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, principal_id: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(principal_id) do
-        [{"principalId", principal_id} | query_params]
+      if opt_val = Keyword.get(options, :principal_id) do
+        [{"principalId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :principal_id, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists session actions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListSessionActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the session actions list.
+  * `:job_id` (`t:string`) The job ID for the session actions list.
+  * `:queue_id` (`t:string`) The queue ID for the session actions list.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
+  * `:session_id` (`t:string`) The session ID to include on the sessions action
+    list.
+  * `:task_id` (`t:string`) The task ID for the session actions list.
   """
-  @spec list_session_actions(
-          map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_session_actions(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_session_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_session_actions_errors()}
-  def list_session_actions(
-        %Client{} = client,
-        farm_id,
-        job_id,
-        queue_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        session_id \\ nil,
-        task_id \\ nil,
-        options \\ []
-      ) do
+  def list_session_actions(%Client{} = client, farm_id, job_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/session-actions"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, session_id: nil, task_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(task_id) do
-        [{"taskId", task_id} | query_params]
+      if opt_val = Keyword.get(options, :task_id) do
+        [{"taskId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(session_id) do
-        [{"sessionId", session_id} | query_params]
+      if opt_val = Keyword.get(options, :session_id) do
+        [{"sessionId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :session_id, :task_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists sessions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListSessions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the list of sessions.
+  * `:job_id` (`t:string`) The job ID for the list of sessions.
+  * `:queue_id` (`t:string`) The queue ID for the list of sessions
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
-  @spec list_sessions(
-          map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_sessions(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sessions_errors()}
-  def list_sessions(
-        %Client{} = client,
-        farm_id,
-        job_id,
-        queue_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_sessions(%Client{} = client, farm_id, job_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/sessions"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists sessions for a worker.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListSessionsForWorker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the session.
+  * `:fleet_id` (`t:string`) The fleet ID for the session.
+  * `:worker_id` (`t:string`) The worker ID for the session.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
-  @spec list_sessions_for_worker(
-          map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_sessions_for_worker(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_sessions_for_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sessions_for_worker_errors()}
-  def list_sessions_for_worker(
-        %Client{} = client,
-        farm_id,
-        fleet_id,
-        worker_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_sessions_for_worker(%Client{} = client, farm_id, fleet_id, worker_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/workers/#{AWS.Util.encode_uri(worker_id)}/sessions"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists step consumers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListStepConsumers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the list of step consumers.
+  * `:job_id` (`t:string`) The job ID for the step consumer.
+  * `:queue_id` (`t:string`) The queue ID for the step consumer.
+  * `:step_id` (`t:string`) The step ID to include on the list.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
   @spec list_step_consumers(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_step_consumers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_step_consumers_errors()}
-  def list_step_consumers(
-        %Client{} = client,
-        farm_id,
-        job_id,
-        queue_id,
-        step_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_step_consumers(%Client{} = client, farm_id, job_id, queue_id, step_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/steps/#{AWS.Util.encode_uri(step_id)}/consumers"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the dependencies for a step.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListStepDependencies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the step dependencies list.
+  * `:job_id` (`t:string`) The job ID for the step dependencies list.
+  * `:queue_id` (`t:string`) The queue ID for the step dependencies list.
+  * `:step_id` (`t:string`) The step ID to include on the list.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
   @spec list_step_dependencies(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_step_dependencies_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7446,280 +8950,446 @@ defmodule AWS.Deadline do
         job_id,
         queue_id,
         step_id,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/steps/#{AWS.Util.encode_uri(step_id)}/dependencies"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists steps for a job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListSteps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID to include on the list of steps.
+  * `:job_id` (`t:string`) The job ID to include on the list of steps.
+  * `:queue_id` (`t:string`) The queue ID to include on the list of steps.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
-  @spec list_steps(
-          map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_steps(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_steps_errors()}
-  def list_steps(
-        %Client{} = client,
-        farm_id,
-        job_id,
-        queue_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_steps(%Client{} = client, farm_id, job_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/steps"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists storage profiles.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListStorageProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the storage profile.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
-  @spec list_storage_profiles(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_storage_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_storage_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_storage_profiles_errors()}
-  def list_storage_profiles(
-        %Client{} = client,
-        farm_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_storage_profiles(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/storage-profiles"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists storage profiles for a queue.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListStorageProfilesForQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the queue's storage profile.
+  * `:queue_id` (`t:string`) The queue ID for the storage profile.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
-  @spec list_storage_profiles_for_queue(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_storage_profiles_for_queue(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_storage_profiles_for_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_storage_profiles_for_queue_errors()}
-  def list_storage_profiles_for_queue(
-        %Client{} = client,
-        farm_id,
-        queue_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_storage_profiles_for_queue(%Client{} = client, farm_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/storage-profiles"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists tags for a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource ARN to list tags for.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/2023-10-12/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists tasks for a job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID connected to the tasks.
+  * `:job_id` (`t:string`) The job ID for the tasks.
+  * `:queue_id` (`t:string`) The queue ID connected to the tasks.
+  * `:step_id` (`t:string`) The step ID for the tasks.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
-  @spec list_tasks(
-          map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_tasks(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tasks_errors()}
-  def list_tasks(
-        %Client{} = client,
-        farm_id,
-        job_id,
-        queue_id,
-        step_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_tasks(%Client{} = client, farm_id, job_id, queue_id, step_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/steps/#{AWS.Util.encode_uri(step_id)}/tasks"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists workers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListWorkers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID connected to the workers.
+  * `:fleet_id` (`t:string`) The fleet ID of the workers.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
-  @spec list_workers(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_workers(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_workers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workers_errors()}
-  def list_workers(
-        %Client{} = client,
-        farm_id,
-        fleet_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_workers(%Client{} = client, farm_id, fleet_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/workers"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Adds a metered product.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20PutMeteredProduct&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:license_endpoint_id` (`t:string`) The license endpoint ID to add to the
+    metered product.
+  * `:product_id` (`t:string`) The product ID to add to the metered product.
+
+  ## Optional parameters:
   """
-  @spec put_metered_product(map(), String.t(), String.t(), put_metered_product_request(), list()) ::
+  @spec put_metered_product(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          put_metered_product_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_metered_product_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_metered_product_errors()}
@@ -7736,15 +9406,23 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Searches for jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20SearchJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the job.
+
+  ## Optional parameters:
   """
-  @spec search_jobs(map(), String.t(), search_jobs_request(), list()) ::
+  @spec search_jobs(AWS.Client.t(), String.t(), search_jobs_request(), Keyword.t()) ::
           {:ok, search_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_jobs_errors()}
@@ -7753,7 +9431,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -7770,8 +9449,15 @@ defmodule AWS.Deadline do
 
   @doc """
   Searches for steps.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20SearchSteps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID to use for the step search.
+
+  ## Optional parameters:
   """
-  @spec search_steps(map(), String.t(), search_steps_request(), list()) ::
+  @spec search_steps(AWS.Client.t(), String.t(), search_steps_request(), Keyword.t()) ::
           {:ok, search_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_steps_errors()}
@@ -7780,7 +9466,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -7797,8 +9484,15 @@ defmodule AWS.Deadline do
 
   @doc """
   Searches for tasks.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20SearchTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the task.
+
+  ## Optional parameters:
   """
-  @spec search_tasks(map(), String.t(), search_tasks_request(), list()) ::
+  @spec search_tasks(AWS.Client.t(), String.t(), search_tasks_request(), Keyword.t()) ::
           {:ok, search_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_tasks_errors()}
@@ -7807,7 +9501,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -7824,8 +9519,15 @@ defmodule AWS.Deadline do
 
   @doc """
   Searches for workers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20SearchWorkers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID in the workers search.
+
+  ## Optional parameters:
   """
-  @spec search_workers(map(), String.t(), search_workers_request(), list()) ::
+  @spec search_workers(AWS.Client.t(), String.t(), search_workers_request(), Keyword.t()) ::
           {:ok, search_workers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_workers_errors()}
@@ -7834,7 +9536,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -7851,17 +9554,23 @@ defmodule AWS.Deadline do
 
   @doc """
   Starts an asynchronous request for getting aggregated statistics about queues
-  and farms.
-
-  Get the statistics using the `GetSessionsStatisticsAggregation` operation.
-  Statistics are available for 1 hour after you call the
+  and farms. Get the statistics using the `GetSessionsStatisticsAggregation`
+  operation. Statistics are available for 1 hour after you call the
   `StartSessionsStatisticsAggregation` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20StartSessionsStatisticsAggregation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The identifier of the farm that contains queues or
+    fleets to return statistics for.
+
+  ## Optional parameters:
   """
   @spec start_sessions_statistics_aggregation(
-          map(),
+          AWS.Client.t(),
           String.t(),
           start_sessions_statistics_aggregation_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_sessions_statistics_aggregation_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7871,7 +9580,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -7888,8 +9598,15 @@ defmodule AWS.Deadline do
 
   @doc """
   Tags a resource using the resource's ARN and desired tags.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource to apply tags to.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -7898,7 +9615,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -7915,8 +9633,16 @@ defmodule AWS.Deadline do
 
   @doc """
   Removes a tag from a resource using the resource's ARN and tag to remove.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource to remove the tag from.
+  * `:tag_keys` (`t:list[com.amazonaws.deadline#String]`) They keys of the tag.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -7930,7 +9656,8 @@ defmodule AWS.Deadline do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -7947,14 +9674,38 @@ defmodule AWS.Deadline do
 
   @doc """
   Updates a budget that sets spending thresholds for rendering activity.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateBudget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:budget_id` (`t:string`) The budget ID to update.
+  * `:farm_id` (`t:string`) The farm ID of the budget to update.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
-  @spec update_budget(map(), String.t(), String.t(), update_budget_request(), list()) ::
+  @spec update_budget(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_budget_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_budget_errors()}
   def update_budget(%Client{} = client, budget_id, farm_id, input, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/budgets/#{AWS.Util.encode_uri(budget_id)}"
+
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -7964,7 +9715,13 @@ defmodule AWS.Deadline do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -7981,8 +9738,15 @@ defmodule AWS.Deadline do
 
   @doc """
   Updates a farm.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateFarm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID to update.
+
+  ## Optional parameters:
   """
-  @spec update_farm(map(), String.t(), update_farm_request(), list()) ::
+  @spec update_farm(AWS.Client.t(), String.t(), update_farm_request(), Keyword.t()) ::
           {:ok, update_farm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_farm_errors()}
@@ -7991,7 +9755,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -8008,14 +9773,32 @@ defmodule AWS.Deadline do
 
   @doc """
   Updates a fleet.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID to update.
+  * `:fleet_id` (`t:string`) The fleet ID to update.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
-  @spec update_fleet(map(), String.t(), String.t(), update_fleet_request(), list()) ::
+  @spec update_fleet(AWS.Client.t(), String.t(), String.t(), update_fleet_request(), Keyword.t()) ::
           {:ok, update_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_fleet_errors()}
   def update_fleet(%Client{} = client, farm_id, fleet_id, input, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}"
+
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -8025,7 +9808,13 @@ defmodule AWS.Deadline do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -8042,14 +9831,40 @@ defmodule AWS.Deadline do
 
   @doc """
   Updates a job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the job to update.
+  * `:job_id` (`t:string`) The job ID to update.
+  * `:queue_id` (`t:string`) The queue ID of the job to update.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
-  @spec update_job(map(), String.t(), String.t(), String.t(), update_job_request(), list()) ::
+  @spec update_job(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          update_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_job_errors()}
   def update_job(%Client{} = client, farm_id, job_id, queue_id, input, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}"
+
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -8059,7 +9874,13 @@ defmodule AWS.Deadline do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -8075,12 +9896,17 @@ defmodule AWS.Deadline do
   end
 
   @doc """
-  Modifies the settings for a Deadline Cloud monitor.
+  Modifies the settings for a Deadline Cloud monitor. You can modify one or all of
+  the settings when you call `UpdateMonitor`.
 
-  You can modify one or all of the settings
-  when you call `UpdateMonitor`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateMonitor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:monitor_id` (`t:string`) The unique identifier of the monitor to update.
+
+  ## Optional parameters:
   """
-  @spec update_monitor(map(), String.t(), update_monitor_request(), list()) ::
+  @spec update_monitor(AWS.Client.t(), String.t(), update_monitor_request(), Keyword.t()) ::
           {:ok, update_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_monitor_errors()}
@@ -8089,7 +9915,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -8106,14 +9933,31 @@ defmodule AWS.Deadline do
 
   @doc """
   Updates a queue.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID to update in the queue.
+  * `:queue_id` (`t:string`) The queue ID to update.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The idempotency token to update in the queue.
   """
-  @spec update_queue(map(), String.t(), String.t(), update_queue_request(), list()) ::
+  @spec update_queue(AWS.Client.t(), String.t(), String.t(), update_queue_request(), Keyword.t()) ::
           {:ok, update_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_queue_errors()}
   def update_queue(%Client{} = client, farm_id, queue_id, input, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}"
+
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -8123,7 +9967,13 @@ defmodule AWS.Deadline do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -8140,14 +9990,25 @@ defmodule AWS.Deadline do
 
   @doc """
   Updates the queue environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateQueueEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the queue environment to update.
+  * `:queue_environment_id` (`t:string`) The queue environment ID to update.
+  * `:queue_id` (`t:string`) The queue ID of the queue environment to update.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec update_queue_environment(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           update_queue_environment_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_queue_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -8163,6 +10024,14 @@ defmodule AWS.Deadline do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/environments/#{AWS.Util.encode_uri(queue_environment_id)}"
 
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"clientToken", "X-Amz-Client-Token"}
@@ -8171,7 +10040,13 @@ defmodule AWS.Deadline do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -8188,14 +10063,23 @@ defmodule AWS.Deadline do
 
   @doc """
   Updates a queue-fleet association.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateQueueFleetAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID to update.
+  * `:fleet_id` (`t:string`) The fleet ID to update.
+  * `:queue_id` (`t:string`) The queue ID to update.
+
+  ## Optional parameters:
   """
   @spec update_queue_fleet_association(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           update_queue_fleet_association_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_queue_fleet_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -8214,7 +10098,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
 
     Request.request_rest(
       client,
@@ -8231,15 +10116,27 @@ defmodule AWS.Deadline do
 
   @doc """
   Updates a session.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID to update in the session.
+  * `:job_id` (`t:string`) The job ID to update in the session.
+  * `:queue_id` (`t:string`) The queue ID to update in the session.
+  * `:session_id` (`t:string`) The session ID to update.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec update_session(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
           update_session_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -8256,6 +10153,14 @@ defmodule AWS.Deadline do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
 
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"clientToken", "X-Amz-Client-Token"}
@@ -8264,7 +10169,13 @@ defmodule AWS.Deadline do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -8281,15 +10192,27 @@ defmodule AWS.Deadline do
 
   @doc """
   Updates a step.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateStep&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID to update.
+  * `:job_id` (`t:string`) The job ID to update.
+  * `:queue_id` (`t:string`) The queue ID to update.
+  * `:step_id` (`t:string`) The step ID to update.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec update_step(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
           update_step_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -8297,6 +10220,14 @@ defmodule AWS.Deadline do
   def update_step(%Client{} = client, farm_id, job_id, queue_id, step_id, input, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/steps/#{AWS.Util.encode_uri(step_id)}"
+
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -8306,7 +10237,13 @@ defmodule AWS.Deadline do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -8323,13 +10260,23 @@ defmodule AWS.Deadline do
 
   @doc """
   Updates a storage profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateStorageProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID to update.
+  * `:storage_profile_id` (`t:string`) The storage profile ID to update.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec update_storage_profile(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_storage_profile_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_storage_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -8344,6 +10291,14 @@ defmodule AWS.Deadline do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/storage-profiles/#{AWS.Util.encode_uri(storage_profile_id)}"
 
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"clientToken", "X-Amz-Client-Token"}
@@ -8352,7 +10307,13 @@ defmodule AWS.Deadline do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -8369,16 +10330,29 @@ defmodule AWS.Deadline do
 
   @doc """
   Updates a task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID to update.
+  * `:job_id` (`t:string`) The job ID to update.
+  * `:queue_id` (`t:string`) The queue ID to update.
+  * `:step_id` (`t:string`) The step ID to update.
+  * `:task_id` (`t:string`) The task ID to update.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec update_task(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
           update_task_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -8396,6 +10370,14 @@ defmodule AWS.Deadline do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/steps/#{AWS.Util.encode_uri(step_id)}/tasks/#{AWS.Util.encode_uri(task_id)}"
 
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"clientToken", "X-Amz-Client-Token"}
@@ -8404,7 +10386,13 @@ defmodule AWS.Deadline do
 
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "management.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -8421,8 +10409,24 @@ defmodule AWS.Deadline do
 
   @doc """
   Updates a worker.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateWorker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID to update.
+  * `:fleet_id` (`t:string`) The fleet ID to update.
+  * `:worker_id` (`t:string`) The worker ID to update.
+
+  ## Optional parameters:
   """
-  @spec update_worker(map(), String.t(), String.t(), String.t(), update_worker_request(), list()) ::
+  @spec update_worker(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          update_worker_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_worker_errors()}
@@ -8433,7 +10437,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "scheduling.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "scheduling.")
 
     Request.request_rest(
       client,
@@ -8450,14 +10455,23 @@ defmodule AWS.Deadline do
 
   @doc """
   Updates the schedule for a worker.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateWorkerSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID to update.
+  * `:fleet_id` (`t:string`) The fleet ID to update.
+  * `:worker_id` (`t:string`) The worker ID to update.
+
+  ## Optional parameters:
   """
   @spec update_worker_schedule(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           update_worker_schedule_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_worker_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -8476,7 +10490,8 @@ defmodule AWS.Deadline do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "scheduling.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "scheduling.")
 
     Request.request_rest(
       client,

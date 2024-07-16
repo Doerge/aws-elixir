@@ -3,21 +3,9 @@
 
 defmodule AWS.DLM do
   @moduledoc """
-  Amazon Data Lifecycle Manager
-
-  With Amazon Data Lifecycle Manager, you can manage the lifecycle of your Amazon
-  Web Services resources.
-
-  You create
-  lifecycle policies, which are used to automate operations on the specified
-  resources.
-
-  Amazon Data Lifecycle Manager supports Amazon EBS volumes and snapshots. For
-  information about using Amazon Data Lifecycle Manager
-  with Amazon EBS, see [
-  Amazon Data Lifecycle
-  Manager](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html)
-  in the *Amazon EC2 User Guide*.
+  Amazon Data Lifecycle Manager With Amazon Data Lifecycle Manager, you can manage
+  the lifecycle of your Amazon Web Services resources. You create lifecycle
+  policies, which are used to automate operations on the specified resources.
   """
 
   alias AWS.Client
@@ -676,33 +664,16 @@ defmodule AWS.DLM do
   end
 
   @doc """
-  Creates an Amazon Data Lifecycle Manager lifecycle policy.
+  Creates an Amazon Data Lifecycle Manager lifecycle policy. Amazon Data Lifecycle
+  Manager supports the following policy types:
 
-  Amazon Data Lifecycle Manager supports the following policy types:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20CreateLifecyclePolicy&this_doc_guide=API%2520Reference)
 
-    *
-  Custom EBS snapshot policy
+  ## Parameters:
 
-    *
-  Custom EBS-backed AMI policy
-
-    *
-  Cross-account copy event policy
-
-    *
-  Default policy for EBS snapshots
-
-    *
-  Default policy for EBS-backed AMIs
-
-  For more information, see [
-  Default policies vs custom
-  policies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/policy-differences.html).
-
-  If you create a default policy, you can specify the request parameters either in
-  the request body, or in the PolicyDetails request structure, but not both.
+  ## Optional parameters:
   """
-  @spec create_lifecycle_policy(map(), create_lifecycle_policy_request(), list()) ::
+  @spec create_lifecycle_policy(AWS.Client.t(), create_lifecycle_policy_request(), Keyword.t()) ::
           {:ok, create_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_lifecycle_policy_errors()}
@@ -711,7 +682,8 @@ defmodule AWS.DLM do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -728,12 +700,21 @@ defmodule AWS.DLM do
 
   @doc """
   Deletes the specified lifecycle policy and halts the automated operations that
-  the
-  policy specified.
+  the policy specified.
 
-  For more information about deleting a policy, see [Delete lifecycle policies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#delete).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20DeleteLifecyclePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:policy_id` (`t:string`) The identifier of the lifecycle policy.
+
+  ## Optional parameters:
   """
-  @spec delete_lifecycle_policy(map(), String.t(), delete_lifecycle_policy_request(), list()) ::
+  @spec delete_lifecycle_policy(
+          AWS.Client.t(),
+          String.t(),
+          delete_lifecycle_policy_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_lifecycle_policy_errors()}
@@ -742,7 +723,8 @@ defmodule AWS.DLM do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -760,121 +742,211 @@ defmodule AWS.DLM do
   @doc """
   Gets summary information about all or the specified data lifecycle policies.
 
-  To get complete information about a policy, use
-  [GetLifecyclePolicy](https://docs.aws.amazon.com/dlm/latest/APIReference/API_GetLifecyclePolicy.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20GetLifecyclePolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:default_policy_type` (`t:enum["ALL|INSTANCE|VOLUME"]`) [Default policies
+    only] Specifies the type of default policy to get. Specify one of the
+    following:
+  * `:policy_ids` (`t:list[com.amazonaws.dlm#PolicyId]`) The identifiers of the
+    data lifecycle policies.
+  * `:resource_types` (`t:list[com.amazonaws.dlm#ResourceTypeValues]`) The
+    resource type.
+  * `:state` (`t:enum["DISABLED|ENABLED|ERROR"]`) The activation state.
+  * `:tags_to_add` (`t:list[com.amazonaws.dlm#TagFilter]`) The tags to add to
+    objects created by the policy.
+  * `:target_tags` (`t:list[com.amazonaws.dlm#TagFilter]`) The target tag for a
+    policy.
   """
-  @spec get_lifecycle_policies(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_lifecycle_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_lifecycle_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lifecycle_policies_errors()}
-  def get_lifecycle_policies(
-        %Client{} = client,
-        default_policy_type \\ nil,
-        policy_ids \\ nil,
-        resource_types \\ nil,
-        state \\ nil,
-        tags_to_add \\ nil,
-        target_tags \\ nil,
-        options \\ []
-      ) do
+  def get_lifecycle_policies(%Client{} = client, options \\ []) do
     url_path = "/policies"
+
+    # Validate optional parameters
+    optional_params = [
+      default_policy_type: nil,
+      policy_ids: nil,
+      resource_types: nil,
+      state: nil,
+      tags_to_add: nil,
+      target_tags: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(target_tags) do
-        [{"targetTags", target_tags} | query_params]
+      if opt_val = Keyword.get(options, :target_tags) do
+        [{"targetTags", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(tags_to_add) do
-        [{"tagsToAdd", tags_to_add} | query_params]
+      if opt_val = Keyword.get(options, :tags_to_add) do
+        [{"tagsToAdd", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(state) do
-        [{"state", state} | query_params]
+      if opt_val = Keyword.get(options, :state) do
+        [{"state", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(resource_types) do
-        [{"resourceTypes", resource_types} | query_params]
+      if opt_val = Keyword.get(options, :resource_types) do
+        [{"resourceTypes", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(policy_ids) do
-        [{"policyIds", policy_ids} | query_params]
+      if opt_val = Keyword.get(options, :policy_ids) do
+        [{"policyIds", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(default_policy_type) do
-        [{"defaultPolicyType", default_policy_type} | query_params]
+      if opt_val = Keyword.get(options, :default_policy_type) do
+        [{"defaultPolicyType", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :default_policy_type,
+        :policy_ids,
+        :resource_types,
+        :state,
+        :tags_to_add,
+        :target_tags
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets detailed information about the specified lifecycle policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20GetLifecyclePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:policy_id` (`t:string`) The identifier of the lifecycle policy.
+
+  ## Optional parameters:
   """
-  @spec get_lifecycle_policy(map(), String.t(), list()) ::
+  @spec get_lifecycle_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lifecycle_policy_errors()}
   def get_lifecycle_policy(%Client{} = client, policy_id, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(policy_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the tags for the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Adds the specified tags to the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -883,7 +955,8 @@ defmodule AWS.DLM do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -900,8 +973,16 @@ defmodule AWS.DLM do
 
   @doc """
   Removes the specified tags from the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.dlm#TagKey]`) The tag keys.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -915,7 +996,8 @@ defmodule AWS.DLM do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -933,9 +1015,19 @@ defmodule AWS.DLM do
   @doc """
   Updates the specified lifecycle policy.
 
-  For more information about updating a policy, see [Modify lifecycle policies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#modify).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20UpdateLifecyclePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:policy_id` (`t:string`) The identifier of the lifecycle policy.
+
+  ## Optional parameters:
   """
-  @spec update_lifecycle_policy(map(), String.t(), update_lifecycle_policy_request(), list()) ::
+  @spec update_lifecycle_policy(
+          AWS.Client.t(),
+          String.t(),
+          update_lifecycle_policy_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_lifecycle_policy_errors()}
@@ -944,7 +1036,8 @@ defmodule AWS.DLM do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

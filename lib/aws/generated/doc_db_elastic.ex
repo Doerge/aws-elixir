@@ -3,27 +3,11 @@
 
 defmodule AWS.DocDBElastic do
   @moduledoc """
-  Amazon DocumentDB elastic clusters
-
-  Amazon DocumentDB elastic-clusters support workloads with millions of
-  reads/writes per second and petabytes of storage capacity.
-
-  Amazon DocumentDB elastic clusters also simplify how developers interact with
-  Amazon DocumentDB elastic-clusters by eliminating the need to choose, manage or
-  upgrade instances.
-
-  Amazon DocumentDB elastic-clusters were created to:
-
-    *
-  provide a solution for customers looking for a database that provides virtually
-  limitless scale with rich query capabilities and MongoDB API compatibility.
-
-    *
-  give customers higher connection limits, and to reduce downtime from patching.
-
-    *
-  continue investing in a cloud-native, elastic, and class leading architecture
-  for JSON workloads.
+  Amazon DocumentDB elastic clusters Amazon DocumentDB elastic-clusters support
+  workloads with millions of reads/writes per second and petabytes of storage
+  capacity. Amazon DocumentDB elastic clusters also simplify how developers
+  interact with Amazon DocumentDB elastic-clusters by eliminating the need to
+  choose, manage or upgrade instances.
   """
 
   alias AWS.Client
@@ -724,8 +708,21 @@ defmodule AWS.DocDBElastic do
 
   @doc """
   Copies a snapshot of an elastic cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20CopyClusterSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:snapshot_arn` (`t:`) The Amazon Resource Name (ARN) identifier of the
+    elastic cluster snapshot.
+
+  ## Optional parameters:
   """
-  @spec copy_cluster_snapshot(map(), String.t(), copy_cluster_snapshot_input(), list()) ::
+  @spec copy_cluster_snapshot(
+          AWS.Client.t(),
+          String.t(),
+          copy_cluster_snapshot_input(),
+          Keyword.t()
+        ) ::
           {:ok, copy_cluster_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_cluster_snapshot_errors()}
@@ -734,7 +731,8 @@ defmodule AWS.DocDBElastic do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -752,8 +750,14 @@ defmodule AWS.DocDBElastic do
   @doc """
   Creates a new Amazon DocumentDB elastic cluster and returns its cluster
   structure.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20CreateCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_cluster(map(), create_cluster_input(), list()) ::
+  @spec create_cluster(AWS.Client.t(), create_cluster_input(), Keyword.t()) ::
           {:ok, create_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_errors()}
@@ -762,7 +766,8 @@ defmodule AWS.DocDBElastic do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -779,8 +784,14 @@ defmodule AWS.DocDBElastic do
 
   @doc """
   Creates a snapshot of an elastic cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20CreateClusterSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_cluster_snapshot(map(), create_cluster_snapshot_input(), list()) ::
+  @spec create_cluster_snapshot(AWS.Client.t(), create_cluster_snapshot_input(), Keyword.t()) ::
           {:ok, create_cluster_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_snapshot_errors()}
@@ -789,7 +800,8 @@ defmodule AWS.DocDBElastic do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -806,8 +818,16 @@ defmodule AWS.DocDBElastic do
 
   @doc """
   Delete an elastic cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20DeleteCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster that is to be
+    deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_cluster(map(), String.t(), delete_cluster_input(), list()) ::
+  @spec delete_cluster(AWS.Client.t(), String.t(), delete_cluster_input(), Keyword.t()) ::
           {:ok, delete_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_errors()}
@@ -816,7 +836,8 @@ defmodule AWS.DocDBElastic do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -833,8 +854,21 @@ defmodule AWS.DocDBElastic do
 
   @doc """
   Delete an elastic cluster snapshot.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20DeleteClusterSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:snapshot_arn` (`t:`) The ARN identifier of the elastic cluster snapshot that
+    is to be deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_cluster_snapshot(map(), String.t(), delete_cluster_snapshot_input(), list()) ::
+  @spec delete_cluster_snapshot(
+          AWS.Client.t(),
+          String.t(),
+          delete_cluster_snapshot_input(),
+          Keyword.t()
+        ) ::
           {:ok, delete_cluster_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_snapshot_errors()}
@@ -843,7 +877,8 @@ defmodule AWS.DocDBElastic do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -860,153 +895,291 @@ defmodule AWS.DocDBElastic do
 
   @doc """
   Returns information about a specific elastic cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20GetCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster.
+
+  ## Optional parameters:
   """
-  @spec get_cluster(map(), String.t(), list()) ::
+  @spec get_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cluster_errors()}
   def get_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a specific elastic cluster snapshot
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20GetClusterSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:snapshot_arn` (`t:`) The ARN identifier of the elastic cluster snapshot.
+
+  ## Optional parameters:
   """
-  @spec get_cluster_snapshot(map(), String.t(), list()) ::
+  @spec get_cluster_snapshot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cluster_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cluster_snapshot_errors()}
   def get_cluster_snapshot(%Client{} = client, snapshot_arn, options \\ []) do
     url_path = "/cluster-snapshot/#{AWS.Util.encode_uri(snapshot_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about snapshots for a specified elastic cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20ListClusterSnapshots&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster.
+  * `:max_results` (`t:`) The maximum number of elastic cluster snapshot results
+    to receive in the response.
+  * `:next_token` (`t:string`) A pagination token provided by a previous request.
+    If this parameter is specified, the response includes only records beyond
+    this token, up to the value specified by max-results.
+  * `:snapshot_type` (`t:`) The type of cluster snapshots to be returned. You can
+    specify one of the following values:
   """
-  @spec list_cluster_snapshots(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_cluster_snapshots(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cluster_snapshots_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cluster_snapshots_errors()}
-  def list_cluster_snapshots(
-        %Client{} = client,
-        cluster_arn \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        snapshot_type \\ nil,
-        options \\ []
-      ) do
+  def list_cluster_snapshots(%Client{} = client, options \\ []) do
     url_path = "/cluster-snapshots"
+
+    # Validate optional parameters
+    optional_params = [cluster_arn: nil, max_results: nil, next_token: nil, snapshot_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(snapshot_type) do
-        [{"snapshotType", snapshot_type} | query_params]
+      if opt_val = Keyword.get(options, :snapshot_type) do
+        [{"snapshotType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(cluster_arn) do
-        [{"clusterArn", cluster_arn} | query_params]
+      if opt_val = Keyword.get(options, :cluster_arn) do
+        [{"clusterArn", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:cluster_arn, :max_results, :next_token, :snapshot_type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about provisioned Amazon DocumentDB elastic clusters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20ListClusters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of elastic cluster snapshot results
+    to receive in the response.
+  * `:next_token` (`t:string`) A pagination token provided by a previous request.
+    If this parameter is specified, the response includes only records beyond
+    this token, up to the value specified by max-results.
   """
-  @spec list_clusters(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_clusters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_clusters_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_clusters_errors()}
-  def list_clusters(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_clusters(%Client{} = client, options \\ []) do
     url_path = "/clusters"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all tags on a elastic cluster resource
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN identifier of the elastic cluster
+    resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Restores an elastic cluster from a snapshot.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20RestoreClusterFromSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:snapshot_arn` (`t:`) The ARN identifier of the elastic cluster snapshot.
+
+  ## Optional parameters:
   """
   @spec restore_cluster_from_snapshot(
-          map(),
+          AWS.Client.t(),
           String.t(),
           restore_cluster_from_snapshot_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, restore_cluster_from_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1016,7 +1189,8 @@ defmodule AWS.DocDBElastic do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1033,8 +1207,15 @@ defmodule AWS.DocDBElastic do
 
   @doc """
   Restarts the stopped elastic cluster that is specified by `clusterARN`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20StartCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster.
+
+  ## Optional parameters:
   """
-  @spec start_cluster(map(), String.t(), start_cluster_input(), list()) ::
+  @spec start_cluster(AWS.Client.t(), String.t(), start_cluster_input(), Keyword.t()) ::
           {:ok, start_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_cluster_errors()}
@@ -1043,7 +1224,8 @@ defmodule AWS.DocDBElastic do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1059,11 +1241,17 @@ defmodule AWS.DocDBElastic do
   end
 
   @doc """
-  Stops the running elastic cluster that is specified by `clusterArn`.
+  Stops the running elastic cluster that is specified by `clusterArn`. The elastic
+  cluster must be in the *available* state.
 
-  The elastic cluster must be in the *available* state.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20StopCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster.
+
+  ## Optional parameters:
   """
-  @spec stop_cluster(map(), String.t(), stop_cluster_input(), list()) ::
+  @spec stop_cluster(AWS.Client.t(), String.t(), stop_cluster_input(), Keyword.t()) ::
           {:ok, stop_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_cluster_errors()}
@@ -1072,7 +1260,8 @@ defmodule AWS.DocDBElastic do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1089,8 +1278,16 @@ defmodule AWS.DocDBElastic do
 
   @doc """
   Adds metadata tags to an elastic cluster resource
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN identifier of the elastic cluster
+    resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1099,7 +1296,8 @@ defmodule AWS.DocDBElastic do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1116,8 +1314,18 @@ defmodule AWS.DocDBElastic do
 
   @doc """
   Removes metadata tags from an elastic cluster resource
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN identifier of the elastic cluster
+    resource.
+  * `:tag_keys` (`t:list[com.amazonaws.docdbelastic#TagKey]`) The tag keys to be
+    removed from the elastic cluster resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1131,7 +1339,8 @@ defmodule AWS.DocDBElastic do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1147,12 +1356,18 @@ defmodule AWS.DocDBElastic do
   end
 
   @doc """
-  Modifies an elastic cluster.
+  Modifies an elastic cluster. This includes updating admin-username/password,
+  upgrading the API version, and setting up a backup window and maintenance
+  window
 
-  This includes updating admin-username/password,
-  upgrading the API version, and setting up a backup window and maintenance window
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20UpdateCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster.
+
+  ## Optional parameters:
   """
-  @spec update_cluster(map(), String.t(), update_cluster_input(), list()) ::
+  @spec update_cluster(AWS.Client.t(), String.t(), update_cluster_input(), Keyword.t()) ::
           {:ok, update_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cluster_errors()}
@@ -1161,7 +1376,8 @@ defmodule AWS.DocDBElastic do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

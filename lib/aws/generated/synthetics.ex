@@ -4,29 +4,6 @@
 defmodule AWS.Synthetics do
   @moduledoc """
   Amazon CloudWatch Synthetics
-
-  You can use Amazon CloudWatch Synthetics to continually monitor your services.
-
-  You can
-  create and manage *canaries*, which are modular, lightweight scripts
-  that monitor your endpoints and APIs
-  from the outside-in. You can set up your canaries to run
-  24 hours a day, once per minute. The canaries help you check the availability
-  and latency
-  of your web services and troubleshoot anomalies by investigating load time data,
-  screenshots of the UI, logs, and metrics. The canaries seamlessly integrate with
-  CloudWatch
-  ServiceLens to help you trace the causes of impacted nodes in your applications.
-  For more
-  information, see [Using ServiceLens to Monitor the Health of Your
-  Applications](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ServiceLens.html)
-  in the *Amazon CloudWatch User
-  Guide*.
-
-  Before you create and manage canaries, be aware of the security considerations.
-  For more
-  information, see [Security Considerations for Synthetics
-  Canaries](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/servicelens_canaries_security.html).
   """
 
   alias AWS.Client
@@ -1056,16 +1033,19 @@ defmodule AWS.Synthetics do
   end
 
   @doc """
-  Associates a canary with a group.
+  Associates a canary with a group. Using groups can help you with managing and
+  automating your canaries, and you can also view aggregated run results and
+  statistics for all canaries in a group.
 
-  Using groups can help you with
-  managing and automating your canaries, and you can also view aggregated run
-  results and statistics
-  for all canaries in a group.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20AssociateResource&this_doc_guide=API%2520Reference)
 
-  You must run this operation in the Region where the canary exists.
+  ## Parameters:
+  * `:group_identifier` (`t:string`) Specifies the group. You can specify the
+    group name, the ARN, or the group ID as the GroupIdentifier.
+
+  ## Optional parameters:
   """
-  @spec associate_resource(map(), String.t(), associate_resource_request(), list()) ::
+  @spec associate_resource(AWS.Client.t(), String.t(), associate_resource_request(), Keyword.t()) ::
           {:ok, associate_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_resource_errors()}
@@ -1074,7 +1054,8 @@ defmodule AWS.Synthetics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1090,33 +1071,27 @@ defmodule AWS.Synthetics do
   end
 
   @doc """
-  Creates a canary.
-
-  Canaries are scripts that monitor your endpoints and APIs from the
-  outside-in. Canaries help you check the availability and latency of your web
-  services and
-  troubleshoot anomalies by investigating load time data, screenshots of the UI,
-  logs, and
-  metrics. You can set up a canary to run continuously or just once.
-
-  Do not use `CreateCanary` to modify an existing canary. Use
-  [UpdateCanary](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_UpdateCanary.html) instead.
-
-  To create canaries, you must have the `CloudWatchSyntheticsFullAccess` policy.
-  If you are creating a new IAM role for the canary, you also need the
-  `iam:CreateRole`, `iam:CreatePolicy` and
-  `iam:AttachRolePolicy` permissions. For more information, see [Necessary
-  Roles and
+  Creates a canary. Canaries are scripts that monitor your endpoints and APIs from
+  the outside-in. Canaries help you check the availability and latency of your
+  web services and troubleshoot anomalies by investigating load time data,
+  screenshots of the UI, logs, and metrics. You can set up a canary to run
+  continuously or just once. Do not use `CreateCanary` to modify an existing
+  canary. Use
+  [UpdateCanary](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_UpdateCanary.html)
+  instead. To create canaries, you must have the
+  `CloudWatchSyntheticsFullAccess` policy. If you are creating a new IAM role
+  for the canary, you also need the `iam:CreateRole`, `iam:CreatePolicy` and
+  `iam:AttachRolePolicy` permissions. For more information, see [Necessary Roles
+  and
   Permissions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Roles).
 
-  Do not include secrets or proprietary information in your canary names. The
-  canary name
-  makes up part of the Amazon Resource Name (ARN) for the canary, and the ARN is
-  included in
-  outbound calls over the internet. For more information, see [Security Considerations for Synthetics
-  Canaries](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/servicelens_canaries_security.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20CreateCanary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_canary(map(), create_canary_request(), list()) ::
+  @spec create_canary(AWS.Client.t(), create_canary_request(), Keyword.t()) ::
           {:ok, create_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_canary_errors()}
@@ -1125,7 +1100,8 @@ defmodule AWS.Synthetics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1142,32 +1118,23 @@ defmodule AWS.Synthetics do
 
   @doc """
   Creates a group which you can use to associate canaries with each other,
-  including cross-Region
-  canaries.
+  including cross-Region canaries. Using groups can help you with managing and
+  automating your canaries, and you can also view aggregated run results and
+  statistics for all canaries in a group. Groups are global resources. When you
+  create a group, it is replicated across Amazon Web Services Regions, and you
+  can view it and add canaries to it from any Region. Although the group ARN
+  format reflects the Region name where it was created, a group is not
+  constrained to any Region. This means that you can put canaries from multiple
+  Regions into the same group, and then use that group to view and manage all of
+  those canaries in a single view.
 
-  Using groups can help you with
-  managing and automating your canaries, and you can also view aggregated run
-  results and statistics
-  for all canaries in a group.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20CreateGroup&this_doc_guide=API%2520Reference)
 
-  Groups are global resources. When you create a group, it is replicated across
-  Amazon Web Services Regions, and
-  you can view it and add canaries to it from any Region.
-  Although the group ARN format reflects the Region name where it was created, a
-  group is not constrained to any Region.
-  This means that you can put canaries from multiple Regions into the same group,
-  and then use
-  that group to view and manage all of those canaries in a single view.
+  ## Parameters:
 
-  Groups are supported in all Regions except the Regions that are disabled by
-  default. For more information
-  about these Regions, see [Enabling a Region](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable).
-
-  Each group can contain as many as 10 canaries. You can have as many as 20 groups
-  in your account. Any single canary
-  can be a member of up to 10 groups.
+  ## Optional parameters:
   """
-  @spec create_group(map(), create_group_request(), list()) ::
+  @spec create_group(AWS.Client.t(), create_group_request(), Keyword.t()) ::
           {:ok, create_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_errors()}
@@ -1176,7 +1143,8 @@ defmodule AWS.Synthetics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1192,60 +1160,21 @@ defmodule AWS.Synthetics do
   end
 
   @doc """
-  Permanently deletes the specified canary.
+  Permanently deletes the specified canary. If you specify `DeleteLambda` to
+  `true`, CloudWatch Synthetics also deletes the Lambda functions and layers
+  that are used by the canary.
 
-  If you specify `DeleteLambda` to `true`, CloudWatch Synthetics also deletes
-  the Lambda functions and layers that are used by the canary.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20DeleteCanary&this_doc_guide=API%2520Reference)
 
-  Other resources used and created by the canary are not automatically deleted.
-  After you delete a canary that you do not intend to
-  use again, you
-  should also delete the following:
+  ## Parameters:
+  * `:name` (`t:string`) The name of the canary that you want to delete. To find
+    the names of your canaries, use DescribeCanaries.
 
-    *
-  The CloudWatch alarms created for this canary. These alarms have a name of
-
-  ```
-  Synthetics-SharpDrop-Alarm-*MyCanaryName*
-
-  ```
-
-  .
-
-    *
-  Amazon S3 objects and buckets, such as the canary's artifact location.
-
-    *
-  IAM roles created for the canary. If they were created in the console, these
-  roles
-  have the name
-
-  ```
-
-  role/service-role/CloudWatchSyntheticsRole-*MyCanaryName*
-
-  ```
-
-  .
-
-    *
-  CloudWatch Logs log groups created for the canary. These logs groups have the
-  name
-
-  ```
-  /aws/lambda/cwsyn-*MyCanaryName*
-
-  ```
-
-  .
-
-  Before you delete a canary, you might want to use `GetCanary` to display
-  the information about this canary. Make
-  note of the information returned by this operation so that you can delete these
-  resources
-  after you delete the canary.
+  ## Optional parameters:
+  * `:delete_lambda` (`t:boolean`) Specifies whether to also delete the Lambda
+    functions and layers used by this canary. The default is false.
   """
-  @spec delete_canary(map(), String.t(), delete_canary_request(), list()) ::
+  @spec delete_canary(AWS.Client.t(), String.t(), delete_canary_request(), Keyword.t()) ::
           {:ok, delete_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_canary_errors()}
@@ -1259,7 +1188,13 @@ defmodule AWS.Synthetics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:delete_lambda])
 
     Request.request_rest(
       client,
@@ -1275,18 +1210,18 @@ defmodule AWS.Synthetics do
   end
 
   @doc """
-  Deletes a group.
+  Deletes a group. The group doesn't need to be empty to be deleted. If there are
+  canaries in the group, they are not deleted when you delete the group.
 
-  The group doesn't need to be empty to be deleted. If there are canaries in the
-  group,
-  they are not deleted when you delete the group.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20DeleteGroup&this_doc_guide=API%2520Reference)
 
-  Groups are a global resource that appear in all Regions, but the request to
-  delete a group
-  must be made from its home Region. You can find the home Region of a group
-  within its ARN.
+  ## Parameters:
+  * `:group_identifier` (`t:string`) Specifies which group to delete. You can
+    specify the group name, the ARN, or the group ID as the GroupIdentifier.
+
+  ## Optional parameters:
   """
-  @spec delete_group(map(), String.t(), delete_group_request(), list()) ::
+  @spec delete_group(AWS.Client.t(), String.t(), delete_group_request(), Keyword.t()) ::
           {:ok, delete_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_group_errors()}
@@ -1295,7 +1230,8 @@ defmodule AWS.Synthetics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1312,25 +1248,20 @@ defmodule AWS.Synthetics do
 
   @doc """
   This operation returns a list of the canaries in your account, along with full
-  details
-  about each canary.
+  details about each canary. This operation supports resource-level
+  authorization using an IAM policy and the `Names` parameter. If you specify
+  the `Names` parameter, the operation is successful only if you have
+  authorization to view all the canaries that you specify in your request. If
+  you do not have permission to view any of the canaries, the request fails with
+  a 403 response.
 
-  This operation supports resource-level authorization using an IAM policy and
-  the `Names` parameter. If you specify the `Names` parameter, the operation is
-  successful only if you have authorization to view
-  all the canaries that you specify in your request. If you do not have permission
-  to view any of
-  the canaries, the request fails with a 403 response.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20DescribeCanaries&this_doc_guide=API%2520Reference)
 
-  You are required to use the `Names` parameter if you are logged on to a user or
-  role that has an
-  IAM policy that restricts which canaries that you are allowed to view. For more
-  information,
-  see [
-  Limiting a user to viewing specific
-  canaries](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html).
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_canaries(map(), describe_canaries_request(), list()) ::
+  @spec describe_canaries(AWS.Client.t(), describe_canaries_request(), Keyword.t()) ::
           {:ok, describe_canaries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_canaries_errors()}
@@ -1339,7 +1270,8 @@ defmodule AWS.Synthetics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1356,24 +1288,23 @@ defmodule AWS.Synthetics do
 
   @doc """
   Use this operation to see information from the most recent run of each canary
-  that you have created.
+  that you have created. This operation supports resource-level authorization
+  using an IAM policy and the `Names` parameter. If you specify the `Names`
+  parameter, the operation is successful only if you have authorization to view
+  all the canaries that you specify in your request. If you do not have
+  permission to view any of the canaries, the request fails with a 403 response.
 
-  This operation supports resource-level authorization using an IAM policy and
-  the `Names` parameter. If you specify the `Names` parameter, the operation is
-  successful only if you have authorization to view
-  all the canaries that you specify in your request. If you do not have permission
-  to view any of
-  the canaries, the request fails with a 403 response.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20DescribeCanariesLastRun&this_doc_guide=API%2520Reference)
 
-  You are required to use the `Names` parameter if you are logged on to a user or
-  role that has an
-  IAM policy that restricts which canaries that you are allowed to view. For more
-  information,
-  see [
-  Limiting a user to viewing specific
-  canaries](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html).
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_canaries_last_run(map(), describe_canaries_last_run_request(), list()) ::
+  @spec describe_canaries_last_run(
+          AWS.Client.t(),
+          describe_canaries_last_run_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_canaries_last_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_canaries_last_run_errors()}
@@ -1382,7 +1313,8 @@ defmodule AWS.Synthetics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1398,14 +1330,21 @@ defmodule AWS.Synthetics do
   end
 
   @doc """
-  Returns a list of Synthetics canary runtime versions.
-
-  For more information,
-  see [
-  Canary Runtime
+  Returns a list of Synthetics canary runtime versions. For more information, see
+  [ Canary Runtime
   Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20DescribeRuntimeVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_runtime_versions(map(), describe_runtime_versions_request(), list()) ::
+  @spec describe_runtime_versions(
+          AWS.Client.t(),
+          describe_runtime_versions_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_runtime_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_runtime_versions_errors()}
@@ -1414,7 +1353,8 @@ defmodule AWS.Synthetics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1430,11 +1370,23 @@ defmodule AWS.Synthetics do
   end
 
   @doc """
-  Removes a canary from a group.
+  Removes a canary from a group. You must run this operation in the Region where
+  the canary exists.
 
-  You must run this operation in the Region where the canary exists.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20DisassociateResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_identifier` (`t:string`) Specifies the group. You can specify the
+    group name, the ARN, or the group ID as the GroupIdentifier.
+
+  ## Optional parameters:
   """
-  @spec disassociate_resource(map(), String.t(), disassociate_resource_request(), list()) ::
+  @spec disassociate_resource(
+          AWS.Client.t(),
+          String.t(),
+          disassociate_resource_request(),
+          Keyword.t()
+        ) ::
           {:ok, disassociate_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_resource_errors()}
@@ -1443,7 +1395,8 @@ defmodule AWS.Synthetics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1459,31 +1412,60 @@ defmodule AWS.Synthetics do
   end
 
   @doc """
-  Retrieves complete information about one canary.
-
-  You must specify
-  the name of the canary that you want. To get a list of canaries
-  and their names, use
+  Retrieves complete information about one canary. You must specify the name of
+  the canary that you want. To get a list of canaries and their names, use
   [DescribeCanaries](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20GetCanary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the canary that you want details for.
+
+  ## Optional parameters:
   """
-  @spec get_canary(map(), String.t(), list()) ::
+  @spec get_canary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_canary_errors()}
   def get_canary(%Client{} = client, name, options \\ []) do
     url_path = "/canary/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of runs for a specified canary.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20GetCanaryRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the canary that you want to see runs for.
+
+  ## Optional parameters:
   """
-  @spec get_canary_runs(map(), String.t(), get_canary_runs_request(), list()) ::
+  @spec get_canary_runs(AWS.Client.t(), String.t(), get_canary_runs_request(), Keyword.t()) ::
           {:ok, get_canary_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_canary_runs_errors()}
@@ -1492,7 +1474,8 @@ defmodule AWS.Synthetics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1508,32 +1491,68 @@ defmodule AWS.Synthetics do
   end
 
   @doc """
-  Returns information about one group.
+  Returns information about one group. Groups are a global resource, so you can
+  use this operation from any Region.
 
-  Groups are a global resource, so you can use this operation from
-  any Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20GetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_identifier` (`t:string`) Specifies the group to return information
+    for. You can specify the group name, the ARN, or the group ID as the
+    GroupIdentifier.
+
+  ## Optional parameters:
   """
-  @spec get_group(map(), String.t(), list()) ::
+  @spec get_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_errors()}
   def get_group(%Client{} = client, group_identifier, options \\ []) do
     url_path = "/group/#{AWS.Util.encode_uri(group_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns a list of the groups that the specified canary is associated with.
+  Returns a list of the groups that the specified canary is associated with. The
+  canary that you specify must be in the current Region.
 
-  The canary
-  that you specify must be in the current Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20ListAssociatedGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the canary that you want to view
+    groups for.
+
+  ## Optional parameters:
   """
-  @spec list_associated_groups(map(), String.t(), list_associated_groups_request(), list()) ::
+  @spec list_associated_groups(
+          AWS.Client.t(),
+          String.t(),
+          list_associated_groups_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_associated_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_associated_groups_errors()}
@@ -1542,7 +1561,8 @@ defmodule AWS.Synthetics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1560,8 +1580,22 @@ defmodule AWS.Synthetics do
   @doc """
   This operation returns a list of the ARNs of the canaries that are associated
   with the specified group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20ListGroupResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_identifier` (`t:string`) Specifies the group to return information
+    for. You can specify the group name, the ARN, or the group ID as the
+    GroupIdentifier.
+
+  ## Optional parameters:
   """
-  @spec list_group_resources(map(), String.t(), list_group_resources_request(), list()) ::
+  @spec list_group_resources(
+          AWS.Client.t(),
+          String.t(),
+          list_group_resources_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_group_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_group_resources_errors()}
@@ -1570,7 +1604,8 @@ defmodule AWS.Synthetics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1587,12 +1622,15 @@ defmodule AWS.Synthetics do
 
   @doc """
   Returns a list of all groups in the account, displaying their names, unique IDs,
-  and ARNs.
+  and ARNs. The groups from all Regions are returned.
 
-  The groups
-  from all Regions are returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20ListGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_groups(map(), list_groups_request(), list()) ::
+  @spec list_groups(AWS.Client.t(), list_groups_request(), Keyword.t()) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_groups_errors()}
@@ -1601,7 +1639,8 @@ defmodule AWS.Synthetics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1618,30 +1657,62 @@ defmodule AWS.Synthetics do
 
   @doc """
   Displays the tags associated with a canary or group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the canary or group that you want to
+    view tags for.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Use this operation to run a canary that has already been created.
-
-  The frequency of the canary runs is determined by the value of the canary's
-  `Schedule`. To see a canary's schedule,
-  use
+  Use this operation to run a canary that has already been created. The frequency
+  of the canary runs is determined by the value of the canary's `Schedule`. To
+  see a canary's schedule, use
   [GetCanary](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanary.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20StartCanary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the canary that you want to run. To find
+    canary names, use DescribeCanaries.
+
+  ## Optional parameters:
   """
-  @spec start_canary(map(), String.t(), start_canary_request(), list()) ::
+  @spec start_canary(AWS.Client.t(), String.t(), start_canary_request(), Keyword.t()) ::
           {:ok, start_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_canary_errors()}
@@ -1650,7 +1721,8 @@ defmodule AWS.Synthetics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1666,17 +1738,20 @@ defmodule AWS.Synthetics do
   end
 
   @doc """
-  Stops the canary to prevent all future runs.
+  Stops the canary to prevent all future runs. If the canary is currently
+  running,the run that is in progress completes on its own, publishes metrics,
+  and uploads artifacts, but it is not recorded in Synthetics as a completed
+  run.
 
-  If the canary is currently running,the
-  run that is in progress completes on its own, publishes metrics, and uploads
-  artifacts, but
-  it is not recorded in Synthetics as a completed run.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20StopCanary&this_doc_guide=API%2520Reference)
 
-  You can use `StartCanary` to start it running again
-  with the canary’s current schedule at any point in the future.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the canary that you want to stop. To find the
+    names of your canaries, use ListCanaries.
+
+  ## Optional parameters:
   """
-  @spec stop_canary(map(), String.t(), stop_canary_request(), list()) ::
+  @spec stop_canary(AWS.Client.t(), String.t(), stop_canary_request(), Keyword.t()) ::
           {:ok, stop_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_canary_errors()}
@@ -1685,7 +1760,8 @@ defmodule AWS.Synthetics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1702,27 +1778,19 @@ defmodule AWS.Synthetics do
 
   @doc """
   Assigns one or more tags (key-value pairs) to the specified canary or group.
+  Tags can help you organize and categorize your resources. You can also use
+  them to scope user permissions, by granting a user permission to access or
+  change only resources with certain tag values.
 
-  Tags can help you organize and categorize your
-  resources. You can also use them to scope user permissions, by granting a user
-  permission to access or change only resources with
-  certain tag values.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20TagResource&this_doc_guide=API%2520Reference)
 
-  Tags don't have any semantic meaning to Amazon Web Services and are interpreted
-  strictly as strings of characters.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the canary or group that you're adding
+    tags to.
 
-  You can use the `TagResource` action with a resource that already has tags. If
-  you specify a new
-  tag key for the resource,
-  this tag is appended to the list of tags associated
-  with the resource. If you specify a tag key that is already associated with the
-  resource, the new tag
-  value that you specify replaces
-  the previous value for that tag.
-
-  You can associate as many as 50 tags with a canary or group.
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1731,7 +1799,8 @@ defmodule AWS.Synthetics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1748,8 +1817,18 @@ defmodule AWS.Synthetics do
 
   @doc """
   Removes one or more tags from the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the canary or group that you're
+    removing tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.synthetics#TagKey]`) The list of tag keys
+    to remove from the resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1763,7 +1842,8 @@ defmodule AWS.Synthetics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1779,14 +1859,17 @@ defmodule AWS.Synthetics do
   end
 
   @doc """
-  Updates the configuration of a canary that has
-  already been created.
+  Updates the configuration of a canary that has already been created.
 
-  You can't use this operation to update the tags of an existing canary. To
-  change the tags of an existing canary, use
-  [TagResource](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_TagResource.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20UpdateCanary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the canary that you want to update. To find
+    the names of your canaries, use DescribeCanaries.
+
+  ## Optional parameters:
   """
-  @spec update_canary(map(), String.t(), update_canary_request(), list()) ::
+  @spec update_canary(AWS.Client.t(), String.t(), update_canary_request(), Keyword.t()) ::
           {:ok, update_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_canary_errors()}
@@ -1795,7 +1878,8 @@ defmodule AWS.Synthetics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

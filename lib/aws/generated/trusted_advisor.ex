@@ -675,11 +675,17 @@ defmodule AWS.TrustedAdvisor do
 
   @doc """
   Update one or more exclusion status for a list of recommendation resources
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20BatchUpdateRecommendationResourceExclusion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec batch_update_recommendation_resource_exclusion(
-          map(),
+          AWS.Client.t(),
           batch_update_recommendation_resource_exclusion_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_update_recommendation_resource_exclusion_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -689,18 +695,25 @@ defmodule AWS.TrustedAdvisor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Get a specific recommendation within an AWS Organizations organization.
+  Get a specific recommendation within an AWS Organizations organization. This API
+  supports only prioritized recommendations.
 
-  This API supports only prioritized
-  recommendations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20GetOrganizationRecommendation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:organization_recommendation_identifier` (`t:string`) The Recommendation
+    identifier
+
+  ## Optional parameters:
   """
-  @spec get_organization_recommendation(map(), String.t(), list()) ::
+  @spec get_organization_recommendation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_organization_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_organization_recommendation_errors()}
@@ -712,560 +725,799 @@ defmodule AWS.TrustedAdvisor do
     url_path =
       "/v1/organization-recommendations/#{AWS.Util.encode_uri(organization_recommendation_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get a specific Recommendation
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20GetRecommendation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:recommendation_identifier` (`t:string`) The Recommendation identifier
+
+  ## Optional parameters:
   """
-  @spec get_recommendation(map(), String.t(), list()) ::
+  @spec get_recommendation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recommendation_errors()}
   def get_recommendation(%Client{} = client, recommendation_identifier, options \\ []) do
     url_path = "/v1/recommendations/#{AWS.Util.encode_uri(recommendation_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List a filterable set of Checks
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20ListChecks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:aws_service` (`t:string`) The aws service associated with the check
+  * `:language`
+    (`t:enum["BAHASA_INDONESIA|BRAZILIAN_PORTUGUESE|CHINESE|ENGLISH|FRENCH|GERMAN|ITALIAN|JAPANESE|KOREAN|SPANISH|TRADITIONAL_CHINESE"]`)
+    The ISO 639-1 code for the language that you want your checks to appear in.
+  * `:max_results` (`t:`) The maximum number of results to return per page.
+  * `:next_token` (`t:`) The token for the next set of results. Use the value
+    returned in the previous response in the next request to retrieve the next
+    set of results.
+  * `:pillar`
+    (`t:enum["COST_OPTIMIZING|FAULT_TOLERANCE|OPERATIONAL_EXCELLENCE|PERFORMANCE|SECURITY|SERVICE_LIMITS"]`)
+    The pillar of the check
+  * `:source`
+    (`t:enum["AWS_CONFIG|COMPUTE_OPTIMIZER|COST_EXPLORER|LSE|MANUAL|PSE|RDS|RESILIENCE|RESILIENCE_HUB|SECURITY_HUB|STIR|TA_CHECK|WELL_ARCHITECTED"]`)
+    The source of the check
   """
-  @spec list_checks(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_checks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_checks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_checks_errors()}
-  def list_checks(
-        %Client{} = client,
-        aws_service \\ nil,
-        language \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        pillar \\ nil,
-        source \\ nil,
-        options \\ []
-      ) do
+  def list_checks(%Client{} = client, options \\ []) do
     url_path = "/v1/checks"
+
+    # Validate optional parameters
+    optional_params = [
+      aws_service: nil,
+      language: nil,
+      max_results: nil,
+      next_token: nil,
+      pillar: nil,
+      source: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(source) do
-        [{"source", source} | query_params]
+      if opt_val = Keyword.get(options, :source) do
+        [{"source", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(pillar) do
-        [{"pillar", pillar} | query_params]
+      if opt_val = Keyword.get(options, :pillar) do
+        [{"pillar", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(language) do
-        [{"language", language} | query_params]
+      if opt_val = Keyword.get(options, :language) do
+        [{"language", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(aws_service) do
-        [{"awsService", aws_service} | query_params]
+      if opt_val = Keyword.get(options, :aws_service) do
+        [{"awsService", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:aws_service, :language, :max_results, :next_token, :pillar, :source])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the accounts that own the resources for an organization aggregate
-  recommendation.
+  recommendation. This API only supports prioritized recommendations.
 
-  This API only
-  supports prioritized recommendations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20ListOrganizationRecommendationAccounts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:organization_recommendation_identifier` (`t:string`) The Recommendation
+    identifier
+
+  ## Optional parameters:
+  * `:affected_account_id` (`t:string`) An account affected by this organization
+    recommendation
+  * `:max_results` (`t:`) The maximum number of results to return per page.
+  * `:next_token` (`t:`) The token for the next set of results. Use the value
+    returned in the previous response in the next request to retrieve the next
+    set of results.
   """
-  @spec list_organization_recommendation_accounts(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_organization_recommendation_accounts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_organization_recommendation_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_organization_recommendation_accounts_errors()}
   def list_organization_recommendation_accounts(
         %Client{} = client,
         organization_recommendation_identifier,
-        affected_account_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/v1/organization-recommendations/#{AWS.Util.encode_uri(organization_recommendation_identifier)}/accounts"
 
+    # Validate optional parameters
+    optional_params = [affected_account_id: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(affected_account_id) do
-        [{"affectedAccountId", affected_account_id} | query_params]
+      if opt_val = Keyword.get(options, :affected_account_id) do
+        [{"affectedAccountId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:affected_account_id, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  List Resources of a Recommendation within an Organization.
+  List Resources of a Recommendation within an Organization. This API only
+  supports prioritized recommendations.
 
-  This API only supports prioritized
-  recommendations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20ListOrganizationRecommendationResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:organization_recommendation_identifier` (`t:string`) The AWS Organization
+    organization's Recommendation identifier
+
+  ## Optional parameters:
+  * `:affected_account_id` (`t:string`) An account affected by this organization
+    recommendation
+  * `:exclusion_status` (`t:enum["EXCLUDED|INCLUDED"]`) The exclusion status of
+    the resource
+  * `:max_results` (`t:`) The maximum number of results to return per page.
+  * `:next_token` (`t:`) The token for the next set of results. Use the value
+    returned in the previous response in the next request to retrieve the next
+    set of results.
+  * `:region_code` (`t:`) The AWS Region code of the resource
+  * `:status` (`t:enum["ERROR|OK|WARNING"]`) The status of the resource
   """
-  @spec list_organization_recommendation_resources(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_organization_recommendation_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_organization_recommendation_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_organization_recommendation_resources_errors()}
   def list_organization_recommendation_resources(
         %Client{} = client,
         organization_recommendation_identifier,
-        affected_account_id \\ nil,
-        exclusion_status \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        region_code \\ nil,
-        status \\ nil,
         options \\ []
       ) do
     url_path =
       "/v1/organization-recommendations/#{AWS.Util.encode_uri(organization_recommendation_identifier)}/resources"
 
+    # Validate optional parameters
+    optional_params = [
+      affected_account_id: nil,
+      exclusion_status: nil,
+      max_results: nil,
+      next_token: nil,
+      region_code: nil,
+      status: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(region_code) do
-        [{"regionCode", region_code} | query_params]
+      if opt_val = Keyword.get(options, :region_code) do
+        [{"regionCode", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(exclusion_status) do
-        [{"exclusionStatus", exclusion_status} | query_params]
+      if opt_val = Keyword.get(options, :exclusion_status) do
+        [{"exclusionStatus", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(affected_account_id) do
-        [{"affectedAccountId", affected_account_id} | query_params]
+      if opt_val = Keyword.get(options, :affected_account_id) do
+        [{"affectedAccountId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :affected_account_id,
+        :exclusion_status,
+        :max_results,
+        :next_token,
+        :region_code,
+        :status
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  List a filterable set of Recommendations within an Organization.
+  List a filterable set of Recommendations within an Organization. This API only
+  supports prioritized recommendations.
 
-  This API only supports prioritized
-  recommendations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20ListOrganizationRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:after_last_updated_at` (`t:`) After the last update of the Recommendation
+  * `:aws_service` (`t:string`) The aws service associated with the Recommendation
+  * `:before_last_updated_at` (`t:`) Before the last update of the Recommendation
+  * `:check_identifier` (`t:string`) The check identifier of the Recommendation
+  * `:max_results` (`t:`) The maximum number of results to return per page.
+  * `:next_token` (`t:`) The token for the next set of results. Use the value
+    returned in the previous response in the next request to retrieve the next
+    set of results.
+  * `:pillar`
+    (`t:enum["COST_OPTIMIZING|FAULT_TOLERANCE|OPERATIONAL_EXCELLENCE|PERFORMANCE|SECURITY|SERVICE_LIMITS"]`)
+    The pillar of the Recommendation
+  * `:source`
+    (`t:enum["AWS_CONFIG|COMPUTE_OPTIMIZER|COST_EXPLORER|LSE|MANUAL|PSE|RDS|RESILIENCE|RESILIENCE_HUB|SECURITY_HUB|STIR|TA_CHECK|WELL_ARCHITECTED"]`)
+    The source of the Recommendation
+  * `:status` (`t:enum["ERROR|OK|WARNING"]`) The status of the Recommendation
+  * `:type` (`t:enum["PRIORITY|STANDARD"]`) The type of the Recommendation
   """
-  @spec list_organization_recommendations(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_organization_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_organization_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_organization_recommendations_errors()}
-  def list_organization_recommendations(
-        %Client{} = client,
-        after_last_updated_at \\ nil,
-        aws_service \\ nil,
-        before_last_updated_at \\ nil,
-        check_identifier \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        pillar \\ nil,
-        source \\ nil,
-        status \\ nil,
-        type \\ nil,
-        options \\ []
-      ) do
+  def list_organization_recommendations(%Client{} = client, options \\ []) do
     url_path = "/v1/organization-recommendations"
+
+    # Validate optional parameters
+    optional_params = [
+      after_last_updated_at: nil,
+      aws_service: nil,
+      before_last_updated_at: nil,
+      check_identifier: nil,
+      max_results: nil,
+      next_token: nil,
+      pillar: nil,
+      source: nil,
+      status: nil,
+      type: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
+      if opt_val = Keyword.get(options, :type) do
+        [{"type", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(source) do
-        [{"source", source} | query_params]
+      if opt_val = Keyword.get(options, :source) do
+        [{"source", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(pillar) do
-        [{"pillar", pillar} | query_params]
+      if opt_val = Keyword.get(options, :pillar) do
+        [{"pillar", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(check_identifier) do
-        [{"checkIdentifier", check_identifier} | query_params]
+      if opt_val = Keyword.get(options, :check_identifier) do
+        [{"checkIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(before_last_updated_at) do
-        [{"beforeLastUpdatedAt", before_last_updated_at} | query_params]
+      if opt_val = Keyword.get(options, :before_last_updated_at) do
+        [{"beforeLastUpdatedAt", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(aws_service) do
-        [{"awsService", aws_service} | query_params]
+      if opt_val = Keyword.get(options, :aws_service) do
+        [{"awsService", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(after_last_updated_at) do
-        [{"afterLastUpdatedAt", after_last_updated_at} | query_params]
+      if opt_val = Keyword.get(options, :after_last_updated_at) do
+        [{"afterLastUpdatedAt", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :after_last_updated_at,
+        :aws_service,
+        :before_last_updated_at,
+        :check_identifier,
+        :max_results,
+        :next_token,
+        :pillar,
+        :source,
+        :status,
+        :type
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List Resources of a Recommendation
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20ListRecommendationResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:recommendation_identifier` (`t:string`) The Recommendation identifier
+
+  ## Optional parameters:
+  * `:exclusion_status` (`t:enum["EXCLUDED|INCLUDED"]`) The exclusion status of
+    the resource
+  * `:max_results` (`t:`) The maximum number of results to return per page.
+  * `:next_token` (`t:`) The token for the next set of results. Use the value
+    returned in the previous response in the next request to retrieve the next
+    set of results.
+  * `:region_code` (`t:`) The AWS Region code of the resource
+  * `:status` (`t:enum["ERROR|OK|WARNING"]`) The status of the resource
   """
-  @spec list_recommendation_resources(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_recommendation_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recommendation_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recommendation_resources_errors()}
-  def list_recommendation_resources(
-        %Client{} = client,
-        recommendation_identifier,
-        exclusion_status \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        region_code \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_recommendation_resources(%Client{} = client, recommendation_identifier, options \\ []) do
     url_path = "/v1/recommendations/#{AWS.Util.encode_uri(recommendation_identifier)}/resources"
+
+    # Validate optional parameters
+    optional_params = [
+      exclusion_status: nil,
+      max_results: nil,
+      next_token: nil,
+      region_code: nil,
+      status: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(region_code) do
-        [{"regionCode", region_code} | query_params]
+      if opt_val = Keyword.get(options, :region_code) do
+        [{"regionCode", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(exclusion_status) do
-        [{"exclusionStatus", exclusion_status} | query_params]
+      if opt_val = Keyword.get(options, :exclusion_status) do
+        [{"exclusionStatus", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:exclusion_status, :max_results, :next_token, :region_code, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List a filterable set of Recommendations
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20ListRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:after_last_updated_at` (`t:`) After the last update of the Recommendation
+  * `:aws_service` (`t:string`) The aws service associated with the Recommendation
+  * `:before_last_updated_at` (`t:`) Before the last update of the Recommendation
+  * `:check_identifier` (`t:string`) The check identifier of the Recommendation
+  * `:max_results` (`t:`) The maximum number of results to return per page.
+  * `:next_token` (`t:`) The token for the next set of results. Use the value
+    returned in the previous response in the next request to retrieve the next
+    set of results.
+  * `:pillar`
+    (`t:enum["COST_OPTIMIZING|FAULT_TOLERANCE|OPERATIONAL_EXCELLENCE|PERFORMANCE|SECURITY|SERVICE_LIMITS"]`)
+    The pillar of the Recommendation
+  * `:source`
+    (`t:enum["AWS_CONFIG|COMPUTE_OPTIMIZER|COST_EXPLORER|LSE|MANUAL|PSE|RDS|RESILIENCE|RESILIENCE_HUB|SECURITY_HUB|STIR|TA_CHECK|WELL_ARCHITECTED"]`)
+    The source of the Recommendation
+  * `:status` (`t:enum["ERROR|OK|WARNING"]`) The status of the Recommendation
+  * `:type` (`t:enum["PRIORITY|STANDARD"]`) The type of the Recommendation
   """
-  @spec list_recommendations(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recommendations_errors()}
-  def list_recommendations(
-        %Client{} = client,
-        after_last_updated_at \\ nil,
-        aws_service \\ nil,
-        before_last_updated_at \\ nil,
-        check_identifier \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        pillar \\ nil,
-        source \\ nil,
-        status \\ nil,
-        type \\ nil,
-        options \\ []
-      ) do
+  def list_recommendations(%Client{} = client, options \\ []) do
     url_path = "/v1/recommendations"
+
+    # Validate optional parameters
+    optional_params = [
+      after_last_updated_at: nil,
+      aws_service: nil,
+      before_last_updated_at: nil,
+      check_identifier: nil,
+      max_results: nil,
+      next_token: nil,
+      pillar: nil,
+      source: nil,
+      status: nil,
+      type: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
+      if opt_val = Keyword.get(options, :type) do
+        [{"type", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(source) do
-        [{"source", source} | query_params]
+      if opt_val = Keyword.get(options, :source) do
+        [{"source", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(pillar) do
-        [{"pillar", pillar} | query_params]
+      if opt_val = Keyword.get(options, :pillar) do
+        [{"pillar", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(check_identifier) do
-        [{"checkIdentifier", check_identifier} | query_params]
+      if opt_val = Keyword.get(options, :check_identifier) do
+        [{"checkIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(before_last_updated_at) do
-        [{"beforeLastUpdatedAt", before_last_updated_at} | query_params]
+      if opt_val = Keyword.get(options, :before_last_updated_at) do
+        [{"beforeLastUpdatedAt", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(aws_service) do
-        [{"awsService", aws_service} | query_params]
+      if opt_val = Keyword.get(options, :aws_service) do
+        [{"awsService", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(after_last_updated_at) do
-        [{"afterLastUpdatedAt", after_last_updated_at} | query_params]
+      if opt_val = Keyword.get(options, :after_last_updated_at) do
+        [{"afterLastUpdatedAt", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :after_last_updated_at,
+        :aws_service,
+        :before_last_updated_at,
+        :check_identifier,
+        :max_results,
+        :next_token,
+        :pillar,
+        :source,
+        :status,
+        :type
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Update the lifecycle of a Recommendation within an Organization.
+  Update the lifecycle of a Recommendation within an Organization. This API only
+  supports prioritized recommendations.
 
-  This API only supports prioritized
-  recommendations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20UpdateOrganizationRecommendationLifecycle&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:organization_recommendation_identifier` (`t:string`) The Recommendation
+    identifier for AWS Trusted Advisor Priority recommendations
+
+  ## Optional parameters:
   """
   @spec update_organization_recommendation_lifecycle(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_organization_recommendation_lifecycle_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -1282,21 +1534,29 @@ defmodule AWS.TrustedAdvisor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Update the lifecyle of a Recommendation.
+  Update the lifecyle of a Recommendation. This API only supports prioritized
+  recommendations.
 
-  This API only supports prioritized recommendations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20UpdateRecommendationLifecycle&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:recommendation_identifier` (`t:string`) The Recommendation identifier for
+    AWS Trusted Advisor Priority recommendations
+
+  ## Optional parameters:
   """
   @spec update_recommendation_lifecycle(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_recommendation_lifecycle_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -1311,7 +1571,8 @@ defmodule AWS.TrustedAdvisor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

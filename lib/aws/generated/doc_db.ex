@@ -4,11 +4,10 @@
 defmodule AWS.DocDB do
   @moduledoc """
   Amazon DocumentDB is a fast, reliable, and fully managed database service.
-
-  Amazon DocumentDB makes it easy to set up, operate, and scale MongoDB-compatible
-  databases in the cloud.
-  With Amazon DocumentDB, you can run the same application code and use the same
-  drivers and tools that you use with MongoDB.
+  Amazon DocumentDB makes it easy to set up, operate, and scale
+  MongoDB-compatible databases in the cloud. With Amazon DocumentDB, you can run
+  the same application code and use the same drivers and tools that you use with
+  MongoDB.
   """
 
   alias AWS.Client
@@ -2830,55 +2829,55 @@ defmodule AWS.DocDB do
   end
 
   @doc """
-  Adds a source identifier to an existing event notification
-  subscription.
+  Adds a source identifier to an existing event notification subscription.
   """
   @spec add_source_identifier_to_subscription(
-          map(),
+          AWS.Client.t(),
           add_source_identifier_to_subscription_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, add_source_identifier_to_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_source_identifier_to_subscription_errors()}
   def add_source_identifier_to_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddSourceIdentifierToSubscription", input, options)
   end
 
   @doc """
-  Adds metadata tags to an Amazon DocumentDB resource.
-
-  You can use these tags
-  with cost allocation reporting to track costs that are associated
-  with Amazon DocumentDB resources or in a `Condition` statement in
-  an Identity and Access Management (IAM) policy for Amazon DocumentDB.
+  Adds metadata tags to an Amazon DocumentDB resource. You can use these tags with
+  cost allocation reporting to track costs that are associated with Amazon
+  DocumentDB resources or in a `Condition` statement in an Identity and Access
+  Management (IAM) policy for Amazon DocumentDB.
   """
-  @spec add_tags_to_resource(map(), add_tags_to_resource_message(), list()) ::
+  @spec add_tags_to_resource(AWS.Client.t(), add_tags_to_resource_message(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
 
   @doc """
-  Applies a pending maintenance action to a resource (for example,
-  to an Amazon DocumentDB instance).
+  Applies a pending maintenance action to a resource (for example, to an Amazon
+  DocumentDB instance).
   """
   @spec apply_pending_maintenance_action(
-          map(),
+          AWS.Client.t(),
           apply_pending_maintenance_action_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, apply_pending_maintenance_action_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, apply_pending_maintenance_action_errors()}
   def apply_pending_maintenance_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ApplyPendingMaintenanceAction", input, options)
   end
@@ -2886,36 +2885,35 @@ defmodule AWS.DocDB do
   @doc """
   Copies the specified cluster parameter group.
   """
-  @spec copy_db_cluster_parameter_group(map(), copy_db_cluster_parameter_group_message(), list()) ::
+  @spec copy_db_cluster_parameter_group(
+          AWS.Client.t(),
+          copy_db_cluster_parameter_group_message(),
+          Keyword.t()
+        ) ::
           {:ok, copy_db_cluster_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_db_cluster_parameter_group_errors()}
   def copy_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyDBClusterParameterGroup", input, options)
   end
 
   @doc """
-  Copies a snapshot of a cluster.
-
-  To copy a cluster snapshot from a shared manual cluster snapshot,
-  `SourceDBClusterSnapshotIdentifier` must be the Amazon
-  Resource Name (ARN) of the shared cluster snapshot. You can only
-  copy a shared DB cluster snapshot, whether encrypted or not, in the
-  same Amazon Web Services Region.
-
-  To cancel the copy operation after it is in progress, delete the
-  target cluster snapshot identified by
-  `TargetDBClusterSnapshotIdentifier` while that cluster
-  snapshot is in the *copying* status.
+  Copies a snapshot of a cluster. To copy a cluster snapshot from a shared manual
+  cluster snapshot, `SourceDBClusterSnapshotIdentifier` must be the Amazon
+  Resource Name (ARN) of the shared cluster snapshot. You can only copy a shared
+  DB cluster snapshot, whether encrypted or not, in the same Amazon Web Services
+  Region.
   """
-  @spec copy_db_cluster_snapshot(map(), copy_db_cluster_snapshot_message(), list()) ::
+  @spec copy_db_cluster_snapshot(AWS.Client.t(), copy_db_cluster_snapshot_message(), Keyword.t()) ::
           {:ok, copy_db_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_db_cluster_snapshot_errors()}
   def copy_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyDBClusterSnapshot", input, options)
   end
@@ -2923,51 +2921,32 @@ defmodule AWS.DocDB do
   @doc """
   Creates a new Amazon DocumentDB cluster.
   """
-  @spec create_db_cluster(map(), create_db_cluster_message(), list()) ::
+  @spec create_db_cluster(AWS.Client.t(), create_db_cluster_message(), Keyword.t()) ::
           {:ok, create_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_cluster_errors()}
   def create_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBCluster", input, options)
   end
 
   @doc """
-  Creates a new cluster parameter group.
-
-  Parameters in a cluster parameter group apply to all of the
-  instances in a cluster.
-
-  A cluster parameter group is initially created with the default
-  parameters for the database engine used by instances in the cluster.
-  In Amazon DocumentDB, you cannot make modifications directly to the
-  `default.docdb3.6` cluster parameter group. If your
-  Amazon DocumentDB cluster is using the default cluster parameter group and you
-  want to modify a value in it, you must first [
-  create a new parameter
-  group](https://docs.aws.amazon.com/documentdb/latest/developerguide/cluster_parameter_group-create.html)
-  or [
-  copy an existing parameter
-  group](https://docs.aws.amazon.com/documentdb/latest/developerguide/cluster_parameter_group-copy.html),
-  modify it, and then apply the modified parameter group to your
-  cluster. For the new cluster parameter group and associated settings
-  to take effect, you must then reboot the instances in the cluster
-  without failover. For more information,
-  see [
-  Modifying Amazon DocumentDB Cluster Parameter
-  Groups](https://docs.aws.amazon.com/documentdb/latest/developerguide/cluster_parameter_group-modify.html).
+  Creates a new cluster parameter group. Parameters in a cluster parameter group
+  apply to all of the instances in a cluster.
   """
   @spec create_db_cluster_parameter_group(
-          map(),
+          AWS.Client.t(),
           create_db_cluster_parameter_group_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_db_cluster_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_cluster_parameter_group_errors()}
   def create_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBClusterParameterGroup", input, options)
   end
@@ -2975,12 +2954,17 @@ defmodule AWS.DocDB do
   @doc """
   Creates a snapshot of a cluster.
   """
-  @spec create_db_cluster_snapshot(map(), create_db_cluster_snapshot_message(), list()) ::
+  @spec create_db_cluster_snapshot(
+          AWS.Client.t(),
+          create_db_cluster_snapshot_message(),
+          Keyword.t()
+        ) ::
           {:ok, create_db_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_cluster_snapshot_errors()}
   def create_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBClusterSnapshot", input, options)
   end
@@ -2988,139 +2972,129 @@ defmodule AWS.DocDB do
   @doc """
   Creates a new instance.
   """
-  @spec create_db_instance(map(), create_db_instance_message(), list()) ::
+  @spec create_db_instance(AWS.Client.t(), create_db_instance_message(), Keyword.t()) ::
           {:ok, create_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_instance_errors()}
   def create_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBInstance", input, options)
   end
 
   @doc """
-  Creates a new subnet group.
-
-  subnet groups must contain at least one subnet in at
+  Creates a new subnet group. subnet groups must contain at least one subnet in at
   least two Availability Zones in the Amazon Web Services Region.
   """
-  @spec create_db_subnet_group(map(), create_db_subnet_group_message(), list()) ::
+  @spec create_db_subnet_group(AWS.Client.t(), create_db_subnet_group_message(), Keyword.t()) ::
           {:ok, create_db_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_subnet_group_errors()}
   def create_db_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBSubnetGroup", input, options)
   end
 
   @doc """
-  Creates an Amazon DocumentDB event notification subscription.
-
-  This action requires a topic Amazon Resource Name (ARN) created by using the
-  Amazon DocumentDB console, the Amazon SNS console, or the Amazon SNS API. To
-  obtain an ARN with Amazon SNS, you must create a topic in Amazon SNS and
-  subscribe to the topic. The ARN is displayed in the Amazon SNS console.
-
-  You can specify the type of source (`SourceType`) that you want to be notified
-  of. You can also provide a list of Amazon DocumentDB sources (`SourceIds`) that
-  trigger the events, and you can provide a list of event categories
-  (`EventCategories`) for events that you want to be notified of. For example, you
-  can specify `SourceType = db-instance`, `SourceIds = mydbinstance1,
-  mydbinstance2` and `EventCategories = Availability, Backup`.
-
-  If you specify both the `SourceType` and `SourceIds` (such as `SourceType =
-  db-instance` and `SourceIdentifier = myDBInstance1`), you are notified of all
-  the `db-instance` events for the specified source. If you specify a `SourceType`
-  but do not specify a `SourceIdentifier`, you receive notice of the events for
-  that source type for all your Amazon DocumentDB sources. If you do not specify
-  either the `SourceType` or the `SourceIdentifier`, you are notified of events
-  generated from all Amazon DocumentDB sources belonging to your customer account.
+  Creates an Amazon DocumentDB event notification subscription. This action
+  requires a topic Amazon Resource Name (ARN) created by using the Amazon
+  DocumentDB console, the Amazon SNS console, or the Amazon SNS API. To obtain
+  an ARN with Amazon SNS, you must create a topic in Amazon SNS and subscribe to
+  the topic. The ARN is displayed in the Amazon SNS console. You can specify the
+  type of source (`SourceType`) that you want to be notified of. You can also
+  provide a list of Amazon DocumentDB sources (`SourceIds`) that trigger the
+  events, and you can provide a list of event categories (`EventCategories`) for
+  events that you want to be notified of. For example, you can specify
+  `SourceType = db-instance`, `SourceIds = mydbinstance1, mydbinstance2` and
+  `EventCategories = Availability, Backup`.
   """
-  @spec create_event_subscription(map(), create_event_subscription_message(), list()) ::
+  @spec create_event_subscription(
+          AWS.Client.t(),
+          create_event_subscription_message(),
+          Keyword.t()
+        ) ::
           {:ok, create_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_event_subscription_errors()}
   def create_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEventSubscription", input, options)
   end
 
   @doc """
   Creates an Amazon DocumentDB global cluster that can span multiple multiple
-  Amazon Web Services Regions.
-
-  The global cluster contains one primary cluster with read-write capability, and
-  up-to give read-only secondary clusters. Global clusters uses storage-based fast
-  replication across regions with latencies less than one second, using dedicated
-  infrastructure with no impact to your workload’s performance.
-
-  You can create a global cluster that is initially empty, and then add a primary
-  and a secondary to it. Or you can specify an existing cluster during the create
-  operation, and this cluster becomes the primary of the global cluster.
-
-  This action only applies to Amazon DocumentDB clusters.
+  Amazon Web Services Regions. The global cluster contains one primary cluster
+  with read-write capability, and up-to give read-only secondary clusters.
+  Global clusters uses storage-based fast replication across regions with
+  latencies less than one second, using dedicated infrastructure with no impact
+  to your workload’s performance.
   """
-  @spec create_global_cluster(map(), create_global_cluster_message(), list()) ::
+  @spec create_global_cluster(AWS.Client.t(), create_global_cluster_message(), Keyword.t()) ::
           {:ok, create_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_global_cluster_errors()}
   def create_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGlobalCluster", input, options)
   end
 
   @doc """
-  Deletes a previously provisioned cluster.
-
-  When you delete a cluster, all automated backups for that cluster are deleted
-  and can't be recovered. Manual DB cluster snapshots of the specified cluster are
-  not deleted.
+  Deletes a previously provisioned cluster. When you delete a cluster, all
+  automated backups for that cluster are deleted and can't be recovered. Manual
+  DB cluster snapshots of the specified cluster are not deleted.
   """
-  @spec delete_db_cluster(map(), delete_db_cluster_message(), list()) ::
+  @spec delete_db_cluster(AWS.Client.t(), delete_db_cluster_message(), Keyword.t()) ::
           {:ok, delete_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_cluster_errors()}
   def delete_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBCluster", input, options)
   end
 
   @doc """
-  Deletes a specified cluster parameter group.
-
-  The cluster parameter group to be deleted can't be associated with any clusters.
+  Deletes a specified cluster parameter group. The cluster parameter group to be
+  deleted can't be associated with any clusters.
   """
   @spec delete_db_cluster_parameter_group(
-          map(),
+          AWS.Client.t(),
           delete_db_cluster_parameter_group_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_cluster_parameter_group_errors()}
   def delete_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBClusterParameterGroup", input, options)
   end
 
   @doc """
-  Deletes a cluster snapshot.
-
-  If the snapshot is being copied, the copy operation is terminated.
-
-  The cluster snapshot must be in the `available` state to be deleted.
+  Deletes a cluster snapshot. If the snapshot is being copied, the copy operation
+  is terminated.
   """
-  @spec delete_db_cluster_snapshot(map(), delete_db_cluster_snapshot_message(), list()) ::
+  @spec delete_db_cluster_snapshot(
+          AWS.Client.t(),
+          delete_db_cluster_snapshot_message(),
+          Keyword.t()
+        ) ::
           {:ok, delete_db_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_cluster_snapshot_errors()}
   def delete_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBClusterSnapshot", input, options)
   end
@@ -3128,28 +3102,27 @@ defmodule AWS.DocDB do
   @doc """
   Deletes a previously provisioned instance.
   """
-  @spec delete_db_instance(map(), delete_db_instance_message(), list()) ::
+  @spec delete_db_instance(AWS.Client.t(), delete_db_instance_message(), Keyword.t()) ::
           {:ok, delete_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_instance_errors()}
   def delete_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBInstance", input, options)
   end
 
   @doc """
   Deletes a subnet group.
-
-  The specified database subnet group must not be associated with any DB
-  instances.
   """
-  @spec delete_db_subnet_group(map(), delete_db_subnet_group_message(), list()) ::
+  @spec delete_db_subnet_group(AWS.Client.t(), delete_db_subnet_group_message(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_subnet_group_errors()}
   def delete_db_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBSubnetGroup", input, options)
   end
@@ -3157,30 +3130,32 @@ defmodule AWS.DocDB do
   @doc """
   Deletes an Amazon DocumentDB event notification subscription.
   """
-  @spec delete_event_subscription(map(), delete_event_subscription_message(), list()) ::
+  @spec delete_event_subscription(
+          AWS.Client.t(),
+          delete_event_subscription_message(),
+          Keyword.t()
+        ) ::
           {:ok, delete_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_subscription_errors()}
   def delete_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEventSubscription", input, options)
   end
 
   @doc """
-  Deletes a global cluster.
-
-  The primary and secondary clusters must already be detached or deleted before
-  attempting to delete a global cluster.
-
-  This action only applies to Amazon DocumentDB clusters.
+  Deletes a global cluster. The primary and secondary clusters must already be
+  detached or deleted before attempting to delete a global cluster.
   """
-  @spec delete_global_cluster(map(), delete_global_cluster_message(), list()) ::
+  @spec delete_global_cluster(AWS.Client.t(), delete_global_cluster_message(), Keyword.t()) ::
           {:ok, delete_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_global_cluster_errors()}
   def delete_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGlobalCluster", input, options)
   end
@@ -3189,46 +3164,51 @@ defmodule AWS.DocDB do
   Returns a list of certificate authority (CA) certificates provided by Amazon
   DocumentDB for this Amazon Web Services account.
   """
-  @spec describe_certificates(map(), describe_certificates_message(), list()) ::
+  @spec describe_certificates(AWS.Client.t(), describe_certificates_message(), Keyword.t()) ::
           {:ok, certificate_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_certificates_errors()}
   def describe_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCertificates", input, options)
   end
 
   @doc """
-  Returns a list of `DBClusterParameterGroup` descriptions.
-
-  If a `DBClusterParameterGroupName` parameter is specified, the list contains
-  only the description of the specified cluster parameter group.
+  Returns a list of `DBClusterParameterGroup` descriptions. If a
+  `DBClusterParameterGroupName` parameter is specified, the list contains only
+  the description of the specified cluster parameter group.
   """
   @spec describe_db_cluster_parameter_groups(
-          map(),
+          AWS.Client.t(),
           describe_db_cluster_parameter_groups_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, db_cluster_parameter_groups_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_cluster_parameter_groups_errors()}
   def describe_db_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterParameterGroups", input, options)
   end
 
   @doc """
-  Returns the detailed parameter list for a particular cluster parameter
-  group.
+  Returns the detailed parameter list for a particular cluster parameter group.
   """
-  @spec describe_db_cluster_parameters(map(), describe_db_cluster_parameters_message(), list()) ::
+  @spec describe_db_cluster_parameters(
+          AWS.Client.t(),
+          describe_db_cluster_parameters_message(),
+          Keyword.t()
+        ) ::
           {:ok, db_cluster_parameter_group_details(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_cluster_parameters_errors()}
   def describe_db_cluster_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterParameters", input, options)
   end
@@ -3236,59 +3216,56 @@ defmodule AWS.DocDB do
   @doc """
   Returns a list of cluster snapshot attribute names and values for a manual DB
   cluster snapshot.
-
-  When you share snapshots with other Amazon Web Services accounts,
-  `DescribeDBClusterSnapshotAttributes` returns the `restore` attribute and a list
-  of IDs for the Amazon Web Services accounts that are authorized to copy or
-  restore the manual cluster snapshot. If `all` is included in the list of values
-  for the `restore` attribute, then the manual cluster snapshot is public and can
-  be copied or restored by all Amazon Web Services accounts.
   """
   @spec describe_db_cluster_snapshot_attributes(
-          map(),
+          AWS.Client.t(),
           describe_db_cluster_snapshot_attributes_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_db_cluster_snapshot_attributes_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_cluster_snapshot_attributes_errors()}
   def describe_db_cluster_snapshot_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterSnapshotAttributes", input, options)
   end
 
   @doc """
-  Returns information about cluster snapshots.
-
-  This API operation supports pagination.
+  Returns information about cluster snapshots. This API operation supports
+  pagination.
   """
-  @spec describe_db_cluster_snapshots(map(), describe_db_cluster_snapshots_message(), list()) ::
+  @spec describe_db_cluster_snapshots(
+          AWS.Client.t(),
+          describe_db_cluster_snapshots_message(),
+          Keyword.t()
+        ) ::
           {:ok, db_cluster_snapshot_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_cluster_snapshots_errors()}
   def describe_db_cluster_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterSnapshots", input, options)
   end
 
   @doc """
-  Returns information about provisioned Amazon DocumentDB clusters.
-
-  This API
-  operation supports pagination. For certain management features
-  such as cluster and instance lifecycle management, Amazon DocumentDB leverages
-  operational technology that is shared with Amazon RDS and Amazon
-  Neptune. Use the `filterName=engine,Values=docdb` filter
-  parameter to return only Amazon DocumentDB clusters.
+  Returns information about provisioned Amazon DocumentDB clusters. This API
+  operation supports pagination. For certain management features such as cluster
+  and instance lifecycle management, Amazon DocumentDB leverages operational
+  technology that is shared with Amazon RDS and Amazon Neptune. Use the
+  `filterName=engine,Values=docdb` filter parameter to return only Amazon
+  DocumentDB clusters.
   """
-  @spec describe_db_clusters(map(), describe_db_clusters_message(), list()) ::
+  @spec describe_db_clusters(AWS.Client.t(), describe_db_clusters_message(), Keyword.t()) ::
           {:ok, db_cluster_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_clusters_errors()}
   def describe_db_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusters", input, options)
   end
@@ -3296,128 +3273,139 @@ defmodule AWS.DocDB do
   @doc """
   Returns a list of the available engines.
   """
-  @spec describe_db_engine_versions(map(), describe_db_engine_versions_message(), list()) ::
+  @spec describe_db_engine_versions(
+          AWS.Client.t(),
+          describe_db_engine_versions_message(),
+          Keyword.t()
+        ) ::
           {:ok, db_engine_version_message(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_db_engine_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBEngineVersions", input, options)
   end
 
   @doc """
-  Returns information about provisioned Amazon DocumentDB instances.
-
-  This API supports pagination.
+  Returns information about provisioned Amazon DocumentDB instances. This API
+  supports pagination.
   """
-  @spec describe_db_instances(map(), describe_db_instances_message(), list()) ::
+  @spec describe_db_instances(AWS.Client.t(), describe_db_instances_message(), Keyword.t()) ::
           {:ok, db_instance_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_instances_errors()}
   def describe_db_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBInstances", input, options)
   end
 
   @doc """
-  Returns a list of `DBSubnetGroup` descriptions.
-
-  If a
-  `DBSubnetGroupName` is specified, the list will contain only the descriptions of
-  the specified `DBSubnetGroup`.
+  Returns a list of `DBSubnetGroup` descriptions. If a `DBSubnetGroupName` is
+  specified, the list will contain only the descriptions of the specified
+  `DBSubnetGroup`.
   """
-  @spec describe_db_subnet_groups(map(), describe_db_subnet_groups_message(), list()) ::
+  @spec describe_db_subnet_groups(
+          AWS.Client.t(),
+          describe_db_subnet_groups_message(),
+          Keyword.t()
+        ) ::
           {:ok, db_subnet_group_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_subnet_groups_errors()}
   def describe_db_subnet_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBSubnetGroups", input, options)
   end
 
   @doc """
   Returns the default engine and system parameter information for the cluster
-  database
-  engine.
+  database engine.
   """
   @spec describe_engine_default_cluster_parameters(
-          map(),
+          AWS.Client.t(),
           describe_engine_default_cluster_parameters_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_engine_default_cluster_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_engine_default_cluster_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEngineDefaultClusterParameters", input, options)
   end
 
   @doc """
   Displays a list of categories for all event source types, or, if specified, for
-  a
-  specified source type.
+  a specified source type.
   """
-  @spec describe_event_categories(map(), describe_event_categories_message(), list()) ::
+  @spec describe_event_categories(
+          AWS.Client.t(),
+          describe_event_categories_message(),
+          Keyword.t()
+        ) ::
           {:ok, event_categories_message(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_event_categories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventCategories", input, options)
   end
 
   @doc """
-  Lists all the subscription descriptions for a customer account.
-
-  The description for a subscription includes `SubscriptionName`, `SNSTopicARN`,
-  `CustomerID`, `SourceType`, `SourceID`, `CreationTime`, and `Status`.
-
-  If you specify a `SubscriptionName`, lists the description for that
-  subscription.
+  Lists all the subscription descriptions for a customer account. The description
+  for a subscription includes `SubscriptionName`, `SNSTopicARN`, `CustomerID`,
+  `SourceType`, `SourceID`, `CreationTime`, and `Status`.
   """
-  @spec describe_event_subscriptions(map(), describe_event_subscriptions_message(), list()) ::
+  @spec describe_event_subscriptions(
+          AWS.Client.t(),
+          describe_event_subscriptions_message(),
+          Keyword.t()
+        ) ::
           {:ok, event_subscriptions_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_subscriptions_errors()}
   def describe_event_subscriptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventSubscriptions", input, options)
   end
 
   @doc """
   Returns events related to instances, security groups, snapshots, and DB
-  parameter groups for the past 14 days.
-
-  You can obtain events specific to a particular DB instance, security group,
-  snapshot, or parameter group by providing the name as a parameter. By default,
-  the events of the past hour are returned.
+  parameter groups for the past 14 days. You can obtain events specific to a
+  particular DB instance, security group, snapshot, or parameter group by
+  providing the name as a parameter. By default, the events of the past hour are
+  returned.
   """
-  @spec describe_events(map(), describe_events_message(), list()) ::
+  @spec describe_events(AWS.Client.t(), describe_events_message(), Keyword.t()) ::
           {:ok, events_message(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
 
   @doc """
-  Returns information about Amazon DocumentDB global clusters.
-
-  This API supports pagination.
-
-  This action only applies to Amazon DocumentDB clusters.
+  Returns information about Amazon DocumentDB global clusters. This API supports
+  pagination.
   """
-  @spec describe_global_clusters(map(), describe_global_clusters_message(), list()) ::
+  @spec describe_global_clusters(AWS.Client.t(), describe_global_clusters_message(), Keyword.t()) ::
           {:ok, global_clusters_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_global_clusters_errors()}
   def describe_global_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGlobalClusters", input, options)
   end
@@ -3426,54 +3414,50 @@ defmodule AWS.DocDB do
   Returns a list of orderable instance options for the specified engine.
   """
   @spec describe_orderable_db_instance_options(
-          map(),
+          AWS.Client.t(),
           describe_orderable_db_instance_options_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, orderable_db_instance_options_message(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_orderable_db_instance_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOrderableDBInstanceOptions", input, options)
   end
 
   @doc """
   Returns a list of resources (for example, instances) that have at least one
-  pending
-  maintenance action.
+  pending maintenance action.
   """
   @spec describe_pending_maintenance_actions(
-          map(),
+          AWS.Client.t(),
           describe_pending_maintenance_actions_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, pending_maintenance_actions_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_pending_maintenance_actions_errors()}
   def describe_pending_maintenance_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePendingMaintenanceActions", input, options)
   end
 
   @doc """
-  Forces a failover for a cluster.
-
-  A failover for a cluster promotes one of the Amazon DocumentDB replicas
-  (read-only instances) in the cluster to be the primary instance (the cluster
-  writer).
-
-  If the primary instance fails, Amazon DocumentDB automatically fails over to an
-  Amazon DocumentDB replica, if one exists. You can force a failover when you want
-  to simulate a failure of a primary instance for testing.
+  Forces a failover for a cluster. A failover for a cluster promotes one of the
+  Amazon DocumentDB replicas (read-only instances) in the cluster to be the
+  primary instance (the cluster writer).
   """
-  @spec failover_db_cluster(map(), failover_db_cluster_message(), list()) ::
+  @spec failover_db_cluster(AWS.Client.t(), failover_db_cluster_message(), Keyword.t()) ::
           {:ok, failover_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, failover_db_cluster_errors()}
   def failover_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "FailoverDBCluster", input, options)
   end
@@ -3481,67 +3465,52 @@ defmodule AWS.DocDB do
   @doc """
   Lists all tags on an Amazon DocumentDB resource.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_message(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_message(), Keyword.t()) ::
           {:ok, tag_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
-  Modifies a setting for an Amazon DocumentDB cluster.
-
-  You can change one or more database
-  configuration parameters by specifying these parameters and the new values in
-  the
-  request.
+  Modifies a setting for an Amazon DocumentDB cluster. You can change one or more
+  database configuration parameters by specifying these parameters and the new
+  values in the request.
   """
-  @spec modify_db_cluster(map(), modify_db_cluster_message(), list()) ::
+  @spec modify_db_cluster(AWS.Client.t(), modify_db_cluster_message(), Keyword.t()) ::
           {:ok, modify_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_cluster_errors()}
   def modify_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBCluster", input, options)
   end
 
   @doc """
-  Modifies the parameters of a cluster parameter group.
-
-  To modify more than one
-  parameter, submit a list of the following: `ParameterName`,
-  `ParameterValue`, and `ApplyMethod`. A maximum of 20
-  parameters can be modified in a single request.
-
-  Changes to dynamic parameters are applied immediately. Changes to static
-  parameters require a reboot or maintenance window
-
-  before the change can take effect.
-
-  After you create a cluster parameter group, you should wait at least 5 minutes
-  before creating your first cluster that uses that cluster parameter group as
-  the default parameter group. This allows Amazon DocumentDB to fully complete the
-  create action
-  before the parameter group is used as the default for a new cluster. This step
-  is
-  especially important for parameters that are critical when creating the default
-  database for a cluster, such as the character set for the default database
-  defined by the `character_set_database` parameter.
+  Modifies the parameters of a cluster parameter group. To modify more than one
+  parameter, submit a list of the following: `ParameterName`, `ParameterValue`,
+  and `ApplyMethod`. A maximum of 20 parameters can be modified in a single
+  request. Changes to dynamic parameters are applied immediately. Changes to
+  static parameters require a reboot or maintenance window before the change can
+  take effect.
   """
   @spec modify_db_cluster_parameter_group(
-          map(),
+          AWS.Client.t(),
           modify_db_cluster_parameter_group_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, db_cluster_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_cluster_parameter_group_errors()}
   def modify_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBClusterParameterGroup", input, options)
   end
@@ -3549,61 +3518,49 @@ defmodule AWS.DocDB do
   @doc """
   Adds an attribute and values to, or removes an attribute and values from, a
   manual cluster snapshot.
-
-  To share a manual cluster snapshot with other Amazon Web Services accounts,
-  specify `restore` as the `AttributeName`, and use the `ValuesToAdd` parameter to
-  add a list of IDs of the Amazon Web Services accounts that are authorized to
-  restore the manual cluster snapshot. Use the value `all` to make the manual
-  cluster snapshot public, which means that it can be copied or restored by all
-  Amazon Web Services accounts. Do not add the `all` value for any manual cluster
-  snapshots that contain private information that you don't want available to all
-  Amazon Web Services accounts. If a manual cluster snapshot is encrypted, it can
-  be shared, but only by specifying a list of authorized Amazon Web Services
-  account IDs for the `ValuesToAdd` parameter. You can't use `all` as a value for
-  that parameter in this case.
   """
   @spec modify_db_cluster_snapshot_attribute(
-          map(),
+          AWS.Client.t(),
           modify_db_cluster_snapshot_attribute_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, modify_db_cluster_snapshot_attribute_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_cluster_snapshot_attribute_errors()}
   def modify_db_cluster_snapshot_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBClusterSnapshotAttribute", input, options)
   end
 
   @doc """
-  Modifies settings for an instance.
-
-  You can change one or more database configuration parameters by specifying these
-  parameters and the new values in the request.
+  Modifies settings for an instance. You can change one or more database
+  configuration parameters by specifying these parameters and the new values in
+  the request.
   """
-  @spec modify_db_instance(map(), modify_db_instance_message(), list()) ::
+  @spec modify_db_instance(AWS.Client.t(), modify_db_instance_message(), Keyword.t()) ::
           {:ok, modify_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_instance_errors()}
   def modify_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBInstance", input, options)
   end
 
   @doc """
-  Modifies an existing subnet group.
-
-  subnet groups must contain at least one subnet in at least two Availability
-  Zones in the Amazon Web Services Region.
+  Modifies an existing subnet group. subnet groups must contain at least one
+  subnet in at least two Availability Zones in the Amazon Web Services Region.
   """
-  @spec modify_db_subnet_group(map(), modify_db_subnet_group_message(), list()) ::
+  @spec modify_db_subnet_group(AWS.Client.t(), modify_db_subnet_group_message(), Keyword.t()) ::
           {:ok, modify_db_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_subnet_group_errors()}
   def modify_db_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBSubnetGroup", input, options)
   end
@@ -3611,93 +3568,90 @@ defmodule AWS.DocDB do
   @doc """
   Modifies an existing Amazon DocumentDB event notification subscription.
   """
-  @spec modify_event_subscription(map(), modify_event_subscription_message(), list()) ::
+  @spec modify_event_subscription(
+          AWS.Client.t(),
+          modify_event_subscription_message(),
+          Keyword.t()
+        ) ::
           {:ok, modify_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_event_subscription_errors()}
   def modify_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyEventSubscription", input, options)
   end
 
   @doc """
-  Modify a setting for an Amazon DocumentDB global cluster.
-
-  You can change one or more configuration parameters (for example: deletion
-  protection), or the global cluster identifier by specifying these parameters and
-  the new values in the request.
-
-  This action only applies to Amazon DocumentDB clusters.
+  Modify a setting for an Amazon DocumentDB global cluster. You can change one or
+  more configuration parameters (for example: deletion protection), or the
+  global cluster identifier by specifying these parameters and the new values in
+  the request.
   """
-  @spec modify_global_cluster(map(), modify_global_cluster_message(), list()) ::
+  @spec modify_global_cluster(AWS.Client.t(), modify_global_cluster_message(), Keyword.t()) ::
           {:ok, modify_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_global_cluster_errors()}
   def modify_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyGlobalCluster", input, options)
   end
 
   @doc """
-  You might need to reboot your instance, usually for maintenance reasons.
-
-  For
+  You might need to reboot your instance, usually for maintenance reasons. For
   example, if you make certain changes, or if you change the cluster parameter
-  group
-  that is associated with the instance, you must reboot the instance for the
-  changes to
-  take effect.
-
-  Rebooting an instance restarts the database engine service. Rebooting an
-  instance
-  results in a momentary outage, during which the instance status is set to
-  *rebooting*.
+  group that is associated with the instance, you must reboot the instance for
+  the changes to take effect.
   """
-  @spec reboot_db_instance(map(), reboot_db_instance_message(), list()) ::
+  @spec reboot_db_instance(AWS.Client.t(), reboot_db_instance_message(), Keyword.t()) ::
           {:ok, reboot_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_db_instance_errors()}
   def reboot_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootDBInstance", input, options)
   end
 
   @doc """
-  Detaches an Amazon DocumentDB secondary cluster from a global cluster.
-
-  The cluster becomes a standalone cluster with read-write capability instead of
+  Detaches an Amazon DocumentDB secondary cluster from a global cluster. The
+  cluster becomes a standalone cluster with read-write capability instead of
   being read-only and receiving data from a primary in a different region.
-
-  This action only applies to Amazon DocumentDB clusters.
   """
-  @spec remove_from_global_cluster(map(), remove_from_global_cluster_message(), list()) ::
+  @spec remove_from_global_cluster(
+          AWS.Client.t(),
+          remove_from_global_cluster_message(),
+          Keyword.t()
+        ) ::
           {:ok, remove_from_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_from_global_cluster_errors()}
   def remove_from_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveFromGlobalCluster", input, options)
   end
 
   @doc """
   Removes a source identifier from an existing Amazon DocumentDB event
-  notification
-  subscription.
+  notification subscription.
   """
   @spec remove_source_identifier_from_subscription(
-          map(),
+          AWS.Client.t(),
           remove_source_identifier_from_subscription_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, remove_source_identifier_from_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_source_identifier_from_subscription_errors()}
   def remove_source_identifier_from_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveSourceIdentifierFromSubscription", input, options)
   end
@@ -3705,121 +3659,113 @@ defmodule AWS.DocDB do
   @doc """
   Removes metadata tags from an Amazon DocumentDB resource.
   """
-  @spec remove_tags_from_resource(map(), remove_tags_from_resource_message(), list()) ::
+  @spec remove_tags_from_resource(
+          AWS.Client.t(),
+          remove_tags_from_resource_message(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
 
   @doc """
-  Modifies the parameters of a cluster parameter group to the default value.
-
-  To
-  reset specific parameters, submit a list of the following: `ParameterName`
-  and `ApplyMethod`. To reset the entire cluster parameter group, specify
-  the `DBClusterParameterGroupName` and `ResetAllParameters`
-  parameters.
-
-  When you reset the entire group, dynamic parameters are updated immediately and
-  static parameters are set to `pending-reboot` to take effect on the next DB
-  instance reboot.
+  Modifies the parameters of a cluster parameter group to the default value. To
+  reset specific parameters, submit a list of the following: `ParameterName` and
+  `ApplyMethod`. To reset the entire cluster parameter group, specify the
+  `DBClusterParameterGroupName` and `ResetAllParameters` parameters.
   """
   @spec reset_db_cluster_parameter_group(
-          map(),
+          AWS.Client.t(),
           reset_db_cluster_parameter_group_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, db_cluster_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_db_cluster_parameter_group_errors()}
   def reset_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetDBClusterParameterGroup", input, options)
   end
 
   @doc """
-  Creates a new cluster from a snapshot or cluster snapshot.
-
-  If a snapshot is specified, the target cluster is created from the source DB
-  snapshot with a default configuration and default security group.
-
-  If a cluster snapshot is specified, the target cluster is created from the
-  source cluster restore point with the same configuration as the original source
-  DB cluster, except that the new cluster is created with the default security
-  group.
+  Creates a new cluster from a snapshot or cluster snapshot. If a snapshot is
+  specified, the target cluster is created from the source DB snapshot with a
+  default configuration and default security group.
   """
   @spec restore_db_cluster_from_snapshot(
-          map(),
+          AWS.Client.t(),
           restore_db_cluster_from_snapshot_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, restore_db_cluster_from_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_db_cluster_from_snapshot_errors()}
   def restore_db_cluster_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreDBClusterFromSnapshot", input, options)
   end
 
   @doc """
-  Restores a cluster to an arbitrary point in time.
-
-  Users can restore to any point in
-  time before `LatestRestorableTime` for up to
-  `BackupRetentionPeriod` days. The target cluster is created from the
-  source cluster with the same configuration as the original cluster, except that
-  the new cluster is created with the default security group.
+  Restores a cluster to an arbitrary point in time. Users can restore to any point
+  in time before `LatestRestorableTime` for up to `BackupRetentionPeriod` days.
+  The target cluster is created from the source cluster with the same
+  configuration as the original cluster, except that the new cluster is created
+  with the default security group.
   """
   @spec restore_db_cluster_to_point_in_time(
-          map(),
+          AWS.Client.t(),
           restore_db_cluster_to_point_in_time_message(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, restore_db_cluster_to_point_in_time_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_db_cluster_to_point_in_time_errors()}
   def restore_db_cluster_to_point_in_time(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreDBClusterToPointInTime", input, options)
   end
 
   @doc """
-  Restarts the stopped cluster that is specified by `DBClusterIdentifier`.
-
-  For more information, see [Stopping and Starting an Amazon DocumentDB
+  Restarts the stopped cluster that is specified by `DBClusterIdentifier`. For
+  more information, see [Stopping and Starting an Amazon DocumentDB
   Cluster](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html).
   """
-  @spec start_db_cluster(map(), start_db_cluster_message(), list()) ::
+  @spec start_db_cluster(AWS.Client.t(), start_db_cluster_message(), Keyword.t()) ::
           {:ok, start_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_db_cluster_errors()}
   def start_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDBCluster", input, options)
   end
 
   @doc """
-  Stops the running cluster that is specified by `DBClusterIdentifier`.
-
-  The
-  cluster must be in the *available* state. For more information, see
-  [Stopping and Starting an Amazon DocumentDB
+  Stops the running cluster that is specified by `DBClusterIdentifier`. The
+  cluster must be in the *available* state. For more information, see [Stopping
+  and Starting an Amazon DocumentDB
   Cluster](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html).
   """
-  @spec stop_db_cluster(map(), stop_db_cluster_message(), list()) ::
+  @spec stop_db_cluster(AWS.Client.t(), stop_db_cluster_message(), Keyword.t()) ::
           {:ok, stop_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_db_cluster_errors()}
   def stop_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopDBCluster", input, options)
   end
@@ -3828,12 +3774,17 @@ defmodule AWS.DocDB do
   Switches over the specified secondary Amazon DocumentDB cluster to be the new
   primary Amazon DocumentDB cluster in the global database cluster.
   """
-  @spec switchover_global_cluster(map(), switchover_global_cluster_message(), list()) ::
+  @spec switchover_global_cluster(
+          AWS.Client.t(),
+          switchover_global_cluster_message(),
+          Keyword.t()
+        ) ::
           {:ok, switchover_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, switchover_global_cluster_errors()}
   def switchover_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SwitchoverGlobalCluster", input, options)
   end

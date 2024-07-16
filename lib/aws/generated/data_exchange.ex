@@ -4,40 +4,12 @@
 defmodule AWS.DataExchange do
   @moduledoc """
   AWS Data Exchange is a service that makes it easy for AWS customers to exchange
-  data in the cloud.
-
-  You can use the AWS Data Exchange APIs to create, update, manage, and access
-  file-based data set in the AWS Cloud.
-
-  As a subscriber, you can view and access the data sets that you have an
-  entitlement to through
-  a subscription. You can use the APIs to download or copy your entitled data sets
-  to Amazon
-  Simple Storage Service (Amazon S3) for use across a variety of AWS analytics and
-  machine
-  learning services.
-
-  As a provider, you can create and manage your data sets that you would like to
-  publish to a
-  product. Being able to package and provide your data sets into products requires
-  a few
-  steps to determine eligibility. For more information, visit the *AWS Data
-  Exchange
-  User Guide*.
-
-  A data set is a collection of data that can be changed or updated over time.
-  Data sets can be
-  updated using revisions, which represent a new version or incremental change to
-  a data set.
-  A revision contains one or more assets. An asset in AWS Data Exchange is a piece
-  of data
-  that can be stored as an Amazon S3 object, Redshift datashare, API Gateway API,
-  AWS Lake
-  Formation data permission, or Amazon S3 data access. The asset can be a
-  structured data
-  file, an image file, or some other data file. Jobs are asynchronous import or
-  export
-  operations used to create or copy assets.
+  data in the cloud. You can use the AWS Data Exchange APIs to create, update,
+  manage, and access file-based data set in the AWS Cloud. As a subscriber, you
+  can view and access the data sets that you have an entitlement to through a
+  subscription. You can use the APIs to download or copy your entitled data sets
+  to Amazon Simple Storage Service (Amazon S3) for use across a variety of AWS
+  analytics and machine learning services.
   """
 
   alias AWS.Client
@@ -1921,11 +1893,17 @@ defmodule AWS.DataExchange do
   end
 
   @doc """
-  This operation cancels a job.
+  This operation cancels a job. Jobs can be cancelled only when they are in the
+  WAITING state.
 
-  Jobs can be cancelled only when they are in the WAITING state.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20CancelJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The unique identifier for a job.
+
+  ## Optional parameters:
   """
-  @spec cancel_job(map(), String.t(), cancel_job_request(), list()) ::
+  @spec cancel_job(AWS.Client.t(), String.t(), cancel_job_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_job_errors()}
@@ -1934,7 +1912,8 @@ defmodule AWS.DataExchange do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1951,8 +1930,14 @@ defmodule AWS.DataExchange do
 
   @doc """
   This operation creates a data set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20CreateDataSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_data_set(map(), create_data_set_request(), list()) ::
+  @spec create_data_set(AWS.Client.t(), create_data_set_request(), Keyword.t()) ::
           {:ok, create_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_set_errors()}
@@ -1961,7 +1946,8 @@ defmodule AWS.DataExchange do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1978,8 +1964,14 @@ defmodule AWS.DataExchange do
 
   @doc """
   This operation creates an event action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20CreateEventAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_event_action(map(), create_event_action_request(), list()) ::
+  @spec create_event_action(AWS.Client.t(), create_event_action_request(), Keyword.t()) ::
           {:ok, create_event_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_event_action_errors()}
@@ -1988,7 +1980,8 @@ defmodule AWS.DataExchange do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2005,8 +1998,14 @@ defmodule AWS.DataExchange do
 
   @doc """
   This operation creates a job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20CreateJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_job(map(), create_job_request(), list()) ::
+  @spec create_job(AWS.Client.t(), create_job_request(), Keyword.t()) ::
           {:ok, create_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_errors()}
@@ -2015,7 +2014,8 @@ defmodule AWS.DataExchange do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2032,8 +2032,15 @@ defmodule AWS.DataExchange do
 
   @doc """
   This operation creates a revision for a data set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20CreateRevision&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
+
+  ## Optional parameters:
   """
-  @spec create_revision(map(), String.t(), create_revision_request(), list()) ::
+  @spec create_revision(AWS.Client.t(), String.t(), create_revision_request(), Keyword.t()) ::
           {:ok, create_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_revision_errors()}
@@ -2042,7 +2049,8 @@ defmodule AWS.DataExchange do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2059,8 +2067,24 @@ defmodule AWS.DataExchange do
 
   @doc """
   This operation deletes an asset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20DeleteAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_id` (`t:string`) The unique identifier for an asset.
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
+  * `:revision_id` (`t:string`) The unique identifier for a revision.
+
+  ## Optional parameters:
   """
-  @spec delete_asset(map(), String.t(), String.t(), String.t(), delete_asset_request(), list()) ::
+  @spec delete_asset(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_asset_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_asset_errors()}
@@ -2071,7 +2095,8 @@ defmodule AWS.DataExchange do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2088,8 +2113,15 @@ defmodule AWS.DataExchange do
 
   @doc """
   This operation deletes a data set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20DeleteDataSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
+
+  ## Optional parameters:
   """
-  @spec delete_data_set(map(), String.t(), delete_data_set_request(), list()) ::
+  @spec delete_data_set(AWS.Client.t(), String.t(), delete_data_set_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_set_errors()}
@@ -2098,7 +2130,8 @@ defmodule AWS.DataExchange do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2115,8 +2148,20 @@ defmodule AWS.DataExchange do
 
   @doc """
   This operation deletes the event action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20DeleteEventAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:event_action_id` (`t:string`) The unique identifier for the event action.
+
+  ## Optional parameters:
   """
-  @spec delete_event_action(map(), String.t(), delete_event_action_request(), list()) ::
+  @spec delete_event_action(
+          AWS.Client.t(),
+          String.t(),
+          delete_event_action_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_action_errors()}
@@ -2125,7 +2170,8 @@ defmodule AWS.DataExchange do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2142,8 +2188,22 @@ defmodule AWS.DataExchange do
 
   @doc """
   This operation deletes a revision.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20DeleteRevision&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
+  * `:revision_id` (`t:string`) The unique identifier for a revision.
+
+  ## Optional parameters:
   """
-  @spec delete_revision(map(), String.t(), String.t(), delete_revision_request(), list()) ::
+  @spec delete_revision(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_revision_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_revision_errors()}
@@ -2154,7 +2214,8 @@ defmodule AWS.DataExchange do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2171,8 +2232,17 @@ defmodule AWS.DataExchange do
 
   @doc """
   This operation returns information about an asset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20GetAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_id` (`t:string`) The unique identifier for an asset.
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
+  * `:revision_id` (`t:string`) The unique identifier for a revision.
+
+  ## Optional parameters:
   """
-  @spec get_asset(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_asset(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_asset_errors()}
@@ -2180,69 +2250,169 @@ defmodule AWS.DataExchange do
     url_path =
       "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}/assets/#{AWS.Util.encode_uri(asset_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   This operation returns information about a data set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20GetDataSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
+
+  ## Optional parameters:
   """
-  @spec get_data_set(map(), String.t(), list()) ::
+  @spec get_data_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_set_errors()}
   def get_data_set(%Client{} = client, data_set_id, options \\ []) do
     url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   This operation retrieves information about an event action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20GetEventAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:event_action_id` (`t:string`) The unique identifier for the event action.
+
+  ## Optional parameters:
   """
-  @spec get_event_action(map(), String.t(), list()) ::
+  @spec get_event_action(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_event_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_event_action_errors()}
   def get_event_action(%Client{} = client, event_action_id, options \\ []) do
     url_path = "/v1/event-actions/#{AWS.Util.encode_uri(event_action_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   This operation returns information about a job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20GetJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The unique identifier for a job.
+
+  ## Optional parameters:
   """
-  @spec get_job(map(), String.t(), list()) ::
+  @spec get_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_errors()}
   def get_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/v1/jobs/#{AWS.Util.encode_uri(job_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   This operation returns information about a revision.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20GetRevision&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
+  * `:revision_id` (`t:string`) The unique identifier for a revision.
+
+  ## Optional parameters:
   """
-  @spec get_revision(map(), String.t(), String.t(), list()) ::
+  @spec get_revision(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_revision_errors()}
@@ -2250,10 +2420,27 @@ defmodule AWS.DataExchange do
     url_path =
       "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2261,188 +2448,288 @@ defmodule AWS.DataExchange do
   @doc """
   This operation lists a data set's revisions sorted by CreatedAt in descending
   order.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20ListDataSetRevisions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results returned by a
+    single call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to
+    access the next page of results.
   """
-  @spec list_data_set_revisions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_data_set_revisions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_set_revisions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_set_revisions_errors()}
-  def list_data_set_revisions(
-        %Client{} = client,
-        data_set_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_data_set_revisions(%Client{} = client, data_set_id, options \\ []) do
     url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  This operation lists your data sets.
+  This operation lists your data sets. When listing by origin OWNED, results are
+  sorted by CreatedAt in descending order. When listing by origin ENTITLED,
+  there is no order and the maxResults parameter is ignored.
 
-  When listing by origin OWNED, results are sorted by CreatedAt in descending
-  order. When listing by origin ENTITLED, there is no order and the maxResults
-  parameter is ignored.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20ListDataSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results returned by a
+    single call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to
+    access the next page of results.
+  * `:origin` (`t:string`) A property that defines the data set as OWNED by the
+    account (for providers) or ENTITLED to the account (for subscribers).
   """
-  @spec list_data_sets(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_data_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_data_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_sets_errors()}
-  def list_data_sets(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        origin \\ nil,
-        options \\ []
-      ) do
+  def list_data_sets(%Client{} = client, options \\ []) do
     url_path = "/v1/data-sets"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, origin: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(origin) do
-        [{"origin", origin} | query_params]
+      if opt_val = Keyword.get(options, :origin) do
+        [{"origin", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :origin])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   This operation lists your event actions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20ListEventActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:event_source_id` (`t:string`) The unique identifier for the event source.
+  * `:max_results` (`t:integer`) The maximum number of results returned by a
+    single call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to
+    access the next page of results.
   """
-  @spec list_event_actions(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_event_actions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_event_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_actions_errors()}
-  def list_event_actions(
-        %Client{} = client,
-        event_source_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_event_actions(%Client{} = client, options \\ []) do
     url_path = "/v1/event-actions"
+
+    # Validate optional parameters
+    optional_params = [event_source_id: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(event_source_id) do
-        [{"eventSourceId", event_source_id} | query_params]
+      if opt_val = Keyword.get(options, :event_source_id) do
+        [{"eventSourceId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:event_source_id, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   This operation lists your jobs sorted by CreatedAt in descending order.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20ListJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
+  * `:max_results` (`t:integer`) The maximum number of results returned by a
+    single call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to
+    access the next page of results.
+  * `:revision_id` (`t:string`) The unique identifier for a revision.
   """
-  @spec list_jobs(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_errors()}
-  def list_jobs(
-        %Client{} = client,
-        data_set_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        revision_id \\ nil,
-        options \\ []
-      ) do
+  def list_jobs(%Client{} = client, options \\ []) do
     url_path = "/v1/jobs"
+
+    # Validate optional parameters
+    optional_params = [data_set_id: nil, max_results: nil, next_token: nil, revision_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(revision_id) do
-        [{"revisionId", revision_id} | query_params]
+      if opt_val = Keyword.get(options, :revision_id) do
+        [{"revisionId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(data_set_id) do
-        [{"dataSetId", data_set_id} | query_params]
+      if opt_val = Keyword.get(options, :data_set_id) do
+        [{"dataSetId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:data_set_id, :max_results, :next_token, :revision_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2450,71 +2737,130 @@ defmodule AWS.DataExchange do
   @doc """
   This operation lists a revision's assets sorted alphabetically in descending
   order.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20ListRevisionAssets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
+  * `:revision_id` (`t:string`) The unique identifier for a revision.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results returned by a
+    single call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to
+    access the next page of results.
   """
-  @spec list_revision_assets(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_revision_assets(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_revision_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_revision_assets_errors()}
-  def list_revision_assets(
-        %Client{} = client,
-        data_set_id,
-        revision_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_revision_assets(%Client{} = client, data_set_id, revision_id, options \\ []) do
     url_path =
       "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}/assets"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   This operation lists the tags on the resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
+    identifies an AWS resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   This operation revokes subscribers' access to a revision.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20RevokeRevision&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
+  * `:revision_id` (`t:string`) The unique identifier for a revision.
+
+  ## Optional parameters:
   """
-  @spec revoke_revision(map(), String.t(), String.t(), revoke_revision_request(), list()) ::
+  @spec revoke_revision(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          revoke_revision_request(),
+          Keyword.t()
+        ) ::
           {:ok, revoke_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_revision_errors()}
@@ -2525,7 +2871,8 @@ defmodule AWS.DataExchange do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2541,16 +2888,45 @@ defmodule AWS.DataExchange do
   end
 
   @doc """
-  This operation invokes an API Gateway API asset.
+  This operation invokes an API Gateway API asset. The request is proxied to the
+  provider’s API Gateway API.
 
-  The request is proxied to the provider’s API Gateway API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20SendApiAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_id` (`t:string`) Asset ID value for the API request.
+  * `:data_set_id` (`t:string`) Data set ID value for the API request.
+  * `:revision_id` (`t:string`) Revision ID value for the API request.
+
+  ## Optional parameters:
+  * `:query_string_parameters` (`t:map`) Attach query string parameters to the end
+    of the URI (for example, /v1/examplePath?exampleParam=exampleValue).
+  * `:method` (`t:string`) HTTP method value for the API request. Alternatively,
+    you can use the appropriate verb in your request.
+  * `:path` (`t:string`) URI path value for the API request. Alternatively, you
+    can set the URI path directly by invoking /v1/{pathValue}.
   """
-  @spec send_api_asset(map(), send_api_asset_request(), list()) ::
+  @spec send_api_asset(AWS.Client.t(), send_api_asset_request(), Keyword.t()) ::
           {:ok, send_api_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_api_asset_errors()}
   def send_api_asset(%Client{} = client, input, options \\ []) do
     url_path = "/v1"
+
+    optional_params = [
+      query_string_parameters: nil,
+      asset_id: nil,
+      data_set_id: nil,
+      method: nil,
+      path: nil,
+      revision_id: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -2582,7 +2958,13 @@ defmodule AWS.DataExchange do
         true
       )
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api-fulfill.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api-fulfill.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:query_string_parameters, :method, :path])
 
     Request.request_rest(
       client,
@@ -2599,12 +2981,19 @@ defmodule AWS.DataExchange do
 
   @doc """
   The type of event associated with the data set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20SendDataSetNotification&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_set_id` (`t:string`) Affected data set of the notification.
+
+  ## Optional parameters:
   """
   @spec send_data_set_notification(
-          map(),
+          AWS.Client.t(),
           String.t(),
           send_data_set_notification_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, send_data_set_notification_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2614,7 +3003,8 @@ defmodule AWS.DataExchange do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2631,8 +3021,15 @@ defmodule AWS.DataExchange do
 
   @doc """
   This operation starts a job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20StartJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The unique identifier for a job.
+
+  ## Optional parameters:
   """
-  @spec start_job(map(), String.t(), start_job_request(), list()) ::
+  @spec start_job(AWS.Client.t(), String.t(), start_job_request(), Keyword.t()) ::
           {:ok, start_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_job_errors()}
@@ -2641,7 +3038,8 @@ defmodule AWS.DataExchange do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2658,8 +3056,16 @@ defmodule AWS.DataExchange do
 
   @doc """
   This operation tags a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
+    identifies an AWS resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
@@ -2667,7 +3073,8 @@ defmodule AWS.DataExchange do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2684,8 +3091,17 @@ defmodule AWS.DataExchange do
 
   @doc """
   This operation removes one or more tags from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
+    identifies an AWS resource.
+  * `:tag_keys` (`t:list[com.amazonaws.dataexchange#__string]`) The key tags.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
@@ -2698,7 +3114,8 @@ defmodule AWS.DataExchange do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2715,8 +3132,24 @@ defmodule AWS.DataExchange do
 
   @doc """
   This operation updates an asset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20UpdateAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_id` (`t:string`) The unique identifier for an asset.
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
+  * `:revision_id` (`t:string`) The unique identifier for a revision.
+
+  ## Optional parameters:
   """
-  @spec update_asset(map(), String.t(), String.t(), String.t(), update_asset_request(), list()) ::
+  @spec update_asset(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          update_asset_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_asset_errors()}
@@ -2727,7 +3160,8 @@ defmodule AWS.DataExchange do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2744,8 +3178,15 @@ defmodule AWS.DataExchange do
 
   @doc """
   This operation updates a data set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20UpdateDataSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
+
+  ## Optional parameters:
   """
-  @spec update_data_set(map(), String.t(), update_data_set_request(), list()) ::
+  @spec update_data_set(AWS.Client.t(), String.t(), update_data_set_request(), Keyword.t()) ::
           {:ok, update_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_set_errors()}
@@ -2754,7 +3195,8 @@ defmodule AWS.DataExchange do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2771,8 +3213,20 @@ defmodule AWS.DataExchange do
 
   @doc """
   This operation updates the event action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20UpdateEventAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:event_action_id` (`t:string`) The unique identifier for the event action.
+
+  ## Optional parameters:
   """
-  @spec update_event_action(map(), String.t(), update_event_action_request(), list()) ::
+  @spec update_event_action(
+          AWS.Client.t(),
+          String.t(),
+          update_event_action_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_event_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_event_action_errors()}
@@ -2781,7 +3235,8 @@ defmodule AWS.DataExchange do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2798,8 +3253,22 @@ defmodule AWS.DataExchange do
 
   @doc """
   This operation updates a revision.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20UpdateRevision&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
+  * `:revision_id` (`t:string`) The unique identifier for a revision.
+
+  ## Optional parameters:
   """
-  @spec update_revision(map(), String.t(), String.t(), update_revision_request(), list()) ::
+  @spec update_revision(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_revision_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_revision_errors()}
@@ -2810,7 +3279,8 @@ defmodule AWS.DataExchange do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

@@ -4,11 +4,8 @@
 defmodule AWS.IoT1ClickDevices do
   @moduledoc """
   Describes all of the AWS IoT 1-Click device-related API operations for the
-  service.
-
-  Also provides sample requests, responses, and errors for the supported web
-  services
-  protocols.
+  service. Also provides sample requests, responses, and errors for the
+  supported web services protocols.
   """
 
   alias AWS.Client
@@ -506,14 +503,21 @@ defmodule AWS.IoT1ClickDevices do
 
   @doc """
   Adds device(s) to your account (i.e., claim one or more devices) if and only if
-  you
-  received a claim code with the device(s).
+  you received a claim code with the device(s).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20ClaimDevicesByClaimCode&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:claim_code` (`t:string`) The claim code, starting with "C-", as provided by
+    the device manufacturer.
+
+  ## Optional parameters:
   """
   @spec claim_devices_by_claim_code(
-          map(),
+          AWS.Client.t(),
           String.t(),
           claim_devices_by_claim_code_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, claim_devices_by_claim_code_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -523,7 +527,8 @@ defmodule AWS.IoT1ClickDevices do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -531,17 +536,42 @@ defmodule AWS.IoT1ClickDevices do
   @doc """
   Given a device ID, returns a DescribeDeviceResponse object describing the
   details of the device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20DescribeDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_id` (`t:string`) The unique identifier of the device.
+
+  ## Optional parameters:
   """
-  @spec describe_device(map(), String.t(), list()) ::
+  @spec describe_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_device_errors()}
   def describe_device(%Client{} = client, device_id, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -549,12 +579,19 @@ defmodule AWS.IoT1ClickDevices do
   @doc """
   Given a device ID, finalizes the claim request for the associated device.
 
-  Claiming a device consists of initiating a claim, then publishing a device
-  event,
-  and finalizing the claim. For a device of type button, a device event can
-  be published by simply clicking the device.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20FinalizeDeviceClaim&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_id` (`t:string`) The unique identifier of the device.
+
+  ## Optional parameters:
   """
-  @spec finalize_device_claim(map(), String.t(), finalize_device_claim_request(), list()) ::
+  @spec finalize_device_claim(
+          AWS.Client.t(),
+          String.t(),
+          finalize_device_claim_request(),
+          Keyword.t()
+        ) ::
           {:ok, finalize_device_claim_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, finalize_device_claim_errors()}
@@ -563,24 +600,50 @@ defmodule AWS.IoT1ClickDevices do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Given a device ID, returns the invokable methods associated with the device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20GetDeviceMethods&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_id` (`t:string`) The unique identifier of the device.
+
+  ## Optional parameters:
   """
-  @spec get_device_methods(map(), String.t(), list()) ::
+  @spec get_device_methods(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_methods_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_methods_errors()}
   def get_device_methods(%Client{} = client, device_id, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/methods"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -588,12 +651,19 @@ defmodule AWS.IoT1ClickDevices do
   @doc """
   Given a device ID, initiates a claim request for the associated device.
 
-  Claiming a device consists of initiating a claim, then publishing a device
-  event,
-  and finalizing the claim. For a device of type button, a device event can
-  be published by simply clicking the device.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20InitiateDeviceClaim&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_id` (`t:string`) The unique identifier of the device.
+
+  ## Optional parameters:
   """
-  @spec initiate_device_claim(map(), String.t(), initiate_device_claim_request(), list()) ::
+  @spec initiate_device_claim(
+          AWS.Client.t(),
+          String.t(),
+          initiate_device_claim_request(),
+          Keyword.t()
+        ) ::
           {:ok, initiate_device_claim_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, initiate_device_claim_errors()}
@@ -602,19 +672,29 @@ defmodule AWS.IoT1ClickDevices do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Given a device ID, issues a request to invoke a named device method (with
-  possible
-  parameters).
+  possible parameters). See the "Example POST" code snippet below.
 
-  See the "Example POST" code snippet below.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20InvokeDeviceMethod&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_id` (`t:string`) The unique identifier of the device.
+
+  ## Optional parameters:
   """
-  @spec invoke_device_method(map(), String.t(), invoke_device_method_request(), list()) ::
+  @spec invoke_device_method(
+          AWS.Client.t(),
+          String.t(),
+          invoke_device_method_request(),
+          Keyword.t()
+        ) ::
           {:ok, invoke_device_method_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invoke_device_method_errors()}
@@ -623,7 +703,8 @@ defmodule AWS.IoT1ClickDevices do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -639,18 +720,24 @@ defmodule AWS.IoT1ClickDevices do
   end
 
   @doc """
-  Using a device ID, returns a DeviceEventsResponse object containing an
-  array of events for the device.
+  Using a device ID, returns a DeviceEventsResponse object containing an array of
+  events for the device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20ListDeviceEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_id` (`t:string`) The unique identifier of the device.
+  * `:from_time_stamp` (`t:timestamp[date-time]`) The start date for the device
+    event query, in ISO8061 format. For example, 2018-03-28T15:45:12.880Z
+  * `:to_time_stamp` (`t:timestamp[date-time]`) The end date for the device event
+    query, in ISO8061 format. For example, 2018-03-28T15:45:12.880Z
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per
+    request. If not set, a default value of 100 is used.
+  * `:next_token` (`t:string`) The token to retrieve the next set of results.
   """
-  @spec list_device_events(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          list()
-        ) ::
+  @spec list_device_events(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_device_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_device_events_errors()}
@@ -658,117 +745,180 @@ defmodule AWS.IoT1ClickDevices do
         %Client{} = client,
         device_id,
         from_time_stamp,
-        max_results \\ nil,
-        next_token \\ nil,
         to_time_stamp,
         options \\ []
       ) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/events"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"fromTimeStamp", from_time_stamp}, {"toTimeStamp", to_time_stamp}]
+
+    # Optional query params
     query_params =
-      if !is_nil(to_time_stamp) do
-        [{"toTimeStamp", to_time_stamp} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    query_params =
-      if !is_nil(from_time_stamp) do
-        [{"fromTimeStamp", from_time_stamp} | query_params]
-      else
-        query_params
-      end
-
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the 1-Click compatible devices associated with your AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20ListDevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:device_type` (`t:string`) The type of the device, such as "button".
+  * `:max_results` (`t:integer`) The maximum number of results to return per
+    request. If not set, a default value of 100 is used.
+  * `:next_token` (`t:string`) The token to retrieve the next set of results.
   """
-  @spec list_devices(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_devices_errors()}
-  def list_devices(
-        %Client{} = client,
-        device_type \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_devices(%Client{} = client, options \\ []) do
     url_path = "/devices"
+
+    # Validate optional parameters
+    optional_params = [device_type: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(device_type) do
-        [{"deviceType", device_type} | query_params]
+      if opt_val = Keyword.get(options, :device_type) do
+        [{"deviceType", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:device_type, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the tags associated with the specified resource ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Adds or updates the tags associated with the resource ARN.
+  Adds or updates the tags associated with the resource ARN. See [AWS IoT 1-Click
+  Service
+  Limits](https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-appendix.html#1click-limits)
+  for the maximum number of tags allowed per resource.
 
-  See [AWS IoT 1-Click Service Limits](https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-appendix.html#1click-limits)
-  for the maximum number of tags allowed per
-  resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -777,7 +927,8 @@ defmodule AWS.IoT1ClickDevices do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -794,8 +945,15 @@ defmodule AWS.IoT1ClickDevices do
 
   @doc """
   Disassociates a device from your AWS account using its device ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20UnclaimDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_id` (`t:string`) The unique identifier of the device.
+
+  ## Optional parameters:
   """
-  @spec unclaim_device(map(), String.t(), unclaim_device_request(), list()) ::
+  @spec unclaim_device(AWS.Client.t(), String.t(), unclaim_device_request(), Keyword.t()) ::
           {:ok, unclaim_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unclaim_device_errors()}
@@ -804,7 +962,8 @@ defmodule AWS.IoT1ClickDevices do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -812,8 +971,17 @@ defmodule AWS.IoT1ClickDevices do
   @doc """
   Using tag keys, deletes the tags (key/value pairs) associated with the specified
   resource ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.iot1clickdevicesservice#__string]`) A
+    collections of tag keys. For example, {"key1","key2"}
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -827,7 +995,8 @@ defmodule AWS.IoT1ClickDevices do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -843,10 +1012,22 @@ defmodule AWS.IoT1ClickDevices do
   end
 
   @doc """
-  Using a Boolean value (true or false), this operation
-  enables or disables the device given a device ID.
+  Using a Boolean value (true or false), this operation enables or disables the
+  device given a device ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20UpdateDeviceState&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_id` (`t:string`) The unique identifier of the device.
+
+  ## Optional parameters:
   """
-  @spec update_device_state(map(), String.t(), update_device_state_request(), list()) ::
+  @spec update_device_state(
+          AWS.Client.t(),
+          String.t(),
+          update_device_state_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_device_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_device_state_errors()}
@@ -855,7 +1036,8 @@ defmodule AWS.IoT1ClickDevices do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

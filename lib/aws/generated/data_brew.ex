@@ -3,14 +3,11 @@
 
 defmodule AWS.DataBrew do
   @moduledoc """
-  Glue DataBrew is a visual, cloud-scale data-preparation service.
-
-  DataBrew
+  Glue DataBrew is a visual, cloud-scale data-preparation service. DataBrew
   simplifies data preparation tasks, targeting data issues that are hard to spot
-  and
-  time-consuming to fix. DataBrew empowers users of all technical levels to
-  visualize the
-  data and perform one-click data transformations, with no coding required.
+  and time-consuming to fix. DataBrew empowers users of all technical levels to
+  visualize the data and perform one-click data transformations, with no coding
+  required.
   """
 
   alias AWS.Client
@@ -2041,50 +2038,21 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Deletes one or more versions of a recipe at a time.
+  Deletes one or more versions of a recipe at a time. The entire request will be
+  rejected if:
 
-  The entire request will be rejected if:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20BatchDeleteRecipeVersion&this_doc_guide=API%2520Reference)
 
-    *
-  The recipe does not exist.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the recipe whose versions are to be deleted.
 
-    *
-  There is an invalid version identifier in the list of versions.
-
-    *
-  The version list is empty.
-
-    *
-  The version list size exceeds 50.
-
-    *
-  The version list contains duplicate entries.
-
-  The request will complete successfully, but with partial failures, if:
-
-    *
-  A version does not exist.
-
-    *
-  A version is being used by a job.
-
-    *
-  You specify `LATEST_WORKING`, but it's being used by a
-  project.
-
-    *
-  The version fails to be deleted.
-
-  The `LATEST_WORKING` version will only be deleted if the recipe has no
-  other versions. If you try to delete `LATEST_WORKING` while other versions
-  exist (or if they can't be deleted), then `LATEST_WORKING` will be listed as
-  partial failure in the response.
+  ## Optional parameters:
   """
   @spec batch_delete_recipe_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           batch_delete_recipe_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_delete_recipe_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2094,7 +2062,8 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2111,8 +2080,14 @@ defmodule AWS.DataBrew do
 
   @doc """
   Creates a new DataBrew dataset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_dataset(map(), create_dataset_request(), list()) ::
+  @spec create_dataset(AWS.Client.t(), create_dataset_request(), Keyword.t()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_errors()}
@@ -2121,7 +2096,8 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2138,8 +2114,14 @@ defmodule AWS.DataBrew do
 
   @doc """
   Creates a new job to analyze a dataset and create its data profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateProfileJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_profile_job(map(), create_profile_job_request(), list()) ::
+  @spec create_profile_job(AWS.Client.t(), create_profile_job_request(), Keyword.t()) ::
           {:ok, create_profile_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_profile_job_errors()}
@@ -2148,7 +2130,8 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2165,8 +2148,14 @@ defmodule AWS.DataBrew do
 
   @doc """
   Creates a new DataBrew project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_project(map(), create_project_request(), list()) ::
+  @spec create_project(AWS.Client.t(), create_project_request(), Keyword.t()) ::
           {:ok, create_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_errors()}
@@ -2175,7 +2164,8 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2192,8 +2182,14 @@ defmodule AWS.DataBrew do
 
   @doc """
   Creates a new DataBrew recipe.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateRecipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_recipe(map(), create_recipe_request(), list()) ::
+  @spec create_recipe(AWS.Client.t(), create_recipe_request(), Keyword.t()) ::
           {:ok, create_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_recipe_errors()}
@@ -2202,7 +2198,8 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2220,8 +2217,14 @@ defmodule AWS.DataBrew do
   @doc """
   Creates a new job to transform input data, using steps defined in an existing
   Glue DataBrew recipe
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateRecipeJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_recipe_job(map(), create_recipe_job_request(), list()) ::
+  @spec create_recipe_job(AWS.Client.t(), create_recipe_job_request(), Keyword.t()) ::
           {:ok, create_recipe_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_recipe_job_errors()}
@@ -2230,7 +2233,8 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2246,10 +2250,16 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Creates a new ruleset that can be used in a profile job to validate
-  the data quality of a dataset.
+  Creates a new ruleset that can be used in a profile job to validate the data
+  quality of a dataset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateRuleset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_ruleset(map(), create_ruleset_request(), list()) ::
+  @spec create_ruleset(AWS.Client.t(), create_ruleset_request(), Keyword.t()) ::
           {:ok, create_ruleset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ruleset_errors()}
@@ -2258,7 +2268,8 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2274,12 +2285,16 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Creates a new schedule for one or more DataBrew jobs.
+  Creates a new schedule for one or more DataBrew jobs. Jobs can be run at a
+  specific date and time, or at regular intervals.
 
-  Jobs can be run at a specific
-  date and time, or at regular intervals.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_schedule(map(), create_schedule_request(), list()) ::
+  @spec create_schedule(AWS.Client.t(), create_schedule_request(), Keyword.t()) ::
           {:ok, create_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_schedule_errors()}
@@ -2288,7 +2303,8 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2305,8 +2321,15 @@ defmodule AWS.DataBrew do
 
   @doc """
   Deletes a dataset from DataBrew.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DeleteDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the dataset to be deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_dataset(map(), String.t(), delete_dataset_request(), list()) ::
+  @spec delete_dataset(AWS.Client.t(), String.t(), delete_dataset_request(), Keyword.t()) ::
           {:ok, delete_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dataset_errors()}
@@ -2315,7 +2338,8 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2332,8 +2356,15 @@ defmodule AWS.DataBrew do
 
   @doc """
   Deletes the specified DataBrew job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DeleteJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the job to be deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_job(map(), String.t(), delete_job_request(), list()) ::
+  @spec delete_job(AWS.Client.t(), String.t(), delete_job_request(), Keyword.t()) ::
           {:ok, delete_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_job_errors()}
@@ -2342,7 +2373,8 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2359,8 +2391,15 @@ defmodule AWS.DataBrew do
 
   @doc """
   Deletes an existing DataBrew project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DeleteProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the project to be deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_project(map(), String.t(), delete_project_request(), list()) ::
+  @spec delete_project(AWS.Client.t(), String.t(), delete_project_request(), Keyword.t()) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_errors()}
@@ -2369,7 +2408,8 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2386,13 +2426,23 @@ defmodule AWS.DataBrew do
 
   @doc """
   Deletes a single version of a DataBrew recipe.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DeleteRecipeVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the recipe.
+  * `:recipe_version` (`t:string`) The version of the recipe to be deleted. You
+    can specify a numeric versions (X.Y) or LATEST_WORKING. LATEST_PUBLISHED is
+    not supported.
+
+  ## Optional parameters:
   """
   @spec delete_recipe_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_recipe_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_recipe_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2404,7 +2454,8 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2421,8 +2472,15 @@ defmodule AWS.DataBrew do
 
   @doc """
   Deletes a ruleset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DeleteRuleset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the ruleset to be deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_ruleset(map(), String.t(), delete_ruleset_request(), list()) ::
+  @spec delete_ruleset(AWS.Client.t(), String.t(), delete_ruleset_request(), Keyword.t()) ::
           {:ok, delete_ruleset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ruleset_errors()}
@@ -2431,7 +2489,8 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2448,8 +2507,15 @@ defmodule AWS.DataBrew do
 
   @doc """
   Deletes the specified DataBrew schedule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DeleteSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the schedule to be deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_schedule(map(), String.t(), delete_schedule_request(), list()) ::
+  @spec delete_schedule(AWS.Client.t(), String.t(), delete_schedule_request(), Keyword.t()) ::
           {:ok, delete_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_schedule_errors()}
@@ -2458,7 +2524,8 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2475,489 +2542,926 @@ defmodule AWS.DataBrew do
 
   @doc """
   Returns the definition of a specific DataBrew dataset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DescribeDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the dataset to be described.
+
+  ## Optional parameters:
   """
-  @spec describe_dataset(map(), String.t(), list()) ::
+  @spec describe_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dataset_errors()}
   def describe_dataset(%Client{} = client, name, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the definition of a specific DataBrew job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DescribeJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the job to be described.
+
+  ## Optional parameters:
   """
-  @spec describe_job(map(), String.t(), list()) ::
+  @spec describe_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_errors()}
   def describe_job(%Client{} = client, name, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Represents one run of a DataBrew job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DescribeJobRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the job being processed during this run.
+  * `:run_id` (`t:string`) The unique identifier of the job run.
+
+  ## Optional parameters:
   """
-  @spec describe_job_run(map(), String.t(), String.t(), list()) ::
+  @spec describe_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_run_errors()}
   def describe_job_run(%Client{} = client, name, run_id, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(name)}/jobRun/#{AWS.Util.encode_uri(run_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the definition of a specific DataBrew project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DescribeProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the project to be described.
+
+  ## Optional parameters:
   """
-  @spec describe_project(map(), String.t(), list()) ::
+  @spec describe_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_project_errors()}
   def describe_project(%Client{} = client, name, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the definition of a specific DataBrew recipe corresponding to a
-  particular
-  version.
+  particular version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DescribeRecipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the recipe to be described.
+
+  ## Optional parameters:
+  * `:recipe_version` (`t:string`) The recipe version identifier. If this
+    parameter isn't specified, then the latest published version is returned.
   """
-  @spec describe_recipe(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_recipe_errors()}
-  def describe_recipe(%Client{} = client, name, recipe_version \\ nil, options \\ []) do
+  def describe_recipe(%Client{} = client, name, options \\ []) do
     url_path = "/recipes/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = [recipe_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(recipe_version) do
-        [{"recipeVersion", recipe_version} | query_params]
+      if opt_val = Keyword.get(options, :recipe_version) do
+        [{"recipeVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:recipe_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves detailed information about the ruleset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DescribeRuleset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the ruleset to be described.
+
+  ## Optional parameters:
   """
-  @spec describe_ruleset(map(), String.t(), list()) ::
+  @spec describe_ruleset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_ruleset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_ruleset_errors()}
   def describe_ruleset(%Client{} = client, name, options \\ []) do
     url_path = "/rulesets/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the definition of a specific DataBrew schedule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DescribeSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the schedule to be described.
+
+  ## Optional parameters:
   """
-  @spec describe_schedule(map(), String.t(), list()) ::
+  @spec describe_schedule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_schedule_errors()}
   def describe_schedule(%Client{} = client, name, options \\ []) do
     url_path = "/schedules/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all of the DataBrew datasets.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListDatasets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
+  * `:next_token` (`t:string`) The token returned by a previous call to retrieve
+    the next set of results.
   """
-  @spec list_datasets(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_datasets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_datasets_errors()}
-  def list_datasets(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_datasets(%Client{} = client, options \\ []) do
     url_path = "/datasets"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all of the previous runs of a particular DataBrew job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListJobRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the job.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
+  * `:next_token` (`t:string`) The token returned by a previous call to retrieve
+    the next set of results.
   """
-  @spec list_job_runs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_job_runs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_job_runs_errors()}
-  def list_job_runs(
-        %Client{} = client,
-        name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_job_runs(%Client{} = client, name, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(name)}/jobRuns"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all of the DataBrew jobs that are defined.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:dataset_name` (`t:string`) The name of a dataset. Using this parameter
+    indicates to return only those jobs that act on the specified dataset.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
+  * `:next_token` (`t:string`) A token generated by DataBrew that specifies where
+    to continue pagination if a previous request was truncated. To get the next
+    set of pages, pass in the NextToken value from the response object of the
+    previous page call.
+  * `:project_name` (`t:string`) The name of a project. Using this parameter
+    indicates to return only those jobs that are associated with the specified
+    project.
   """
-  @spec list_jobs(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_errors()}
-  def list_jobs(
-        %Client{} = client,
-        dataset_name \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        project_name \\ nil,
-        options \\ []
-      ) do
+  def list_jobs(%Client{} = client, options \\ []) do
     url_path = "/jobs"
+
+    # Validate optional parameters
+    optional_params = [dataset_name: nil, max_results: nil, next_token: nil, project_name: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(project_name) do
-        [{"projectName", project_name} | query_params]
+      if opt_val = Keyword.get(options, :project_name) do
+        [{"projectName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(dataset_name) do
-        [{"datasetName", dataset_name} | query_params]
+      if opt_val = Keyword.get(options, :dataset_name) do
+        [{"datasetName", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:dataset_name, :max_results, :next_token, :project_name])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all of the DataBrew projects that are defined.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListProjects&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
+  * `:next_token` (`t:string`) The token returned by a previous call to retrieve
+    the next set of results.
   """
-  @spec list_projects(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_projects(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_projects_errors()}
-  def list_projects(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_projects(%Client{} = client, options \\ []) do
     url_path = "/projects"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the versions of a particular DataBrew recipe, except for
-  `LATEST_WORKING`.
+  Lists the versions of a particular DataBrew recipe, except for `LATEST_WORKING`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListRecipeVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the recipe for which to return version
+    information.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
+  * `:next_token` (`t:string`) The token returned by a previous call to retrieve
+    the next set of results.
   """
-  @spec list_recipe_versions(map(), String.t() | nil, String.t(), String.t() | nil, list()) ::
+  @spec list_recipe_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recipe_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recipe_versions_errors()}
-  def list_recipe_versions(
-        %Client{} = client,
-        max_results \\ nil,
-        name,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_recipe_versions(%Client{} = client, name, options \\ []) do
     url_path = "/recipeVersions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"name", name}]
+
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all of the DataBrew recipes that are defined.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListRecipes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
+  * `:next_token` (`t:string`) The token returned by a previous call to retrieve
+    the next set of results.
+  * `:recipe_version` (`t:string`) Return only those recipes with a version
+    identifier of LATEST_WORKING or LATEST_PUBLISHED. If RecipeVersion is
+    omitted, ListRecipes returns all of the LATEST_PUBLISHED recipe versions.
   """
-  @spec list_recipes(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_recipes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_recipes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recipes_errors()}
-  def list_recipes(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        recipe_version \\ nil,
-        options \\ []
-      ) do
+  def list_recipes(%Client{} = client, options \\ []) do
     url_path = "/recipes"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, recipe_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(recipe_version) do
-        [{"recipeVersion", recipe_version} | query_params]
+      if opt_val = Keyword.get(options, :recipe_version) do
+        [{"recipeVersion", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :recipe_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  List all rulesets available in the current account or rulesets associated
-  with a specific resource (dataset).
+  List all rulesets available in the current account or rulesets associated with a
+  specific resource (dataset).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListRulesets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
+  * `:next_token` (`t:string`) A token generated by DataBrew that specifies where
+    to continue pagination if a previous request was truncated. To get the next
+    set of pages, pass in the NextToken value from the response object of the
+    previous page call.
+  * `:target_arn` (`t:string`) The Amazon Resource Name (ARN) of a resource
+    (dataset). Using this parameter indicates to return only those rulesets that
+    are associated with the specified resource.
   """
-  @spec list_rulesets(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_rulesets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_rulesets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rulesets_errors()}
-  def list_rulesets(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        target_arn \\ nil,
-        options \\ []
-      ) do
+  def list_rulesets(%Client{} = client, options \\ []) do
     url_path = "/rulesets"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, target_arn: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(target_arn) do
-        [{"targetArn", target_arn} | query_params]
+      if opt_val = Keyword.get(options, :target_arn) do
+        [{"targetArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :target_arn])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the DataBrew schedules that are defined.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListSchedules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:job_name` (`t:string`) The name of the job that these schedules apply to.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
+  * `:next_token` (`t:string`) The token returned by a previous call to retrieve
+    the next set of results.
   """
-  @spec list_schedules(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_schedules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_schedules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schedules_errors()}
-  def list_schedules(
-        %Client{} = client,
-        job_name \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_schedules(%Client{} = client, options \\ []) do
     url_path = "/schedules"
+
+    # Validate optional parameters
+    optional_params = [job_name: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(job_name) do
-        [{"jobName", job_name} | query_params]
+      if opt_val = Keyword.get(options, :job_name) do
+        [{"jobName", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:job_name, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all the tags for a DataBrew resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) string that
+    uniquely identifies the DataBrew resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Publishes a new version of a DataBrew recipe.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20PublishRecipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the recipe to be published.
+
+  ## Optional parameters:
   """
-  @spec publish_recipe(map(), String.t(), publish_recipe_request(), list()) ::
+  @spec publish_recipe(AWS.Client.t(), String.t(), publish_recipe_request(), Keyword.t()) ::
           {:ok, publish_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, publish_recipe_errors()}
@@ -2966,7 +3470,8 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2984,12 +3489,19 @@ defmodule AWS.DataBrew do
   @doc """
   Performs a recipe step within an interactive DataBrew session that's currently
   open.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20SendProjectSessionAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the project to apply the action to.
+
+  ## Optional parameters:
   """
   @spec send_project_session_action(
-          map(),
+          AWS.Client.t(),
           String.t(),
           send_project_session_action_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, send_project_session_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2999,15 +3511,23 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Runs a DataBrew job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20StartJobRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the job to be run.
+
+  ## Optional parameters:
   """
-  @spec start_job_run(map(), String.t(), start_job_run_request(), list()) ::
+  @spec start_job_run(AWS.Client.t(), String.t(), start_job_run_request(), Keyword.t()) ::
           {:ok, start_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_job_run_errors()}
@@ -3016,7 +3536,8 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3034,8 +3555,20 @@ defmodule AWS.DataBrew do
   @doc """
   Creates an interactive session, enabling you to manipulate data in a DataBrew
   project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20StartProjectSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the project to act upon.
+
+  ## Optional parameters:
   """
-  @spec start_project_session(map(), String.t(), start_project_session_request(), list()) ::
+  @spec start_project_session(
+          AWS.Client.t(),
+          String.t(),
+          start_project_session_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_project_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_project_session_errors()}
@@ -3044,15 +3577,24 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Stops a particular run of a job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20StopJobRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the job to be stopped.
+  * `:run_id` (`t:string`) The ID of the job run to be stopped.
+
+  ## Optional parameters:
   """
-  @spec stop_job_run(map(), String.t(), String.t(), stop_job_run_request(), list()) ::
+  @spec stop_job_run(AWS.Client.t(), String.t(), String.t(), stop_job_run_request(), Keyword.t()) ::
           {:ok, stop_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_job_run_errors()}
@@ -3063,7 +3605,8 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3080,10 +3623,18 @@ defmodule AWS.DataBrew do
 
   @doc """
   Adds metadata tags to a DataBrew resource, such as a dataset, project, recipe,
-  job, or
-  schedule.
+  job, or schedule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The DataBrew resource to which tags should be
+    added. The value for this parameter is an Amazon Resource Name (ARN). For
+    DataBrew, you can tag a dataset, a job, a project, or a recipe.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -3092,7 +3643,8 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3109,8 +3661,19 @@ defmodule AWS.DataBrew do
 
   @doc """
   Removes metadata tags from a DataBrew resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) A DataBrew resource from which you want to remove
+    a tag or tags. The value for this parameter is an Amazon Resource Name
+    (ARN).
+  * `:tag_keys` (`t:list[com.amazonaws.databrew#TagKey]`) The tag keys (names) of
+    one or more tags to be removed.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -3124,7 +3687,8 @@ defmodule AWS.DataBrew do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3141,8 +3705,15 @@ defmodule AWS.DataBrew do
 
   @doc """
   Modifies the definition of an existing DataBrew dataset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UpdateDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the dataset to be updated.
+
+  ## Optional parameters:
   """
-  @spec update_dataset(map(), String.t(), update_dataset_request(), list()) ::
+  @spec update_dataset(AWS.Client.t(), String.t(), update_dataset_request(), Keyword.t()) ::
           {:ok, update_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dataset_errors()}
@@ -3151,15 +3722,23 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Modifies the definition of an existing profile job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UpdateProfileJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the job to be updated.
+
+  ## Optional parameters:
   """
-  @spec update_profile_job(map(), String.t(), update_profile_job_request(), list()) ::
+  @spec update_profile_job(AWS.Client.t(), String.t(), update_profile_job_request(), Keyword.t()) ::
           {:ok, update_profile_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_profile_job_errors()}
@@ -3168,15 +3747,23 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Modifies the definition of an existing DataBrew project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UpdateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the project to be updated.
+
+  ## Optional parameters:
   """
-  @spec update_project(map(), String.t(), update_project_request(), list()) ::
+  @spec update_project(AWS.Client.t(), String.t(), update_project_request(), Keyword.t()) ::
           {:ok, update_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_errors()}
@@ -3185,16 +3772,23 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Modifies the definition of the `LATEST_WORKING` version of a DataBrew
-  recipe.
+  Modifies the definition of the `LATEST_WORKING` version of a DataBrew recipe.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UpdateRecipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the recipe to be updated.
+
+  ## Optional parameters:
   """
-  @spec update_recipe(map(), String.t(), update_recipe_request(), list()) ::
+  @spec update_recipe(AWS.Client.t(), String.t(), update_recipe_request(), Keyword.t()) ::
           {:ok, update_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_recipe_errors()}
@@ -3203,15 +3797,23 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Modifies the definition of an existing DataBrew recipe job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UpdateRecipeJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the job to update.
+
+  ## Optional parameters:
   """
-  @spec update_recipe_job(map(), String.t(), update_recipe_job_request(), list()) ::
+  @spec update_recipe_job(AWS.Client.t(), String.t(), update_recipe_job_request(), Keyword.t()) ::
           {:ok, update_recipe_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_recipe_job_errors()}
@@ -3220,15 +3822,23 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates specified ruleset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UpdateRuleset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the ruleset to be updated.
+
+  ## Optional parameters:
   """
-  @spec update_ruleset(map(), String.t(), update_ruleset_request(), list()) ::
+  @spec update_ruleset(AWS.Client.t(), String.t(), update_ruleset_request(), Keyword.t()) ::
           {:ok, update_ruleset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ruleset_errors()}
@@ -3237,15 +3847,23 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Modifies the definition of an existing DataBrew schedule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UpdateSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the schedule to update.
+
+  ## Optional parameters:
   """
-  @spec update_schedule(map(), String.t(), update_schedule_request(), list()) ::
+  @spec update_schedule(AWS.Client.t(), String.t(), update_schedule_request(), Keyword.t()) ::
           {:ok, update_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_schedule_errors()}
@@ -3254,7 +3872,8 @@ defmodule AWS.DataBrew do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

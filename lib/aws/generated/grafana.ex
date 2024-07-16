@@ -4,21 +4,10 @@
 defmodule AWS.Grafana do
   @moduledoc """
   Amazon Managed Grafana is a fully managed and secure data visualization service
-  that
-  you can use to instantly query, correlate, and visualize operational metrics,
-  logs, and
-  traces from multiple sources.
-
-  Amazon Managed Grafana makes it easy to deploy, operate, and
-  scale Grafana, a widely deployed data visualization tool that is popular for its
-  extensible data support.
-
-  With Amazon Managed Grafana, you create logically isolated Grafana servers
-  called
-  *workspaces*. In a workspace, you can create Grafana dashboards
-  and visualizations to analyze your metrics, logs, and traces without having to
-  build,
-  package, or deploy any hardware to run Grafana servers.
+  that you can use to instantly query, correlate, and visualize operational
+  metrics, logs, and traces from multiple sources. Amazon Managed Grafana makes
+  it easy to deploy, operate, and scale Grafana, a widely deployed data
+  visualization tool that is popular for its extensible data support.
   """
 
   alias AWS.Client
@@ -1186,21 +1175,46 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Assigns a Grafana Enterprise license to a workspace.
-
-  To upgrade, you must use
-  `ENTERPRISE` for the `licenseType`, and pass in a valid
-  Grafana Labs token for the `grafanaToken`. Upgrading to Grafana Enterprise
-  incurs additional fees. For more information, see [Upgrade a workspace to Grafana
+  Assigns a Grafana Enterprise license to a workspace. To upgrade, you must use
+  `ENTERPRISE` for the `licenseType`, and pass in a valid Grafana Labs token for
+  the `grafanaToken`. Upgrading to Grafana Enterprise incurs additional fees.
+  For more information, see [Upgrade a workspace to Grafana
   Enterprise](https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20AssociateLicense&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:license_type` (`t:string`) The type of license to associate with the
+    workspace.
+  * `:workspace_id` (`t:string`) The ID of the workspace to associate the license
+    with.
+
+  ## Optional parameters:
+  * `:grafana_token` (`t:string`) A token from Grafana Labs that ties your Amazon
+    Web Services account with a Grafana Labs account. For more information, see
+    Link your account with Grafana Labs.
   """
-  @spec associate_license(map(), String.t(), String.t(), associate_license_request(), list()) ::
+  @spec associate_license(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          associate_license_request(),
+          Keyword.t()
+        ) ::
           {:ok, associate_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_license_errors()}
   def associate_license(%Client{} = client, license_type, workspace_id, input, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/licenses/#{AWS.Util.encode_uri(license_type)}"
+
+    optional_params = [grafana_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -1210,7 +1224,13 @@ defmodule AWS.Grafana do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:grafana_token])
 
     Request.request_rest(
       client,
@@ -1226,17 +1246,17 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Creates a *workspace*.
+  Creates a *workspace*. In a workspace, you can create Grafana dashboards and
+  visualizations to analyze your metrics, logs, and traces. You don't have to
+  build, package, or deploy any hardware to run the Grafana server.
 
-  In a workspace, you can create Grafana
-  dashboards and visualizations to analyze your metrics, logs, and traces. You
-  don't have
-  to build, package, or deploy any hardware to run the Grafana server.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20CreateWorkspace&this_doc_guide=API%2520Reference)
 
-  Don't use `CreateWorkspace` to modify an existing workspace. Instead, use
-  [UpdateWorkspace](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspace.html).
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_workspace(map(), create_workspace_request(), list()) ::
+  @spec create_workspace(AWS.Client.t(), create_workspace_request(), Keyword.t()) ::
           {:ok, create_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workspace_errors()}
@@ -1245,7 +1265,8 @@ defmodule AWS.Grafana do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1261,17 +1282,24 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Creates a Grafana API key for the workspace.
-
-  This key can be used to authenticate
-  requests sent to the workspace's HTTP API. See
+  Creates a Grafana API key for the workspace. This key can be used to
+  authenticate requests sent to the workspace's HTTP API. See
   [https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html](https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html)
   for available APIs and example requests.
 
-  In workspaces compatible with Grafana version 9 or above, use workspace service
-  accounts instead of API keys. API keys will be removed in a future release.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20CreateWorkspaceApiKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to create an API key.
+
+  ## Optional parameters:
   """
-  @spec create_workspace_api_key(map(), String.t(), create_workspace_api_key_request(), list()) ::
+  @spec create_workspace_api_key(
+          AWS.Client.t(),
+          String.t(),
+          create_workspace_api_key_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_workspace_api_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workspace_api_key_errors()}
@@ -1280,7 +1308,8 @@ defmodule AWS.Grafana do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1296,31 +1325,26 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Creates a service account for the workspace.
-
-  A service account can be used to call
-  Grafana HTTP APIs, and run automated workloads. After creating the service
-  account with
-  the correct `GrafanaRole` for your use case, use
+  Creates a service account for the workspace. A service account can be used to
+  call Grafana HTTP APIs, and run automated workloads. After creating the
+  service account with the correct `GrafanaRole` for your use case, use
   `CreateWorkspaceServiceAccountToken` to create a token that can be used to
-  authenticate and authorize Grafana HTTP API calls.
+  authenticate and authorize Grafana HTTP API calls. You can only create service
+  accounts for workspaces that are compatible with Grafana version 9 and above.
 
-  You can only create service accounts for workspaces that are compatible with
-  Grafana
-  version 9 and above.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20CreateWorkspaceServiceAccount&this_doc_guide=API%2520Reference)
 
-  For more information about service accounts, see [Service accounts](https://docs.aws.amazon.com/grafana/latest/userguide/service-accounts.html)
-  in
-  the *Amazon Managed Grafana User Guide*.
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace within which to create
+    the service account.
 
-  For more information about the Grafana HTTP APIs, see [Using Grafana HTTP APIs](https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html)
-  in the *Amazon Managed Grafana User Guide*.
+  ## Optional parameters:
   """
   @spec create_workspace_service_account(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_workspace_service_account_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_workspace_service_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1330,7 +1354,8 @@ defmodule AWS.Grafana do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1347,28 +1372,31 @@ defmodule AWS.Grafana do
 
   @doc """
   Creates a token that can be used to authenticate and authorize Grafana HTTP API
-  operations for the given [workspace service account](https://docs.aws.amazon.com/grafana/latest/userguide/service-accounts.html).
+  operations for the given [workspace service
+  account](https://docs.aws.amazon.com/grafana/latest/userguide/service-accounts.html).
+  The service account acts as a user for the API operations, and defines the
+  permissions that are used by the API. When you create the service account
+  token, you will receive a key that is used when calling Grafana APIs. Do not
+  lose this key, as it will not be retrievable again. If you do lose the key,
+  you can delete the token and recreate it to receive a new key. This will
+  disable the initial key.
 
-  The service account acts as a user for the API operations, and
-  defines the permissions that are used by the API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20CreateWorkspaceServiceAccountToken&this_doc_guide=API%2520Reference)
 
-  When you create the service account token, you will receive a key that is used
-  when calling Grafana APIs. Do not lose this key, as it will not be retrievable
-  again.
+  ## Parameters:
+  * `:service_account_id` (`t:`) The ID of the service account for which to create
+    a token.
+  * `:workspace_id` (`t:string`) The ID of the workspace the service account
+    resides within.
 
-  If you do lose the key, you can delete the token and recreate it to receive a
-  new key. This will disable the initial key.
-
-  Service accounts are only available for workspaces that are compatible with
-  Grafana
-  version 9 and above.
+  ## Optional parameters:
   """
   @spec create_workspace_service_account_token(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           create_workspace_service_account_token_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_workspace_service_account_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1386,7 +1414,8 @@ defmodule AWS.Grafana do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1403,8 +1432,15 @@ defmodule AWS.Grafana do
 
   @doc """
   Deletes an Amazon Managed Grafana workspace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DeleteWorkspace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_workspace(map(), String.t(), delete_workspace_request(), list()) ::
+  @spec delete_workspace(AWS.Client.t(), String.t(), delete_workspace_request(), Keyword.t()) ::
           {:ok, delete_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workspace_errors()}
@@ -1413,7 +1449,8 @@ defmodule AWS.Grafana do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1431,15 +1468,20 @@ defmodule AWS.Grafana do
   @doc """
   Deletes a Grafana API key for the workspace.
 
-  In workspaces compatible with Grafana version 9 or above, use workspace service
-  accounts instead of API keys. API keys will be removed in a future release.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DeleteWorkspaceApiKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:key_name` (`t:string`) The name of the API key to delete.
+  * `:workspace_id` (`t:string`) The ID of the workspace to delete.
+
+  ## Optional parameters:
   """
   @spec delete_workspace_api_key(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_workspace_api_key_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_workspace_api_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1451,7 +1493,8 @@ defmodule AWS.Grafana do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1467,23 +1510,25 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Deletes a workspace service account from the workspace.
+  Deletes a workspace service account from the workspace. This will delete any
+  tokens created for the service account, as well. If the tokens are currently
+  in use, the will fail to authenticate / authorize after they are deleted.
 
-  This will delete any tokens created for the service account, as well. If the
-  tokens
-  are currently in use, the will fail to authenticate / authorize after they are
-  deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DeleteWorkspaceServiceAccount&this_doc_guide=API%2520Reference)
 
-  Service accounts are only available for workspaces that are compatible with
-  Grafana
-  version 9 and above.
+  ## Parameters:
+  * `:service_account_id` (`t:`) The ID of the service account to delete.
+  * `:workspace_id` (`t:string`) The ID of the workspace where the service account
+    resides.
+
+  ## Optional parameters:
   """
   @spec delete_workspace_service_account(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_workspace_service_account_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_workspace_service_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1501,7 +1546,8 @@ defmodule AWS.Grafana do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1517,25 +1563,29 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Deletes a token for the workspace service account.
+  Deletes a token for the workspace service account. This will disable the key
+  associated with the token. If any automation is currently using the key, it
+  will no longer be authenticated or authorized to perform actions with the
+  Grafana HTTP APIs.
 
-  This will disable the key associated with the token. If any automation is
-  currently
-  using the key, it will no longer be authenticated or authorized to perform
-  actions with
-  the Grafana HTTP APIs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DeleteWorkspaceServiceAccountToken&this_doc_guide=API%2520Reference)
 
-  Service accounts are only available for workspaces that are compatible with
-  Grafana
-  version 9 and above.
+  ## Parameters:
+  * `:service_account_id` (`t:`) The ID of the service account from which to
+    delete the token.
+  * `:token_id` (`t:`) The ID of the token to delete.
+  * `:workspace_id` (`t:string`) The ID of the workspace from which to delete the
+    token.
+
+  ## Optional parameters:
   """
   @spec delete_workspace_service_account_token(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_workspace_service_account_token_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_workspace_service_account_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1554,7 +1604,8 @@ defmodule AWS.Grafana do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1571,66 +1622,152 @@ defmodule AWS.Grafana do
 
   @doc """
   Displays information about one Amazon Managed Grafana workspace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DescribeWorkspace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to display information
+    about.
+
+  ## Optional parameters:
   """
-  @spec describe_workspace(map(), String.t(), list()) ::
+  @spec describe_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspace_errors()}
   def describe_workspace(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Displays information about the authentication methods used in one Amazon Managed
-  Grafana
-  workspace.
+  Grafana workspace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DescribeWorkspaceAuthentication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to return authentication
+    information about.
+
+  ## Optional parameters:
   """
-  @spec describe_workspace_authentication(map(), String.t(), list()) ::
+  @spec describe_workspace_authentication(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_workspace_authentication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspace_authentication_errors()}
   def describe_workspace_authentication(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/authentication"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the current configuration string for the given workspace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DescribeWorkspaceConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to get configuration
+    information for.
+
+  ## Optional parameters:
   """
-  @spec describe_workspace_configuration(map(), String.t(), list()) ::
+  @spec describe_workspace_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_workspace_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspace_configuration_errors()}
   def describe_workspace_configuration(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Removes the Grafana Enterprise license from a workspace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DisassociateLicense&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:license_type` (`t:string`) The type of license to remove from the workspace.
+  * `:workspace_id` (`t:string`) The ID of the workspace to remove the Grafana
+    Enterprise license from.
+
+  ## Optional parameters:
   """
   @spec disassociate_license(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           disassociate_license_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1642,7 +1779,8 @@ defmodule AWS.Grafana do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1658,171 +1796,248 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Lists the users and groups who have the Grafana `Admin` and
-  `Editor` roles in this workspace.
+  Lists the users and groups who have the Grafana `Admin` and `Editor` roles in
+  this workspace. If you use this operation without specifying `userId` or
+  `groupId`, the operation returns the roles of all users and groups. If you
+  specify a `userId` or a `groupId`, only the roles for that user or group are
+  returned. If you do this, you can specify only one `userId` or one `groupId`.
 
-  If you use this operation without
-  specifying `userId` or `groupId`, the operation returns the roles
-  of all users and groups. If you specify a `userId` or a `groupId`,
-  only the roles for that user or group are returned. If you do this, you can
-  specify only
-  one `userId` or one `groupId`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20ListPermissions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to list permissions for.
+    This parameter is required.
+
+  ## Optional parameters:
+  * `:group_id` (`t:string`) (Optional) Limits the results to only the group that
+    matches this ID.
+  * `:max_results` (`t:`) The maximum number of results to include in the
+    response.
+  * `:next_token` (`t:string`) The token to use when requesting the next set of
+    results. You received this token from a previous ListPermissions operation.
+  * `:user_id` (`t:string`) (Optional) Limits the results to only the user that
+    matches this ID.
+  * `:user_type` (`t:string`) (Optional) If you specify SSO_USER, then only the
+    permissions of IAM Identity Center users are returned. If you specify
+    SSO_GROUP, only the permissions of IAM Identity Center groups are returned.
   """
-  @spec list_permissions(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_permissions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_permissions_errors()}
-  def list_permissions(
-        %Client{} = client,
-        workspace_id,
-        group_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        user_id \\ nil,
-        user_type \\ nil,
-        options \\ []
-      ) do
+  def list_permissions(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/permissions"
+
+    # Validate optional parameters
+    optional_params = [
+      group_id: nil,
+      max_results: nil,
+      next_token: nil,
+      user_id: nil,
+      user_type: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(user_type) do
-        [{"userType", user_type} | query_params]
+      if opt_val = Keyword.get(options, :user_type) do
+        [{"userType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(user_id) do
-        [{"userId", user_id} | query_params]
+      if opt_val = Keyword.get(options, :user_id) do
+        [{"userId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(group_id) do
-        [{"groupId", group_id} | query_params]
+      if opt_val = Keyword.get(options, :group_id) do
+        [{"groupId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:group_id, :max_results, :next_token, :user_id, :user_type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  The `ListTagsForResource` operation returns the tags that are associated
-  with the Amazon Managed Service for Grafana resource specified by the
-  `resourceArn`.
+  The `ListTagsForResource` operation returns the tags that are associated with
+  the Amazon Managed Service for Grafana resource specified by the
+  `resourceArn`. Currently, the only resource that can be tagged is a workspace.
 
-  Currently, the only resource that can be tagged is a
-  workspace.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The ARN of the resource the list of tags are associated
+    with.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists available versions of Grafana.
+  Lists available versions of Grafana. These are available when calling
+  `CreateWorkspace`. Optionally, include a workspace to list the versions to
+  which it can be upgraded.
 
-  These are available when calling
-  `CreateWorkspace`. Optionally, include a workspace to list the versions
-  to which it can be upgraded.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20ListVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of results to include in the
+    response.
+  * `:next_token` (`t:string`) The token to use when requesting the next set of
+    results. You receive this token from a previous ListVersions operation.
+  * `:workspace_id` (`t:string`) The ID of the workspace to list the available
+    upgrade versions. If not included, lists all versions of Grafana that are
+    supported for CreateWorkspace.
   """
-  @spec list_versions(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_versions_errors()}
-  def list_versions(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        workspace_id \\ nil,
-        options \\ []
-      ) do
+  def list_versions(%Client{} = client, options \\ []) do
     url_path = "/versions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, workspace_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(workspace_id) do
-        [{"workspace-id", workspace_id} | query_params]
+      if opt_val = Keyword.get(options, :workspace_id) do
+        [{"workspace-id", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :workspace_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns a list of tokens for a workspace service account.
+  Returns a list of tokens for a workspace service account. This does not return
+  the key for each token. You cannot access keys after they are created. To
+  create a new key, delete the token and recreate it.
 
-  This does not return the key for each token. You cannot access keys after they
-  are created. To create a new key, delete the token and recreate it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20ListWorkspaceServiceAccountTokens&this_doc_guide=API%2520Reference)
 
-  Service accounts are only available for workspaces that are compatible with
-  Grafana
-  version 9 and above.
+  ## Parameters:
+  * `:service_account_id` (`t:`) The ID of the service account for which to return
+    tokens.
+  * `:workspace_id` (`t:string`) The ID of the workspace for which to return
+    tokens.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of tokens to include in the results.
+  * `:next_token` (`t:string`) The token for the next set of service accounts to
+    return. (You receive this token from a previous
+    ListWorkspaceServiceAccountTokens operation.)
   """
-  @spec list_workspace_service_account_tokens(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_workspace_service_account_tokens(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_workspace_service_account_tokens_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workspace_service_account_tokens_errors()}
@@ -1830,31 +2045,50 @@ defmodule AWS.Grafana do
         %Client{} = client,
         service_account_id,
         workspace_id,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/serviceaccounts/#{AWS.Util.encode_uri(service_account_id)}/tokens"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1862,101 +2096,146 @@ defmodule AWS.Grafana do
   @doc """
   Returns a list of service accounts for a workspace.
 
-  Service accounts are only available for workspaces that are compatible with
-  Grafana
-  version 9 and above.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20ListWorkspaceServiceAccounts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The workspace for which to list service accounts.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of service accounts to include in the
+    results.
+  * `:next_token` (`t:string`) The token for the next set of service accounts to
+    return. (You receive this token from a previous ListWorkspaceServiceAccounts
+    operation.)
   """
-  @spec list_workspace_service_accounts(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_workspace_service_accounts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_workspace_service_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workspace_service_accounts_errors()}
-  def list_workspace_service_accounts(
-        %Client{} = client,
-        workspace_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_workspace_service_accounts(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/serviceaccounts"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of Amazon Managed Grafana workspaces in the account, with some
-  information
-  about each workspace.
-
-  For more complete information about one workspace, use
+  information about each workspace. For more complete information about one
+  workspace, use
   [DescribeWorkspace](https://docs.aws.amazon.com/AAMG/latest/APIReference/API_DescribeWorkspace.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20ListWorkspaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of workspaces to include in the
+    results.
+  * `:next_token` (`t:string`) The token for the next set of workspaces to return.
+    (You receive this token from a previous ListWorkspaces operation.)
   """
-  @spec list_workspaces(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_workspaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workspaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workspaces_errors()}
-  def list_workspaces(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_workspaces(%Client{} = client, options \\ []) do
     url_path = "/workspaces"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   The `TagResource` operation associates tags with an Amazon Managed Grafana
-  resource.
+  resource. Currently, the only resource that can be tagged is workspaces.
 
-  Currently, the only resource that can be tagged is workspaces.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20TagResource&this_doc_guide=API%2520Reference)
 
-  If you specify a new tag key for the resource, this tag is appended to the list
-  of
-  tags associated with the resource. If you specify a tag key that is already
-  associated
-  with the resource, the new tag value that you specify replaces the previous
-  value for
-  that tag.
+  ## Parameters:
+  * `:resource_arn` (`t:`) The ARN of the resource the tag is associated with.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1965,7 +2244,8 @@ defmodule AWS.Grafana do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1981,10 +2261,20 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  The `UntagResource` operation removes the association of the tag with the
-  Amazon Managed Grafana resource.
+  The `UntagResource` operation removes the association of the tag with the Amazon
+  Managed Grafana resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The ARN of the resource the tag association is removed
+    from.
+  * `:tag_keys` (`t:list[com.amazonaws.grafana#TagKey]`) The key values of the tag
+    to be removed from the resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1998,7 +2288,8 @@ defmodule AWS.Grafana do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2014,10 +2305,16 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Updates which users in a workspace have the Grafana `Admin` or
-  `Editor` roles.
+  Updates which users in a workspace have the Grafana `Admin` or `Editor` roles.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20UpdatePermissions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to update.
+
+  ## Optional parameters:
   """
-  @spec update_permissions(map(), String.t(), update_permissions_request(), list()) ::
+  @spec update_permissions(AWS.Client.t(), String.t(), update_permissions_request(), Keyword.t()) ::
           {:ok, update_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_permissions_errors()}
@@ -2026,7 +2323,8 @@ defmodule AWS.Grafana do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2042,20 +2340,18 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Modifies an existing Amazon Managed Grafana workspace.
+  Modifies an existing Amazon Managed Grafana workspace. If you use this operation
+  and omit any optional parameters, the existing values of those parameters are
+  not changed.
 
-  If you use this operation and omit
-  any optional parameters, the existing values of those parameters are not
-  changed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20UpdateWorkspace&this_doc_guide=API%2520Reference)
 
-  To modify the user authentication methods that the workspace uses, such as SAML
-  or
-  IAM Identity Center, use
-  [UpdateWorkspaceAuthentication](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspaceAuthentication.html).   To modify which users in the workspace have the `Admin` and
-  `Editor` Grafana roles, use
-  [UpdatePermissions](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html).
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to update.
+
+  ## Optional parameters:
   """
-  @spec update_workspace(map(), String.t(), update_workspace_request(), list()) ::
+  @spec update_workspace(AWS.Client.t(), String.t(), update_workspace_request(), Keyword.t()) ::
           {:ok, update_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workspace_errors()}
@@ -2064,28 +2360,32 @@ defmodule AWS.Grafana do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
   Use this operation to define the identity provider (IdP) that this workspace
-  authenticates users from, using SAML.
+  authenticates users from, using SAML. You can also map SAML assertion
+  attributes to workspace user information and define which groups in the
+  assertion attribute are to have the `Admin` and `Editor` roles in the
+  workspace.
 
-  You can also map SAML assertion attributes to
-  workspace user information and define which groups in the assertion attribute
-  are to
-  have the `Admin` and `Editor` roles in the workspace.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20UpdateWorkspaceAuthentication&this_doc_guide=API%2520Reference)
 
-  Changes to the authentication method for a workspace may take a few minutes to
-  take effect.
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to update the
+    authentication for.
+
+  ## Optional parameters:
   """
   @spec update_workspace_authentication(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_workspace_authentication_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_workspace_authentication_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2095,7 +2395,8 @@ defmodule AWS.Grafana do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2112,12 +2413,19 @@ defmodule AWS.Grafana do
 
   @doc """
   Updates the configuration string for the given workspace
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20UpdateWorkspaceConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to update.
+
+  ## Optional parameters:
   """
   @spec update_workspace_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_workspace_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_workspace_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2127,7 +2435,8 @@ defmodule AWS.Grafana do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end

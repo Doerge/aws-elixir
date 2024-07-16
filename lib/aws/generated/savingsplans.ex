@@ -4,13 +4,10 @@
 defmodule AWS.Savingsplans do
   @moduledoc """
   Savings Plans are a pricing model that offer significant savings on Amazon Web
-  Services usage (for example, on Amazon EC2 instances).
-
-  You commit to a consistent
-  amount of usage per hour, in the specified currency, for a term of one or three
-  years, and
-  receive a lower price for that usage. For more information, see the [Amazon Web Services
-  Savings Plans User
+  Services usage (for example, on Amazon EC2 instances). You commit to a
+  consistent amount of usage per hour, in the specified currency, for a term of
+  one or three years, and receive a lower price for that usage. For more
+  information, see the [Amazon Web Services Savings Plans User
   Guide](https://docs.aws.amazon.com/savingsplans/latest/userguide/).
   """
 
@@ -562,8 +559,14 @@ defmodule AWS.Savingsplans do
 
   @doc """
   Creates a Savings Plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20CreateSavingsPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_savings_plan(map(), create_savings_plan_request(), list()) ::
+  @spec create_savings_plan(AWS.Client.t(), create_savings_plan_request(), Keyword.t()) ::
           {:ok, create_savings_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_savings_plan_errors()}
@@ -572,7 +575,8 @@ defmodule AWS.Savingsplans do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -589,8 +593,18 @@ defmodule AWS.Savingsplans do
 
   @doc """
   Deletes the queued purchase for the specified Savings Plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20DeleteQueuedSavingsPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_queued_savings_plan(map(), delete_queued_savings_plan_request(), list()) ::
+  @spec delete_queued_savings_plan(
+          AWS.Client.t(),
+          delete_queued_savings_plan_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_queued_savings_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_queued_savings_plan_errors()}
@@ -599,7 +613,8 @@ defmodule AWS.Savingsplans do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -616,8 +631,18 @@ defmodule AWS.Savingsplans do
 
   @doc """
   Describes the rates for the specified Savings Plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20DescribeSavingsPlanRates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_savings_plan_rates(map(), describe_savings_plan_rates_request(), list()) ::
+  @spec describe_savings_plan_rates(
+          AWS.Client.t(),
+          describe_savings_plan_rates_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_savings_plan_rates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_savings_plan_rates_errors()}
@@ -626,7 +651,8 @@ defmodule AWS.Savingsplans do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -643,8 +669,14 @@ defmodule AWS.Savingsplans do
 
   @doc """
   Describes the specified Savings Plans.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20DescribeSavingsPlans&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_savings_plans(map(), describe_savings_plans_request(), list()) ::
+  @spec describe_savings_plans(AWS.Client.t(), describe_savings_plans_request(), Keyword.t()) ::
           {:ok, describe_savings_plans_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_savings_plans_errors()}
@@ -653,7 +685,8 @@ defmodule AWS.Savingsplans do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -670,11 +703,17 @@ defmodule AWS.Savingsplans do
 
   @doc """
   Describes the offering rates for the specified Savings Plans.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20DescribeSavingsPlansOfferingRates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec describe_savings_plans_offering_rates(
-          map(),
+          AWS.Client.t(),
           describe_savings_plans_offering_rates_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_savings_plans_offering_rates_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -684,7 +723,8 @@ defmodule AWS.Savingsplans do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -701,11 +741,17 @@ defmodule AWS.Savingsplans do
 
   @doc """
   Describes the offerings for the specified Savings Plans.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20DescribeSavingsPlansOfferings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec describe_savings_plans_offerings(
-          map(),
+          AWS.Client.t(),
           describe_savings_plans_offerings_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_savings_plans_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -715,7 +761,8 @@ defmodule AWS.Savingsplans do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -732,8 +779,14 @@ defmodule AWS.Savingsplans do
 
   @doc """
   Lists the tags for the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
@@ -742,7 +795,8 @@ defmodule AWS.Savingsplans do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -759,8 +813,14 @@ defmodule AWS.Savingsplans do
 
   @doc """
   Returns the specified Savings Plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20ReturnSavingsPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec return_savings_plan(map(), return_savings_plan_request(), list()) ::
+  @spec return_savings_plan(AWS.Client.t(), return_savings_plan_request(), Keyword.t()) ::
           {:ok, return_savings_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, return_savings_plan_errors()}
@@ -769,7 +829,8 @@ defmodule AWS.Savingsplans do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -786,8 +847,14 @@ defmodule AWS.Savingsplans do
 
   @doc """
   Adds the specified tags to the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -796,7 +863,8 @@ defmodule AWS.Savingsplans do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -813,8 +881,14 @@ defmodule AWS.Savingsplans do
 
   @doc """
   Removes the specified tags from the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -823,7 +897,8 @@ defmodule AWS.Savingsplans do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

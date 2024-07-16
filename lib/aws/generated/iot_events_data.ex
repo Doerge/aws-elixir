@@ -4,15 +4,9 @@
 defmodule AWS.IoTEventsData do
   @moduledoc """
   IoT Events monitors your equipment or device fleets for failures or changes in
-  operation, and
-  triggers actions when such events occur.
-
-  You can use IoT Events Data API commands to send inputs to
-  detectors, list detectors, and view or update a detector's status.
-
-  For more information, see [What is IoT Events?](https://docs.aws.amazon.com/iotevents/latest/developerguide/what-is-iotevents.html)
-  in the
-  *IoT Events Developer Guide*.
+  operation, and triggers actions when such events occur. You can use IoT Events
+  Data API commands to send inputs to detectors, list detectors, and view or
+  update a detector's status.
   """
 
   alias AWS.Client
@@ -893,12 +887,16 @@ defmodule AWS.IoTEventsData do
   end
 
   @doc """
-  Acknowledges one or more alarms.
-
-  The alarms change to the `ACKNOWLEDGED` state
+  Acknowledges one or more alarms. The alarms change to the `ACKNOWLEDGED` state
   after you acknowledge them.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ioteventsdata%20BatchAcknowledgeAlarm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_acknowledge_alarm(map(), batch_acknowledge_alarm_request(), list()) ::
+  @spec batch_acknowledge_alarm(AWS.Client.t(), batch_acknowledge_alarm_request(), Keyword.t()) ::
           {:ok, batch_acknowledge_alarm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_acknowledge_alarm_errors()}
@@ -907,7 +905,8 @@ defmodule AWS.IoTEventsData do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -923,15 +922,19 @@ defmodule AWS.IoTEventsData do
   end
 
   @doc """
-  Deletes one or more detectors that were created.
-
-  When a detector is deleted, its state will be cleared and the detector will be
-  removed from the list of detectors. The deleted detector will no longer appear
-  if referenced in the
+  Deletes one or more detectors that were created. When a detector is deleted, its
+  state will be cleared and the detector will be removed from the list of
+  detectors. The deleted detector will no longer appear if referenced in the
   [ListDetectors](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_ListDetectors.html)
   API call.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ioteventsdata%20BatchDeleteDetector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_delete_detector(map(), batch_delete_detector_request(), list()) ::
+  @spec batch_delete_detector(AWS.Client.t(), batch_delete_detector_request(), Keyword.t()) ::
           {:ok, batch_delete_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_detector_errors()}
@@ -940,7 +943,8 @@ defmodule AWS.IoTEventsData do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -956,12 +960,16 @@ defmodule AWS.IoTEventsData do
   end
 
   @doc """
-  Disables one or more alarms.
+  Disables one or more alarms. The alarms change to the `DISABLED` state after you
+  disable them.
 
-  The alarms change to the `DISABLED` state after
-  you disable them.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ioteventsdata%20BatchDisableAlarm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_disable_alarm(map(), batch_disable_alarm_request(), list()) ::
+  @spec batch_disable_alarm(AWS.Client.t(), batch_disable_alarm_request(), Keyword.t()) ::
           {:ok, batch_disable_alarm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_disable_alarm_errors()}
@@ -970,7 +978,8 @@ defmodule AWS.IoTEventsData do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -986,12 +995,16 @@ defmodule AWS.IoTEventsData do
   end
 
   @doc """
-  Enables one or more alarms.
-
-  The alarms change to the `NORMAL` state after you
+  Enables one or more alarms. The alarms change to the `NORMAL` state after you
   enable them.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ioteventsdata%20BatchEnableAlarm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_enable_alarm(map(), batch_enable_alarm_request(), list()) ::
+  @spec batch_enable_alarm(AWS.Client.t(), batch_enable_alarm_request(), Keyword.t()) ::
           {:ok, batch_enable_alarm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_enable_alarm_errors()}
@@ -1000,7 +1013,8 @@ defmodule AWS.IoTEventsData do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1016,18 +1030,19 @@ defmodule AWS.IoTEventsData do
   end
 
   @doc """
-  Sends a set of messages to the IoT Events system.
+  Sends a set of messages to the IoT Events system. Each message payload is
+  transformed into the input you specify (`"inputName"`) and ingested into any
+  detectors that monitor that input. If multiple messages are sent, the order in
+  which the messages are processed isn't guaranteed. To guarantee ordering, you
+  must send messages one at a time and wait for a successful response.
 
-  Each message payload is transformed into
-  the input you specify (`"inputName"`) and ingested into any detectors that
-  monitor
-  that input. If multiple messages are sent, the order in which the messages are
-  processed isn't
-  guaranteed. To guarantee ordering, you must send messages one at a time and wait
-  for a
-  successful response.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ioteventsdata%20BatchPutMessage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_put_message(map(), batch_put_message_request(), list()) ::
+  @spec batch_put_message(AWS.Client.t(), batch_put_message_request(), Keyword.t()) ::
           {:ok, batch_put_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_put_message_errors()}
@@ -1036,7 +1051,8 @@ defmodule AWS.IoTEventsData do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1052,12 +1068,16 @@ defmodule AWS.IoTEventsData do
   end
 
   @doc """
-  Resets one or more alarms.
-
-  The alarms return to the `NORMAL` state after you
+  Resets one or more alarms. The alarms return to the `NORMAL` state after you
   reset them.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ioteventsdata%20BatchResetAlarm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_reset_alarm(map(), batch_reset_alarm_request(), list()) ::
+  @spec batch_reset_alarm(AWS.Client.t(), batch_reset_alarm_request(), Keyword.t()) ::
           {:ok, batch_reset_alarm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_reset_alarm_errors()}
@@ -1066,7 +1086,8 @@ defmodule AWS.IoTEventsData do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1082,12 +1103,16 @@ defmodule AWS.IoTEventsData do
   end
 
   @doc """
-  Changes one or more alarms to the snooze mode.
-
-  The alarms change to the
+  Changes one or more alarms to the snooze mode. The alarms change to the
   `SNOOZE_DISABLED` state after you set them to the snooze mode.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ioteventsdata%20BatchSnoozeAlarm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_snooze_alarm(map(), batch_snooze_alarm_request(), list()) ::
+  @spec batch_snooze_alarm(AWS.Client.t(), batch_snooze_alarm_request(), Keyword.t()) ::
           {:ok, batch_snooze_alarm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_snooze_alarm_errors()}
@@ -1096,7 +1121,8 @@ defmodule AWS.IoTEventsData do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1114,8 +1140,14 @@ defmodule AWS.IoTEventsData do
   @doc """
   Updates the state, variable values, and timer settings of one or more detectors
   (instances) of a specified detector model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ioteventsdata%20BatchUpdateDetector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_update_detector(map(), batch_update_detector_request(), list()) ::
+  @spec batch_update_detector(AWS.Client.t(), batch_update_detector_request(), Keyword.t()) ::
           {:ok, batch_update_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_detector_errors()}
@@ -1124,7 +1156,8 @@ defmodule AWS.IoTEventsData do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1141,140 +1174,250 @@ defmodule AWS.IoTEventsData do
 
   @doc """
   Retrieves information about an alarm.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ioteventsdata%20DescribeAlarm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:alarm_model_name` (`t:string`) The name of the alarm model.
+
+  ## Optional parameters:
+  * `:key_value` (`t:string`) The value of the key used as a filter to select only
+    the alarms associated with the key.
   """
-  @spec describe_alarm(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_alarm(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_alarm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_alarm_errors()}
-  def describe_alarm(%Client{} = client, alarm_model_name, key_value \\ nil, options \\ []) do
+  def describe_alarm(%Client{} = client, alarm_model_name, options \\ []) do
     url_path = "/alarms/#{AWS.Util.encode_uri(alarm_model_name)}/keyValues"
+
+    # Validate optional parameters
+    optional_params = [key_value: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(key_value) do
-        [{"keyValue", key_value} | query_params]
+      if opt_val = Keyword.get(options, :key_value) do
+        [{"keyValue", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:key_value])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about the specified detector (instance).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ioteventsdata%20DescribeDetector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_model_name` (`t:string`) The name of the detector model whose
+    detectors (instances) you want information about.
+
+  ## Optional parameters:
+  * `:key_value` (`t:string`) A filter used to limit results to detectors
+    (instances) created because of the given key ID.
   """
-  @spec describe_detector(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_detector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_detector_errors()}
-  def describe_detector(%Client{} = client, detector_model_name, key_value \\ nil, options \\ []) do
+  def describe_detector(%Client{} = client, detector_model_name, options \\ []) do
     url_path = "/detectors/#{AWS.Util.encode_uri(detector_model_name)}/keyValues"
+
+    # Validate optional parameters
+    optional_params = [key_value: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(key_value) do
-        [{"keyValue", key_value} | query_params]
+      if opt_val = Keyword.get(options, :key_value) do
+        [{"keyValue", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:key_value])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists one or more alarms.
+  Lists one or more alarms. The operation returns only the metadata associated
+  with each alarm.
 
-  The operation returns only the metadata associated with each
-  alarm.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ioteventsdata%20ListAlarms&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:alarm_model_name` (`t:string`) The name of the alarm model.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    request.
+  * `:next_token` (`t:string`) The token that you can use to return the next set
+    of results.
   """
-  @spec list_alarms(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_alarms(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_alarms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_alarms_errors()}
-  def list_alarms(
-        %Client{} = client,
-        alarm_model_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_alarms(%Client{} = client, alarm_model_name, options \\ []) do
     url_path = "/alarms/#{AWS.Util.encode_uri(alarm_model_name)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists detectors (the instances of a detector model).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ioteventsdata%20ListDetectors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_model_name` (`t:string`) The name of the detector model whose
+    detectors (instances) are listed.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    request.
+  * `:next_token` (`t:string`) The token that you can use to return the next set
+    of results.
+  * `:state_name` (`t:string`) A filter that limits results to those detectors
+    (instances) in the given state.
   """
-  @spec list_detectors(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_detectors(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_detectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_detectors_errors()}
-  def list_detectors(
-        %Client{} = client,
-        detector_model_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        state_name \\ nil,
-        options \\ []
-      ) do
+  def list_detectors(%Client{} = client, detector_model_name, options \\ []) do
     url_path = "/detectors/#{AWS.Util.encode_uri(detector_model_name)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, state_name: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(state_name) do
-        [{"stateName", state_name} | query_params]
+      if opt_val = Keyword.get(options, :state_name) do
+        [{"stateName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :state_name])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end

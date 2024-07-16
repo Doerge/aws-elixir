@@ -2883,8 +2883,15 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Adds outputs to an existing bridge.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20AddBridgeOutputs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bridge_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec add_bridge_outputs(map(), String.t(), add_bridge_outputs_request(), list()) ::
+  @spec add_bridge_outputs(AWS.Client.t(), String.t(), add_bridge_outputs_request(), Keyword.t()) ::
           {:ok, add_bridge_outputs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_bridge_outputs_errors()}
@@ -2893,7 +2900,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2910,8 +2918,15 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Adds sources to an existing bridge.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20AddBridgeSources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bridge_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec add_bridge_sources(map(), String.t(), add_bridge_sources_request(), list()) ::
+  @spec add_bridge_sources(AWS.Client.t(), String.t(), add_bridge_sources_request(), Keyword.t()) ::
           {:ok, add_bridge_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_bridge_sources_errors()}
@@ -2920,7 +2935,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2936,12 +2952,23 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Adds media streams to an existing flow.
+  Adds media streams to an existing flow. After you add a media stream to a flow,
+  you can associate it with a source and/or an output that uses the ST 2110 JPEG
+  XS or CDI protocol.
 
-  After you add a media stream to a flow, you can associate it with a source
-  and/or an output that uses the ST 2110 JPEG XS or CDI protocol.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20AddFlowMediaStreams&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec add_flow_media_streams(map(), String.t(), add_flow_media_streams_request(), list()) ::
+  @spec add_flow_media_streams(
+          AWS.Client.t(),
+          String.t(),
+          add_flow_media_streams_request(),
+          Keyword.t()
+        ) ::
           {:ok, add_flow_media_streams_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_flow_media_streams_errors()}
@@ -2950,7 +2977,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2966,11 +2994,16 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Adds outputs to an existing flow.
+  Adds outputs to an existing flow. You can create up to 50 outputs per flow.
 
-  You can create up to 50 outputs per flow.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20AddFlowOutputs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec add_flow_outputs(map(), String.t(), add_flow_outputs_request(), list()) ::
+  @spec add_flow_outputs(AWS.Client.t(), String.t(), add_flow_outputs_request(), Keyword.t()) ::
           {:ok, add_flow_outputs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_flow_outputs_errors()}
@@ -2979,7 +3012,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2996,8 +3030,15 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Adds Sources to flow
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20AddFlowSources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec add_flow_sources(map(), String.t(), add_flow_sources_request(), list()) ::
+  @spec add_flow_sources(AWS.Client.t(), String.t(), add_flow_sources_request(), Keyword.t()) ::
           {:ok, add_flow_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_flow_sources_errors()}
@@ -3006,7 +3047,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3023,8 +3065,20 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Adds VPC interfaces to flow
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20AddFlowVpcInterfaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec add_flow_vpc_interfaces(map(), String.t(), add_flow_vpc_interfaces_request(), list()) ::
+  @spec add_flow_vpc_interfaces(
+          AWS.Client.t(),
+          String.t(),
+          add_flow_vpc_interfaces_request(),
+          Keyword.t()
+        ) ::
           {:ok, add_flow_vpc_interfaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_flow_vpc_interfaces_errors()}
@@ -3033,7 +3087,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3049,11 +3104,15 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Creates a new bridge.
+  Creates a new bridge. The request must include one source.
 
-  The request must include one source.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20CreateBridge&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_bridge(map(), create_bridge_request(), list()) ::
+  @spec create_bridge(AWS.Client.t(), create_bridge_request(), Keyword.t()) ::
           {:ok, create_bridge_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bridge_errors()}
@@ -3062,7 +3121,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3078,12 +3138,16 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Creates a new flow.
+  Creates a new flow. The request must include one source. The request optionally
+  can include outputs (up to 50) and entitlements (up to 50).
 
-  The request must include one source. The request optionally can include outputs
-  (up to 50) and entitlements (up to 50).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20CreateFlow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_flow(map(), create_flow_request(), list()) ::
+  @spec create_flow(AWS.Client.t(), create_flow_request(), Keyword.t()) ::
           {:ok, create_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_flow_errors()}
@@ -3092,7 +3156,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3108,11 +3173,15 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Creates a new gateway.
+  Creates a new gateway. The request must include at least one network (up to 4).
 
-  The request must include at least one network (up to 4).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20CreateGateway&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_gateway(map(), create_gateway_request(), list()) ::
+  @spec create_gateway(AWS.Client.t(), create_gateway_request(), Keyword.t()) ::
           {:ok, create_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_gateway_errors()}
@@ -3121,7 +3190,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3137,11 +3207,16 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Deletes a bridge.
+  Deletes a bridge. Before you can delete a bridge, you must stop the bridge.
 
-  Before you can delete a bridge, you must stop the bridge.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DeleteBridge&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bridge_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_bridge(map(), String.t(), delete_bridge_request(), list()) ::
+  @spec delete_bridge(AWS.Client.t(), String.t(), delete_bridge_request(), Keyword.t()) ::
           {:ok, delete_bridge_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_bridge_errors()}
@@ -3150,7 +3225,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3166,11 +3242,16 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Deletes a flow.
+  Deletes a flow. Before you can delete a flow, you must stop the flow.
 
-  Before you can delete a flow, you must stop the flow.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DeleteFlow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_flow(map(), String.t(), delete_flow_request(), list()) ::
+  @spec delete_flow(AWS.Client.t(), String.t(), delete_flow_request(), Keyword.t()) ::
           {:ok, delete_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_flow_errors()}
@@ -3179,7 +3260,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3195,12 +3277,17 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Deletes a gateway.
+  Deletes a gateway. Before you can delete a gateway, you must deregister its
+  instances and delete its bridges.
 
-  Before you can delete a gateway, you must deregister its instances and delete
-  its bridges.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DeleteGateway&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:gateway_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_gateway(map(), String.t(), delete_gateway_request(), list()) ::
+  @spec delete_gateway(AWS.Client.t(), String.t(), delete_gateway_request(), Keyword.t()) ::
           {:ok, delete_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_gateway_errors()}
@@ -3209,7 +3296,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3225,17 +3313,23 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Deregisters an instance.
+  Deregisters an instance. Before you deregister an instance, all bridges running
+  on the instance must be stopped. If you want to deregister an instance without
+  stopping the bridges, you must use the --force option.
 
-  Before you deregister an instance, all bridges running on the instance must be
-  stopped. If you want to deregister an instance without stopping the bridges, you
-  must use the --force option.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DeregisterGatewayInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:gateway_instance_arn` (`t:string`)
+
+  ## Optional parameters:
+  * `:force` (`t:boolean`)
   """
   @spec deregister_gateway_instance(
-          map(),
+          AWS.Client.t(),
           String.t(),
           deregister_gateway_instance_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, deregister_gateway_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3250,7 +3344,13 @@ defmodule AWS.MediaConnect do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:force])
 
     Request.request_rest(
       client,
@@ -3267,143 +3367,322 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Displays the details of a bridge.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DescribeBridge&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bridge_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_bridge(map(), String.t(), list()) ::
+  @spec describe_bridge(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_bridge_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_bridge_errors()}
   def describe_bridge(%Client{} = client, bridge_arn, options \\ []) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Displays the details of a flow.
+  Displays the details of a flow. The response includes the flow ARN, name, and
+  Availability Zone, as well as details about the source, outputs, and
+  entitlements.
 
-  The response includes the flow ARN, name, and Availability Zone, as well as
-  details about the source, outputs, and entitlements.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DescribeFlow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_flow(map(), String.t(), list()) ::
+  @spec describe_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_flow_errors()}
   def describe_flow(%Client{} = client, flow_arn, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Displays details of the flow's source stream.
+  Displays details of the flow's source stream. The response contains information
+  about the contents of the stream and its programs.
 
-  The response contains information about the contents of the stream and its
-  programs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DescribeFlowSourceMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_flow_source_metadata(map(), String.t(), list()) ::
+  @spec describe_flow_source_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_flow_source_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_flow_source_metadata_errors()}
   def describe_flow_source_metadata(%Client{} = client, flow_arn, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source-metadata"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Displays the details of a gateway.
+  Displays the details of a gateway. The response includes the gateway ARN, name,
+  and CIDR blocks, as well as details about the networks.
 
-  The response includes the gateway ARN, name, and CIDR blocks, as well as details
-  about the networks.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DescribeGateway&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:gateway_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_gateway(map(), String.t(), list()) ::
+  @spec describe_gateway(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_gateway_errors()}
   def describe_gateway(%Client{} = client, gateway_arn, options \\ []) do
     url_path = "/v1/gateways/#{AWS.Util.encode_uri(gateway_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Displays the details of an instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DescribeGatewayInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:gateway_instance_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_gateway_instance(map(), String.t(), list()) ::
+  @spec describe_gateway_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_gateway_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_gateway_instance_errors()}
   def describe_gateway_instance(%Client{} = client, gateway_instance_arn, options \\ []) do
     url_path = "/v1/gateway-instances/#{AWS.Util.encode_uri(gateway_instance_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Displays the details of an offering.
+  Displays the details of an offering. The response includes the offering
+  description, duration, outbound bandwidth, price, and Amazon Resource Name
+  (ARN).
 
-  The response includes the offering description, duration, outbound bandwidth,
-  price, and Amazon Resource Name (ARN).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DescribeOffering&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:offering_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_offering(map(), String.t(), list()) ::
+  @spec describe_offering(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_offering_errors()}
   def describe_offering(%Client{} = client, offering_arn, options \\ []) do
     url_path = "/v1/offerings/#{AWS.Util.encode_uri(offering_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Displays the details of a reservation.
+  Displays the details of a reservation. The response includes the reservation
+  name, state, start date and time, and the details of the offering that make up
+  the rest of the reservation (such as price, duration, and outbound bandwidth).
 
-  The response includes the reservation name, state, start date and time, and the
-  details of the offering that make up the rest of the reservation (such as price,
-  duration, and outbound bandwidth).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DescribeReservation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:reservation_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_reservation(map(), String.t(), list()) ::
+  @spec describe_reservation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_reservation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_reservation_errors()}
   def describe_reservation(%Client{} = client, reservation_arn, options \\ []) do
     url_path = "/v1/reservations/#{AWS.Util.encode_uri(reservation_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Grants entitlements to an existing flow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20GrantFlowEntitlements&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec grant_flow_entitlements(map(), String.t(), grant_flow_entitlements_request(), list()) ::
+  @spec grant_flow_entitlements(
+          AWS.Client.t(),
+          String.t(),
+          grant_flow_entitlements_request(),
+          Keyword.t()
+        ) ::
           {:ok, grant_flow_entitlements_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, grant_flow_entitlements_errors()}
@@ -3412,7 +3691,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3429,297 +3709,512 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Displays a list of bridges that are associated with this account and an
-  optionally specified Arn.
+  optionally specified Arn. This request returns a paginated result.
 
-  This request returns a paginated result.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListBridges&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:filter_arn` (`t:string`)
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_bridges(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_bridges(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_bridges_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bridges_errors()}
-  def list_bridges(
-        %Client{} = client,
-        filter_arn \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_bridges(%Client{} = client, options \\ []) do
     url_path = "/v1/bridges"
+
+    # Validate optional parameters
+    optional_params = [filter_arn: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(filter_arn) do
-        [{"filterArn", filter_arn} | query_params]
+      if opt_val = Keyword.get(options, :filter_arn) do
+        [{"filterArn", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:filter_arn, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Displays a list of all entitlements that have been granted to this account.
+  Displays a list of all entitlements that have been granted to this account. This
+  request returns 20 results per page.
 
-  This request returns 20 results per page.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListEntitlements&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_entitlements(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_entitlements(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_entitlements_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_entitlements_errors()}
-  def list_entitlements(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_entitlements(%Client{} = client, options \\ []) do
     url_path = "/v1/entitlements"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Displays a list of flows that are associated with this account.
+  Displays a list of flows that are associated with this account. This request
+  returns a paginated result.
 
-  This request returns a paginated result.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListFlows&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_flows(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_flows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_flows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_flows_errors()}
-  def list_flows(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_flows(%Client{} = client, options \\ []) do
     url_path = "/v1/flows"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Displays a list of instances associated with the AWS account.
+  Displays a list of instances associated with the AWS account. This request
+  returns a paginated result. You can use the filterArn property to display only
+  the instances associated with the selected Gateway Amazon Resource Name (ARN).
 
-  This request returns a paginated result. You can use the filterArn property to
-  display only the instances associated with the selected Gateway Amazon Resource
-  Name (ARN).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListGatewayInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:filter_arn` (`t:string`)
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_gateway_instances(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_gateway_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_gateway_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_gateway_instances_errors()}
-  def list_gateway_instances(
-        %Client{} = client,
-        filter_arn \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_gateway_instances(%Client{} = client, options \\ []) do
     url_path = "/v1/gateway-instances"
+
+    # Validate optional parameters
+    optional_params = [filter_arn: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(filter_arn) do
-        [{"filterArn", filter_arn} | query_params]
+      if opt_val = Keyword.get(options, :filter_arn) do
+        [{"filterArn", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:filter_arn, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Displays a list of gateways that are associated with this account.
+  Displays a list of gateways that are associated with this account. This request
+  returns a paginated result.
 
-  This request returns a paginated result.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListGateways&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_gateways(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_gateways(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_gateways_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_gateways_errors()}
-  def list_gateways(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_gateways(%Client{} = client, options \\ []) do
     url_path = "/v1/gateways"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Displays a list of all offerings that are available to this account in the
-  current AWS Region.
+  current AWS Region. If you have an active reservation (which means you've
+  purchased an offering that has already started and hasn't expired yet), your
+  account isn't eligible for other offerings.
 
-  If you have an active reservation (which means you've purchased an offering that
-  has already started and hasn't expired yet), your account isn't eligible for
-  other offerings.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListOfferings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_offerings(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_offerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_offerings_errors()}
-  def list_offerings(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_offerings(%Client{} = client, options \\ []) do
     url_path = "/v1/offerings"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Displays a list of all reservations that have been purchased by this account in
-  the current AWS Region.
+  the current AWS Region. This list includes all reservations in all states
+  (such as active and expired).
 
-  This list includes all reservations in all states (such as active and expired).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListReservations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_reservations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_reservations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_reservations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_reservations_errors()}
-  def list_reservations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_reservations(%Client{} = client, options \\ []) do
     url_path = "/v1/reservations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List all tags on an AWS Elemental MediaConnect resource
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Submits a request to purchase an offering.
+  Submits a request to purchase an offering. If you already have an active
+  reservation, you can't purchase another offering.
 
-  If you already have an active reservation, you can't purchase another offering.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20PurchaseOffering&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:offering_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec purchase_offering(map(), String.t(), purchase_offering_request(), list()) ::
+  @spec purchase_offering(AWS.Client.t(), String.t(), purchase_offering_request(), Keyword.t()) ::
           {:ok, purchase_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, purchase_offering_errors()}
@@ -3728,7 +4223,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3745,13 +4241,21 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Removes an output from a bridge.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20RemoveBridgeOutput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bridge_arn` (`t:string`)
+  * `:output_name` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec remove_bridge_output(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           remove_bridge_output_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, remove_bridge_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3763,7 +4267,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3780,13 +4285,21 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Removes a source from a bridge.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20RemoveBridgeSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bridge_arn` (`t:string`)
+  * `:source_name` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec remove_bridge_source(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           remove_bridge_source_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, remove_bridge_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3798,7 +4311,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3814,17 +4328,23 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Removes a media stream from a flow.
+  Removes a media stream from a flow. This action is only available if the media
+  stream is not associated with a source or output.
 
-  This action is only available if the media stream is not associated with a
-  source or output.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20RemoveFlowMediaStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+  * `:media_stream_name` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec remove_flow_media_stream(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           remove_flow_media_stream_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, remove_flow_media_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3842,7 +4362,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3858,14 +4379,27 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Removes an output from an existing flow.
+  Removes an output from an existing flow. This request can be made only on an
+  output that does not have an entitlement associated with it. If the output has
+  an entitlement, you must revoke the entitlement instead. When an entitlement
+  is revoked from a flow, the service automatically removes the associated
+  output.
 
-  This request can be made only on an output that does not have an entitlement
-  associated with it. If the output has an entitlement, you must revoke the
-  entitlement instead. When an entitlement is revoked from a flow, the service
-  automatically removes the associated output.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20RemoveFlowOutput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+  * `:output_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec remove_flow_output(map(), String.t(), String.t(), remove_flow_output_request(), list()) ::
+  @spec remove_flow_output(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          remove_flow_output_request(),
+          Keyword.t()
+        ) ::
           {:ok, remove_flow_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_flow_output_errors()}
@@ -3876,7 +4410,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3892,11 +4427,24 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Removes a source from an existing flow.
+  Removes a source from an existing flow. This request can be made only if there
+  is more than one source on the flow.
 
-  This request can be made only if there is more than one source on the flow.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20RemoveFlowSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+  * `:source_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec remove_flow_source(map(), String.t(), String.t(), remove_flow_source_request(), list()) ::
+  @spec remove_flow_source(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          remove_flow_source_request(),
+          Keyword.t()
+        ) ::
           {:ok, remove_flow_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_flow_source_errors()}
@@ -3907,7 +4455,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3923,19 +4472,25 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Removes a VPC Interface from an existing flow.
+  Removes a VPC Interface from an existing flow. This request can be made only on
+  a VPC interface that does not have a Source or Output associated with it. If
+  the VPC interface is referenced by a Source or Output, you must first delete
+  or update the Source or Output to no longer reference the VPC interface.
 
-  This request can be made only on a VPC interface that does not have a Source or
-  Output associated with it. If the VPC interface is referenced by a Source or
-  Output, you must first delete or update the Source or Output to no longer
-  reference the VPC interface.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20RemoveFlowVpcInterface&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+  * `:vpc_interface_name` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec remove_flow_vpc_interface(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           remove_flow_vpc_interface_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, remove_flow_vpc_interface_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3953,7 +4508,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3969,17 +4525,23 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Revokes an entitlement from a flow.
+  Revokes an entitlement from a flow. Once an entitlement is revoked, the content
+  becomes unavailable to the subscriber and the associated output is removed.
 
-  Once an entitlement is revoked, the content becomes unavailable to the
-  subscriber and the associated output is removed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20RevokeFlowEntitlement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:entitlement_arn` (`t:string`)
+  * `:flow_arn` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec revoke_flow_entitlement(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           revoke_flow_entitlement_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, revoke_flow_entitlement_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3991,7 +4553,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4008,8 +4571,15 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Starts a flow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20StartFlow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec start_flow(map(), String.t(), start_flow_request(), list()) ::
+  @spec start_flow(AWS.Client.t(), String.t(), start_flow_request(), Keyword.t()) ::
           {:ok, start_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_flow_errors()}
@@ -4018,7 +4588,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4035,8 +4606,15 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Stops a flow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20StopFlow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec stop_flow(map(), String.t(), stop_flow_request(), list()) ::
+  @spec stop_flow(AWS.Client.t(), String.t(), stop_flow_request(), Keyword.t()) ::
           {:ok, stop_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_flow_errors()}
@@ -4045,7 +4623,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4061,13 +4640,19 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Associates the specified tags to a resource with the specified resourceArn.
-
-  If existing tags on a resource are not specified in the request parameters, they
+  Associates the specified tags to a resource with the specified resourceArn. If
+  existing tags on a resource are not specified in the request parameters, they
   are not changed. When a resource is deleted, the tags associated with that
   resource are deleted as well.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -4076,7 +4661,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4093,8 +4679,16 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Deletes specified tags from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
+  * `:tag_keys` (`t:list[com.amazonaws.mediaconnect#__string]`)
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -4108,7 +4702,8 @@ defmodule AWS.MediaConnect do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4125,8 +4720,15 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Updates the bridge
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateBridge&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bridge_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_bridge(map(), String.t(), update_bridge_request(), list()) ::
+  @spec update_bridge(AWS.Client.t(), String.t(), update_bridge_request(), Keyword.t()) ::
           {:ok, update_bridge_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_bridge_errors()}
@@ -4135,20 +4737,29 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
   Updates an existing bridge output.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateBridgeOutput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bridge_arn` (`t:string`)
+  * `:output_name` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec update_bridge_output(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_bridge_output_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_bridge_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4160,20 +4771,29 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
   Updates an existing bridge source.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateBridgeSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bridge_arn` (`t:string`)
+  * `:source_name` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec update_bridge_source(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_bridge_source_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_bridge_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4185,15 +4805,28 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
   Updates the bridge state
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateBridgeState&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bridge_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_bridge_state(map(), String.t(), update_bridge_state_request(), list()) ::
+  @spec update_bridge_state(
+          AWS.Client.t(),
+          String.t(),
+          update_bridge_state_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_bridge_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_bridge_state_errors()}
@@ -4202,15 +4835,23 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
   Updates flow
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateFlow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_flow(map(), String.t(), update_flow_request(), list()) ::
+  @spec update_flow(AWS.Client.t(), String.t(), update_flow_request(), Keyword.t()) ::
           {:ok, update_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_flow_errors()}
@@ -4219,23 +4860,31 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
-  You can change an entitlement's description, subscribers, and encryption.
+  You can change an entitlement's description, subscribers, and encryption. If you
+  change the subscribers, the service will remove the outputs that are are used
+  by the subscribers that are removed.
 
-  If you change the subscribers, the service will remove the outputs that are are
-  used by the subscribers that are removed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateFlowEntitlement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:entitlement_arn` (`t:string`)
+  * `:flow_arn` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec update_flow_entitlement(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_flow_entitlement_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_flow_entitlement_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4247,20 +4896,29 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
   Updates an existing media stream.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateFlowMediaStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+  * `:media_stream_name` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec update_flow_media_stream(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_flow_media_stream_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_flow_media_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4278,15 +4936,30 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
   Updates an existing flow output.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateFlowOutput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+  * `:output_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_flow_output(map(), String.t(), String.t(), update_flow_output_request(), list()) ::
+  @spec update_flow_output(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_flow_output_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_flow_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_flow_output_errors()}
@@ -4297,15 +4970,30 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
   Updates the source of a flow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateFlowSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+  * `:source_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_flow_source(map(), String.t(), String.t(), update_flow_source_request(), list()) ::
+  @spec update_flow_source(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_flow_source_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_flow_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_flow_source_errors()}
@@ -4316,15 +5004,28 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
   Updates the configuration of an existing Gateway Instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateGatewayInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:gateway_instance_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_gateway_instance(map(), String.t(), update_gateway_instance_request(), list()) ::
+  @spec update_gateway_instance(
+          AWS.Client.t(),
+          String.t(),
+          update_gateway_instance_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_gateway_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_gateway_instance_errors()}
@@ -4333,7 +5034,8 @@ defmodule AWS.MediaConnect do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

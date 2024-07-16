@@ -3,14 +3,8 @@
 
 defmodule AWS.PcaConnectorScep do
   @moduledoc """
-
   Connector for SCEP (Preview) is in preview release for Amazon Web Services
   Private Certificate Authority and is subject to change.
-
-  Connector for SCEP (Preview) creates a connector between Amazon Web Services
-  Private CA and your SCEP-enabled clients and devices. For more
-  information, see [Connector for SCEP](https://docs.aws.amazon.com/privateca/latest/userguide/scep-connector.html)
-  in the *Amazon Web Services Private CA User Guide*.
   """
 
   alias AWS.Client
@@ -545,21 +539,21 @@ defmodule AWS.PcaConnectorScep do
   end
 
   @doc """
-  For general-purpose connectors.
-
-  Creates a *challenge password* for the specified connector. The SCEP protocol
-  uses a challenge password to authenticate a request before issuing a certificate
-  from a certificate authority (CA). Your SCEP clients include the challenge
-  password as part of their certificate request to Connector for SCEP. To retrieve
-  the connector Amazon Resource Names (ARNs) for the connectors in your account,
-  call
+  For general-purpose connectors. Creates a *challenge password* for the specified
+  connector. The SCEP protocol uses a challenge password to authenticate a
+  request before issuing a certificate from a certificate authority (CA). Your
+  SCEP clients include the challenge password as part of their certificate
+  request to Connector for SCEP. To retrieve the connector Amazon Resource Names
+  (ARNs) for the connectors in your account, call
   [ListConnectors](https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_ListConnectors.html).
 
-  To create additional challenge passwords for the connector, call
-  `CreateChallenge` again. We recommend frequently rotating your challenge
-  passwords.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20CreateChallenge&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_challenge(map(), create_challenge_request(), list()) ::
+  @spec create_challenge(AWS.Client.t(), create_challenge_request(), Keyword.t()) ::
           {:ok, create_challenge_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_challenge_errors()}
@@ -568,7 +562,8 @@ defmodule AWS.PcaConnectorScep do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -584,15 +579,20 @@ defmodule AWS.PcaConnectorScep do
   end
 
   @doc """
-  Creates a SCEP connector.
+  Creates a SCEP connector. A SCEP connector links Amazon Web Services Private
+  Certificate Authority to your SCEP-compatible devices and mobile device
+  management (MDM) systems. Before you create a connector, you must complete a
+  set of prerequisites, including creation of a private certificate authority
+  (CA) to use with this connector. For more information, see [Connector for SCEP
+  prerequisites](https://docs.aws.amazon.com/privateca/latest/userguide/scep-connector.htmlconnector-for-scep-prerequisites.html).
 
-  A SCEP connector links Amazon Web Services Private Certificate Authority to your
-  SCEP-compatible devices and mobile device management (MDM) systems. Before you
-  create a connector, you must complete a set of prerequisites, including creation
-  of a private certificate authority (CA) to use with this connector. For more
-  information, see [Connector for SCEP prerequisites](https://docs.aws.amazon.com/privateca/latest/userguide/scep-connector.htmlconnector-for-scep-prerequisites.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20CreateConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_connector(map(), create_connector_request(), list()) ::
+  @spec create_connector(AWS.Client.t(), create_connector_request(), Keyword.t()) ::
           {:ok, create_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connector_errors()}
@@ -601,7 +601,8 @@ defmodule AWS.PcaConnectorScep do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -619,8 +620,16 @@ defmodule AWS.PcaConnectorScep do
   @doc """
   Deletes the specified
   [Challenge](https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_Challenge.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20DeleteChallenge&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:challenge_arn` (`t:string`) The Amazon Resource Name (ARN) of the challenge
+    password to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_challenge(map(), String.t(), delete_challenge_request(), list()) ::
+  @spec delete_challenge(AWS.Client.t(), String.t(), delete_challenge_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_challenge_errors()}
@@ -629,7 +638,8 @@ defmodule AWS.PcaConnectorScep do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -647,10 +657,17 @@ defmodule AWS.PcaConnectorScep do
   @doc """
   Deletes the specified
   [Connector](https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_Connector.html).
-
   This operation also deletes any challenges associated with the connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20DeleteConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) of the connector
+    to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_connector(map(), String.t(), delete_connector_request(), list()) ::
+  @spec delete_connector(AWS.Client.t(), String.t(), delete_connector_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connector_errors()}
@@ -659,7 +676,8 @@ defmodule AWS.PcaConnectorScep do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -677,17 +695,42 @@ defmodule AWS.PcaConnectorScep do
   @doc """
   Retrieves the metadata for the specified
   [Challenge](https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_Challenge.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20GetChallengeMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:challenge_arn` (`t:string`) The Amazon Resource Name (ARN) of the challenge.
+
+  ## Optional parameters:
   """
-  @spec get_challenge_metadata(map(), String.t(), list()) ::
+  @spec get_challenge_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_challenge_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_challenge_metadata_errors()}
   def get_challenge_metadata(%Client{} = client, challenge_arn, options \\ []) do
     url_path = "/challengeMetadata/#{AWS.Util.encode_uri(challenge_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -695,17 +738,42 @@ defmodule AWS.PcaConnectorScep do
   @doc """
   Retrieves the challenge password for the specified
   [Challenge](https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_Challenge.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20GetChallengePassword&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:challenge_arn` (`t:string`) The Amazon Resource Name (ARN) of the challenge.
+
+  ## Optional parameters:
   """
-  @spec get_challenge_password(map(), String.t(), list()) ::
+  @spec get_challenge_password(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_challenge_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_challenge_password_errors()}
   def get_challenge_password(%Client{} = client, challenge_arn, options \\ []) do
     url_path = "/challengePasswords/#{AWS.Util.encode_uri(challenge_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -713,129 +781,242 @@ defmodule AWS.PcaConnectorScep do
   @doc """
   Retrieves details about the specified
   [Connector](https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_Connector.html).
-
   Calling this action returns important details about the connector, such as the
   public SCEP URL where your clients can request certificates.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20GetConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) of the connector.
+
+  ## Optional parameters:
   """
-  @spec get_connector(map(), String.t(), list()) ::
+  @spec get_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connector_errors()}
   def get_connector(%Client{} = client, connector_arn, options \\ []) do
     url_path = "/connectors/#{AWS.Util.encode_uri(connector_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the challenge metadata for the specified ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20ListChallengeMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) of the connector.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of objects that you want
+    Connector for SCEP to return for this request. If more objects are
+    available, in the response, Connector for SCEP provides a NextToken value
+    that you can use in a subsequent call to get the next batch of objects.
+  * `:next_token` (`t:string`) When you request a list of objects with a
+    MaxResults setting, if the number of objects that are still available for
+    retrieval exceeds the maximum you requested, Connector for SCEP returns a
+    NextToken value in the response. To retrieve the next batch of objects, use
+    the token returned from the prior request in your next request.
   """
-  @spec list_challenge_metadata(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_challenge_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_challenge_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_challenge_metadata_errors()}
-  def list_challenge_metadata(
-        %Client{} = client,
-        connector_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_challenge_metadata(%Client{} = client, connector_arn, options \\ []) do
     url_path = "/challengeMetadata"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"ConnectorArn", connector_arn}]
+
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(connector_arn) do
-        [{"ConnectorArn", connector_arn} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the connectors belonging to your Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20ListConnectors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of objects that you want
+    Connector for SCEP to return for this request. If more objects are
+    available, in the response, Connector for SCEP provides a NextToken value
+    that you can use in a subsequent call to get the next batch of objects.
+  * `:next_token` (`t:string`) When you request a list of objects with a
+    MaxResults setting, if the number of objects that are still available for
+    retrieval exceeds the maximum you requested, Connector for SCEP returns a
+    NextToken value in the response. To retrieve the next batch of objects, use
+    the token returned from the prior request in your next request.
   """
-  @spec list_connectors(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_connectors_errors()}
-  def list_connectors(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_connectors(%Client{} = client, options \\ []) do
     url_path = "/connectors"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves the tags associated with the specified resource.
+  Retrieves the tags associated with the specified resource. Tags are key-value
+  pairs that you can use to categorize and manage your resources, for purposes
+  like billing. For example, you might set the tag key to "customer" and the
+  value to the customer name or ID. You can specify one or more tags to add to
+  each Amazon Web Services resource, up to 50 tags for a resource.
 
-  Tags are key-value pairs that
-  you can use to categorize and manage your resources, for purposes like billing.
-  For
-  example, you might set the tag key to "customer" and the value to the customer
-  name or ID.
-  You can specify one or more tags to add to each Amazon Web Services resource, up
-  to 50 tags for a
-  resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Adds one or more tags to your resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -844,7 +1025,8 @@ defmodule AWS.PcaConnectorScep do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -861,8 +1043,17 @@ defmodule AWS.PcaConnectorScep do
 
   @doc """
   Removes one or more tags from your resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the resource.
+  * `:tag_keys` (`t:list[smithy.api#String]`) Specifies a list of tag keys that
+    you want to remove from the specified resources.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -876,7 +1067,8 @@ defmodule AWS.PcaConnectorScep do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

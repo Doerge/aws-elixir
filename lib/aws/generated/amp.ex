@@ -4,33 +4,16 @@
 defmodule AWS.Amp do
   @moduledoc """
   Amazon Managed Service for Prometheus is a serverless, Prometheus-compatible
-  monitoring service for
-  container metrics that makes it easier to securely monitor container
-  environments at
-  scale.
-
-  With Amazon Managed Service for Prometheus, you can use the same open-source
-  Prometheus data
-  model and query language that you use today to monitor the performance of your
-  containerized workloads, and also enjoy improved scalability, availability, and
-  security
-  without having to manage the underlying infrastructure.
-
-  For more information about Amazon Managed Service for Prometheus, see the
-  [Amazon Managed Service for Prometheus](https://docs.aws.amazon.com/prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.html)
-  User Guide.
-
-  Amazon Managed Service for Prometheus includes two APIs.
-
-    *
-  Use the Amazon Web Services API described in this guide to manage Amazon Managed
-  Service for Prometheus resources, such as workspaces, rule groups, and alert
-  managers.
-
-    *
-  Use the [Prometheus-compatible API](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html#AMP-APIReference-Prometheus-Compatible-Apis)
-  to work within your Prometheus
-  workspace.
+  monitoring service for container metrics that makes it easier to securely
+  monitor container environments at scale. With Amazon Managed Service for
+  Prometheus, you can use the same open-source Prometheus data model and query
+  language that you use today to monitor the performance of your containerized
+  workloads, and also enjoy improved scalability, availability, and security
+  without having to manage the underlying infrastructure. For more information
+  about Amazon Managed Service for Prometheus, see the [Amazon Managed Service
+  for
+  Prometheus](https://docs.aws.amazon.com/prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.html)
+  User Guide. Amazon Managed Service for Prometheus includes two APIs.
   """
 
   alias AWS.Client
@@ -1109,17 +1092,23 @@ defmodule AWS.Amp do
 
   @doc """
   The `CreateAlertManagerDefinition` operation creates the alert manager
-  definition in a workspace.
-
-  If a workspace already has an alert manager definition, don't
-  use this operation to update it. Instead, use
+  definition in a workspace. If a workspace already has an alert manager
+  definition, don't use this operation to update it. Instead, use
   `PutAlertManagerDefinition`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20CreateAlertManagerDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to add the alert manager
+    definition to.
+
+  ## Optional parameters:
   """
   @spec create_alert_manager_definition(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_alert_manager_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_alert_manager_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1129,7 +1118,8 @@ defmodule AWS.Amp do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1145,17 +1135,23 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  The `CreateLoggingConfiguration` operation creates a logging configuration
-  for the workspace.
+  The `CreateLoggingConfiguration` operation creates a logging configuration for
+  the workspace. Use this operation to set the CloudWatch log group to which the
+  logs will be published to.
 
-  Use this operation to set the CloudWatch log group to which
-  the logs will be published to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20CreateLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to create the logging
+    configuration for.
+
+  ## Optional parameters:
   """
   @spec create_logging_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_logging_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1165,7 +1161,8 @@ defmodule AWS.Amp do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1181,21 +1178,23 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  The `CreateRuleGroupsNamespace` operation creates a rule groups namespace
-  within a workspace.
+  The `CreateRuleGroupsNamespace` operation creates a rule groups namespace within
+  a workspace. A rule groups namespace is associated with exactly one rules
+  file. A workspace can have multiple rule groups namespaces.
 
-  A rule groups namespace is associated with exactly one rules file. A
-  workspace can have multiple rule groups namespaces.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20CreateRuleGroupsNamespace&this_doc_guide=API%2520Reference)
 
-  Use this operation only to create new rule groups namespaces. To update an
-  existing
-  rule groups namespace, use `PutRuleGroupsNamespace`.
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to add the rule groups
+    namespace.
+
+  ## Optional parameters:
   """
   @spec create_rule_groups_namespace(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_rule_groups_namespace_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_rule_groups_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1205,7 +1204,8 @@ defmodule AWS.Amp do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1221,35 +1221,26 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  The `CreateScraper` operation creates a scraper to collect metrics.
+  The `CreateScraper` operation creates a scraper to collect metrics. A scraper
+  pulls metrics from Prometheus-compatible sources within an Amazon EKS cluster,
+  and sends them to your Amazon Managed Service for Prometheus workspace. You
+  can configure the scraper to control what metrics are collected, and what
+  transformations are applied prior to sending them to your workspace. If
+  needed, an IAM role will be created for you that gives Amazon Managed Service
+  for Prometheus access to the metrics in your cluster. For more information,
+  see [Using roles for scraping metrics from
+  EKS](https://docs.aws.amazon.com/prometheus/latest/userguide/using-service-linked-roles.html#using-service-linked-roles-prom-scraper)
+  in the *Amazon Managed Service for Prometheus User Guide*. You cannot update a
+  scraper. If you want to change the configuration of the scraper, create a new
+  scraper and delete the old one.
 
-  A
-  scraper pulls metrics from Prometheus-compatible sources within an Amazon EKS
-  cluster, and sends them to your Amazon Managed Service for Prometheus workspace.
-  You can configure the
-  scraper to control what metrics are collected, and what transformations are
-  applied
-  prior to sending them to your workspace.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20CreateScraper&this_doc_guide=API%2520Reference)
 
-  If needed, an IAM role will be created for you that gives Amazon Managed Service
-  for Prometheus access to the metrics in your cluster. For more information, see
-  [Using roles for scraping metrics from EKS](https://docs.aws.amazon.com/prometheus/latest/userguide/using-service-linked-roles.html#using-service-linked-roles-prom-scraper)
-  in the *Amazon Managed Service for Prometheus User
-  Guide*.
+  ## Parameters:
 
-  You cannot update a scraper. If you want to change the configuration of the
-  scraper,
-  create a new scraper and delete the old one.
-
-  The `scrapeConfiguration` parameter contains the base64-encoded version of
-  the YAML configuration file.
-
-  For more information about collectors, including what metrics are collected, and
-  how to configure the scraper, see [Amazon Web Services managed collectors](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector.html)
-  in the *Amazon Managed Service for Prometheus User
-  Guide*.
+  ## Optional parameters:
   """
-  @spec create_scraper(map(), create_scraper_request(), list()) ::
+  @spec create_scraper(AWS.Client.t(), create_scraper_request(), Keyword.t()) ::
           {:ok, create_scraper_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_scraper_errors()}
@@ -1258,7 +1249,8 @@ defmodule AWS.Amp do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1274,14 +1266,17 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  Creates a Prometheus workspace.
+  Creates a Prometheus workspace. A workspace is a logical space dedicated to the
+  storage and querying of Prometheus metrics. You can have one or more
+  workspaces in each Region in your account.
 
-  A workspace is a logical space dedicated to the
-  storage and querying of Prometheus metrics. You can have one or more workspaces
-  in each
-  Region in your account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20CreateWorkspace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_workspace(map(), create_workspace_request(), list()) ::
+  @spec create_workspace(AWS.Client.t(), create_workspace_request(), Keyword.t()) ::
           {:ok, create_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workspace_errors()}
@@ -1290,7 +1285,8 @@ defmodule AWS.Amp do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1307,12 +1303,22 @@ defmodule AWS.Amp do
 
   @doc """
   Deletes the alert manager definition from a workspace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20DeleteAlertManagerDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to delete the alert
+    manager definition from.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A unique identifier that you can provide to
+    ensure the idempotency of the request. Case-sensitive.
   """
   @spec delete_alert_manager_definition(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_alert_manager_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -1327,7 +1333,13 @@ defmodule AWS.Amp do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -1344,12 +1356,22 @@ defmodule AWS.Amp do
 
   @doc """
   Deletes the logging configuration for a workspace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20DeleteLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace containing the logging
+    configuration to delete.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A unique identifier that you can provide to
+    ensure the idempotency of the request. Case-sensitive.
   """
   @spec delete_logging_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_logging_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -1364,7 +1386,13 @@ defmodule AWS.Amp do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -1381,13 +1409,24 @@ defmodule AWS.Amp do
 
   @doc """
   Deletes one rule groups namespace and its associated rule groups definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20DeleteRuleGroupsNamespace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the rule groups namespace to delete.
+  * `:workspace_id` (`t:string`) The ID of the workspace containing the rule
+    groups namespace and definition to delete.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A unique identifier that you can provide to
+    ensure the idempotency of the request. Case-sensitive.
   """
   @spec delete_rule_groups_namespace(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_rule_groups_namespace_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -1404,7 +1443,13 @@ defmodule AWS.Amp do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -1422,8 +1467,17 @@ defmodule AWS.Amp do
   @doc """
   The `DeleteScraper` operation deletes one scraper, and stops any metrics
   collection that the scraper performs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20DeleteScraper&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:scraper_id` (`t:string`) The ID of the scraper to delete.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) (Optional) A unique, case-sensitive identifier
+    that you can provide to ensure the idempotency of the request.
   """
-  @spec delete_scraper(map(), String.t(), delete_scraper_request(), list()) ::
+  @spec delete_scraper(AWS.Client.t(), String.t(), delete_scraper_request(), Keyword.t()) ::
           {:ok, delete_scraper_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_scraper_errors()}
@@ -1437,7 +1491,13 @@ defmodule AWS.Amp do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -1455,10 +1515,16 @@ defmodule AWS.Amp do
   @doc """
   Deletes an existing workspace.
 
-  When you delete a workspace, the data that has been ingested into it is not
-  immediately deleted. It will be permanently deleted within one month.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20DeleteWorkspace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to delete.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A unique identifier that you can provide to
+    ensure the idempotency of the request. Case-sensitive.
   """
-  @spec delete_workspace(map(), String.t(), delete_workspace_request(), list()) ::
+  @spec delete_workspace(AWS.Client.t(), String.t(), delete_workspace_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workspace_errors()}
@@ -1472,7 +1538,13 @@ defmodule AWS.Amp do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -1490,17 +1562,43 @@ defmodule AWS.Amp do
   @doc """
   Retrieves the full information about the alert manager definition for a
   workspace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20DescribeAlertManagerDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to retrieve the alert
+    manager definition from.
+
+  ## Optional parameters:
   """
-  @spec describe_alert_manager_definition(map(), String.t(), list()) ::
+  @spec describe_alert_manager_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_alert_manager_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_alert_manager_definition_errors()}
   def describe_alert_manager_definition(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alertmanager/definition"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1508,28 +1606,62 @@ defmodule AWS.Amp do
   @doc """
   Returns complete information about the current logging configuration of the
   workspace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20DescribeLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to describe the logging
+    configuration for.
+
+  ## Optional parameters:
   """
-  @spec describe_logging_configuration(map(), String.t(), list()) ::
+  @spec describe_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_logging_configuration_errors()}
   def describe_logging_configuration(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns complete information about one rule groups namespace.
+  Returns complete information about one rule groups namespace. To retrieve a list
+  of rule groups namespaces, use `ListRuleGroupsNamespaces`.
 
-  To retrieve a list of
-  rule groups namespaces, use `ListRuleGroupsNamespaces`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20DescribeRuleGroupsNamespace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the rule groups namespace that you want
+    information for.
+  * `:workspace_id` (`t:string`) The ID of the workspace containing the rule
+    groups namespace.
+
+  ## Optional parameters:
   """
-  @spec describe_rule_groups_namespace(map(), String.t(), String.t(), list()) ::
+  @spec describe_rule_groups_namespace(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_rule_groups_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_rule_groups_namespace_errors()}
@@ -1537,248 +1669,445 @@ defmodule AWS.Amp do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/rulegroupsnamespaces/#{AWS.Util.encode_uri(name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  The `DescribeScraper` operation displays information about an existing
-  scraper.
+  The `DescribeScraper` operation displays information about an existing scraper.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20DescribeScraper&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:scraper_id` (`t:string`) The ID of the scraper to describe.
+
+  ## Optional parameters:
   """
-  @spec describe_scraper(map(), String.t(), list()) ::
+  @spec describe_scraper(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_scraper_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_scraper_errors()}
   def describe_scraper(%Client{} = client, scraper_id, options \\ []) do
     url_path = "/scrapers/#{AWS.Util.encode_uri(scraper_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about an existing workspace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20DescribeWorkspace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to describe.
+
+  ## Optional parameters:
   """
-  @spec describe_workspace(map(), String.t(), list()) ::
+  @spec describe_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspace_errors()}
   def describe_workspace(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  The `GetDefaultScraperConfiguration` operation returns the default
-  scraper configuration used when Amazon EKS creates a scraper for you.
+  The `GetDefaultScraperConfiguration` operation returns the default scraper
+  configuration used when Amazon EKS creates a scraper for you.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20GetDefaultScraperConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_default_scraper_configuration(map(), list()) ::
+  @spec get_default_scraper_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_default_scraper_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_default_scraper_configuration_errors()}
   def get_default_scraper_configuration(%Client{} = client, options \\ []) do
     url_path = "/scraperconfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of rule groups namespaces in a workspace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20ListRuleGroupsNamespaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace containing the rule
+    groups namespaces.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of results to return. The default is
+    100.
+  * `:name` (`t:string`) Use this parameter to filter the rule groups namespaces
+    that are returned. Only the namespaces with names that begin with the value
+    that you specify are returned.
+  * `:next_token` (`t:string`) The token for the next set of items to return. You
+    receive this token from a previous call, and use it to get the next page of
+    results. The other parameters must be the same as the initial call.
   """
-  @spec list_rule_groups_namespaces(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_rule_groups_namespaces(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_rule_groups_namespaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rule_groups_namespaces_errors()}
-  def list_rule_groups_namespaces(
-        %Client{} = client,
-        workspace_id,
-        max_results \\ nil,
-        name \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_rule_groups_namespaces(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/rulegroupsnamespaces"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, name: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
+      if opt_val = Keyword.get(options, :name) do
+        [{"name", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :name, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  The `ListScrapers` operation lists all of the scrapers in
-  your account.
+  The `ListScrapers` operation lists all of the scrapers in your account. This
+  includes scrapers being created or deleted. You can optionally filter the
+  returned list.
 
-  This includes scrapers being created or deleted. You can optionally
-  filter the returned list.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20ListScrapers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:filters` (`t:map`) (Optional) A list of key-value pairs to filter the list
+    of scrapers returned. Keys include status, sourceArn, destinationArn, and
+    alias.
+  * `:max_results` (`t:`) Optional) The maximum number of scrapers to return in
+    one ListScrapers operation. The range is 1-1000.
+  * `:next_token` (`t:string`) (Optional) The token for the next set of items to
+    return. (You received this token from a previous call.)
   """
-  @spec list_scrapers(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_scrapers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_scrapers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_scrapers_errors()}
-  def list_scrapers(
-        %Client{} = client,
-        filters \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_scrapers(%Client{} = client, options \\ []) do
     url_path = "/scrapers"
+
+    # Validate optional parameters
+    optional_params = [filters: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(filters) do
-        [{"filters", filters} | query_params]
+      if opt_val = Keyword.get(options, :filters) do
+        [{"filters", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:filters, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  The `ListTagsForResource` operation returns the tags that are associated
-  with an Amazon Managed Service for Prometheus resource.
+  The `ListTagsForResource` operation returns the tags that are associated with an
+  Amazon Managed Service for Prometheus resource. Currently, the only resources
+  that can be tagged are workspaces and rule groups namespaces.
 
-  Currently, the only resources that can be
-  tagged are workspaces and rule groups namespaces.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The ARN of the resource to list tages for. Must be a
+    workspace or rule groups namespace resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all of the Amazon Managed Service for Prometheus workspaces in your
-  account.
+  account. This includes workspaces being created or deleted.
 
-  This includes
-  workspaces being created or deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20ListWorkspaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:alias` (`t:string`) If this is included, it filters the results to only the
+    workspaces with names that start with the value that you specify here.
+  * `:max_results` (`t:`) The maximum number of workspaces to return per request.
+    The default is 100.
+  * `:next_token` (`t:string`) The token for the next set of items to return. You
+    receive this token from a previous call, and use it to get the next page of
+    results. The other parameters must be the same as the initial call.
   """
-  @spec list_workspaces(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_workspaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workspaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workspaces_errors()}
-  def list_workspaces(
-        %Client{} = client,
-        alias \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_workspaces(%Client{} = client, options \\ []) do
     url_path = "/workspaces"
+
+    # Validate optional parameters
+    optional_params = [alias: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(alias) do
-        [{"alias", alias} | query_params]
+      if opt_val = Keyword.get(options, :alias) do
+        [{"alias", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:alias, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Updates an existing alert manager definition in a workspace.
+  Updates an existing alert manager definition in a workspace. If the workspace
+  does not already have an alert manager definition, don't use this operation to
+  create it. Instead, use `CreateAlertManagerDefinition`.
 
-  If the workspace does not
-  already have an alert manager definition, don't use this operation to create it.
-  Instead, use `CreateAlertManagerDefinition`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20PutAlertManagerDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to update the alert
+    manager definition in.
+
+  ## Optional parameters:
   """
   @spec put_alert_manager_definition(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_alert_manager_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_alert_manager_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1788,32 +2117,35 @@ defmodule AWS.Amp do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
-  Updates an existing rule groups namespace within a workspace.
+  Updates an existing rule groups namespace within a workspace. A rule groups
+  namespace is associated with exactly one rules file. A workspace can have
+  multiple rule groups namespaces. Use this operation only to update existing
+  rule groups namespaces. To create a new rule groups namespace, use
+  `CreateRuleGroupsNamespace`.
 
-  A rule groups namespace
-  is associated with exactly one rules file. A workspace can have multiple rule
-  groups
-  namespaces.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20PutRuleGroupsNamespace&this_doc_guide=API%2520Reference)
 
-  Use this operation only to update existing rule groups namespaces. To create a
-  new
-  rule groups namespace, use `CreateRuleGroupsNamespace`.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the rule groups namespace that you are
+    updating.
+  * `:workspace_id` (`t:string`) The ID of the workspace where you are updating
+    the rule groups namespace.
 
-  You can't use this operation to add tags to an existing rule groups namespace.
-  Instead, use `TagResource`.
+  ## Optional parameters:
   """
   @spec put_rule_groups_namespace(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           put_rule_groups_namespace_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_rule_groups_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1825,28 +2157,26 @@ defmodule AWS.Amp do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
   The `TagResource` operation associates tags with an Amazon Managed Service for
-  Prometheus
-  resource.
+  Prometheus resource. The only resources that can be tagged are workspaces and
+  rule groups namespaces.
 
-  The only resources that can be tagged are workspaces and rule groups
-  namespaces.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20TagResource&this_doc_guide=API%2520Reference)
 
-  If you specify a new tag key for the resource, this tag is appended to the list
-  of
-  tags associated with the resource. If you specify a tag key that is already
-  associated
-  with the resource, the new tag value that you specify replaces the previous
-  value for
-  that tag.
+  ## Parameters:
+  * `:resource_arn` (`t:`) The ARN of the workspace or rule groups namespace to
+    apply tags to.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1855,7 +2185,8 @@ defmodule AWS.Amp do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1872,12 +2203,19 @@ defmodule AWS.Amp do
 
   @doc """
   Removes the specified tags from an Amazon Managed Service for Prometheus
-  resource.
+  resource. The only resources that can be tagged are workspaces and rule groups
+  namespaces.
 
-  The only resources
-  that can be tagged are workspaces and rule groups namespaces.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The ARN of the workspace or rule groups namespace.
+  * `:tag_keys` (`t:list[com.amazonaws.amp#TagKey]`) The keys of the tags to
+    remove.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1891,7 +2229,8 @@ defmodule AWS.Amp do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1909,12 +2248,20 @@ defmodule AWS.Amp do
   @doc """
   Updates the log group ARN or the workspace ID of the current logging
   configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20UpdateLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to update the logging
+    configuration for.
+
+  ## Optional parameters:
   """
   @spec update_logging_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_logging_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1924,15 +2271,28 @@ defmodule AWS.Amp do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
   Updates the alias of an existing workspace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20UpdateWorkspaceAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to update.
+
+  ## Optional parameters:
   """
-  @spec update_workspace_alias(map(), String.t(), update_workspace_alias_request(), list()) ::
+  @spec update_workspace_alias(
+          AWS.Client.t(),
+          String.t(),
+          update_workspace_alias_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workspace_alias_errors()}
@@ -1941,7 +2301,8 @@ defmodule AWS.Amp do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

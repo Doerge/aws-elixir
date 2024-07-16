@@ -3,23 +3,9 @@
 
 defmodule AWS.BackupGateway do
   @moduledoc """
-  Backup gateway
-
-  Backup gateway connects Backup to your hypervisor, so you can
+  Backup gateway Backup gateway connects Backup to your hypervisor, so you can
   create, store, and restore backups of your virtual machines (VMs) anywhere,
-  whether
-  on-premises or in the VMware Cloud (VMC) on Amazon Web Services.
-
-  Add on-premises resources by connecting to a hypervisor through a gateway.
-  Backup will automatically discover the resources in your hypervisor.
-
-  Use Backup to assign virtual or on-premises resources to a backup plan, or run
-  on-demand backups. Once you have backed up your resources, you can view them and
-  restore them
-  like any resource supported by Backup.
-
-  To download the Amazon Web Services software to get started, navigate to the
-  Backup console, choose **Gateways**, then choose **Create gateway**.
+  whether on-premises or in the VMware Cloud (VMC) on Amazon Web Services.
   """
 
   alias AWS.Client
@@ -920,32 +906,34 @@ defmodule AWS.BackupGateway do
   end
 
   @doc """
-  Associates a backup gateway with your server.
-
-  After you complete the association process,
-  you can back up and restore your VMs through the gateway.
+  Associates a backup gateway with your server. After you complete the association
+  process, you can back up and restore your VMs through the gateway.
   """
-  @spec associate_gateway_to_server(map(), associate_gateway_to_server_input(), list()) ::
+  @spec associate_gateway_to_server(
+          AWS.Client.t(),
+          associate_gateway_to_server_input(),
+          Keyword.t()
+        ) ::
           {:ok, associate_gateway_to_server_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_gateway_to_server_errors()}
   def associate_gateway_to_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateGatewayToServer", input, options)
   end
 
   @doc """
-  Creates a backup gateway.
-
-  After you create a gateway, you can associate it with a server
-  using the `AssociateGatewayToServer` operation.
+  Creates a backup gateway. After you create a gateway, you can associate it with
+  a server using the `AssociateGatewayToServer` operation.
   """
-  @spec create_gateway(map(), create_gateway_input(), list()) ::
+  @spec create_gateway(AWS.Client.t(), create_gateway_input(), Keyword.t()) ::
           {:ok, create_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def create_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGateway", input, options)
   end
@@ -953,12 +941,13 @@ defmodule AWS.BackupGateway do
   @doc """
   Deletes a backup gateway.
   """
-  @spec delete_gateway(map(), delete_gateway_input(), list()) ::
+  @spec delete_gateway(AWS.Client.t(), delete_gateway_input(), Keyword.t()) ::
           {:ok, delete_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_gateway_errors()}
   def delete_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGateway", input, options)
   end
@@ -966,98 +955,105 @@ defmodule AWS.BackupGateway do
   @doc """
   Deletes a hypervisor.
   """
-  @spec delete_hypervisor(map(), delete_hypervisor_input(), list()) ::
+  @spec delete_hypervisor(AWS.Client.t(), delete_hypervisor_input(), Keyword.t()) ::
           {:ok, delete_hypervisor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_hypervisor_errors()}
   def delete_hypervisor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHypervisor", input, options)
   end
 
   @doc """
-  Disassociates a backup gateway from the specified server.
-
-  After the disassociation process
-  finishes, the gateway can no longer access the virtual machines on the server.
+  Disassociates a backup gateway from the specified server. After the
+  disassociation process finishes, the gateway can no longer access the virtual
+  machines on the server.
   """
-  @spec disassociate_gateway_from_server(map(), disassociate_gateway_from_server_input(), list()) ::
+  @spec disassociate_gateway_from_server(
+          AWS.Client.t(),
+          disassociate_gateway_from_server_input(),
+          Keyword.t()
+        ) ::
           {:ok, disassociate_gateway_from_server_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_gateway_from_server_errors()}
   def disassociate_gateway_from_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateGatewayFromServer", input, options)
   end
 
   @doc """
-  Retrieves the bandwidth rate limit schedule for a specified gateway.
-
-  By default, gateways do not have bandwidth rate limit schedules, which means
-  no bandwidth rate limiting is in effect. Use this to get a gateway's
-  bandwidth rate limit schedule.
+  Retrieves the bandwidth rate limit schedule for a specified gateway. By default,
+  gateways do not have bandwidth rate limit schedules, which means no bandwidth
+  rate limiting is in effect. Use this to get a gateway's bandwidth rate limit
+  schedule.
   """
   @spec get_bandwidth_rate_limit_schedule(
-          map(),
+          AWS.Client.t(),
           get_bandwidth_rate_limit_schedule_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_bandwidth_rate_limit_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bandwidth_rate_limit_schedule_errors()}
   def get_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBandwidthRateLimitSchedule", input, options)
   end
 
   @doc """
-  By providing the ARN (Amazon Resource Name), this
-  API returns the gateway.
+  By providing the ARN (Amazon Resource Name), this API returns the gateway.
   """
-  @spec get_gateway(map(), get_gateway_input(), list()) ::
+  @spec get_gateway(AWS.Client.t(), get_gateway_input(), Keyword.t()) ::
           {:ok, get_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_gateway_errors()}
   def get_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetGateway", input, options)
   end
 
   @doc """
   This action requests information about the specified hypervisor to which the
-  gateway will connect.
-
-  A hypervisor is hardware, software, or firmware that creates and manages virtual
-  machines,
-  and allocates resources to them.
+  gateway will connect. A hypervisor is hardware, software, or firmware that
+  creates and manages virtual machines, and allocates resources to them.
   """
-  @spec get_hypervisor(map(), get_hypervisor_input(), list()) ::
+  @spec get_hypervisor(AWS.Client.t(), get_hypervisor_input(), Keyword.t()) ::
           {:ok, get_hypervisor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_hypervisor_errors()}
   def get_hypervisor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetHypervisor", input, options)
   end
 
   @doc """
-  This action retrieves the property mappings for the specified hypervisor.
-
-  A hypervisor property mapping displays the relationship of entity properties
-  available from the on-premises hypervisor to the properties available in Amazon
-  Web Services.
+  This action retrieves the property mappings for the specified hypervisor. A
+  hypervisor property mapping displays the relationship of entity properties
+  available from the on-premises hypervisor to the properties available in
+  Amazon Web Services.
   """
-  @spec get_hypervisor_property_mappings(map(), get_hypervisor_property_mappings_input(), list()) ::
+  @spec get_hypervisor_property_mappings(
+          AWS.Client.t(),
+          get_hypervisor_property_mappings_input(),
+          Keyword.t()
+        ) ::
           {:ok, get_hypervisor_property_mappings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_hypervisor_property_mappings_errors()}
   def get_hypervisor_property_mappings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetHypervisorPropertyMappings", input, options)
   end
@@ -1066,12 +1062,13 @@ defmodule AWS.BackupGateway do
   By providing the ARN (Amazon Resource Name), this API returns the virtual
   machine.
   """
-  @spec get_virtual_machine(map(), get_virtual_machine_input(), list()) ::
+  @spec get_virtual_machine(AWS.Client.t(), get_virtual_machine_input(), Keyword.t()) ::
           {:ok, get_virtual_machine_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_virtual_machine_errors()}
   def get_virtual_machine(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetVirtualMachine", input, options)
   end
@@ -1079,27 +1076,32 @@ defmodule AWS.BackupGateway do
   @doc """
   Connect to a hypervisor by importing its configuration.
   """
-  @spec import_hypervisor_configuration(map(), import_hypervisor_configuration_input(), list()) ::
+  @spec import_hypervisor_configuration(
+          AWS.Client.t(),
+          import_hypervisor_configuration_input(),
+          Keyword.t()
+        ) ::
           {:ok, import_hypervisor_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_hypervisor_configuration_errors()}
   def import_hypervisor_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportHypervisorConfiguration", input, options)
   end
 
   @doc """
   Lists backup gateways owned by an Amazon Web Services account in an Amazon Web
-  Services Region.
-
-  The returned list is ordered by gateway Amazon Resource Name (ARN).
+  Services Region. The returned list is ordered by gateway Amazon Resource Name
+  (ARN).
   """
-  @spec list_gateways(map(), list_gateways_input(), list()) ::
+  @spec list_gateways(AWS.Client.t(), list_gateways_input(), Keyword.t()) ::
           {:ok, list_gateways_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_gateways(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGateways", input, options)
   end
@@ -1107,11 +1109,12 @@ defmodule AWS.BackupGateway do
   @doc """
   Lists your hypervisors.
   """
-  @spec list_hypervisors(map(), list_hypervisors_input(), list()) ::
+  @spec list_hypervisors(AWS.Client.t(), list_hypervisors_input(), Keyword.t()) ::
           {:ok, list_hypervisors_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_hypervisors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHypervisors", input, options)
   end
@@ -1120,12 +1123,13 @@ defmodule AWS.BackupGateway do
   Lists the tags applied to the resource identified by its Amazon Resource Name
   (ARN).
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_input(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1133,49 +1137,54 @@ defmodule AWS.BackupGateway do
   @doc """
   Lists your virtual machines.
   """
-  @spec list_virtual_machines(map(), list_virtual_machines_input(), list()) ::
+  @spec list_virtual_machines(AWS.Client.t(), list_virtual_machines_input(), Keyword.t()) ::
           {:ok, list_virtual_machines_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_virtual_machines(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListVirtualMachines", input, options)
   end
 
   @doc """
-  This action sets the bandwidth rate limit schedule for a specified gateway.
-
-  By default, gateways do not have a bandwidth rate limit schedule, which means
-  no bandwidth rate limiting is in effect. Use this to initiate a
-  gateway's bandwidth rate limit schedule.
+  This action sets the bandwidth rate limit schedule for a specified gateway. By
+  default, gateways do not have a bandwidth rate limit schedule, which means no
+  bandwidth rate limiting is in effect. Use this to initiate a gateway's
+  bandwidth rate limit schedule.
   """
   @spec put_bandwidth_rate_limit_schedule(
-          map(),
+          AWS.Client.t(),
           put_bandwidth_rate_limit_schedule_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_bandwidth_rate_limit_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_bandwidth_rate_limit_schedule_errors()}
   def put_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutBandwidthRateLimitSchedule", input, options)
   end
 
   @doc """
-  This action sets the property mappings for the specified hypervisor.
-
-  A hypervisor property mapping displays the relationship of entity properties
-  available from the on-premises hypervisor to the properties available in Amazon
-  Web Services.
+  This action sets the property mappings for the specified hypervisor. A
+  hypervisor property mapping displays the relationship of entity properties
+  available from the on-premises hypervisor to the properties available in
+  Amazon Web Services.
   """
-  @spec put_hypervisor_property_mappings(map(), put_hypervisor_property_mappings_input(), list()) ::
+  @spec put_hypervisor_property_mappings(
+          AWS.Client.t(),
+          put_hypervisor_property_mappings_input(),
+          Keyword.t()
+        ) ::
           {:ok, put_hypervisor_property_mappings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_hypervisor_property_mappings_errors()}
   def put_hypervisor_property_mappings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutHypervisorPropertyMappings", input, options)
   end
@@ -1183,12 +1192,17 @@ defmodule AWS.BackupGateway do
   @doc """
   Set the maintenance start time for a gateway.
   """
-  @spec put_maintenance_start_time(map(), put_maintenance_start_time_input(), list()) ::
+  @spec put_maintenance_start_time(
+          AWS.Client.t(),
+          put_maintenance_start_time_input(),
+          Keyword.t()
+        ) ::
           {:ok, put_maintenance_start_time_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_maintenance_start_time_errors()}
   def put_maintenance_start_time(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutMaintenanceStartTime", input, options)
   end
@@ -1198,15 +1212,16 @@ defmodule AWS.BackupGateway do
   machines.
   """
   @spec start_virtual_machines_metadata_sync(
-          map(),
+          AWS.Client.t(),
           start_virtual_machines_metadata_sync_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_virtual_machines_metadata_sync_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_virtual_machines_metadata_sync_errors()}
   def start_virtual_machines_metadata_sync(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartVirtualMachinesMetadataSync", input, options)
   end
@@ -1214,27 +1229,32 @@ defmodule AWS.BackupGateway do
   @doc """
   Tag the resource.
   """
-  @spec tag_resource(map(), tag_resource_input(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_input(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Tests your hypervisor configuration to validate that backup gateway can connect
-  with the
-  hypervisor and its resources.
+  with the hypervisor and its resources.
   """
-  @spec test_hypervisor_configuration(map(), test_hypervisor_configuration_input(), list()) ::
+  @spec test_hypervisor_configuration(
+          AWS.Client.t(),
+          test_hypervisor_configuration_input(),
+          Keyword.t()
+        ) ::
           {:ok, test_hypervisor_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_hypervisor_configuration_errors()}
   def test_hypervisor_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TestHypervisorConfiguration", input, options)
   end
@@ -1242,65 +1262,67 @@ defmodule AWS.BackupGateway do
   @doc """
   Removes tags from the resource.
   """
-  @spec untag_resource(map(), untag_resource_input(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
-  Updates a gateway's name.
-
-  Specify which gateway to update using the Amazon Resource Name
-  (ARN) of the gateway in your request.
+  Updates a gateway's name. Specify which gateway to update using the Amazon
+  Resource Name (ARN) of the gateway in your request.
   """
-  @spec update_gateway_information(map(), update_gateway_information_input(), list()) ::
+  @spec update_gateway_information(
+          AWS.Client.t(),
+          update_gateway_information_input(),
+          Keyword.t()
+        ) ::
           {:ok, update_gateway_information_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_gateway_information_errors()}
   def update_gateway_information(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGatewayInformation", input, options)
   end
 
   @doc """
-  Updates the gateway virtual machine (VM) software.
-
-  The request immediately triggers the software update.
-
-  When you make this request, you get a `200 OK`
-  success response immediately. However, it might take some
-  time for the update to complete.
+  Updates the gateway virtual machine (VM) software. The request immediately
+  triggers the software update.
   """
-  @spec update_gateway_software_now(map(), update_gateway_software_now_input(), list()) ::
+  @spec update_gateway_software_now(
+          AWS.Client.t(),
+          update_gateway_software_now_input(),
+          Keyword.t()
+        ) ::
           {:ok, update_gateway_software_now_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_gateway_software_now_errors()}
   def update_gateway_software_now(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGatewaySoftwareNow", input, options)
   end
 
   @doc """
   Updates a hypervisor metadata, including its host, username, and password.
-
-  Specify which
-  hypervisor to update using the Amazon Resource Name (ARN) of the hypervisor in
-  your
-  request.
+  Specify which hypervisor to update using the Amazon Resource Name (ARN) of the
+  hypervisor in your request.
   """
-  @spec update_hypervisor(map(), update_hypervisor_input(), list()) ::
+  @spec update_hypervisor(AWS.Client.t(), update_hypervisor_input(), Keyword.t()) ::
           {:ok, update_hypervisor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_hypervisor_errors()}
   def update_hypervisor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateHypervisor", input, options)
   end

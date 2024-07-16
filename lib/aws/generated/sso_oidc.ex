@@ -4,60 +4,10 @@
 defmodule AWS.SSOOIDC do
   @moduledoc """
   IAM Identity Center OpenID Connect (OIDC) is a web service that enables a client
-  (such as CLI
-  or a native application) to register with IAM Identity Center.
-
-  The service also enables the client to
-  fetch the user’s access token upon successful authentication and authorization
-  with
-  IAM Identity Center.
-
-  IAM Identity Center uses the `sso` and `identitystore` API namespaces.
-
-  ## Considerations for Using This Guide
-
-  Before you begin using this guide, we recommend that you first review the
-  following
-  important information about how the IAM Identity Center OIDC service works.
-
-    *
-  The IAM Identity Center OIDC service currently implements only the portions of
-  the OAuth 2.0 Device
-  Authorization Grant standard
-  ([https://tools.ietf.org/html/rfc8628](https://tools.ietf.org/html/rfc8628)) that are necessary to enable single
-  sign-on authentication with the CLI.
-
-    *
-  With older versions of the CLI, the service only emits OIDC access tokens, so to
-  obtain a new token, users must explicitly re-authenticate. To access the OIDC
-  flow that
-  supports token refresh and doesn’t require re-authentication, update to the
-  latest CLI
-  version (1.27.10 for CLI V1 and 2.9.0 for CLI V2) with support for OIDC token
-  refresh and
-  configurable IAM Identity Center session durations. For more information, see
-  [Configure Amazon Web Services access portal session duration
-  ](https://docs.aws.amazon.com/singlesignon/latest/userguide/configure-user-session.html).
-
-    *
-  The access tokens provided by this service grant access to all Amazon Web
-  Services account
-  entitlements assigned to an IAM Identity Center user, not just a particular
-  application.
-
-    *
-  The documentation in this guide does not describe the mechanism to convert the
-  access
-  token into Amazon Web Services Auth (“sigv4”) credentials for use with
-  IAM-protected Amazon Web Services service
-  endpoints. For more information, see
-  [GetRoleCredentials](https://docs.aws.amazon.com/singlesignon/latest/PortalAPIReference/API_GetRoleCredentials.html) in the *IAM Identity Center Portal API Reference
-  Guide*.
-
-  For general information about IAM Identity Center, see [What is
-  IAM Identity
-  Center?](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)
-  in the *IAM Identity Center User Guide*.
+  (such as CLI or a native application) to register with IAM Identity Center.
+  The service also enables the client to fetch the user’s access token upon
+  successful authentication and authorization with IAM Identity Center. IAM
+  Identity Center uses the `sso` and `identitystore` API namespaces.
   """
 
   alias AWS.Client
@@ -427,13 +377,17 @@ defmodule AWS.SSOOIDC do
 
   @doc """
   Creates and returns access and refresh tokens for clients that are authenticated
-  using
-  client secrets.
+  using client secrets. The access token can be used to fetch short-term
+  credentials for the assigned AWS accounts or to access application APIs using
+  `bearer` authentication.
 
-  The access token can be used to fetch short-term credentials for the assigned
-  AWS accounts or to access application APIs using `bearer` authentication.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssooidc%20CreateToken&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_token(map(), create_token_request(), list()) ::
+  @spec create_token(AWS.Client.t(), create_token_request(), Keyword.t()) ::
           {:ok, create_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_token_errors()}
@@ -442,7 +396,8 @@ defmodule AWS.SSOOIDC do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -459,15 +414,17 @@ defmodule AWS.SSOOIDC do
 
   @doc """
   Creates and returns access and refresh tokens for clients and applications that
-  are
-  authenticated using IAM entities.
+  are authenticated using IAM entities. The access token can be used to fetch
+  short-term credentials for the assigned Amazon Web Services accounts or to
+  access application APIs using `bearer` authentication.
 
-  The access token can be used to fetch short-term credentials
-  for the assigned Amazon Web Services accounts or to access application APIs
-  using `bearer`
-  authentication.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssooidc%20CreateTokenWithIAM&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_token_with_iam(map(), create_token_with_iam_request(), list()) ::
+  @spec create_token_with_iam(AWS.Client.t(), create_token_with_iam_request(), Keyword.t()) ::
           {:ok, create_token_with_iam_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_token_with_iam_errors()}
@@ -476,7 +433,8 @@ defmodule AWS.SSOOIDC do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -492,12 +450,17 @@ defmodule AWS.SSOOIDC do
   end
 
   @doc """
-  Registers a client with IAM Identity Center.
+  Registers a client with IAM Identity Center. This allows clients to initiate
+  device authorization. The output should be persisted for reuse through many
+  authentication requests.
 
-  This allows clients to initiate device authorization.
-  The output should be persisted for reuse through many authentication requests.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssooidc%20RegisterClient&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec register_client(map(), register_client_request(), list()) ::
+  @spec register_client(AWS.Client.t(), register_client_request(), Keyword.t()) ::
           {:ok, register_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_client_errors()}
@@ -506,7 +469,8 @@ defmodule AWS.SSOOIDC do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -523,10 +487,19 @@ defmodule AWS.SSOOIDC do
 
   @doc """
   Initiates device authorization by requesting a pair of verification codes from
-  the
-  authorization service.
+  the authorization service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssooidc%20StartDeviceAuthorization&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_device_authorization(map(), start_device_authorization_request(), list()) ::
+  @spec start_device_authorization(
+          AWS.Client.t(),
+          start_device_authorization_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_device_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_device_authorization_errors()}
@@ -535,7 +508,8 @@ defmodule AWS.SSOOIDC do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

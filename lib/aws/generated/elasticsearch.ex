@@ -3,21 +3,8 @@
 
 defmodule AWS.Elasticsearch do
   @moduledoc """
-  Amazon Elasticsearch Configuration Service
-
-  Use the Amazon Elasticsearch Configuration API to create, configure, and manage
-  Elasticsearch domains.
-
-  For sample code that uses the Configuration API, see the [Amazon Elasticsearch Service Developer
-  Guide](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-samples.html).
-  The guide also contains [sample code for sending signed HTTP requests to the Elasticsearch
-  APIs](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-request-signing.html).
-
-  The endpoint for configuration service requests is region-specific:
-  es.*region*.amazonaws.com.
-  For example, es.us-east-1.amazonaws.com. For a current list of supported regions
-  and endpoints,
-  see [Regions and Endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticsearch-service-regions).
+  Amazon Elasticsearch Configuration Service Use the Amazon Elasticsearch
+  Configuration API to create, configure, and manage Elasticsearch domains.
   """
 
   alias AWS.Client
@@ -2742,12 +2729,20 @@ defmodule AWS.Elasticsearch do
   @doc """
   Allows the destination domain owner to accept an inbound cross-cluster search
   connection request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20AcceptInboundCrossClusterSearchConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cross_cluster_search_connection_id` (`t:string`) The id of the inbound
+    connection that you want to accept.
+
+  ## Optional parameters:
   """
   @spec accept_inbound_cross_cluster_search_connection(
-          map(),
+          AWS.Client.t(),
           String.t(),
           accept_inbound_cross_cluster_search_connection_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, accept_inbound_cross_cluster_search_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2764,20 +2759,25 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Attaches tags to an existing Elasticsearch domain.
-
-  Tags are a set of case-sensitive key value pairs. An Elasticsearch domain may
-  have up to 10 tags. See [
-  Tagging Amazon Elasticsearch Service Domains for more
+  Attaches tags to an existing Elasticsearch domain. Tags are a set of
+  case-sensitive key value pairs. An Elasticsearch domain may have up to 10
+  tags. See [ Tagging Amazon Elasticsearch Service Domains for more
   information.](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging)
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20AddTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec add_tags(map(), add_tags_request(), list()) ::
+  @spec add_tags(AWS.Client.t(), add_tags_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_errors()}
@@ -2786,7 +2786,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2803,8 +2804,24 @@ defmodule AWS.Elasticsearch do
 
   @doc """
   Associates a package with an Amazon ES domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20AssociatePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) Name of the domain that you want to associate the
+    package with.
+  * `:package_id` (`t:string`) Internal ID of the package that you want to
+    associate with a domain. Use DescribePackages to find this value.
+
+  ## Optional parameters:
   """
-  @spec associate_package(map(), String.t(), String.t(), associate_package_request(), list()) ::
+  @spec associate_package(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          associate_package_request(),
+          Keyword.t()
+        ) ::
           {:ok, associate_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_package_errors()}
@@ -2815,7 +2832,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2833,12 +2851,20 @@ defmodule AWS.Elasticsearch do
   @doc """
   Provides access to an Amazon OpenSearch Service domain through the use of an
   interface VPC endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20AuthorizeVpcEndpointAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain to
+    provide access to.
+
+  ## Optional parameters:
   """
   @spec authorize_vpc_endpoint_access(
-          map(),
+          AWS.Client.t(),
           String.t(),
           authorize_vpc_endpoint_access_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, authorize_vpc_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2850,7 +2876,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2867,12 +2894,20 @@ defmodule AWS.Elasticsearch do
 
   @doc """
   Cancels a pending configuration change on an Amazon OpenSearch Service domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20CancelDomainConfigChange&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) Name of the OpenSearch Service domain
+    configuration request to cancel.
+
+  ## Optional parameters:
   """
   @spec cancel_domain_config_change(
-          map(),
+          AWS.Client.t(),
           String.t(),
           cancel_domain_config_change_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, cancel_domain_config_change_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2882,7 +2917,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2898,15 +2934,20 @@ defmodule AWS.Elasticsearch do
   end
 
   @doc """
-  Cancels a scheduled service software update for an Amazon ES domain.
+  Cancels a scheduled service software update for an Amazon ES domain. You can
+  only perform this operation before the `AutomatedUpdateDate` and when the
+  `UpdateStatus` is in the `PENDING_UPDATE` state.
 
-  You can only perform this operation before the `AutomatedUpdateDate` and when
-  the `UpdateStatus` is in the `PENDING_UPDATE` state.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20CancelElasticsearchServiceSoftwareUpdate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec cancel_elasticsearch_service_software_update(
-          map(),
+          AWS.Client.t(),
           cancel_elasticsearch_service_software_update_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, cancel_elasticsearch_service_software_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2916,7 +2957,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2932,13 +2974,22 @@ defmodule AWS.Elasticsearch do
   end
 
   @doc """
-  Creates a new Elasticsearch domain.
-
-  For more information,
-  see [Creating Elasticsearch Domains](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains)
+  Creates a new Elasticsearch domain. For more information, see [Creating
+  Elasticsearch
+  Domains](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains)
   in the *Amazon Elasticsearch Service Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20CreateElasticsearchDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_elasticsearch_domain(map(), create_elasticsearch_domain_request(), list()) ::
+  @spec create_elasticsearch_domain(
+          AWS.Client.t(),
+          create_elasticsearch_domain_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_elasticsearch_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_elasticsearch_domain_errors()}
@@ -2947,7 +2998,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2965,11 +3017,17 @@ defmodule AWS.Elasticsearch do
   @doc """
   Creates a new cross-cluster search connection from a source domain to a
   destination domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20CreateOutboundCrossClusterSearchConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_outbound_cross_cluster_search_connection(
-          map(),
+          AWS.Client.t(),
           create_outbound_cross_cluster_search_connection_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_outbound_cross_cluster_search_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2979,7 +3037,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2996,8 +3055,14 @@ defmodule AWS.Elasticsearch do
 
   @doc """
   Create a package for use with Amazon ES domains.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20CreatePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_package(map(), create_package_request(), list()) ::
+  @spec create_package(AWS.Client.t(), create_package_request(), Keyword.t()) ::
           {:ok, create_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_package_errors()}
@@ -3006,7 +3071,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3023,8 +3089,14 @@ defmodule AWS.Elasticsearch do
 
   @doc """
   Creates an Amazon OpenSearch Service-managed VPC endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20CreateVpcEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_vpc_endpoint(map(), create_vpc_endpoint_request(), list()) ::
+  @spec create_vpc_endpoint(AWS.Client.t(), create_vpc_endpoint_request(), Keyword.t()) ::
           {:ok, create_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vpc_endpoint_errors()}
@@ -3033,7 +3105,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3049,15 +3122,22 @@ defmodule AWS.Elasticsearch do
   end
 
   @doc """
-  Permanently deletes the specified Elasticsearch domain and all of its data.
+  Permanently deletes the specified Elasticsearch domain and all of its data. Once
+  a domain is deleted, it cannot be recovered.
 
-  Once a domain is deleted, it cannot be recovered.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DeleteElasticsearchDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the Elasticsearch domain that you want
+    to permanently delete.
+
+  ## Optional parameters:
   """
   @spec delete_elasticsearch_domain(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_elasticsearch_domain_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_elasticsearch_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3067,7 +3147,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3084,14 +3165,19 @@ defmodule AWS.Elasticsearch do
 
   @doc """
   Deletes the service-linked role that Elasticsearch Service uses to manage and
-  maintain VPC domains.
-
-  Role deletion will fail if any existing VPC domains use the role. You must
-  delete any such Elasticsearch domains before deleting the role. See [Deleting Elasticsearch Service
+  maintain VPC domains. Role deletion will fail if any existing VPC domains use
+  the role. You must delete any such Elasticsearch domains before deleting the
+  role. See [Deleting Elasticsearch Service
   Role](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-enabling-slr)
   in *VPC Endpoints for Amazon Elasticsearch Service Domains*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DeleteElasticsearchServiceRole&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_elasticsearch_service_role(map(), %{}, list()) ::
+  @spec delete_elasticsearch_service_role(AWS.Client.t(), %{}, Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_elasticsearch_service_role_errors()}
@@ -3100,7 +3186,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3118,12 +3205,20 @@ defmodule AWS.Elasticsearch do
   @doc """
   Allows the destination domain owner to delete an existing inbound cross-cluster
   search connection.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DeleteInboundCrossClusterSearchConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cross_cluster_search_connection_id` (`t:string`) The id of the inbound
+    connection that you want to permanently delete.
+
+  ## Optional parameters:
   """
   @spec delete_inbound_cross_cluster_search_connection(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_inbound_cross_cluster_search_connection_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_inbound_cross_cluster_search_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3140,7 +3235,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3158,12 +3254,20 @@ defmodule AWS.Elasticsearch do
   @doc """
   Allows the source domain owner to delete an existing outbound cross-cluster
   search connection.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DeleteOutboundCrossClusterSearchConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cross_cluster_search_connection_id` (`t:string`) The id of the outbound
+    connection that you want to permanently delete.
+
+  ## Optional parameters:
   """
   @spec delete_outbound_cross_cluster_search_connection(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_outbound_cross_cluster_search_connection_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_outbound_cross_cluster_search_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3180,7 +3284,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3197,8 +3302,16 @@ defmodule AWS.Elasticsearch do
 
   @doc """
   Delete the package.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DeletePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_id` (`t:string`) Internal ID of the package that you want to delete.
+    Use DescribePackages to find this value.
+
+  ## Optional parameters:
   """
-  @spec delete_package(map(), String.t(), delete_package_request(), list()) ::
+  @spec delete_package(AWS.Client.t(), String.t(), delete_package_request(), Keyword.t()) ::
           {:ok, delete_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_package_errors()}
@@ -3207,7 +3320,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3224,8 +3338,21 @@ defmodule AWS.Elasticsearch do
 
   @doc """
   Deletes an Amazon OpenSearch Service-managed interface VPC endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DeleteVpcEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:vpc_endpoint_id` (`t:string`) The unique identifier of the endpoint to be
+    deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_vpc_endpoint(map(), String.t(), delete_vpc_endpoint_request(), list()) ::
+  @spec delete_vpc_endpoint(
+          AWS.Client.t(),
+          String.t(),
+          delete_vpc_endpoint_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vpc_endpoint_errors()}
@@ -3234,7 +3361,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3252,48 +3380,101 @@ defmodule AWS.Elasticsearch do
   @doc """
   Provides scheduled Auto-Tune action details for the Elasticsearch domain, such
   as Auto-Tune action type, description, severity, and scheduled date.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeDomainAutoTunes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) Specifies the domain name for which you want
+    Auto-Tune action details.
+
+  ## Optional parameters:
   """
-  @spec describe_domain_auto_tunes(map(), String.t(), list()) ::
+  @spec describe_domain_auto_tunes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_auto_tunes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_auto_tunes_errors()}
   def describe_domain_auto_tunes(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/autoTunes"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about the current blue/green deployment happening on a
-  domain, including
-  a change ID, status, and progress stages.
+  domain, including a change ID, status, and progress stages.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeDomainChangeProgress&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The domain you want to get the progress
+    information about.
+
+  ## Optional parameters:
+  * `:change_id` (`t:string`) The specific change ID for which you want to get
+    progress information. This is an optional parameter. If omitted, the service
+    returns information about the most recent configuration change.
   """
-  @spec describe_domain_change_progress(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_domain_change_progress(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_change_progress_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_change_progress_errors()}
-  def describe_domain_change_progress(
-        %Client{} = client,
-        domain_name,
-        change_id \\ nil,
-        options \\ []
-      ) do
+  def describe_domain_change_progress(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/progress"
+
+    # Validate optional parameters
+    optional_params = [change_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(change_id) do
-        [{"changeid", change_id} | query_params]
+      if opt_val = Keyword.get(options, :change_id) do
+        [{"changeid", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:change_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3301,17 +3482,43 @@ defmodule AWS.Elasticsearch do
   @doc """
   Returns domain configuration information about the specified Elasticsearch
   domain, including the domain ID, domain endpoint, and domain ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeElasticsearchDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the Elasticsearch domain for which you
+    want information.
+
+  ## Optional parameters:
   """
-  @spec describe_elasticsearch_domain(map(), String.t(), list()) ::
+  @spec describe_elasticsearch_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_elasticsearch_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_elasticsearch_domain_errors()}
   def describe_elasticsearch_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3320,17 +3527,43 @@ defmodule AWS.Elasticsearch do
   Provides cluster configuration information about the specified Elasticsearch
   domain, such as the state, creation date, update version, and update date for
   cluster options.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeElasticsearchDomainConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The Elasticsearch domain that you want to get
+    information about.
+
+  ## Optional parameters:
   """
-  @spec describe_elasticsearch_domain_config(map(), String.t(), list()) ::
+  @spec describe_elasticsearch_domain_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_elasticsearch_domain_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_elasticsearch_domain_config_errors()}
   def describe_elasticsearch_domain_config(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/config"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3338,8 +3571,18 @@ defmodule AWS.Elasticsearch do
   @doc """
   Returns domain configuration information about the specified Elasticsearch
   domains, including the domain ID, domain endpoint, and domain ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeElasticsearchDomains&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_elasticsearch_domains(map(), describe_elasticsearch_domains_request(), list()) ::
+  @spec describe_elasticsearch_domains(
+          AWS.Client.t(),
+          describe_elasticsearch_domains_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_elasticsearch_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_elasticsearch_domains_errors()}
@@ -3348,7 +3591,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3364,25 +3608,30 @@ defmodule AWS.Elasticsearch do
   end
 
   @doc """
-
   Describe Elasticsearch Limits for a given InstanceType and ElasticsearchVersion.
+  When modifying existing Domain, specify the ``` `DomainName` ``` to know what
+  Limits are supported for modifying.
 
-  When modifying existing Domain, specify the
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeElasticsearchInstanceTypeLimits&this_doc_guide=API%2520Reference)
 
-  ```
+  ## Parameters:
+  * `:elasticsearch_version` (`t:string`) Version of Elasticsearch for which
+    Limits are needed.
+  * `:instance_type`
+    (`t:enum["m5_xlarge_elasticsearch|i3_xlarge_elasticsearch|d2_2xlarge_elasticsearch|i3_2xlarge_elasticsearch|c4_large_elasticsearch|i3_4xlarge_elasticsearch|m4_xlarge_elasticsearch|c4_4xlarge_elasticsearch|m5_large_elasticsearch|c5_large_elasticsearch|t2_micro_elasticsearch|r3_8xlarge_elasticsearch|r4_8xlarge_elasticsearch|c5_2xlarge_elasticsearch|r4_16xlarge_elasticsearch|r4_4xlarge_elasticsearch|r3_xlarge_elasticsearch|m3_medium_elasticsearch|m5_12xlarge_elasticsearch|d2_xlarge_elasticsearch|r4_xlarge_elasticsearch|c5_xlarge_elasticsearch|ultrawarm1_medium_elasticsearch|c5_4xlarge_elasticsearch|r3_2xlarge_elasticsearch|r5_xlarge_elasticsearch|m3_large_elasticsearch|t2_small_elasticsearch|d2_8xlarge_elasticsearch|m4_2xlarge_elasticsearch|m4_4xlarge_elasticsearch|r4_large_elasticsearch|i2_xlarge_elasticsearch|r4_2xlarge_elasticsearch|m3_2xlarge_elasticsearch|r3_large_elasticsearch|m5_4xlarge_elasticsearch|t2_medium_elasticsearch|c4_8xlarge_elasticsearch|c5_18xlarge_elasticsearch|r5_4xlarge_elasticsearch|d2_4xlarge_elasticsearch|m4_large_elasticsearch|i3_8xlarge_elasticsearch|c5_9xlarge_elasticsearch|i3_large_elasticsearch|ultrawarm1_large_elasticsearch|r5_12xlarge_elasticsearch|m5_2xlarge_elasticsearch|r3_4xlarge_elasticsearch|i3_16xlarge_elasticsearch|r5_large_elasticsearch|m4_10xlarge_elasticsearch|c4_2xlarge_elasticsearch|i2_2xlarge_elasticsearch|c4_xlarge_elasticsearch|m3_xlarge_elasticsearch|r5_2xlarge_elasticsearch"]`)
+    The instance type for an Elasticsearch cluster for which Elasticsearch
+    Limits are needed.
 
-  `DomainName`
-
-  ```
-
-  to know what Limits are supported for modifying.
+  ## Optional parameters:
+  * `:domain_name` (`t:string`) DomainName represents the name of the Domain that
+    we are trying to modify. This should be present only if we are querying for
+    Elasticsearch Limits for existing domain.
   """
   @spec describe_elasticsearch_instance_type_limits(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
-          String.t() | nil,
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_elasticsearch_instance_type_limits_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3391,34 +3640,60 @@ defmodule AWS.Elasticsearch do
         %Client{} = client,
         elasticsearch_version,
         instance_type,
-        domain_name \\ nil,
         options \\ []
       ) do
     url_path =
       "/2015-01-01/es/instanceTypeLimits/#{AWS.Util.encode_uri(elasticsearch_version)}/#{AWS.Util.encode_uri(instance_type)}"
 
+    # Validate optional parameters
+    optional_params = [domain_name: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(domain_name) do
-        [{"domainName", domain_name} | query_params]
+      if opt_val = Keyword.get(options, :domain_name) do
+        [{"domainName", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:domain_name])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all the inbound cross-cluster search connections for a destination domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeInboundCrossClusterSearchConnections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec describe_inbound_cross_cluster_search_connections(
-          map(),
+          AWS.Client.t(),
           describe_inbound_cross_cluster_search_connections_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_inbound_cross_cluster_search_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3428,7 +3703,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3445,11 +3721,17 @@ defmodule AWS.Elasticsearch do
 
   @doc """
   Lists all the outbound cross-cluster search connections for a source domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeOutboundCrossClusterSearchConnections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec describe_outbound_cross_cluster_search_connections(
-          map(),
+          AWS.Client.t(),
           describe_outbound_cross_cluster_search_connections_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_outbound_cross_cluster_search_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3459,7 +3741,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3475,11 +3758,16 @@ defmodule AWS.Elasticsearch do
   end
 
   @doc """
-  Describes all packages available to Amazon ES.
+  Describes all packages available to Amazon ES. Includes options for filtering,
+  limiting the number of results, and pagination.
 
-  Includes options for filtering, limiting the number of results, and pagination.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribePackages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_packages(map(), describe_packages_request(), list()) ::
+  @spec describe_packages(AWS.Client.t(), describe_packages_request(), Keyword.t()) ::
           {:ok, describe_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_packages_errors()}
@@ -3488,7 +3776,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3505,108 +3794,164 @@ defmodule AWS.Elasticsearch do
 
   @doc """
   Lists available reserved Elasticsearch instance offerings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeReservedElasticsearchInstanceOfferings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Set this value to limit the number of results
+    returned. If not specified, defaults to 100.
+  * `:next_token` (`t:string`) NextToken should be sent in case if earlier API
+    call produced result containing NextToken. It is used for pagination.
+  * `:reserved_elasticsearch_instance_offering_id` (`t:string`) The offering
+    identifier filter value. Use this parameter to show only the available
+    offering that matches the specified reservation identifier.
   """
-  @spec describe_reserved_elasticsearch_instance_offerings(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec describe_reserved_elasticsearch_instance_offerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_reserved_elasticsearch_instance_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_reserved_elasticsearch_instance_offerings_errors()}
-  def describe_reserved_elasticsearch_instance_offerings(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        reserved_elasticsearch_instance_offering_id \\ nil,
-        options \\ []
-      ) do
+  def describe_reserved_elasticsearch_instance_offerings(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/es/reservedInstanceOfferings"
+
+    # Validate optional parameters
+    optional_params = [
+      max_results: nil,
+      next_token: nil,
+      reserved_elasticsearch_instance_offering_id: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(reserved_elasticsearch_instance_offering_id) do
-        [{"offeringId", reserved_elasticsearch_instance_offering_id} | query_params]
+      if opt_val = Keyword.get(options, :reserved_elasticsearch_instance_offering_id) do
+        [{"offeringId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :reserved_elasticsearch_instance_offering_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about reserved Elasticsearch instances for this account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeReservedElasticsearchInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Set this value to limit the number of results
+    returned. If not specified, defaults to 100.
+  * `:next_token` (`t:string`) NextToken should be sent in case if earlier API
+    call produced result containing NextToken. It is used for pagination.
+  * `:reserved_elasticsearch_instance_id` (`t:string`) The reserved instance
+    identifier filter value. Use this parameter to show only the reservation
+    that matches the specified reserved Elasticsearch instance ID.
   """
-  @spec describe_reserved_elasticsearch_instances(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec describe_reserved_elasticsearch_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_reserved_elasticsearch_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_reserved_elasticsearch_instances_errors()}
-  def describe_reserved_elasticsearch_instances(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        reserved_elasticsearch_instance_id \\ nil,
-        options \\ []
-      ) do
+  def describe_reserved_elasticsearch_instances(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/es/reservedInstances"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, reserved_elasticsearch_instance_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(reserved_elasticsearch_instance_id) do
-        [{"reservationId", reserved_elasticsearch_instance_id} | query_params]
+      if opt_val = Keyword.get(options, :reserved_elasticsearch_instance_id) do
+        [{"reservationId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :reserved_elasticsearch_instance_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes one or more Amazon OpenSearch Service-managed VPC endpoints.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeVpcEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_vpc_endpoints(map(), describe_vpc_endpoints_request(), list()) ::
+  @spec describe_vpc_endpoints(AWS.Client.t(), describe_vpc_endpoints_request(), Keyword.t()) ::
           {:ok, describe_vpc_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_vpc_endpoints_errors()}
@@ -3615,7 +3960,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3632,8 +3978,24 @@ defmodule AWS.Elasticsearch do
 
   @doc """
   Dissociates a package from the Amazon ES domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DissociatePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) Name of the domain that you want to associate the
+    package with.
+  * `:package_id` (`t:string`) Internal ID of the package that you want to
+    associate with a domain. Use DescribePackages to find this value.
+
+  ## Optional parameters:
   """
-  @spec dissociate_package(map(), String.t(), String.t(), dissociate_package_request(), list()) ::
+  @spec dissociate_package(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          dissociate_package_request(),
+          Keyword.t()
+        ) ::
           {:ok, dissociate_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, dissociate_package_errors()}
@@ -3644,7 +4006,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3660,36 +4023,56 @@ defmodule AWS.Elasticsearch do
   end
 
   @doc """
+  Returns a list of upgrade compatible Elastisearch versions. You can optionally
+  pass a ``` `DomainName` ``` to get all upgrade compatible Elasticsearch
+  versions for that specific domain.
 
-  Returns a list of upgrade compatible Elastisearch versions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20GetCompatibleElasticsearchVersions&this_doc_guide=API%2520Reference)
 
-  You can optionally pass a
+  ## Parameters:
 
-  ```
-
-  `DomainName`
-
-  ```
-
-  to get all upgrade compatible Elasticsearch versions for that specific domain.
+  ## Optional parameters:
+  * `:domain_name` (`t:string`)
   """
-  @spec get_compatible_elasticsearch_versions(map(), String.t() | nil, list()) ::
+  @spec get_compatible_elasticsearch_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_compatible_elasticsearch_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_compatible_elasticsearch_versions_errors()}
-  def get_compatible_elasticsearch_versions(%Client{} = client, domain_name \\ nil, options \\ []) do
+  def get_compatible_elasticsearch_versions(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/es/compatibleVersions"
+
+    # Validate optional parameters
+    optional_params = [domain_name: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(domain_name) do
-        [{"domainName", domain_name} | query_params]
+      if opt_val = Keyword.get(options, :domain_name) do
+        [{"domainName", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:domain_name])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3697,37 +4080,65 @@ defmodule AWS.Elasticsearch do
   @doc """
   Returns a list of versions of the package, along with their creation time and
   commit message.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20GetPackageVersionHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_id` (`t:string`) Returns an audit history of versions of the
+    package.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Limits results to a maximum number of versions.
+  * `:next_token` (`t:string`) Used for pagination. Only necessary if a previous
+    API call includes a non-null NextToken value. If provided, returns results
+    for the next page.
   """
-  @spec get_package_version_history(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_package_version_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_package_version_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_package_version_history_errors()}
-  def get_package_version_history(
-        %Client{} = client,
-        package_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_package_version_history(%Client{} = client, package_id, options \\ []) do
     url_path = "/2015-01-01/packages/#{AWS.Util.encode_uri(package_id)}/history"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3735,37 +4146,62 @@ defmodule AWS.Elasticsearch do
   @doc """
   Retrieves the complete history of the last 10 upgrades that were performed on
   the domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20GetUpgradeHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`)
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec get_upgrade_history(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_upgrade_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_upgrade_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_upgrade_history_errors()}
-  def get_upgrade_history(
-        %Client{} = client,
-        domain_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_upgrade_history(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/upgradeDomain/#{AWS.Util.encode_uri(domain_name)}/history"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3773,17 +4209,42 @@ defmodule AWS.Elasticsearch do
   @doc """
   Retrieves the latest status of the last upgrade or upgrade eligibility check
   that was performed on the domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20GetUpgradeStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_upgrade_status(map(), String.t(), list()) ::
+  @spec get_upgrade_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_upgrade_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_upgrade_status_errors()}
   def get_upgrade_status(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/upgradeDomain/#{AWS.Util.encode_uri(domain_name)}/status"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3791,61 +4252,119 @@ defmodule AWS.Elasticsearch do
   @doc """
   Returns the name of all Elasticsearch domains owned by the current user's
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListDomainNames&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:engine_type` (`t:enum["Elasticsearch|OpenSearch"]`) Optional parameter to
+    filter the output by domain engine type. Acceptable values are
+    'Elasticsearch' and 'OpenSearch'.
   """
-  @spec list_domain_names(map(), String.t() | nil, list()) ::
+  @spec list_domain_names(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domain_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domain_names_errors()}
-  def list_domain_names(%Client{} = client, engine_type \\ nil, options \\ []) do
+  def list_domain_names(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/domain"
+
+    # Validate optional parameters
+    optional_params = [engine_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(engine_type) do
-        [{"engineType", engine_type} | query_params]
+      if opt_val = Keyword.get(options, :engine_type) do
+        [{"engineType", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:engine_type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all Amazon ES domains associated with the package.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListDomainsForPackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_id` (`t:string`) The package for which to list domains.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Limits results to a maximum number of domains.
+  * `:next_token` (`t:string`) Used for pagination. Only necessary if a previous
+    API call includes a non-null NextToken value. If provided, returns results
+    for the next page.
   """
-  @spec list_domains_for_package(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_domains_for_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_domains_for_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domains_for_package_errors()}
-  def list_domains_for_package(
-        %Client{} = client,
-        package_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_domains_for_package(%Client{} = client, package_id, options \\ []) do
     url_path = "/2015-01-01/packages/#{AWS.Util.encode_uri(package_id)}/domains"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3853,175 +4372,303 @@ defmodule AWS.Elasticsearch do
   @doc """
   List all Elasticsearch instance types that are supported for given
   ElasticsearchVersion
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListElasticsearchInstanceTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:elasticsearch_version` (`t:string`) Version of Elasticsearch for which list
+    of supported elasticsearch instance types are needed.
+
+  ## Optional parameters:
+  * `:domain_name` (`t:string`) DomainName represents the name of the Domain that
+    we are trying to modify. This should be present only if we are querying for
+    list of available Elasticsearch instance types when modifying existing
+    domain.
+  * `:max_results` (`t:integer`) Set this value to limit the number of results
+    returned. Value provided must be greater than 30 else it wont be honored.
+  * `:next_token` (`t:string`) NextToken should be sent in case if earlier API
+    call produced result containing NextToken. It is used for pagination.
   """
-  @spec list_elasticsearch_instance_types(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_elasticsearch_instance_types(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_elasticsearch_instance_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_elasticsearch_instance_types_errors()}
-  def list_elasticsearch_instance_types(
-        %Client{} = client,
-        elasticsearch_version,
-        domain_name \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_elasticsearch_instance_types(%Client{} = client, elasticsearch_version, options \\ []) do
     url_path = "/2015-01-01/es/instanceTypes/#{AWS.Util.encode_uri(elasticsearch_version)}"
+
+    # Validate optional parameters
+    optional_params = [domain_name: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(domain_name) do
-        [{"domainName", domain_name} | query_params]
+      if opt_val = Keyword.get(options, :domain_name) do
+        [{"domainName", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:domain_name, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List all supported Elasticsearch versions
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListElasticsearchVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Set this value to limit the number of results
+    returned. Value provided must be greater than 10 else it wont be honored.
+  * `:next_token` (`t:string`)
   """
-  @spec list_elasticsearch_versions(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_elasticsearch_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_elasticsearch_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_elasticsearch_versions_errors()}
-  def list_elasticsearch_versions(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_elasticsearch_versions(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/es/versions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all packages associated with the Amazon ES domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListPackagesForDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain for which you want to list
+    associated packages.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Limits results to a maximum number of packages.
+  * `:next_token` (`t:string`) Used for pagination. Only necessary if a previous
+    API call includes a non-null NextToken value. If provided, returns results
+    for the next page.
   """
-  @spec list_packages_for_domain(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_packages_for_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_packages_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_packages_for_domain_errors()}
-  def list_packages_for_domain(
-        %Client{} = client,
-        domain_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_packages_for_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/domain/#{AWS.Util.encode_uri(domain_name)}/packages"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns all tags for the given Elasticsearch domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) Specify the ARN for the Elasticsearch domain to which the
+    tags are attached that you want to view.
+
+  ## Optional parameters:
   """
-  @spec list_tags(map(), String.t(), list()) ::
+  @spec list_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, arn, options \\ []) do
     url_path = "/2015-01-01/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(arn) do
-        [{"arn", arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"arn", arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves information about each principal that is allowed to access a
-  given Amazon OpenSearch Service domain through the use of an interface VPC
-  endpoint.
+  Retrieves information about each principal that is allowed to access a given
+  Amazon OpenSearch Service domain through the use of an interface VPC endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListVpcEndpointAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain to
+    retrieve access information for.
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) Provides an identifier to allow retrieval of
+    paginated results.
   """
-  @spec list_vpc_endpoint_access(map(), String.t(), String.t() | nil, list()) ::
+  @spec list_vpc_endpoint_access(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vpc_endpoint_access_errors()}
-  def list_vpc_endpoint_access(%Client{} = client, domain_name, next_token \\ nil, options \\ []) do
+  def list_vpc_endpoint_access(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/listVpcEndpointAccess"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4029,24 +4676,53 @@ defmodule AWS.Elasticsearch do
   @doc """
   Retrieves all Amazon OpenSearch Service-managed VPC endpoints in the current
   account and Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListVpcEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) Identifier to allow retrieval of paginated results.
   """
-  @spec list_vpc_endpoints(map(), String.t() | nil, list()) ::
+  @spec list_vpc_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vpc_endpoints_errors()}
-  def list_vpc_endpoints(%Client{} = client, next_token \\ nil, options \\ []) do
+  def list_vpc_endpoints(%Client{} = client, options \\ []) do
     url_path = "/2015-01-01/es/vpcEndpoints"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4054,40 +4730,73 @@ defmodule AWS.Elasticsearch do
   @doc """
   Retrieves all Amazon OpenSearch Service-managed VPC endpoints associated with a
   particular domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListVpcEndpointsForDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) Name of the ElasticSearch domain whose VPC
+    endpoints are to be listed.
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) Provides an identifier to allow retrieval of
+    paginated results.
   """
-  @spec list_vpc_endpoints_for_domain(map(), String.t(), String.t() | nil, list()) ::
+  @spec list_vpc_endpoints_for_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoints_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vpc_endpoints_for_domain_errors()}
-  def list_vpc_endpoints_for_domain(
-        %Client{} = client,
-        domain_name,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_vpc_endpoints_for_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/vpcEndpoints"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Allows you to purchase reserved Elasticsearch instances.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20PurchaseReservedElasticsearchInstanceOffering&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec purchase_reserved_elasticsearch_instance_offering(
-          map(),
+          AWS.Client.t(),
           purchase_reserved_elasticsearch_instance_offering_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, purchase_reserved_elasticsearch_instance_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4097,7 +4806,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4115,12 +4825,20 @@ defmodule AWS.Elasticsearch do
   @doc """
   Allows the destination domain owner to reject an inbound cross-cluster search
   connection request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20RejectInboundCrossClusterSearchConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cross_cluster_search_connection_id` (`t:string`) The id of the inbound
+    connection that you want to reject.
+
+  ## Optional parameters:
   """
   @spec reject_inbound_cross_cluster_search_connection(
-          map(),
+          AWS.Client.t(),
           String.t(),
           reject_inbound_cross_cluster_search_connection_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, reject_inbound_cross_cluster_search_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4137,15 +4855,22 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Removes the specified set of tags from the specified Elasticsearch domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20RemoveTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec remove_tags(map(), remove_tags_request(), list()) ::
+  @spec remove_tags(AWS.Client.t(), remove_tags_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_errors()}
@@ -4154,7 +4879,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4171,14 +4897,20 @@ defmodule AWS.Elasticsearch do
 
   @doc """
   Revokes access to an Amazon OpenSearch Service domain that was provided through
-  an interface
-  VPC endpoint.
+  an interface VPC endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20RevokeVpcEndpointAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain.
+
+  ## Optional parameters:
   """
   @spec revoke_vpc_endpoint_access(
-          map(),
+          AWS.Client.t(),
           String.t(),
           revoke_vpc_endpoint_access_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, revoke_vpc_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4188,7 +4920,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4205,11 +4938,17 @@ defmodule AWS.Elasticsearch do
 
   @doc """
   Schedules a service software update for an Amazon ES domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20StartElasticsearchServiceSoftwareUpdate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec start_elasticsearch_service_software_update(
-          map(),
+          AWS.Client.t(),
           start_elasticsearch_service_software_update_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_elasticsearch_service_software_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4219,7 +4958,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4237,12 +4977,20 @@ defmodule AWS.Elasticsearch do
   @doc """
   Modifies the cluster configuration of the specified Elasticsearch domain,
   setting as setting the instance type and the number of instances.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20UpdateElasticsearchDomainConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the Elasticsearch domain that you are
+    updating.
+
+  ## Optional parameters:
   """
   @spec update_elasticsearch_domain_config(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_elasticsearch_domain_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_elasticsearch_domain_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4252,7 +5000,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4269,8 +5018,14 @@ defmodule AWS.Elasticsearch do
 
   @doc """
   Updates a package for use with Amazon ES domains.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20UpdatePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_package(map(), update_package_request(), list()) ::
+  @spec update_package(AWS.Client.t(), update_package_request(), Keyword.t()) ::
           {:ok, update_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_package_errors()}
@@ -4279,7 +5034,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4296,8 +5052,14 @@ defmodule AWS.Elasticsearch do
 
   @doc """
   Modifies an Amazon OpenSearch Service-managed interface VPC endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20UpdateVpcEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_vpc_endpoint(map(), update_vpc_endpoint_request(), list()) ::
+  @spec update_vpc_endpoint(AWS.Client.t(), update_vpc_endpoint_request(), Keyword.t()) ::
           {:ok, update_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_vpc_endpoint_errors()}
@@ -4306,7 +5068,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4324,8 +5087,18 @@ defmodule AWS.Elasticsearch do
   @doc """
   Allows you to either upgrade your domain or perform an Upgrade eligibility check
   to a compatible Elasticsearch version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20UpgradeElasticsearchDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec upgrade_elasticsearch_domain(map(), upgrade_elasticsearch_domain_request(), list()) ::
+  @spec upgrade_elasticsearch_domain(
+          AWS.Client.t(),
+          upgrade_elasticsearch_domain_request(),
+          Keyword.t()
+        ) ::
           {:ok, upgrade_elasticsearch_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upgrade_elasticsearch_domain_errors()}
@@ -4334,7 +5107,8 @@ defmodule AWS.Elasticsearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

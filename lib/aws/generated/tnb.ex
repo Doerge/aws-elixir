@@ -4,11 +4,9 @@
 defmodule AWS.Tnb do
   @moduledoc """
   Amazon Web Services Telco Network Builder (TNB) is a network automation service
-  that helps you deploy and manage telecom networks.
-
-  AWS TNB helps you with the lifecycle management of your telecommunication
-  network functions throughout planning, deployment, and post-deployment
-  activities.
+  that helps you deploy and manage telecom networks. AWS TNB helps you with the
+  lifecycle management of your telecommunication network functions throughout
+  planning, deployment, and post-deployment activities.
   """
 
   alias AWS.Client
@@ -1502,14 +1500,18 @@ defmodule AWS.Tnb do
   @doc """
   Cancels a network operation.
 
-  A network operation is any operation that is done to your network, such as
-  network instance instantiation or termination.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20CancelSolNetworkOperation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:ns_lcm_op_occ_id` (`t:string`) The identifier of the network operation.
+
+  ## Optional parameters:
   """
   @spec cancel_sol_network_operation(
-          map(),
+          AWS.Client.t(),
           String.t(),
           cancel_sol_network_operation_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -1519,7 +1521,8 @@ defmodule AWS.Tnb do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1537,20 +1540,17 @@ defmodule AWS.Tnb do
   @doc """
   Creates a function package.
 
-  A function package is a .zip file in CSAR (Cloud Service Archive) format that
-  contains a network function (an ETSI standard telecommunication application) and
-  function package descriptor that uses the TOSCA standard to describe how the
-  network functions should run on your network. For more information, see
-  [Function packages](https://docs.aws.amazon.com/tnb/latest/ug/function-packages.html) in
-  the *Amazon Web Services Telco Network Builder User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20CreateSolFunctionPackage&this_doc_guide=API%2520Reference)
 
-  Creating a function package is the first step for creating a network in AWS TNB.
-  This request creates an empty container with an ID. The next step is to upload
-  the actual CSAR zip file into that empty container. To upload function package
-  content, see
-  [PutSolFunctionPackageContent](https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolFunctionPackageContent.html).
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_sol_function_package(map(), create_sol_function_package_input(), list()) ::
+  @spec create_sol_function_package(
+          AWS.Client.t(),
+          create_sol_function_package_input(),
+          Keyword.t()
+        ) ::
           {:ok, create_sol_function_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sol_function_package_errors()}
@@ -1559,7 +1559,8 @@ defmodule AWS.Tnb do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1577,18 +1578,17 @@ defmodule AWS.Tnb do
   @doc """
   Creates a network instance.
 
-  A network instance is a single network created in Amazon Web Services TNB that
-  can be deployed and on which life-cycle operations (like terminate, update, and
-  delete) can be performed. Creating a network instance is the third step after
-  creating a network package. For more information about network instances,
-  [Network instances](https://docs.aws.amazon.com/tnb/latest/ug/network-instances.html) in
-  the *Amazon Web Services Telco Network Builder User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20CreateSolNetworkInstance&this_doc_guide=API%2520Reference)
 
-  Once you create a network instance, you can instantiate it. To instantiate a
-  network, see
-  [InstantiateSolNetworkInstance](https://docs.aws.amazon.com/tnb/latest/APIReference/API_InstantiateSolNetworkInstance.html).
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_sol_network_instance(map(), create_sol_network_instance_input(), list()) ::
+  @spec create_sol_network_instance(
+          AWS.Client.t(),
+          create_sol_network_instance_input(),
+          Keyword.t()
+        ) ::
           {:ok, create_sol_network_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sol_network_instance_errors()}
@@ -1597,7 +1597,8 @@ defmodule AWS.Tnb do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1613,24 +1614,29 @@ defmodule AWS.Tnb do
   end
 
   @doc """
-  Creates a network package.
-
-  A network package is a .zip file in CSAR (Cloud Service Archive) format defines
-  the function packages you want to deploy and the Amazon Web Services
-  infrastructure you want to deploy them on. For more information, see [Network instances](https://docs.aws.amazon.com/tnb/latest/ug/network-instances.html) in
-  the *Amazon Web Services Telco Network Builder User Guide*.
-
-  A network package consists of a network service descriptor (NSD) file (required)
-  and any additional files (optional), such as scripts specific to your needs. For
-  example, if you have multiple function packages in your network package, you can
-  use the NSD to define which network functions should run in certain VPCs,
+  Creates a network package. A network package is a .zip file in CSAR (Cloud
+  Service Archive) format defines the function packages you want to deploy and
+  the Amazon Web Services infrastructure you want to deploy them on. For more
+  information, see [Network
+  instances](https://docs.aws.amazon.com/tnb/latest/ug/network-instances.html)
+  in the *Amazon Web Services Telco Network Builder User Guide*. A network
+  package consists of a network service descriptor (NSD) file (required) and any
+  additional files (optional), such as scripts specific to your needs. For
+  example, if you have multiple function packages in your network package, you
+  can use the NSD to define which network functions should run in certain VPCs,
   subnets, or EKS clusters.
 
-  This request creates an empty network package container with an ID. Once you
-  create a network package, you can upload the network package content using
-  [PutSolNetworkPackageContent](https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolNetworkPackageContent.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20CreateSolNetworkPackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_sol_network_package(map(), create_sol_network_package_input(), list()) ::
+  @spec create_sol_network_package(
+          AWS.Client.t(),
+          create_sol_network_package_input(),
+          Keyword.t()
+        ) ::
           {:ok, create_sol_network_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sol_network_package_errors()}
@@ -1639,7 +1645,8 @@ defmodule AWS.Tnb do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1655,22 +1662,24 @@ defmodule AWS.Tnb do
   end
 
   @doc """
-  Deletes a function package.
+  Deletes a function package. A function package is a .zip file in CSAR (Cloud
+  Service Archive) format that contains a network function (an ETSI standard
+  telecommunication application) and function package descriptor that uses the
+  TOSCA standard to describe how the network functions should run on your
+  network.
 
-  A function package is a .zip file in CSAR (Cloud Service Archive) format that
-  contains a network function (an ETSI standard telecommunication application) and
-  function package descriptor that uses the TOSCA standard to describe how the
-  network functions should run on your network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20DeleteSolFunctionPackage&this_doc_guide=API%2520Reference)
 
-  To delete a function package, the package must be in a disabled state. To
-  disable a function package, see
-  [UpdateSolFunctionPackage](https://docs.aws.amazon.com/tnb/latest/APIReference/API_UpdateSolFunctionPackage.html).
+  ## Parameters:
+  * `:vnf_pkg_id` (`t:string`) ID of the function package.
+
+  ## Optional parameters:
   """
   @spec delete_sol_function_package(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_sol_function_package_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -1680,7 +1689,8 @@ defmodule AWS.Tnb do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1696,21 +1706,22 @@ defmodule AWS.Tnb do
   end
 
   @doc """
-  Deletes a network instance.
+  Deletes a network instance. A network instance is a single network created in
+  Amazon Web Services TNB that can be deployed and on which life-cycle
+  operations (like terminate, update, and delete) can be performed.
 
-  A network instance is a single network created in Amazon Web Services TNB that
-  can be deployed and on which life-cycle operations (like terminate, update, and
-  delete) can be performed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20DeleteSolNetworkInstance&this_doc_guide=API%2520Reference)
 
-  To delete a network instance, the instance must be in a stopped or terminated
-  state. To terminate a network instance, see
-  [TerminateSolNetworkInstance](https://docs.aws.amazon.com/tnb/latest/APIReference/API_TerminateSolNetworkInstance.html).
+  ## Parameters:
+  * `:ns_instance_id` (`t:string`) Network instance ID.
+
+  ## Optional parameters:
   """
   @spec delete_sol_network_instance(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_sol_network_instance_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -1720,7 +1731,8 @@ defmodule AWS.Tnb do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1736,17 +1748,24 @@ defmodule AWS.Tnb do
   end
 
   @doc """
-  Deletes network package.
+  Deletes network package. A network package is a .zip file in CSAR (Cloud Service
+  Archive) format defines the function packages you want to deploy and the
+  Amazon Web Services infrastructure you want to deploy them on.
 
-  A network package is a .zip file in CSAR (Cloud Service Archive) format defines
-  the function packages you want to deploy and the Amazon Web Services
-  infrastructure you want to deploy them on.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20DeleteSolNetworkPackage&this_doc_guide=API%2520Reference)
 
-  To delete a network package, the package must be in a disable state. To disable
-  a network package, see
-  [UpdateSolNetworkPackage](https://docs.aws.amazon.com/tnb/latest/APIReference/API_UpdateSolNetworkPackage.html).
+  ## Parameters:
+  * `:nsd_info_id` (`t:string`) ID of the network service descriptor in the
+    network package.
+
+  ## Optional parameters:
   """
-  @spec delete_sol_network_package(map(), String.t(), delete_sol_network_package_input(), list()) ::
+  @spec delete_sol_network_package(
+          AWS.Client.t(),
+          String.t(),
+          delete_sol_network_package_input(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sol_network_package_errors()}
@@ -1755,7 +1774,8 @@ defmodule AWS.Tnb do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1772,21 +1792,44 @@ defmodule AWS.Tnb do
 
   @doc """
   Gets the details of a network function instance, including the instantation
-  state and metadata from the function package descriptor in the network function
-  package.
+  state and metadata from the function package descriptor in the network
+  function package.
 
-  A network function instance is a function in a function package .
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20GetSolFunctionInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:vnf_instance_id` (`t:string`) ID of the network function.
+
+  ## Optional parameters:
   """
-  @spec get_sol_function_instance(map(), String.t(), list()) ::
+  @spec get_sol_function_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_function_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_function_instance_errors()}
   def get_sol_function_instance(%Client{} = client, vnf_instance_id, options \\ []) do
     url_path = "/sol/vnflcm/v1/vnf_instances/#{AWS.Util.encode_uri(vnf_instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1795,21 +1838,41 @@ defmodule AWS.Tnb do
   Gets the details of an individual function package, such as the operational
   state and whether the package is in use.
 
-  A function package is a .zip file in CSAR (Cloud Service Archive) format that
-  contains a network function (an ETSI standard telecommunication application) and
-  function package descriptor that uses the TOSCA standard to describe how the
-  network functions should run on your network..
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20GetSolFunctionPackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:vnf_pkg_id` (`t:string`) ID of the function package.
+
+  ## Optional parameters:
   """
-  @spec get_sol_function_package(map(), String.t(), list()) ::
+  @spec get_sol_function_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_function_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_function_package_errors()}
   def get_sol_function_package(%Client{} = client, vnf_pkg_id, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1817,28 +1880,40 @@ defmodule AWS.Tnb do
   @doc """
   Gets the contents of a function package.
 
-  A function package is a .zip file in CSAR (Cloud Service Archive) format that
-  contains a network function (an ETSI standard telecommunication application) and
-  function package descriptor that uses the TOSCA standard to describe how the
-  network functions should run on your network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20GetSolFunctionPackageContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:vnf_pkg_id` (`t:string`) ID of the function package.
+  * `:accept` (`t:enum["APPLICATION_ZIP"]`) The format of the package that you
+    want to download from the function packages.
+
+  ## Optional parameters:
   """
-  @spec get_sol_function_package_content(map(), String.t(), String.t(), list()) ::
+  @spec get_sol_function_package_content(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_function_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_function_package_content_errors()}
   def get_sol_function_package_content(%Client{} = client, vnf_pkg_id, accept, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}/package_content"
-    headers = []
 
-    headers =
-      if !is_nil(accept) do
-        [{"Accept", accept} | headers]
-      else
-        headers
-      end
+    # Validate optional parameters
+    optional_params = []
 
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = [{"Accept", accept}]
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     options =
       Keyword.put(
         options,
@@ -1846,40 +1921,52 @@ defmodule AWS.Tnb do
         [{"Content-Type", "contentType"}]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets a function package descriptor in a function package.
+  Gets a function package descriptor in a function package. A function package
+  descriptor is a .yaml file in a function package that uses the TOSCA standard
+  to describe how the network function in the function package should run on
+  your network.
 
-  A function package descriptor is a .yaml file in a function package that uses
-  the TOSCA standard to describe how the network function in the function package
-  should run on your network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20GetSolFunctionPackageDescriptor&this_doc_guide=API%2520Reference)
 
-  A function package is a .zip file in CSAR (Cloud Service Archive) format that
-  contains a network function (an ETSI standard telecommunication application) and
-  function package descriptor that uses the TOSCA standard to describe how the
-  network functions should run on your network.
+  ## Parameters:
+  * `:vnf_pkg_id` (`t:string`) ID of the function package.
+  * `:accept` (`t:enum["TEXT_PLAIN"]`) Indicates which content types, expressed as
+    MIME types, the client is able to understand.
+
+  ## Optional parameters:
   """
-  @spec get_sol_function_package_descriptor(map(), String.t(), String.t(), list()) ::
+  @spec get_sol_function_package_descriptor(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_function_package_descriptor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_function_package_descriptor_errors()}
   def get_sol_function_package_descriptor(%Client{} = client, vnf_pkg_id, accept, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}/vnfd"
-    headers = []
 
-    headers =
-      if !is_nil(accept) do
-        [{"Accept", accept} | headers]
-      else
-        headers
-      end
+    # Validate optional parameters
+    optional_params = []
 
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = [{"Accept", accept}]
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     options =
       Keyword.put(
         options,
@@ -1887,7 +1974,8 @@ defmodule AWS.Tnb do
         [{"Content-Type", "contentType"}]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1895,20 +1983,41 @@ defmodule AWS.Tnb do
   @doc """
   Gets the details of the network instance.
 
-  A network instance is a single network created in Amazon Web Services TNB that
-  can be deployed and on which life-cycle operations (like terminate, update, and
-  delete) can be performed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20GetSolNetworkInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:ns_instance_id` (`t:string`) ID of the network instance.
+
+  ## Optional parameters:
   """
-  @spec get_sol_network_instance(map(), String.t(), list()) ::
+  @spec get_sol_network_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_network_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_network_instance_errors()}
   def get_sol_network_instance(%Client{} = client, ns_instance_id, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1917,19 +2026,41 @@ defmodule AWS.Tnb do
   Gets the details of a network operation, including the tasks involved in the
   network operation and the status of the tasks.
 
-  A network operation is any operation that is done to your network, such as
-  network instance instantiation or termination.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20GetSolNetworkOperation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:ns_lcm_op_occ_id` (`t:string`) The identifier of the network operation.
+
+  ## Optional parameters:
   """
-  @spec get_sol_network_operation(map(), String.t(), list()) ::
+  @spec get_sol_network_operation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_network_operation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_network_operation_errors()}
   def get_sol_network_operation(%Client{} = client, ns_lcm_op_occ_id, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_lcm_op_occs/#{AWS.Util.encode_uri(ns_lcm_op_occ_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1937,20 +2068,42 @@ defmodule AWS.Tnb do
   @doc """
   Gets the details of a network package.
 
-  A network package is a .zip file in CSAR (Cloud Service Archive) format defines
-  the function packages you want to deploy and the Amazon Web Services
-  infrastructure you want to deploy them on.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20GetSolNetworkPackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:nsd_info_id` (`t:string`) ID of the network service descriptor in the
+    network package.
+
+  ## Optional parameters:
   """
-  @spec get_sol_network_package(map(), String.t(), list()) ::
+  @spec get_sol_network_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_network_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_network_package_errors()}
   def get_sol_network_package(%Client{} = client, nsd_info_id, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1958,27 +2111,41 @@ defmodule AWS.Tnb do
   @doc """
   Gets the contents of a network package.
 
-  A network package is a .zip file in CSAR (Cloud Service Archive) format defines
-  the function packages you want to deploy and the Amazon Web Services
-  infrastructure you want to deploy them on.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20GetSolNetworkPackageContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:nsd_info_id` (`t:string`) ID of the network service descriptor in the
+    network package.
+  * `:accept` (`t:enum["APPLICATION_ZIP"]`) The format of the package you want to
+    download from the network package.
+
+  ## Optional parameters:
   """
-  @spec get_sol_network_package_content(map(), String.t(), String.t(), list()) ::
+  @spec get_sol_network_package_content(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_network_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_network_package_content_errors()}
   def get_sol_network_package_content(%Client{} = client, nsd_info_id, accept, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}/nsd_content"
-    headers = []
 
-    headers =
-      if !is_nil(accept) do
-        [{"Accept", accept} | headers]
-      else
-        headers
-      end
+    # Validate optional parameters
+    optional_params = []
 
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = [{"Accept", accept}]
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     options =
       Keyword.put(
         options,
@@ -1986,7 +2153,8 @@ defmodule AWS.Tnb do
         [{"Content-Type", "contentType"}]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1994,19 +2162,39 @@ defmodule AWS.Tnb do
   @doc """
   Gets the content of the network service descriptor.
 
-  A network service descriptor is a .yaml file in a network package that uses the
-  TOSCA standard to describe the network functions you want to deploy and the
-  Amazon Web Services infrastructure you want to deploy the network functions on.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20GetSolNetworkPackageDescriptor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:nsd_info_id` (`t:string`) ID of the network service descriptor in the
+    network package.
+
+  ## Optional parameters:
   """
-  @spec get_sol_network_package_descriptor(map(), String.t(), list()) ::
+  @spec get_sol_network_package_descriptor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_network_package_descriptor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_network_package_descriptor_errors()}
   def get_sol_network_package_descriptor(%Client{} = client, nsd_info_id, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}/nsd"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     options =
       Keyword.put(
         options,
@@ -2014,27 +2202,33 @@ defmodule AWS.Tnb do
         [{"Content-Type", "contentType"}]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Instantiates a network instance.
+  Instantiates a network instance. A network instance is a single network created
+  in Amazon Web Services TNB that can be deployed and on which life-cycle
+  operations (like terminate, update, and delete) can be performed.
 
-  A network instance is a single network created in Amazon Web Services TNB that
-  can be deployed and on which life-cycle operations (like terminate, update, and
-  delete) can be performed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20InstantiateSolNetworkInstance&this_doc_guide=API%2520Reference)
 
-  Before you can instantiate a network instance, you have to create a network
-  instance. For more information, see
-  [CreateSolNetworkInstance](https://docs.aws.amazon.com/tnb/latest/APIReference/API_CreateSolNetworkInstance.html).
+  ## Parameters:
+  * `:ns_instance_id` (`t:string`) ID of the network instance.
+
+  ## Optional parameters:
+  * `:dry_run` (`t:`) A check for whether you have the required permissions for
+    the action without actually making the request and provides an error
+    response. If you have the required permissions, the error response is
+    DryRunOperation. Otherwise, it is UnauthorizedOperation.
   """
   @spec instantiate_sol_network_instance(
-          map(),
+          AWS.Client.t(),
           String.t(),
           instantiate_sol_network_instance_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, instantiate_sol_network_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2049,7 +2243,13 @@ defmodule AWS.Tnb do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:dry_run])
 
     Request.request_rest(
       client,
@@ -2067,37 +2267,61 @@ defmodule AWS.Tnb do
   @doc """
   Lists network function instances.
 
-  A network function instance is a function in a function package .
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20ListSolFunctionInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of results to include in the
+    response.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
-  @spec list_sol_function_instances(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_sol_function_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sol_function_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sol_function_instances_errors()}
-  def list_sol_function_instances(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_sol_function_instances(%Client{} = client, options \\ []) do
     url_path = "/sol/vnflcm/v1/vnf_instances"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextpage_opaque_marker", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextpage_opaque_marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max_results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2105,40 +2329,61 @@ defmodule AWS.Tnb do
   @doc """
   Lists information about function packages.
 
-  A function package is a .zip file in CSAR (Cloud Service Archive) format that
-  contains a network function (an ETSI standard telecommunication application) and
-  function package descriptor that uses the TOSCA standard to describe how the
-  network functions should run on your network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20ListSolFunctionPackages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of results to include in the
+    response.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
-  @spec list_sol_function_packages(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_sol_function_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sol_function_packages_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sol_function_packages_errors()}
-  def list_sol_function_packages(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_sol_function_packages(%Client{} = client, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextpage_opaque_marker", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextpage_opaque_marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max_results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2146,39 +2391,61 @@ defmodule AWS.Tnb do
   @doc """
   Lists your network instances.
 
-  A network instance is a single network created in Amazon Web Services TNB that
-  can be deployed and on which life-cycle operations (like terminate, update, and
-  delete) can be performed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20ListSolNetworkInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of results to include in the
+    response.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
-  @spec list_sol_network_instances(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_sol_network_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sol_network_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sol_network_instances_errors()}
-  def list_sol_network_instances(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_sol_network_instances(%Client{} = client, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextpage_opaque_marker", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextpage_opaque_marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max_results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2187,38 +2454,61 @@ defmodule AWS.Tnb do
   Lists details for a network operation, including when the operation started and
   the status of the operation.
 
-  A network operation is any operation that is done to your network, such as
-  network instance instantiation or termination.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20ListSolNetworkOperations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of results to include in the
+    response.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
-  @spec list_sol_network_operations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_sol_network_operations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sol_network_operations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sol_network_operations_errors()}
-  def list_sol_network_operations(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_sol_network_operations(%Client{} = client, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_lcm_op_occs"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextpage_opaque_marker", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextpage_opaque_marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max_results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2226,56 +2516,103 @@ defmodule AWS.Tnb do
   @doc """
   Lists network packages.
 
-  A network package is a .zip file in CSAR (Cloud Service Archive) format defines
-  the function packages you want to deploy and the Amazon Web Services
-  infrastructure you want to deploy them on.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20ListSolNetworkPackages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of results to include in the
+    response.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
-  @spec list_sol_network_packages(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_sol_network_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sol_network_packages_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sol_network_packages_errors()}
-  def list_sol_network_packages(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_sol_network_packages(%Client{} = client, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextpage_opaque_marker", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextpage_opaque_marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max_results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists tags for AWS TNB resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) Resource ARN.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2283,16 +2620,19 @@ defmodule AWS.Tnb do
   @doc """
   Uploads the contents of a function package.
 
-  A function package is a .zip file in CSAR (Cloud Service Archive) format that
-  contains a network function (an ETSI standard telecommunication application) and
-  function package descriptor that uses the TOSCA standard to describe how the
-  network functions should run on your network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20PutSolFunctionPackageContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:vnf_pkg_id` (`t:string`) Function package ID.
+
+  ## Optional parameters:
+  * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Function package content type.
   """
   @spec put_sol_function_package_content(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_sol_function_package_content_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_sol_function_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2300,6 +2640,14 @@ defmodule AWS.Tnb do
   def put_sol_function_package_content(%Client{} = client, vnf_pkg_id, input, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}/package_content"
 
+    optional_params = [content_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"contentType", "Content-Type"}
@@ -2308,7 +2656,13 @@ defmodule AWS.Tnb do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:content_type])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
@@ -2316,21 +2670,33 @@ defmodule AWS.Tnb do
   @doc """
   Uploads the contents of a network package.
 
-  A network package is a .zip file in CSAR (Cloud Service Archive) format defines
-  the function packages you want to deploy and the Amazon Web Services
-  infrastructure you want to deploy them on.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20PutSolNetworkPackageContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:nsd_info_id` (`t:string`) Network service descriptor info ID.
+
+  ## Optional parameters:
+  * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Network package content type.
   """
   @spec put_sol_network_package_content(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_sol_network_package_content_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_sol_network_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_sol_network_package_content_errors()}
   def put_sol_network_package_content(%Client{} = client, nsd_info_id, input, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}/nsd_content"
+
+    optional_params = [content_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -2340,7 +2706,13 @@ defmodule AWS.Tnb do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:content_type])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -2348,11 +2720,14 @@ defmodule AWS.Tnb do
   @doc """
   Tags an AWS TNB resource.
 
-  A tag is a label that you assign to an Amazon Web Services resource. Each tag
-  consists of a key and an optional value. You can use tags to search and filter
-  your resources or track your Amazon Web Services costs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) Resource ARN.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_input(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2361,7 +2736,8 @@ defmodule AWS.Tnb do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2377,19 +2753,22 @@ defmodule AWS.Tnb do
   end
 
   @doc """
-  Terminates a network instance.
+  Terminates a network instance. A network instance is a single network created in
+  Amazon Web Services TNB that can be deployed and on which life-cycle
+  operations (like terminate, update, and delete) can be performed.
 
-  A network instance is a single network created in Amazon Web Services TNB that
-  can be deployed and on which life-cycle operations (like terminate, update, and
-  delete) can be performed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20TerminateSolNetworkInstance&this_doc_guide=API%2520Reference)
 
-  You must terminate a network instance before you can delete it.
+  ## Parameters:
+  * `:ns_instance_id` (`t:string`) ID of the network instance.
+
+  ## Optional parameters:
   """
   @spec terminate_sol_network_instance(
-          map(),
+          AWS.Client.t(),
           String.t(),
           terminate_sol_network_instance_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, terminate_sol_network_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2399,7 +2778,8 @@ defmodule AWS.Tnb do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2417,11 +2797,15 @@ defmodule AWS.Tnb do
   @doc """
   Untags an AWS TNB resource.
 
-  A tag is a label that you assign to an Amazon Web Services resource. Each tag
-  consists of a key and an optional value. You can use tags to search and filter
-  your resources or track your Amazon Web Services costs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) Resource ARN.
+  * `:tag_keys` (`t:list[com.amazonaws.tnb#TagKey]`) Tag keys.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2435,7 +2819,8 @@ defmodule AWS.Tnb do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2453,16 +2838,18 @@ defmodule AWS.Tnb do
   @doc """
   Updates the operational state of function package.
 
-  A function package is a .zip file in CSAR (Cloud Service Archive) format that
-  contains a network function (an ETSI standard telecommunication application) and
-  function package descriptor that uses the TOSCA standard to describe how the
-  network functions should run on your network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20UpdateSolFunctionPackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:vnf_pkg_id` (`t:string`) ID of the function package.
+
+  ## Optional parameters:
   """
   @spec update_sol_function_package(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_sol_function_package_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_sol_function_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2472,7 +2859,8 @@ defmodule AWS.Tnb do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2490,15 +2878,18 @@ defmodule AWS.Tnb do
   @doc """
   Update a network instance.
 
-  A network instance is a single network created in Amazon Web Services TNB that
-  can be deployed and on which life-cycle operations (like terminate, update, and
-  delete) can be performed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20UpdateSolNetworkInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:ns_instance_id` (`t:string`) ID of the network instance.
+
+  ## Optional parameters:
   """
   @spec update_sol_network_instance(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_sol_network_instance_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_sol_network_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2508,7 +2899,8 @@ defmodule AWS.Tnb do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2524,17 +2916,25 @@ defmodule AWS.Tnb do
   end
 
   @doc """
-  Updates the operational state of a network package.
+  Updates the operational state of a network package. A network package is a .zip
+  file in CSAR (Cloud Service Archive) format defines the function packages you
+  want to deploy and the Amazon Web Services infrastructure you want to deploy
+  them on.
 
-  A network package is a .zip file in CSAR (Cloud Service Archive) format defines
-  the function packages you want to deploy and the Amazon Web Services
-  infrastructure you want to deploy them on.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20UpdateSolNetworkPackage&this_doc_guide=API%2520Reference)
 
-  A network service descriptor is a .yaml file in a network package that uses the
-  TOSCA standard to describe the network functions you want to deploy and the
-  Amazon Web Services infrastructure you want to deploy the network functions on.
+  ## Parameters:
+  * `:nsd_info_id` (`t:string`) ID of the network service descriptor in the
+    network package.
+
+  ## Optional parameters:
   """
-  @spec update_sol_network_package(map(), String.t(), update_sol_network_package_input(), list()) ::
+  @spec update_sol_network_package(
+          AWS.Client.t(),
+          String.t(),
+          update_sol_network_package_input(),
+          Keyword.t()
+        ) ::
           {:ok, update_sol_network_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sol_network_package_errors()}
@@ -2543,7 +2943,8 @@ defmodule AWS.Tnb do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2559,21 +2960,23 @@ defmodule AWS.Tnb do
   end
 
   @doc """
-  Validates function package content.
-
-  This can be used as a dry run before uploading function package content with
+  Validates function package content. This can be used as a dry run before
+  uploading function package content with
   [PutSolFunctionPackageContent](https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolFunctionPackageContent.html).
 
-  A function package is a .zip file in CSAR (Cloud Service Archive) format that
-  contains a network function (an ETSI standard telecommunication application) and
-  function package descriptor that uses the TOSCA standard to describe how the
-  network functions should run on your network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20ValidateSolFunctionPackageContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:vnf_pkg_id` (`t:string`) Function package ID.
+
+  ## Optional parameters:
+  * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Function package content type.
   """
   @spec validate_sol_function_package_content(
-          map(),
+          AWS.Client.t(),
           String.t(),
           validate_sol_function_package_content_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, validate_sol_function_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2582,6 +2985,14 @@ defmodule AWS.Tnb do
     url_path =
       "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}/package_content/validate"
 
+    optional_params = [content_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"contentType", "Content-Type"}
@@ -2590,26 +3001,35 @@ defmodule AWS.Tnb do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:content_type])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
-  Validates network package content.
-
-  This can be used as a dry run before uploading network package content with
+  Validates network package content. This can be used as a dry run before
+  uploading network package content with
   [PutSolNetworkPackageContent](https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolNetworkPackageContent.html).
 
-  A network package is a .zip file in CSAR (Cloud Service Archive) format defines
-  the function packages you want to deploy and the Amazon Web Services
-  infrastructure you want to deploy them on.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20ValidateSolNetworkPackageContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:nsd_info_id` (`t:string`) Network service descriptor file.
+
+  ## Optional parameters:
+  * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Network package content type.
   """
   @spec validate_sol_network_package_content(
-          map(),
+          AWS.Client.t(),
           String.t(),
           validate_sol_network_package_content_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, validate_sol_network_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2618,6 +3038,14 @@ defmodule AWS.Tnb do
     url_path =
       "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}/nsd_content/validate"
 
+    optional_params = [content_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"contentType", "Content-Type"}
@@ -2626,7 +3054,13 @@ defmodule AWS.Tnb do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:content_type])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

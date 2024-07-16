@@ -3,195 +3,10 @@
 
 defmodule AWS.CodeCatalyst do
   @moduledoc """
-  Welcome to the Amazon CodeCatalyst API reference.
-
-  This reference provides descriptions of operations and data types for Amazon
-  CodeCatalyst. You can use the Amazon CodeCatalyst
-  API to work with the following objects.
-
-  Spaces, by calling the following:
-
-    *
-
-  `DeleteSpace`, which deletes a space.
-
-    *
-
-  `GetSpace`, which returns information about a space.
-
-    *
-
-  `GetSubscription`, which returns information about the Amazon Web Services
-  account used for billing purposes
-  and the billing plan for the space.
-
-    *
-
-  `ListSpaces`, which retrieves a list of spaces.
-
-    *
-
-  `UpdateSpace`, which changes one or more values for a space.
-
-  Projects, by calling the following:
-
-    *
-
-  `CreateProject` which creates a project in a specified space.
-
-    *
-
-  `GetProject`, which returns information about a project.
-
-    *
-
-  `ListProjects`, which retrieves a list of projects in a space.
-
-  Users, by calling the following:
-
-    *
-
-  `GetUserDetails`, which returns information about a user in Amazon CodeCatalyst.
-
-  Source repositories, by calling the following:
-
-    *
-
-  `CreateSourceRepository`, which creates an empty Git-based source repository in
-  a specified project.
-
-    *
-
-  `CreateSourceRepositoryBranch`, which creates a branch in a specified repository
-  where you can work on code.
-
-    *
-
-  `DeleteSourceRepository`, which deletes a source repository.
-
-    *
-
-  `GetSourceRepository`, which returns information about a source repository.
-
-    *
-
-  `GetSourceRepositoryCloneUrls`, which returns information about the URLs that
-  can be used with a Git client to clone a source
-  repository.
-
-    *
-
-  `ListSourceRepositories`, which retrieves a list of source repositories in a
-  project.
-
-    *
-
-  `ListSourceRepositoryBranches`, which retrieves a list of branches in a source
-  repository.
-
-  Dev Environments and the Amazon Web Services Toolkits, by calling the following:
-
-    *
-
-  `CreateDevEnvironment`, which creates a Dev Environment,
-  where you can quickly work on the code stored in the source repositories of your
-  project.
-
-    *
-
-  `DeleteDevEnvironment`, which deletes a Dev Environment.
-
-    *
-
-  `GetDevEnvironment`, which returns information about a Dev Environment.
-
-    *
-
-  `ListDevEnvironments`, which retrieves a list of Dev Environments in a project.
-
-    *
-
-  `ListDevEnvironmentSessions`, which retrieves a list of active Dev Environment
-  sessions in a project.
-
-    *
-
-  `StartDevEnvironment`, which starts a specified Dev Environment and puts it into
-  an active state.
-
-    *
-
-  `StartDevEnvironmentSession`, which starts a session to a specified Dev
-  Environment.
-
-    *
-
-  `StopDevEnvironment`, which stops a specified Dev Environment and puts it into
-  an stopped state.
-
-    *
-
-  `StopDevEnvironmentSession`, which stops a session for a specified Dev
-  Environment.
-
-    *
-
-  `UpdateDevEnvironment`, which changes one or more values for a Dev Environment.
-
-  Workflows, by calling the following:
-
-    *
-
-  `GetWorkflow`, which returns information about a workflow.
-
-    *
-
-  `GetWorkflowRun`, which returns information about a specified run of a workflow.
-
-    *
-
-  `ListWorkflowRuns`, which retrieves a list of runs of a specified workflow.
-
-    *
-
-  `ListWorkflows`, which retrieves a list of workflows in a specified project.
-
-    *
-
-  `StartWorkflowRun`, which starts a run of a specified workflow.
-
-  Security, activity, and resource management in Amazon CodeCatalyst, by calling
-  the following:
-
-    *
-
-  `CreateAccessToken`, which creates a personal access token (PAT) for the current
-  user.
-
-    *
-
-  `DeleteAccessToken`, which deletes a specified personal access token (PAT).
-
-    *
-
-  `ListAccessTokens`, which lists all personal access tokens (PATs) associated
-  with a user.
-
-    *
-
-  `ListEventLogs`, which retrieves a list of events that occurred during a
-  specified time period in a space.
-
-    *
-
-  `VerifySession`, which verifies whether the calling user has a valid Amazon
-  CodeCatalyst login and session.
-
-  If you are using the Amazon CodeCatalyst APIs with an SDK or the CLI, you must
-  configure your computer to work with Amazon CodeCatalyst and single sign-on
-  (SSO).
-  For more information, see [Setting up to use the CLI with Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/set-up-cli.html)
-  and the SSO documentation for your SDK.
+  Welcome to the Amazon CodeCatalyst API reference. This reference provides
+  descriptions of operations and data types for Amazon CodeCatalyst. You can use
+  the Amazon CodeCatalyst API to work with the following objects. Spaces, by
+  calling the following:
   """
 
   alias AWS.Client
@@ -1618,18 +1433,22 @@ defmodule AWS.CodeCatalyst do
   end
 
   @doc """
-  Creates a personal access token (PAT) for the current user.
+  Creates a personal access token (PAT) for the current user. A personal access
+  token (PAT) is similar to a password. It is associated with your user identity
+  for use across all spaces and projects in Amazon CodeCatalyst. You use PATs to
+  access CodeCatalyst from resources that include integrated development
+  environments (IDEs) and Git-based source repositories. PATs represent you in
+  Amazon CodeCatalyst and you can manage them in your user settings.For more
+  information, see [Managing personal access tokens in Amazon
+  CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/ipa-tokens-keys.html).
 
-  A personal access token (PAT) is similar to a password.
-  It is associated with your user identity for use across all spaces and projects
-  in Amazon CodeCatalyst. You use PATs to access CodeCatalyst
-  from resources that include integrated development environments (IDEs) and
-  Git-based source repositories.
-  PATs represent you in Amazon CodeCatalyst and you can manage them in your user
-  settings.For more information, see
-  [Managing personal access tokens in Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/ipa-tokens-keys.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20CreateAccessToken&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_access_token(map(), create_access_token_request(), list()) ::
+  @spec create_access_token(AWS.Client.t(), create_access_token_request(), Keyword.t()) ::
           {:ok, create_access_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def create_access_token(%Client{} = client, input, options \\ []) do
@@ -1637,27 +1456,31 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
   end
 
   @doc """
   Creates a Dev Environment in Amazon CodeCatalyst, a cloud-based development
-  environment that you can use to quickly work on the code stored
-  in the source repositories of your project.
+  environment that you can use to quickly work on the code stored in the source
+  repositories of your project.
 
-  When created in the Amazon CodeCatalyst console, by default a Dev Environment is
-  configured to have a 2 core processor, 4GB of RAM, and 16GB of persistent
-  storage. None of these
-  defaults apply to a Dev Environment created programmatically.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20CreateDevEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
   @spec create_dev_environment(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           create_dev_environment_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_dev_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1668,15 +1491,23 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
   end
 
   @doc """
   Creates a project in a specified space.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20CreateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
-  @spec create_project(map(), String.t(), create_project_request(), list()) ::
+  @spec create_project(AWS.Client.t(), String.t(), create_project_request(), Keyword.t()) ::
           {:ok, create_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def create_project(%Client{} = client, space_name, input, options \\ []) do
@@ -1684,24 +1515,34 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
   end
 
   @doc """
-  Creates an empty Git-based source repository in a specified project.
+  Creates an empty Git-based source repository in a specified project. The
+  repository is created with an initial empty commit with a default branch named
+  `main`.
 
-  The repository is
-  created with an initial empty commit with a default branch named `main`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20CreateSourceRepository&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the source repository. For more information
+    about name requirements, see Quotas for source repositories.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
   @spec create_source_repository(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           create_source_repository_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_source_repository_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1719,7 +1560,8 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
   end
@@ -1727,17 +1569,25 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Creates a branch in a specified source repository in Amazon CodeCatalyst.
 
-  This API only creates a branch in a source repository hosted in Amazon
-  CodeCatalyst. You cannot use this API to create a branch in a linked repository.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20CreateSourceRepositoryBranch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name for the branch you're creating.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:source_repository_name` (`t:string`) The name of the repository where you
+    want to create a branch.
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
   @spec create_source_repository_branch(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
           create_source_repository_branch_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_source_repository_branch_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1756,17 +1606,31 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
   end
 
   @doc """
-  Deletes a specified personal access token (PAT).
+  Deletes a specified personal access token (PAT). A personal access token can
+  only be deleted by the user who created it.
 
-  A personal access token can only be deleted by the user who created it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20DeleteAccessToken&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the personal access token to delete. You can find
+    the IDs of all PATs associated with your Amazon Web Services Builder ID in a
+    space by calling ListAccessTokens.
+
+  ## Optional parameters:
   """
-  @spec delete_access_token(map(), String.t(), delete_access_token_request(), list()) ::
+  @spec delete_access_token(
+          AWS.Client.t(),
+          String.t(),
+          delete_access_token_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_access_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def delete_access_token(%Client{} = client, id, input, options \\ []) do
@@ -1774,7 +1638,8 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1791,14 +1656,25 @@ defmodule AWS.CodeCatalyst do
 
   @doc """
   Deletes a Dev Environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20DeleteDevEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment you
+    want to delete. To retrieve a list of Dev Environment IDs, use
+    ListDevEnvironments.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
   @spec delete_dev_environment(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_dev_environment_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_dev_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1816,7 +1692,8 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1833,8 +1710,23 @@ defmodule AWS.CodeCatalyst do
 
   @doc """
   Deletes a project in a space.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20DeleteProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the project in the space. To retrieve a list
+    of project names, use ListProjects.
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
-  @spec delete_project(map(), String.t(), String.t(), delete_project_request(), list()) ::
+  @spec delete_project(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_project_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def delete_project(%Client{} = client, name, space_name, input, options \\ []) do
@@ -1844,7 +1736,8 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1860,18 +1753,26 @@ defmodule AWS.CodeCatalyst do
   end
 
   @doc """
-  Deletes a source repository in Amazon CodeCatalyst.
+  Deletes a source repository in Amazon CodeCatalyst. You cannot use this API to
+  delete a linked repository. It can only be used to delete a Amazon
+  CodeCatalyst source repository.
 
-  You cannot use this API to delete a linked repository. It can only be used to
-  delete a Amazon CodeCatalyst source repository.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20DeleteSourceRepository&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the source repository.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
   @spec delete_source_repository(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_source_repository_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_source_repository_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1889,7 +1790,8 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1907,10 +1809,15 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Deletes a space.
 
-  Deleting a space cannot be undone. Additionally, since space names must be
-  unique across Amazon CodeCatalyst, you cannot reuse names of deleted spaces.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20DeleteSpace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the space. To retrieve a list of space names,
+    use ListSpaces.
+
+  ## Optional parameters:
   """
-  @spec delete_space(map(), String.t(), delete_space_request(), list()) ::
+  @spec delete_space(AWS.Client.t(), String.t(), delete_space_request(), Keyword.t()) ::
           {:ok, delete_space_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def delete_space(%Client{} = client, name, input, options \\ []) do
@@ -1918,7 +1825,8 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1935,67 +1843,158 @@ defmodule AWS.CodeCatalyst do
 
   @doc """
   Returns information about a Dev Environment for a source repository in a
-  project.
+  project. Dev Environments are specific to the user who creates them.
 
-  Dev Environments are specific to the user who creates them.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20GetDevEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment for
+    which you want to view information. To retrieve a list of Dev Environment
+    IDs, use ListDevEnvironments.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
-  @spec get_dev_environment(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_dev_environment(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_dev_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def get_dev_environment(%Client{} = client, id, project_name, space_name, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/devEnvironments/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20GetProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
-  @spec get_project(map(), String.t(), String.t(), list()) ::
+  @spec get_project(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def get_project(%Client{} = client, name, space_name, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a source repository.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20GetSourceRepository&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the source repository.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
-  @spec get_source_repository(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_source_repository(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_source_repository_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def get_source_repository(%Client{} = client, name, project_name, space_name, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/sourceRepositories/#{AWS.Util.encode_uri(name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about the URLs that can be used with a Git client to clone a
-  source
-  repository.
+  source repository.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20GetSourceRepositoryCloneUrls&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:source_repository_name` (`t:string`) The name of the source repository.
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
-  @spec get_source_repository_clone_urls(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_source_repository_clone_urls(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, get_source_repository_clone_urls_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def get_source_repository_clone_urls(
@@ -2008,121 +2007,276 @@ defmodule AWS.CodeCatalyst do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/sourceRepositories/#{AWS.Util.encode_uri(source_repository_name)}/cloneUrls"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about an space.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20GetSpace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
-  @spec get_space(map(), String.t(), list()) ::
+  @spec get_space(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_space_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def get_space(%Client{} = client, name, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about the Amazon Web Services account used for billing
-  purposes
-  and the billing plan for the space.
+  purposes and the billing plan for the space.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20GetSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
-  @spec get_subscription(map(), String.t(), list()) ::
+  @spec get_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def get_subscription(%Client{} = client, space_name, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/subscription"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20GetUserDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:id` (`t:`) The system-generated unique ID of the user.
+  * `:user_name` (`t:`) The name of the user as displayed in Amazon CodeCatalyst.
   """
-  @spec get_user_details(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_user_details(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_user_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_user_details(%Client{} = client, id \\ nil, user_name \\ nil, options \\ []) do
+  def get_user_details(%Client{} = client, options \\ []) do
     url_path = "/userDetails"
+
+    # Validate optional parameters
+    optional_params = [id: nil, user_name: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(user_name) do
-        [{"userName", user_name} | query_params]
+      if opt_val = Keyword.get(options, :user_name) do
+        [{"userName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(id) do
-        [{"id", id} | query_params]
+      if opt_val = Keyword.get(options, :id) do
+        [{"id", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:id, :user_name])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20GetWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the workflow. To rerieve a list of workflow IDs,
+    use ListWorkflows.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
-  @spec get_workflow(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_workflow(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def get_workflow(%Client{} = client, id, project_name, space_name, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/workflows/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a specified run of a workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20GetWorkflowRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the workflow run. To retrieve a list of workflow
+    run IDs, use ListWorkflowRuns.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
-  @spec get_workflow_run(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_workflow_run(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def get_workflow_run(%Client{} = client, id, project_name, space_name, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/workflowRuns/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all personal access tokens (PATs) associated with the user who calls the
-  API.
+  API. You can only list PATs associated with your Amazon Web Services Builder
+  ID.
 
-  You can only list PATs associated with your Amazon Web Services Builder ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20ListAccessTokens&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_access_tokens(map(), list_access_tokens_request(), list()) ::
+  @spec list_access_tokens(AWS.Client.t(), list_access_tokens_request(), Keyword.t()) ::
           {:ok, list_access_tokens_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_access_tokens(%Client{} = client, input, options \\ []) do
@@ -2130,7 +2284,8 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2147,14 +2302,24 @@ defmodule AWS.CodeCatalyst do
 
   @doc """
   Retrieves a list of active sessions for a Dev Environment in a project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20ListDevEnvironmentSessions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dev_environment_id` (`t:string`) The system-generated unique ID of the Dev
+    Environment.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
   @spec list_dev_environment_sessions(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           list_dev_environment_sessions_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_dev_environment_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2172,7 +2337,8 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2189,8 +2355,20 @@ defmodule AWS.CodeCatalyst do
 
   @doc """
   Retrieves a list of Dev Environments in a project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20ListDevEnvironments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
-  @spec list_dev_environments(map(), String.t(), list_dev_environments_request(), list()) ::
+  @spec list_dev_environments(
+          AWS.Client.t(),
+          String.t(),
+          list_dev_environments_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_dev_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_dev_environments(%Client{} = client, space_name, input, options \\ []) do
@@ -2198,7 +2376,8 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2214,25 +2393,28 @@ defmodule AWS.CodeCatalyst do
   end
 
   @doc """
-  Retrieves a list of events that occurred during a specific time in a space.
-
-  You can
-  use these events to audit user and system activity in a space. For more
+  Retrieves a list of events that occurred during a specific time in a space. You
+  can use these events to audit user and system activity in a space. For more
   information, see
-  [Monitoring](https://docs.aws.amazon.com/codecatalyst/latest/userguide/ipa-monitoring.html) in the *Amazon CodeCatalyst User Guide*.
-
-  ListEventLogs guarantees events for the last 30 days in a given space. You can
-  also
-  view and retrieve a list of management events over the last 90 days for Amazon
-  CodeCatalyst in the
+  [Monitoring](https://docs.aws.amazon.com/codecatalyst/latest/userguide/ipa-monitoring.html)
+  in the *Amazon CodeCatalyst User Guide*. ListEventLogs guarantees events for
+  the last 30 days in a given space. You can also view and retrieve a list of
+  management events over the last 90 days for Amazon CodeCatalyst in the
   CloudTrail console by viewing Event history, or by creating a trail to create
-  and maintain a record of events that extends past 90 days. For more information,
-  see [Working with CloudTrail Event
+  and maintain a record of events that extends past 90 days. For more
+  information, see [Working with CloudTrail Event
   History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html)
   and [Working with CloudTrail
   trails](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-getting-started.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20ListEventLogs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
-  @spec list_event_logs(map(), String.t(), list_event_logs_request(), list()) ::
+  @spec list_event_logs(AWS.Client.t(), String.t(), list_event_logs_request(), Keyword.t()) ::
           {:ok, list_event_logs_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_event_logs(%Client{} = client, space_name, input, options \\ []) do
@@ -2240,7 +2422,8 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2257,8 +2440,15 @@ defmodule AWS.CodeCatalyst do
 
   @doc """
   Retrieves a list of projects.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20ListProjects&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
-  @spec list_projects(map(), String.t(), list_projects_request(), list()) ::
+  @spec list_projects(AWS.Client.t(), String.t(), list_projects_request(), Keyword.t()) ::
           {:ok, list_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_projects(%Client{} = client, space_name, input, options \\ []) do
@@ -2266,7 +2456,8 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2283,13 +2474,21 @@ defmodule AWS.CodeCatalyst do
 
   @doc """
   Retrieves a list of source repositories in a project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20ListSourceRepositories&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
   @spec list_source_repositories(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           list_source_repositories_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_source_repositories_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2300,7 +2499,8 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2317,14 +2517,23 @@ defmodule AWS.CodeCatalyst do
 
   @doc """
   Retrieves a list of branches in a specified source repository.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20ListSourceRepositoryBranches&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:source_repository_name` (`t:string`) The name of the source repository.
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
   @spec list_source_repository_branches(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           list_source_repository_branches_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_source_repository_branches_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2342,7 +2551,8 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2359,8 +2569,14 @@ defmodule AWS.CodeCatalyst do
 
   @doc """
   Retrieves a list of spaces.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20ListSpaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_spaces(map(), list_spaces_request(), list()) ::
+  @spec list_spaces(AWS.Client.t(), list_spaces_request(), Keyword.t()) ::
           {:ok, list_spaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_spaces(%Client{} = client, input, options \\ []) do
@@ -2368,7 +2584,8 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2385,8 +2602,30 @@ defmodule AWS.CodeCatalyst do
 
   @doc """
   Retrieves a list of workflow runs of a specified workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20ListWorkflowRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of results to show in a single call
+    to this API. If the number of results is larger than the number you
+    specified, the response will include a NextToken element, which you can use
+    to obtain additional results.
+  * `:next_token` (`t:`) A token returned from a call to this API to indicate the
+    next batch of results to return, if any.
+  * `:workflow_id` (`t:string`) The ID of the workflow. To retrieve a list of
+    workflow IDs, use ListWorkflows.
   """
-  @spec list_workflow_runs(map(), String.t(), String.t(), list_workflow_runs_request(), list()) ::
+  @spec list_workflow_runs(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          list_workflow_runs_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_workflow_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_workflow_runs(%Client{} = client, project_name, space_name, input, options \\ []) do
@@ -2403,7 +2642,13 @@ defmodule AWS.CodeCatalyst do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :workflow_id])
 
     Request.request_rest(
       client,
@@ -2420,8 +2665,28 @@ defmodule AWS.CodeCatalyst do
 
   @doc """
   Retrieves a list of workflows in a specified project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20ListWorkflows&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of results to show in a single call
+    to this API. If the number of results is larger than the number you
+    specified, the response will include a NextToken element, which you can use
+    to obtain additional results.
+  * `:next_token` (`t:`) A token returned from a call to this API to indicate the
+    next batch of results to return, if any.
   """
-  @spec list_workflows(map(), String.t(), String.t(), list_workflows_request(), list()) ::
+  @spec list_workflows(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          list_workflows_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_workflows_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_workflows(%Client{} = client, project_name, space_name, input, options \\ []) do
@@ -2437,7 +2702,13 @@ defmodule AWS.CodeCatalyst do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -2454,14 +2725,23 @@ defmodule AWS.CodeCatalyst do
 
   @doc """
   Starts a specified Dev Environment and puts it into an active state.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20StartDevEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
   @spec start_dev_environment(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           start_dev_environment_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_dev_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2479,21 +2759,31 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Starts a session for a specified Dev Environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20StartDevEnvironmentSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
   @spec start_dev_environment_session(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           start_dev_environment_session_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_dev_environment_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2511,15 +2801,32 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Begins a run of a specified workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20StartWorkflowRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
+  * `:workflow_id` (`t:string`) The system-generated unique ID of the workflow. To
+    retrieve a list of workflow IDs, use ListWorkflows.
+
+  ## Optional parameters:
   """
-  @spec start_workflow_run(map(), String.t(), String.t(), start_workflow_run_request(), list()) ::
+  @spec start_workflow_run(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          start_workflow_run_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_workflow_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def start_workflow_run(%Client{} = client, project_name, space_name, input, options \\ []) do
@@ -2534,23 +2841,32 @@ defmodule AWS.CodeCatalyst do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Pauses a specified Dev Environment and places it in a non-running state.
+  Pauses a specified Dev Environment and places it in a non-running state. Stopped
+  Dev Environments do not consume compute minutes.
 
-  Stopped Dev Environments do not consume compute minutes.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20StopDevEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
   @spec stop_dev_environment(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           stop_dev_environment_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, stop_dev_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2561,22 +2877,35 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Stops a session for a specified Dev Environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20StopDevEnvironmentSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment. To
+    obtain this ID, use ListDevEnvironments.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:session_id` (`t:`) The system-generated unique ID of the Dev Environment
+    session. This ID is returned by StartDevEnvironmentSession.
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
   @spec stop_dev_environment_session(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
           stop_dev_environment_session_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, stop_dev_environment_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2595,7 +2924,8 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2611,17 +2941,25 @@ defmodule AWS.CodeCatalyst do
   end
 
   @doc """
-  Changes one or more values for a Dev Environment.
+  Changes one or more values for a Dev Environment. Updating certain values of the
+  Dev Environment will cause a restart.
 
-  Updating certain values of the Dev Environment will cause a restart.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20UpdateDevEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
   @spec update_dev_environment(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           update_dev_environment_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_dev_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2639,7 +2977,8 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2656,8 +2995,22 @@ defmodule AWS.CodeCatalyst do
 
   @doc """
   Changes one or more values for a project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20UpdateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the project.
+  * `:space_name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
-  @spec update_project(map(), String.t(), String.t(), update_project_request(), list()) ::
+  @spec update_project(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_project_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def update_project(%Client{} = client, name, space_name, input, options \\ []) do
@@ -2667,7 +3020,8 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2684,8 +3038,15 @@ defmodule AWS.CodeCatalyst do
 
   @doc """
   Changes one or more values for a space.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20UpdateSpace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the space.
+
+  ## Optional parameters:
   """
-  @spec update_space(map(), String.t(), update_space_request(), list()) ::
+  @spec update_space(AWS.Client.t(), String.t(), update_space_request(), Keyword.t()) ::
           {:ok, update_space_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def update_space(%Client{} = client, name, input, options \\ []) do
@@ -2693,7 +3054,8 @@ defmodule AWS.CodeCatalyst do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2710,19 +3072,42 @@ defmodule AWS.CodeCatalyst do
 
   @doc """
   Verifies whether the calling user has a valid Amazon CodeCatalyst login and
-  session.
+  session. If successful, this returns the ID of the user in Amazon
+  CodeCatalyst.
 
-  If successful, this returns the ID of the user in Amazon CodeCatalyst.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20VerifySession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec verify_session(map(), list()) ::
+  @spec verify_session(AWS.Client.t(), Keyword.t()) ::
           {:ok, verify_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def verify_session(%Client{} = client, options \\ []) do
     url_path = "/session"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end

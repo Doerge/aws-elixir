@@ -4,19 +4,14 @@
 defmodule AWS.QApps do
   @moduledoc """
   The Amazon Q Apps feature capability within Amazon Q Business allows web
-  experience
-  users to create lightweight, purpose-built AI apps to fulfill specific tasks
-  from
-  within their web experience.
-
-  For example, users can create an Q Appthat exclusively
-  generates marketing-related content to improve your marketing team's
-  productivity or a
-  Q App for marketing content-generation like writing customer emails and creating
-  promotional content using a certain style of voice, tone, and branding.
-  For more information, see [Amazon Q App](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/purpose-built-qapps.html)
-  in the
-  *Amazon Q Business User Guide*.
+  experience users to create lightweight, purpose-built AI apps to fulfill
+  specific tasks from within their web experience. For example, users can create
+  an Q Appthat exclusively generates marketing-related content to improve your
+  marketing team's productivity or a Q App for marketing content-generation like
+  writing customer emails and creating promotional content using a certain style
+  of voice, tone, and branding. For more information, see [Amazon Q
+  App](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/purpose-built-qapps.html)
+  in the *Amazon Q Business User Guide*.
   """
 
   alias AWS.Client
@@ -1168,17 +1163,35 @@ defmodule AWS.QApps do
   end
 
   @doc """
-  Associates a rating or review for a library item with the user submitting
-  the request.
+  Associates a rating or review for a library item with the user submitting the
+  request. This increments the rating count for the specified library item.
 
-  This increments the rating count for the specified library item.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20AssociateLibraryItemReview&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The unique identifier for the Amazon Q Business
+    application environment instance.
+
+  ## Optional parameters:
   """
-  @spec associate_library_item_review(map(), associate_library_item_review_input(), list()) ::
+  @spec associate_library_item_review(
+          AWS.Client.t(),
+          associate_library_item_review_input(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_library_item_review_errors()}
   def associate_library_item_review(%Client{} = client, input, options \\ []) do
     url_path = "/catalog.associateItemRating"
+
+    optional_params = [instance_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -1188,7 +1201,8 @@ defmodule AWS.QApps do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1205,20 +1219,32 @@ defmodule AWS.QApps do
 
   @doc """
   This operation creates a link between the user's identity calling the operation
-  and a
-  specific Q App.
+  and a specific Q App. This is useful to mark the Q App as a *favorite* for the
+  user if the user doesn't own the Amazon Q App so they can still run it and see
+  it in their inventory of Q Apps.
 
-  This is useful to mark the Q App as a *favorite* for
-  the user if the user doesn't own the Amazon Q App so they can still run it and
-  see it in their
-  inventory of Q Apps.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20AssociateQAppWithUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
+    application environment instance.
+
+  ## Optional parameters:
   """
-  @spec associate_q_app_with_user(map(), associate_q_app_with_user_input(), list()) ::
+  @spec associate_q_app_with_user(AWS.Client.t(), associate_q_app_with_user_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_q_app_with_user_errors()}
   def associate_q_app_with_user(%Client{} = client, input, options \\ []) do
     url_path = "/apps.install"
+
+    optional_params = [instance_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -1228,7 +1254,8 @@ defmodule AWS.QApps do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1246,14 +1273,30 @@ defmodule AWS.QApps do
   @doc """
   Creates a new library item for an Amazon Q App, allowing it to be discovered and
   used by other allowed users.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20CreateLibraryItem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
+    application environment instance.
+
+  ## Optional parameters:
   """
-  @spec create_library_item(map(), create_library_item_input(), list()) ::
+  @spec create_library_item(AWS.Client.t(), create_library_item_input(), Keyword.t()) ::
           {:ok, create_library_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_library_item_errors()}
   def create_library_item(%Client{} = client, input, options \\ []) do
     url_path = "/catalog.createItem"
 
+    optional_params = [instance_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"instanceId", "instance-id"}
@@ -1262,7 +1305,8 @@ defmodule AWS.QApps do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1278,20 +1322,34 @@ defmodule AWS.QApps do
   end
 
   @doc """
-  Creates a new Amazon Q App based on the provided definition.
+  Creates a new Amazon Q App based on the provided definition. The Q App
+  definition specifies the cards and flow of the Q App. This operation also
+  calculates the dependencies between the cards by inspecting the references in
+  the prompts.
 
-  The Q App definition specifies
-  the cards and flow of the Q App. This operation also calculates the dependencies
-  between the cards
-  by inspecting the references in the prompts.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20CreateQApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
+    application environment instance.
+
+  ## Optional parameters:
   """
-  @spec create_q_app(map(), create_q_app_input(), list()) ::
+  @spec create_q_app(AWS.Client.t(), create_q_app_input(), Keyword.t()) ::
           {:ok, create_q_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_q_app_errors()}
   def create_q_app(%Client{} = client, input, options \\ []) do
     url_path = "/apps.create"
 
+    optional_params = [instance_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"instanceId", "instance-id"}
@@ -1300,7 +1358,8 @@ defmodule AWS.QApps do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1316,16 +1375,32 @@ defmodule AWS.QApps do
   end
 
   @doc """
-  Deletes a library item for an Amazon Q App, removing it from the library
-  so it can no longer be discovered or used by other users.
+  Deletes a library item for an Amazon Q App, removing it from the library so it
+  can no longer be discovered or used by other users.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20DeleteLibraryItem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
+    application environment instance.
+
+  ## Optional parameters:
   """
-  @spec delete_library_item(map(), delete_library_item_input(), list()) ::
+  @spec delete_library_item(AWS.Client.t(), delete_library_item_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_library_item_errors()}
   def delete_library_item(%Client{} = client, input, options \\ []) do
     url_path = "/catalog.deleteItem"
 
+    optional_params = [instance_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"instanceId", "instance-id"}
@@ -1334,7 +1409,8 @@ defmodule AWS.QApps do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1350,17 +1426,31 @@ defmodule AWS.QApps do
   end
 
   @doc """
-  Deletes an Amazon Q App owned by the user.
+  Deletes an Amazon Q App owned by the user. If the Q App was previously published
+  to the library, it is also removed from the library.
 
-  If the Q App was previously published to the library, it is also removed from
-  the library.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20DeleteQApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
+    application environment instance.
+
+  ## Optional parameters:
   """
-  @spec delete_q_app(map(), delete_q_app_input(), list()) ::
+  @spec delete_q_app(AWS.Client.t(), delete_q_app_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_q_app_errors()}
   def delete_q_app(%Client{} = client, input, options \\ []) do
     url_path = "/apps.delete"
+
+    optional_params = [instance_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -1370,7 +1460,8 @@ defmodule AWS.QApps do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1387,13 +1478,33 @@ defmodule AWS.QApps do
 
   @doc """
   Removes a rating or review previously submitted by the user for a library item.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20DisassociateLibraryItemReview&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
+    application environment instance.
+
+  ## Optional parameters:
   """
-  @spec disassociate_library_item_review(map(), disassociate_library_item_review_input(), list()) ::
+  @spec disassociate_library_item_review(
+          AWS.Client.t(),
+          disassociate_library_item_review_input(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_library_item_review_errors()}
   def disassociate_library_item_review(%Client{} = client, input, options \\ []) do
     url_path = "/catalog.disassociateItemRating"
+
+    optional_params = [instance_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -1403,7 +1514,8 @@ defmodule AWS.QApps do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1419,15 +1531,34 @@ defmodule AWS.QApps do
   end
 
   @doc """
-  Disassociates a Q App from a user removing the user's access to run the
-  Q App.
+  Disassociates a Q App from a user removing the user's access to run the Q App.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20DisassociateQAppFromUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
+    application environment instance.
+
+  ## Optional parameters:
   """
-  @spec disassociate_q_app_from_user(map(), disassociate_q_app_from_user_input(), list()) ::
+  @spec disassociate_q_app_from_user(
+          AWS.Client.t(),
+          disassociate_q_app_from_user_input(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_q_app_from_user_errors()}
   def disassociate_q_app_from_user(%Client{} = client, input, options \\ []) do
     url_path = "/apps.uninstall"
+
+    optional_params = [instance_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -1437,7 +1568,8 @@ defmodule AWS.QApps do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1454,47 +1586,59 @@ defmodule AWS.QApps do
 
   @doc """
   Retrieves details about a library item for an Amazon Q App, including its
-  metadata,
-  categories, ratings, and usage statistics.
+  metadata, categories, ratings, and usage statistics.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20GetLibraryItem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:library_item_id` (`t:string`) The unique identifier of the library item to
+    retrieve.
+  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
+    application environment instance.
+
+  ## Optional parameters:
+  * `:app_id` (`t:string`) The unique identifier of the Amazon Q App associated
+    with the library item.
   """
-  @spec get_library_item(map(), String.t() | nil, String.t(), String.t(), list()) ::
+  @spec get_library_item(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_library_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_library_item_errors()}
-  def get_library_item(
-        %Client{} = client,
-        app_id \\ nil,
-        library_item_id,
-        instance_id,
-        options \\ []
-      ) do
+  def get_library_item(%Client{} = client, library_item_id, instance_id, options \\ []) do
     url_path = "/catalog.getItem"
-    headers = []
 
-    headers =
-      if !is_nil(instance_id) do
-        [{"instance-id", instance_id} | headers]
-      else
-        headers
-      end
+    # Validate optional parameters
+    optional_params = [app_id: nil]
 
-    query_params = []
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
+    # Required headers
+    headers = [{"instance-id", instance_id}]
+
+    # Optional headers
+
+    # Required query params
+    query_params = [{"libraryItemId", library_item_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(library_item_id) do
-        [{"libraryItemId", library_item_id} | query_params]
+      if opt_val = Keyword.get(options, :app_id) do
+        [{"appId", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(app_id) do
-        [{"appId", app_id} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:app_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1502,32 +1646,44 @@ defmodule AWS.QApps do
   @doc """
   Retrieves the full details of an Q App, including its definition specifying the
   cards and flow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20GetQApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique identifier of the Q App to retrieve.
+  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
+    application environment instance.
+
+  ## Optional parameters:
   """
-  @spec get_q_app(map(), String.t(), String.t(), list()) ::
+  @spec get_q_app(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_q_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_q_app_errors()}
   def get_q_app(%Client{} = client, app_id, instance_id, options \\ []) do
     url_path = "/apps.get"
-    headers = []
 
-    headers =
-      if !is_nil(instance_id) do
-        [{"instance-id", instance_id} | headers]
-      else
-        headers
-      end
+    # Validate optional parameters
+    optional_params = []
 
-    query_params = []
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
-    query_params =
-      if !is_nil(app_id) do
-        [{"appId", app_id} | query_params]
-      else
-        query_params
-      end
+    # Required headers
+    headers = [{"instance-id", instance_id}]
 
-    meta = metadata()
+    # Optional headers
+
+    # Required query params
+    query_params = [{"appId", app_id}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1535,51 +1691,77 @@ defmodule AWS.QApps do
   @doc """
   Retrieves the current state and results for an active session of an Amazon Q
   App.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20GetQAppSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:session_id` (`t:string`) The unique identifier of the Q App session to
+    retrieve.
+  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
+    application environment instance.
+
+  ## Optional parameters:
   """
-  @spec get_q_app_session(map(), String.t(), String.t(), list()) ::
+  @spec get_q_app_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_q_app_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_q_app_session_errors()}
   def get_q_app_session(%Client{} = client, session_id, instance_id, options \\ []) do
     url_path = "/runtime.getQAppSession"
-    headers = []
 
-    headers =
-      if !is_nil(instance_id) do
-        [{"instance-id", instance_id} | headers]
-      else
-        headers
-      end
+    # Validate optional parameters
+    optional_params = []
 
-    query_params = []
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
-    query_params =
-      if !is_nil(session_id) do
-        [{"sessionId", session_id} | query_params]
-      else
-        query_params
-      end
+    # Required headers
+    headers = [{"instance-id", instance_id}]
 
-    meta = metadata()
+    # Optional headers
+
+    # Required query params
+    query_params = [{"sessionId", session_id}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Uploads a file that can then be used either as a default in a
-  `FileUploadCard` from Q App definition or as a file that
-  is used inside a single Q App run.
+  Uploads a file that can then be used either as a default in a `FileUploadCard`
+  from Q App definition or as a file that is used inside a single Q App run. The
+  purpose of the document is determined by a scope parameter that indicates
+  whether it is at the app definition level or at the app session level.
 
-  The purpose of the document is
-  determined by a scope parameter that indicates whether it is at the
-  app definition level or at the app session level.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20ImportDocument&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
+    application environment instance.
+
+  ## Optional parameters:
   """
-  @spec import_document(map(), import_document_input(), list()) ::
+  @spec import_document(AWS.Client.t(), import_document_input(), Keyword.t()) ::
           {:ok, import_document_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_document_errors()}
   def import_document(%Client{} = client, input, options \\ []) do
     url_path = "/apps.importDocument"
+
+    optional_params = [instance_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -1589,7 +1771,8 @@ defmodule AWS.QApps do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1607,139 +1790,212 @@ defmodule AWS.QApps do
   @doc """
   Lists the library items for Amazon Q Apps that are published and available for
   users in your Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20ListLibraryItems&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
+    application environment instance.
+
+  ## Optional parameters:
+  * `:category_id` (`t:string`) Optional category to filter the library items by.
+  * `:limit` (`t:integer`) The maximum number of library items to return in the
+    response.
+  * `:next_token` (`t:string`) The token to request the next page of results.
   """
-  @spec list_library_items(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          list()
-        ) ::
+  @spec list_library_items(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_library_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_library_items_errors()}
-  def list_library_items(
-        %Client{} = client,
-        category_id \\ nil,
-        limit \\ nil,
-        next_token \\ nil,
-        instance_id,
-        options \\ []
-      ) do
+  def list_library_items(%Client{} = client, instance_id, options \\ []) do
     url_path = "/catalog.list"
-    headers = []
 
-    headers =
-      if !is_nil(instance_id) do
-        [{"instance-id", instance_id} | headers]
-      else
-        headers
-      end
+    # Validate optional parameters
+    optional_params = [category_id: nil, limit: nil, next_token: nil]
 
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = [{"instance-id", instance_id}]
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if opt_val = Keyword.get(options, :limit) do
+        [{"limit", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(category_id) do
-        [{"categoryId", category_id} | query_params]
+      if opt_val = Keyword.get(options, :category_id) do
+        [{"categoryId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:category_id, :limit, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the Amazon Q Apps owned by or associated with the user either because
-  they created it or because they used it from the library in the past.
-
-  The user
+  Lists the Amazon Q Apps owned by or associated with the user either because they
+  created it or because they used it from the library in the past. The user
   identity is extracted from the credentials used to invoke this operation..
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20ListQApps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
+    application environment instance.
+
+  ## Optional parameters:
+  * `:limit` (`t:integer`) The maximum number of Q Apps to return in the response.
+  * `:next_token` (`t:string`) The token to request the next page of results.
   """
-  @spec list_q_apps(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
+  @spec list_q_apps(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_q_apps_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_q_apps_errors()}
-  def list_q_apps(%Client{} = client, limit \\ nil, next_token \\ nil, instance_id, options \\ []) do
+  def list_q_apps(%Client{} = client, instance_id, options \\ []) do
     url_path = "/apps.list"
-    headers = []
 
-    headers =
-      if !is_nil(instance_id) do
-        [{"instance-id", instance_id} | headers]
-      else
-        headers
-      end
+    # Validate optional parameters
+    optional_params = [limit: nil, next_token: nil]
 
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = [{"instance-id", instance_id}]
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if opt_val = Keyword.get(options, :limit) do
+        [{"limit", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:limit, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the tags associated with an Amazon Q Apps resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    whose tags should be listed.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Generates an Amazon Q App definition based on either a conversation or
-  a problem statement provided as input.The resulting app definition
-  can be used to call `CreateQApp`.
+  Generates an Amazon Q App definition based on either a conversation or a problem
+  statement provided as input.The resulting app definition can be used to call
+  `CreateQApp`. This API doesn't create Amazon Q Apps directly.
 
-  This API doesn't create
-  Amazon Q Apps directly.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20PredictQApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
+    application environment instance.
+
+  ## Optional parameters:
   """
-  @spec predict_q_app(map(), predict_q_app_input(), list()) ::
+  @spec predict_q_app(AWS.Client.t(), predict_q_app_input(), Keyword.t()) ::
           {:ok, predict_q_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, predict_q_app_errors()}
   def predict_q_app(%Client{} = client, input, options \\ []) do
     url_path = "/apps.predictQApp"
 
+    optional_params = [instance_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"instanceId", "instance-id"}
@@ -1748,7 +2004,8 @@ defmodule AWS.QApps do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1764,19 +2021,32 @@ defmodule AWS.QApps do
   end
 
   @doc """
-  Starts a new session for an Amazon Q App, allowing inputs to be provided
-  and the app to be run.
+  Starts a new session for an Amazon Q App, allowing inputs to be provided and the
+  app to be run.
 
-  Each Q App session will be condensed into a single conversation
-  in the web experience.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20StartQAppSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
+    application environment instance.
+
+  ## Optional parameters:
   """
-  @spec start_q_app_session(map(), start_q_app_session_input(), list()) ::
+  @spec start_q_app_session(AWS.Client.t(), start_q_app_session_input(), Keyword.t()) ::
           {:ok, start_q_app_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_q_app_session_errors()}
   def start_q_app_session(%Client{} = client, input, options \\ []) do
     url_path = "/runtime.startQAppSession"
 
+    optional_params = [instance_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"instanceId", "instance-id"}
@@ -1785,7 +2055,8 @@ defmodule AWS.QApps do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1801,18 +2072,32 @@ defmodule AWS.QApps do
   end
 
   @doc """
-  Stops an active session for an Amazon Q App.This deletes all data
-  related to the session and makes it invalid for future uses.
+  Stops an active session for an Amazon Q App.This deletes all data related to the
+  session and makes it invalid for future uses. The results of the session will
+  be persisted as part of the conversation.
 
-  The
-  results of the session will be persisted as part of the conversation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20StopQAppSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
+    application environment instance.
+
+  ## Optional parameters:
   """
-  @spec stop_q_app_session(map(), stop_q_app_session_input(), list()) ::
+  @spec stop_q_app_session(AWS.Client.t(), stop_q_app_session_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_q_app_session_errors()}
   def stop_q_app_session(%Client{} = client, input, options \\ []) do
     url_path = "/runtime.deleteMiniAppRun"
+
+    optional_params = [instance_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -1822,7 +2107,8 @@ defmodule AWS.QApps do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1839,8 +2125,16 @@ defmodule AWS.QApps do
 
   @doc """
   Associates tags with an Amazon Q Apps resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
+    tag.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1849,7 +2143,8 @@ defmodule AWS.QApps do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1866,8 +2161,18 @@ defmodule AWS.QApps do
 
   @doc """
   Disassociates tags from an Amazon Q Apps resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
+    disassociate the tag from.
+  * `:tag_keys` (`t:list[com.amazonaws.qapps#TagKey]`) The keys of the tags to
+    disassociate from the resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1881,7 +2186,8 @@ defmodule AWS.QApps do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1898,13 +2204,29 @@ defmodule AWS.QApps do
 
   @doc """
   Updates the metadata and status of a library item for an Amazon Q App.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20UpdateLibraryItem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
+    application environment instance.
+
+  ## Optional parameters:
   """
-  @spec update_library_item(map(), update_library_item_input(), list()) ::
+  @spec update_library_item(AWS.Client.t(), update_library_item_input(), Keyword.t()) ::
           {:ok, update_library_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_library_item_errors()}
   def update_library_item(%Client{} = client, input, options \\ []) do
     url_path = "/catalog.updateItem"
+
+    optional_params = [instance_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -1914,7 +2236,8 @@ defmodule AWS.QApps do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1932,13 +2255,29 @@ defmodule AWS.QApps do
   @doc """
   Updates an existing Amazon Q App, allowing modifications to its title,
   description, and definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20UpdateQApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
+    application environment instance.
+
+  ## Optional parameters:
   """
-  @spec update_q_app(map(), update_q_app_input(), list()) ::
+  @spec update_q_app(AWS.Client.t(), update_q_app_input(), Keyword.t()) ::
           {:ok, update_q_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_q_app_errors()}
   def update_q_app(%Client{} = client, input, options \\ []) do
     url_path = "/apps.update"
+
+    optional_params = [instance_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -1948,7 +2287,8 @@ defmodule AWS.QApps do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1964,20 +2304,34 @@ defmodule AWS.QApps do
   end
 
   @doc """
-  Updates the session for a given Q App `sessionId`.
+  Updates the session for a given Q App `sessionId`. This is only valid when at
+  least one card of the session is in the `WAITING` state. Data for each
+  `WAITING` card can be provided as input. If inputs are not provided, the call
+  will be accepted but session will not move forward. Inputs for cards that are
+  not in the `WAITING` status will be ignored.
 
-  This is only
-  valid when at least one card of the session is in the `WAITING` state.
-  Data for each `WAITING` card can be provided as input. If inputs
-  are not provided, the call will be accepted but session will not move forward.
-  Inputs for cards that are not in the `WAITING` status will be ignored.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qapps%20UpdateQAppSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:instance_id` (`t:string`) The unique identifier of the Amazon Q Business
+    application environment instance.
+
+  ## Optional parameters:
   """
-  @spec update_q_app_session(map(), update_q_app_session_input(), list()) ::
+  @spec update_q_app_session(AWS.Client.t(), update_q_app_session_input(), Keyword.t()) ::
           {:ok, update_q_app_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_q_app_session_errors()}
   def update_q_app_session(%Client{} = client, input, options \\ []) do
     url_path = "/runtime.updateQAppSession"
+
+    optional_params = [instance_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -1987,7 +2341,8 @@ defmodule AWS.QApps do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

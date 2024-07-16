@@ -4,13 +4,8 @@
 defmodule AWS.SageMakerMetrics do
   @moduledoc """
   Contains all data plane API operations and data types for Amazon SageMaker
-  Metrics.
-
-  Use these APIs to put and retrieve (get) features related to your training run.
-
-    *
-
-  [BatchPutMetrics](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_metrics_BatchPutMetrics.html)
+  Metrics. Use these APIs to put and retrieve (get) features related to your
+  training run.
   """
 
   alias AWS.Client
@@ -82,12 +77,16 @@ defmodule AWS.SageMakerMetrics do
   end
 
   @doc """
-  Used to ingest training metrics into SageMaker.
+  Used to ingest training metrics into SageMaker. These metrics can be visualized
+  in SageMaker Studio and retrieved with the `GetMetrics` API.
 
-  These metrics can be visualized in SageMaker Studio and
-  retrieved with the `GetMetrics` API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakermetrics%20BatchPutMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_put_metrics(map(), batch_put_metrics_request(), list()) ::
+  @spec batch_put_metrics(AWS.Client.t(), batch_put_metrics_request(), Keyword.t()) ::
           {:ok, batch_put_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def batch_put_metrics(%Client{} = client, input, options \\ []) do
@@ -95,7 +94,8 @@ defmodule AWS.SageMakerMetrics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

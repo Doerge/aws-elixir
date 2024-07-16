@@ -4,11 +4,8 @@
 defmodule AWS.MediaStoreData do
   @moduledoc """
   An AWS Elemental MediaStore asset is an object, similar to an object in the
-  Amazon S3
-  service.
-
-  Objects are the fundamental entities that are stored in AWS Elemental
-  MediaStore.
+  Amazon S3 service. Objects are the fundamental entities that are stored in AWS
+  Elemental MediaStore.
   """
 
   alias AWS.Client
@@ -232,8 +229,16 @@ defmodule AWS.MediaStoreData do
 
   @doc """
   Deletes an object at the specified path.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediastoredata%20DeleteObject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:path` (`t:string`) The path (including the file name) where the object is
+    stored in the container. Format: //
+
+  ## Optional parameters:
   """
-  @spec delete_object(map(), String.t(), delete_object_request(), list()) ::
+  @spec delete_object(AWS.Client.t(), String.t(), delete_object_request(), Keyword.t()) ::
           {:ok, delete_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_object_errors()}
@@ -242,7 +247,8 @@ defmodule AWS.MediaStoreData do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -259,8 +265,16 @@ defmodule AWS.MediaStoreData do
 
   @doc """
   Gets the headers for an object at the specified path.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediastoredata%20DescribeObject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:path` (`t:string`) The path (including the file name) where the object is
+    stored in the container. Format: //
+
+  ## Optional parameters:
   """
-  @spec describe_object(map(), String.t(), describe_object_request(), list()) ::
+  @spec describe_object(AWS.Client.t(), String.t(), describe_object_request(), Keyword.t()) ::
           {:ok, describe_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_object_errors()}
@@ -282,7 +296,8 @@ defmodule AWS.MediaStoreData do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -298,28 +313,54 @@ defmodule AWS.MediaStoreData do
   end
 
   @doc """
-  Downloads the object at the specified path.
+  Downloads the object at the specified path. If the object’s upload availability
+  is set to `streaming`, AWS Elemental MediaStore downloads the object even if
+  it’s still uploading the object.
 
-  If the object’s upload availability is set to `streaming`, AWS Elemental
-  MediaStore downloads the object even if it’s still uploading the object.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediastoredata%20GetObject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:path` (`t:string`) The path (including the file name) where the object is
+    stored in the container. Format: //
+
+  ## Optional parameters:
+  * `:range` (`t:string`) The range bytes of an object to retrieve. For more
+    information about the Range header, see
+    http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35. AWS
+    Elemental MediaStore ignores this header for partially uploaded objects that
+    have streaming upload availability.
   """
-  @spec get_object(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_object_errors()}
-  def get_object(%Client{} = client, path, range \\ nil, options \\ []) do
+  def get_object(%Client{} = client, path, options \\ []) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
+
+    # Validate optional parameters
+    optional_params = [range: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(range) do
-        [{"Range", range} | headers]
+      if opt_val = Keyword.get(options, :range) do
+        [{"Range", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
+    # Optional query params
     options =
       Keyword.put(
         options,
@@ -341,7 +382,13 @@ defmodule AWS.MediaStoreData do
         true
       )
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:range])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -349,60 +396,128 @@ defmodule AWS.MediaStoreData do
   @doc """
   Provides a list of metadata entries about folders and objects in the specified
   folder.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediastoredata%20ListItems&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per API
+    request. For example, you submit a ListItems request with MaxResults set at
+    500. Although 2,000 items match your request, the service returns no more
+    than the first 500 items. (The service also returns a NextToken value that
+    you can use to fetch the next batch of results.) The service might return
+    fewer results than the MaxResults value.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    that you want to see. For example, you submit a ListItems request with
+    MaxResults set at 500. The service returns the first batch of results (up to
+    500) and a NextToken value. To see the next batch of results, you can submit
+    the ListItems request a second time and specify the NextToken value.
+  * `:path` (`t:string`) The path in the container from which to retrieve items.
+    Format: //
   """
-  @spec list_items(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_items_errors()}
-  def list_items(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        path \\ nil,
-        options \\ []
-      ) do
+  def list_items(%Client{} = client, options \\ []) do
     url_path = "/"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, path: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(path) do
-        [{"Path", path} | query_params]
+      if opt_val = Keyword.get(options, :path) do
+        [{"Path", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :path])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Uploads an object to the specified path.
+  Uploads an object to the specified path. Object sizes are limited to 25 MB for
+  standard upload availability and 10 MB for streaming upload availability.
 
-  Object sizes are limited to 25 MB for standard upload availability and 10 MB for
-  streaming upload availability.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediastoredata%20PutObject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:path` (`t:string`) The path (including the file name) where the object is
+    stored in the container. Format: //
+
+  ## Optional parameters:
+  * `:cache_control` (`t:string`) An optional CacheControl header that allows the
+    caller to control the object's cache behavior. Headers can be passed in as
+    specified in the HTTP at
+    https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9.
+  * `:content_type` (`t:string`) The content type of the object.
+  * `:storage_class` (`t:enum["TEMPORAL"]`) Indicates the storage class of a Put
+    request. Defaults to high-performance temporal storage class, and objects
+    are persisted into durable storage shortly after being received.
+  * `:upload_availability` (`t:enum["STANDARD|STREAMING"]`) Indicates the
+    availability of an object while it is still uploading. If the value is set
+    to streaming, the object is available for downloading after some initial
+    buffering but before the object is uploaded completely. If the value is set
+    to standard, the object is available for downloading only when it is
+    uploaded completely. The default value for this header is standard.
   """
-  @spec put_object(map(), String.t(), put_object_request(), list()) ::
+  @spec put_object(AWS.Client.t(), String.t(), put_object_request(), Keyword.t()) ::
           {:ok, put_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_object_errors()}
   def put_object(%Client{} = client, path, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
+
+    optional_params = [
+      cache_control: nil,
+      content_type: nil,
+      storage_class: nil,
+      upload_availability: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -422,7 +537,13 @@ defmodule AWS.MediaStoreData do
         true
       )
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:cache_control, :content_type, :storage_class, :upload_availability])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

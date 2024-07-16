@@ -4,8 +4,7 @@
 defmodule AWS.LicenseManager do
   @moduledoc """
   License Manager makes it easier to manage licenses from software vendors across
-  multiple
-  Amazon Web Services accounts and on-premises servers.
+  multiple Amazon Web Services accounts and on-premises servers.
   """
 
   alias AWS.Client
@@ -2483,27 +2482,27 @@ defmodule AWS.LicenseManager do
   @doc """
   Accepts the specified grant.
   """
-  @spec accept_grant(map(), accept_grant_request(), list()) ::
+  @spec accept_grant(AWS.Client.t(), accept_grant_request(), Keyword.t()) ::
           {:ok, accept_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_grant_errors()}
   def accept_grant(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptGrant", input, options)
   end
 
   @doc """
-  Checks in the specified license.
-
-  Check in a license when it is no longer in use.
+  Checks in the specified license. Check in a license when it is no longer in use.
   """
-  @spec check_in_license(map(), check_in_license_request(), list()) ::
+  @spec check_in_license(AWS.Client.t(), check_in_license_request(), Keyword.t()) ::
           {:ok, check_in_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, check_in_license_errors()}
   def check_in_license(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CheckInLicense", input, options)
   end
@@ -2511,64 +2510,63 @@ defmodule AWS.LicenseManager do
   @doc """
   Checks out the specified license for offline use.
   """
-  @spec checkout_borrow_license(map(), checkout_borrow_license_request(), list()) ::
+  @spec checkout_borrow_license(AWS.Client.t(), checkout_borrow_license_request(), Keyword.t()) ::
           {:ok, checkout_borrow_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, checkout_borrow_license_errors()}
   def checkout_borrow_license(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CheckoutBorrowLicense", input, options)
   end
 
   @doc """
   Checks out the specified license.
-
-  If the account that created the license is the same that is performing the check
-  out, you must
-  specify the account as the beneficiary.
   """
-  @spec checkout_license(map(), checkout_license_request(), list()) ::
+  @spec checkout_license(AWS.Client.t(), checkout_license_request(), Keyword.t()) ::
           {:ok, checkout_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, checkout_license_errors()}
   def checkout_license(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CheckoutLicense", input, options)
   end
 
   @doc """
-  Creates a grant for the specified license.
-
-  A grant shares the use of license
-  entitlements with a specific Amazon Web Services account, an organization, or an
-  organizational unit (OU). For more information, see [Granted licenses in License Manager](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html)
+  Creates a grant for the specified license. A grant shares the use of license
+  entitlements with a specific Amazon Web Services account, an organization, or
+  an organizational unit (OU). For more information, see [Granted licenses in
+  License
+  Manager](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html)
   in the *License Manager User Guide*.
   """
-  @spec create_grant(map(), create_grant_request(), list()) ::
+  @spec create_grant(AWS.Client.t(), create_grant_request(), Keyword.t()) ::
           {:ok, create_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_grant_errors()}
   def create_grant(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGrant", input, options)
   end
 
   @doc """
-  Creates a new version of the specified grant.
-
-  For more information, see
-  [Granted licenses in License Manager](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html)
+  Creates a new version of the specified grant. For more information, see [Granted
+  licenses in License
+  Manager](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html)
   in the *License Manager User Guide*.
   """
-  @spec create_grant_version(map(), create_grant_version_request(), list()) ::
+  @spec create_grant_version(AWS.Client.t(), create_grant_version_request(), Keyword.t()) ::
           {:ok, create_grant_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_grant_version_errors()}
   def create_grant_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGrantVersion", input, options)
   end
@@ -2576,36 +2574,31 @@ defmodule AWS.LicenseManager do
   @doc """
   Creates a license.
   """
-  @spec create_license(map(), create_license_request(), list()) ::
+  @spec create_license(AWS.Client.t(), create_license_request(), Keyword.t()) ::
           {:ok, create_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_license_errors()}
   def create_license(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLicense", input, options)
   end
 
   @doc """
   Creates a license configuration.
-
-  A license configuration is an abstraction of a customer license agreement that
-  can be
-  consumed and enforced by License Manager. Components include specifications for
-  the license
-  type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared
-  tenancy,
-  Dedicated Instance, Dedicated Host, or all of these), license affinity to host
-  (how long a
-  license must be associated with a host), and the number of licenses purchased
-  and used.
   """
-  @spec create_license_configuration(map(), create_license_configuration_request(), list()) ::
+  @spec create_license_configuration(
+          AWS.Client.t(),
+          create_license_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_license_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_license_configuration_errors()}
   def create_license_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLicenseConfiguration", input, options)
   end
@@ -2614,15 +2607,16 @@ defmodule AWS.LicenseManager do
   Creates a new license conversion task.
   """
   @spec create_license_conversion_task_for_resource(
-          map(),
+          AWS.Client.t(),
           create_license_conversion_task_for_resource_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_license_conversion_task_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_license_conversion_task_for_resource_errors()}
   def create_license_conversion_task_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLicenseConversionTaskForResource", input, options)
   end
@@ -2631,15 +2625,16 @@ defmodule AWS.LicenseManager do
   Creates a report generator.
   """
   @spec create_license_manager_report_generator(
-          map(),
+          AWS.Client.t(),
           create_license_manager_report_generator_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_license_manager_report_generator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_license_manager_report_generator_errors()}
   def create_license_manager_report_generator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLicenseManagerReportGenerator", input, options)
   end
@@ -2647,31 +2642,27 @@ defmodule AWS.LicenseManager do
   @doc """
   Creates a new version of the specified license.
   """
-  @spec create_license_version(map(), create_license_version_request(), list()) ::
+  @spec create_license_version(AWS.Client.t(), create_license_version_request(), Keyword.t()) ::
           {:ok, create_license_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_license_version_errors()}
   def create_license_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLicenseVersion", input, options)
   end
 
   @doc """
   Creates a long-lived token.
-
-  A refresh token is a JWT token used to get an access token. With an access
-  token,
-  you can call AssumeRoleWithWebIdentity to get role credentials that you can use
-  to
-  call License Manager to manage the specified license.
   """
-  @spec create_token(map(), create_token_request(), list()) ::
+  @spec create_token(AWS.Client.t(), create_token_request(), Keyword.t()) ::
           {:ok, create_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_token_errors()}
   def create_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateToken", input, options)
   end
@@ -2679,12 +2670,13 @@ defmodule AWS.LicenseManager do
   @doc """
   Deletes the specified grant.
   """
-  @spec delete_grant(map(), delete_grant_request(), list()) ::
+  @spec delete_grant(AWS.Client.t(), delete_grant_request(), Keyword.t()) ::
           {:ok, delete_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_grant_errors()}
   def delete_grant(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGrant", input, options)
   end
@@ -2692,64 +2684,63 @@ defmodule AWS.LicenseManager do
   @doc """
   Deletes the specified license.
   """
-  @spec delete_license(map(), delete_license_request(), list()) ::
+  @spec delete_license(AWS.Client.t(), delete_license_request(), Keyword.t()) ::
           {:ok, delete_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_license_errors()}
   def delete_license(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLicense", input, options)
   end
 
   @doc """
   Deletes the specified license configuration.
-
-  You cannot delete a license configuration that is in use.
   """
-  @spec delete_license_configuration(map(), delete_license_configuration_request(), list()) ::
+  @spec delete_license_configuration(
+          AWS.Client.t(),
+          delete_license_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_license_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_license_configuration_errors()}
   def delete_license_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLicenseConfiguration", input, options)
   end
 
   @doc """
   Deletes the specified report generator.
-
-  This action deletes the report generator, which stops it from generating future
-  reports.
-  The action cannot be reversed. It has no effect on the previous reports from
-  this generator.
   """
   @spec delete_license_manager_report_generator(
-          map(),
+          AWS.Client.t(),
           delete_license_manager_report_generator_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_license_manager_report_generator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_license_manager_report_generator_errors()}
   def delete_license_manager_report_generator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLicenseManagerReportGenerator", input, options)
   end
 
   @doc """
-  Deletes the specified token.
-
-  Must be called in the license home Region.
+  Deletes the specified token. Must be called in the license home Region.
   """
-  @spec delete_token(map(), delete_token_request(), list()) ::
+  @spec delete_token(AWS.Client.t(), delete_token_request(), Keyword.t()) ::
           {:ok, delete_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_token_errors()}
   def delete_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteToken", input, options)
   end
@@ -2757,28 +2748,32 @@ defmodule AWS.LicenseManager do
   @doc """
   Extends the expiration date for license consumption.
   """
-  @spec extend_license_consumption(map(), extend_license_consumption_request(), list()) ::
+  @spec extend_license_consumption(
+          AWS.Client.t(),
+          extend_license_consumption_request(),
+          Keyword.t()
+        ) ::
           {:ok, extend_license_consumption_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, extend_license_consumption_errors()}
   def extend_license_consumption(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExtendLicenseConsumption", input, options)
   end
 
   @doc """
-  Gets a temporary access token to use with AssumeRoleWithWebIdentity.
-
-  Access tokens
-  are valid for one hour.
+  Gets a temporary access token to use with AssumeRoleWithWebIdentity. Access
+  tokens are valid for one hour.
   """
-  @spec get_access_token(map(), get_access_token_request(), list()) ::
+  @spec get_access_token(AWS.Client.t(), get_access_token_request(), Keyword.t()) ::
           {:ok, get_access_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_access_token_errors()}
   def get_access_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAccessToken", input, options)
   end
@@ -2786,12 +2781,13 @@ defmodule AWS.LicenseManager do
   @doc """
   Gets detailed information about the specified grant.
   """
-  @spec get_grant(map(), get_grant_request(), list()) ::
+  @spec get_grant(AWS.Client.t(), get_grant_request(), Keyword.t()) ::
           {:ok, get_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_grant_errors()}
   def get_grant(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetGrant", input, options)
   end
@@ -2799,12 +2795,13 @@ defmodule AWS.LicenseManager do
   @doc """
   Gets detailed information about the specified license.
   """
-  @spec get_license(map(), get_license_request(), list()) ::
+  @spec get_license(AWS.Client.t(), get_license_request(), Keyword.t()) ::
           {:ok, get_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_license_errors()}
   def get_license(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLicense", input, options)
   end
@@ -2812,12 +2809,17 @@ defmodule AWS.LicenseManager do
   @doc """
   Gets detailed information about the specified license configuration.
   """
-  @spec get_license_configuration(map(), get_license_configuration_request(), list()) ::
+  @spec get_license_configuration(
+          AWS.Client.t(),
+          get_license_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_license_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_license_configuration_errors()}
   def get_license_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLicenseConfiguration", input, options)
   end
@@ -2825,12 +2827,17 @@ defmodule AWS.LicenseManager do
   @doc """
   Gets information about the specified license type conversion task.
   """
-  @spec get_license_conversion_task(map(), get_license_conversion_task_request(), list()) ::
+  @spec get_license_conversion_task(
+          AWS.Client.t(),
+          get_license_conversion_task_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_license_conversion_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_license_conversion_task_errors()}
   def get_license_conversion_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLicenseConversionTask", input, options)
   end
@@ -2839,15 +2846,16 @@ defmodule AWS.LicenseManager do
   Gets information about the specified report generator.
   """
   @spec get_license_manager_report_generator(
-          map(),
+          AWS.Client.t(),
           get_license_manager_report_generator_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_license_manager_report_generator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_license_manager_report_generator_errors()}
   def get_license_manager_report_generator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLicenseManagerReportGenerator", input, options)
   end
@@ -2855,12 +2863,13 @@ defmodule AWS.LicenseManager do
   @doc """
   Gets detailed information about the usage of the specified license.
   """
-  @spec get_license_usage(map(), get_license_usage_request(), list()) ::
+  @spec get_license_usage(AWS.Client.t(), get_license_usage_request(), Keyword.t()) ::
           {:ok, get_license_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_license_usage_errors()}
   def get_license_usage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLicenseUsage", input, options)
   end
@@ -2868,34 +2877,31 @@ defmodule AWS.LicenseManager do
   @doc """
   Gets the License Manager settings for the current Region.
   """
-  @spec get_service_settings(map(), get_service_settings_request(), list()) ::
+  @spec get_service_settings(AWS.Client.t(), get_service_settings_request(), Keyword.t()) ::
           {:ok, get_service_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_settings_errors()}
   def get_service_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetServiceSettings", input, options)
   end
 
   @doc """
   Lists the resource associations for the specified license configuration.
-
-  Resource associations need not consume licenses from a license configuration.
-  For example, an AMI or a stopped instance might not consume a license (depending
-  on
-  the license rules).
   """
   @spec list_associations_for_license_configuration(
-          map(),
+          AWS.Client.t(),
           list_associations_for_license_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_associations_for_license_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_associations_for_license_configuration_errors()}
   def list_associations_for_license_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAssociationsForLicenseConfiguration", input, options)
   end
@@ -2903,12 +2909,13 @@ defmodule AWS.LicenseManager do
   @doc """
   Lists the grants distributed for the specified license.
   """
-  @spec list_distributed_grants(map(), list_distributed_grants_request(), list()) ::
+  @spec list_distributed_grants(AWS.Client.t(), list_distributed_grants_request(), Keyword.t()) ::
           {:ok, list_distributed_grants_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_distributed_grants_errors()}
   def list_distributed_grants(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDistributedGrants", input, options)
   end
@@ -2917,15 +2924,16 @@ defmodule AWS.LicenseManager do
   Lists the license configuration operations that failed.
   """
   @spec list_failures_for_license_configuration_operations(
-          map(),
+          AWS.Client.t(),
           list_failures_for_license_configuration_operations_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_failures_for_license_configuration_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_failures_for_license_configuration_operations_errors()}
   def list_failures_for_license_configuration_operations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -2939,12 +2947,17 @@ defmodule AWS.LicenseManager do
   @doc """
   Lists the license configurations for your account.
   """
-  @spec list_license_configurations(map(), list_license_configurations_request(), list()) ::
+  @spec list_license_configurations(
+          AWS.Client.t(),
+          list_license_configurations_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_license_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_license_configurations_errors()}
   def list_license_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLicenseConfigurations", input, options)
   end
@@ -2952,12 +2965,17 @@ defmodule AWS.LicenseManager do
   @doc """
   Lists the license type conversion tasks for your account.
   """
-  @spec list_license_conversion_tasks(map(), list_license_conversion_tasks_request(), list()) ::
+  @spec list_license_conversion_tasks(
+          AWS.Client.t(),
+          list_license_conversion_tasks_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_license_conversion_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_license_conversion_tasks_errors()}
   def list_license_conversion_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLicenseConversionTasks", input, options)
   end
@@ -2966,15 +2984,16 @@ defmodule AWS.LicenseManager do
   Lists the report generators for your account.
   """
   @spec list_license_manager_report_generators(
-          map(),
+          AWS.Client.t(),
           list_license_manager_report_generators_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_license_manager_report_generators_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_license_manager_report_generators_errors()}
   def list_license_manager_report_generators(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLicenseManagerReportGenerators", input, options)
   end
@@ -2983,15 +3002,16 @@ defmodule AWS.LicenseManager do
   Describes the license configurations for the specified resource.
   """
   @spec list_license_specifications_for_resource(
-          map(),
+          AWS.Client.t(),
           list_license_specifications_for_resource_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_license_specifications_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_license_specifications_for_resource_errors()}
   def list_license_specifications_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLicenseSpecificationsForResource", input, options)
   end
@@ -2999,12 +3019,13 @@ defmodule AWS.LicenseManager do
   @doc """
   Lists all versions of the specified license.
   """
-  @spec list_license_versions(map(), list_license_versions_request(), list()) ::
+  @spec list_license_versions(AWS.Client.t(), list_license_versions_request(), Keyword.t()) ::
           {:ok, list_license_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_license_versions_errors()}
   def list_license_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLicenseVersions", input, options)
   end
@@ -3012,30 +3033,30 @@ defmodule AWS.LicenseManager do
   @doc """
   Lists the licenses for your account.
   """
-  @spec list_licenses(map(), list_licenses_request(), list()) ::
+  @spec list_licenses(AWS.Client.t(), list_licenses_request(), Keyword.t()) ::
           {:ok, list_licenses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_licenses_errors()}
   def list_licenses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLicenses", input, options)
   end
 
   @doc """
-  Lists grants that are received.
-
-  Received grants are grants created while specifying the
-  recipient as this Amazon Web Services account, your organization, or an
-  organizational unit
-  (OU) to which this member account belongs.
+  Lists grants that are received. Received grants are grants created while
+  specifying the recipient as this Amazon Web Services account, your
+  organization, or an organizational unit (OU) to which this member account
+  belongs.
   """
-  @spec list_received_grants(map(), list_received_grants_request(), list()) ::
+  @spec list_received_grants(AWS.Client.t(), list_received_grants_request(), Keyword.t()) ::
           {:ok, list_received_grants_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_received_grants_errors()}
   def list_received_grants(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReceivedGrants", input, options)
   end
@@ -3044,15 +3065,16 @@ defmodule AWS.LicenseManager do
   Lists the grants received for all accounts in the organization.
   """
   @spec list_received_grants_for_organization(
-          map(),
+          AWS.Client.t(),
           list_received_grants_for_organization_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_received_grants_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_received_grants_for_organization_errors()}
   def list_received_grants_for_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReceivedGrantsForOrganization", input, options)
   end
@@ -3060,12 +3082,13 @@ defmodule AWS.LicenseManager do
   @doc """
   Lists received licenses.
   """
-  @spec list_received_licenses(map(), list_received_licenses_request(), list()) ::
+  @spec list_received_licenses(AWS.Client.t(), list_received_licenses_request(), Keyword.t()) ::
           {:ok, list_received_licenses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_received_licenses_errors()}
   def list_received_licenses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReceivedLicenses", input, options)
   end
@@ -3074,15 +3097,16 @@ defmodule AWS.LicenseManager do
   Lists the licenses received for all accounts in the organization.
   """
   @spec list_received_licenses_for_organization(
-          map(),
+          AWS.Client.t(),
           list_received_licenses_for_organization_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_received_licenses_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_received_licenses_for_organization_errors()}
   def list_received_licenses_for_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReceivedLicensesForOrganization", input, options)
   end
@@ -3090,12 +3114,13 @@ defmodule AWS.LicenseManager do
   @doc """
   Lists resources managed using Systems Manager inventory.
   """
-  @spec list_resource_inventory(map(), list_resource_inventory_request(), list()) ::
+  @spec list_resource_inventory(AWS.Client.t(), list_resource_inventory_request(), Keyword.t()) ::
           {:ok, list_resource_inventory_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_inventory_errors()}
   def list_resource_inventory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourceInventory", input, options)
   end
@@ -3103,12 +3128,13 @@ defmodule AWS.LicenseManager do
   @doc """
   Lists the tags for the specified license configuration.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3116,33 +3142,34 @@ defmodule AWS.LicenseManager do
   @doc """
   Lists your tokens.
   """
-  @spec list_tokens(map(), list_tokens_request(), list()) ::
+  @spec list_tokens(AWS.Client.t(), list_tokens_request(), Keyword.t()) ::
           {:ok, list_tokens_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tokens_errors()}
   def list_tokens(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTokens", input, options)
   end
 
   @doc """
   Lists all license usage records for a license configuration, displaying license
-  consumption details by resource at a selected point in time.
-
-  Use this action to audit the
-  current license consumption for any license inventory and configuration.
+  consumption details by resource at a selected point in time. Use this action
+  to audit the current license consumption for any license inventory and
+  configuration.
   """
   @spec list_usage_for_license_configuration(
-          map(),
+          AWS.Client.t(),
           list_usage_for_license_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_usage_for_license_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_usage_for_license_configuration_errors()}
   def list_usage_for_license_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUsageForLicenseConfiguration", input, options)
   end
@@ -3150,12 +3177,13 @@ defmodule AWS.LicenseManager do
   @doc """
   Rejects the specified grant.
   """
-  @spec reject_grant(map(), reject_grant_request(), list()) ::
+  @spec reject_grant(AWS.Client.t(), reject_grant_request(), Keyword.t()) ::
           {:ok, reject_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_grant_errors()}
   def reject_grant(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RejectGrant", input, options)
   end
@@ -3163,12 +3191,13 @@ defmodule AWS.LicenseManager do
   @doc """
   Adds the specified tags to the specified license configuration.
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3176,12 +3205,13 @@ defmodule AWS.LicenseManager do
   @doc """
   Removes the specified tags from the specified license configuration.
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3189,32 +3219,35 @@ defmodule AWS.LicenseManager do
   @doc """
   Modifies the attributes of an existing license configuration.
   """
-  @spec update_license_configuration(map(), update_license_configuration_request(), list()) ::
+  @spec update_license_configuration(
+          AWS.Client.t(),
+          update_license_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_license_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_license_configuration_errors()}
   def update_license_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLicenseConfiguration", input, options)
   end
 
   @doc """
   Updates a report generator.
-
-  After you make changes to a report generator, it starts generating new reports
-  within 60 minutes of being updated.
   """
   @spec update_license_manager_report_generator(
-          map(),
+          AWS.Client.t(),
           update_license_manager_report_generator_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_license_manager_report_generator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_license_manager_report_generator_errors()}
   def update_license_manager_report_generator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLicenseManagerReportGenerator", input, options)
   end
@@ -3222,22 +3255,18 @@ defmodule AWS.LicenseManager do
   @doc """
   Adds or removes the specified license configurations for the specified Amazon
   Web Services resource.
-
-  You can update the license specifications of AMIs, instances, and hosts.
-  You cannot update the license specifications for launch templates and
-  CloudFormation templates,
-  as they send license configurations to the operation that creates the resource.
   """
   @spec update_license_specifications_for_resource(
-          map(),
+          AWS.Client.t(),
           update_license_specifications_for_resource_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_license_specifications_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_license_specifications_for_resource_errors()}
   def update_license_specifications_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLicenseSpecificationsForResource", input, options)
   end
@@ -3245,12 +3274,13 @@ defmodule AWS.LicenseManager do
   @doc """
   Updates License Manager settings for the current Region.
   """
-  @spec update_service_settings(map(), update_service_settings_request(), list()) ::
+  @spec update_service_settings(AWS.Client.t(), update_service_settings_request(), Keyword.t()) ::
           {:ok, update_service_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_settings_errors()}
   def update_service_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateServiceSettings", input, options)
   end

@@ -1067,21 +1067,17 @@ defmodule AWS.Translate do
 
   @doc """
   Creates a parallel data resource in Amazon Translate by importing an input file
-  from
-  Amazon S3.
-
-  Parallel data files contain examples that show how you want segments of text to
-  be
-  translated. By adding parallel data, you can influence the style, tone, and word
-  choice in
-  your translation output.
+  from Amazon S3. Parallel data files contain examples that show how you want
+  segments of text to be translated. By adding parallel data, you can influence
+  the style, tone, and word choice in your translation output.
   """
-  @spec create_parallel_data(map(), create_parallel_data_request(), list()) ::
+  @spec create_parallel_data(AWS.Client.t(), create_parallel_data_request(), Keyword.t()) ::
           {:ok, create_parallel_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_parallel_data_errors()}
   def create_parallel_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateParallelData", input, options)
   end
@@ -1089,12 +1085,13 @@ defmodule AWS.Translate do
   @doc """
   Deletes a parallel data resource in Amazon Translate.
   """
-  @spec delete_parallel_data(map(), delete_parallel_data_request(), list()) ::
+  @spec delete_parallel_data(AWS.Client.t(), delete_parallel_data_request(), Keyword.t()) ::
           {:ok, delete_parallel_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_parallel_data_errors()}
   def delete_parallel_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteParallelData", input, options)
   end
@@ -1102,27 +1099,33 @@ defmodule AWS.Translate do
   @doc """
   A synchronous action that deletes a custom terminology.
   """
-  @spec delete_terminology(map(), delete_terminology_request(), list()) ::
+  @spec delete_terminology(AWS.Client.t(), delete_terminology_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_terminology_errors()}
   def delete_terminology(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTerminology", input, options)
   end
 
   @doc """
   Gets the properties associated with an asynchronous batch translation job
-  including name,
-  ID, status, source and target languages, input/output S3 buckets, and so on.
+  including name, ID, status, source and target languages, input/output S3
+  buckets, and so on.
   """
-  @spec describe_text_translation_job(map(), describe_text_translation_job_request(), list()) ::
+  @spec describe_text_translation_job(
+          AWS.Client.t(),
+          describe_text_translation_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_text_translation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_text_translation_job_errors()}
   def describe_text_translation_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTextTranslationJob", input, options)
   end
@@ -1130,12 +1133,13 @@ defmodule AWS.Translate do
   @doc """
   Provides information about a parallel data resource.
   """
-  @spec get_parallel_data(map(), get_parallel_data_request(), list()) ::
+  @spec get_parallel_data(AWS.Client.t(), get_parallel_data_request(), Keyword.t()) ::
           {:ok, get_parallel_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_parallel_data_errors()}
   def get_parallel_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetParallelData", input, options)
   end
@@ -1143,40 +1147,31 @@ defmodule AWS.Translate do
   @doc """
   Retrieves a custom terminology.
   """
-  @spec get_terminology(map(), get_terminology_request(), list()) ::
+  @spec get_terminology(AWS.Client.t(), get_terminology_request(), Keyword.t()) ::
           {:ok, get_terminology_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_terminology_errors()}
   def get_terminology(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTerminology", input, options)
   end
 
   @doc """
   Creates or updates a custom terminology, depending on whether one already exists
-  for the
-  given terminology name.
-
-  Importing a terminology with the same name as an existing one will
-  merge the terminologies based on the chosen merge strategy. The only supported
-  merge strategy
-  is OVERWRITE, where the imported terminology overwrites the existing terminology
-  of the same
-  name.
-
-  If you import a terminology that overwrites an existing one, the new terminology
-  takes up
-  to 10 minutes to fully propagate. After that, translations have access to the
-  new
-  terminology.
+  for the given terminology name. Importing a terminology with the same name as
+  an existing one will merge the terminologies based on the chosen merge
+  strategy. The only supported merge strategy is OVERWRITE, where the imported
+  terminology overwrites the existing terminology of the same name.
   """
-  @spec import_terminology(map(), import_terminology_request(), list()) ::
+  @spec import_terminology(AWS.Client.t(), import_terminology_request(), Keyword.t()) ::
           {:ok, import_terminology_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_terminology_errors()}
   def import_terminology(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportTerminology", input, options)
   end
@@ -1185,12 +1180,13 @@ defmodule AWS.Translate do
   Provides a list of languages (RFC-5646 codes and names) that Amazon Translate
   supports.
   """
-  @spec list_languages(map(), list_languages_request(), list()) ::
+  @spec list_languages(AWS.Client.t(), list_languages_request(), Keyword.t()) ::
           {:ok, list_languages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_languages_errors()}
   def list_languages(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLanguages", input, options)
   end
@@ -1198,29 +1194,29 @@ defmodule AWS.Translate do
   @doc """
   Provides a list of your parallel data resources in Amazon Translate.
   """
-  @spec list_parallel_data(map(), list_parallel_data_request(), list()) ::
+  @spec list_parallel_data(AWS.Client.t(), list_parallel_data_request(), Keyword.t()) ::
           {:ok, list_parallel_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_parallel_data_errors()}
   def list_parallel_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListParallelData", input, options)
   end
 
   @doc """
-  Lists all tags associated with a given Amazon Translate resource.
-
-  For more information, see [
-  Tagging your
+  Lists all tags associated with a given Amazon Translate resource. For more
+  information, see [ Tagging your
   resources](https://docs.aws.amazon.com/translate/latest/dg/tagging.html).
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1228,12 +1224,13 @@ defmodule AWS.Translate do
   @doc """
   Provides a list of custom terminologies associated with your account.
   """
-  @spec list_terminologies(map(), list_terminologies_request(), list()) ::
+  @spec list_terminologies(AWS.Client.t(), list_terminologies_request(), Keyword.t()) ::
           {:ok, list_terminologies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_terminologies_errors()}
   def list_terminologies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTerminologies", input, options)
   end
@@ -1241,158 +1238,145 @@ defmodule AWS.Translate do
   @doc """
   Gets a list of the batch translation jobs that you have submitted.
   """
-  @spec list_text_translation_jobs(map(), list_text_translation_jobs_request(), list()) ::
+  @spec list_text_translation_jobs(
+          AWS.Client.t(),
+          list_text_translation_jobs_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_text_translation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_text_translation_jobs_errors()}
   def list_text_translation_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTextTranslationJobs", input, options)
   end
 
   @doc """
-  Starts an asynchronous batch translation job.
-
-  Use batch translation jobs to
-  translate large volumes of text across multiple documents at once.
-  For batch translation, you can input documents with different source languages
-  (specify `auto`
-  as the source language). You can specify one
-  or more target languages. Batch translation translates each input document into
-  each of the target languages.
-  For more information, see
-  [Asynchronous batch processing](https://docs.aws.amazon.com/translate/latest/dg/async.html).
-
-  Batch translation jobs can be described with the `DescribeTextTranslationJob`
-  operation, listed with the `ListTextTranslationJobs` operation, and stopped with
-  the `StopTextTranslationJob` operation.
+  Starts an asynchronous batch translation job. Use batch translation jobs to
+  translate large volumes of text across multiple documents at once. For batch
+  translation, you can input documents with different source languages (specify
+  `auto` as the source language). You can specify one or more target languages.
+  Batch translation translates each input document into each of the target
+  languages. For more information, see [Asynchronous batch
+  processing](https://docs.aws.amazon.com/translate/latest/dg/async.html).
   """
-  @spec start_text_translation_job(map(), start_text_translation_job_request(), list()) ::
+  @spec start_text_translation_job(
+          AWS.Client.t(),
+          start_text_translation_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_text_translation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_text_translation_job_errors()}
   def start_text_translation_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartTextTranslationJob", input, options)
   end
 
   @doc """
-  Stops an asynchronous batch translation job that is in progress.
-
-  If the job's state is `IN_PROGRESS`, the job will be marked for termination and
-  put into the `STOP_REQUESTED` state. If the job completes before it can be
-  stopped,
-  it is put into the `COMPLETED` state. Otherwise, the job is put into the
+  Stops an asynchronous batch translation job that is in progress. If the job's
+  state is `IN_PROGRESS`, the job will be marked for termination and put into
+  the `STOP_REQUESTED` state. If the job completes before it can be stopped, it
+  is put into the `COMPLETED` state. Otherwise, the job is put into the
   `STOPPED` state.
-
-  Asynchronous batch translation jobs are started with the
-  `StartTextTranslationJob` operation. You can use the
-  `DescribeTextTranslationJob` or `ListTextTranslationJobs`
-  operations to get a batch translation job's `JobId`.
   """
-  @spec stop_text_translation_job(map(), stop_text_translation_job_request(), list()) ::
+  @spec stop_text_translation_job(
+          AWS.Client.t(),
+          stop_text_translation_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, stop_text_translation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_text_translation_job_errors()}
   def stop_text_translation_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopTextTranslationJob", input, options)
   end
 
   @doc """
-  Associates a specific tag with a resource.
-
-  A tag is a key-value pair
-  that adds as a metadata to a resource.
-  For more information, see [
-  Tagging your
+  Associates a specific tag with a resource. A tag is a key-value pair that adds
+  as a metadata to a resource. For more information, see [ Tagging your
   resources](https://docs.aws.amazon.com/translate/latest/dg/tagging.html).
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Translates the input document from the source language to the target language.
-
   This synchronous operation supports text, HTML, or Word documents as the input
-  document.
-
-  `TranslateDocument` supports translations from English to any supported
-  language,
-  and from any supported language to English. Therefore, specify either the source
-  language code
-  or the target language code as “en” (English).
-
-  If you set the `Formality` parameter, the request will fail if the target
-  language does
-  not support formality. For a list of target languages that support formality,
-  see
-  [Setting formality](https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html).
+  document. `TranslateDocument` supports translations from English to any
+  supported language, and from any supported language to English. Therefore,
+  specify either the source language code or the target language code as “en”
+  (English).
   """
-  @spec translate_document(map(), translate_document_request(), list()) ::
+  @spec translate_document(AWS.Client.t(), translate_document_request(), Keyword.t()) ::
           {:ok, translate_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, translate_document_errors()}
   def translate_document(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TranslateDocument", input, options)
   end
 
   @doc """
-  Translates input text from the source language to the target language.
-
-  For a list of
-  available languages and language codes, see [Supported languages](https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html).
+  Translates input text from the source language to the target language. For a
+  list of available languages and language codes, see [Supported
+  languages](https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html).
   """
-  @spec translate_text(map(), translate_text_request(), list()) ::
+  @spec translate_text(AWS.Client.t(), translate_text_request(), Keyword.t()) ::
           {:ok, translate_text_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, translate_text_errors()}
   def translate_text(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TranslateText", input, options)
   end
 
   @doc """
-  Removes a specific tag associated with an Amazon Translate resource.
-
-  For more information, see [
-  Tagging your
+  Removes a specific tag associated with an Amazon Translate resource. For more
+  information, see [ Tagging your
   resources](https://docs.aws.amazon.com/translate/latest/dg/tagging.html).
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
   Updates a previously created parallel data resource by importing a new input
-  file from
-  Amazon S3.
+  file from Amazon S3.
   """
-  @spec update_parallel_data(map(), update_parallel_data_request(), list()) ::
+  @spec update_parallel_data(AWS.Client.t(), update_parallel_data_request(), Keyword.t()) ::
           {:ok, update_parallel_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_parallel_data_errors()}
   def update_parallel_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateParallelData", input, options)
   end

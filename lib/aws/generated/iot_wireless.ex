@@ -4,34 +4,13 @@
 defmodule AWS.IoTWireless do
   @moduledoc """
   AWS IoT Wireless provides bi-directional communication between
-  internet-connected
-  wireless devices and the AWS Cloud.
-
-  To onboard both LoRaWAN and Sidewalk devices to AWS
-  IoT, use the IoT Wireless API. These wireless devices use the Low Power Wide
-  Area
-  Networking (LPWAN) communication protocol to communicate with AWS IoT.
-
-  Using the API, you can perform create, read, update, and delete operations for
-  your
-  wireless devices, gateways, destinations, and profiles. After onboarding your
-  devices,
-  you can use the API operations to set log levels and monitor your devices with
-  CloudWatch.
-
-  You can also use the API operations to create multicast groups and schedule a
-  multicast session for sending a downlink message to devices in the group. By
-  using
-  Firmware Updates Over-The-Air (FUOTA) API operations, you can create a FUOTA
-  task and
-  schedule a session to update the firmware of individual devices or an entire
-  group of
-  devices in a multicast group.
-
-  To connect to the AWS IoT Wireless Service, use the Service endpoints as
-  described in
-  [IoT Wireless Service endpoints](https://docs.aws.amazon.com/general/latest/gr/iot-lorawan.html#iot-wireless_region)
-  in the *AWS General Reference*.
+  internet-connected wireless devices and the AWS Cloud. To onboard both LoRaWAN
+  and Sidewalk devices to AWS IoT, use the IoT Wireless API. These wireless
+  devices use the Low Power Wide Area Networking (LPWAN) communication protocol
+  to communicate with AWS IoT. Using the API, you can perform create, read,
+  update, and delete operations for your wireless devices, gateways,
+  destinations, and profiles. After onboarding your devices, you can use the API
+  operations to set log levels and monitor your devices with CloudWatch.
   """
 
   alias AWS.Client
@@ -5191,11 +5170,17 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Associates a partner account with your AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20AssociateAwsAccountWithPartnerAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec associate_aws_account_with_partner_account(
-          map(),
+          AWS.Client.t(),
           associate_aws_account_with_partner_account_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_aws_account_with_partner_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5205,7 +5190,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5222,12 +5208,19 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Associate a multicast group with a FUOTA task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20AssociateMulticastGroupWithFuotaTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec associate_multicast_group_with_fuota_task(
-          map(),
+          AWS.Client.t(),
           String.t(),
           associate_multicast_group_with_fuota_task_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_multicast_group_with_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5237,19 +5230,27 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
   end
 
   @doc """
   Associate a wireless device with a FUOTA task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20AssociateWirelessDeviceWithFuotaTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec associate_wireless_device_with_fuota_task(
-          map(),
+          AWS.Client.t(),
           String.t(),
           associate_wireless_device_with_fuota_task_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_wireless_device_with_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5259,19 +5260,27 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
   end
 
   @doc """
   Associates a wireless device with a multicast group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20AssociateWirelessDeviceWithMulticastGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec associate_wireless_device_with_multicast_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           associate_wireless_device_with_multicast_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_wireless_device_with_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5281,19 +5290,27 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
   end
 
   @doc """
   Associates a wireless device with a thing.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20AssociateWirelessDeviceWithThing&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the resource to update.
+
+  ## Optional parameters:
   """
   @spec associate_wireless_device_with_thing(
-          map(),
+          AWS.Client.t(),
           String.t(),
           associate_wireless_device_with_thing_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_wireless_device_with_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5303,19 +5320,27 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
   end
 
   @doc """
   Associates a wireless gateway with a certificate.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20AssociateWirelessGatewayWithCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the resource to update.
+
+  ## Optional parameters:
   """
   @spec associate_wireless_gateway_with_certificate(
-          map(),
+          AWS.Client.t(),
           String.t(),
           associate_wireless_gateway_with_certificate_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_wireless_gateway_with_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5325,19 +5350,27 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Associates a wireless gateway with a thing.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20AssociateWirelessGatewayWithThing&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the resource to update.
+
+  ## Optional parameters:
   """
   @spec associate_wireless_gateway_with_thing(
-          map(),
+          AWS.Client.t(),
           String.t(),
           associate_wireless_gateway_with_thing_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_wireless_gateway_with_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5347,19 +5380,27 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
   end
 
   @doc """
   Cancels an existing multicast group session.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CancelMulticastGroupSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec cancel_multicast_group_session(
-          map(),
+          AWS.Client.t(),
           String.t(),
           cancel_multicast_group_session_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, cancel_multicast_group_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5369,7 +5410,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5386,8 +5428,14 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Creates a new destination that maps a device message to an AWS IoT rule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_destination(map(), create_destination_request(), list()) ::
+  @spec create_destination(AWS.Client.t(), create_destination_request(), Keyword.t()) ::
           {:ok, create_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_destination_errors()}
@@ -5396,7 +5444,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5413,8 +5462,14 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Creates a new device profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateDeviceProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_device_profile(map(), create_device_profile_request(), list()) ::
+  @spec create_device_profile(AWS.Client.t(), create_device_profile_request(), Keyword.t()) ::
           {:ok, create_device_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_device_profile_errors()}
@@ -5423,7 +5478,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5440,8 +5496,14 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Creates a FUOTA task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateFuotaTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_fuota_task(map(), create_fuota_task_request(), list()) ::
+  @spec create_fuota_task(AWS.Client.t(), create_fuota_task_request(), Keyword.t()) ::
           {:ok, create_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_fuota_task_errors()}
@@ -5450,7 +5512,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5467,8 +5530,14 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Creates a multicast group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateMulticastGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_multicast_group(map(), create_multicast_group_request(), list()) ::
+  @spec create_multicast_group(AWS.Client.t(), create_multicast_group_request(), Keyword.t()) ::
           {:ok, create_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_multicast_group_errors()}
@@ -5477,7 +5546,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5494,11 +5564,17 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Creates a new network analyzer configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateNetworkAnalyzerConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_network_analyzer_configuration(
-          map(),
+          AWS.Client.t(),
           create_network_analyzer_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_network_analyzer_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5508,7 +5584,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5525,8 +5602,14 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Creates a new service profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateServiceProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_service_profile(map(), create_service_profile_request(), list()) ::
+  @spec create_service_profile(AWS.Client.t(), create_service_profile_request(), Keyword.t()) ::
           {:ok, create_service_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_profile_errors()}
@@ -5535,7 +5618,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5552,8 +5636,14 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Provisions a wireless device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateWirelessDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_wireless_device(map(), create_wireless_device_request(), list()) ::
+  @spec create_wireless_device(AWS.Client.t(), create_wireless_device_request(), Keyword.t()) ::
           {:ok, create_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_wireless_device_errors()}
@@ -5562,7 +5652,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5580,20 +5671,13 @@ defmodule AWS.IoTWireless do
   @doc """
   Provisions a wireless gateway.
 
-  When provisioning a wireless gateway, you might run into duplication errors
-  for the following reasons.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateWirelessGateway&this_doc_guide=API%2520Reference)
 
-    
-  If you specify a `GatewayEui` value that already exists.
+  ## Parameters:
 
-    
-  If you used a `ClientRequestToken` with the same parameters
-  within the last 10 minutes.
-
-  To avoid this error, make sure that you use unique identifiers and parameters
-  for each request within the specified time period.
+  ## Optional parameters:
   """
-  @spec create_wireless_gateway(map(), create_wireless_gateway_request(), list()) ::
+  @spec create_wireless_gateway(AWS.Client.t(), create_wireless_gateway_request(), Keyword.t()) ::
           {:ok, create_wireless_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_wireless_gateway_errors()}
@@ -5602,7 +5686,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5619,12 +5704,19 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Creates a task for a wireless gateway.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateWirelessGatewayTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the resource to update.
+
+  ## Optional parameters:
   """
   @spec create_wireless_gateway_task(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_wireless_gateway_task_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_wireless_gateway_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5634,7 +5726,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5651,11 +5744,17 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Creates a gateway task definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateWirelessGatewayTaskDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_wireless_gateway_task_definition(
-          map(),
+          AWS.Client.t(),
           create_wireless_gateway_task_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_wireless_gateway_task_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5665,7 +5764,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5682,8 +5782,15 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Deletes a destination.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the resource to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_destination(map(), String.t(), delete_destination_request(), list()) ::
+  @spec delete_destination(AWS.Client.t(), String.t(), delete_destination_request(), Keyword.t()) ::
           {:ok, delete_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_destination_errors()}
@@ -5692,7 +5799,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5709,8 +5817,20 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Deletes a device profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteDeviceProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the resource to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_device_profile(map(), String.t(), delete_device_profile_request(), list()) ::
+  @spec delete_device_profile(
+          AWS.Client.t(),
+          String.t(),
+          delete_device_profile_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_device_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_device_profile_errors()}
@@ -5719,7 +5839,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5736,8 +5857,15 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Deletes a FUOTA task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteFuotaTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_fuota_task(map(), String.t(), delete_fuota_task_request(), list()) ::
+  @spec delete_fuota_task(AWS.Client.t(), String.t(), delete_fuota_task_request(), Keyword.t()) ::
           {:ok, delete_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fuota_task_errors()}
@@ -5746,7 +5874,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5763,8 +5892,20 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Deletes a multicast group if it is not in use by a fuota task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteMulticastGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_multicast_group(map(), String.t(), delete_multicast_group_request(), list()) ::
+  @spec delete_multicast_group(
+          AWS.Client.t(),
+          String.t(),
+          delete_multicast_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_multicast_group_errors()}
@@ -5773,7 +5914,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5790,12 +5932,19 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Deletes a network analyzer configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteNetworkAnalyzerConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_name` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec delete_network_analyzer_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_network_analyzer_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_network_analyzer_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5810,7 +5959,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5827,8 +5977,27 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Remove queued messages from the downlink queue.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteQueuedMessages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of a given wireless device for which downlink
+    messages will be deleted.
+  * `:message_id` (`t:string`) If message ID is "*", it cleares the entire
+    downlink queue for a given device, specified by the wireless device ID.
+    Otherwise, the downlink message with the specified message ID will be
+    deleted.
+
+  ## Optional parameters:
+  * `:wireless_device_type` (`t:enum["LoRaWAN|Sidewalk"]`) The wireless device
+    type, which can be either Sidewalk or LoRaWAN.
   """
-  @spec delete_queued_messages(map(), String.t(), delete_queued_messages_request(), list()) ::
+  @spec delete_queued_messages(
+          AWS.Client.t(),
+          String.t(),
+          delete_queued_messages_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_queued_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_queued_messages_errors()}
@@ -5843,7 +6012,13 @@ defmodule AWS.IoTWireless do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:wireless_device_type])
 
     Request.request_rest(
       client,
@@ -5860,8 +6035,20 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Deletes a service profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteServiceProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the resource to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_service_profile(map(), String.t(), delete_service_profile_request(), list()) ::
+  @spec delete_service_profile(
+          AWS.Client.t(),
+          String.t(),
+          delete_service_profile_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_service_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_profile_errors()}
@@ -5870,7 +6057,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5887,8 +6075,20 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Deletes a wireless device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteWirelessDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the resource to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_wireless_device(map(), String.t(), delete_wireless_device_request(), list()) ::
+  @spec delete_wireless_device(
+          AWS.Client.t(),
+          String.t(),
+          delete_wireless_device_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_wireless_device_errors()}
@@ -5897,7 +6097,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5914,12 +6115,19 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Delete an import task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteWirelessDeviceImportTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier of the import task to be deleted.
+
+  ## Optional parameters:
   """
   @spec delete_wireless_device_import_task(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_wireless_device_import_task_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_wireless_device_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5929,7 +6137,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5947,20 +6156,19 @@ defmodule AWS.IoTWireless do
   @doc """
   Deletes a wireless gateway.
 
-  When deleting a wireless gateway, you might run into duplication errors
-  for the following reasons.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteWirelessGateway&this_doc_guide=API%2520Reference)
 
-    
-  If you specify a `GatewayEui` value that already exists.
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the resource to delete.
 
-    
-  If you used a `ClientRequestToken` with the same parameters
-  within the last 10 minutes.
-
-  To avoid this error, make sure that you use unique identifiers and parameters
-  for each request within the specified time period.
+  ## Optional parameters:
   """
-  @spec delete_wireless_gateway(map(), String.t(), delete_wireless_gateway_request(), list()) ::
+  @spec delete_wireless_gateway(
+          AWS.Client.t(),
+          String.t(),
+          delete_wireless_gateway_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_wireless_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_wireless_gateway_errors()}
@@ -5969,7 +6177,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5986,12 +6195,19 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Deletes a wireless gateway task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteWirelessGatewayTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the resource to delete.
+
+  ## Optional parameters:
   """
   @spec delete_wireless_gateway_task(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_wireless_gateway_task_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_wireless_gateway_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6001,7 +6217,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6017,16 +6234,21 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Deletes a wireless gateway task definition.
+  Deletes a wireless gateway task definition. Deleting this task definition does
+  not affect tasks that are currently in progress.
 
-  Deleting this task definition does not
-  affect tasks that are currently in progress.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeleteWirelessGatewayTaskDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the resource to delete.
+
+  ## Optional parameters:
   """
   @spec delete_wireless_gateway_task_definition(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_wireless_gateway_task_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_wireless_gateway_task_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6036,7 +6258,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6053,12 +6276,23 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Deregister a wireless device from AWS IoT Wireless.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DeregisterWirelessDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The identifier of the wireless device to deregister
+    from AWS IoT Wireless.
+
+  ## Optional parameters:
+  * `:wireless_device_type` (`t:enum["LoRaWAN|Sidewalk"]`) The type of wireless
+    device to deregister from AWS IoT Wireless, which can be LoRaWAN or
+    Sidewalk.
   """
   @spec deregister_wireless_device(
-          map(),
+          AWS.Client.t(),
           String.t(),
           deregister_wireless_device_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, deregister_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6073,7 +6307,13 @@ defmodule AWS.IoTWireless do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:wireless_device_type])
 
     Request.request_rest(
       client,
@@ -6089,17 +6329,24 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Disassociates your AWS account from a partner account.
+  Disassociates your AWS account from a partner account. If `PartnerAccountId` and
+  `PartnerType` are `null`, disassociates your AWS account from all partner
+  accounts.
 
-  If
-  `PartnerAccountId` and `PartnerType` are `null`,
-  disassociates your AWS account from all partner accounts.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DisassociateAwsAccountFromPartnerAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:partner_account_id` (`t:string`) The partner account ID to disassociate from
+    the AWS account.
+  * `:partner_type` (`t:enum["Sidewalk"]`) The partner type.
+
+  ## Optional parameters:
   """
   @spec disassociate_aws_account_from_partner_account(
-          map(),
+          AWS.Client.t(),
           String.t(),
           disassociate_aws_account_from_partner_account_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_aws_account_from_partner_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6119,7 +6366,8 @@ defmodule AWS.IoTWireless do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6136,13 +6384,21 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Disassociates a multicast group from a fuota task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DisassociateMulticastGroupFromFuotaTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+  * `:multicast_group_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec disassociate_multicast_group_from_fuota_task(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           disassociate_multicast_group_from_fuota_task_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_multicast_group_from_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6160,7 +6416,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6177,13 +6434,21 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Disassociates a wireless device from a FUOTA task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DisassociateWirelessDeviceFromFuotaTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+  * `:wireless_device_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec disassociate_wireless_device_from_fuota_task(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           disassociate_wireless_device_from_fuota_task_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_wireless_device_from_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6201,7 +6466,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6218,13 +6484,21 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Disassociates a wireless device from a multicast group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DisassociateWirelessDeviceFromMulticastGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+  * `:wireless_device_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec disassociate_wireless_device_from_multicast_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           disassociate_wireless_device_from_multicast_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_wireless_device_from_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6242,7 +6516,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6259,12 +6534,19 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Disassociates a wireless device from its currently associated thing.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DisassociateWirelessDeviceFromThing&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the resource to update.
+
+  ## Optional parameters:
   """
   @spec disassociate_wireless_device_from_thing(
-          map(),
+          AWS.Client.t(),
           String.t(),
           disassociate_wireless_device_from_thing_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_wireless_device_from_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6274,7 +6556,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6291,12 +6574,19 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Disassociates a wireless gateway from its currently associated certificate.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DisassociateWirelessGatewayFromCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the resource to update.
+
+  ## Optional parameters:
   """
   @spec disassociate_wireless_gateway_from_certificate(
-          map(),
+          AWS.Client.t(),
           String.t(),
           disassociate_wireless_gateway_from_certificate_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_wireless_gateway_from_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6306,7 +6596,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6323,12 +6614,19 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Disassociates a wireless gateway from its currently associated thing.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20DisassociateWirelessGatewayFromThing&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the resource to update.
+
+  ## Optional parameters:
   """
   @spec disassociate_wireless_gateway_from_thing(
-          map(),
+          AWS.Client.t(),
           String.t(),
           disassociate_wireless_gateway_from_thing_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_wireless_gateway_from_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6338,7 +6636,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6355,114 +6654,265 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Gets information about a destination.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the resource to get.
+
+  ## Optional parameters:
   """
-  @spec get_destination(map(), String.t(), list()) ::
+  @spec get_destination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_destination_errors()}
   def get_destination(%Client{} = client, name, options \\ []) do
     url_path = "/destinations/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a device profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetDeviceProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the resource to get.
+
+  ## Optional parameters:
   """
-  @spec get_device_profile(map(), String.t(), list()) ::
+  @spec get_device_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_profile_errors()}
   def get_device_profile(%Client{} = client, id, options \\ []) do
     url_path = "/device-profiles/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get the event configuration based on resource types.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetEventConfigurationByResourceTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_event_configuration_by_resource_types(map(), list()) ::
+  @spec get_event_configuration_by_resource_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_event_configuration_by_resource_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_event_configuration_by_resource_types_errors()}
   def get_event_configuration_by_resource_types(%Client{} = client, options \\ []) do
     url_path = "/event-configurations-resource-types"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a FUOTA task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetFuotaTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_fuota_task(map(), String.t(), list()) ::
+  @spec get_fuota_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_fuota_task_errors()}
   def get_fuota_task(%Client{} = client, id, options \\ []) do
     url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns current default log levels or log levels by resource types.
+  Returns current default log levels or log levels by resource types. Based on
+  resource types, log levels can be for wireless device log options or wireless
+  gateway log options.
 
-  Based on resource
-  types, log levels can be for wireless device log options or wireless gateway log
-  options.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetLogLevelsByResourceTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_log_levels_by_resource_types(map(), list()) ::
+  @spec get_log_levels_by_resource_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_log_levels_by_resource_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_log_levels_by_resource_types_errors()}
   def get_log_levels_by_resource_types(%Client{} = client, options \\ []) do
     url_path = "/log-levels"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get the metric configuration status for this AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetMetricConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_metric_configuration(map(), list()) ::
+  @spec get_metric_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_metric_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_metric_configuration_errors()}
   def get_metric_configuration(%Client{} = client, options \\ []) do
     url_path = "/metric-configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get the summary metrics for this AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_metrics(map(), get_metrics_request(), list()) ::
+  @spec get_metrics(AWS.Client.t(), get_metrics_request(), Keyword.t()) ::
           {:ok, get_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_metrics_errors()}
@@ -6471,7 +6921,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6488,78 +6939,171 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Gets information about a multicast group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetMulticastGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_multicast_group(map(), String.t(), list()) ::
+  @spec get_multicast_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_multicast_group_errors()}
   def get_multicast_group(%Client{} = client, id, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a multicast group session.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetMulticastGroupSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_multicast_group_session(map(), String.t(), list()) ::
+  @spec get_multicast_group_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_multicast_group_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_multicast_group_session_errors()}
   def get_multicast_group_session(%Client{} = client, id, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/session"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get network analyzer configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetNetworkAnalyzerConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_name` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_network_analyzer_configuration(map(), String.t(), list()) ::
+  @spec get_network_analyzer_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_analyzer_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_analyzer_configuration_errors()}
   def get_network_analyzer_configuration(%Client{} = client, configuration_name, options \\ []) do
     url_path = "/network-analyzer-configurations/#{AWS.Util.encode_uri(configuration_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets information about a partner account.
-
-  If `PartnerAccountId` and
+  Gets information about a partner account. If `PartnerAccountId` and
   `PartnerType` are `null`, returns all partner accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetPartnerAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:partner_account_id` (`t:string`) The partner account ID to disassociate from
+    the AWS account.
+  * `:partner_type` (`t:enum["Sidewalk"]`) The partner type.
+
+  ## Optional parameters:
   """
-  @spec get_partner_account(map(), String.t(), String.t(), list()) ::
+  @spec get_partner_account(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_partner_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_partner_account_errors()}
   def get_partner_account(%Client{} = client, partner_account_id, partner_type, options \\ []) do
     url_path = "/partner-accounts/#{AWS.Util.encode_uri(partner_account_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(partner_type) do
-        [{"partnerType", partner_type} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"partnerType", partner_type}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -6567,28 +7111,44 @@ defmodule AWS.IoTWireless do
   @doc """
   Get the position information for a given resource.
 
-  This action is no longer supported. Calls to retrieve the position information
-  should use the
-  [GetResourcePosition](https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html)
-  API operation instead.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetPosition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_identifier` (`t:string`) Resource identifier used to retrieve the
+    position information.
+  * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]`) Resource type of
+    the resource for which position information is retrieved.
+
+  ## Optional parameters:
   """
-  @spec get_position(map(), String.t(), String.t(), list()) ::
+  @spec get_position(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_position_errors()}
   def get_position(%Client{} = client, resource_identifier, resource_type, options \\ []) do
     url_path = "/positions/#{AWS.Util.encode_uri(resource_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(resource_type) do
-        [{"resourceType", resource_type} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"resourceType", resource_type}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -6596,12 +7156,17 @@ defmodule AWS.IoTWireless do
   @doc """
   Get position configuration for a given resource.
 
-  This action is no longer supported. Calls to retrieve the position configuration
-  should use the
-  [GetResourcePosition](https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html)
-  API operation instead.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetPositionConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_identifier` (`t:string`) Resource identifier used in a position
+    configuration.
+  * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]`) Resource type of
+    the resource for which position configuration is retrieved.
+
+  ## Optional parameters:
   """
-  @spec get_position_configuration(map(), String.t(), String.t(), list()) ::
+  @spec get_position_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_position_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_position_configuration_errors()}
@@ -6612,29 +7177,44 @@ defmodule AWS.IoTWireless do
         options \\ []
       ) do
     url_path = "/position-configurations/#{AWS.Util.encode_uri(resource_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(resource_type) do
-        [{"resourceType", resource_type} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"resourceType", resource_type}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Get estimated position information as a payload in GeoJSON format.
-
-  The payload
+  Get estimated position information as a payload in GeoJSON format. The payload
   measurement data is resolved using solvers that are provided by third-party
   vendors.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetPositionEstimate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_position_estimate(map(), get_position_estimate_request(), list()) ::
+  @spec get_position_estimate(AWS.Client.t(), get_position_estimate_request(), Keyword.t()) ::
           {:ok, get_position_estimate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_position_estimate_errors()}
@@ -6643,7 +7223,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6660,8 +7241,21 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Get the event configuration for a particular resource identifier.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetResourceEventConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) Resource identifier to opt in for event messaging.
+  * `:identifier_type`
+    (`t:enum["DevEui|GatewayEui|PartnerAccountId|WirelessDeviceId|WirelessGatewayId"]`)
+    Identifier type of the particular resource identifier for event
+    configuration.
+
+  ## Optional parameters:
+  * `:partner_type` (`t:enum["Sidewalk"]`) Partner type of the resource if the
+    identifier type is PartnerAccountId.
   """
-  @spec get_resource_event_configuration(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_resource_event_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_event_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_event_configuration_errors()}
@@ -6669,40 +7263,60 @@ defmodule AWS.IoTWireless do
         %Client{} = client,
         identifier,
         identifier_type,
-        partner_type \\ nil,
         options \\ []
       ) do
     url_path = "/event-configurations/#{AWS.Util.encode_uri(identifier)}"
+
+    # Validate optional parameters
+    optional_params = [partner_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"identifierType", identifier_type}]
+
+    # Optional query params
     query_params =
-      if !is_nil(partner_type) do
-        [{"partnerType", partner_type} | query_params]
+      if opt_val = Keyword.get(options, :partner_type) do
+        [{"partnerType", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(identifier_type) do
-        [{"identifierType", identifier_type} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:partner_type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Fetches the log-level override, if any, for a given resource-ID and
-  resource-type.
+  resource-type. It can be used for a wireless device or a wireless gateway.
 
-  It
-  can be used for a wireless device or a wireless gateway.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetResourceLogLevel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_identifier` (`t:string`)
+  * `:resource_type` (`t:string`) The type of the resource, which can be
+    WirelessDevice or WirelessGateway.
+
+  ## Optional parameters:
   """
-  @spec get_resource_log_level(map(), String.t(), String.t(), list()) ::
+  @spec get_resource_log_level(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_log_level_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_log_level_errors()}
@@ -6713,111 +7327,221 @@ defmodule AWS.IoTWireless do
         options \\ []
       ) do
     url_path = "/log-levels/#{AWS.Util.encode_uri(resource_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(resource_type) do
-        [{"resourceType", resource_type} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"resourceType", resource_type}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get the position information for a given wireless device or a wireless gateway
-  resource.
+  resource. The position information uses the [ World Geodetic System
+  (WGS84)](https://gisgeography.com/wgs84-world-geodetic-system/).
 
-  The position information uses the [ World Geodetic System (WGS84)](https://gisgeography.com/wgs84-world-geodetic-system/).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetResourcePosition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_identifier` (`t:string`) The identifier of the resource for which
+    position information is retrieved. It can be the wireless device ID or the
+    wireless gateway ID, depending on the resource type.
+  * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]`) The type of
+    resource for which position information is retrieved, which can be a
+    wireless device or a wireless gateway.
+
+  ## Optional parameters:
   """
-  @spec get_resource_position(map(), String.t(), String.t(), list()) ::
+  @spec get_resource_position(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_position_errors()}
   def get_resource_position(%Client{} = client, resource_identifier, resource_type, options \\ []) do
     url_path = "/resource-positions/#{AWS.Util.encode_uri(resource_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(resource_type) do
-        [{"resourceType", resource_type} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"resourceType", resource_type}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the account-specific endpoint for Configuration and Update Server (CUPS)
-  protocol
-  or LoRaWAN Network Server (LNS) connections.
+  protocol or LoRaWAN Network Server (LNS) connections.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetServiceEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:service_type` (`t:enum["CUPS|LNS"]`) The service type for which to get
+    endpoint information about. Can be CUPS for the Configuration and Update
+    Server endpoint, or LNS for the LoRaWAN Network Server endpoint or CLAIM for
+    the global endpoint.
   """
-  @spec get_service_endpoint(map(), String.t() | nil, list()) ::
+  @spec get_service_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_service_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_endpoint_errors()}
-  def get_service_endpoint(%Client{} = client, service_type \\ nil, options \\ []) do
+  def get_service_endpoint(%Client{} = client, options \\ []) do
     url_path = "/service-endpoint"
+
+    # Validate optional parameters
+    optional_params = [service_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(service_type) do
-        [{"serviceType", service_type} | query_params]
+      if opt_val = Keyword.get(options, :service_type) do
+        [{"serviceType", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:service_type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a service profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetServiceProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the resource to get.
+
+  ## Optional parameters:
   """
-  @spec get_service_profile(map(), String.t(), list()) ::
+  @spec get_service_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_profile_errors()}
   def get_service_profile(%Client{} = client, id, options \\ []) do
     url_path = "/service-profiles/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a wireless device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetWirelessDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The identifier of the wireless device to get.
+  * `:identifier_type`
+    (`t:enum["DevEui|SidewalkManufacturingSn|ThingName|WirelessDeviceId"]`) The
+    type of identifier used in identifier.
+
+  ## Optional parameters:
   """
-  @spec get_wireless_device(map(), String.t(), String.t(), list()) ::
+  @spec get_wireless_device(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_wireless_device_errors()}
   def get_wireless_device(%Client{} = client, identifier, identifier_type, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(identifier_type) do
-        [{"identifierType", identifier_type} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"identifierType", identifier_type}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -6825,58 +7549,130 @@ defmodule AWS.IoTWireless do
   @doc """
   Get information about an import task and count of device onboarding summary
   information for the import task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetWirelessDeviceImportTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the import task for which information is
+    requested.
+
+  ## Optional parameters:
   """
-  @spec get_wireless_device_import_task(map(), String.t(), list()) ::
+  @spec get_wireless_device_import_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_device_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_wireless_device_import_task_errors()}
   def get_wireless_device_import_task(%Client{} = client, id, options \\ []) do
     url_path = "/wireless_device_import_task/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets operating information about a wireless device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetWirelessDeviceStatistics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:wireless_device_id` (`t:string`) The ID of the wireless device for which to
+    get the data.
+
+  ## Optional parameters:
   """
-  @spec get_wireless_device_statistics(map(), String.t(), list()) ::
+  @spec get_wireless_device_statistics(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_device_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_wireless_device_statistics_errors()}
   def get_wireless_device_statistics(%Client{} = client, wireless_device_id, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(wireless_device_id)}/statistics"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a wireless gateway.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetWirelessGateway&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The identifier of the wireless gateway to get.
+  * `:identifier_type` (`t:enum["GatewayEui|ThingName|WirelessGatewayId"]`) The
+    type of identifier used in identifier.
+
+  ## Optional parameters:
   """
-  @spec get_wireless_gateway(map(), String.t(), String.t(), list()) ::
+  @spec get_wireless_gateway(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_wireless_gateway_errors()}
   def get_wireless_gateway(%Client{} = client, identifier, identifier_type, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(identifier_type) do
-        [{"identifierType", identifier_type} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"identifierType", identifier_type}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -6884,445 +7680,804 @@ defmodule AWS.IoTWireless do
   @doc """
   Gets the ID of the certificate that is currently associated with a wireless
   gateway.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetWirelessGatewayCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the resource to get.
+
+  ## Optional parameters:
   """
-  @spec get_wireless_gateway_certificate(map(), String.t(), list()) ::
+  @spec get_wireless_gateway_certificate(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_gateway_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_wireless_gateway_certificate_errors()}
   def get_wireless_gateway_certificate(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/certificate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the firmware version and other information about a wireless gateway.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetWirelessGatewayFirmwareInformation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the resource to get.
+
+  ## Optional parameters:
   """
-  @spec get_wireless_gateway_firmware_information(map(), String.t(), list()) ::
+  @spec get_wireless_gateway_firmware_information(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_gateway_firmware_information_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_wireless_gateway_firmware_information_errors()}
   def get_wireless_gateway_firmware_information(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/firmware-information"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets operating information about a wireless gateway.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetWirelessGatewayStatistics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:wireless_gateway_id` (`t:string`) The ID of the wireless gateway for which
+    to get the data.
+
+  ## Optional parameters:
   """
-  @spec get_wireless_gateway_statistics(map(), String.t(), list()) ::
+  @spec get_wireless_gateway_statistics(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_gateway_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_wireless_gateway_statistics_errors()}
   def get_wireless_gateway_statistics(%Client{} = client, wireless_gateway_id, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(wireless_gateway_id)}/statistics"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a wireless gateway task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetWirelessGatewayTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the resource to get.
+
+  ## Optional parameters:
   """
-  @spec get_wireless_gateway_task(map(), String.t(), list()) ::
+  @spec get_wireless_gateway_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_gateway_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_wireless_gateway_task_errors()}
   def get_wireless_gateway_task(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/tasks"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a wireless gateway task definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetWirelessGatewayTaskDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the resource to get.
+
+  ## Optional parameters:
   """
-  @spec get_wireless_gateway_task_definition(map(), String.t(), list()) ::
+  @spec get_wireless_gateway_task_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_gateway_task_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_wireless_gateway_task_definition_errors()}
   def get_wireless_gateway_task_definition(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-gateway-task-definitions/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the destinations registered to your AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListDestinations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    operation.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
-  @spec list_destinations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_destinations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_destinations_errors()}
-  def list_destinations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_destinations(%Client{} = client, options \\ []) do
     url_path = "/destinations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the device profiles registered to your AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListDeviceProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:device_profile_type` (`t:enum["LoRaWAN|Sidewalk"]`) A filter to list only
+    device profiles that use this type, which can be LoRaWAN or Sidewalk.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    operation.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
-  @spec list_device_profiles(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_device_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_device_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_device_profiles_errors()}
-  def list_device_profiles(
-        %Client{} = client,
-        device_profile_type \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_device_profiles(%Client{} = client, options \\ []) do
     url_path = "/device-profiles"
+
+    # Validate optional parameters
+    optional_params = [device_profile_type: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(device_profile_type) do
-        [{"deviceProfileType", device_profile_type} | query_params]
+      if opt_val = Keyword.get(options, :device_profile_type) do
+        [{"deviceProfileType", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:device_profile_type, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List the Sidewalk devices in an import task and their onboarding status.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListDevicesForWirelessDeviceImportTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the import task for which wireless
+    devices are listed.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
+  * `:status` (`t:enum["FAILED|INITIALIZED|ONBOARDED|PENDING"]`) The status of the
+    devices in the import task.
   """
-  @spec list_devices_for_wireless_device_import_task(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_devices_for_wireless_device_import_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_devices_for_wireless_device_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_devices_for_wireless_device_import_task_errors()}
-  def list_devices_for_wireless_device_import_task(
-        %Client{} = client,
-        id,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_devices_for_wireless_device_import_task(%Client{} = client, id, options \\ []) do
     url_path = "/wireless_device_import_task"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"id", id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(id) do
-        [{"id", id} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List event configurations where at least one event topic has been enabled.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListEventConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_type` (`t:enum["SidewalkAccount|WirelessDevice|WirelessGateway"]`)
+    Resource type to filter event configurations.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
-  @spec list_event_configurations(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
+  @spec list_event_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_event_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_configurations_errors()}
-  def list_event_configurations(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        resource_type,
-        options \\ []
-      ) do
+  def list_event_configurations(%Client{} = client, resource_type, options \\ []) do
     url_path = "/event-configurations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"resourceType", resource_type}]
+
+    # Optional query params
     query_params =
-      if !is_nil(resource_type) do
-        [{"resourceType", resource_type} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the FUOTA tasks registered to your AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListFuotaTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
-  @spec list_fuota_tasks(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_fuota_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_fuota_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fuota_tasks_errors()}
-  def list_fuota_tasks(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_fuota_tasks(%Client{} = client, options \\ []) do
     url_path = "/fuota-tasks"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the multicast groups registered to your AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListMulticastGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
-  @spec list_multicast_groups(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_multicast_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_multicast_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_multicast_groups_errors()}
-  def list_multicast_groups(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_multicast_groups(%Client{} = client, options \\ []) do
     url_path = "/multicast-groups"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List all multicast groups associated with a fuota task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListMulticastGroupsByFuotaTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
-  @spec list_multicast_groups_by_fuota_task(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_multicast_groups_by_fuota_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_multicast_groups_by_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_multicast_groups_by_fuota_task_errors()}
-  def list_multicast_groups_by_fuota_task(
-        %Client{} = client,
-        id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_multicast_groups_by_fuota_task(%Client{} = client, id, options \\ []) do
     url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}/multicast-groups"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the network analyzer configurations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListNetworkAnalyzerConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
-  @spec list_network_analyzer_configurations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_network_analyzer_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_network_analyzer_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_network_analyzer_configurations_errors()}
-  def list_network_analyzer_configurations(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_network_analyzer_configurations(%Client{} = client, options \\ []) do
     url_path = "/network-analyzer-configurations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the partner accounts associated with your AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListPartnerAccounts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    operation.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
-  @spec list_partner_accounts(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_partner_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_partner_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_partner_accounts_errors()}
-  def list_partner_accounts(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_partner_accounts(%Client{} = client, options \\ []) do
     url_path = "/partner-accounts"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -7330,384 +8485,587 @@ defmodule AWS.IoTWireless do
   @doc """
   List position configurations for a given resource, such as positioning solvers.
 
-  This action is no longer supported. Calls to retrieve position information
-  should
-  use the
-  [GetResourcePosition](https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html)
-  API operation instead.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListPositionConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
+  * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]`) Resource type
+    for which position configurations are listed.
   """
-  @spec list_position_configurations(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_position_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_position_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_position_configurations_errors()}
-  def list_position_configurations(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        resource_type \\ nil,
-        options \\ []
-      ) do
+  def list_position_configurations(%Client{} = client, options \\ []) do
     url_path = "/position-configurations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, resource_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(resource_type) do
-        [{"resourceType", resource_type} | query_params]
+      if opt_val = Keyword.get(options, :resource_type) do
+        [{"resourceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :resource_type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List queued messages in the downlink queue.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListQueuedMessages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of a given wireless device which the downlink
+    message packets are being sent.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    operation.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
+  * `:wireless_device_type` (`t:enum["LoRaWAN|Sidewalk"]`) The wireless device
+    type, whic can be either Sidewalk or LoRaWAN.
   """
-  @spec list_queued_messages(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_queued_messages(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_queued_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_queued_messages_errors()}
-  def list_queued_messages(
-        %Client{} = client,
-        id,
-        max_results \\ nil,
-        next_token \\ nil,
-        wireless_device_type \\ nil,
-        options \\ []
-      ) do
+  def list_queued_messages(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/data"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, wireless_device_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(wireless_device_type) do
-        [{"WirelessDeviceType", wireless_device_type} | query_params]
+      if opt_val = Keyword.get(options, :wireless_device_type) do
+        [{"WirelessDeviceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :wireless_device_type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the service profiles registered to your AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListServiceProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    operation.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
-  @spec list_service_profiles(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_service_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_service_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_profiles_errors()}
-  def list_service_profiles(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_service_profiles(%Client{} = client, options \\ []) do
     url_path = "/service-profiles"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the tags (metadata) you have assigned to the resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource for which you want to
+    list tags.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(resource_arn) do
-        [{"resourceArn", resource_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"resourceArn", resource_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List wireless devices that have been added to an import task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListWirelessDeviceImportTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
-  @spec list_wireless_device_import_tasks(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_wireless_device_import_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_wireless_device_import_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_wireless_device_import_tasks_errors()}
-  def list_wireless_device_import_tasks(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_wireless_device_import_tasks(%Client{} = client, options \\ []) do
     url_path = "/wireless_device_import_tasks"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the wireless devices registered to your AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListWirelessDevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:destination_name` (`t:string`) A filter to list only the wireless devices
+    that use this destination.
+  * `:device_profile_id` (`t:string`) A filter to list only the wireless devices
+    that use this device profile.
+  * `:fuota_task_id` (`t:string`)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    operation.
+  * `:multicast_group_id` (`t:string`)
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
+  * `:service_profile_id` (`t:string`) A filter to list only the wireless devices
+    that use this service profile.
+  * `:wireless_device_type` (`t:enum["LoRaWAN|Sidewalk"]`) A filter to list only
+    the wireless devices that use this wireless device type.
   """
-  @spec list_wireless_devices(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_wireless_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_wireless_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_wireless_devices_errors()}
-  def list_wireless_devices(
-        %Client{} = client,
-        destination_name \\ nil,
-        device_profile_id \\ nil,
-        fuota_task_id \\ nil,
-        max_results \\ nil,
-        multicast_group_id \\ nil,
-        next_token \\ nil,
-        service_profile_id \\ nil,
-        wireless_device_type \\ nil,
-        options \\ []
-      ) do
+  def list_wireless_devices(%Client{} = client, options \\ []) do
     url_path = "/wireless-devices"
+
+    # Validate optional parameters
+    optional_params = [
+      destination_name: nil,
+      device_profile_id: nil,
+      fuota_task_id: nil,
+      max_results: nil,
+      multicast_group_id: nil,
+      next_token: nil,
+      service_profile_id: nil,
+      wireless_device_type: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(wireless_device_type) do
-        [{"wirelessDeviceType", wireless_device_type} | query_params]
+      if opt_val = Keyword.get(options, :wireless_device_type) do
+        [{"wirelessDeviceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(service_profile_id) do
-        [{"serviceProfileId", service_profile_id} | query_params]
+      if opt_val = Keyword.get(options, :service_profile_id) do
+        [{"serviceProfileId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(multicast_group_id) do
-        [{"multicastGroupId", multicast_group_id} | query_params]
+      if opt_val = Keyword.get(options, :multicast_group_id) do
+        [{"multicastGroupId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(fuota_task_id) do
-        [{"fuotaTaskId", fuota_task_id} | query_params]
+      if opt_val = Keyword.get(options, :fuota_task_id) do
+        [{"fuotaTaskId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(device_profile_id) do
-        [{"deviceProfileId", device_profile_id} | query_params]
+      if opt_val = Keyword.get(options, :device_profile_id) do
+        [{"deviceProfileId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(destination_name) do
-        [{"destinationName", destination_name} | query_params]
+      if opt_val = Keyword.get(options, :destination_name) do
+        [{"destinationName", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :destination_name,
+        :device_profile_id,
+        :fuota_task_id,
+        :max_results,
+        :multicast_group_id,
+        :next_token,
+        :service_profile_id,
+        :wireless_device_type
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List the wireless gateway tasks definitions registered to your AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListWirelessGatewayTaskDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    operation.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
+  * `:task_definition_type` (`t:enum["UPDATE"]`) A filter to list only the
+    wireless gateway task definitions that use this task definition type.
   """
-  @spec list_wireless_gateway_task_definitions(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_wireless_gateway_task_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_wireless_gateway_task_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_wireless_gateway_task_definitions_errors()}
-  def list_wireless_gateway_task_definitions(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        task_definition_type \\ nil,
-        options \\ []
-      ) do
+  def list_wireless_gateway_task_definitions(%Client{} = client, options \\ []) do
     url_path = "/wireless-gateway-task-definitions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, task_definition_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(task_definition_type) do
-        [{"taskDefinitionType", task_definition_type} | query_params]
+      if opt_val = Keyword.get(options, :task_definition_type) do
+        [{"taskDefinitionType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :task_definition_type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the wireless gateways registered to your AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListWirelessGateways&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    operation.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
-  @spec list_wireless_gateways(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_wireless_gateways(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_wireless_gateways_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_wireless_gateways_errors()}
-  def list_wireless_gateways(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_wireless_gateways(%Client{} = client, options \\ []) do
     url_path = "/wireless-gateways"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -7715,16 +9073,21 @@ defmodule AWS.IoTWireless do
   @doc """
   Put position configuration for a given resource.
 
-  This action is no longer supported. Calls to update the position configuration
-  should use the
-  [UpdateResourcePosition](https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateResourcePosition.html)
-  API operation instead.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20PutPositionConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_identifier` (`t:string`) Resource identifier used to update the
+    position configuration.
+  * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]`) Resource type of
+    the resource for which you want to update the position configuration.
+
+  ## Optional parameters:
   """
   @spec put_position_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_position_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_position_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7739,20 +9102,32 @@ defmodule AWS.IoTWireless do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Sets the log-level override for a resource-ID and resource-type.
+  Sets the log-level override for a resource-ID and resource-type. This option can
+  be specified for a wireless gateway or a wireless device. A limit of 200 log
+  level override can be set per account.
 
-  This option can be
-  specified for a wireless gateway or a wireless device. A limit of 200 log level
-  override
-  can be set per account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20PutResourceLogLevel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_identifier` (`t:string`)
+  * `:resource_type` (`t:string`) The type of the resource, which can be
+    WirelessDevice or WirelessGateway.
+
+  ## Optional parameters:
   """
-  @spec put_resource_log_level(map(), String.t(), put_resource_log_level_request(), list()) ::
+  @spec put_resource_log_level(
+          AWS.Client.t(),
+          String.t(),
+          put_resource_log_level_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_resource_log_level_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_log_level_errors()}
@@ -7766,17 +9141,27 @@ defmodule AWS.IoTWireless do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Removes the log-level overrides for all resources; both wireless devices and
-  wireless
-  gateways.
+  wireless gateways.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ResetAllResourceLogLevels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec reset_all_resource_log_levels(map(), reset_all_resource_log_levels_request(), list()) ::
+  @spec reset_all_resource_log_levels(
+          AWS.Client.t(),
+          reset_all_resource_log_levels_request(),
+          Keyword.t()
+        ) ::
           {:ok, reset_all_resource_log_levels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_all_resource_log_levels_errors()}
@@ -7785,7 +9170,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7802,11 +9188,23 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Removes the log-level override, if any, for a specific resource-ID and
-  resource-type.
+  resource-type. It can be used for a wireless device or a wireless gateway.
 
-  It can be used for a wireless device or a wireless gateway.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ResetResourceLogLevel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_identifier` (`t:string`)
+  * `:resource_type` (`t:string`) The type of the resource, which can be
+    WirelessDevice or WirelessGateway.
+
+  ## Optional parameters:
   """
-  @spec reset_resource_log_level(map(), String.t(), reset_resource_log_level_request(), list()) ::
+  @spec reset_resource_log_level(
+          AWS.Client.t(),
+          String.t(),
+          reset_resource_log_level_request(),
+          Keyword.t()
+        ) ::
           {:ok, reset_resource_log_level_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_resource_log_level_errors()}
@@ -7820,7 +9218,8 @@ defmodule AWS.IoTWireless do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7837,12 +9236,19 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Sends the specified data to a multicast group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20SendDataToMulticastGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec send_data_to_multicast_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           send_data_to_multicast_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, send_data_to_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7852,7 +9258,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7869,12 +9276,19 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Sends a decrypted application data frame to a device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20SendDataToWirelessDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the wireless device to receive the data.
+
+  ## Optional parameters:
   """
   @spec send_data_to_wireless_device(
-          map(),
+          AWS.Client.t(),
           String.t(),
           send_data_to_wireless_device_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, send_data_to_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7884,7 +9298,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7902,12 +9317,19 @@ defmodule AWS.IoTWireless do
   @doc """
   Starts a bulk association of all qualifying wireless devices with a multicast
   group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20StartBulkAssociateWirelessDeviceWithMulticastGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec start_bulk_associate_wireless_device_with_multicast_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           start_bulk_associate_wireless_device_with_multicast_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_bulk_associate_wireless_device_with_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7922,7 +9344,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7940,12 +9363,19 @@ defmodule AWS.IoTWireless do
   @doc """
   Starts a bulk disassociatin of all qualifying wireless devices from a multicast
   group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20StartBulkDisassociateWirelessDeviceFromMulticastGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec start_bulk_disassociate_wireless_device_from_multicast_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           start_bulk_disassociate_wireless_device_from_multicast_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_bulk_disassociate_wireless_device_from_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7960,7 +9390,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7977,8 +9408,15 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Starts a FUOTA task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20StartFuotaTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec start_fuota_task(map(), String.t(), start_fuota_task_request(), list()) ::
+  @spec start_fuota_task(AWS.Client.t(), String.t(), start_fuota_task_request(), Keyword.t()) ::
           {:ok, start_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_fuota_task_errors()}
@@ -7987,19 +9425,27 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
   end
 
   @doc """
   Starts a multicast group session.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20StartMulticastGroupSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec start_multicast_group_session(
-          map(),
+          AWS.Client.t(),
           String.t(),
           start_multicast_group_session_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_multicast_group_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -8009,18 +9455,25 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
   end
 
   @doc """
   Start import task for a single wireless device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20StartSingleWirelessDeviceImportTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec start_single_wireless_device_import_task(
-          map(),
+          AWS.Client.t(),
           start_single_wireless_device_import_task_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_single_wireless_device_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -8030,7 +9483,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8048,11 +9502,17 @@ defmodule AWS.IoTWireless do
   @doc """
   Start import task for provisioning Sidewalk devices in bulk using an S3 CSV
   file.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20StartWirelessDeviceImportTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec start_wireless_device_import_task(
-          map(),
+          AWS.Client.t(),
           start_wireless_device_import_task_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_wireless_device_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -8062,7 +9522,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8079,8 +9540,15 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Adds a tag to a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource to add tags to.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -8094,7 +9562,8 @@ defmodule AWS.IoTWireless do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8110,10 +9579,21 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Simulates a provisioned device by sending an uplink data payload of
-  `Hello`.
+  Simulates a provisioned device by sending an uplink data payload of `Hello`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20TestWirelessDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the wireless device to test.
+
+  ## Optional parameters:
   """
-  @spec test_wireless_device(map(), String.t(), test_wireless_device_request(), list()) ::
+  @spec test_wireless_device(
+          AWS.Client.t(),
+          String.t(),
+          test_wireless_device_request(),
+          Keyword.t()
+        ) ::
           {:ok, test_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_wireless_device_errors()}
@@ -8122,7 +9602,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8139,8 +9620,17 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Removes one or more tags from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource to remove tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.iotwireless#TagKey]`) A list of the keys of
+    the tags to remove from the resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -8155,7 +9645,8 @@ defmodule AWS.IoTWireless do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8172,8 +9663,15 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Updates properties of a destination.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The new name of the resource.
+
+  ## Optional parameters:
   """
-  @spec update_destination(map(), String.t(), update_destination_request(), list()) ::
+  @spec update_destination(AWS.Client.t(), String.t(), update_destination_request(), Keyword.t()) ::
           {:ok, update_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_destination_errors()}
@@ -8182,7 +9680,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8199,11 +9698,17 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Update the event configuration based on resource types.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateEventConfigurationByResourceTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec update_event_configuration_by_resource_types(
-          map(),
+          AWS.Client.t(),
           update_event_configuration_by_resource_types_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_event_configuration_by_resource_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -8213,7 +9718,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8230,8 +9736,15 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Updates properties of a FUOTA task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateFuotaTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_fuota_task(map(), String.t(), update_fuota_task_request(), list()) ::
+  @spec update_fuota_task(AWS.Client.t(), String.t(), update_fuota_task_request(), Keyword.t()) ::
           {:ok, update_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_fuota_task_errors()}
@@ -8240,7 +9753,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8256,17 +9770,20 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Set default log level, or log levels by resource types.
-
-  This can be for wireless
+  Set default log level, or log levels by resource types. This can be for wireless
   device log options or wireless gateways log options and is used to control the
-  log
-  messages that'll be displayed in CloudWatch.
+  log messages that'll be displayed in CloudWatch.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateLogLevelsByResourceTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec update_log_levels_by_resource_types(
-          map(),
+          AWS.Client.t(),
           update_log_levels_by_resource_types_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_log_levels_by_resource_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -8276,7 +9793,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8293,8 +9811,18 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Update the summary metric configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateMetricConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_metric_configuration(map(), update_metric_configuration_request(), list()) ::
+  @spec update_metric_configuration(
+          AWS.Client.t(),
+          update_metric_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_metric_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_metric_configuration_errors()}
@@ -8303,15 +9831,28 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
   end
 
   @doc """
   Updates properties of a multicast group session.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateMulticastGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_multicast_group(map(), String.t(), update_multicast_group_request(), list()) ::
+  @spec update_multicast_group(
+          AWS.Client.t(),
+          String.t(),
+          update_multicast_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_multicast_group_errors()}
@@ -8320,7 +9861,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8337,12 +9879,19 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Update network analyzer configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateNetworkAnalyzerConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_name` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec update_network_analyzer_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_network_analyzer_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_network_analyzer_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -8357,7 +9906,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8374,8 +9924,21 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Updates properties of a partner account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdatePartnerAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:partner_account_id` (`t:string`) The ID of the partner account to update.
+  * `:partner_type` (`t:enum["Sidewalk"]`) The partner type.
+
+  ## Optional parameters:
   """
-  @spec update_partner_account(map(), String.t(), update_partner_account_request(), list()) ::
+  @spec update_partner_account(
+          AWS.Client.t(),
+          String.t(),
+          update_partner_account_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_partner_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_partner_account_errors()}
@@ -8389,7 +9952,8 @@ defmodule AWS.IoTWireless do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8407,12 +9971,17 @@ defmodule AWS.IoTWireless do
   @doc """
   Update the position information of a resource.
 
-  This action is no longer supported. Calls to update the position information
-  should use the
-  [UpdateResourcePosition](https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateResourcePosition.html)
-  API operation instead.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdatePosition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_identifier` (`t:string`) Resource identifier of the resource for
+    which position is updated.
+  * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]`) Resource type of
+    the resource for which position is updated.
+
+  ## Optional parameters:
   """
-  @spec update_position(map(), String.t(), update_position_request(), list()) ::
+  @spec update_position(AWS.Client.t(), String.t(), update_position_request(), Keyword.t()) ::
           {:ok, update_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_position_errors()}
@@ -8426,7 +9995,8 @@ defmodule AWS.IoTWireless do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8443,12 +10013,25 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Update the event configuration for a particular resource identifier.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateResourceEventConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) Resource identifier to opt in for event messaging.
+  * `:identifier_type`
+    (`t:enum["DevEui|GatewayEui|PartnerAccountId|WirelessDeviceId|WirelessGatewayId"]`)
+    Identifier type of the particular resource identifier for event
+    configuration.
+
+  ## Optional parameters:
+  * `:partner_type` (`t:enum["Sidewalk"]`) Partner type of the resource if the
+    identifier type is PartnerAccountId
   """
   @spec update_resource_event_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_resource_event_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_resource_event_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -8464,7 +10047,13 @@ defmodule AWS.IoTWireless do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:partner_type])
 
     Request.request_rest(
       client,
@@ -8481,11 +10070,27 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Update the position information of a given wireless device or a wireless gateway
-  resource.
+  resource. The position coordinates are based on the [ World Geodetic System
+  (WGS84)](https://gisgeography.com/wgs84-world-geodetic-system/).
 
-  The position coordinates are based on the [ World Geodetic System (WGS84)](https://gisgeography.com/wgs84-world-geodetic-system/).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateResourcePosition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_identifier` (`t:string`) The identifier of the resource for which
+    position information is updated. It can be the wireless device ID or the
+    wireless gateway ID, depending on the resource type.
+  * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]`) The type of
+    resource for which position information is updated, which can be a wireless
+    device or a wireless gateway.
+
+  ## Optional parameters:
   """
-  @spec update_resource_position(map(), String.t(), update_resource_position_request(), list()) ::
+  @spec update_resource_position(
+          AWS.Client.t(),
+          String.t(),
+          update_resource_position_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_resource_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resource_position_errors()}
@@ -8499,7 +10104,8 @@ defmodule AWS.IoTWireless do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8516,8 +10122,20 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Updates properties of a wireless device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateWirelessDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the resource to update.
+
+  ## Optional parameters:
   """
-  @spec update_wireless_device(map(), String.t(), update_wireless_device_request(), list()) ::
+  @spec update_wireless_device(
+          AWS.Client.t(),
+          String.t(),
+          update_wireless_device_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_wireless_device_errors()}
@@ -8526,7 +10144,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8543,12 +10162,19 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Update an import task to add more devices to the task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateWirelessDeviceImportTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the import task to be updated.
+
+  ## Optional parameters:
   """
   @spec update_wireless_device_import_task(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_wireless_device_import_task_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_wireless_device_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -8558,7 +10184,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8575,8 +10202,20 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Updates properties of a wireless gateway.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateWirelessGateway&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the resource to update.
+
+  ## Optional parameters:
   """
-  @spec update_wireless_gateway(map(), String.t(), update_wireless_gateway_request(), list()) ::
+  @spec update_wireless_gateway(
+          AWS.Client.t(),
+          String.t(),
+          update_wireless_gateway_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_wireless_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_wireless_gateway_errors()}
@@ -8585,7 +10224,8 @@ defmodule AWS.IoTWireless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

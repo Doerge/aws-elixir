@@ -3,97 +3,9 @@
 
 defmodule AWS.CodeStar do
   @moduledoc """
-  AWS CodeStar
-
-  This is the API reference for AWS CodeStar.
-
-  This reference provides descriptions of the
-  operations and data types for the AWS CodeStar API along with usage examples.
-
-  You can use the AWS CodeStar API to work with:
-
-  Projects and their resources, by calling the following:
-
-    *
-
-  `DeleteProject`, which deletes a project.
-
-    *
-
-  `DescribeProject`, which lists the attributes of a project.
-
-    *
-
-  `ListProjects`, which lists all projects associated with your AWS
-  account.
-
-    *
-
-  `ListResources`, which lists the resources associated with a
-  project.
-
-    *
-
-  `ListTagsForProject`, which lists the tags associated with a
-  project.
-
-    *
-
-  `TagProject`, which adds tags to a project.
-
-    *
-
-  `UntagProject`, which removes tags from a project.
-
-    *
-
-  `UpdateProject`, which updates the attributes of a project.
-
-  Teams and team members, by calling the following:
-
-    *
-
-  `AssociateTeamMember`, which adds an IAM user to the team for a
-  project.
-
-    *
-
-  `DisassociateTeamMember`, which removes an IAM user from the team for a
-  project.
-
-    *
-
-  `ListTeamMembers`, which lists all the IAM users in the team for a
-  project, including their roles and attributes.
-
-    *
-
-  `UpdateTeamMember`, which updates a team member's attributes in a
-  project.
-
-  Users, by calling the following:
-
-    *
-
-  `CreateUserProfile`, which creates a user profile that contains data
-  associated with the user across all projects.
-
-    *
-
-  `DeleteUserProfile`, which deletes all user profile information across
-  all projects.
-
-    *
-
-  `DescribeUserProfile`, which describes the profile of a user.
-
-    *
-
-  `ListUserProfiles`, which lists all user profiles.
-
-    *
-
-  `UpdateUserProfile`, which updates the profile for a user.
+  AWS CodeStar This is the API reference for AWS CodeStar. This reference provides
+  descriptions of the operations and data types for the AWS CodeStar API along
+  with usage examples.
   """
 
   alias AWS.Client
@@ -963,85 +875,80 @@ defmodule AWS.CodeStar do
   @doc """
   Adds an IAM user to the team for an AWS CodeStar project.
   """
-  @spec associate_team_member(map(), associate_team_member_request(), list()) ::
+  @spec associate_team_member(AWS.Client.t(), associate_team_member_request(), Keyword.t()) ::
           {:ok, associate_team_member_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_team_member_errors()}
   def associate_team_member(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateTeamMember", input, options)
   end
 
   @doc """
-  Creates a project, including project resources.
-
-  This action creates a project based on
-  a submitted project request. A set of source code files and a toolchain template
-  file
-  can be included with the project request. If these are not provided, an empty
-  project is created.
+  Creates a project, including project resources. This action creates a project
+  based on a submitted project request. A set of source code files and a
+  toolchain template file can be included with the project request. If these are
+  not provided, an empty project is created.
   """
-  @spec create_project(map(), create_project_request(), list()) ::
+  @spec create_project(AWS.Client.t(), create_project_request(), Keyword.t()) ::
           {:ok, create_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProject", input, options)
   end
 
   @doc """
   Creates a profile for a user that includes user preferences, such as the display
-  name
-  and email address assocciated with the user, in AWS CodeStar.
-
-  The user profile is not
-  project-specific. Information in the user profile is displayed wherever the
-  user's information
-  appears to other users in AWS CodeStar.
+  name and email address assocciated with the user, in AWS CodeStar. The user
+  profile is not project-specific. Information in the user profile is displayed
+  wherever the user's information appears to other users in AWS CodeStar.
   """
-  @spec create_user_profile(map(), create_user_profile_request(), list()) ::
+  @spec create_user_profile(AWS.Client.t(), create_user_profile_request(), Keyword.t()) ::
           {:ok, create_user_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_profile_errors()}
   def create_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUserProfile", input, options)
   end
 
   @doc """
-  Deletes a project, including project resources.
-
-  Does not delete users associated with
-  the project, but does delete the IAM roles that allowed access to the project.
+  Deletes a project, including project resources. Does not delete users associated
+  with the project, but does delete the IAM roles that allowed access to the
+  project.
   """
-  @spec delete_project(map(), delete_project_request(), list()) ::
+  @spec delete_project(AWS.Client.t(), delete_project_request(), Keyword.t()) ::
           {:ok, delete_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProject", input, options)
   end
 
   @doc """
   Deletes a user profile in AWS CodeStar, including all personal preference data
-  associated with
-  that profile, such as display name and email address.
-
-  It does not delete the history of that
-  user, for example the history of commits made by that user.
+  associated with that profile, such as display name and email address. It does
+  not delete the history of that user, for example the history of commits made
+  by that user.
   """
-  @spec delete_user_profile(map(), delete_user_profile_request(), list()) ::
+  @spec delete_user_profile(AWS.Client.t(), delete_user_profile_request(), Keyword.t()) ::
           {:ok, delete_user_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_profile_errors()}
   def delete_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUserProfile", input, options)
   end
@@ -1049,12 +956,13 @@ defmodule AWS.CodeStar do
   @doc """
   Describes a project and its resources.
   """
-  @spec describe_project(map(), describe_project_request(), list()) ::
+  @spec describe_project(AWS.Client.t(), describe_project_request(), Keyword.t()) ::
           {:ok, describe_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_project_errors()}
   def describe_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProject", input, options)
   end
@@ -1062,32 +970,30 @@ defmodule AWS.CodeStar do
   @doc """
   Describes a user in AWS CodeStar and the user attributes across all projects.
   """
-  @spec describe_user_profile(map(), describe_user_profile_request(), list()) ::
+  @spec describe_user_profile(AWS.Client.t(), describe_user_profile_request(), Keyword.t()) ::
           {:ok, describe_user_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_profile_errors()}
   def describe_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUserProfile", input, options)
   end
 
   @doc """
-  Removes a user from a project.
-
-  Removing a user from a project also removes the IAM
-  policies from that user that allowed access to the project and its resources.
-  Disassociating a
-  team member does not remove that user's profile from AWS CodeStar. It does not
-  remove the user from
-  IAM.
+  Removes a user from a project. Removing a user from a project also removes the
+  IAM policies from that user that allowed access to the project and its
+  resources. Disassociating a team member does not remove that user's profile
+  from AWS CodeStar. It does not remove the user from IAM.
   """
-  @spec disassociate_team_member(map(), disassociate_team_member_request(), list()) ::
+  @spec disassociate_team_member(AWS.Client.t(), disassociate_team_member_request(), Keyword.t()) ::
           {:ok, disassociate_team_member_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_team_member_errors()}
   def disassociate_team_member(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateTeamMember", input, options)
   end
@@ -1095,12 +1001,13 @@ defmodule AWS.CodeStar do
   @doc """
   Lists all projects in AWS CodeStar associated with your AWS account.
   """
-  @spec list_projects(map(), list_projects_request(), list()) ::
+  @spec list_projects(AWS.Client.t(), list_projects_request(), Keyword.t()) ::
           {:ok, list_projects_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_projects_errors()}
   def list_projects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProjects", input, options)
   end
@@ -1108,12 +1015,13 @@ defmodule AWS.CodeStar do
   @doc """
   Lists resources associated with a project in AWS CodeStar.
   """
-  @spec list_resources(map(), list_resources_request(), list()) ::
+  @spec list_resources(AWS.Client.t(), list_resources_request(), Keyword.t()) ::
           {:ok, list_resources_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resources_errors()}
   def list_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResources", input, options)
   end
@@ -1121,12 +1029,13 @@ defmodule AWS.CodeStar do
   @doc """
   Gets the tags for a project.
   """
-  @spec list_tags_for_project(map(), list_tags_for_project_request(), list()) ::
+  @spec list_tags_for_project(AWS.Client.t(), list_tags_for_project_request(), Keyword.t()) ::
           {:ok, list_tags_for_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_project_errors()}
   def list_tags_for_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForProject", input, options)
   end
@@ -1134,12 +1043,13 @@ defmodule AWS.CodeStar do
   @doc """
   Lists all team members associated with a project.
   """
-  @spec list_team_members(map(), list_team_members_request(), list()) ::
+  @spec list_team_members(AWS.Client.t(), list_team_members_request(), Keyword.t()) ::
           {:ok, list_team_members_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_team_members_errors()}
   def list_team_members(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTeamMembers", input, options)
   end
@@ -1147,12 +1057,13 @@ defmodule AWS.CodeStar do
   @doc """
   Lists all the user profiles configured for your AWS account in AWS CodeStar.
   """
-  @spec list_user_profiles(map(), list_user_profiles_request(), list()) ::
+  @spec list_user_profiles(AWS.Client.t(), list_user_profiles_request(), Keyword.t()) ::
           {:ok, list_user_profiles_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_user_profiles_errors()}
   def list_user_profiles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUserProfiles", input, options)
   end
@@ -1160,12 +1071,13 @@ defmodule AWS.CodeStar do
   @doc """
   Adds tags to a project.
   """
-  @spec tag_project(map(), tag_project_request(), list()) ::
+  @spec tag_project(AWS.Client.t(), tag_project_request(), Keyword.t()) ::
           {:ok, tag_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_project_errors()}
   def tag_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagProject", input, options)
   end
@@ -1173,12 +1085,13 @@ defmodule AWS.CodeStar do
   @doc """
   Removes tags from a project.
   """
-  @spec untag_project(map(), untag_project_request(), list()) ::
+  @spec untag_project(AWS.Client.t(), untag_project_request(), Keyword.t()) ::
           {:ok, untag_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_project_errors()}
   def untag_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagProject", input, options)
   end
@@ -1186,48 +1099,45 @@ defmodule AWS.CodeStar do
   @doc """
   Updates a project in AWS CodeStar.
   """
-  @spec update_project(map(), update_project_request(), list()) ::
+  @spec update_project(AWS.Client.t(), update_project_request(), Keyword.t()) ::
           {:ok, update_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_errors()}
   def update_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProject", input, options)
   end
 
   @doc """
-  Updates a team member's attributes in an AWS CodeStar project.
-
-  For example, you can change a
-  team member's role in the project, or change whether they have remote access to
-  project
-  resources.
+  Updates a team member's attributes in an AWS CodeStar project. For example, you
+  can change a team member's role in the project, or change whether they have
+  remote access to project resources.
   """
-  @spec update_team_member(map(), update_team_member_request(), list()) ::
+  @spec update_team_member(AWS.Client.t(), update_team_member_request(), Keyword.t()) ::
           {:ok, update_team_member_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_team_member_errors()}
   def update_team_member(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTeamMember", input, options)
   end
 
   @doc """
-  Updates a user's profile in AWS CodeStar.
-
-  The user profile is not project-specific.
-  Information in the user profile is displayed wherever the user's information
-  appears to other
-  users in AWS CodeStar.
+  Updates a user's profile in AWS CodeStar. The user profile is not
+  project-specific. Information in the user profile is displayed wherever the
+  user's information appears to other users in AWS CodeStar.
   """
-  @spec update_user_profile(map(), update_user_profile_request(), list()) ::
+  @spec update_user_profile(AWS.Client.t(), update_user_profile_request(), Keyword.t()) ::
           {:ok, update_user_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_profile_errors()}
   def update_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUserProfile", input, options)
   end

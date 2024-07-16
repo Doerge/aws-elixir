@@ -4,9 +4,8 @@
 defmodule AWS.Mq do
   @moduledoc """
   Amazon MQ is a managed message broker service for Apache ActiveMQ and RabbitMQ
-  that makes it easy to set up and operate message brokers in the cloud.
-
-  A message broker allows software applications and components to communicate
+  that makes it easy to set up and operate message brokers in the cloud. A
+  message broker allows software applications and components to communicate
   using various programming languages, operating systems, and formal messaging
   protocols.
   """
@@ -1163,47 +1162,17 @@ defmodule AWS.Mq do
   end
 
   @doc """
-  Creates a broker.
+  Creates a broker. Note: This API is asynchronous. To create a broker, you must
+  either use the AmazonMQFullAccess IAM policy or include the following EC2
+  permissions in your IAM policy.
 
-  Note: This API is asynchronous.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20CreateBroker&this_doc_guide=API%2520Reference)
 
-  To create a broker, you must either use the AmazonMQFullAccess IAM policy or
-  include the following EC2 permissions in your IAM policy.
+  ## Parameters:
 
-    * ec2:CreateNetworkInterface
-
-  This permission is required to allow Amazon MQ to create an elastic network
-  interface (ENI) on behalf of your account.
-
-    * ec2:CreateNetworkInterfacePermission
-
-  This permission is required to attach the ENI to the broker instance.
-
-    * ec2:DeleteNetworkInterface
-
-    * ec2:DeleteNetworkInterfacePermission
-
-    * ec2:DetachNetworkInterface
-
-    * ec2:DescribeInternetGateways
-
-    * ec2:DescribeNetworkInterfaces
-
-    * ec2:DescribeNetworkInterfacePermissions
-
-    * ec2:DescribeRouteTables
-
-    * ec2:DescribeSecurityGroups
-
-    * ec2:DescribeSubnets
-
-    * ec2:DescribeVpcs
-
-  For more information, see [Create an IAM User and Get Your Amazon Web Services Credentials](https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/amazon-mq-setting-up.html#create-iam-user)
-  and [Never Modify or Delete the Amazon MQ Elastic Network Interface](https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/connecting-to-amazon-mq.html#never-modify-delete-elastic-network-interface)
-  in the *Amazon MQ Developer Guide*.
+  ## Optional parameters:
   """
-  @spec create_broker(map(), create_broker_request(), list()) ::
+  @spec create_broker(AWS.Client.t(), create_broker_request(), Keyword.t()) ::
           {:ok, create_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_broker_errors()}
@@ -1212,7 +1181,8 @@ defmodule AWS.Mq do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1228,11 +1198,16 @@ defmodule AWS.Mq do
   end
 
   @doc """
-  Creates a new configuration for the specified configuration name.
+  Creates a new configuration for the specified configuration name. Amazon MQ uses
+  the default configuration (the engine type and version).
 
-  Amazon MQ uses the default configuration (the engine type and version).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20CreateConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_configuration(map(), create_configuration_request(), list()) ::
+  @spec create_configuration(AWS.Client.t(), create_configuration_request(), Keyword.t()) ::
           {:ok, create_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_errors()}
@@ -1241,7 +1216,8 @@ defmodule AWS.Mq do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1258,8 +1234,16 @@ defmodule AWS.Mq do
 
   @doc """
   Add a tag to a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20CreateTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    tag.
+
+  ## Optional parameters:
   """
-  @spec create_tags(map(), String.t(), create_tags_request(), list()) ::
+  @spec create_tags(AWS.Client.t(), String.t(), create_tags_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_tags_errors()}
@@ -1268,7 +1252,8 @@ defmodule AWS.Mq do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1286,12 +1271,18 @@ defmodule AWS.Mq do
   @doc """
   Creates an ActiveMQ user.
 
-  Do not add personally identifiable information (PII) or other confidential or
-  sensitive information in broker usernames. Broker usernames are accessible to
-  other Amazon Web Services services, including CloudWatch Logs. Broker usernames
-  are not intended to be used for private or sensitive data.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20CreateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
+    broker.
+  * `:username` (`t:string`) The username of the ActiveMQ user. This value can
+    contain only alphanumeric characters, dashes, periods, underscores, and
+    tildes (- . _ ~). This value must be 2-100 characters long.
+
+  ## Optional parameters:
   """
-  @spec create_user(map(), String.t(), String.t(), create_user_request(), list()) ::
+  @spec create_user(AWS.Client.t(), String.t(), String.t(), create_user_request(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
@@ -1302,7 +1293,8 @@ defmodule AWS.Mq do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1318,11 +1310,17 @@ defmodule AWS.Mq do
   end
 
   @doc """
-  Deletes a broker.
+  Deletes a broker. Note: This API is asynchronous.
 
-  Note: This API is asynchronous.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20DeleteBroker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
+    broker.
+
+  ## Optional parameters:
   """
-  @spec delete_broker(map(), String.t(), delete_broker_request(), list()) ::
+  @spec delete_broker(AWS.Client.t(), String.t(), delete_broker_request(), Keyword.t()) ::
           {:ok, delete_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_broker_errors()}
@@ -1331,7 +1329,8 @@ defmodule AWS.Mq do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1348,8 +1347,18 @@ defmodule AWS.Mq do
 
   @doc """
   Removes a tag from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20DeleteTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    tag.
+  * `:tag_keys` (`t:list[com.amazonaws.mq#__string]`) An array of tag keys to
+    delete
+
+  ## Optional parameters:
   """
-  @spec delete_tags(map(), String.t(), delete_tags_request(), list()) ::
+  @spec delete_tags(AWS.Client.t(), String.t(), delete_tags_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tags_errors()}
@@ -1363,7 +1372,8 @@ defmodule AWS.Mq do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1380,8 +1390,19 @@ defmodule AWS.Mq do
 
   @doc """
   Deletes an ActiveMQ user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20DeleteUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
+    broker.
+  * `:username` (`t:string`) The username of the ActiveMQ user. This value can
+    contain only alphanumeric characters, dashes, periods, underscores, and
+    tildes (- . _ ~). This value must be 2-100 characters long.
+
+  ## Optional parameters:
   """
-  @spec delete_user(map(), String.t(), String.t(), delete_user_request(), list()) ::
+  @spec delete_user(AWS.Client.t(), String.t(), String.t(), delete_user_request(), Keyword.t()) ::
           {:ok, delete_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_errors()}
@@ -1392,7 +1413,8 @@ defmodule AWS.Mq do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1409,160 +1431,275 @@ defmodule AWS.Mq do
 
   @doc """
   Returns information about the specified broker.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20DescribeBroker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
+    broker.
+
+  ## Optional parameters:
   """
-  @spec describe_broker(map(), String.t(), list()) ::
+  @spec describe_broker(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_broker_errors()}
   def describe_broker(%Client{} = client, broker_id, options \\ []) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describe available engine types and versions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20DescribeBrokerEngineTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:engine_type` (`t:string`) Filter response by engine type.
+  * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
+    return per page (20 by default). This value must be an integer from 5 to
+    100.
+  * `:next_token` (`t:string`) The token that specifies the next page of results
+    Amazon MQ should return. To request the first page, leave nextToken empty.
   """
-  @spec describe_broker_engine_types(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec describe_broker_engine_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_broker_engine_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_broker_engine_types_errors()}
-  def describe_broker_engine_types(
-        %Client{} = client,
-        engine_type \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def describe_broker_engine_types(%Client{} = client, options \\ []) do
     url_path = "/v1/broker-engine-types"
+
+    # Validate optional parameters
+    optional_params = [engine_type: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(engine_type) do
-        [{"engineType", engine_type} | query_params]
+      if opt_val = Keyword.get(options, :engine_type) do
+        [{"engineType", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:engine_type, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describe available broker instance options.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20DescribeBrokerInstanceOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:engine_type` (`t:string`) Filter response by engine type.
+  * `:host_instance_type` (`t:string`) Filter response by host instance type.
+  * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
+    return per page (20 by default). This value must be an integer from 5 to
+    100.
+  * `:next_token` (`t:string`) The token that specifies the next page of results
+    Amazon MQ should return. To request the first page, leave nextToken empty.
+  * `:storage_type` (`t:string`) Filter response by storage type.
   """
-  @spec describe_broker_instance_options(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec describe_broker_instance_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_broker_instance_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_broker_instance_options_errors()}
-  def describe_broker_instance_options(
-        %Client{} = client,
-        engine_type \\ nil,
-        host_instance_type \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        storage_type \\ nil,
-        options \\ []
-      ) do
+  def describe_broker_instance_options(%Client{} = client, options \\ []) do
     url_path = "/v1/broker-instance-options"
+
+    # Validate optional parameters
+    optional_params = [
+      engine_type: nil,
+      host_instance_type: nil,
+      max_results: nil,
+      next_token: nil,
+      storage_type: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(storage_type) do
-        [{"storageType", storage_type} | query_params]
+      if opt_val = Keyword.get(options, :storage_type) do
+        [{"storageType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(host_instance_type) do
-        [{"hostInstanceType", host_instance_type} | query_params]
+      if opt_val = Keyword.get(options, :host_instance_type) do
+        [{"hostInstanceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(engine_type) do
-        [{"engineType", engine_type} | query_params]
+      if opt_val = Keyword.get(options, :engine_type) do
+        [{"engineType", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :engine_type,
+        :host_instance_type,
+        :max_results,
+        :next_token,
+        :storage_type
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about the specified configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20DescribeConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_id` (`t:string`) The unique ID that Amazon MQ generates for
+    the configuration.
+
+  ## Optional parameters:
   """
-  @spec describe_configuration(map(), String.t(), list()) ::
+  @spec describe_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_configuration_errors()}
   def describe_configuration(%Client{} = client, configuration_id, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(configuration_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the specified configuration revision for the specified configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20DescribeConfigurationRevision&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_id` (`t:string`) The unique ID that Amazon MQ generates for
+    the configuration.
+  * `:configuration_revision` (`t:string`) The revision of the configuration.
+
+  ## Optional parameters:
   """
-  @spec describe_configuration_revision(map(), String.t(), String.t(), list()) ::
+  @spec describe_configuration_revision(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_configuration_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_configuration_revision_errors()}
@@ -1575,18 +1712,46 @@ defmodule AWS.Mq do
     url_path =
       "/v1/configurations/#{AWS.Util.encode_uri(configuration_id)}/revisions/#{AWS.Util.encode_uri(configuration_revision)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about an ActiveMQ user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20DescribeUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
+    broker.
+  * `:username` (`t:string`) The username of the ActiveMQ user. This value can
+    contain only alphanumeric characters, dashes, periods, underscores, and
+    tildes (- . _ ~). This value must be 2-100 characters long.
+
+  ## Optional parameters:
   """
-  @spec describe_user(map(), String.t(), String.t(), list()) ::
+  @spec describe_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_errors()}
@@ -1594,182 +1759,346 @@ defmodule AWS.Mq do
     url_path =
       "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/users/#{AWS.Util.encode_uri(username)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all brokers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20ListBrokers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
+    return per page (20 by default). This value must be an integer from 5 to
+    100.
+  * `:next_token` (`t:string`) The token that specifies the next page of results
+    Amazon MQ should return. To request the first page, leave nextToken empty.
   """
-  @spec list_brokers(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_brokers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_brokers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_brokers_errors()}
-  def list_brokers(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_brokers(%Client{} = client, options \\ []) do
     url_path = "/v1/brokers"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all revisions for the specified configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20ListConfigurationRevisions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_id` (`t:string`) The unique ID that Amazon MQ generates for
+    the configuration.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
+    return per page (20 by default). This value must be an integer from 5 to
+    100.
+  * `:next_token` (`t:string`) The token that specifies the next page of results
+    Amazon MQ should return. To request the first page, leave nextToken empty.
   """
-  @spec list_configuration_revisions(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_configuration_revisions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_configuration_revisions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configuration_revisions_errors()}
-  def list_configuration_revisions(
-        %Client{} = client,
-        configuration_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_configuration_revisions(%Client{} = client, configuration_id, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(configuration_id)}/revisions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all configurations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20ListConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
+    return per page (20 by default). This value must be an integer from 5 to
+    100.
+  * `:next_token` (`t:string`) The token that specifies the next page of results
+    Amazon MQ should return. To request the first page, leave nextToken empty.
   """
-  @spec list_configurations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configurations_errors()}
-  def list_configurations(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_configurations(%Client{} = client, options \\ []) do
     url_path = "/v1/configurations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists tags for a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20ListTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    tag.
+
+  ## Optional parameters:
   """
-  @spec list_tags(map(), String.t(), list()) ::
+  @spec list_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all ActiveMQ users.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20ListUsers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
+    broker.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
+    return per page (20 by default). This value must be an integer from 5 to
+    100.
+  * `:next_token` (`t:string`) The token that specifies the next page of results
+    Amazon MQ should return. To request the first page, leave nextToken empty.
   """
-  @spec list_users(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_users_errors()}
-  def list_users(
-        %Client{} = client,
-        broker_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_users(%Client{} = client, broker_id, options \\ []) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/users"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Promotes a data replication replica broker to the primary broker role.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20Promote&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
+    broker.
+
+  ## Optional parameters:
   """
-  @spec promote(map(), String.t(), promote_request(), list()) ::
+  @spec promote(AWS.Client.t(), String.t(), promote_request(), Keyword.t()) ::
           {:ok, promote_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, promote_errors()}
@@ -1778,7 +2107,8 @@ defmodule AWS.Mq do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1794,11 +2124,17 @@ defmodule AWS.Mq do
   end
 
   @doc """
-  Reboots a broker.
+  Reboots a broker. Note: This API is asynchronous.
 
-  Note: This API is asynchronous.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20RebootBroker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
+    broker.
+
+  ## Optional parameters:
   """
-  @spec reboot_broker(map(), String.t(), reboot_broker_request(), list()) ::
+  @spec reboot_broker(AWS.Client.t(), String.t(), reboot_broker_request(), Keyword.t()) ::
           {:ok, reboot_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_broker_errors()}
@@ -1807,7 +2143,8 @@ defmodule AWS.Mq do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1824,8 +2161,16 @@ defmodule AWS.Mq do
 
   @doc """
   Adds a pending configuration change to a broker.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20UpdateBroker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
+    broker.
+
+  ## Optional parameters:
   """
-  @spec update_broker(map(), String.t(), update_broker_request(), list()) ::
+  @spec update_broker(AWS.Client.t(), String.t(), update_broker_request(), Keyword.t()) ::
           {:ok, update_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_broker_errors()}
@@ -1834,15 +2179,29 @@ defmodule AWS.Mq do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the specified configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20UpdateConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_id` (`t:string`) The unique ID that Amazon MQ generates for
+    the configuration.
+
+  ## Optional parameters:
   """
-  @spec update_configuration(map(), String.t(), update_configuration_request(), list()) ::
+  @spec update_configuration(
+          AWS.Client.t(),
+          String.t(),
+          update_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configuration_errors()}
@@ -1851,15 +2210,27 @@ defmodule AWS.Mq do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the information for an ActiveMQ user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20UpdateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
+    broker.
+  * `:username` (`t:string`) The username of the ActiveMQ user. This value can
+    contain only alphanumeric characters, dashes, periods, underscores, and
+    tildes (- . _ ~). This value must be 2-100 characters long.
+
+  ## Optional parameters:
   """
-  @spec update_user(map(), String.t(), String.t(), update_user_request(), list()) ::
+  @spec update_user(AWS.Client.t(), String.t(), String.t(), update_user_request(), Keyword.t()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_errors()}
@@ -1870,7 +2241,8 @@ defmodule AWS.Mq do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

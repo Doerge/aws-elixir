@@ -3,22 +3,11 @@
 
 defmodule AWS.EC2InstanceConnect do
   @moduledoc """
-  This is the * Amazon EC2 Instance Connect API Reference*.
-
-  It
-  provides descriptions, syntax, and usage examples for each of the actions for
-  Amazon EC2
-  Instance Connect. Amazon EC2 Instance Connect enables system administrators to
-  publish
-  one-time use SSH public keys to EC2, providing users a simple and secure way to
-  connect
-  to their instances.
-
-  To view the Amazon EC2 Instance Connect content in the * Amazon EC2 User
-  Guide*, see [Connect to your Linux instance using EC2 Instance
-  Connect](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect.html).
-
-  For Amazon EC2 APIs, see the [Amazon EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html).
+  This is the * Amazon EC2 Instance Connect API Reference*. It provides
+  descriptions, syntax, and usage examples for each of the actions for Amazon
+  EC2 Instance Connect. Amazon EC2 Instance Connect enables system
+  administrators to publish one-time use SSH public keys to EC2, providing users
+  a simple and secure way to connect to their instances.
   """
 
   alias AWS.Client
@@ -247,44 +236,41 @@ defmodule AWS.EC2InstanceConnect do
   end
 
   @doc """
-  Pushes an SSH public key to the specified EC2 instance.
-
-  The key remains for 60
-  seconds, which gives you 60 seconds to establish a serial console connection to
-  the
-  instance using SSH. For more information, see [EC2 Serial Console](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-serial-console.html)
-  in
-  the *Amazon EC2 User Guide*.
+  Pushes an SSH public key to the specified EC2 instance. The key remains for 60
+  seconds, which gives you 60 seconds to establish a serial console connection
+  to the instance using SSH. For more information, see [EC2 Serial
+  Console](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-serial-console.html)
+  in the *Amazon EC2 User Guide*.
   """
   @spec send_serial_console_ssh_public_key(
-          map(),
+          AWS.Client.t(),
           send_serial_console_ssh_public_key_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, send_serial_console_ssh_public_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_serial_console_ssh_public_key_errors()}
   def send_serial_console_ssh_public_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendSerialConsoleSSHPublicKey", input, options)
   end
 
   @doc """
   Pushes an SSH public key to the specified EC2 instance for use by the specified
-  user.
-
-  The key remains for 60 seconds. For more information, see [Connect to your Linux instance using EC2 Instance
+  user. The key remains for 60 seconds. For more information, see [Connect to
+  your Linux instance using EC2 Instance
   Connect](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect.html)
-  in the *Amazon EC2
-  User Guide*.
+  in the *Amazon EC2 User Guide*.
   """
-  @spec send_ssh_public_key(map(), send_ssh_public_key_request(), list()) ::
+  @spec send_ssh_public_key(AWS.Client.t(), send_ssh_public_key_request(), Keyword.t()) ::
           {:ok, send_ssh_public_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_ssh_public_key_errors()}
   def send_ssh_public_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendSSHPublicKey", input, options)
   end

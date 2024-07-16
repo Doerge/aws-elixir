@@ -3,29 +3,15 @@
 
 defmodule AWS.Batch do
   @moduledoc """
-  Batch
-
-  Using Batch, you can run batch computing workloads on the Amazon Web Services
-  Cloud.
-
-  Batch computing is a common means for
-  developers, scientists, and engineers to access large amounts of compute
-  resources. Batch uses the advantages of
-  the batch computing to remove the undifferentiated heavy lifting of configuring
-  and managing required infrastructure.
-  At the same time, it also adopts a familiar batch computing software approach.
-  You can use Batch to efficiently
-  provision resources, and work toward eliminating capacity constraints, reducing
-  your overall compute costs, and
-  delivering results more quickly.
-
-  As a fully managed service, Batch can run batch computing workloads of any
-  scale. Batch automatically
-  provisions compute resources and optimizes workload distribution based on the
-  quantity and scale of your specific
-  workloads. With Batch, there's no need to install or manage batch computing
-  software. This means that you can focus
-  on analyzing results and solving your specific problems instead.
+  Batch Using Batch, you can run batch computing workloads on the Amazon Web
+  Services Cloud. Batch computing is a common means for developers, scientists,
+  and engineers to access large amounts of compute resources. Batch uses the
+  advantages of the batch computing to remove the undifferentiated heavy lifting
+  of configuring and managing required infrastructure. At the same time, it also
+  adopts a familiar batch computing software approach. You can use Batch to
+  efficiently provision resources, and work toward eliminating capacity
+  constraints, reducing your overall compute costs, and delivering results more
+  quickly.
   """
 
   alias AWS.Client
@@ -2109,32 +2095,22 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Cancels a job in an Batch job queue.
-
-  Jobs that are in the
-  `SUBMITTED`
-  or
-  `PENDING`
-  are
-  canceled. A job
-  in`RUNNABLE` remains in `RUNNABLE` until it reaches the head of the
-  job queue. Then the job status is updated to
-  `FAILED`.
-
+  Cancels a job in an Batch job queue. Jobs that are in the `SUBMITTED` or
+  `PENDING` are canceled. A job in`RUNNABLE` remains in `RUNNABLE` until it
+  reaches the head of the job queue. Then the job status is updated to `FAILED`.
   A `PENDING` job is canceled after all dependency jobs are completed.
   Therefore, it may take longer than expected to cancel a job in `PENDING`
-  status.
+  status. When you try to cancel an array parent job in `PENDING`, Batch
+  attempts to cancel all child jobs. The array parent job is canceled when all
+  child jobs are completed.
 
-  When you try to cancel an array parent job in `PENDING`, Batch attempts to
-  cancel all child jobs. The array parent job is canceled when all child jobs are
-  completed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20CancelJob&this_doc_guide=API%2520Reference)
 
-  Jobs that progressed to the `STARTING` or
-  `RUNNING` state aren't canceled. However, the API operation still succeeds, even
-  if no job is canceled. These jobs must be terminated with the `TerminateJob`
-  operation.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec cancel_job(map(), cancel_job_request(), list()) ::
+  @spec cancel_job(AWS.Client.t(), cancel_job_request(), Keyword.t()) ::
           {:ok, cancel_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_job_errors()}
@@ -2143,7 +2119,8 @@ defmodule AWS.Batch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2159,129 +2136,31 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Creates an Batch compute environment.
+  Creates an Batch compute environment. You can create `MANAGED` or `UNMANAGED`
+  compute environments. `MANAGED` compute environments can use Amazon EC2 or
+  Fargate resources. `UNMANAGED` compute environments can only use EC2
+  resources. In a managed compute environment, Batch manages the capacity and
+  instance types of the compute resources within the environment. This is based
+  on the compute resource specification that you define or the [launch
+  template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html)
+  that you specify when you create the compute environment. Either, you can
+  choose to use EC2 On-Demand Instances and EC2 Spot Instances. Or, you can use
+  Fargate and Fargate Spot capacity in your managed compute environment. You can
+  optionally set a maximum price so that Spot Instances only launch when the
+  Spot Instance price is less than a specified percentage of the On-Demand
+  price. Multi-node parallel jobs aren't supported on Spot Instances.
 
-  You can create `MANAGED` or
-  `UNMANAGED` compute environments. `MANAGED` compute environments can
-  use Amazon EC2 or Fargate resources. `UNMANAGED` compute environments can only
-  use
-  EC2 resources.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20CreateComputeEnvironment&this_doc_guide=API%2520Reference)
 
-  In a managed compute environment, Batch manages the capacity and instance types
-  of the
-  compute resources within the environment. This is based on the compute resource
-  specification
-  that you define or the [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html)
-  that you
-  specify when you create the compute environment. Either, you can choose to use
-  EC2 On-Demand
-  Instances and EC2 Spot Instances. Or, you can use Fargate and Fargate Spot
-  capacity in
-  your managed compute environment. You can optionally set a maximum price so that
-  Spot
-  Instances only launch when the Spot Instance price is less than a specified
-  percentage of the
-  On-Demand price.
+  ## Parameters:
 
-  Multi-node parallel jobs aren't supported on Spot Instances.
-
-  In an unmanaged compute environment, you can manage your own EC2 compute
-  resources and
-  have flexibility with how you configure your compute resources. For example, you
-  can use
-  custom AMIs. However, you must verify that each of your AMIs meet the Amazon ECS
-  container instance
-  AMI specification. For more information, see [container instance AMIs](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html)
-  in the
-  *Amazon Elastic Container Service Developer Guide*. After you created your
-  unmanaged compute environment,
-  you can use the `DescribeComputeEnvironments` operation to find the Amazon ECS
-  cluster that's associated with it. Then, launch your container instances into
-  that Amazon ECS
-  cluster. For more information, see [Launching an Amazon ECS container instance](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html)
-  in the *Amazon Elastic Container Service Developer Guide*.
-
-  To create a compute environment that uses EKS resources, the caller must have
-  permissions to call `eks:DescribeCluster`.
-
-  Batch doesn't automatically upgrade the AMIs in a compute environment after it's
-  created. For example, it also doesn't update the AMIs in your compute
-  environment when a
-  newer version of the Amazon ECS optimized AMI is available. You're responsible
-  for the management
-  of the guest operating system. This includes any updates and security patches.
-  You're also
-  responsible for any additional application software or utilities that you
-  install on the
-  compute resources. There are two ways to use a new AMI for your Batch jobs. The
-  original
-  method is to complete these steps:
-
-    
-  Create a new compute environment with the new AMI.
-
-    
-  Add the compute environment to an existing job queue.
-
-    
-  Remove the earlier compute environment from your job queue.
-
-    
-  Delete the earlier compute environment.
-
-  In April 2022, Batch added enhanced support for updating compute environments.
-  For
-  more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html).
-  To use the enhanced updating of compute environments to update AMIs, follow
-  these
-  rules:
-
-    
-  Either don't set the service role (`serviceRole`) parameter or set it to
-  the **AWSBatchServiceRole** service-linked role.
-
-    
-  Set the allocation strategy (`allocationStrategy`) parameter to
-  `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED`, or
-  `SPOT_PRICE_CAPACITY_OPTIMIZED`.
-
-    
-  Set the update to latest image version (`updateToLatestImageVersion`)
-  parameter to
-  `true`.
-  The `updateToLatestImageVersion` parameter is used when you update a compute
-  environment. This parameter is ignored when you create a compute
-  environment.
-
-    
-  Don't specify an AMI ID in `imageId`, `imageIdOverride` (in
-  [
-  `ec2Configuration`
-  ](https://docs.aws.amazon.com/batch/latest/APIReference/API_Ec2Configuration.html)),
-  or in the launch template
-  (`launchTemplate`). In that case, Batch selects the latest Amazon ECS
-  optimized AMI that's supported by Batch at the time the infrastructure update is
-  initiated. Alternatively, you can specify the AMI ID in the `imageId` or
-  `imageIdOverride` parameters, or the launch template identified by the
-  `LaunchTemplate` properties. Changing any of these properties starts an
-  infrastructure update. If the AMI ID is specified in the launch template, it
-  can't be
-  replaced by specifying an AMI ID in either the `imageId` or
-  `imageIdOverride` parameters. It can only be replaced by specifying a
-  different launch template, or if the launch template version is set to
-  `$Default` or `$Latest`, by setting either a new default version
-  for the launch template (if `$Default`) or by adding a new version to the
-  launch template (if `$Latest`).
-
-  If these rules are followed, any update that starts an infrastructure update
-  causes the
-  AMI ID to be re-selected. If the `version` setting in the launch template
-  (`launchTemplate`) is set to `$Latest` or `$Default`, the
-  latest or default version of the launch template is evaluated up at the time of
-  the
-  infrastructure update, even if the `launchTemplate` wasn't updated.
+  ## Optional parameters:
   """
-  @spec create_compute_environment(map(), create_compute_environment_request(), list()) ::
+  @spec create_compute_environment(
+          AWS.Client.t(),
+          create_compute_environment_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_compute_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_compute_environment_errors()}
@@ -2290,7 +2169,8 @@ defmodule AWS.Batch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2306,22 +2186,17 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Creates an Batch job queue.
+  Creates an Batch job queue. When you create a job queue, you associate one or
+  more compute environments to the queue and assign an order of preference for
+  the compute environments.
 
-  When you create a job queue, you associate one or more
-  compute environments to the queue and assign an order of preference for the
-  compute
-  environments.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20CreateJobQueue&this_doc_guide=API%2520Reference)
 
-  You also set a priority to the job queue that determines the order that the
-  Batch
-  scheduler places jobs onto its associated compute environments. For example, if
-  a compute
-  environment is associated with more than one job queue, the job queue with a
-  higher priority
-  is given preference for scheduling jobs to that compute environment.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_job_queue(map(), create_job_queue_request(), list()) ::
+  @spec create_job_queue(AWS.Client.t(), create_job_queue_request(), Keyword.t()) ::
           {:ok, create_job_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_queue_errors()}
@@ -2330,7 +2205,8 @@ defmodule AWS.Batch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2347,8 +2223,14 @@ defmodule AWS.Batch do
 
   @doc """
   Creates an Batch scheduling policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20CreateSchedulingPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_scheduling_policy(map(), create_scheduling_policy_request(), list()) ::
+  @spec create_scheduling_policy(AWS.Client.t(), create_scheduling_policy_request(), Keyword.t()) ::
           {:ok, create_scheduling_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_scheduling_policy_errors()}
@@ -2357,7 +2239,8 @@ defmodule AWS.Batch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2375,16 +2258,17 @@ defmodule AWS.Batch do
   @doc """
   Deletes an Batch compute environment.
 
-  Before you can delete a compute environment, you must set its state to
-  `DISABLED` with the `UpdateComputeEnvironment` API operation and
-  disassociate it from any job queues with the `UpdateJobQueue` API operation.
-  Compute environments that use Fargate resources must terminate all active jobs
-  on that
-  compute environment before deleting the compute environment. If this isn't done,
-  the compute
-  environment enters an invalid state.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20DeleteComputeEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_compute_environment(map(), delete_compute_environment_request(), list()) ::
+  @spec delete_compute_environment(
+          AWS.Client.t(),
+          delete_compute_environment_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_compute_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_compute_environment_errors()}
@@ -2393,7 +2277,8 @@ defmodule AWS.Batch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2409,19 +2294,18 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Deletes the specified job queue.
+  Deletes the specified job queue. You must first disable submissions for a queue
+  with the `UpdateJobQueue` operation. All jobs in the queue are eventually
+  terminated when you delete a job queue. The jobs are terminated at a rate of
+  about 16 jobs each second.
 
-  You must first disable submissions for a queue with the
-  `UpdateJobQueue` operation. All jobs in the queue are eventually terminated
-  when you delete a job queue. The jobs are terminated at a rate of about 16 jobs
-  each
-  second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20DeleteJobQueue&this_doc_guide=API%2520Reference)
 
-  It's not necessary to disassociate compute environments from a queue before
-  submitting a
-  `DeleteJobQueue` request.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_job_queue(map(), delete_job_queue_request(), list()) ::
+  @spec delete_job_queue(AWS.Client.t(), delete_job_queue_request(), Keyword.t()) ::
           {:ok, delete_job_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_job_queue_errors()}
@@ -2430,7 +2314,8 @@ defmodule AWS.Batch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2448,9 +2333,13 @@ defmodule AWS.Batch do
   @doc """
   Deletes the specified scheduling policy.
 
-  You can't delete a scheduling policy that's used in any job queues.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20DeleteSchedulingPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_scheduling_policy(map(), delete_scheduling_policy_request(), list()) ::
+  @spec delete_scheduling_policy(AWS.Client.t(), delete_scheduling_policy_request(), Keyword.t()) ::
           {:ok, delete_scheduling_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_scheduling_policy_errors()}
@@ -2459,7 +2348,8 @@ defmodule AWS.Batch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2475,12 +2365,20 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Deregisters an Batch job definition.
+  Deregisters an Batch job definition. Job definitions are permanently deleted
+  after 180 days.
 
-  Job definitions are permanently deleted after 180
-  days.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20DeregisterJobDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec deregister_job_definition(map(), deregister_job_definition_request(), list()) ::
+  @spec deregister_job_definition(
+          AWS.Client.t(),
+          deregister_job_definition_request(),
+          Keyword.t()
+        ) ::
           {:ok, deregister_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_job_definition_errors()}
@@ -2489,7 +2387,8 @@ defmodule AWS.Batch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2507,11 +2406,17 @@ defmodule AWS.Batch do
   @doc """
   Describes one or more of your compute environments.
 
-  If you're using an unmanaged compute environment, you can use the
-  `DescribeComputeEnvironment` operation to determine the
-  `ecsClusterArn` that you launch your Amazon ECS container instances into.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20DescribeComputeEnvironments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_compute_environments(map(), describe_compute_environments_request(), list()) ::
+  @spec describe_compute_environments(
+          AWS.Client.t(),
+          describe_compute_environments_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_compute_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_compute_environments_errors()}
@@ -2520,7 +2425,8 @@ defmodule AWS.Batch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2536,12 +2442,16 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Describes a list of job definitions.
-
-  You can specify a `status` (such as
+  Describes a list of job definitions. You can specify a `status` (such as
   `ACTIVE`) to only return job definitions that match that status.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20DescribeJobDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_job_definitions(map(), describe_job_definitions_request(), list()) ::
+  @spec describe_job_definitions(AWS.Client.t(), describe_job_definitions_request(), Keyword.t()) ::
           {:ok, describe_job_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_definitions_errors()}
@@ -2550,7 +2460,8 @@ defmodule AWS.Batch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2567,8 +2478,14 @@ defmodule AWS.Batch do
 
   @doc """
   Describes one or more of your job queues.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20DescribeJobQueues&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_job_queues(map(), describe_job_queues_request(), list()) ::
+  @spec describe_job_queues(AWS.Client.t(), describe_job_queues_request(), Keyword.t()) ::
           {:ok, describe_job_queues_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_queues_errors()}
@@ -2577,7 +2494,8 @@ defmodule AWS.Batch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2594,8 +2512,14 @@ defmodule AWS.Batch do
 
   @doc """
   Describes a list of Batch jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20DescribeJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_jobs(map(), describe_jobs_request(), list()) ::
+  @spec describe_jobs(AWS.Client.t(), describe_jobs_request(), Keyword.t()) ::
           {:ok, describe_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_jobs_errors()}
@@ -2604,7 +2528,8 @@ defmodule AWS.Batch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2621,8 +2546,18 @@ defmodule AWS.Batch do
 
   @doc """
   Describes one or more of your scheduling policies.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20DescribeSchedulingPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_scheduling_policies(map(), describe_scheduling_policies_request(), list()) ::
+  @spec describe_scheduling_policies(
+          AWS.Client.t(),
+          describe_scheduling_policies_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_scheduling_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_scheduling_policies_errors()}
@@ -2631,7 +2566,8 @@ defmodule AWS.Batch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2649,8 +2585,14 @@ defmodule AWS.Batch do
   @doc """
   Provides a list of the first 100 `RUNNABLE` jobs associated to a single job
   queue.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20GetJobQueueSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_job_queue_snapshot(map(), get_job_queue_snapshot_request(), list()) ::
+  @spec get_job_queue_snapshot(AWS.Client.t(), get_job_queue_snapshot_request(), Keyword.t()) ::
           {:ok, get_job_queue_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_queue_snapshot_errors()}
@@ -2659,7 +2601,8 @@ defmodule AWS.Batch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2675,23 +2618,15 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Returns a list of Batch jobs.
+  Returns a list of Batch jobs. You must specify only one of the following items:
 
-  You must specify only one of the following items:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20ListJobs&this_doc_guide=API%2520Reference)
 
-    *
-  A job queue ID to return a list of jobs in that job queue
+  ## Parameters:
 
-    *
-  A multi-node parallel job ID to return a list of nodes for that job
-
-    *
-  An array job ID to return a list of the children for that job
-
-  You can filter the results by job status with the `jobStatus` parameter. If you
-  don't specify a status, only `RUNNING` jobs are returned.
+  ## Optional parameters:
   """
-  @spec list_jobs(map(), list_jobs_request(), list()) ::
+  @spec list_jobs(AWS.Client.t(), list_jobs_request(), Keyword.t()) ::
           {:ok, list_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_errors()}
@@ -2700,7 +2635,8 @@ defmodule AWS.Batch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2717,8 +2653,14 @@ defmodule AWS.Batch do
 
   @doc """
   Returns a list of Batch scheduling policies.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20ListSchedulingPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_scheduling_policies(map(), list_scheduling_policies_request(), list()) ::
+  @spec list_scheduling_policies(AWS.Client.t(), list_scheduling_policies_request(), Keyword.t()) ::
           {:ok, list_scheduling_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_scheduling_policies_errors()}
@@ -2727,7 +2669,8 @@ defmodule AWS.Batch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2743,31 +2686,64 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Lists the tags for an Batch resource.
+  Lists the tags for an Batch resource. Batch resources that support tags are
+  compute environments, jobs, job definitions, job queues, and scheduling
+  policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs
+  aren't supported.
 
-  Batch resources that support tags are compute environments, jobs, job
-  definitions, job queues,
-  and scheduling policies. ARNs for child jobs of array and multi-node parallel
-  (MNP) jobs aren't supported.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies
+    the resource that tags are listed for. Batch resources that support tags are
+    compute environments, jobs, job definitions, job queues, and scheduling
+    policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs
+    aren't supported.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Registers an Batch job definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20RegisterJobDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec register_job_definition(map(), register_job_definition_request(), list()) ::
+  @spec register_job_definition(AWS.Client.t(), register_job_definition_request(), Keyword.t()) ::
           {:ok, register_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_job_definition_errors()}
@@ -2776,7 +2752,8 @@ defmodule AWS.Batch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2792,28 +2769,22 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Submits an Batch job from a job definition.
+  Submits an Batch job from a job definition. Parameters that are specified during
+  `SubmitJob` override parameters defined in the job definition. vCPU and memory
+  requirements that are specified in the `resourceRequirements` objects in the
+  job definition are the exception. They can't be overridden this way using the
+  `memory` and `vcpus` parameters. Rather, you must specify updates to job
+  definition parameters in a `resourceRequirements` object that's included in
+  the `containerOverrides` parameter. Job queues with a scheduling policy are
+  limited to 500 active fair share identifiers at a time.
 
-  Parameters that are specified during `SubmitJob` override parameters defined in
-  the job definition. vCPU and memory
-  requirements that are specified in the `resourceRequirements` objects in the job
-  definition are the exception. They can't be overridden this way using the
-  `memory`
-  and `vcpus` parameters. Rather, you must specify updates to job definition
-  parameters in a `resourceRequirements` object that's included in the
-  `containerOverrides` parameter.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20SubmitJob&this_doc_guide=API%2520Reference)
 
-  Job queues with a scheduling policy are limited to 500 active fair share
-  identifiers at
-  a time.
+  ## Parameters:
 
-  Jobs that run on Fargate resources can't be guaranteed to run for more than 14
-  days.
-  This is because, after 14 days, Fargate resources might become unavailable and
-  job might be
-  terminated.
+  ## Optional parameters:
   """
-  @spec submit_job(map(), submit_job_request(), list()) ::
+  @spec submit_job(AWS.Client.t(), submit_job_request(), Keyword.t()) ::
           {:ok, submit_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, submit_job_errors()}
@@ -2822,7 +2793,8 @@ defmodule AWS.Batch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2838,18 +2810,26 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Associates the specified tags to a resource with the specified `resourceArn`.
+  Associates the specified tags to a resource with the specified `resourceArn`. If
+  existing tags on a resource aren't specified in the request parameters, they
+  aren't changed. When a resource is deleted, the tags that are associated with
+  that resource are deleted as well. Batch resources that support tags are
+  compute environments, jobs, job definitions, job queues, and scheduling
+  policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs
+  aren't supported.
 
-  If existing tags on a resource aren't specified in the request parameters, they
-  aren't
-  changed. When a resource is deleted, the tags that are associated with that
-  resource are
-  deleted as well. Batch resources that support tags are compute environments,
-  jobs, job definitions, job queues,
-  and scheduling policies. ARNs for child jobs of array and multi-node parallel
-  (MNP) jobs aren't supported.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    that tags are added to. Batch resources that support tags are compute
+    environments, jobs, job definitions, job queues, and scheduling policies.
+    ARNs for child jobs of array and multi-node parallel (MNP) jobs aren't
+    supported.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2858,7 +2838,8 @@ defmodule AWS.Batch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2874,14 +2855,17 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Terminates a job in a job queue.
+  Terminates a job in a job queue. Jobs that are in the `STARTING` or `RUNNING`
+  state are terminated, which causes them to transition to `FAILED`. Jobs that
+  have not progressed to the `STARTING` state are cancelled.
 
-  Jobs that are in the `STARTING` or
-  `RUNNING` state are terminated, which causes them to transition to
-  `FAILED`. Jobs that have not progressed to the `STARTING` state are
-  cancelled.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20TerminateJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec terminate_job(map(), terminate_job_request(), list()) ::
+  @spec terminate_job(AWS.Client.t(), terminate_job_request(), Keyword.t()) ::
           {:ok, terminate_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, terminate_job_errors()}
@@ -2890,7 +2874,8 @@ defmodule AWS.Batch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2907,8 +2892,21 @@ defmodule AWS.Batch do
 
   @doc """
   Deletes specified tags from an Batch resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    from which to delete tags. Batch resources that support tags are compute
+    environments, jobs, job definitions, job queues, and scheduling policies.
+    ARNs for child jobs of array and multi-node parallel (MNP) jobs aren't
+    supported.
+  * `:tag_keys` (`t:list[com.amazonaws.batch#TagKey]`) The keys of the tags to be
+    removed.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2922,7 +2920,8 @@ defmodule AWS.Batch do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2939,8 +2938,18 @@ defmodule AWS.Batch do
 
   @doc """
   Updates an Batch compute environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20UpdateComputeEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_compute_environment(map(), update_compute_environment_request(), list()) ::
+  @spec update_compute_environment(
+          AWS.Client.t(),
+          update_compute_environment_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_compute_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_compute_environment_errors()}
@@ -2949,7 +2958,8 @@ defmodule AWS.Batch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2966,8 +2976,14 @@ defmodule AWS.Batch do
 
   @doc """
   Updates a job queue.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20UpdateJobQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_job_queue(map(), update_job_queue_request(), list()) ::
+  @spec update_job_queue(AWS.Client.t(), update_job_queue_request(), Keyword.t()) ::
           {:ok, update_job_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_job_queue_errors()}
@@ -2976,7 +2992,8 @@ defmodule AWS.Batch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2993,8 +3010,14 @@ defmodule AWS.Batch do
 
   @doc """
   Updates a scheduling policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=batch%20UpdateSchedulingPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_scheduling_policy(map(), update_scheduling_policy_request(), list()) ::
+  @spec update_scheduling_policy(AWS.Client.t(), update_scheduling_policy_request(), Keyword.t()) ::
           {:ok, update_scheduling_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_scheduling_policy_errors()}
@@ -3003,7 +3026,8 @@ defmodule AWS.Batch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

@@ -5,173 +5,15 @@ defmodule AWS.AppConfig do
   @moduledoc """
   AppConfig feature flags and dynamic configurations help software builders
   quickly and securely adjust application behavior in production environments
-  without full
-  code deployments.
-
-  AppConfig speeds up software release frequency, improves
-  application resiliency, and helps you address emergent issues more quickly. With
-  feature
-  flags, you can gradually release new capabilities to users and measure the
-  impact of those
-  changes before fully deploying the new capabilities to all users. With
-  operational flags
-  and dynamic configurations, you can update block lists, allow lists, throttling
-  limits,
-  logging verbosity, and perform other operational tuning to quickly respond to
-  issues in
-  production environments.
-
-  AppConfig is a capability of Amazon Web Services Systems Manager.
-
-  Despite the fact that application configuration content can vary greatly from
-  application to application, AppConfig supports the following use cases, which
-  cover a broad spectrum of customer needs:
-
-    *
-
-  **Feature flags and toggles** - Safely release new
-  capabilities to your customers in a controlled environment. Instantly roll back
-  changes if you experience a problem.
-
-    *
-
-  **Application tuning** - Carefully introduce
-  application changes while testing the impact of those changes with users in
-  production environments.
-
-    *
-
-  **Allow list or block list** - Control access to
-  premium features or instantly block specific users without deploying new code.
-
-    *
-
-  **Centralized configuration storage** - Keep your
-  configuration data organized and consistent across all of your workloads. You
-  can use
-  AppConfig to deploy configuration data stored in the AppConfig
-  hosted configuration store, Secrets Manager, Systems Manager, Parameter
-  Store, or Amazon S3.
-
-  ## How AppConfig works
-
-  This section provides a high-level description of how AppConfig works and how
-  you get started.
-
-  ## Definitions
-
-  ### 1. Identify configuration values in code you want to manage in the cloud
-
-  Before you start creating AppConfig artifacts, we recommend you
-  identify configuration data in your code that you want to dynamically manage
-  using
-  AppConfig. Good examples include feature flags or toggles, allow and
-  block lists, logging verbosity, service limits, and throttling rules, to name a
-  few.
-
-  If your configuration data already exists in the cloud, you can take advantage
-  of AppConfig validation, deployment, and extension features to further
-  streamline configuration data management.
-
-  ### 2. Create an application namespace
-
-  To create a namespace, you create an AppConfig artifact called an
-  application. An application is simply an organizational construct like a
-  folder.
-
-  ### 3. Create environments
-
-  For each AppConfig application, you define one or more environments.
-  An environment is a logical grouping of targets, such as applications in a
-  `Beta` or `Production` environment, Lambda functions,
-  or containers. You can also define environments for application subcomponents,
-  such as the `Web`, `Mobile`, and
-  `Back-end`.
-
-  You can configure Amazon CloudWatch alarms for each environment. The system
-  monitors
-  alarms during a configuration deployment. If an alarm is triggered, the system
-  rolls back the configuration.
-
-  ### 4. Create a configuration profile
-
-  A configuration profile includes, among other things, a URI that enables
-  AppConfig to locate your configuration data in its stored location
-  and a profile type. AppConfig supports two configuration profile types:
-  feature flags and freeform configurations. Feature flag configuration profiles
-  store their data in the AppConfig hosted configuration store and the URI
-  is simply `hosted`. For freeform configuration profiles, you can store
-  your data in the AppConfig hosted configuration store or any Amazon Web Services
-  service that integrates with AppConfig, as described in [Creating a free form configuration
-  profile](http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-free-form-configurations-creating.html)
-  in the the *AppConfig User Guide*.
-
-  A configuration profile can also include optional validators to ensure your
-  configuration data is syntactically and semantically correct. AppConfig
-  performs a check using the validators when you start a deployment. If any errors
-  are detected, the deployment rolls back to the previous configuration data.
-
-  ### 5. Deploy configuration data
-
-  When you create a new deployment, you specify the following:
-
-    
-  An application ID
-
-    
-  A configuration profile ID
-
-    
-  A configuration version
-
-    
-  An environment ID where you want to deploy the configuration data
-
-    
-  A deployment strategy ID that defines how fast you want the changes to
-  take effect
-
-  When you call the
-  [StartDeployment](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_StartDeployment.html) API action, AppConfig performs the following
-  tasks:
-
-    
-  Retrieves the configuration data from the underlying data store by using
-  the location URI in the configuration profile.
-
-    
-  Verifies the configuration data is syntactically and semantically correct
-  by using the validators you specified when you created your configuration
-  profile.
-
-    
-  Caches a copy of the data so it is ready to be retrieved by your
-  application. This cached copy is called the *deployed
-  data*.
-
-  ### 6. Retrieve the configuration
-
-  You can configure AppConfig Agent as a local host and have the agent
-  poll AppConfig for configuration updates. The agent calls the
-  [StartConfigurationSession](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html)
-  and
-  [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html) API actions and caches your configuration data
-  locally. To retrieve the data, your application makes an HTTP call to the
-  localhost server. AppConfig Agent supports several use cases, as
-  described in [Simplified
-  retrieval
-  methods](http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-simplified-methods.html)
-  in the the *AppConfig User
-  Guide*.
-
-  If AppConfig Agent isn't supported for your use case, you can
-  configure your application to poll AppConfig for configuration updates
-  by directly calling the
-  [StartConfigurationSession](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html) and
-  [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html)
-  API actions.
-
-  This reference is intended to be used with the [AppConfig User Guide](http://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html).
+  without full code deployments. AppConfig speeds up software release frequency,
+  improves application resiliency, and helps you address emergent issues more
+  quickly. With feature flags, you can gradually release new capabilities to
+  users and measure the impact of those changes before fully deploying the new
+  capabilities to all users. With operational flags and dynamic configurations,
+  you can update block lists, allow lists, throttling limits, logging verbosity,
+  and perform other operational tuning to quickly respond to issues in
+  production environments. AppConfig is a capability of Amazon Web Services
+  Systems Manager.
   """
 
   alias AWS.Client
@@ -1401,18 +1243,19 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Creates an application.
+  Creates an application. In AppConfig, an application is simply an organizational
+  construct like a folder. This organizational construct has a relationship with
+  some unit of executable code. For example, you could create an application
+  called MyMobileApp to organize and manage configuration data for a mobile
+  application installed by your users.
 
-  In AppConfig, an application is simply an
-  organizational construct like a folder. This organizational construct has a
-  relationship
-  with some unit of executable code. For example, you could create an application
-  called
-  MyMobileApp to organize and manage configuration data for a mobile application
-  installed by
-  your users.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_application(map(), create_application_request(), list()) ::
+  @spec create_application(AWS.Client.t(), create_application_request(), Keyword.t()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
@@ -1421,7 +1264,8 @@ defmodule AWS.AppConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1437,58 +1281,22 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Creates a configuration profile, which is information that enables AppConfig
-  to access the configuration source.
-
-  Valid configuration sources include the
+  Creates a configuration profile, which is information that enables AppConfig to
+  access the configuration source. Valid configuration sources include the
   following:
 
-    *
-  Configuration data in YAML, JSON, and other formats stored in the AppConfig
-  hosted configuration store
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateConfigurationProfile&this_doc_guide=API%2520Reference)
 
-    *
-  Configuration data stored as objects in an Amazon Simple Storage Service (Amazon
-  S3)
-  bucket
+  ## Parameters:
+  * `:application_id` (`t:string`) The application ID.
 
-    *
-  Pipelines stored in CodePipeline
-
-    *
-  Secrets stored in Secrets Manager
-
-    *
-  Standard and secure string parameters stored in Amazon Web Services Systems
-  Manager Parameter Store
-
-    *
-  Configuration data in SSM documents stored in the Systems Manager document store
-
-  A configuration profile includes the following information:
-
-    *
-  The URI location of the configuration data.
-
-    *
-  The Identity and Access Management (IAM) role that provides access to the
-  configuration data.
-
-    *
-  A validator for the configuration data. Available validators include either a
-  JSON
-  Schema or an Amazon Web Services Lambda function.
-
-  For more information, see [Create a Configuration and a Configuration
-  Profile](http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile.html)
-  in the *AppConfig
-  User Guide*.
+  ## Optional parameters:
   """
   @spec create_configuration_profile(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_configuration_profile_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, configuration_profile(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1498,7 +1306,8 @@ defmodule AWS.AppConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1515,15 +1324,22 @@ defmodule AWS.AppConfig do
 
   @doc """
   Creates a deployment strategy that defines important criteria for rolling out
-  your
-  configuration to the designated targets.
+  your configuration to the designated targets. A deployment strategy includes
+  the overall duration required, a percentage of targets to receive the
+  deployment during each interval, an algorithm that defines how percentage
+  grows, and bake time.
 
-  A deployment strategy includes the overall
-  duration required, a percentage of targets to receive the deployment during each
-  interval,
-  an algorithm that defines how percentage grows, and bake time.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateDeploymentStrategy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_deployment_strategy(map(), create_deployment_strategy_request(), list()) ::
+  @spec create_deployment_strategy(
+          AWS.Client.t(),
+          create_deployment_strategy_request(),
+          Keyword.t()
+        ) ::
           {:ok, deployment_strategy(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deployment_strategy_errors()}
@@ -1532,7 +1348,8 @@ defmodule AWS.AppConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1548,20 +1365,23 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Creates an environment.
-
-  For each application, you define one or more environments. An
-  environment is a deployment group of AppConfig targets, such as applications in
-  a
-  `Beta` or `Production` environment. You can also define
-  environments for application subcomponents such as the `Web`,
-  `Mobile` and `Back-end` components for your application. You can
-  configure Amazon CloudWatch alarms for each environment. The system monitors
-  alarms during a
+  Creates an environment. For each application, you define one or more
+  environments. An environment is a deployment group of AppConfig targets, such
+  as applications in a `Beta` or `Production` environment. You can also define
+  environments for application subcomponents such as the `Web`, `Mobile` and
+  `Back-end` components for your application. You can configure Amazon
+  CloudWatch alarms for each environment. The system monitors alarms during a
   configuration deployment. If an alarm is triggered, the system rolls back the
   configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The application ID.
+
+  ## Optional parameters:
   """
-  @spec create_environment(map(), String.t(), create_environment_request(), list()) ::
+  @spec create_environment(AWS.Client.t(), String.t(), create_environment_request(), Keyword.t()) ::
           {:ok, environment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_errors()}
@@ -1570,7 +1390,8 @@ defmodule AWS.AppConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1586,44 +1407,39 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Creates an AppConfig extension.
+  Creates an AppConfig extension. An extension augments your ability to inject
+  logic or behavior at different points during the AppConfig workflow of
+  creating or deploying a configuration. You can create your own extensions or
+  use the Amazon Web Services authored extensions provided by AppConfig. For an
+  AppConfig extension that uses Lambda, you must create a Lambda function to
+  perform any computation and processing defined in the extension. If you plan
+  to create custom versions of the Amazon Web Services authored notification
+  extensions, you only need to specify an Amazon Resource Name (ARN) in the
+  `Uri` field for the new extension version.
 
-  An extension augments your ability to inject
-  logic or behavior at different points during the AppConfig workflow of creating
-  or deploying a configuration.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateExtension&this_doc_guide=API%2520Reference)
 
-  You can create your own extensions or use the Amazon Web Services authored
-  extensions provided by
-  AppConfig. For an AppConfig extension that uses Lambda, you must create a Lambda
-  function to perform any computation and processing
-  defined in the extension. If you plan to create custom versions of the Amazon
-  Web Services
-  authored notification extensions, you only need to specify an Amazon Resource
-  Name (ARN) in
-  the `Uri` field for the new extension version.
+  ## Parameters:
 
-    *
-  For a custom EventBridge notification extension, enter the ARN of the
-  EventBridge
-  default events in the `Uri` field.
-
-    *
-  For a custom Amazon SNS notification extension, enter the ARN of an Amazon SNS
-  topic in the `Uri` field.
-
-    *
-  For a custom Amazon SQS notification extension, enter the ARN of an Amazon SQS
-  message queue in the `Uri` field.
-
-  For more information about extensions, see [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
-  in the *AppConfig User Guide*.
+  ## Optional parameters:
+  * `:latest_version_number` (`t:integer`) You can omit this field when you create
+    an extension. When you create a new version, specify the most recent current
+    version number. For example, you create version 3, enter 2 for this field.
   """
-  @spec create_extension(map(), create_extension_request(), list()) ::
+  @spec create_extension(AWS.Client.t(), create_extension_request(), Keyword.t()) ::
           {:ok, extension(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_extension_errors()}
   def create_extension(%Client{} = client, input, options \\ []) do
     url_path = "/extensions"
+
+    optional_params = [latest_version_number: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -1633,7 +1449,13 @@ defmodule AWS.AppConfig do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:latest_version_number])
 
     Request.request_rest(
       client,
@@ -1650,30 +1472,30 @@ defmodule AWS.AppConfig do
 
   @doc """
   When you create an extension or configure an Amazon Web Services authored
-  extension, you
-  associate the extension with an AppConfig application, environment, or
-  configuration profile.
-
-  For example, you can choose to run the
-
-  ```
-  AppConfig
-  deployment events to Amazon SNS
-  ```
-
-  Amazon Web Services authored extension and receive notifications on an Amazon
-  SNS
-  topic anytime a configuration deployment is started for a specific application.
-  Defining
-  which extension to associate with an AppConfig resource is called an
-  *extension association*. An extension association is a specified
-  relationship between an extension and an AppConfig resource, such as an
-  application or a configuration profile. For more information about extensions
-  and
-  associations, see [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  extension, you associate the extension with an AppConfig application,
+  environment, or configuration profile. For example, you can choose to run the
+  ``` AppConfig deployment events to Amazon SNS ``` Amazon Web Services authored
+  extension and receive notifications on an Amazon SNS topic anytime a
+  configuration deployment is started for a specific application. Defining which
+  extension to associate with an AppConfig resource is called an *extension
+  association*. An extension association is a specified relationship between an
+  extension and an AppConfig resource, such as an application or a configuration
+  profile. For more information about extensions and associations, see
+  [Extending
+  workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
   in the *AppConfig User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateExtensionAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_extension_association(map(), create_extension_association_request(), list()) ::
+  @spec create_extension_association(
+          AWS.Client.t(),
+          create_extension_association_request(),
+          Keyword.t()
+        ) ::
           {:ok, extension_association(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_extension_association_errors()}
@@ -1682,7 +1504,8 @@ defmodule AWS.AppConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1698,15 +1521,33 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Creates a new configuration in the AppConfig hosted configuration
-  store.
+  Creates a new configuration in the AppConfig hosted configuration store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateHostedConfigurationVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The application ID.
+  * `:configuration_profile_id` (`t:string`) The configuration profile ID.
+  * `:content_type` (`t:string`) A standard MIME type describing the format of the
+    configuration content. For more information, see Content-Type.
+
+  ## Optional parameters:
+  * `:description` (`t:string`) A description of the configuration.
+  * `:latest_version_number` (`t:integer`) An optional locking token used to
+    prevent race conditions from overwriting configuration updates when creating
+    a new version. To ensure your data is not overwritten when creating multiple
+    hosted configuration versions in rapid succession, specify the version
+    number of the latest hosted configuration version.
+  * `:version_label` (`t:string`) An optional, user-defined label for the
+    AppConfig hosted configuration version. This value must contain at least one
+    non-numeric character. For example, "v2.2.0".
   """
   @spec create_hosted_configuration_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           create_hosted_configuration_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, hosted_configuration_version(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1720,6 +1561,19 @@ defmodule AWS.AppConfig do
       ) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles/#{AWS.Util.encode_uri(configuration_profile_id)}/hostedconfigurationversions"
+
+    optional_params = [
+      content_type: nil,
+      description: nil,
+      latest_version_number: nil,
+      version_label: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -1747,7 +1601,13 @@ defmodule AWS.AppConfig do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:description, :latest_version_number, :version_label])
 
     Request.request_rest(
       client,
@@ -1763,12 +1623,17 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Deletes an application.
+  Deletes an application. Deleting an application does not delete a configuration
+  from a host.
 
-  Deleting an application does not delete a configuration from a
-  host.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20DeleteApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
+  @spec delete_application(AWS.Client.t(), String.t(), delete_application_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
@@ -1777,7 +1642,8 @@ defmodule AWS.AppConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1793,17 +1659,25 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Deletes a configuration profile.
+  Deletes a configuration profile. Deleting a configuration profile does not
+  delete a configuration from a host.
 
-  Deleting a configuration profile does not delete a
-  configuration from a host.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20DeleteConfigurationProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The application ID that includes the
+    configuration profile you want to delete.
+  * `:configuration_profile_id` (`t:string`) The ID of the configuration profile
+    you want to delete.
+
+  ## Optional parameters:
   """
   @spec delete_configuration_profile(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_configuration_profile_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -1821,7 +1695,8 @@ defmodule AWS.AppConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1837,16 +1712,22 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Deletes a deployment strategy.
-
-  Deleting a deployment strategy does not delete a
+  Deletes a deployment strategy. Deleting a deployment strategy does not delete a
   configuration from a host.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20DeleteDeploymentStrategy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:deployment_strategy_id` (`t:string`) The ID of the deployment strategy you
+    want to delete.
+
+  ## Optional parameters:
   """
   @spec delete_deployment_strategy(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_deployment_strategy_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -1856,7 +1737,8 @@ defmodule AWS.AppConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1872,12 +1754,26 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Deletes an environment.
+  Deletes an environment. Deleting an environment does not delete a configuration
+  from a host.
 
-  Deleting an environment does not delete a configuration from a
-  host.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20DeleteEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The application ID that includes the
+    environment that you want to delete.
+  * `:environment_id` (`t:string`) The ID of the environment that you want to
+    delete.
+
+  ## Optional parameters:
   """
-  @spec delete_environment(map(), String.t(), String.t(), delete_environment_request(), list()) ::
+  @spec delete_environment(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_environment_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_errors()}
@@ -1888,7 +1784,8 @@ defmodule AWS.AppConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1904,12 +1801,20 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Deletes an AppConfig extension.
+  Deletes an AppConfig extension. You must delete all associations to an extension
+  before you delete the extension.
 
-  You must delete all associations to an
-  extension before you delete the extension.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20DeleteExtension&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:extension_identifier` (`t:string`) The name, ID, or Amazon Resource Name
+    (ARN) of the extension you want to delete.
+
+  ## Optional parameters:
+  * `:version_number` (`t:integer`) A specific version of an extension to delete.
+    If omitted, the highest version is deleted.
   """
-  @spec delete_extension(map(), String.t(), delete_extension_request(), list()) ::
+  @spec delete_extension(AWS.Client.t(), String.t(), delete_extension_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_extension_errors()}
@@ -1923,7 +1828,13 @@ defmodule AWS.AppConfig do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:version_number])
 
     Request.request_rest(
       client,
@@ -1939,16 +1850,22 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Deletes an extension association.
+  Deletes an extension association. This action doesn't delete extensions defined
+  in the association.
 
-  This action doesn't delete extensions defined in the
-  association.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20DeleteExtensionAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:extension_association_id` (`t:string`) The ID of the extension association
+    to delete.
+
+  ## Optional parameters:
   """
   @spec delete_extension_association(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_extension_association_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -1963,7 +1880,8 @@ defmodule AWS.AppConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1981,14 +1899,23 @@ defmodule AWS.AppConfig do
   @doc """
   Deletes a version of a configuration from the AppConfig hosted configuration
   store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20DeleteHostedConfigurationVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The application ID.
+  * `:configuration_profile_id` (`t:string`) The configuration profile ID.
+  * `:version_number` (`t:integer`) The versions number to delete.
+
+  ## Optional parameters:
   """
   @spec delete_hosted_configuration_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_hosted_configuration_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -2007,7 +1934,8 @@ defmodule AWS.AppConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2024,17 +1952,42 @@ defmodule AWS.AppConfig do
 
   @doc """
   Retrieves information about an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application you want to get.
+
+  ## Optional parameters:
   """
-  @spec get_application(map(), String.t(), list()) ::
+  @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_errors()}
   def get_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2042,28 +1995,31 @@ defmodule AWS.AppConfig do
   @doc """
   (Deprecated) Retrieves the latest deployed configuration.
 
-  Note the following important information.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetConfiguration&this_doc_guide=API%2520Reference)
 
-    
-  This API action is deprecated. Calls to receive configuration data should use
-  the
-  [StartConfigurationSession](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html) and
-  [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html)
-  APIs instead.
+  ## Parameters:
+  * `:application` (`t:string`) The application to get. Specify either the
+    application name or the application ID.
+  * `:configuration` (`t:string`) The configuration to get. Specify either the
+    configuration name or the configuration ID.
+  * `:environment` (`t:string`) The environment to get. Specify either the
+    environment name or the environment ID.
+  * `:client_id` (`t:string`) The clientId parameter in the following command is a
+    unique, user-specified ID to identify the client for the configuration. This
+    ID enables AppConfig to deploy the configuration in intervals, as defined in
+    the deployment strategy.
 
-    
-
-  `GetConfiguration` is a priced call. For more information, see
-  [Pricing](https://aws.amazon.com/systems-manager/pricing/).
+  ## Optional parameters:
+  * `:client_configuration_version` (`t:string`) The configuration version
+    returned in the most recent GetConfiguration response.
   """
   @spec get_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          String.t() | nil,
           String.t(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, configuration(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2073,26 +2029,33 @@ defmodule AWS.AppConfig do
         application,
         configuration,
         environment,
-        client_configuration_version \\ nil,
         client_id,
         options \\ []
       ) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application)}/environments/#{AWS.Util.encode_uri(environment)}/configurations/#{AWS.Util.encode_uri(configuration)}"
 
+    # Validate optional parameters
+    optional_params = [client_configuration_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(client_id) do
-        [{"client_id", client_id} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
+    # Required query params
+    query_params = [{"client_id", client_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(client_configuration_version) do
-        [{"client_configuration_version", client_configuration_version} | query_params]
+      if opt_val = Keyword.get(options, :client_configuration_version) do
+        [{"client_configuration_version", opt_val} | query_params]
       else
         query_params
       end
@@ -2107,15 +2070,31 @@ defmodule AWS.AppConfig do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_configuration_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a configuration profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetConfigurationProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application that includes the
+    configuration profile you want to get.
+  * `:configuration_profile_id` (`t:string`) The ID of the configuration profile
+    that you want to get.
+
+  ## Optional parameters:
   """
-  @spec get_configuration_profile(map(), String.t(), String.t(), list()) ::
+  @spec get_configuration_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, configuration_profile(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_profile_errors()}
@@ -2128,18 +2107,46 @@ defmodule AWS.AppConfig do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles/#{AWS.Util.encode_uri(configuration_profile_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a configuration deployment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application that includes the
+    deployment you want to get.
+  * `:deployment_number` (`t:integer`) The sequence number of the deployment.
+  * `:environment_id` (`t:string`) The ID of the environment that includes the
+    deployment you want to get.
+
+  ## Optional parameters:
   """
-  @spec get_deployment(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_deployment(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deployment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_errors()}
@@ -2153,52 +2160,96 @@ defmodule AWS.AppConfig do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}/deployments/#{AWS.Util.encode_uri(deployment_number)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves information about a deployment strategy.
+  Retrieves information about a deployment strategy. A deployment strategy defines
+  important criteria for rolling out your configuration to the designated
+  targets. A deployment strategy includes the overall duration required, a
+  percentage of targets to receive the deployment during each interval, an
+  algorithm that defines how percentage grows, and bake time.
 
-  A deployment strategy defines
-  important criteria for rolling out your configuration to the designated targets.
-  A
-  deployment strategy includes the overall duration required, a percentage of
-  targets to
-  receive the deployment during each interval, an algorithm that defines how
-  percentage
-  grows, and bake time.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetDeploymentStrategy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:deployment_strategy_id` (`t:string`) The ID of the deployment strategy to
+    get.
+
+  ## Optional parameters:
   """
-  @spec get_deployment_strategy(map(), String.t(), list()) ::
+  @spec get_deployment_strategy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deployment_strategy(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_strategy_errors()}
   def get_deployment_strategy(%Client{} = client, deployment_strategy_id, options \\ []) do
     url_path = "/deploymentstrategies/#{AWS.Util.encode_uri(deployment_strategy_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves information about an environment.
+  Retrieves information about an environment. An environment is a deployment group
+  of AppConfig applications, such as applications in a `Production` environment
+  or in an `EU_Region` environment. Each configuration deployment targets an
+  environment. You can enable one or more Amazon CloudWatch alarms for an
+  environment. If an alarm is triggered during a deployment, AppConfig roles
+  back the configuration.
 
-  An environment is a deployment group of
-  AppConfig applications, such as applications in a `Production`
-  environment or in an `EU_Region` environment. Each configuration deployment
-  targets an environment. You can enable one or more Amazon CloudWatch alarms for
-  an environment. If
-  an alarm is triggered during a deployment, AppConfig roles back the
-  configuration.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application that includes the
+    environment you want to get.
+  * `:environment_id` (`t:string`) The ID of the environment that you want to get.
+
+  ## Optional parameters:
   """
-  @spec get_environment(map(), String.t(), String.t(), list()) ::
+  @spec get_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, environment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_errors()}
@@ -2206,68 +2257,151 @@ defmodule AWS.AppConfig do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about an AppConfig extension.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetExtension&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:extension_identifier` (`t:string`) The name, the ID, or the Amazon Resource
+    Name (ARN) of the extension.
+
+  ## Optional parameters:
+  * `:version_number` (`t:integer`) The extension version number. If no version
+    number was defined, AppConfig uses the highest version.
   """
-  @spec get_extension(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_extension(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, extension(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_extension_errors()}
-  def get_extension(
-        %Client{} = client,
-        extension_identifier,
-        version_number \\ nil,
-        options \\ []
-      ) do
+  def get_extension(%Client{} = client, extension_identifier, options \\ []) do
     url_path = "/extensions/#{AWS.Util.encode_uri(extension_identifier)}"
+
+    # Validate optional parameters
+    optional_params = [version_number: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(version_number) do
-        [{"version_number", version_number} | query_params]
+      if opt_val = Keyword.get(options, :version_number) do
+        [{"version_number", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:version_number])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns information about an AppConfig extension association.
-
-  For more
-  information about extensions and associations, see [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  Returns information about an AppConfig extension association. For more
+  information about extensions and associations, see [Extending
+  workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
   in the *AppConfig User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetExtensionAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:extension_association_id` (`t:string`) The extension association ID to get.
+
+  ## Optional parameters:
   """
-  @spec get_extension_association(map(), String.t(), list()) ::
+  @spec get_extension_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, extension_association(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_extension_association_errors()}
   def get_extension_association(%Client{} = client, extension_association_id, options \\ []) do
     url_path = "/extensionassociations/#{AWS.Util.encode_uri(extension_association_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a specific configuration version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetHostedConfigurationVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The application ID.
+  * `:configuration_profile_id` (`t:string`) The configuration profile ID.
+  * `:version_number` (`t:integer`) The version.
+
+  ## Optional parameters:
   """
-  @spec get_hosted_configuration_version(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_hosted_configuration_version(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, hosted_configuration_version(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_hosted_configuration_version_errors()}
@@ -2281,9 +2415,24 @@ defmodule AWS.AppConfig do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles/#{AWS.Util.encode_uri(configuration_profile_id)}/hostedconfigurationversions/#{AWS.Util.encode_uri(version_number)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     options =
       Keyword.put(
         options,
@@ -2299,330 +2448,530 @@ defmodule AWS.AppConfig do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all applications in your Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to return for this
+    call. The call also returns a token that you can specify in a subsequent
+    call to get the next set of results.
+  * `:next_token` (`t:string`) A token to start the list. Next token is a
+    pagination token generated by AppConfig to describe what page the previous
+    List call ended on. For the first List request, the nextToken should not be
+    set. On subsequent calls, the nextToken parameter should be set to the
+    previous responses nextToken value. Use this token to get the next set of
+    results.
   """
-  @spec list_applications(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, applications(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
-  def list_applications(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_applications(%Client{} = client, options \\ []) do
     url_path = "/applications"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next_token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max_results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the configuration profiles for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListConfigurationProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The application ID.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to return for this
+    call. The call also returns a token that you can specify in a subsequent
+    call to get the next set of results.
+  * `:next_token` (`t:string`) A token to start the list. Use this token to get
+    the next set of results.
+  * `:type` (`t:string`) A filter based on the type of configurations that the
+    configuration profile contains. A configuration can be a feature flag or a
+    freeform configuration.
   """
-  @spec list_configuration_profiles(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_configuration_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, configuration_profiles(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configuration_profiles_errors()}
-  def list_configuration_profiles(
-        %Client{} = client,
-        application_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        type \\ nil,
-        options \\ []
-      ) do
+  def list_configuration_profiles(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
+      if opt_val = Keyword.get(options, :type) do
+        [{"type", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next_token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max_results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists deployment strategies.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListDeploymentStrategies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to return for this
+    call. The call also returns a token that you can specify in a subsequent
+    call to get the next set of results.
+  * `:next_token` (`t:string`) A token to start the list. Use this token to get
+    the next set of results.
   """
-  @spec list_deployment_strategies(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_deployment_strategies(AWS.Client.t(), Keyword.t()) ::
           {:ok, deployment_strategies(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployment_strategies_errors()}
-  def list_deployment_strategies(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_deployment_strategies(%Client{} = client, options \\ []) do
     url_path = "/deploymentstrategies"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next_token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max_results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the deployments for an environment in descending deployment number order.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListDeployments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The application ID.
+  * `:environment_id` (`t:string`) The environment ID.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items that may be returned
+    for this call. If there are items that have not yet been returned, the
+    response will include a non-null NextToken that you can provide in a
+    subsequent call to get the next set of results.
+  * `:next_token` (`t:string`) The token returned by a prior call to this
+    operation indicating the next set of results to be returned. If not
+    specified, the operation will return the first set of results.
   """
-  @spec list_deployments(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_deployments(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deployments(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployments_errors()}
-  def list_deployments(
-        %Client{} = client,
-        application_id,
-        environment_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_deployments(%Client{} = client, application_id, environment_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}/deployments"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next_token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max_results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the environments for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListEnvironments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The application ID.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to return for this
+    call. The call also returns a token that you can specify in a subsequent
+    call to get the next set of results.
+  * `:next_token` (`t:string`) A token to start the list. Use this token to get
+    the next set of results.
   """
-  @spec list_environments(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_environments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, environments(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environments_errors()}
-  def list_environments(
-        %Client{} = client,
-        application_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_environments(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/environments"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next_token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max_results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists all AppConfig extension associations in the account.
-
-  For more
-  information about extensions and associations, see [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  Lists all AppConfig extension associations in the account. For more information
+  about extensions and associations, see [Extending
+  workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
   in the *AppConfig User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListExtensionAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:extension_identifier` (`t:string`) The name, the ID, or the Amazon Resource
+    Name (ARN) of the extension.
+  * `:extension_version_number` (`t:integer`) The version number for the extension
+    defined in the association.
+  * `:max_results` (`t:integer`) The maximum number of items to return for this
+    call. The call also returns a token that you can specify in a subsequent
+    call to get the next set of results.
+  * `:next_token` (`t:string`) A token to start the list. Use this token to get
+    the next set of results or pass null to get the first set of results.
+  * `:resource_identifier` (`t:string`) The ARN of an application, configuration
+    profile, or environment.
   """
-  @spec list_extension_associations(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_extension_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, extension_associations(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_extension_associations_errors()}
-  def list_extension_associations(
-        %Client{} = client,
-        extension_identifier \\ nil,
-        extension_version_number \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        resource_identifier \\ nil,
-        options \\ []
-      ) do
+  def list_extension_associations(%Client{} = client, options \\ []) do
     url_path = "/extensionassociations"
+
+    # Validate optional parameters
+    optional_params = [
+      extension_identifier: nil,
+      extension_version_number: nil,
+      max_results: nil,
+      next_token: nil,
+      resource_identifier: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(resource_identifier) do
-        [{"resource_identifier", resource_identifier} | query_params]
+      if opt_val = Keyword.get(options, :resource_identifier) do
+        [{"resource_identifier", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next_token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max_results", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(extension_version_number) do
-        [{"extension_version_number", extension_version_number} | query_params]
+      if opt_val = Keyword.get(options, :extension_version_number) do
+        [{"extension_version_number", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(extension_identifier) do
-        [{"extension_identifier", extension_identifier} | query_params]
+      if opt_val = Keyword.get(options, :extension_identifier) do
+        [{"extension_identifier", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :extension_identifier,
+        :extension_version_number,
+        :max_results,
+        :next_token,
+        :resource_identifier
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all custom and Amazon Web Services authored AppConfig extensions in the
-  account.
-
-  For more information about extensions, see [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  account. For more information about extensions, see [Extending
+  workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
   in the *AppConfig User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListExtensions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to return for this
+    call. The call also returns a token that you can specify in a subsequent
+    call to get the next set of results.
+  * `:name` (`t:string`) The extension name.
+  * `:next_token` (`t:string`) A token to start the list. Use this token to get
+    the next set of results.
   """
-  @spec list_extensions(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_extensions(AWS.Client.t(), Keyword.t()) ::
           {:ok, extensions(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_extensions_errors()}
-  def list_extensions(
-        %Client{} = client,
-        max_results \\ nil,
-        name \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_extensions(%Client{} = client, options \\ []) do
     url_path = "/extensions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, name: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next_token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
+      if opt_val = Keyword.get(options, :name) do
+        [{"name", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max_results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :name, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2630,16 +2979,26 @@ defmodule AWS.AppConfig do
   @doc """
   Lists configurations stored in the AppConfig hosted configuration store by
   version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListHostedConfigurationVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The application ID.
+  * `:configuration_profile_id` (`t:string`) The configuration profile ID.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to return for this
+    call. The call also returns a token that you can specify in a subsequent
+    call to get the next set of results.
+  * `:next_token` (`t:string`) A token to start the list. Use this token to get
+    the next set of results.
+  * `:version_label` (`t:string`) An optional filter that can be used to specify
+    the version label of an AppConfig hosted configuration version. This
+    parameter supports filtering by prefix using a wildcard, for example "v2*".
+    If you don't specify an asterisk at the end of the value, only an exact
+    match is returned.
   """
-  @spec list_hosted_configuration_versions(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_hosted_configuration_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, hosted_configuration_versions(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_hosted_configuration_versions_errors()}
@@ -2647,64 +3006,121 @@ defmodule AWS.AppConfig do
         %Client{} = client,
         application_id,
         configuration_profile_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        version_label \\ nil,
         options \\ []
       ) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles/#{AWS.Util.encode_uri(configuration_profile_id)}/hostedconfigurationversions"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, version_label: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(version_label) do
-        [{"version_label", version_label} | query_params]
+      if opt_val = Keyword.get(options, :version_label) do
+        [{"version_label", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next_token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max_results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :version_label])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the list of key-value tags assigned to the resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource ARN.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, resource_tags(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Starts a deployment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20StartDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The application ID.
+  * `:environment_id` (`t:string`) The environment ID.
+
+  ## Optional parameters:
   """
-  @spec start_deployment(map(), String.t(), String.t(), start_deployment_request(), list()) ::
+  @spec start_deployment(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          start_deployment_request(),
+          Keyword.t()
+        ) ::
           {:ok, deployment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_deployment_errors()}
@@ -2715,7 +3131,8 @@ defmodule AWS.AppConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2731,19 +3148,25 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Stops a deployment.
+  Stops a deployment. This API action works only on deployments that have a status
+  of `DEPLOYING`. This action moves the deployment to a status of `ROLLED_BACK`.
 
-  This API action works only on deployments that have a status of
-  `DEPLOYING`. This action moves the deployment to a status of
-  `ROLLED_BACK`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20StopDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The application ID.
+  * `:deployment_number` (`t:integer`) The sequence number of the deployment.
+  * `:environment_id` (`t:string`) The environment ID.
+
+  ## Optional parameters:
   """
   @spec stop_deployment(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           stop_deployment_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, deployment(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2762,7 +3185,8 @@ defmodule AWS.AppConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2778,13 +3202,19 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Assigns metadata to an AppConfig resource.
+  Assigns metadata to an AppConfig resource. Tags help organize and categorize
+  your AppConfig resources. Each tag consists of a key and an optional value,
+  both of which you define. You can specify a maximum of 50 tags for a resource.
 
-  Tags help organize and categorize
-  your AppConfig resources. Each tag consists of a key and an optional value, both
-  of which you define. You can specify a maximum of 50 tags for a resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource for which to retrieve
+    tags.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2793,7 +3223,8 @@ defmodule AWS.AppConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2810,8 +3241,16 @@ defmodule AWS.AppConfig do
 
   @doc """
   Deletes a tag key and value from an AppConfig resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource for which to remove tags.
+  * `:tag_keys` (`t:list[com.amazonaws.appconfig#TagKey]`) The tag keys to delete.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2825,7 +3264,8 @@ defmodule AWS.AppConfig do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2842,8 +3282,15 @@ defmodule AWS.AppConfig do
 
   @doc """
   Updates an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20UpdateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The application ID.
+
+  ## Optional parameters:
   """
-  @spec update_application(map(), String.t(), update_application_request(), list()) ::
+  @spec update_application(AWS.Client.t(), String.t(), update_application_request(), Keyword.t()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
@@ -2852,7 +3299,8 @@ defmodule AWS.AppConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2869,13 +3317,21 @@ defmodule AWS.AppConfig do
 
   @doc """
   Updates a configuration profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20UpdateConfigurationProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The application ID.
+  * `:configuration_profile_id` (`t:string`) The ID of the configuration profile.
+
+  ## Optional parameters:
   """
   @spec update_configuration_profile(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_configuration_profile_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, configuration_profile(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2893,7 +3349,8 @@ defmodule AWS.AppConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2910,12 +3367,19 @@ defmodule AWS.AppConfig do
 
   @doc """
   Updates a deployment strategy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20UpdateDeploymentStrategy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:deployment_strategy_id` (`t:string`) The deployment strategy ID.
+
+  ## Optional parameters:
   """
   @spec update_deployment_strategy(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_deployment_strategy_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, deployment_strategy(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2925,7 +3389,8 @@ defmodule AWS.AppConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2942,8 +3407,22 @@ defmodule AWS.AppConfig do
 
   @doc """
   Updates an environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20UpdateEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The application ID.
+  * `:environment_id` (`t:string`) The environment ID.
+
+  ## Optional parameters:
   """
-  @spec update_environment(map(), String.t(), String.t(), update_environment_request(), list()) ::
+  @spec update_environment(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_environment_request(),
+          Keyword.t()
+        ) ::
           {:ok, environment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_environment_errors()}
@@ -2954,7 +3433,8 @@ defmodule AWS.AppConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2970,13 +3450,20 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Updates an AppConfig extension.
-
-  For more information about extensions, see
-  [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  Updates an AppConfig extension. For more information about extensions, see
+  [Extending
+  workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
   in the *AppConfig User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20UpdateExtension&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:extension_identifier` (`t:string`) The name, the ID, or the Amazon Resource
+    Name (ARN) of the extension.
+
+  ## Optional parameters:
   """
-  @spec update_extension(map(), String.t(), update_extension_request(), list()) ::
+  @spec update_extension(AWS.Client.t(), String.t(), update_extension_request(), Keyword.t()) ::
           {:ok, extension(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_extension_errors()}
@@ -2985,7 +3472,8 @@ defmodule AWS.AppConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3001,17 +3489,24 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Updates an association.
-
-  For more information about extensions and associations, see
-  [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  Updates an association. For more information about extensions and associations,
+  see [Extending
+  workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
   in the *AppConfig User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20UpdateExtensionAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:extension_association_id` (`t:string`) The system-generated ID for the
+    association.
+
+  ## Optional parameters:
   """
   @spec update_extension_association(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_extension_association_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, extension_association(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3026,7 +3521,8 @@ defmodule AWS.AppConfig do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3043,13 +3539,23 @@ defmodule AWS.AppConfig do
 
   @doc """
   Uses the validators in a configuration profile to validate a configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ValidateConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The application ID.
+  * `:configuration_profile_id` (`t:string`) The configuration profile ID.
+  * `:configuration_version` (`t:string`) The version of the configuration to
+    validate.
+
+  ## Optional parameters:
   """
   @spec validate_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           validate_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -3072,7 +3578,8 @@ defmodule AWS.AppConfig do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

@@ -4,15 +4,11 @@
 defmodule AWS.DataZone do
   @moduledoc """
   Amazon DataZone is a data management service that enables you to catalog,
-  discover,
-  govern, share, and analyze your data.
-
-  With Amazon DataZone, you can share and access your
-  data across accounts and supported regions. Amazon DataZone simplifies your
-  experience
-  across Amazon Web Services services, including, but not limited to, Amazon
-  Redshift, Amazon
-  Athena, Amazon Web Services Glue, and Amazon Web Services Lake Formation.
+  discover, govern, share, and analyze your data. With Amazon DataZone, you can
+  share and access your data across accounts and supported regions. Amazon
+  DataZone simplifies your experience across Amazon Web Services services,
+  including, but not limited to, Amazon Redshift, Amazon Athena, Amazon Web
+  Services Glue, and Amazon Web Services Lake Formation.
   """
 
   alias AWS.Client
@@ -5828,10 +5824,25 @@ defmodule AWS.DataZone do
 
   @doc """
   Accepts automatically generated business-friendly metadata for your Amazon
-  DataZone
-  assets.
+  DataZone assets.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20AcceptPredictions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
+  * `:identifier` (`t:string`) The identifier of the asset.
+
+  ## Optional parameters:
+  * `:revision` (`t:string`) The revision that is to be made to the asset.
   """
-  @spec accept_predictions(map(), String.t(), String.t(), accept_predictions_input(), list()) ::
+  @spec accept_predictions(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          accept_predictions_input(),
+          Keyword.t()
+        ) ::
           {:ok, accept_predictions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_predictions_errors()}
@@ -5847,20 +5858,36 @@ defmodule AWS.DataZone do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:revision])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Accepts a subscription request to a specific asset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20AcceptSubscriptionRequest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The Amazon DataZone domain where the
+    specified subscription request is being accepted.
+  * `:identifier` (`t:string`) The unique identifier of the subscription request
+    that is to be accepted.
+
+  ## Optional parameters:
   """
   @spec accept_subscription_request(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           accept_subscription_request_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, accept_subscription_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5878,21 +5905,33 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Associates the environment role in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20AssociateEnvironmentRole&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the environment role is associated.
+  * `:environment_identifier` (`t:string`) The ID of the Amazon DataZone
+    environment.
+  * `:environment_role_arn` (`t:`) The ARN of the environment role.
+
+  ## Optional parameters:
   """
   @spec associate_environment_role(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           associate_environment_role_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_environment_role_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5911,20 +5950,30 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Cancels the metadata generation run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CancelMetadataGenerationRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the metadata generation run is to be cancelled.
+  * `:identifier` (`t:string`) The ID of the metadata generation run.
+
+  ## Optional parameters:
   """
   @spec cancel_metadata_generation_run(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           cancel_metadata_generation_run_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, cancel_metadata_generation_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5942,7 +5991,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5959,8 +6009,24 @@ defmodule AWS.DataZone do
 
   @doc """
   Cancels the subscription to the specified asset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CancelSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The unique identifier of the Amazon DataZone
+    domain where the subscription request is being cancelled.
+  * `:identifier` (`t:string`) The unique identifier of the subscription that is
+    being cancelled.
+
+  ## Optional parameters:
   """
-  @spec cancel_subscription(map(), String.t(), String.t(), cancel_subscription_input(), list()) ::
+  @spec cancel_subscription(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          cancel_subscription_input(),
+          Keyword.t()
+        ) ::
           {:ok, cancel_subscription_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_subscription_errors()}
@@ -5971,15 +6037,24 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates an asset in Amazon DataZone catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) Amazon DataZone domain where the asset is
+    created.
+
+  ## Optional parameters:
   """
-  @spec create_asset(map(), String.t(), create_asset_input(), list()) ::
+  @spec create_asset(AWS.Client.t(), String.t(), create_asset_input(), Keyword.t()) ::
           {:ok, create_asset_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_asset_errors()}
@@ -5988,7 +6063,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6005,13 +6081,22 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates a revision of the asset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateAssetRevision&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The unique identifier of the domain where
+    the asset is being revised.
+  * `:identifier` (`t:string`) The identifier of the asset.
+
+  ## Optional parameters:
   """
   @spec create_asset_revision(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           create_asset_revision_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_asset_revision_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6029,7 +6114,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6046,8 +6132,16 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates a custom asset type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateAssetType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The unique identifier of the Amazon DataZone
+    domain where the custom asset type is being created.
+
+  ## Optional parameters:
   """
-  @spec create_asset_type(map(), String.t(), create_asset_type_input(), list()) ::
+  @spec create_asset_type(AWS.Client.t(), String.t(), create_asset_type_input(), Keyword.t()) ::
           {:ok, create_asset_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_asset_type_errors()}
@@ -6056,7 +6150,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6073,8 +6168,16 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates an Amazon DataZone data source.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where
+    the data source is created.
+
+  ## Optional parameters:
   """
-  @spec create_data_source(map(), String.t(), create_data_source_input(), list()) ::
+  @spec create_data_source(AWS.Client.t(), String.t(), create_data_source_input(), Keyword.t()) ::
           {:ok, create_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_source_errors()}
@@ -6083,7 +6186,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6100,8 +6204,14 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates an Amazon DataZone domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_domain(map(), create_domain_input(), list()) ::
+  @spec create_domain(AWS.Client.t(), create_domain_input(), Keyword.t()) ::
           {:ok, create_domain_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_domain_errors()}
@@ -6110,7 +6220,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6127,8 +6238,16 @@ defmodule AWS.DataZone do
 
   @doc """
   Create an Amazon DataZone environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which the environment is created.
+
+  ## Optional parameters:
   """
-  @spec create_environment(map(), String.t(), create_environment_input(), list()) ::
+  @spec create_environment(AWS.Client.t(), String.t(), create_environment_input(), Keyword.t()) ::
           {:ok, create_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_errors()}
@@ -6137,7 +6256,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6154,15 +6274,24 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates an action for the environment, for example, creates a console link for
-  an
-  analytics tool that is available in this environment.
+  an analytics tool that is available in this environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateEnvironmentAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the environment action is created.
+  * `:environment_identifier` (`t:string`) The ID of the environment in which the
+    environment action is created.
+
+  ## Optional parameters:
   """
   @spec create_environment_action(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           create_environment_action_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_environment_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6180,7 +6309,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6197,8 +6327,21 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates an Amazon DataZone environment profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateEnvironmentProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which this environment profile is created.
+
+  ## Optional parameters:
   """
-  @spec create_environment_profile(map(), String.t(), create_environment_profile_input(), list()) ::
+  @spec create_environment_profile(
+          AWS.Client.t(),
+          String.t(),
+          create_environment_profile_input(),
+          Keyword.t()
+        ) ::
           {:ok, create_environment_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_profile_errors()}
@@ -6207,7 +6350,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6224,8 +6368,16 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates a metadata form type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateFormType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which this metadata form type is created.
+
+  ## Optional parameters:
   """
-  @spec create_form_type(map(), String.t(), create_form_type_input(), list()) ::
+  @spec create_form_type(AWS.Client.t(), String.t(), create_form_type_input(), Keyword.t()) ::
           {:ok, create_form_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_form_type_errors()}
@@ -6234,7 +6386,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6251,8 +6404,16 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates an Amazon DataZone business glossary.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateGlossary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which this business glossary is created.
+
+  ## Optional parameters:
   """
-  @spec create_glossary(map(), String.t(), create_glossary_input(), list()) ::
+  @spec create_glossary(AWS.Client.t(), String.t(), create_glossary_input(), Keyword.t()) ::
           {:ok, create_glossary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_glossary_errors()}
@@ -6261,7 +6422,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6278,8 +6440,21 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates a business glossary term.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateGlossaryTerm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which this business glossary term is created.
+
+  ## Optional parameters:
   """
-  @spec create_glossary_term(map(), String.t(), create_glossary_term_input(), list()) ::
+  @spec create_glossary_term(
+          AWS.Client.t(),
+          String.t(),
+          create_glossary_term_input(),
+          Keyword.t()
+        ) ::
           {:ok, create_glossary_term_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_glossary_term_errors()}
@@ -6288,7 +6463,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6305,8 +6481,21 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates a group profile in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateGroupProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which the group profile is created.
+
+  ## Optional parameters:
   """
-  @spec create_group_profile(map(), String.t(), create_group_profile_input(), list()) ::
+  @spec create_group_profile(
+          AWS.Client.t(),
+          String.t(),
+          create_group_profile_input(),
+          Keyword.t()
+        ) ::
           {:ok, create_group_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_profile_errors()}
@@ -6315,7 +6504,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6332,10 +6522,21 @@ defmodule AWS.DataZone do
 
   @doc """
   Publishes a listing (a record of an asset at a given time) or removes a listing
-  from the
-  catalog.
+  from the catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateListingChangeSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain.
+
+  ## Optional parameters:
   """
-  @spec create_listing_change_set(map(), String.t(), create_listing_change_set_input(), list()) ::
+  @spec create_listing_change_set(
+          AWS.Client.t(),
+          String.t(),
+          create_listing_change_set_input(),
+          Keyword.t()
+        ) ::
           {:ok, create_listing_change_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_listing_change_set_errors()}
@@ -6344,7 +6545,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6361,8 +6563,16 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates an Amazon DataZone project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which this project is created.
+
+  ## Optional parameters:
   """
-  @spec create_project(map(), String.t(), create_project_input(), list()) ::
+  @spec create_project(AWS.Client.t(), String.t(), create_project_input(), Keyword.t()) ::
           {:ok, create_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_errors()}
@@ -6371,7 +6581,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6388,13 +6599,23 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates a project membership in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateProjectMembership&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which project membership is created.
+  * `:project_identifier` (`t:string`) The ID of the project for which this
+    project membership was created.
+
+  ## Optional parameters:
   """
   @spec create_project_membership(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           create_project_membership_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_project_membership_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6412,7 +6633,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6429,8 +6651,21 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates a subsscription grant in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateSubscriptionGrant&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the subscription grant is created.
+
+  ## Optional parameters:
   """
-  @spec create_subscription_grant(map(), String.t(), create_subscription_grant_input(), list()) ::
+  @spec create_subscription_grant(
+          AWS.Client.t(),
+          String.t(),
+          create_subscription_grant_input(),
+          Keyword.t()
+        ) ::
           {:ok, create_subscription_grant_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_subscription_grant_errors()}
@@ -6439,7 +6674,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6456,12 +6692,20 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates a subscription request in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateSubscriptionRequest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the subscription request is created.
+
+  ## Optional parameters:
   """
   @spec create_subscription_request(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_subscription_request_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_subscription_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6471,7 +6715,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6488,13 +6733,23 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates a subscription target in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateSubscriptionTarget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which subscription target is created.
+  * `:environment_identifier` (`t:string`) The ID of the environment in which
+    subscription target is created.
+
+  ## Optional parameters:
   """
   @spec create_subscription_target(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           create_subscription_target_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_subscription_target_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6512,7 +6767,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6529,8 +6785,16 @@ defmodule AWS.DataZone do
 
   @doc """
   Creates a user profile in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateUserProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which a user profile is created.
+
+  ## Optional parameters:
   """
-  @spec create_user_profile(map(), String.t(), create_user_profile_input(), list()) ::
+  @spec create_user_profile(AWS.Client.t(), String.t(), create_user_profile_input(), Keyword.t()) ::
           {:ok, create_user_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_profile_errors()}
@@ -6539,7 +6803,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6556,8 +6821,17 @@ defmodule AWS.DataZone do
 
   @doc """
   Delets an asset in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the asset is deleted.
+  * `:identifier` (`t:string`) The identifier of the asset that is deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_asset(map(), String.t(), String.t(), delete_asset_input(), list()) ::
+  @spec delete_asset(AWS.Client.t(), String.t(), String.t(), delete_asset_input(), Keyword.t()) ::
           {:ok, delete_asset_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_asset_errors()}
@@ -6568,7 +6842,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6585,8 +6860,23 @@ defmodule AWS.DataZone do
 
   @doc """
   Deletes an asset type in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteAssetType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the asset type is deleted.
+  * `:identifier` (`t:string`) The identifier of the asset type that is deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_asset_type(map(), String.t(), String.t(), delete_asset_type_input(), list()) ::
+  @spec delete_asset_type(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_asset_type_input(),
+          Keyword.t()
+        ) ::
           {:ok, delete_asset_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_asset_type_errors()}
@@ -6597,7 +6887,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6614,8 +6905,28 @@ defmodule AWS.DataZone do
 
   @doc """
   Deletes a data source in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the data source is deleted.
+  * `:identifier` (`t:string`) The identifier of the data source that is deleted.
+
+  ## Optional parameters:
+  * `:client_token` (`t:`) A unique, case-sensitive identifier that is provided to
+    ensure the idempotency of the request.
+  * `:retain_permissions_on_revoke_failure` (`t:`) Specifies that the granted
+    permissions are retained in case of a self-subscribe functionality failure
+    for a data source.
   """
-  @spec delete_data_source(map(), String.t(), String.t(), delete_data_source_input(), list()) ::
+  @spec delete_data_source(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_data_source_input(),
+          Keyword.t()
+        ) ::
           {:ok, delete_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_source_errors()}
@@ -6632,7 +6943,13 @@ defmodule AWS.DataZone do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token, :retain_permissions_on_revoke_failure])
 
     Request.request_rest(
       client,
@@ -6649,8 +6966,20 @@ defmodule AWS.DataZone do
 
   @doc """
   Deletes a Amazon DataZone domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The identifier of the Amazon Web Services domain
+    that is to be deleted.
+
+  ## Optional parameters:
+  * `:client_token` (`t:`) A unique, case-sensitive identifier that is provided to
+    ensure the idempotency of the request.
+  * `:skip_deletion_check` (`t:`) Specifies the optional flag to delete all child
+    entities within the domain.
   """
-  @spec delete_domain(map(), String.t(), delete_domain_input(), list()) ::
+  @spec delete_domain(AWS.Client.t(), String.t(), delete_domain_input(), Keyword.t()) ::
           {:ok, delete_domain_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_errors()}
@@ -6665,7 +6994,13 @@ defmodule AWS.DataZone do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token, :skip_deletion_check])
 
     Request.request_rest(
       client,
@@ -6682,8 +7017,24 @@ defmodule AWS.DataZone do
 
   @doc """
   Deletes an environment in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the environment is deleted.
+  * `:identifier` (`t:string`) The identifier of the environment that is to be
+    deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_environment(map(), String.t(), String.t(), delete_environment_input(), list()) ::
+  @spec delete_environment(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_environment_input(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_errors()}
@@ -6694,7 +7045,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6711,16 +7063,26 @@ defmodule AWS.DataZone do
 
   @doc """
   Deletes an action for the environment, for example, deletes a console link for
-  an
-  analytics tool that is available in this environment.
+  an analytics tool that is available in this environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteEnvironmentAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which an environment action is deleted.
+  * `:environment_identifier` (`t:string`) The ID of the environment where an
+    environment action is deleted.
+  * `:identifier` (`t:`) The ID of the environment action that is deleted.
+
+  ## Optional parameters:
   """
   @spec delete_environment_action(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_environment_action_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -6739,7 +7101,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6756,13 +7119,23 @@ defmodule AWS.DataZone do
 
   @doc """
   Deletes the blueprint configuration in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteEnvironmentBlueprintConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the blueprint configuration is deleted.
+  * `:environment_blueprint_identifier` (`t:string`) The ID of the blueprint the
+    configuration of which is deleted.
+
+  ## Optional parameters:
   """
   @spec delete_environment_blueprint_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_environment_blueprint_configuration_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_environment_blueprint_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6780,7 +7153,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6797,13 +7171,22 @@ defmodule AWS.DataZone do
 
   @doc """
   Deletes an environment profile in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteEnvironmentProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the environment profile is deleted.
+  * `:identifier` (`t:string`) The ID of the environment profile that is deleted.
+
+  ## Optional parameters:
   """
   @spec delete_environment_profile(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_environment_profile_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -6821,7 +7204,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6838,8 +7222,24 @@ defmodule AWS.DataZone do
 
   @doc """
   Delets and metadata form type in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteFormType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the metadata form type is deleted.
+  * `:form_type_identifier` (`t:string`) The ID of the metadata form type that is
+    deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_form_type(map(), String.t(), String.t(), delete_form_type_input(), list()) ::
+  @spec delete_form_type(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_form_type_input(),
+          Keyword.t()
+        ) ::
           {:ok, delete_form_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_form_type_errors()}
@@ -6856,7 +7256,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6873,8 +7274,23 @@ defmodule AWS.DataZone do
 
   @doc """
   Deletes a business glossary in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteGlossary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the business glossary is deleted.
+  * `:identifier` (`t:string`) The ID of the business glossary that is deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_glossary(map(), String.t(), String.t(), delete_glossary_input(), list()) ::
+  @spec delete_glossary(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_glossary_input(),
+          Keyword.t()
+        ) ::
           {:ok, delete_glossary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_glossary_errors()}
@@ -6885,7 +7301,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6902,8 +7319,24 @@ defmodule AWS.DataZone do
 
   @doc """
   Deletes a business glossary term in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteGlossaryTerm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the business glossary term is deleted.
+  * `:identifier` (`t:string`) The ID of the business glossary term that is
+    deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_glossary_term(map(), String.t(), String.t(), delete_glossary_term_input(), list()) ::
+  @spec delete_glossary_term(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_glossary_term_input(),
+          Keyword.t()
+        ) ::
           {:ok, delete_glossary_term_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_glossary_term_errors()}
@@ -6920,7 +7353,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6937,8 +7371,22 @@ defmodule AWS.DataZone do
 
   @doc """
   Deletes a listing (a record of an asset at a given time).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteListing&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain.
+  * `:identifier` (`t:string`) The ID of the listing to be deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_listing(map(), String.t(), String.t(), delete_listing_input(), list()) ::
+  @spec delete_listing(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_listing_input(),
+          Keyword.t()
+        ) ::
           {:ok, delete_listing_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_listing_errors()}
@@ -6949,7 +7397,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6966,8 +7415,26 @@ defmodule AWS.DataZone do
 
   @doc """
   Deletes a project in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the project is deleted.
+  * `:identifier` (`t:string`) The identifier of the project that is to be
+    deleted.
+
+  ## Optional parameters:
+  * `:skip_deletion_check` (`t:`) Specifies the optional flag to delete all child
+    entities within the project.
   """
-  @spec delete_project(map(), String.t(), String.t(), delete_project_input(), list()) ::
+  @spec delete_project(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_project_input(),
+          Keyword.t()
+        ) ::
           {:ok, delete_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_errors()}
@@ -6983,7 +7450,13 @@ defmodule AWS.DataZone do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:skip_deletion_check])
 
     Request.request_rest(
       client,
@@ -7000,13 +7473,23 @@ defmodule AWS.DataZone do
 
   @doc """
   Deletes project membership in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteProjectMembership&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where
+    project membership is deleted.
+  * `:project_identifier` (`t:string`) The ID of the Amazon DataZone project the
+    membership to which is deleted.
+
+  ## Optional parameters:
   """
   @spec delete_project_membership(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_project_membership_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_project_membership_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7024,7 +7507,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7041,13 +7525,22 @@ defmodule AWS.DataZone do
 
   @doc """
   Deletes and subscription grant in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteSubscriptionGrant&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where
+    the subscription grant is deleted.
+  * `:identifier` (`t:string`) The ID of the subscription grant that is deleted.
+
+  ## Optional parameters:
   """
   @spec delete_subscription_grant(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_subscription_grant_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_subscription_grant_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7065,7 +7558,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7082,13 +7576,22 @@ defmodule AWS.DataZone do
 
   @doc """
   Deletes a subscription request in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteSubscriptionRequest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the subscription request is deleted.
+  * `:identifier` (`t:string`) The ID of the subscription request that is deleted.
+
+  ## Optional parameters:
   """
   @spec delete_subscription_request(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_subscription_request_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -7106,7 +7609,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7123,14 +7627,25 @@ defmodule AWS.DataZone do
 
   @doc """
   Deletes a subscription target in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteSubscriptionTarget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the subscription target is deleted.
+  * `:environment_identifier` (`t:string`) The ID of the Amazon DataZone
+    environment in which the subscription target is deleted.
+  * `:identifier` (`t:string`) The ID of the subscription target that is deleted.
+
+  ## Optional parameters:
   """
   @spec delete_subscription_target(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_subscription_target_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -7149,7 +7664,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7166,14 +7682,31 @@ defmodule AWS.DataZone do
 
   @doc """
   Deletes the specified time series form for the specified asset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteTimeSeriesDataPoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain that
+    houses the asset for which you want to delete a time series form.
+  * `:entity_identifier` (`t:string`) The ID of the asset for which you want to
+    delete a time series form.
+  * `:entity_type` (`t:enum["ASSET|LISTING"]`) The type of the asset for which you
+    want to delete a time series form.
+  * `:form_name` (`t:string`) The name of the time series form that you want to
+    delete.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A unique, case-sensitive identifier to ensure
+    idempotency of the request. This field is automatically populated if not
+    provided.
   """
   @spec delete_time_series_data_points(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_time_series_data_points_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_time_series_data_points_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7198,7 +7731,13 @@ defmodule AWS.DataZone do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -7215,14 +7754,24 @@ defmodule AWS.DataZone do
 
   @doc """
   Disassociates the environment role in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DisassociateEnvironmentRole&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which an environment role is disassociated.
+  * `:environment_identifier` (`t:string`) The ID of the environment.
+  * `:environment_role_arn` (`t:`) The ARN of the environment role.
+
+  ## Optional parameters:
   """
   @spec disassociate_environment_role(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           disassociate_environment_role_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_environment_role_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7241,7 +7790,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7258,66 +7808,131 @@ defmodule AWS.DataZone do
 
   @doc """
   Gets an Amazon DataZone asset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain to
+    which the asset belongs.
+  * `:identifier` (`t:string`) The ID of the Amazon DataZone asset.
+
+  ## Optional parameters:
+  * `:revision` (`t:string`) The revision of the Amazon DataZone asset.
   """
-  @spec get_asset(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_asset(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_asset_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_asset_errors()}
-  def get_asset(%Client{} = client, domain_identifier, identifier, revision \\ nil, options \\ []) do
+  def get_asset(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(identifier)}"
 
+    # Validate optional parameters
+    optional_params = [revision: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(revision) do
-        [{"revision", revision} | query_params]
+      if opt_val = Keyword.get(options, :revision) do
+        [{"revision", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:revision])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an Amazon DataZone asset type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetAssetType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the asset type exists.
+  * `:identifier` (`t:string`) The ID of the asset type.
+
+  ## Optional parameters:
+  * `:revision` (`t:string`) The revision of the asset type.
   """
-  @spec get_asset_type(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_asset_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_asset_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_asset_type_errors()}
-  def get_asset_type(
-        %Client{} = client,
-        domain_identifier,
-        identifier,
-        revision \\ nil,
-        options \\ []
-      ) do
+  def get_asset_type(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/asset-types/#{AWS.Util.encode_uri(identifier)}"
 
+    # Validate optional parameters
+    optional_params = [revision: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(revision) do
-        [{"revision", revision} | query_params]
+      if opt_val = Keyword.get(options, :revision) do
+        [{"revision", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:revision])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an Amazon DataZone data source.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the data source exists.
+  * `:identifier` (`t:string`) The ID of the Amazon DataZone data source.
+
+  ## Optional parameters:
   """
-  @spec get_data_source(map(), String.t(), String.t(), list()) ::
+  @spec get_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_source_errors()}
@@ -7325,18 +7940,44 @@ defmodule AWS.DataZone do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-sources/#{AWS.Util.encode_uri(identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an Amazon DataZone data source run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetDataSourceRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the domain in which this data
+    source run was performed.
+  * `:identifier` (`t:string`) The ID of the data source run.
+
+  ## Optional parameters:
   """
-  @spec get_data_source_run(map(), String.t(), String.t(), list()) ::
+  @spec get_data_source_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_source_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_source_run_errors()}
@@ -7344,35 +7985,87 @@ defmodule AWS.DataZone do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-source-runs/#{AWS.Util.encode_uri(identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an Amazon DataZone domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The identifier of the specified Amazon DataZone
+    domain.
+
+  ## Optional parameters:
   """
-  @spec get_domain(map(), String.t(), list()) ::
+  @spec get_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_domain_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_errors()}
   def get_domain(%Client{} = client, identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an Amazon DataZone environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where
+    the environment exists.
+  * `:identifier` (`t:string`) The ID of the Amazon DataZone environment.
+
+  ## Optional parameters:
   """
-  @spec get_environment(map(), String.t(), String.t(), list()) ::
+  @spec get_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_errors()}
@@ -7380,18 +8073,46 @@ defmodule AWS.DataZone do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the specified environment action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetEnvironmentAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the GetEnvironmentAction API is invoked.
+  * `:environment_identifier` (`t:string`) The environment ID of the environment
+    action.
+  * `:identifier` (`t:`) The ID of the environment action
+
+  ## Optional parameters:
   """
-  @spec get_environment_action(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_environment_action(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_action_errors()}
@@ -7405,18 +8126,44 @@ defmodule AWS.DataZone do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(environment_identifier)}/actions/#{AWS.Util.encode_uri(identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an Amazon DataZone blueprint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetEnvironmentBlueprint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the domain in which this
+    blueprint exists.
+  * `:identifier` (`t:string`) The ID of this Amazon DataZone blueprint.
+
+  ## Optional parameters:
   """
-  @spec get_environment_blueprint(map(), String.t(), String.t(), list()) ::
+  @spec get_environment_blueprint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_blueprint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_blueprint_errors()}
@@ -7424,18 +8171,49 @@ defmodule AWS.DataZone do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environment-blueprints/#{AWS.Util.encode_uri(identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the blueprint configuration in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetEnvironmentBlueprintConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where
+    this blueprint exists.
+  * `:environment_blueprint_identifier` (`t:string`) He ID of the blueprint.
+
+  ## Optional parameters:
   """
-  @spec get_environment_blueprint_configuration(map(), String.t(), String.t(), list()) ::
+  @spec get_environment_blueprint_configuration(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, get_environment_blueprint_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_blueprint_configuration_errors()}
@@ -7448,18 +8226,44 @@ defmodule AWS.DataZone do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environment-blueprint-configurations/#{AWS.Util.encode_uri(environment_blueprint_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an evinronment profile in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetEnvironmentProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which this environment profile exists.
+  * `:identifier` (`t:string`) The ID of the environment profile.
+
+  ## Optional parameters:
   """
-  @spec get_environment_profile(map(), String.t(), String.t(), list()) ::
+  @spec get_environment_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_profile_errors()}
@@ -7467,50 +8271,101 @@ defmodule AWS.DataZone do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environment-profiles/#{AWS.Util.encode_uri(identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a metadata form type in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetFormType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which this metadata form type exists.
+  * `:form_type_identifier` (`t:string`) The ID of the metadata form type.
+
+  ## Optional parameters:
+  * `:revision` (`t:string`) The revision of this metadata form type.
   """
-  @spec get_form_type(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_form_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_form_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_form_type_errors()}
-  def get_form_type(
-        %Client{} = client,
-        domain_identifier,
-        form_type_identifier,
-        revision \\ nil,
-        options \\ []
-      ) do
+  def get_form_type(%Client{} = client, domain_identifier, form_type_identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/form-types/#{AWS.Util.encode_uri(form_type_identifier)}"
 
+    # Validate optional parameters
+    optional_params = [revision: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(revision) do
-        [{"revision", revision} | query_params]
+      if opt_val = Keyword.get(options, :revision) do
+        [{"revision", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:revision])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a business glossary in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetGlossary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which this business glossary exists.
+  * `:identifier` (`t:string`) The ID of the business glossary.
+
+  ## Optional parameters:
   """
-  @spec get_glossary(map(), String.t(), String.t(), list()) ::
+  @spec get_glossary(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_glossary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_glossary_errors()}
@@ -7518,18 +8373,44 @@ defmodule AWS.DataZone do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/glossaries/#{AWS.Util.encode_uri(identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a business glossary term in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetGlossaryTerm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which this business glossary term exists.
+  * `:identifier` (`t:string`) The ID of the business glossary term.
+
+  ## Optional parameters:
   """
-  @spec get_glossary_term(map(), String.t(), String.t(), list()) ::
+  @spec get_glossary_term(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_glossary_term_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_glossary_term_errors()}
@@ -7537,18 +8418,44 @@ defmodule AWS.DataZone do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/glossary-terms/#{AWS.Util.encode_uri(identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a group profile in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetGroupProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which the group profile exists.
+  * `:group_identifier` (`t:string`) The identifier of the group profile.
+
+  ## Optional parameters:
   """
-  @spec get_group_profile(map(), String.t(), String.t(), list()) ::
+  @spec get_group_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_group_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_profile_errors()}
@@ -7556,18 +8463,48 @@ defmodule AWS.DataZone do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/group-profiles/#{AWS.Util.encode_uri(group_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the data portal URL for the specified Amazon DataZone domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetIamPortalLoginUrl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) the ID of the Amazon DataZone domain the
+    data portal of which you want to get.
+
+  ## Optional parameters:
   """
-  @spec get_iam_portal_login_url(map(), String.t(), get_iam_portal_login_url_input(), list()) ::
+  @spec get_iam_portal_login_url(
+          AWS.Client.t(),
+          String.t(),
+          get_iam_portal_login_url_input(),
+          Keyword.t()
+        ) ::
           {:ok, get_iam_portal_login_url_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_iam_portal_login_url_errors()}
@@ -7576,7 +8513,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7593,72 +8531,132 @@ defmodule AWS.DataZone do
 
   @doc """
   Gets the data lineage node.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetLineageNode&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the domain in which you want to
+    get the data lineage node.
+  * `:identifier` (`t:string`) The ID of the data lineage node that you want to
+    get.
+
+  ## Optional parameters:
+  * `:event_timestamp` (`t:`) The event time stamp for which you want to get the
+    data lineage node.
   """
-  @spec get_lineage_node(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_lineage_node(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_lineage_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lineage_node_errors()}
-  def get_lineage_node(
-        %Client{} = client,
-        domain_identifier,
-        identifier,
-        event_timestamp \\ nil,
-        options \\ []
-      ) do
+  def get_lineage_node(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/lineage/nodes/#{AWS.Util.encode_uri(identifier)}"
 
+    # Validate optional parameters
+    optional_params = [event_timestamp: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(event_timestamp) do
-        [{"timestamp", event_timestamp} | query_params]
+      if opt_val = Keyword.get(options, :event_timestamp) do
+        [{"timestamp", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:event_timestamp])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a listing (a record of an asset at a given time).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetListing&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain.
+  * `:identifier` (`t:string`) The ID of the listing.
+
+  ## Optional parameters:
+  * `:listing_revision` (`t:string`) The revision of the listing.
   """
-  @spec get_listing(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_listing(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_listing_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_listing_errors()}
-  def get_listing(
-        %Client{} = client,
-        domain_identifier,
-        identifier,
-        listing_revision \\ nil,
-        options \\ []
-      ) do
+  def get_listing(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/listings/#{AWS.Util.encode_uri(identifier)}"
 
+    # Validate optional parameters
+    optional_params = [listing_revision: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(listing_revision) do
-        [{"listingRevision", listing_revision} | query_params]
+      if opt_val = Keyword.get(options, :listing_revision) do
+        [{"listingRevision", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:listing_revision])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a metadata generation run in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetMetadataGenerationRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain the
+    metadata generation run of which you want to get.
+  * `:identifier` (`t:string`) The identifier of the metadata generation run.
+
+  ## Optional parameters:
   """
-  @spec get_metadata_generation_run(map(), String.t(), String.t(), list()) ::
+  @spec get_metadata_generation_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_metadata_generation_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_metadata_generation_run_errors()}
@@ -7671,18 +8669,44 @@ defmodule AWS.DataZone do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/metadata-generation-runs/#{AWS.Util.encode_uri(identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a project in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the project exists.
+  * `:identifier` (`t:string`) The ID of the project.
+
+  ## Optional parameters:
   """
-  @spec get_project(map(), String.t(), String.t(), list()) ::
+  @spec get_project(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_project_errors()}
@@ -7690,18 +8714,44 @@ defmodule AWS.DataZone do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/projects/#{AWS.Util.encode_uri(identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a subscription in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the subscription exists.
+  * `:identifier` (`t:string`) The ID of the subscription.
+
+  ## Optional parameters:
   """
-  @spec get_subscription(map(), String.t(), String.t(), list()) ::
+  @spec get_subscription(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_subscription_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_subscription_errors()}
@@ -7709,18 +8759,44 @@ defmodule AWS.DataZone do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscriptions/#{AWS.Util.encode_uri(identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the subscription grant in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetSubscriptionGrant&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the subscription grant exists.
+  * `:identifier` (`t:string`) The ID of the subscription grant.
+
+  ## Optional parameters:
   """
-  @spec get_subscription_grant(map(), String.t(), String.t(), list()) ::
+  @spec get_subscription_grant(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_subscription_grant_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_subscription_grant_errors()}
@@ -7728,18 +8804,45 @@ defmodule AWS.DataZone do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscription-grants/#{AWS.Util.encode_uri(identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the details of the specified subscription request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetSubscriptionRequestDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which to get the subscription request details.
+  * `:identifier` (`t:string`) The identifier of the subscription request the
+    details of which to get.
+
+  ## Optional parameters:
   """
-  @spec get_subscription_request_details(map(), String.t(), String.t(), list()) ::
+  @spec get_subscription_request_details(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_subscription_request_details_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_subscription_request_details_errors()}
@@ -7752,18 +8855,46 @@ defmodule AWS.DataZone do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscription-requests/#{AWS.Util.encode_uri(identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the subscription target in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetSubscriptionTarget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the subscription target exists.
+  * `:environment_identifier` (`t:string`) The ID of the environment associated
+    with the subscription target.
+  * `:identifier` (`t:string`) The ID of the subscription target.
+
+  ## Optional parameters:
   """
-  @spec get_subscription_target(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_subscription_target(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_subscription_target_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_subscription_target_errors()}
@@ -7777,25 +8908,57 @@ defmodule AWS.DataZone do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(environment_identifier)}/subscription-targets/#{AWS.Util.encode_uri(identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the existing data point for the asset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetTimeSeriesDataPoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain that
+    houses the asset for which you want to get the data point.
+  * `:entity_identifier` (`t:string`) The ID of the asset for which you want to
+    get the data point.
+  * `:entity_type` (`t:enum["ASSET|LISTING"]`) The type of the asset for which you
+    want to get the data point.
+  * `:identifier` (`t:string`) The ID of the data point that you want to get.
+  * `:form_name` (`t:string`) The name of the time series form that houses the
+    data point that you want to get.
+
+  ## Optional parameters:
   """
   @spec get_time_series_data_point(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_time_series_data_point_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7812,112 +8975,189 @@ defmodule AWS.DataZone do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/entities/#{AWS.Util.encode_uri(entity_type)}/#{AWS.Util.encode_uri(entity_identifier)}/time-series-data-points/#{AWS.Util.encode_uri(identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(form_name) do
-        [{"formName", form_name} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"formName", form_name}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a user profile in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetUserProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) the ID of the Amazon DataZone domain the
+    data portal of which you want to get.
+  * `:user_identifier` (`t:string`) The identifier of the user for which you want
+    to get the user profile.
+
+  ## Optional parameters:
+  * `:type` (`t:enum["IAM|SSO"]`) The type of the user profile.
   """
-  @spec get_user_profile(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_user_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_user_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_profile_errors()}
-  def get_user_profile(
-        %Client{} = client,
-        domain_identifier,
-        user_identifier,
-        type \\ nil,
-        options \\ []
-      ) do
+  def get_user_profile(%Client{} = client, domain_identifier, user_identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/user-profiles/#{AWS.Util.encode_uri(user_identifier)}"
 
+    # Validate optional parameters
+    optional_params = [type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
+      if opt_val = Keyword.get(options, :type) do
+        [{"type", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the revisions for the asset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListAssetRevisions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the domain.
+  * `:identifier` (`t:string`) The identifier of the asset.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of revisions to return in a
+    single call to ListAssetRevisions. When the number of revisions to be listed
+    is greater than the value of MaxResults, the response contains a NextToken
+    value that you can use in a subsequent call to ListAssetRevisions to list
+    the next set of revisions.
+  * `:next_token` (`t:string`) When the number of revisions is greater than the
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of revisions, the response
+    includes a pagination token named NextToken. You can specify this NextToken
+    value in a subsequent call to ListAssetRevisions to list the next set of
+    revisions.
   """
-  @spec list_asset_revisions(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_asset_revisions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_revisions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_revisions_errors()}
-  def list_asset_revisions(
-        %Client{} = client,
-        domain_identifier,
-        identifier,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_asset_revisions(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(identifier)}/revisions"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists data source run activities.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListDataSourceRunActivities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which to list data source run activities.
+  * `:identifier` (`t:string`) The identifier of the data source run.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of activities to return in a
+    single call to ListDataSourceRunActivities. When the number of activities to
+    be listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to
+    ListDataSourceRunActivities to list the next set of activities.
+  * `:next_token` (`t:string`) When the number of activities is greater than the
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of activities, the
+    response includes a pagination token named NextToken. You can specify this
+    NextToken value in a subsequent call to ListDataSourceRunActivities to list
+    the next set of activities.
+  * `:status`
+    (`t:enum["FAILED|PUBLISHING_FAILED|SKIPPED_ALREADY_IMPORTED|SKIPPED_ARCHIVED|SKIPPED_NO_ACCESS|SUCCEEDED_CREATED|SUCCEEDED_UPDATED|UNCHANGED"]`)
+    The status of the data source run.
   """
-  @spec list_data_source_run_activities(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_data_source_run_activities(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_source_run_activities_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_source_run_activities_errors()}
@@ -7925,55 +9165,86 @@ defmodule AWS.DataZone do
         %Client{} = client,
         domain_identifier,
         identifier,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
         options \\ []
       ) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-source-runs/#{AWS.Util.encode_uri(identifier)}/activities"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists data source runs in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListDataSourceRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_source_identifier` (`t:string`) The identifier of the data source.
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which to invoke the ListDataSourceRuns action.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of runs to return in a single
+    call to ListDataSourceRuns. When the number of runs to be listed is greater
+    than the value of MaxResults, the response contains a NextToken value that
+    you can use in a subsequent call to ListDataSourceRuns to list the next set
+    of runs.
+  * `:next_token` (`t:string`) When the number of runs is greater than the default
+    value for the MaxResults parameter, or if you explicitly specify a value for
+    MaxResults that is less than the number of runs, the response includes a
+    pagination token named NextToken. You can specify this NextToken value in a
+    subsequent call to ListDataSourceRuns to list the next set of runs.
+  * `:status` (`t:enum["FAILED|PARTIALLY_SUCCEEDED|REQUESTED|RUNNING|SUCCESS"]`)
+    The status of the data source.
   """
-  @spec list_data_source_runs(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_data_source_runs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_source_runs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_source_runs_errors()}
@@ -7981,186 +9252,281 @@ defmodule AWS.DataZone do
         %Client{} = client,
         data_source_identifier,
         domain_identifier,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
         options \\ []
       ) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-sources/#{AWS.Util.encode_uri(data_source_identifier)}/runs"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists data sources in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListDataSources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which to list the data sources.
+  * `:project_identifier` (`t:`) The identifier of the project in which to list
+    data sources.
+
+  ## Optional parameters:
+  * `:environment_identifier` (`t:`) The identifier of the environment in which to
+    list the data sources.
+  * `:max_results` (`t:integer`) The maximum number of data sources to return in a
+    single call to ListDataSources. When the number of data sources to be listed
+    is greater than the value of MaxResults, the response contains a NextToken
+    value that you can use in a subsequent call to ListDataSources to list the
+    next set of data sources.
+  * `:name` (`t:string`) The name of the data source.
+  * `:next_token` (`t:string`) When the number of data sources is greater than the
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of data sources, the
+    response includes a pagination token named NextToken. You can specify this
+    NextToken value in a subsequent call to ListDataSources to list the next set
+    of data sources.
+  * `:status`
+    (`t:enum["CREATING|DELETING|FAILED_CREATION|FAILED_DELETION|FAILED_UPDATE|READY|RUNNING|UPDATING"]`)
+    The status of the data source.
+  * `:type` (`t:string`) The type of the data source.
   """
-  @spec list_data_sources(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_data_sources(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_sources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_sources_errors()}
-  def list_data_sources(
-        %Client{} = client,
-        domain_identifier,
-        environment_identifier \\ nil,
-        max_results \\ nil,
-        name \\ nil,
-        next_token \\ nil,
-        project_identifier,
-        status \\ nil,
-        type \\ nil,
-        options \\ []
-      ) do
+  def list_data_sources(%Client{} = client, domain_identifier, project_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-sources"
+
+    # Validate optional parameters
+    optional_params = [
+      environment_identifier: nil,
+      max_results: nil,
+      name: nil,
+      next_token: nil,
+      status: nil,
+      type: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"projectIdentifier", project_identifier}]
+
+    # Optional query params
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
+      if opt_val = Keyword.get(options, :type) do
+        [{"type", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(project_identifier) do
-        [{"projectIdentifier", project_identifier} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :name) do
+        [{"name", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :environment_identifier) do
+        [{"environmentIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(environment_identifier) do
-        [{"environmentIdentifier", environment_identifier} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:environment_identifier, :max_results, :name, :next_token, :status, :type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists Amazon DataZone domains.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListDomains&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of domains to return in a
+    single call to ListDomains. When the number of domains to be listed is
+    greater than the value of MaxResults, the response contains a NextToken
+    value that you can use in a subsequent call to ListDomains to list the next
+    set of domains.
+  * `:next_token` (`t:string`) When the number of domains is greater than the
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of domains, the response
+    includes a pagination token named NextToken. You can specify this NextToken
+    value in a subsequent call to ListDomains to list the next set of domains.
+  * `:status`
+    (`t:enum["AVAILABLE|CREATING|CREATION_FAILED|DELETED|DELETING|DELETION_FAILED"]`)
+    The status of the data source.
   """
-  @spec list_domains(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domains_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domains_errors()}
-  def list_domains(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_domains(%Client{} = client, options \\ []) do
     url_path = "/v2/domains"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists existing environment actions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListEnvironmentActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the environment actions are listed.
+  * `:environment_identifier` (`t:string`) The ID of the envrironment whose
+    environment actions are listed.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of environment actions to
+    return in a single call to ListEnvironmentActions. When the number of
+    environment actions to be listed is greater than the value of MaxResults,
+    the response contains a NextToken value that you can use in a subsequent
+    call to ListEnvironmentActions to list the next set of environment actions.
+  * `:next_token` (`t:string`) When the number of environment actions is greater
+    than the default value for the MaxResults parameter, or if you explicitly
+    specify a value for MaxResults that is less than the number of environment
+    actions, the response includes a pagination token named NextToken. You can
+    specify this NextToken value in a subsequent call to ListEnvironmentActions
+    to list the next set of environment actions.
   """
-  @spec list_environment_actions(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_environment_actions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_environment_actions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environment_actions_errors()}
@@ -8168,589 +9534,879 @@ defmodule AWS.DataZone do
         %Client{} = client,
         domain_identifier,
         environment_identifier,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(environment_identifier)}/actions"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists blueprint configurations for a Amazon DataZone environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListEnvironmentBlueprintConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of blueprint configurations to
+    return in a single call to ListEnvironmentBlueprintConfigurations. When the
+    number of configurations to be listed is greater than the value of
+    MaxResults, the response contains a NextToken value that you can use in a
+    subsequent call to ListEnvironmentBlueprintConfigurations to list the next
+    set of configurations.
+  * `:next_token` (`t:string`) When the number of blueprint configurations is
+    greater than the default value for the MaxResults parameter, or if you
+    explicitly specify a value for MaxResults that is less than the number of
+    configurations, the response includes a pagination token named NextToken.
+    You can specify this NextToken value in a subsequent call to
+    ListEnvironmentBlueprintConfigurations to list the next set of
+    configurations.
   """
-  @spec list_environment_blueprint_configurations(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_environment_blueprint_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_environment_blueprint_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environment_blueprint_configurations_errors()}
   def list_environment_blueprint_configurations(
         %Client{} = client,
         domain_identifier,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environment-blueprint-configurations"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists blueprints in an Amazon DataZone environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListEnvironmentBlueprints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
+
+  ## Optional parameters:
+  * `:managed` (`t:`) Specifies whether the environment blueprint is managed by
+    Amazon DataZone.
+  * `:max_results` (`t:integer`) The maximum number of blueprints to return in a
+    single call to ListEnvironmentBlueprints. When the number of blueprints to
+    be listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to
+    ListEnvironmentBlueprints to list the next set of blueprints.
+  * `:name` (`t:string`) The name of the Amazon DataZone environment.
+  * `:next_token` (`t:string`) When the number of blueprints in the environment is
+    greater than the default value for the MaxResults parameter, or if you
+    explicitly specify a value for MaxResults that is less than the number of
+    blueprints in the environment, the response includes a pagination token
+    named NextToken. You can specify this NextToken value in a subsequent call
+    to ListEnvironmentBlueprintsto list the next set of blueprints.
   """
-  @spec list_environment_blueprints(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_environment_blueprints(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_environment_blueprints_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environment_blueprints_errors()}
-  def list_environment_blueprints(
-        %Client{} = client,
-        domain_identifier,
-        managed \\ nil,
-        max_results \\ nil,
-        name \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_environment_blueprints(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environment-blueprints"
+
+    # Validate optional parameters
+    optional_params = [managed: nil, max_results: nil, name: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
+      if opt_val = Keyword.get(options, :name) do
+        [{"name", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(managed) do
-        [{"managed", managed} | query_params]
+      if opt_val = Keyword.get(options, :managed) do
+        [{"managed", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:managed, :max_results, :name, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists Amazon DataZone environment profiles.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListEnvironmentProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
+
+  ## Optional parameters:
+  * `:aws_account_id` (`t:string`) The identifier of the Amazon Web Services
+    account where you want to list environment profiles.
+  * `:aws_account_region` (`t:string`) The Amazon Web Services region where you
+    want to list environment profiles.
+  * `:environment_blueprint_identifier` (`t:string`) The identifier of the
+    blueprint that was used to create the environment profiles that you want to
+    list.
+  * `:max_results` (`t:integer`) The maximum number of environment profiles to
+    return in a single call to ListEnvironmentProfiles. When the number of
+    environment profiles to be listed is greater than the value of MaxResults,
+    the response contains a NextToken value that you can use in a subsequent
+    call to ListEnvironmentProfiles to list the next set of environment
+    profiles.
+  * `:name` (`t:string`)
+  * `:next_token` (`t:string`) When the number of environment profiles is greater
+    than the default value for the MaxResults parameter, or if you explicitly
+    specify a value for MaxResults that is less than the number of environment
+    profiles, the response includes a pagination token named NextToken. You can
+    specify this NextToken value in a subsequent call to ListEnvironmentProfiles
+    to list the next set of environment profiles.
+  * `:project_identifier` (`t:string`) The identifier of the Amazon DataZone
+    project.
   """
-  @spec list_environment_profiles(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_environment_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_environment_profiles_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environment_profiles_errors()}
-  def list_environment_profiles(
-        %Client{} = client,
-        domain_identifier,
-        aws_account_id \\ nil,
-        aws_account_region \\ nil,
-        environment_blueprint_identifier \\ nil,
-        max_results \\ nil,
-        name \\ nil,
-        next_token \\ nil,
-        project_identifier \\ nil,
-        options \\ []
-      ) do
+  def list_environment_profiles(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environment-profiles"
+
+    # Validate optional parameters
+    optional_params = [
+      aws_account_id: nil,
+      aws_account_region: nil,
+      environment_blueprint_identifier: nil,
+      max_results: nil,
+      name: nil,
+      next_token: nil,
+      project_identifier: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(project_identifier) do
-        [{"projectIdentifier", project_identifier} | query_params]
+      if opt_val = Keyword.get(options, :project_identifier) do
+        [{"projectIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
+      if opt_val = Keyword.get(options, :name) do
+        [{"name", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(environment_blueprint_identifier) do
-        [{"environmentBlueprintIdentifier", environment_blueprint_identifier} | query_params]
+      if opt_val = Keyword.get(options, :environment_blueprint_identifier) do
+        [{"environmentBlueprintIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(aws_account_region) do
-        [{"awsAccountRegion", aws_account_region} | query_params]
+      if opt_val = Keyword.get(options, :aws_account_region) do
+        [{"awsAccountRegion", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(aws_account_id) do
-        [{"awsAccountId", aws_account_id} | query_params]
+      if opt_val = Keyword.get(options, :aws_account_id) do
+        [{"awsAccountId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :aws_account_id,
+        :aws_account_region,
+        :environment_blueprint_identifier,
+        :max_results,
+        :name,
+        :next_token,
+        :project_identifier
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists Amazon DataZone environments.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListEnvironments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
+  * `:project_identifier` (`t:string`) The identifier of the Amazon DataZone
+    project.
+
+  ## Optional parameters:
+  * `:aws_account_id` (`t:string`) The identifier of the Amazon Web Services
+    account where you want to list environments.
+  * `:aws_account_region` (`t:string`) The Amazon Web Services region where you
+    want to list environments.
+  * `:environment_blueprint_identifier` (`t:string`) The identifier of the Amazon
+    DataZone blueprint.
+  * `:environment_profile_identifier` (`t:string`) The identifier of the
+    environment profile.
+  * `:max_results` (`t:integer`) The maximum number of environments to return in a
+    single call to ListEnvironments. When the number of environments to be
+    listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to ListEnvironments to
+    list the next set of environments.
+  * `:name` (`t:`) The name of the environment.
+  * `:next_token` (`t:string`) When the number of environments is greater than the
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of environments, the
+    response includes a pagination token named NextToken. You can specify this
+    NextToken value in a subsequent call to ListEnvironments to list the next
+    set of environments.
+  * `:provider` (`t:`) The provider of the environment.
+  * `:status`
+    (`t:enum["ACTIVE|CREATE_FAILED|CREATING|DELETED|DELETE_FAILED|DELETING|DISABLED|EXPIRED|INACCESSIBLE|SUSPENDED|UPDATE_FAILED|UPDATING|VALIDATION_FAILED"]`)
+    The status of the environments that you want to list.
   """
-  @spec list_environments(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_environments(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_environments_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environments_errors()}
-  def list_environments(
-        %Client{} = client,
-        domain_identifier,
-        aws_account_id \\ nil,
-        aws_account_region \\ nil,
-        environment_blueprint_identifier \\ nil,
-        environment_profile_identifier \\ nil,
-        max_results \\ nil,
-        name \\ nil,
-        next_token \\ nil,
-        project_identifier,
-        provider \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_environments(%Client{} = client, domain_identifier, project_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments"
+
+    # Validate optional parameters
+    optional_params = [
+      aws_account_id: nil,
+      aws_account_region: nil,
+      environment_blueprint_identifier: nil,
+      environment_profile_identifier: nil,
+      max_results: nil,
+      name: nil,
+      next_token: nil,
+      provider: nil,
+      status: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"projectIdentifier", project_identifier}]
+
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(provider) do
-        [{"provider", provider} | query_params]
+      if opt_val = Keyword.get(options, :provider) do
+        [{"provider", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(project_identifier) do
-        [{"projectIdentifier", project_identifier} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :name) do
+        [{"name", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :environment_profile_identifier) do
+        [{"environmentProfileIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(environment_profile_identifier) do
-        [{"environmentProfileIdentifier", environment_profile_identifier} | query_params]
+      if opt_val = Keyword.get(options, :environment_blueprint_identifier) do
+        [{"environmentBlueprintIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(environment_blueprint_identifier) do
-        [{"environmentBlueprintIdentifier", environment_blueprint_identifier} | query_params]
+      if opt_val = Keyword.get(options, :aws_account_region) do
+        [{"awsAccountRegion", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(aws_account_region) do
-        [{"awsAccountRegion", aws_account_region} | query_params]
+      if opt_val = Keyword.get(options, :aws_account_id) do
+        [{"awsAccountId", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(aws_account_id) do
-        [{"awsAccountId", aws_account_id} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :aws_account_id,
+        :aws_account_region,
+        :environment_blueprint_identifier,
+        :environment_profile_identifier,
+        :max_results,
+        :name,
+        :next_token,
+        :provider,
+        :status
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the history of the specified data lineage node.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListLineageNodeHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the domain where you want to list
+    the history of the specified data lineage node.
+  * `:identifier` (`t:string`) The ID of the data lineage node whose history you
+    want to list.
+
+  ## Optional parameters:
+  * `:direction` (`t:enum["DOWNSTREAM|UPSTREAM"]`) The direction of the data
+    lineage node refers to the lineage node having neighbors in that direction.
+    For example, if direction is UPSTREAM, the ListLineageNodeHistory API
+    responds with historical versions with upstream neighbors only.
+  * `:event_timestamp_g_t_e` (`t:`) Specifies whether the action is to return data
+    lineage node history from the time after the event timestamp.
+  * `:event_timestamp_l_t_e` (`t:`) Specifies whether the action is to return data
+    lineage node history from the time prior of the event timestamp.
+  * `:max_results` (`t:integer`) The maximum number of history items to return in
+    a single call to ListLineageNodeHistory. When the number of memberships to
+    be listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to
+    ListLineageNodeHistory to list the next set of items.
+  * `:next_token` (`t:string`) When the number of history items is greater than
+    the default value for the MaxResults parameter, or if you explicitly specify
+    a value for MaxResults that is less than the number of items, the response
+    includes a pagination token named NextToken. You can specify this NextToken
+    value in a subsequent call to ListLineageNodeHistory to list the next set of
+    items.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The order by which you want
+    data lineage node history to be sorted.
   """
-  @spec list_lineage_node_history(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_lineage_node_history(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_lineage_node_history_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lineage_node_history_errors()}
-  def list_lineage_node_history(
-        %Client{} = client,
-        domain_identifier,
-        identifier,
-        direction \\ nil,
-        event_timestamp_g_t_e \\ nil,
-        event_timestamp_l_t_e \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        sort_order \\ nil,
-        options \\ []
-      ) do
+  def list_lineage_node_history(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/lineage/nodes/#{AWS.Util.encode_uri(identifier)}/history"
 
+    # Validate optional parameters
+    optional_params = [
+      direction: nil,
+      event_timestamp_g_t_e: nil,
+      event_timestamp_l_t_e: nil,
+      max_results: nil,
+      next_token: nil,
+      sort_order: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(sort_order) do
-        [{"sortOrder", sort_order} | query_params]
+      if opt_val = Keyword.get(options, :sort_order) do
+        [{"sortOrder", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(event_timestamp_l_t_e) do
-        [{"timestampLTE", event_timestamp_l_t_e} | query_params]
+      if opt_val = Keyword.get(options, :event_timestamp_l_t_e) do
+        [{"timestampLTE", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(event_timestamp_g_t_e) do
-        [{"timestampGTE", event_timestamp_g_t_e} | query_params]
+      if opt_val = Keyword.get(options, :event_timestamp_g_t_e) do
+        [{"timestampGTE", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(direction) do
-        [{"direction", direction} | query_params]
+      if opt_val = Keyword.get(options, :direction) do
+        [{"direction", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :direction,
+        :event_timestamp_g_t_e,
+        :event_timestamp_l_t_e,
+        :max_results,
+        :next_token,
+        :sort_order
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all metadata generation runs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListMetadataGenerationRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where
+    you want to list metadata generation runs.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of metadata generation runs to
+    return in a single call to ListMetadataGenerationRuns. When the number of
+    metadata generation runs to be listed is greater than the value of
+    MaxResults, the response contains a NextToken value that you can use in a
+    subsequent call to ListMetadataGenerationRuns to list the next set of
+    revisions.
+  * `:next_token` (`t:string`) When the number of metadata generation runs is
+    greater than the default value for the MaxResults parameter, or if you
+    explicitly specify a value for MaxResults that is less than the number of
+    metadata generation runs, the response includes a pagination token named
+    NextToken. You can specify this NextToken value in a subsequent call to
+    ListMetadataGenerationRuns to list the next set of revisions.
+  * `:status` (`t:enum["CANCELED|FAILED|IN_PROGRESS|SUBMITTED|SUCCEEDED"]`) The
+    status of the metadata generation runs.
+  * `:type` (`t:enum["BUSINESS_DESCRIPTIONS"]`) The type of the metadata
+    generation runs.
   """
-  @spec list_metadata_generation_runs(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_metadata_generation_runs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_metadata_generation_runs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_metadata_generation_runs_errors()}
-  def list_metadata_generation_runs(
-        %Client{} = client,
-        domain_identifier,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        type \\ nil,
-        options \\ []
-      ) do
+  def list_metadata_generation_runs(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/metadata-generation-runs"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, status: nil, type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
+      if opt_val = Keyword.get(options, :type) do
+        [{"type", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :status, :type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all Amazon DataZone notifications.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListNotifications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
+  * `:type` (`t:enum["EVENT|TASK"]`) The type of notifications.
+
+  ## Optional parameters:
+  * `:after_timestamp` (`t:`) The time after which you want to list notifications.
+  * `:before_timestamp` (`t:`) The time before which you want to list
+    notifications.
+  * `:max_results` (`t:integer`) The maximum number of notifications to return in
+    a single call to ListNotifications. When the number of notifications to be
+    listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to ListNotifications
+    to list the next set of notifications.
+  * `:next_token` (`t:string`) When the number of notifications is greater than
+    the default value for the MaxResults parameter, or if you explicitly specify
+    a value for MaxResults that is less than the number of notifications, the
+    response includes a pagination token named NextToken. You can specify this
+    NextToken value in a subsequent call to ListNotifications to list the next
+    set of notifications.
+  * `:subjects` (`t:list[smithy.api#String]`) The subjects of notifications.
+  * `:task_status` (`t:enum["ACTIVE|INACTIVE"]`) The task status of notifications.
   """
-  @spec list_notifications(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          list()
-        ) ::
+  @spec list_notifications(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_notifications_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_notifications_errors()}
-  def list_notifications(
-        %Client{} = client,
-        domain_identifier,
-        after_timestamp \\ nil,
-        before_timestamp \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        subjects \\ nil,
-        task_status \\ nil,
-        type,
-        options \\ []
-      ) do
+  def list_notifications(%Client{} = client, domain_identifier, type, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/notifications"
+
+    # Validate optional parameters
+    optional_params = [
+      after_timestamp: nil,
+      before_timestamp: nil,
+      max_results: nil,
+      next_token: nil,
+      subjects: nil,
+      task_status: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"type", type}]
+
+    # Optional query params
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
+      if opt_val = Keyword.get(options, :task_status) do
+        [{"taskStatus", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(task_status) do
-        [{"taskStatus", task_status} | query_params]
+      if opt_val = Keyword.get(options, :subjects) do
+        [{"subjects", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(subjects) do
-        [{"subjects", subjects} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :before_timestamp) do
+        [{"beforeTimestamp", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(before_timestamp) do
-        [{"beforeTimestamp", before_timestamp} | query_params]
+      if opt_val = Keyword.get(options, :after_timestamp) do
+        [{"afterTimestamp", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(after_timestamp) do
-        [{"afterTimestamp", after_timestamp} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :after_timestamp,
+        :before_timestamp,
+        :max_results,
+        :next_token,
+        :subjects,
+        :task_status
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all members of the specified project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListProjectMemberships&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which you want to list project memberships.
+  * `:project_identifier` (`t:string`) The identifier of the project whose
+    memberships you want to list.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of memberships to return in a
+    single call to ListProjectMemberships. When the number of memberships to be
+    listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to
+    ListProjectMemberships to list the next set of memberships.
+  * `:next_token` (`t:string`) When the number of memberships is greater than the
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of memberships, the
+    response includes a pagination token named NextToken. You can specify this
+    NextToken value in a subsequent call to ListProjectMemberships to list the
+    next set of memberships.
+  * `:sort_by` (`t:enum["NAME"]`) The method by which you want to sort the project
+    memberships.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the project
+    memberships.
   """
-  @spec list_project_memberships(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_project_memberships(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_project_memberships_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_project_memberships_errors()}
@@ -8758,328 +10414,487 @@ defmodule AWS.DataZone do
         %Client{} = client,
         domain_identifier,
         project_identifier,
-        max_results \\ nil,
-        next_token \\ nil,
-        sort_by \\ nil,
-        sort_order \\ nil,
         options \\ []
       ) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/projects/#{AWS.Util.encode_uri(project_identifier)}/memberships"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, sort_by: nil, sort_order: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(sort_order) do
-        [{"sortOrder", sort_order} | query_params]
+      if opt_val = Keyword.get(options, :sort_order) do
+        [{"sortOrder", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(sort_by) do
-        [{"sortBy", sort_by} | query_params]
+      if opt_val = Keyword.get(options, :sort_by) do
+        [{"sortBy", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :sort_by, :sort_order])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists Amazon DataZone projects.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListProjects&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
+
+  ## Optional parameters:
+  * `:group_identifier` (`t:`) The identifier of a group.
+  * `:max_results` (`t:integer`) The maximum number of projects to return in a
+    single call to ListProjects. When the number of projects to be listed is
+    greater than the value of MaxResults, the response contains a NextToken
+    value that you can use in a subsequent call to ListProjects to list the next
+    set of projects.
+  * `:name` (`t:string`) The name of the project.
+  * `:next_token` (`t:string`) When the number of projects is greater than the
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of projects, the response
+    includes a pagination token named NextToken. You can specify this NextToken
+    value in a subsequent call to ListProjects to list the next set of projects.
+  * `:user_identifier` (`t:`) The identifier of the Amazon DataZone user.
   """
-  @spec list_projects(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_projects(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_projects_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_projects_errors()}
-  def list_projects(
-        %Client{} = client,
-        domain_identifier,
-        group_identifier \\ nil,
-        max_results \\ nil,
-        name \\ nil,
-        next_token \\ nil,
-        user_identifier \\ nil,
-        options \\ []
-      ) do
+  def list_projects(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/projects"
+
+    # Validate optional parameters
+    optional_params = [
+      group_identifier: nil,
+      max_results: nil,
+      name: nil,
+      next_token: nil,
+      user_identifier: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(user_identifier) do
-        [{"userIdentifier", user_identifier} | query_params]
+      if opt_val = Keyword.get(options, :user_identifier) do
+        [{"userIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
+      if opt_val = Keyword.get(options, :name) do
+        [{"name", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(group_identifier) do
-        [{"groupIdentifier", group_identifier} | query_params]
+      if opt_val = Keyword.get(options, :group_identifier) do
+        [{"groupIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:group_identifier, :max_results, :name, :next_token, :user_identifier])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists subscription grants.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListSubscriptionGrants&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
+
+  ## Optional parameters:
+  * `:environment_id` (`t:string`) The identifier of the Amazon DataZone
+    environment.
+  * `:max_results` (`t:integer`) The maximum number of subscription grants to
+    return in a single call to ListSubscriptionGrants. When the number of
+    subscription grants to be listed is greater than the value of MaxResults,
+    the response contains a NextToken value that you can use in a subsequent
+    call to ListSubscriptionGrants to list the next set of subscription grants.
+  * `:next_token` (`t:string`) When the number of subscription grants is greater
+    than the default value for the MaxResults parameter, or if you explicitly
+    specify a value for MaxResults that is less than the number of subscription
+    grants, the response includes a pagination token named NextToken. You can
+    specify this NextToken value in a subsequent call to ListSubscriptionGrants
+    to list the next set of subscription grants.
+  * `:sort_by` (`t:enum["CREATED_AT|UPDATED_AT"]`) Specifies the way of sorting
+    the results of this action.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Specifies the sort order of
+    this action.
+  * `:subscribed_listing_id` (`t:string`) The identifier of the subscribed
+    listing.
+  * `:subscription_id` (`t:string`) The identifier of the subscription.
+  * `:subscription_target_id` (`t:string`) The identifier of the subscription
+    target.
   """
-  @spec list_subscription_grants(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_subscription_grants(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_subscription_grants_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_subscription_grants_errors()}
-  def list_subscription_grants(
-        %Client{} = client,
-        domain_identifier,
-        environment_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        sort_by \\ nil,
-        sort_order \\ nil,
-        subscribed_listing_id \\ nil,
-        subscription_id \\ nil,
-        subscription_target_id \\ nil,
-        options \\ []
-      ) do
+  def list_subscription_grants(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscription-grants"
+
+    # Validate optional parameters
+    optional_params = [
+      environment_id: nil,
+      max_results: nil,
+      next_token: nil,
+      sort_by: nil,
+      sort_order: nil,
+      subscribed_listing_id: nil,
+      subscription_id: nil,
+      subscription_target_id: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(subscription_target_id) do
-        [{"subscriptionTargetId", subscription_target_id} | query_params]
+      if opt_val = Keyword.get(options, :subscription_target_id) do
+        [{"subscriptionTargetId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(subscription_id) do
-        [{"subscriptionId", subscription_id} | query_params]
+      if opt_val = Keyword.get(options, :subscription_id) do
+        [{"subscriptionId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(subscribed_listing_id) do
-        [{"subscribedListingId", subscribed_listing_id} | query_params]
+      if opt_val = Keyword.get(options, :subscribed_listing_id) do
+        [{"subscribedListingId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(sort_order) do
-        [{"sortOrder", sort_order} | query_params]
+      if opt_val = Keyword.get(options, :sort_order) do
+        [{"sortOrder", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(sort_by) do
-        [{"sortBy", sort_by} | query_params]
+      if opt_val = Keyword.get(options, :sort_by) do
+        [{"sortBy", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(environment_id) do
-        [{"environmentId", environment_id} | query_params]
+      if opt_val = Keyword.get(options, :environment_id) do
+        [{"environmentId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :environment_id,
+        :max_results,
+        :next_token,
+        :sort_by,
+        :sort_order,
+        :subscribed_listing_id,
+        :subscription_id,
+        :subscription_target_id
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists Amazon DataZone subscription requests.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListSubscriptionRequests&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
+
+  ## Optional parameters:
+  * `:approver_project_id` (`t:string`) The identifier of the subscription request
+    approver's project.
+  * `:max_results` (`t:integer`) The maximum number of subscription requests to
+    return in a single call to ListSubscriptionRequests. When the number of
+    subscription requests to be listed is greater than the value of MaxResults,
+    the response contains a NextToken value that you can use in a subsequent
+    call to ListSubscriptionRequests to list the next set of subscription
+    requests.
+  * `:next_token` (`t:string`) When the number of subscription requests is greater
+    than the default value for the MaxResults parameter, or if you explicitly
+    specify a value for MaxResults that is less than the number of subscription
+    requests, the response includes a pagination token named NextToken. You can
+    specify this NextToken value in a subsequent call to
+    ListSubscriptionRequests to list the next set of subscription requests.
+  * `:owning_project_id` (`t:string`) The identifier of the project for the
+    subscription requests.
+  * `:sort_by` (`t:enum["CREATED_AT|UPDATED_AT"]`) Specifies the way to sort the
+    results of this action.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Specifies the sort order for
+    the results of this action.
+  * `:status` (`t:enum["ACCEPTED|PENDING|REJECTED"]`) Specifies the status of the
+    subscription requests.
+  * `:subscribed_listing_id` (`t:string`) The identifier of the subscribed
+    listing.
   """
-  @spec list_subscription_requests(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_subscription_requests(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_subscription_requests_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_subscription_requests_errors()}
-  def list_subscription_requests(
-        %Client{} = client,
-        domain_identifier,
-        approver_project_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        owning_project_id \\ nil,
-        sort_by \\ nil,
-        sort_order \\ nil,
-        status \\ nil,
-        subscribed_listing_id \\ nil,
-        options \\ []
-      ) do
+  def list_subscription_requests(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscription-requests"
+
+    # Validate optional parameters
+    optional_params = [
+      approver_project_id: nil,
+      max_results: nil,
+      next_token: nil,
+      owning_project_id: nil,
+      sort_by: nil,
+      sort_order: nil,
+      status: nil,
+      subscribed_listing_id: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(subscribed_listing_id) do
-        [{"subscribedListingId", subscribed_listing_id} | query_params]
+      if opt_val = Keyword.get(options, :subscribed_listing_id) do
+        [{"subscribedListingId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(sort_order) do
-        [{"sortOrder", sort_order} | query_params]
+      if opt_val = Keyword.get(options, :sort_order) do
+        [{"sortOrder", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(sort_by) do
-        [{"sortBy", sort_by} | query_params]
+      if opt_val = Keyword.get(options, :sort_by) do
+        [{"sortBy", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(owning_project_id) do
-        [{"owningProjectId", owning_project_id} | query_params]
+      if opt_val = Keyword.get(options, :owning_project_id) do
+        [{"owningProjectId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(approver_project_id) do
-        [{"approverProjectId", approver_project_id} | query_params]
+      if opt_val = Keyword.get(options, :approver_project_id) do
+        [{"approverProjectId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :approver_project_id,
+        :max_results,
+        :next_token,
+        :owning_project_id,
+        :sort_by,
+        :sort_order,
+        :status,
+        :subscribed_listing_id
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists subscription targets in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListSubscriptionTargets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    where you want to list subscription targets.
+  * `:environment_identifier` (`t:string`) The identifier of the environment where
+    you want to list subscription targets.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of subscription targets to
+    return in a single call to ListSubscriptionTargets. When the number of
+    subscription targets to be listed is greater than the value of MaxResults,
+    the response contains a NextToken value that you can use in a subsequent
+    call to ListSubscriptionTargets to list the next set of subscription
+    targets.
+  * `:next_token` (`t:string`) When the number of subscription targets is greater
+    than the default value for the MaxResults parameter, or if you explicitly
+    specify a value for MaxResults that is less than the number of subscription
+    targets, the response includes a pagination token named NextToken. You can
+    specify this NextToken value in a subsequent call to ListSubscriptionTargets
+    to list the next set of subscription targets.
+  * `:sort_by` (`t:enum["CREATED_AT|UPDATED_AT"]`) Specifies the way in which the
+    results of this action are to be sorted.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Specifies the sort order for
+    the results of this action.
   """
-  @spec list_subscription_targets(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_subscription_targets(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_subscription_targets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_subscription_targets_errors()}
@@ -9087,188 +10902,302 @@ defmodule AWS.DataZone do
         %Client{} = client,
         domain_identifier,
         environment_identifier,
-        max_results \\ nil,
-        next_token \\ nil,
-        sort_by \\ nil,
-        sort_order \\ nil,
         options \\ []
       ) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(environment_identifier)}/subscription-targets"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, sort_by: nil, sort_order: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(sort_order) do
-        [{"sortOrder", sort_order} | query_params]
+      if opt_val = Keyword.get(options, :sort_order) do
+        [{"sortOrder", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(sort_by) do
-        [{"sortBy", sort_by} | query_params]
+      if opt_val = Keyword.get(options, :sort_by) do
+        [{"sortBy", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :sort_by, :sort_order])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists subscriptions in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListSubscriptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
+
+  ## Optional parameters:
+  * `:approver_project_id` (`t:string`) The identifier of the project for the
+    subscription's approver.
+  * `:max_results` (`t:integer`) The maximum number of subscriptions to return in
+    a single call to ListSubscriptions. When the number of subscriptions to be
+    listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to ListSubscriptions
+    to list the next set of Subscriptions.
+  * `:next_token` (`t:string`) When the number of subscriptions is greater than
+    the default value for the MaxResults parameter, or if you explicitly specify
+    a value for MaxResults that is less than the number of subscriptions, the
+    response includes a pagination token named NextToken. You can specify this
+    NextToken value in a subsequent call to ListSubscriptions to list the next
+    set of subscriptions.
+  * `:owning_project_id` (`t:string`) The identifier of the owning project.
+  * `:sort_by` (`t:enum["CREATED_AT|UPDATED_AT"]`) Specifies the way in which the
+    results of this action are to be sorted.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Specifies the sort order for
+    the results of this action.
+  * `:status` (`t:enum["APPROVED|CANCELLED|REVOKED"]`) The status of the
+    subscriptions that you want to list.
+  * `:subscribed_listing_id` (`t:string`) The identifier of the subscribed listing
+    for the subscriptions that you want to list.
+  * `:subscription_request_identifier` (`t:string`) The identifier of the
+    subscription request for the subscriptions that you want to list.
   """
-  @spec list_subscriptions(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_subscriptions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_subscriptions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_subscriptions_errors()}
-  def list_subscriptions(
-        %Client{} = client,
-        domain_identifier,
-        approver_project_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        owning_project_id \\ nil,
-        sort_by \\ nil,
-        sort_order \\ nil,
-        status \\ nil,
-        subscribed_listing_id \\ nil,
-        subscription_request_identifier \\ nil,
-        options \\ []
-      ) do
+  def list_subscriptions(%Client{} = client, domain_identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscriptions"
+
+    # Validate optional parameters
+    optional_params = [
+      approver_project_id: nil,
+      max_results: nil,
+      next_token: nil,
+      owning_project_id: nil,
+      sort_by: nil,
+      sort_order: nil,
+      status: nil,
+      subscribed_listing_id: nil,
+      subscription_request_identifier: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(subscription_request_identifier) do
-        [{"subscriptionRequestIdentifier", subscription_request_identifier} | query_params]
+      if opt_val = Keyword.get(options, :subscription_request_identifier) do
+        [{"subscriptionRequestIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(subscribed_listing_id) do
-        [{"subscribedListingId", subscribed_listing_id} | query_params]
+      if opt_val = Keyword.get(options, :subscribed_listing_id) do
+        [{"subscribedListingId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(sort_order) do
-        [{"sortOrder", sort_order} | query_params]
+      if opt_val = Keyword.get(options, :sort_order) do
+        [{"sortOrder", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(sort_by) do
-        [{"sortBy", sort_by} | query_params]
+      if opt_val = Keyword.get(options, :sort_by) do
+        [{"sortBy", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(owning_project_id) do
-        [{"owningProjectId", owning_project_id} | query_params]
+      if opt_val = Keyword.get(options, :owning_project_id) do
+        [{"owningProjectId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(approver_project_id) do
-        [{"approverProjectId", approver_project_id} | query_params]
+      if opt_val = Keyword.get(options, :approver_project_id) do
+        [{"approverProjectId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :approver_project_id,
+        :max_results,
+        :next_token,
+        :owning_project_id,
+        :sort_by,
+        :sort_order,
+        :status,
+        :subscribed_listing_id,
+        :subscription_request_identifier
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists tags for the specified resource in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The ARN of the resource whose tags you want to list.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists time series data points.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListTimeSeriesDataPoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain that
+    houses the assets for which you want to list time series data points.
+  * `:entity_identifier` (`t:string`) The ID of the asset for which you want to
+    list data points.
+  * `:entity_type` (`t:enum["ASSET|LISTING"]`) The type of the asset for which you
+    want to list data points.
+  * `:form_name` (`t:string`) The name of the time series data points form.
+
+  ## Optional parameters:
+  * `:ended_at` (`t:`) The timestamp at which the data points that you wanted to
+    list ended.
+  * `:max_results` (`t:integer`) The maximum number of data points to return in a
+    single call to ListTimeSeriesDataPoints. When the number of data points to
+    be listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to
+    ListTimeSeriesDataPoints to list the next set of data points.
+  * `:next_token` (`t:string`) When the number of data points is greater than the
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of data points, the
+    response includes a pagination token named NextToken. You can specify this
+    NextToken value in a subsequent call to ListTimeSeriesDataPoints to list the
+    next set of data points.
+  * `:started_at` (`t:`) The timestamp at which the data points that you want to
+    list started.
   """
   @spec list_time_series_data_points(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          String.t() | nil,
           String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_time_series_data_points_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -9278,63 +11207,83 @@ defmodule AWS.DataZone do
         domain_identifier,
         entity_identifier,
         entity_type,
-        ended_at \\ nil,
         form_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        started_at \\ nil,
         options \\ []
       ) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/entities/#{AWS.Util.encode_uri(entity_type)}/#{AWS.Util.encode_uri(entity_identifier)}/time-series-data-points"
 
+    # Validate optional parameters
+    optional_params = [ended_at: nil, max_results: nil, next_token: nil, started_at: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"formName", form_name}]
+
+    # Optional query params
     query_params =
-      if !is_nil(started_at) do
-        [{"startedAt", started_at} | query_params]
+      if opt_val = Keyword.get(options, :started_at) do
+        [{"startedAt", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(form_name) do
-        [{"formName", form_name} | query_params]
+      if opt_val = Keyword.get(options, :ended_at) do
+        [{"endedAt", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(ended_at) do
-        [{"endedAt", ended_at} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:ended_at, :max_results, :next_token, :started_at])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Posts a data lineage event.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20PostLineageEvent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the domain where you want to post
+    a data lineage event.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) A unique, case-sensitive identifier that is
+    provided to ensure the idempotency of the request.
   """
-  @spec post_lineage_event(map(), String.t(), post_lineage_event_input(), list()) ::
+  @spec post_lineage_event(AWS.Client.t(), String.t(), post_lineage_event_input(), Keyword.t()) ::
           {:ok, post_lineage_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, post_lineage_event_errors()}
@@ -9348,7 +11297,13 @@ defmodule AWS.DataZone do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -9365,14 +11320,26 @@ defmodule AWS.DataZone do
 
   @doc """
   Posts time series data points to Amazon DataZone for the specified asset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20PostTimeSeriesDataPoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which you want to post time series data points.
+  * `:entity_identifier` (`t:string`) The ID of the asset for which you want to
+    post time series data points.
+  * `:entity_type` (`t:enum["ASSET|LISTING"]`) The type of the asset for which you
+    want to post data points.
+
+  ## Optional parameters:
   """
   @spec post_time_series_data_points(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           post_time_series_data_points_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, post_time_series_data_points_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -9391,7 +11358,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9409,13 +11377,23 @@ defmodule AWS.DataZone do
   @doc """
   Writes the configuration for the specified environment blueprint in Amazon
   DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20PutEnvironmentBlueprintConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
+  * `:environment_blueprint_identifier` (`t:string`) The identifier of the
+    environment blueprint.
+
+  ## Optional parameters:
   """
   @spec put_environment_blueprint_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           put_environment_blueprint_configuration_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_environment_blueprint_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -9433,17 +11411,33 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Rejects automatically generated business-friendly metadata for your Amazon
-  DataZone
-  assets.
+  DataZone assets.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20RejectPredictions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
+  * `:identifier` (`t:string`) The identifier of the prediction.
+
+  ## Optional parameters:
+  * `:revision` (`t:string`) The revision that is to be made to the asset.
   """
-  @spec reject_predictions(map(), String.t(), String.t(), reject_predictions_input(), list()) ::
+  @spec reject_predictions(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          reject_predictions_input(),
+          Keyword.t()
+        ) ::
           {:ok, reject_predictions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_predictions_errors()}
@@ -9459,20 +11453,36 @@ defmodule AWS.DataZone do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:revision])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Rejects the specified subscription request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20RejectSubscriptionRequest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which the subscription request was rejected.
+  * `:identifier` (`t:string`) The identifier of the subscription request that was
+    rejected.
+
+  ## Optional parameters:
   """
   @spec reject_subscription_request(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           reject_subscription_request_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, reject_subscription_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -9490,15 +11500,31 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Revokes a specified subscription in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20RevokeSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    where you want to revoke a subscription.
+  * `:identifier` (`t:string`) The identifier of the revoked subscription.
+
+  ## Optional parameters:
   """
-  @spec revoke_subscription(map(), String.t(), String.t(), revoke_subscription_input(), list()) ::
+  @spec revoke_subscription(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          revoke_subscription_input(),
+          Keyword.t()
+        ) ::
           {:ok, revoke_subscription_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_subscription_errors()}
@@ -9509,15 +11535,24 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Searches for assets in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20Search&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
+
+  ## Optional parameters:
   """
-  @spec search(map(), String.t(), search_input(), list()) ::
+  @spec search(AWS.Client.t(), String.t(), search_input(), Keyword.t()) ::
           {:ok, search_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_errors()}
@@ -9526,7 +11561,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9543,8 +11579,21 @@ defmodule AWS.DataZone do
 
   @doc """
   Searches group profiles in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20SearchGroupProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which you want to search group profiles.
+
+  ## Optional parameters:
   """
-  @spec search_group_profiles(map(), String.t(), search_group_profiles_input(), list()) ::
+  @spec search_group_profiles(
+          AWS.Client.t(),
+          String.t(),
+          search_group_profiles_input(),
+          Keyword.t()
+        ) ::
           {:ok, search_group_profiles_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_group_profiles_errors()}
@@ -9553,7 +11602,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9570,8 +11620,16 @@ defmodule AWS.DataZone do
 
   @doc """
   Searches listings (records of an asset at a given time) in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20SearchListings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the domain in which to
+    search listings.
+
+  ## Optional parameters:
   """
-  @spec search_listings(map(), String.t(), search_listings_input(), list()) ::
+  @spec search_listings(AWS.Client.t(), String.t(), search_listings_input(), Keyword.t()) ::
           {:ok, search_listings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_listings_errors()}
@@ -9580,7 +11638,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9597,8 +11656,16 @@ defmodule AWS.DataZone do
 
   @doc """
   Searches for types in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20SearchTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which to invoke the SearchTypes action.
+
+  ## Optional parameters:
   """
-  @spec search_types(map(), String.t(), search_types_input(), list()) ::
+  @spec search_types(AWS.Client.t(), String.t(), search_types_input(), Keyword.t()) ::
           {:ok, search_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_types_errors()}
@@ -9607,7 +11674,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9624,8 +11692,21 @@ defmodule AWS.DataZone do
 
   @doc """
   Searches user profiles in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20SearchUserProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which you want to search user profiles.
+
+  ## Optional parameters:
   """
-  @spec search_user_profiles(map(), String.t(), search_user_profiles_input(), list()) ::
+  @spec search_user_profiles(
+          AWS.Client.t(),
+          String.t(),
+          search_user_profiles_input(),
+          Keyword.t()
+        ) ::
           {:ok, search_user_profiles_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_user_profiles_errors()}
@@ -9634,7 +11715,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9651,13 +11733,22 @@ defmodule AWS.DataZone do
 
   @doc """
   Start the run of the specified data source in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20StartDataSourceRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_source_identifier` (`t:string`) The identifier of the data source.
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which to start a data source run.
+
+  ## Optional parameters:
   """
   @spec start_data_source_run(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           start_data_source_run_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_data_source_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -9675,7 +11766,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9692,12 +11784,20 @@ defmodule AWS.DataZone do
 
   @doc """
   Starts the metadata generation run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20StartMetadataGenerationRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where
+    you want to start a metadata generation run.
+
+  ## Optional parameters:
   """
   @spec start_metadata_generation_run(
-          map(),
+          AWS.Client.t(),
           String.t(),
           start_metadata_generation_run_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_metadata_generation_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -9707,7 +11807,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9724,8 +11825,16 @@ defmodule AWS.DataZone do
 
   @doc """
   Tags a resource in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The ARN of the resource to be tagged in Amazon
+    DataZone.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -9734,7 +11843,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9751,8 +11861,18 @@ defmodule AWS.DataZone do
 
   @doc """
   Untags a resource in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The ARN of the resource to be untagged in Amazon
+    DataZone.
+  * `:tag_keys` (`t:list[com.amazonaws.datazone#TagKey]`) Specifies the tag keys
+    for the UntagResource action.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -9766,7 +11886,8 @@ defmodule AWS.DataZone do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9783,8 +11904,23 @@ defmodule AWS.DataZone do
 
   @doc """
   Updates the specified data source in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the domain in which to
+    update a data source.
+  * `:identifier` (`t:string`) The identifier of the data source to be updated.
+
+  ## Optional parameters:
   """
-  @spec update_data_source(map(), String.t(), String.t(), update_data_source_input(), list()) ::
+  @spec update_data_source(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_data_source_input(),
+          Keyword.t()
+        ) ::
           {:ok, update_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_source_errors()}
@@ -9795,7 +11931,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9812,8 +11949,18 @@ defmodule AWS.DataZone do
 
   @doc """
   Updates a Amazon DataZone domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The ID of the Amazon Web Services domain that is to
+    be updated.
+
+  ## Optional parameters:
+  * `:client_token` (`t:`) A unique, case-sensitive identifier that is provided to
+    ensure the idempotency of the request.
   """
-  @spec update_domain(map(), String.t(), update_domain_input(), list()) ::
+  @spec update_domain(AWS.Client.t(), String.t(), update_domain_input(), Keyword.t()) ::
           {:ok, update_domain_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_domain_errors()}
@@ -9827,15 +11974,37 @@ defmodule AWS.DataZone do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the specified environment in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the domain in which the
+    environment is to be updated.
+  * `:identifier` (`t:string`) The identifier of the environment that is to be
+    updated.
+
+  ## Optional parameters:
   """
-  @spec update_environment(map(), String.t(), String.t(), update_environment_input(), list()) ::
+  @spec update_environment(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_environment_input(),
+          Keyword.t()
+        ) ::
           {:ok, update_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_environment_errors()}
@@ -9846,7 +12015,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9863,14 +12033,24 @@ defmodule AWS.DataZone do
 
   @doc """
   Updates an environment action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateEnvironmentAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The domain ID of the environment action.
+  * `:environment_identifier` (`t:string`) The environment ID of the environment
+    action.
+  * `:identifier` (`t:`) The ID of the environment action.
+
+  ## Optional parameters:
   """
   @spec update_environment_action(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           update_environment_action_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_environment_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -9889,7 +12069,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9906,13 +12087,23 @@ defmodule AWS.DataZone do
 
   @doc """
   Updates the specified environment profile in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateEnvironmentProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which an environment profile is to be updated.
+  * `:identifier` (`t:string`) The identifier of the environment profile that is
+    to be updated.
+
+  ## Optional parameters:
   """
   @spec update_environment_profile(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_environment_profile_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_environment_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -9930,7 +12121,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9947,8 +12139,24 @@ defmodule AWS.DataZone do
 
   @doc """
   Updates the business glossary in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateGlossary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which a business glossary is to be updated.
+  * `:identifier` (`t:string`) The identifier of the business glossary to be
+    updated.
+
+  ## Optional parameters:
   """
-  @spec update_glossary(map(), String.t(), String.t(), update_glossary_input(), list()) ::
+  @spec update_glossary(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_glossary_input(),
+          Keyword.t()
+        ) ::
           {:ok, update_glossary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_glossary_errors()}
@@ -9959,7 +12167,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9976,8 +12185,24 @@ defmodule AWS.DataZone do
 
   @doc """
   Updates a business glossary term in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateGlossaryTerm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which a business glossary term is to be updated.
+  * `:identifier` (`t:string`) The identifier of the business glossary term that
+    is to be updated.
+
+  ## Optional parameters:
   """
-  @spec update_glossary_term(map(), String.t(), String.t(), update_glossary_term_input(), list()) ::
+  @spec update_glossary_term(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_glossary_term_input(),
+          Keyword.t()
+        ) ::
           {:ok, update_glossary_term_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_glossary_term_errors()}
@@ -9994,7 +12219,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -10011,8 +12237,24 @@ defmodule AWS.DataZone do
 
   @doc """
   Updates the specified group profile in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateGroupProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which a group profile is updated.
+  * `:group_identifier` (`t:string`) The identifier of the group profile that is
+    updated.
+
+  ## Optional parameters:
   """
-  @spec update_group_profile(map(), String.t(), String.t(), update_group_profile_input(), list()) ::
+  @spec update_group_profile(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_group_profile_input(),
+          Keyword.t()
+        ) ::
           {:ok, update_group_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_group_profile_errors()}
@@ -10029,15 +12271,32 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the specified project in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which a project is to be updated.
+  * `:identifier` (`t:string`) The identifier of the project that is to be
+    updated.
+
+  ## Optional parameters:
   """
-  @spec update_project(map(), String.t(), String.t(), update_project_input(), list()) ::
+  @spec update_project(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_project_input(),
+          Keyword.t()
+        ) ::
           {:ok, update_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_errors()}
@@ -10048,7 +12307,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -10066,14 +12326,26 @@ defmodule AWS.DataZone do
   @doc """
   Updates the status of the specified subscription grant status in Amazon
   DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateSubscriptionGrantStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_identifier` (`t:string`) The identifier of the asset the subscription
+    grant status of which is to be updated.
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which a subscription grant status is to be updated.
+  * `:identifier` (`t:string`) The identifier of the subscription grant the status
+    of which is to be updated.
+
+  ## Optional parameters:
   """
   @spec update_subscription_grant_status(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           update_subscription_grant_status_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_subscription_grant_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -10092,7 +12364,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -10109,13 +12382,23 @@ defmodule AWS.DataZone do
 
   @doc """
   Updates a specified subscription request in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateSubscriptionRequest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which a subscription request is to be updated.
+  * `:identifier` (`t:string`) The identifier of the subscription request that is
+    to be updated.
+
+  ## Optional parameters:
   """
   @spec update_subscription_request(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_subscription_request_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_subscription_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -10133,7 +12416,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -10150,14 +12434,26 @@ defmodule AWS.DataZone do
 
   @doc """
   Updates the specified subscription target in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateSubscriptionTarget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which a subscription target is to be updated.
+  * `:environment_identifier` (`t:string`) The identifier of the environment in
+    which a subscription target is to be updated.
+  * `:identifier` (`t:string`) Identifier of the subscription target that is to be
+    updated.
+
+  ## Optional parameters:
   """
   @spec update_subscription_target(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           update_subscription_target_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_subscription_target_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -10176,7 +12472,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -10193,8 +12490,24 @@ defmodule AWS.DataZone do
 
   @doc """
   Updates the specified user profile in Amazon DataZone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateUserProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which a user profile is updated.
+  * `:user_identifier` (`t:string`) The identifier of the user whose user profile
+    is to be updated.
+
+  ## Optional parameters:
   """
-  @spec update_user_profile(map(), String.t(), String.t(), update_user_profile_input(), list()) ::
+  @spec update_user_profile(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_user_profile_input(),
+          Keyword.t()
+        ) ::
           {:ok, update_user_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_profile_errors()}
@@ -10211,7 +12524,8 @@ defmodule AWS.DataZone do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

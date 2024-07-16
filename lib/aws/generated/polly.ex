@@ -3,13 +3,7 @@
 
 defmodule AWS.Polly do
   @moduledoc """
-  Amazon Polly is a web service that makes it easy to synthesize speech from
-  text.
-
-  The Amazon Polly service provides API operations for synthesizing
-  high-quality speech from plain text and Speech Synthesis Markup Language
-  (SSML), along with managing pronunciations lexicons that enable you to get
-  the best results for your application domain.
+  Amazon Polly is a web service that makes it easy to synthesize speech from text.
   """
 
   alias AWS.Client
@@ -614,15 +608,19 @@ defmodule AWS.Polly do
 
   @doc """
   Deletes the specified pronunciation lexicon stored in an Amazon Web Services
-  Region.
+  Region. A lexicon which has been deleted is not available for speech
+  synthesis, nor is it possible to retrieve it using either the `GetLexicon` or
+  `ListLexicon` APIs.
 
-  A lexicon which has been deleted is not available for
-  speech synthesis, nor is it possible to retrieve it using either the
-  `GetLexicon` or `ListLexicon` APIs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20DeleteLexicon&this_doc_guide=API%2520Reference)
 
-  For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
+  ## Parameters:
+  * `:name` (`t:string`) The name of the lexicon to delete. Must be an existing
+    lexicon in the region.
+
+  ## Optional parameters:
   """
-  @spec delete_lexicon(map(), String.t(), delete_lexicon_input(), list()) ::
+  @spec delete_lexicon(AWS.Client.t(), String.t(), delete_lexicon_input(), Keyword.t()) ::
           {:ok, delete_lexicon_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_lexicon_errors()}
@@ -631,7 +629,8 @@ defmodule AWS.Polly do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -647,219 +646,342 @@ defmodule AWS.Polly do
   end
 
   @doc """
-  Returns the list of voices that are available for use when
-  requesting speech synthesis.
+  Returns the list of voices that are available for use when requesting speech
+  synthesis. Each voice speaks a specified language, is either male or female,
+  and is identified by an ID, which is the ASCII version of the voice name. When
+  synthesizing speech ( `SynthesizeSpeech` ), you provide the voice ID for the
+  voice you want from the list of voices returned by `DescribeVoices`.
 
-  Each voice speaks a specified language, is
-  either male or female, and is identified by an ID, which is the ASCII
-  version of the voice name.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20DescribeVoices&this_doc_guide=API%2520Reference)
 
-  When synthesizing speech ( `SynthesizeSpeech` ), you
-  provide the voice ID for the voice you want from the list of voices
-  returned by `DescribeVoices`.
+  ## Parameters:
 
-  For example, you want your news reader application to read news in
-  a specific language, but giving a user the option to choose the voice.
-  Using the `DescribeVoices` operation you can provide the user
-  with a list of available voices to select from.
-
-  You can optionally specify a language code to filter the available
-  voices. For example, if you specify `en-US`, the operation
-  returns a list of all available US English voices.
-
-  This operation requires permissions to perform the
-  `polly:DescribeVoices` action.
+  ## Optional parameters:
+  * `:engine` (`t:enum["GENERATIVE|LONG_FORM|NEURAL|STANDARD"]`) Specifies the
+    engine (standard, neural, long-form or generative) used by Amazon Polly when
+    processing input text for speech synthesis.
+  * `:include_additional_language_codes` (`t:boolean`) Boolean value indicating
+    whether to return any bilingual voices that use the specified language as an
+    additional language. For instance, if you request all languages that use US
+    English (es-US), and there is an Italian voice that speaks both Italian
+    (it-IT) and US English, that voice will be included if you specify yes but
+    not if you specify no.
+  * `:language_code`
+    (`t:enum["ar_AE|fr_BE|ru_RU|hi_IN|en_GB|nb_NO|pt_PT|tr_TR|de_AT|en_ZA|en_NZ|fi_FI|is_IS|ca_ES|es_US|nl_BE|en_US|en_IN|yue_CN|cmn_CN|ja_JP|pl_PL|es_ES|da_DK|fr_FR|sv_SE|cy_GB|en_IE|it_IT|ko_KR|en_AU|de_DE|en_GB_WLS|es_MX|pt_BR|nl_NL|ro_RO|arb|fr_CA"]`)
+    The language identification tag (ISO 639 code for the language name-ISO 3166
+    country code) for filtering the list of voices returned. If you don't
+    specify this optional parameter, all available voices are returned.
+  * `:next_token` (`t:string`) An opaque pagination token returned from the
+    previous DescribeVoices operation. If present, this indicates where to
+    continue the listing.
   """
-  @spec describe_voices(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec describe_voices(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_voices_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_voices_errors()}
-  def describe_voices(
-        %Client{} = client,
-        engine \\ nil,
-        include_additional_language_codes \\ nil,
-        language_code \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def describe_voices(%Client{} = client, options \\ []) do
     url_path = "/v1/voices"
+
+    # Validate optional parameters
+    optional_params = [
+      engine: nil,
+      include_additional_language_codes: nil,
+      language_code: nil,
+      next_token: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(language_code) do
-        [{"LanguageCode", language_code} | query_params]
+      if opt_val = Keyword.get(options, :language_code) do
+        [{"LanguageCode", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(include_additional_language_codes) do
-        [{"IncludeAdditionalLanguageCodes", include_additional_language_codes} | query_params]
+      if opt_val = Keyword.get(options, :include_additional_language_codes) do
+        [{"IncludeAdditionalLanguageCodes", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(engine) do
-        [{"Engine", engine} | query_params]
+      if opt_val = Keyword.get(options, :engine) do
+        [{"Engine", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:engine, :include_additional_language_codes, :language_code, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns the content of the specified pronunciation lexicon stored
-  in an Amazon Web Services Region.
+  Returns the content of the specified pronunciation lexicon stored in an Amazon
+  Web Services Region. For more information, see [Managing
+  Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
 
-  For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20GetLexicon&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) Name of the lexicon.
+
+  ## Optional parameters:
   """
-  @spec get_lexicon(map(), String.t(), list()) ::
+  @spec get_lexicon(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lexicon_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lexicon_errors()}
   def get_lexicon(%Client{} = client, name, options \\ []) do
     url_path = "/v1/lexicons/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves a specific SpeechSynthesisTask object based on its TaskID.
+  Retrieves a specific SpeechSynthesisTask object based on its TaskID. This object
+  contains information about the given speech synthesis task, including the
+  status of the task, and a link to the S3 bucket containing the output of the
+  task.
 
-  This object contains information about the given speech synthesis task,
-  including the status of the task, and a link to the S3 bucket containing
-  the output of the task.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20GetSpeechSynthesisTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:task_id` (`t:string`) The Amazon Polly generated identifier for a speech
+    synthesis task.
+
+  ## Optional parameters:
   """
-  @spec get_speech_synthesis_task(map(), String.t(), list()) ::
+  @spec get_speech_synthesis_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_speech_synthesis_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_speech_synthesis_task_errors()}
   def get_speech_synthesis_task(%Client{} = client, task_id, options \\ []) do
     url_path = "/v1/synthesisTasks/#{AWS.Util.encode_uri(task_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of pronunciation lexicons stored in an Amazon Web Services
-  Region.
+  Region. For more information, see [Managing
+  Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
 
-  For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20ListLexicons&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) An opaque pagination token returned from previous
+    ListLexicons operation. If present, indicates where to continue the list of
+    lexicons.
   """
-  @spec list_lexicons(map(), String.t() | nil, list()) ::
+  @spec list_lexicons(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_lexicons_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lexicons_errors()}
-  def list_lexicons(%Client{} = client, next_token \\ nil, options \\ []) do
+  def list_lexicons(%Client{} = client, options \\ []) do
     url_path = "/v1/lexicons"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns a list of SpeechSynthesisTask objects ordered by their
-  creation date.
+  Returns a list of SpeechSynthesisTask objects ordered by their creation date.
+  This operation can filter the tasks by their status, for example, allowing
+  users to list only tasks that are completed.
 
-  This operation can filter the tasks by their status, for
-  example, allowing users to list only tasks that are completed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20ListSpeechSynthesisTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Maximum number of speech synthesis tasks returned
+    in a List operation.
+  * `:next_token` (`t:string`) The pagination token to use in the next request to
+    continue the listing of speech synthesis tasks.
+  * `:status` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|SCHEDULED"]`) Status of the
+    speech synthesis tasks returned in a List operation
   """
-  @spec list_speech_synthesis_tasks(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_speech_synthesis_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_speech_synthesis_tasks_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_speech_synthesis_tasks_errors()}
-  def list_speech_synthesis_tasks(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_speech_synthesis_tasks(%Client{} = client, options \\ []) do
     url_path = "/v1/synthesisTasks"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"Status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"Status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Stores a pronunciation lexicon in an Amazon Web Services Region.
+  Stores a pronunciation lexicon in an Amazon Web Services Region. If a lexicon
+  with the same name already exists in the region, it is overwritten by the new
+  lexicon. Lexicon operations have eventual consistency, therefore, it might
+  take some time before the lexicon is available to the SynthesizeSpeech
+  operation.
 
-  If
-  a lexicon with the same name already exists in the region, it is
-  overwritten by the new lexicon. Lexicon operations have eventual
-  consistency, therefore, it might take some time before the lexicon is
-  available to the SynthesizeSpeech operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20PutLexicon&this_doc_guide=API%2520Reference)
 
-  For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
+  ## Parameters:
+  * `:name` (`t:string`) Name of the lexicon. The name must follow the regular
+    express format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive
+    alphanumeric string up to 20 characters long.
+
+  ## Optional parameters:
   """
-  @spec put_lexicon(map(), String.t(), put_lexicon_input(), list()) ::
+  @spec put_lexicon(AWS.Client.t(), String.t(), put_lexicon_input(), Keyword.t()) ::
           {:ok, put_lexicon_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_lexicon_errors()}
@@ -868,26 +990,34 @@ defmodule AWS.Polly do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Allows the creation of an asynchronous synthesis task, by starting a
-  new `SpeechSynthesisTask`.
+  Allows the creation of an asynchronous synthesis task, by starting a new
+  `SpeechSynthesisTask`. This operation requires all the standard information
+  needed for speech synthesis, plus the name of an Amazon S3 bucket for the
+  service to store the output of the synthesis task and two optional parameters
+  (`OutputS3KeyPrefix` and `SnsTopicArn`). Once the synthesis task is created,
+  this operation will return a `SpeechSynthesisTask` object, which will include
+  an identifier of this task as well as the current status. The
+  `SpeechSynthesisTask` object is available for 72 hours after starting the
+  asynchronous synthesis task.
 
-  This operation requires all the
-  standard information needed for speech synthesis, plus the name of an
-  Amazon S3 bucket for the service to store the output of the synthesis task
-  and two optional parameters (`OutputS3KeyPrefix` and
-  `SnsTopicArn`). Once the synthesis task is created, this
-  operation will return a `SpeechSynthesisTask` object, which
-  will include an identifier of this task as well as the current status. The
-  `SpeechSynthesisTask` object is available for 72 hours after
-  starting the asynchronous synthesis task.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20StartSpeechSynthesisTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_speech_synthesis_task(map(), start_speech_synthesis_task_input(), list()) ::
+  @spec start_speech_synthesis_task(
+          AWS.Client.t(),
+          start_speech_synthesis_task_input(),
+          Keyword.t()
+        ) ::
           {:ok, start_speech_synthesis_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_speech_synthesis_task_errors()}
@@ -896,7 +1026,8 @@ defmodule AWS.Polly do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -912,14 +1043,19 @@ defmodule AWS.Polly do
   end
 
   @doc """
-  Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes.
+  Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes. SSML input
+  must be valid, well-formed SSML. Some alphabets might not be available with
+  all the voices (for example, Cyrillic might not be read at all by English
+  voices) unless phoneme mapping is used. For more information, see [How it
+  Works](https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html).
 
-  SSML input must be valid, well-formed SSML. Some alphabets might not be
-  available with all the voices (for example, Cyrillic might not be read at
-  all by English voices) unless phoneme mapping is used. For more
-  information, see [How it Works](https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20SynthesizeSpeech&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec synthesize_speech(map(), synthesize_speech_input(), list()) ::
+  @spec synthesize_speech(AWS.Client.t(), synthesize_speech_input(), Keyword.t()) ::
           {:ok, synthesize_speech_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, synthesize_speech_errors()}
@@ -938,7 +1074,8 @@ defmodule AWS.Polly do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

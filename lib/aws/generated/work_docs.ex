@@ -4,66 +4,6 @@
 defmodule AWS.WorkDocs do
   @moduledoc """
   The Amazon WorkDocs API is designed for the following use cases:
-
-    *
-  File Migration: File migration applications are supported for users who
-  want to migrate their files from an on-premises or off-premises file system or
-  service.
-
-  Users can insert files into a user directory structure, as well as
-  allow for basic metadata changes, such as modifications to the permissions of
-  files.
-
-    *
-  Security: Support security applications are supported for users who have
-  additional security needs, such as antivirus or data loss prevention. The API
-  actions, along with CloudTrail, allow these applications to detect when
-  changes occur in Amazon WorkDocs. Then, the application can take the necessary
-  actions and replace the target file. If the target file violates the policy, the
-  application can also choose to email the user.
-
-    *
-  eDiscovery/Analytics: General administrative applications are supported,
-  such as eDiscovery and analytics. These applications can choose to mimic or
-  record the actions in an Amazon WorkDocs site, along with CloudTrail, to
-  replicate data for eDiscovery, backup, or analytical applications.
-
-  All Amazon WorkDocs API actions are Amazon authenticated and certificate-signed.
-  They not only require the use of the Amazon Web Services SDK, but also allow for
-  the exclusive use of
-  IAM users and roles to help facilitate access, trust, and permission policies.
-  By
-  creating a role and allowing an IAM user to access the Amazon WorkDocs site, the
-  IAM user gains full administrative visibility into the entire Amazon WorkDocs
-  site (or as
-  set in the IAM policy). This includes, but is not limited to, the ability to
-  modify file
-  permissions and upload any file to any user. This allows developers to perform
-  the three
-  use cases above, as well as give users the ability to grant access on a
-  selective basis
-  using the IAM model.
-
-  The pricing for Amazon WorkDocs APIs varies depending on the API call type for
-  these actions:
-
-    
-
-  `READ (Get*)`
-
-    
-
-  `WRITE (Activate*, Add*, Create*, Deactivate*, Initiate*, Update*)`
-
-    
-
-  `LIST (Describe*)`
-
-    
-
-  `DELETE*, CANCEL`
-
-  For information about Amazon WorkDocs API pricing, see [Amazon WorkDocs Pricing](https://aws.amazon.com/workdocs/pricing/).
   """
 
   alias AWS.Client
@@ -2079,19 +2019,27 @@ defmodule AWS.WorkDocs do
 
   @doc """
   Aborts the upload of the specified document version that was previously
-  initiated
-  by `InitiateDocumentVersionUpload`.
-
-  The client should make this call
+  initiated by `InitiateDocumentVersionUpload`. The client should make this call
   only when it no longer intends to upload the document version, or fails to do
   so.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20AbortDocumentVersionUpload&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:document_id` (`t:string`) The ID of the document.
+  * `:version_id` (`t:string`) The ID of the version.
+
+  ## Optional parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec abort_document_version_upload(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           abort_document_version_upload_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -2106,6 +2054,14 @@ defmodule AWS.WorkDocs do
     url_path =
       "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/versions/#{AWS.Util.encode_uri(version_id)}"
 
+    optional_params = [authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"AuthenticationToken", "Authentication"}
@@ -2114,7 +2070,13 @@ defmodule AWS.WorkDocs do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:authentication_token])
 
     Request.request_rest(
       client,
@@ -2130,17 +2092,32 @@ defmodule AWS.WorkDocs do
   end
 
   @doc """
-  Activates the specified user.
+  Activates the specified user. Only active users can access Amazon WorkDocs.
 
-  Only active users can access Amazon
-  WorkDocs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20ActivateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:user_id` (`t:string`) The ID of the user.
+
+  ## Optional parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec activate_user(map(), String.t(), activate_user_request(), list()) ::
+  @spec activate_user(AWS.Client.t(), String.t(), activate_user_request(), Keyword.t()) ::
           {:ok, activate_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, activate_user_errors()}
   def activate_user(%Client{} = client, user_id, input, options \\ []) do
     url_path = "/api/v1/users/#{AWS.Util.encode_uri(user_id)}/activation"
+
+    optional_params = [authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -2150,7 +2127,13 @@ defmodule AWS.WorkDocs do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:authentication_token])
 
     Request.request_rest(
       client,
@@ -2166,18 +2149,39 @@ defmodule AWS.WorkDocs do
   end
 
   @doc """
-  Creates a set of permissions for the specified folder or document.
-
-  The resource
+  Creates a set of permissions for the specified folder or document. The resource
   permissions are overwritten if the principals already have different
   permissions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20AddResourcePermissions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_id` (`t:string`) The ID of the resource.
+
+  ## Optional parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec add_resource_permissions(map(), String.t(), add_resource_permissions_request(), list()) ::
+  @spec add_resource_permissions(
+          AWS.Client.t(),
+          String.t(),
+          add_resource_permissions_request(),
+          Keyword.t()
+        ) ::
           {:ok, add_resource_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_resource_permissions_errors()}
   def add_resource_permissions(%Client{} = client, resource_id, input, options \\ []) do
     url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/permissions"
+
+    optional_params = [authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -2187,7 +2191,13 @@ defmodule AWS.WorkDocs do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:authentication_token])
 
     Request.request_rest(
       client,
@@ -2204,14 +2214,39 @@ defmodule AWS.WorkDocs do
 
   @doc """
   Adds a new comment to the specified document version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20CreateComment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:document_id` (`t:string`) The ID of the document.
+  * `:version_id` (`t:string`) The ID of the document version.
+
+  ## Optional parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec create_comment(map(), String.t(), String.t(), create_comment_request(), list()) ::
+  @spec create_comment(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          create_comment_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_comment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_comment_errors()}
   def create_comment(%Client{} = client, document_id, version_id, input, options \\ []) do
     url_path =
       "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/versions/#{AWS.Util.encode_uri(version_id)}/comment"
+
+    optional_params = [authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -2221,7 +2256,13 @@ defmodule AWS.WorkDocs do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:authentication_token])
 
     Request.request_rest(
       client,
@@ -2238,15 +2279,39 @@ defmodule AWS.WorkDocs do
 
   @doc """
   Adds one or more custom properties to the specified resource (a folder,
-  document,
-  or version).
+  document, or version).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20CreateCustomMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_id` (`t:string`) The ID of the resource.
+
+  ## Optional parameters:
+  * `:version_id` (`t:string`) The ID of the version, if the custom metadata is
+    being added to a document version.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec create_custom_metadata(map(), String.t(), create_custom_metadata_request(), list()) ::
+  @spec create_custom_metadata(
+          AWS.Client.t(),
+          String.t(),
+          create_custom_metadata_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_custom_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_custom_metadata_errors()}
   def create_custom_metadata(%Client{} = client, resource_id, input, options \\ []) do
     url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/customMetadata"
+
+    optional_params = [version_id: nil, authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -2260,20 +2325,43 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:version_id, :authentication_token])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a folder with the specified name and parent folder.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20CreateFolder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec create_folder(map(), create_folder_request(), list()) ::
+  @spec create_folder(AWS.Client.t(), create_folder_request(), Keyword.t()) ::
           {:ok, create_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_folder_errors()}
   def create_folder(%Client{} = client, input, options \\ []) do
     url_path = "/api/v1/folders"
+
+    optional_params = [authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -2283,7 +2371,13 @@ defmodule AWS.WorkDocs do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:authentication_token])
 
     Request.request_rest(
       client,
@@ -2299,15 +2393,32 @@ defmodule AWS.WorkDocs do
   end
 
   @doc """
-  Adds the specified list of labels to the given resource (a document or
-  folder)
+  Adds the specified list of labels to the given resource (a document or folder)
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20CreateLabels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_id` (`t:string`) The ID of the resource.
+
+  ## Optional parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec create_labels(map(), String.t(), create_labels_request(), list()) ::
+  @spec create_labels(AWS.Client.t(), String.t(), create_labels_request(), Keyword.t()) ::
           {:ok, create_labels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_labels_errors()}
   def create_labels(%Client{} = client, resource_id, input, options \\ []) do
     url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/labels"
+
+    optional_params = [authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -2317,26 +2428,33 @@ defmodule AWS.WorkDocs do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:authentication_token])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Configure Amazon WorkDocs to use Amazon SNS notifications.
+  Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives
+  a confirmation message, and must confirm the subscription.
 
-  The endpoint receives a
-  confirmation message, and must confirm the subscription.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20CreateNotificationSubscription&this_doc_guide=API%2520Reference)
 
-  For more information, see [Setting up notifications for an IAM user or role](https://docs.aws.amazon.com/workdocs/latest/developerguide/manage-notifications.html)
-  in the *Amazon WorkDocs Developer
-  Guide*.
+  ## Parameters:
+  * `:organization_id` (`t:string`) The ID of the organization.
+
+  ## Optional parameters:
   """
   @spec create_notification_subscription(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_notification_subscription_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_notification_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2346,7 +2464,8 @@ defmodule AWS.WorkDocs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2362,17 +2481,32 @@ defmodule AWS.WorkDocs do
   end
 
   @doc """
-  Creates a user in a Simple AD or Microsoft AD directory.
-
-  The status of a newly
+  Creates a user in a Simple AD or Microsoft AD directory. The status of a newly
   created user is "ACTIVE". New users can access Amazon WorkDocs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20CreateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec create_user(map(), create_user_request(), list()) ::
+  @spec create_user(AWS.Client.t(), create_user_request(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
     url_path = "/api/v1/users"
+
+    optional_params = [authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -2382,7 +2516,13 @@ defmodule AWS.WorkDocs do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:authentication_token])
 
     Request.request_rest(
       client,
@@ -2400,13 +2540,31 @@ defmodule AWS.WorkDocs do
   @doc """
   Deactivates the specified user, which revokes the user's access to Amazon
   WorkDocs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeactivateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:user_id` (`t:string`) The ID of the user.
+
+  ## Optional parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec deactivate_user(map(), String.t(), deactivate_user_request(), list()) ::
+  @spec deactivate_user(AWS.Client.t(), String.t(), deactivate_user_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deactivate_user_errors()}
   def deactivate_user(%Client{} = client, user_id, input, options \\ []) do
     url_path = "/api/v1/users/#{AWS.Util.encode_uri(user_id)}/activation"
+
+    optional_params = [authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -2416,7 +2574,13 @@ defmodule AWS.WorkDocs do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:authentication_token])
 
     Request.request_rest(
       client,
@@ -2433,14 +2597,26 @@ defmodule AWS.WorkDocs do
 
   @doc """
   Deletes the specified comment from the document version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteComment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:comment_id` (`t:string`) The ID of the comment.
+  * `:document_id` (`t:string`) The ID of the document.
+  * `:version_id` (`t:string`) The ID of the document version.
+
+  ## Optional parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec delete_comment(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_comment_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -2456,6 +2632,14 @@ defmodule AWS.WorkDocs do
     url_path =
       "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/versions/#{AWS.Util.encode_uri(version_id)}/comment/#{AWS.Util.encode_uri(comment_id)}"
 
+    optional_params = [authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"AuthenticationToken", "Authentication"}
@@ -2464,7 +2648,13 @@ defmodule AWS.WorkDocs do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:authentication_token])
 
     Request.request_rest(
       client,
@@ -2481,13 +2671,43 @@ defmodule AWS.WorkDocs do
 
   @doc """
   Deletes custom metadata from the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteCustomMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_id` (`t:string`) The ID of the resource, either a document or
+    folder.
+
+  ## Optional parameters:
+  * `:delete_all` (`t:boolean`) Flag to indicate removal of all custom metadata
+    properties from the specified resource.
+  * `:keys` (`t:list[com.amazonaws.workdocs#CustomMetadataKeyType]`) List of
+    properties to remove.
+  * `:version_id` (`t:string`) The ID of the version, if the custom metadata is
+    being deleted from a document version.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec delete_custom_metadata(map(), String.t(), delete_custom_metadata_request(), list()) ::
+  @spec delete_custom_metadata(
+          AWS.Client.t(),
+          String.t(),
+          delete_custom_metadata_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_custom_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_metadata_errors()}
   def delete_custom_metadata(%Client{} = client, resource_id, input, options \\ []) do
     url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/customMetadata"
+
+    optional_params = [delete_all: nil, keys: nil, version_id: nil, authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -2503,7 +2723,13 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:delete_all, :keys, :version_id, :authentication_token])
 
     Request.request_rest(
       client,
@@ -2520,13 +2746,31 @@ defmodule AWS.WorkDocs do
 
   @doc """
   Permanently deletes the specified document and its associated metadata.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteDocument&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:document_id` (`t:string`) The ID of the document.
+
+  ## Optional parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec delete_document(map(), String.t(), delete_document_request(), list()) ::
+  @spec delete_document(AWS.Client.t(), String.t(), delete_document_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_document_errors()}
   def delete_document(%Client{} = client, document_id, input, options \\ []) do
     url_path = "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}"
+
+    optional_params = [authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -2536,7 +2780,13 @@ defmodule AWS.WorkDocs do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:authentication_token])
 
     Request.request_rest(
       client,
@@ -2553,13 +2803,27 @@ defmodule AWS.WorkDocs do
 
   @doc """
   Deletes a specific version of a document.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteDocumentVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:document_id` (`t:string`) The ID of the document associated with the version
+    being deleted.
+  * `:version_id` (`t:string`) The ID of the version being deleted.
+  * `:delete_prior_versions` (`t:boolean`) Deletes all versions of a document
+    prior to the current version.
+
+  ## Optional parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec delete_document_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_document_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -2567,6 +2831,14 @@ defmodule AWS.WorkDocs do
   def delete_document_version(%Client{} = client, document_id, version_id, input, options \\ []) do
     url_path =
       "/api/v1/documentVersions/#{AWS.Util.encode_uri(document_id)}/versions/#{AWS.Util.encode_uri(version_id)}"
+
+    optional_params = [delete_prior_versions: nil, authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -2580,7 +2852,13 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:authentication_token])
 
     Request.request_rest(
       client,
@@ -2597,13 +2875,31 @@ defmodule AWS.WorkDocs do
 
   @doc """
   Permanently deletes the specified folder and its contents.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteFolder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:folder_id` (`t:string`) The ID of the folder.
+
+  ## Optional parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec delete_folder(map(), String.t(), delete_folder_request(), list()) ::
+  @spec delete_folder(AWS.Client.t(), String.t(), delete_folder_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_folder_errors()}
   def delete_folder(%Client{} = client, folder_id, input, options \\ []) do
     url_path = "/api/v1/folders/#{AWS.Util.encode_uri(folder_id)}"
+
+    optional_params = [authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -2613,7 +2909,13 @@ defmodule AWS.WorkDocs do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:authentication_token])
 
     Request.request_rest(
       client,
@@ -2630,13 +2932,36 @@ defmodule AWS.WorkDocs do
 
   @doc """
   Deletes the contents of the specified folder.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteFolderContents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:folder_id` (`t:string`) The ID of the folder.
+
+  ## Optional parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec delete_folder_contents(map(), String.t(), delete_folder_contents_request(), list()) ::
+  @spec delete_folder_contents(
+          AWS.Client.t(),
+          String.t(),
+          delete_folder_contents_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_folder_contents_errors()}
   def delete_folder_contents(%Client{} = client, folder_id, input, options \\ []) do
     url_path = "/api/v1/folders/#{AWS.Util.encode_uri(folder_id)}/contents"
+
+    optional_params = [authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -2646,7 +2971,13 @@ defmodule AWS.WorkDocs do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:authentication_token])
 
     Request.request_rest(
       client,
@@ -2663,13 +2994,35 @@ defmodule AWS.WorkDocs do
 
   @doc """
   Deletes the specified list of labels from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteLabels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_id` (`t:string`) The ID of the resource.
+
+  ## Optional parameters:
+  * `:delete_all` (`t:boolean`) Flag to request removal of all labels from the
+    specified resource.
+  * `:labels` (`t:list[com.amazonaws.workdocs#SharedLabel]`) List of labels to
+    delete from the resource.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec delete_labels(map(), String.t(), delete_labels_request(), list()) ::
+  @spec delete_labels(AWS.Client.t(), String.t(), delete_labels_request(), Keyword.t()) ::
           {:ok, delete_labels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_labels_errors()}
   def delete_labels(%Client{} = client, resource_id, input, options \\ []) do
     url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/labels"
+
+    optional_params = [delete_all: nil, labels: nil, authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -2684,7 +3037,13 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:delete_all, :labels, :authentication_token])
 
     Request.request_rest(
       client,
@@ -2701,13 +3060,21 @@ defmodule AWS.WorkDocs do
 
   @doc """
   Deletes the specified subscription from the specified organization.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteNotificationSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:organization_id` (`t:string`) The ID of the organization.
+  * `:subscription_id` (`t:string`) The ID of the subscription.
+
+  ## Optional parameters:
   """
   @spec delete_notification_subscription(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_notification_subscription_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -2725,7 +3092,8 @@ defmodule AWS.WorkDocs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2743,15 +3111,30 @@ defmodule AWS.WorkDocs do
   @doc """
   Deletes the specified user from a Simple AD or Microsoft AD directory.
 
-  Deleting a user immediately and permanently deletes all content in that user's
-  folder structure. Site retention policies do NOT apply to this type of deletion.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:user_id` (`t:string`) The ID of the user.
+
+  ## Optional parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Do
+    not set this field when using administrative API actions, as in accessing
+    the API using Amazon Web Services credentials.
   """
-  @spec delete_user(map(), String.t(), delete_user_request(), list()) ::
+  @spec delete_user(AWS.Client.t(), String.t(), delete_user_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, user_id, input, options \\ []) do
     url_path = "/api/v1/users/#{AWS.Util.encode_uri(user_id)}"
+
+    optional_params = [authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -2761,7 +3144,13 @@ defmodule AWS.WorkDocs do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:authentication_token])
 
     Request.request_rest(
       client,
@@ -2778,171 +3167,235 @@ defmodule AWS.WorkDocs do
 
   @doc """
   Describes the user activities in a specified time period.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeActivities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:activity_types` (`t:string`) Specifies which activity types to include in
+    the response. If this field is left empty, all activity types are returned.
+  * `:end_time` (`t:timestamp`) The timestamp that determines the end time of the
+    activities. The response includes the activities performed before the
+    specified timestamp.
+  * `:include_indirect_activities` (`t:boolean`) Includes indirect activities. An
+    indirect activity results from a direct activity performed on a parent
+    resource. For example, sharing a parent folder (the direct activity) shares
+    all of the subfolders and documents within the parent folder (the indirect
+    activity).
+  * `:limit` (`t:integer`) The maximum number of items to return.
+  * `:marker` (`t:string`) The marker for the next set of results.
+  * `:organization_id` (`t:string`) The ID of the organization. This is a
+    mandatory parameter when using administrative API (SigV4) requests.
+  * `:resource_id` (`t:string`) The document or folder ID for which to describe
+    activity types.
+  * `:start_time` (`t:timestamp`) The timestamp that determines the starting time
+    of the activities. The response includes the activities performed after the
+    specified timestamp.
+  * `:user_id` (`t:string`) The ID of the user who performed the action. The
+    response includes activities pertaining to this user. This is an optional
+    parameter and is only applicable for administrative API (SigV4) requests.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec describe_activities(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec describe_activities(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_activities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_activities_errors()}
-  def describe_activities(
-        %Client{} = client,
-        activity_types \\ nil,
-        end_time \\ nil,
-        include_indirect_activities \\ nil,
-        limit \\ nil,
-        marker \\ nil,
-        organization_id \\ nil,
-        resource_id \\ nil,
-        start_time \\ nil,
-        user_id \\ nil,
-        authentication_token \\ nil,
-        options \\ []
-      ) do
+  def describe_activities(%Client{} = client, options \\ []) do
     url_path = "/api/v1/activities"
+
+    # Validate optional parameters
+    optional_params = [
+      activity_types: nil,
+      end_time: nil,
+      include_indirect_activities: nil,
+      limit: nil,
+      marker: nil,
+      organization_id: nil,
+      resource_id: nil,
+      start_time: nil,
+      user_id: nil,
+      authentication_token: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(authentication_token) do
-        [{"Authentication", authentication_token} | headers]
+      if opt_val = Keyword.get(options, :authentication_token) do
+        [{"Authentication", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(user_id) do
-        [{"userId", user_id} | query_params]
+      if opt_val = Keyword.get(options, :user_id) do
+        [{"userId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(start_time) do
-        [{"startTime", start_time} | query_params]
+      if opt_val = Keyword.get(options, :start_time) do
+        [{"startTime", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(resource_id) do
-        [{"resourceId", resource_id} | query_params]
+      if opt_val = Keyword.get(options, :resource_id) do
+        [{"resourceId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(organization_id) do
-        [{"organizationId", organization_id} | query_params]
+      if opt_val = Keyword.get(options, :organization_id) do
+        [{"organizationId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if opt_val = Keyword.get(options, :limit) do
+        [{"limit", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(include_indirect_activities) do
-        [{"includeIndirectActivities", include_indirect_activities} | query_params]
+      if opt_val = Keyword.get(options, :include_indirect_activities) do
+        [{"includeIndirectActivities", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(end_time) do
-        [{"endTime", end_time} | query_params]
+      if opt_val = Keyword.get(options, :end_time) do
+        [{"endTime", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(activity_types) do
-        [{"activityTypes", activity_types} | query_params]
+      if opt_val = Keyword.get(options, :activity_types) do
+        [{"activityTypes", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :activity_types,
+        :end_time,
+        :include_indirect_activities,
+        :limit,
+        :marker,
+        :organization_id,
+        :resource_id,
+        :start_time,
+        :user_id,
+        :authentication_token
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List all the comments for the specified document version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeComments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:document_id` (`t:string`) The ID of the document.
+  * `:version_id` (`t:string`) The ID of the document version.
+
+  ## Optional parameters:
+  * `:limit` (`t:integer`) The maximum number of items to return.
+  * `:marker` (`t:string`) The marker for the next set of results. This marker was
+    received from a previous call.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec describe_comments(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec describe_comments(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_comments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_comments_errors()}
-  def describe_comments(
-        %Client{} = client,
-        document_id,
-        version_id,
-        limit \\ nil,
-        marker \\ nil,
-        authentication_token \\ nil,
-        options \\ []
-      ) do
+  def describe_comments(%Client{} = client, document_id, version_id, options \\ []) do
     url_path =
       "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/versions/#{AWS.Util.encode_uri(version_id)}/comments"
 
+    # Validate optional parameters
+    optional_params = [limit: nil, marker: nil, authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(authentication_token) do
-        [{"Authentication", authentication_token} | headers]
+      if opt_val = Keyword.get(options, :authentication_token) do
+        [{"Authentication", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if opt_val = Keyword.get(options, :limit) do
+        [{"limit", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:limit, :marker, :authentication_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2950,72 +3403,96 @@ defmodule AWS.WorkDocs do
   @doc """
   Retrieves the document versions for the specified document.
 
-  By default, only active versions are returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeDocumentVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:document_id` (`t:string`) The ID of the document.
+
+  ## Optional parameters:
+  * `:fields` (`t:string`) Specify "SOURCE" to include initialized versions and a
+    URL for the source document.
+  * `:include` (`t:string`) A comma-separated list of values. Specify
+    "INITIALIZED" to include incomplete versions.
+  * `:limit` (`t:integer`) The maximum number of versions to return with this
+    call.
+  * `:marker` (`t:string`) The marker for the next set of results. (You received
+    this marker from a previous call.)
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec describe_document_versions(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec describe_document_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_document_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_document_versions_errors()}
-  def describe_document_versions(
-        %Client{} = client,
-        document_id,
-        fields \\ nil,
-        include \\ nil,
-        limit \\ nil,
-        marker \\ nil,
-        authentication_token \\ nil,
-        options \\ []
-      ) do
+  def describe_document_versions(%Client{} = client, document_id, options \\ []) do
     url_path = "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/versions"
+
+    # Validate optional parameters
+    optional_params = [
+      fields: nil,
+      include: nil,
+      limit: nil,
+      marker: nil,
+      authentication_token: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(authentication_token) do
-        [{"Authentication", authentication_token} | headers]
+      if opt_val = Keyword.get(options, :authentication_token) do
+        [{"Authentication", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if opt_val = Keyword.get(options, :limit) do
+        [{"limit", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(include) do
-        [{"include", include} | query_params]
+      if opt_val = Keyword.get(options, :include) do
+        [{"include", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(fields) do
-        [{"fields", fields} | query_params]
+      if opt_val = Keyword.get(options, :fields) do
+        [{"fields", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:fields, :include, :limit, :marker, :authentication_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3024,526 +3501,666 @@ defmodule AWS.WorkDocs do
   Describes the contents of the specified folder, including its documents and
   subfolders.
 
-  By default, Amazon WorkDocs returns the first 100 active document and folder
-  metadata items. If there are more results, the response includes a marker that
-  you can
-  use to request the next set of results. You can also request initialized
-  documents.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeFolderContents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:folder_id` (`t:string`) The ID of the folder.
+
+  ## Optional parameters:
+  * `:include` (`t:string`) The contents to include. Specify "INITIALIZED" to
+    include initialized documents.
+  * `:limit` (`t:integer`) The maximum number of items to return with this call.
+  * `:marker` (`t:string`) The marker for the next set of results. This marker was
+    received from a previous call.
+  * `:order` (`t:enum["ASCENDING|DESCENDING"]`) The order for the contents of the
+    folder.
+  * `:sort` (`t:enum["DATE|NAME"]`) The sorting criteria.
+  * `:type` (`t:enum["ALL|DOCUMENT|FOLDER"]`) The type of items.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec describe_folder_contents(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec describe_folder_contents(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_folder_contents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_folder_contents_errors()}
-  def describe_folder_contents(
-        %Client{} = client,
-        folder_id,
-        include \\ nil,
-        limit \\ nil,
-        marker \\ nil,
-        order \\ nil,
-        sort \\ nil,
-        type \\ nil,
-        authentication_token \\ nil,
-        options \\ []
-      ) do
+  def describe_folder_contents(%Client{} = client, folder_id, options \\ []) do
     url_path = "/api/v1/folders/#{AWS.Util.encode_uri(folder_id)}/contents"
+
+    # Validate optional parameters
+    optional_params = [
+      include: nil,
+      limit: nil,
+      marker: nil,
+      order: nil,
+      sort: nil,
+      type: nil,
+      authentication_token: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(authentication_token) do
-        [{"Authentication", authentication_token} | headers]
+      if opt_val = Keyword.get(options, :authentication_token) do
+        [{"Authentication", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
+      if opt_val = Keyword.get(options, :type) do
+        [{"type", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(sort) do
-        [{"sort", sort} | query_params]
+      if opt_val = Keyword.get(options, :sort) do
+        [{"sort", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(order) do
-        [{"order", order} | query_params]
+      if opt_val = Keyword.get(options, :order) do
+        [{"order", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if opt_val = Keyword.get(options, :limit) do
+        [{"limit", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(include) do
-        [{"include", include} | query_params]
+      if opt_val = Keyword.get(options, :include) do
+        [{"include", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:include, :limit, :marker, :order, :sort, :type, :authentication_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Describes the groups specified by the query.
+  Describes the groups specified by the query. Groups are defined by the
+  underlying Active Directory.
 
-  Groups are defined by the underlying
-  Active Directory.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:search_query` (`t:string`) A query to describe groups by group name.
+
+  ## Optional parameters:
+  * `:limit` (`t:integer`) The maximum number of items to return with this call.
+  * `:marker` (`t:string`) The marker for the next set of results. (You received
+    this marker from a previous call.)
+  * `:organization_id` (`t:string`) The ID of the organization.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec describe_groups(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          list()
-        ) ::
+  @spec describe_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_groups_errors()}
-  def describe_groups(
-        %Client{} = client,
-        limit \\ nil,
-        marker \\ nil,
-        organization_id \\ nil,
-        search_query,
-        authentication_token \\ nil,
-        options \\ []
-      ) do
+  def describe_groups(%Client{} = client, search_query, options \\ []) do
     url_path = "/api/v1/groups"
+
+    # Validate optional parameters
+    optional_params = [limit: nil, marker: nil, organization_id: nil, authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(authentication_token) do
-        [{"Authentication", authentication_token} | headers]
+      if opt_val = Keyword.get(options, :authentication_token) do
+        [{"Authentication", opt_val} | headers]
       else
         headers
       end
 
-    query_params = []
+    # Required query params
+    query_params = [{"searchQuery", search_query}]
 
+    # Optional query params
     query_params =
-      if !is_nil(search_query) do
-        [{"searchQuery", search_query} | query_params]
+      if opt_val = Keyword.get(options, :organization_id) do
+        [{"organizationId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(organization_id) do
-        [{"organizationId", organization_id} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :limit) do
+        [{"limit", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:limit, :marker, :organization_id, :authentication_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the specified notification subscriptions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeNotificationSubscriptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:organization_id` (`t:string`) The ID of the organization.
+
+  ## Optional parameters:
+  * `:limit` (`t:integer`) The maximum number of items to return with this call.
+  * `:marker` (`t:string`) The marker for the next set of results. (You received
+    this marker from a previous call.)
   """
-  @spec describe_notification_subscriptions(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec describe_notification_subscriptions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_notification_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_notification_subscriptions_errors()}
-  def describe_notification_subscriptions(
-        %Client{} = client,
-        organization_id,
-        limit \\ nil,
-        marker \\ nil,
-        options \\ []
-      ) do
+  def describe_notification_subscriptions(%Client{} = client, organization_id, options \\ []) do
     url_path = "/api/v1/organizations/#{AWS.Util.encode_uri(organization_id)}/subscriptions"
+
+    # Validate optional parameters
+    optional_params = [limit: nil, marker: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if opt_val = Keyword.get(options, :limit) do
+        [{"limit", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:limit, :marker])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes the permissions of a specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeResourcePermissions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_id` (`t:string`) The ID of the resource.
+
+  ## Optional parameters:
+  * `:limit` (`t:integer`) The maximum number of items to return with this call.
+  * `:marker` (`t:string`) The marker for the next set of results. (You received
+    this marker from a previous call)
+  * `:principal_id` (`t:string`) The ID of the principal to filter permissions by.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec describe_resource_permissions(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec describe_resource_permissions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_resource_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_resource_permissions_errors()}
-  def describe_resource_permissions(
-        %Client{} = client,
-        resource_id,
-        limit \\ nil,
-        marker \\ nil,
-        principal_id \\ nil,
-        authentication_token \\ nil,
-        options \\ []
-      ) do
+  def describe_resource_permissions(%Client{} = client, resource_id, options \\ []) do
     url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/permissions"
+
+    # Validate optional parameters
+    optional_params = [limit: nil, marker: nil, principal_id: nil, authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(authentication_token) do
-        [{"Authentication", authentication_token} | headers]
+      if opt_val = Keyword.get(options, :authentication_token) do
+        [{"Authentication", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(principal_id) do
-        [{"principalId", principal_id} | query_params]
+      if opt_val = Keyword.get(options, :principal_id) do
+        [{"principalId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if opt_val = Keyword.get(options, :limit) do
+        [{"limit", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:limit, :marker, :principal_id, :authentication_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes the current user's special folders; the `RootFolder` and the
-  `RecycleBin`.
+  `RecycleBin`. `RootFolder` is the root of user's files and folders and
+  `RecycleBin` is the root of recycled items. This is not a valid action for
+  SigV4 (administrative API) clients.
 
-  `RootFolder` is the root of user's files and
-  folders and `RecycleBin` is the root of recycled items. This is not a valid
-  action for SigV4 (administrative API) clients.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeRootFolders&this_doc_guide=API%2520Reference)
 
-  This action requires an authentication token. To get an authentication token,
-  register an application with Amazon WorkDocs. For more information, see
-  [Authentication and Access Control for User
-  Applications](https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html)
-  in the
-  *Amazon
-  WorkDocs Developer Guide*.
+  ## Parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token.
+
+  ## Optional parameters:
+  * `:limit` (`t:integer`) The maximum number of items to return.
+  * `:marker` (`t:string`) The marker for the next set of results. (You received
+    this marker from a previous call.)
   """
-  @spec describe_root_folders(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
+  @spec describe_root_folders(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_root_folders_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_root_folders_errors()}
-  def describe_root_folders(
-        %Client{} = client,
-        limit \\ nil,
-        marker \\ nil,
-        authentication_token,
-        options \\ []
-      ) do
+  def describe_root_folders(%Client{} = client, authentication_token, options \\ []) do
     url_path = "/api/v1/me/root"
-    headers = []
 
-    headers =
-      if !is_nil(authentication_token) do
-        [{"Authentication", authentication_token} | headers]
-      else
-        headers
-      end
+    # Validate optional parameters
+    optional_params = [limit: nil, marker: nil]
 
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = [{"Authentication", authentication_token}]
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if opt_val = Keyword.get(options, :limit) do
+        [{"limit", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:limit, :marker])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Describes the specified users.
-
-  You can describe all users or filter the results
+  Describes the specified users. You can describe all users or filter the results
   (for example, by status or organization).
 
-  By default, Amazon WorkDocs returns the first 24 active or pending users. If
-  there
-  are more results, the response includes a marker that you can use to request the
-  next
-  set of results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeUsers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:fields` (`t:string`) A comma-separated list of values. Specify
+    "STORAGE_METADATA" to include the user storage quota and utilization
+    information.
+  * `:include` (`t:enum["ACTIVE_PENDING|ALL"]`) The state of the users. Specify
+    "ALL" to include inactive users.
+  * `:limit` (`t:integer`) The maximum number of items to return.
+  * `:marker` (`t:string`) The marker for the next set of results. (You received
+    this marker from a previous call.)
+  * `:order` (`t:enum["ASCENDING|DESCENDING"]`) The order for the results.
+  * `:organization_id` (`t:string`) The ID of the organization.
+  * `:query` (`t:string`) A query to filter users by user name. Remember the
+    following about the Userids and Query parameters:
+  * `:sort`
+    (`t:enum["FULL_NAME|STORAGE_LIMIT|STORAGE_USED|USER_NAME|USER_STATUS"]`) The
+    sorting criteria.
+  * `:user_ids` (`t:string`) The IDs of the users.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec describe_users(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec describe_users(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_users_errors()}
-  def describe_users(
-        %Client{} = client,
-        fields \\ nil,
-        include \\ nil,
-        limit \\ nil,
-        marker \\ nil,
-        order \\ nil,
-        organization_id \\ nil,
-        query \\ nil,
-        sort \\ nil,
-        user_ids \\ nil,
-        authentication_token \\ nil,
-        options \\ []
-      ) do
+  def describe_users(%Client{} = client, options \\ []) do
     url_path = "/api/v1/users"
+
+    # Validate optional parameters
+    optional_params = [
+      fields: nil,
+      include: nil,
+      limit: nil,
+      marker: nil,
+      order: nil,
+      organization_id: nil,
+      query: nil,
+      sort: nil,
+      user_ids: nil,
+      authentication_token: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(authentication_token) do
-        [{"Authentication", authentication_token} | headers]
+      if opt_val = Keyword.get(options, :authentication_token) do
+        [{"Authentication", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(user_ids) do
-        [{"userIds", user_ids} | query_params]
+      if opt_val = Keyword.get(options, :user_ids) do
+        [{"userIds", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(sort) do
-        [{"sort", sort} | query_params]
+      if opt_val = Keyword.get(options, :sort) do
+        [{"sort", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(query) do
-        [{"query", query} | query_params]
+      if opt_val = Keyword.get(options, :query) do
+        [{"query", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(organization_id) do
-        [{"organizationId", organization_id} | query_params]
+      if opt_val = Keyword.get(options, :organization_id) do
+        [{"organizationId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(order) do
-        [{"order", order} | query_params]
+      if opt_val = Keyword.get(options, :order) do
+        [{"order", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if opt_val = Keyword.get(options, :limit) do
+        [{"limit", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(include) do
-        [{"include", include} | query_params]
+      if opt_val = Keyword.get(options, :include) do
+        [{"include", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(fields) do
-        [{"fields", fields} | query_params]
+      if opt_val = Keyword.get(options, :fields) do
+        [{"fields", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :fields,
+        :include,
+        :limit,
+        :marker,
+        :order,
+        :organization_id,
+        :query,
+        :sort,
+        :user_ids,
+        :authentication_token
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves details of the current user for whom the authentication token was
-  generated.
+  generated. This is not a valid action for SigV4 (administrative API) clients.
 
-  This is not a valid action for SigV4 (administrative API) clients.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20GetCurrentUser&this_doc_guide=API%2520Reference)
 
-  This action requires an authentication token. To get an authentication token,
-  register an application with Amazon WorkDocs. For more information, see
-  [Authentication and Access Control for User
-  Applications](https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html)
-  in the
-  *Amazon
-  WorkDocs Developer Guide*.
+  ## Parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token.
+
+  ## Optional parameters:
   """
-  @spec get_current_user(map(), String.t(), list()) ::
+  @spec get_current_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_current_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_current_user_errors()}
   def get_current_user(%Client{} = client, authentication_token, options \\ []) do
     url_path = "/api/v1/me"
-    headers = []
 
-    headers =
-      if !is_nil(authentication_token) do
-        [{"Authentication", authentication_token} | headers]
-      else
-        headers
-      end
+    # Validate optional parameters
+    optional_params = []
 
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = [{"Authentication", authentication_token}]
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves details of a document.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20GetDocument&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:document_id` (`t:string`) The ID of the document.
+
+  ## Optional parameters:
+  * `:include_custom_metadata` (`t:boolean`) Set this to TRUE to include custom
+    metadata in the response.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec get_document(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_document(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_document_errors()}
-  def get_document(
-        %Client{} = client,
-        document_id,
-        include_custom_metadata \\ nil,
-        authentication_token \\ nil,
-        options \\ []
-      ) do
+  def get_document(%Client{} = client, document_id, options \\ []) do
     url_path = "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}"
+
+    # Validate optional parameters
+    optional_params = [include_custom_metadata: nil, authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(authentication_token) do
-        [{"Authentication", authentication_token} | headers]
+      if opt_val = Keyword.get(options, :authentication_token) do
+        [{"Authentication", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(include_custom_metadata) do
-        [{"includeCustomMetadata", include_custom_metadata} | query_params]
+      if opt_val = Keyword.get(options, :include_custom_metadata) do
+        [{"includeCustomMetadata", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:include_custom_metadata, :authentication_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3552,162 +4169,219 @@ defmodule AWS.WorkDocs do
   Retrieves the path information (the hierarchy from the root folder) for the
   requested document.
 
-  By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the
-  requested document and only includes the IDs of the parent folders in the path.
-  You can
-  limit the maximum number of levels. You can also request the names of the parent
-  folders.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20GetDocumentPath&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:document_id` (`t:string`) The ID of the document.
+
+  ## Optional parameters:
+  * `:fields` (`t:string`) A comma-separated list of values. Specify NAME to
+    include the names of the parent folders.
+  * `:limit` (`t:integer`) The maximum number of levels in the hierarchy to
+    return.
+  * `:marker` (`t:string`) This value is not supported.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec get_document_path(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_document_path(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_document_path_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_document_path_errors()}
-  def get_document_path(
-        %Client{} = client,
-        document_id,
-        fields \\ nil,
-        limit \\ nil,
-        marker \\ nil,
-        authentication_token \\ nil,
-        options \\ []
-      ) do
+  def get_document_path(%Client{} = client, document_id, options \\ []) do
     url_path = "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/path"
+
+    # Validate optional parameters
+    optional_params = [fields: nil, limit: nil, marker: nil, authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(authentication_token) do
-        [{"Authentication", authentication_token} | headers]
+      if opt_val = Keyword.get(options, :authentication_token) do
+        [{"Authentication", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if opt_val = Keyword.get(options, :limit) do
+        [{"limit", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(fields) do
-        [{"fields", fields} | query_params]
+      if opt_val = Keyword.get(options, :fields) do
+        [{"fields", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:fields, :limit, :marker, :authentication_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves version metadata for the specified document.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20GetDocumentVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:document_id` (`t:string`) The ID of the document.
+  * `:version_id` (`t:string`) The version ID of the document.
+
+  ## Optional parameters:
+  * `:fields` (`t:string`) A comma-separated list of values. Specify "SOURCE" to
+    include a URL for the source document.
+  * `:include_custom_metadata` (`t:boolean`) Set this to TRUE to include custom
+    metadata in the response.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec get_document_version(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_document_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_document_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_document_version_errors()}
-  def get_document_version(
-        %Client{} = client,
-        document_id,
-        version_id,
-        fields \\ nil,
-        include_custom_metadata \\ nil,
-        authentication_token \\ nil,
-        options \\ []
-      ) do
+  def get_document_version(%Client{} = client, document_id, version_id, options \\ []) do
     url_path =
       "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/versions/#{AWS.Util.encode_uri(version_id)}"
 
+    # Validate optional parameters
+    optional_params = [fields: nil, include_custom_metadata: nil, authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(authentication_token) do
-        [{"Authentication", authentication_token} | headers]
+      if opt_val = Keyword.get(options, :authentication_token) do
+        [{"Authentication", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(include_custom_metadata) do
-        [{"includeCustomMetadata", include_custom_metadata} | query_params]
+      if opt_val = Keyword.get(options, :include_custom_metadata) do
+        [{"includeCustomMetadata", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(fields) do
-        [{"fields", fields} | query_params]
+      if opt_val = Keyword.get(options, :fields) do
+        [{"fields", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:fields, :include_custom_metadata, :authentication_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the metadata of the specified folder.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20GetFolder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:folder_id` (`t:string`) The ID of the folder.
+
+  ## Optional parameters:
+  * `:include_custom_metadata` (`t:boolean`) Set to TRUE to include custom
+    metadata in the response.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec get_folder(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_folder(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_folder_errors()}
-  def get_folder(
-        %Client{} = client,
-        folder_id,
-        include_custom_metadata \\ nil,
-        authentication_token \\ nil,
-        options \\ []
-      ) do
+  def get_folder(%Client{} = client, folder_id, options \\ []) do
     url_path = "/api/v1/folders/#{AWS.Util.encode_uri(folder_id)}"
+
+    # Validate optional parameters
+    optional_params = [include_custom_metadata: nil, authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(authentication_token) do
-        [{"Authentication", authentication_token} | headers]
+      if opt_val = Keyword.get(options, :authentication_token) do
+        [{"Authentication", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(include_custom_metadata) do
-        [{"includeCustomMetadata", include_custom_metadata} | query_params]
+      if opt_val = Keyword.get(options, :include_custom_metadata) do
+        [{"includeCustomMetadata", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:include_custom_metadata, :authentication_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3716,166 +4390,213 @@ defmodule AWS.WorkDocs do
   Retrieves the path information (the hierarchy from the root folder) for the
   specified folder.
 
-  By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the
-  requested folder and only includes the IDs of the parent folders in the path.
-  You can
-  limit the maximum number of levels. You can also request the parent folder
-  names.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20GetFolderPath&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:folder_id` (`t:string`) The ID of the folder.
+
+  ## Optional parameters:
+  * `:fields` (`t:string`) A comma-separated list of values. Specify "NAME" to
+    include the names of the parent folders.
+  * `:limit` (`t:integer`) The maximum number of levels in the hierarchy to
+    return.
+  * `:marker` (`t:string`) This value is not supported.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec get_folder_path(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_folder_path(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_folder_path_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_folder_path_errors()}
-  def get_folder_path(
-        %Client{} = client,
-        folder_id,
-        fields \\ nil,
-        limit \\ nil,
-        marker \\ nil,
-        authentication_token \\ nil,
-        options \\ []
-      ) do
+  def get_folder_path(%Client{} = client, folder_id, options \\ []) do
     url_path = "/api/v1/folders/#{AWS.Util.encode_uri(folder_id)}/path"
+
+    # Validate optional parameters
+    optional_params = [fields: nil, limit: nil, marker: nil, authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(authentication_token) do
-        [{"Authentication", authentication_token} | headers]
+      if opt_val = Keyword.get(options, :authentication_token) do
+        [{"Authentication", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if opt_val = Keyword.get(options, :limit) do
+        [{"limit", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(fields) do
-        [{"fields", fields} | query_params]
+      if opt_val = Keyword.get(options, :fields) do
+        [{"fields", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:fields, :limit, :marker, :authentication_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves a collection of resources, including folders and documents.
-
-  The only
+  Retrieves a collection of resources, including folders and documents. The only
   `CollectionType` supported is `SHARED_WITH_ME`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20GetResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:collection_type` (`t:enum["SHARED_WITH_ME"]`) The collection type.
+  * `:limit` (`t:integer`) The maximum number of resources to return.
+  * `:marker` (`t:string`) The marker for the next set of results. This marker was
+    received from a previous call.
+  * `:user_id` (`t:string`) The user ID for the resource collection. This is a
+    required field for accessing the API operation using IAM credentials.
+  * `:authentication_token` (`t:string`) The Amazon WorkDocs authentication token.
+    Not required when using Amazon Web Services administrator credentials to
+    access the API.
   """
-  @spec get_resources(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resources_errors()}
-  def get_resources(
-        %Client{} = client,
-        collection_type \\ nil,
-        limit \\ nil,
-        marker \\ nil,
-        user_id \\ nil,
-        authentication_token \\ nil,
-        options \\ []
-      ) do
+  def get_resources(%Client{} = client, options \\ []) do
     url_path = "/api/v1/resources"
+
+    # Validate optional parameters
+    optional_params = [
+      collection_type: nil,
+      limit: nil,
+      marker: nil,
+      user_id: nil,
+      authentication_token: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(authentication_token) do
-        [{"Authentication", authentication_token} | headers]
+      if opt_val = Keyword.get(options, :authentication_token) do
+        [{"Authentication", opt_val} | headers]
       else
         headers
       end
 
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(user_id) do
-        [{"userId", user_id} | query_params]
+      if opt_val = Keyword.get(options, :user_id) do
+        [{"userId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if opt_val = Keyword.get(options, :marker) do
+        [{"marker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if opt_val = Keyword.get(options, :limit) do
+        [{"limit", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(collection_type) do
-        [{"collectionType", collection_type} | query_params]
+      if opt_val = Keyword.get(options, :collection_type) do
+        [{"collectionType", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:collection_type, :limit, :marker, :user_id, :authentication_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Creates a new document object and version object.
+  Creates a new document object and version object. The client specifies the
+  parent folder ID and name of the document to upload. The ID is optionally
+  specified when creating a new version of an existing document. This is the
+  first step to upload a document. Next, upload the document to the URL returned
+  from the call, and then call `UpdateDocumentVersion`.
 
-  The client specifies the parent folder ID and name of the document to upload.
-  The
-  ID is optionally specified when creating a new version of an existing document.
-  This is
-  the first step to upload a document. Next, upload the document to the URL
-  returned from
-  the call, and then call `UpdateDocumentVersion`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20InitiateDocumentVersionUpload&this_doc_guide=API%2520Reference)
 
-  To cancel the document upload, call `AbortDocumentVersionUpload`.
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec initiate_document_version_upload(
-          map(),
+          AWS.Client.t(),
           initiate_document_version_upload_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, initiate_document_version_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, initiate_document_version_upload_errors()}
   def initiate_document_version_upload(%Client{} = client, input, options \\ []) do
     url_path = "/api/v1/documents"
+
+    optional_params = [authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -3885,7 +4606,13 @@ defmodule AWS.WorkDocs do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:authentication_token])
 
     Request.request_rest(
       client,
@@ -3902,18 +4629,36 @@ defmodule AWS.WorkDocs do
 
   @doc """
   Removes all the permissions from the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20RemoveAllResourcePermissions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_id` (`t:string`) The ID of the resource.
+
+  ## Optional parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec remove_all_resource_permissions(
-          map(),
+          AWS.Client.t(),
           String.t(),
           remove_all_resource_permissions_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_all_resource_permissions_errors()}
   def remove_all_resource_permissions(%Client{} = client, resource_id, input, options \\ []) do
     url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/permissions"
+
+    optional_params = [authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -3923,7 +4668,13 @@ defmodule AWS.WorkDocs do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:authentication_token])
 
     Request.request_rest(
       client,
@@ -3939,15 +4690,27 @@ defmodule AWS.WorkDocs do
   end
 
   @doc """
-  Removes the permission for the specified principal from the specified
-  resource.
+  Removes the permission for the specified principal from the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20RemoveResourcePermission&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:principal_id` (`t:string`) The principal ID of the resource.
+  * `:resource_id` (`t:string`) The ID of the resource.
+
+  ## Optional parameters:
+  * `:principal_type` (`t:enum["ANONYMOUS|GROUP|INVITE|ORGANIZATION|USER"]`) The
+    principal type of the resource.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec remove_resource_permission(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           remove_resource_permission_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -3962,6 +4725,14 @@ defmodule AWS.WorkDocs do
     url_path =
       "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/permissions/#{AWS.Util.encode_uri(principal_id)}"
 
+    optional_params = [principal_type: nil, authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"AuthenticationToken", "Authentication"}
@@ -3974,7 +4745,13 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:principal_type, :authentication_token])
 
     Request.request_rest(
       client,
@@ -3991,13 +4768,36 @@ defmodule AWS.WorkDocs do
 
   @doc """
   Recovers a deleted version of an Amazon WorkDocs document.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20RestoreDocumentVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:document_id` (`t:string`) The ID of the document.
+
+  ## Optional parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec restore_document_versions(map(), String.t(), restore_document_versions_request(), list()) ::
+  @spec restore_document_versions(
+          AWS.Client.t(),
+          String.t(),
+          restore_document_versions_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_document_versions_errors()}
   def restore_document_versions(%Client{} = client, document_id, input, options \\ []) do
     url_path = "/api/v1/documentVersions/restore/#{AWS.Util.encode_uri(document_id)}"
+
+    optional_params = [authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -4007,7 +4807,13 @@ defmodule AWS.WorkDocs do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:authentication_token])
 
     Request.request_rest(
       client,
@@ -4025,13 +4831,30 @@ defmodule AWS.WorkDocs do
   @doc """
   Searches metadata and the content of folders, documents, document versions, and
   comments.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20SearchResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec search_resources(map(), search_resources_request(), list()) ::
+  @spec search_resources(AWS.Client.t(), search_resources_request(), Keyword.t()) ::
           {:ok, search_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_resources_errors()}
   def search_resources(%Client{} = client, input, options \\ []) do
     url_path = "/api/v1/search"
+
+    optional_params = [authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -4041,7 +4864,13 @@ defmodule AWS.WorkDocs do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:authentication_token])
 
     Request.request_rest(
       client,
@@ -4057,17 +4886,33 @@ defmodule AWS.WorkDocs do
   end
 
   @doc """
-  Updates the specified attributes of a document.
+  Updates the specified attributes of a document. The user must have access to
+  both the document and its parent folder, if applicable.
 
-  The user must have access to both
-  the document and its parent folder, if applicable.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20UpdateDocument&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:document_id` (`t:string`) The ID of the document.
+
+  ## Optional parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec update_document(map(), String.t(), update_document_request(), list()) ::
+  @spec update_document(AWS.Client.t(), String.t(), update_document_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_document_errors()}
   def update_document(%Client{} = client, document_id, input, options \\ []) do
     url_path = "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}"
+
+    optional_params = [authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -4077,7 +4922,13 @@ defmodule AWS.WorkDocs do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:authentication_token])
 
     Request.request_rest(
       client,
@@ -4095,18 +4946,23 @@ defmodule AWS.WorkDocs do
   @doc """
   Changes the status of the document version to ACTIVE.
 
-  Amazon WorkDocs also sets its document container to ACTIVE. This is the last
-  step
-  in a document upload, after the client uploads the document to an S3-presigned
-  URL
-  returned by `InitiateDocumentVersionUpload`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20UpdateDocumentVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:document_id` (`t:string`) The ID of the document.
+  * `:version_id` (`t:string`) The version ID of the document.
+
+  ## Optional parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec update_document_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_document_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -4114,6 +4970,14 @@ defmodule AWS.WorkDocs do
   def update_document_version(%Client{} = client, document_id, version_id, input, options \\ []) do
     url_path =
       "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/versions/#{AWS.Util.encode_uri(version_id)}"
+
+    optional_params = [authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -4123,7 +4987,13 @@ defmodule AWS.WorkDocs do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:authentication_token])
 
     Request.request_rest(
       client,
@@ -4139,17 +5009,33 @@ defmodule AWS.WorkDocs do
   end
 
   @doc """
-  Updates the specified attributes of the specified folder.
+  Updates the specified attributes of the specified folder. The user must have
+  access to both the folder and its parent folder, if applicable.
 
-  The user must have access
-  to both the folder and its parent folder, if applicable.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20UpdateFolder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:folder_id` (`t:string`) The ID of the folder.
+
+  ## Optional parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec update_folder(map(), String.t(), update_folder_request(), list()) ::
+  @spec update_folder(AWS.Client.t(), String.t(), update_folder_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_folder_errors()}
   def update_folder(%Client{} = client, folder_id, input, options \\ []) do
     url_path = "/api/v1/folders/#{AWS.Util.encode_uri(folder_id)}"
+
+    optional_params = [authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -4159,7 +5045,13 @@ defmodule AWS.WorkDocs do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:authentication_token])
 
     Request.request_rest(
       client,
@@ -4177,13 +5069,31 @@ defmodule AWS.WorkDocs do
   @doc """
   Updates the specified attributes of the specified user, and grants or revokes
   administrative privileges to the Amazon WorkDocs site.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20UpdateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:user_id` (`t:string`) The ID of the user.
+
+  ## Optional parameters:
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
-  @spec update_user(map(), String.t(), update_user_request(), list()) ::
+  @spec update_user(AWS.Client.t(), String.t(), update_user_request(), Keyword.t()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, user_id, input, options \\ []) do
     url_path = "/api/v1/users/#{AWS.Util.encode_uri(user_id)}"
+
+    optional_params = [authentication_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -4193,7 +5103,13 @@ defmodule AWS.WorkDocs do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:authentication_token])
 
     Request.request_rest(
       client,

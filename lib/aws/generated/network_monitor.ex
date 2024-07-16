@@ -4,31 +4,19 @@
 defmodule AWS.NetworkMonitor do
   @moduledoc """
   Amazon CloudWatch Network Monitor is an Amazon Web Services active network
-  monitoring
-  service that identifies if a network issues exists within the Amazon Web
-  Services network
-  or your own company network.
-
-  Within Network Monitor you'll choose the source VPCs and
-  subnets from the Amazon Web Services network in which you operate and then
-  you'll choose
-  the destination IP addresses from your on-premises network. From these sources
-  and
-  destinations, Network Monitor creates a monitor containing all the possible
-  source and
+  monitoring service that identifies if a network issues exists within the
+  Amazon Web Services network or your own company network. Within Network
+  Monitor you'll choose the source VPCs and subnets from the Amazon Web Services
+  network in which you operate and then you'll choose the destination IP
+  addresses from your on-premises network. From these sources and destinations,
+  Network Monitor creates a monitor containing all the possible source and
   destination combinations, each of which is called a probe, within a single
-  monitor.
-  These probes then monitor network traffic to help you identify where network
-  issues might be affecting your traffic.
-
-  Before you begin, ensure the Amazon Web Services CLI is configured in the Amazon
-  Web Services Account where you will create the Network Monitor resource. Network
-  Monitor doesn’t support creation on cross-account resources, but you can create
-  a
-  Network Monitor in any subnet belonging to a VPC owned by your Account.
-
-  For more information, see [Using Amazon CloudWatch Network Monitor](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/what-is-network-monitor.html)
-  in the *Amazon CloudWatch User Guide*.
+  monitor. These probes then monitor network traffic to help you identify where
+  network issues might be affecting your traffic. Before you begin, ensure the
+  Amazon Web Services CLI is configured in the Amazon Web Services Account where
+  you will create the Network Monitor resource. Network Monitor doesn’t support
+  creation on cross-account resources, but you can create a Network Monitor in
+  any subnet belonging to a VPC owned by your Account.
   """
 
   alias AWS.Client
@@ -599,45 +587,20 @@ defmodule AWS.NetworkMonitor do
   end
 
   @doc """
-  Creates a monitor between a source subnet and destination IP address.
-
-  Within a monitor you'll create one or more probes that monitor network traffic
-  between your source Amazon Web Services VPC subnets and your destination IP
-  addresses. Each probe then aggregates and sends metrics to Amazon CloudWatch.
-
-  You can also create a monitor with probes using this command. For each probe,
-  you
+  Creates a monitor between a source subnet and destination IP address. Within a
+  monitor you'll create one or more probes that monitor network traffic between
+  your source Amazon Web Services VPC subnets and your destination IP addresses.
+  Each probe then aggregates and sends metrics to Amazon CloudWatch. You can
+  also create a monitor with probes using this command. For each probe, you
   define the following:
 
-    *
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20CreateMonitor&this_doc_guide=API%2520Reference)
 
-  `source`—The subnet IDs where the probes will be created.
+  ## Parameters:
 
-    *
-
-  `destination`— The target destination IP address for the
-  probe.
-
-    *
-
-  `destinationPort`—Required only if the protocol is
-  `TCP`.
-
-    *
-
-  `protocol`—The communication protocol between the source and
-  destination. This will be either `TCP` or `ICMP`.
-
-    *
-
-  `packetSize`—The size of the packets. This must be a number between
-  `56` and `8500`.
-
-    *
-  (Optional) `tags` —Key-value pairs created and assigned to the
-  probe.
+  ## Optional parameters:
   """
-  @spec create_monitor(map(), create_monitor_input(), list()) ::
+  @spec create_monitor(AWS.Client.t(), create_monitor_input(), Keyword.t()) ::
           {:ok, create_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_monitor_errors()}
@@ -646,7 +609,8 @@ defmodule AWS.NetworkMonitor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -662,16 +626,21 @@ defmodule AWS.NetworkMonitor do
   end
 
   @doc """
-  Create a probe within a monitor.
+  Create a probe within a monitor. Once you create a probe, and it begins
+  monitoring your network traffic, you'll incur billing charges for that probe.
+  This action requires the `monitorName` parameter. Run `ListMonitors` to get a
+  list of monitor names. Note the name of the `monitorName` you want to create
+  the probe for.
 
-  Once you create a probe, and it begins monitoring your
-  network traffic, you'll incur billing charges for that probe. This action
-  requires the
-  `monitorName` parameter. Run `ListMonitors` to get a list of
-  monitor names. Note the name of the `monitorName` you want to create the
-  probe for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20CreateProbe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:monitor_name` (`t:string`) The name of the monitor to associated with the
+    probe.
+
+  ## Optional parameters:
   """
-  @spec create_probe(map(), String.t(), create_probe_input(), list()) ::
+  @spec create_probe(AWS.Client.t(), String.t(), create_probe_input(), Keyword.t()) ::
           {:ok, create_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_probe_errors()}
@@ -680,7 +649,8 @@ defmodule AWS.NetworkMonitor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -698,10 +668,14 @@ defmodule AWS.NetworkMonitor do
   @doc """
   Deletes a specified monitor.
 
-  This action requires the `monitorName` parameter. Run
-  `ListMonitors` to get a list of monitor names.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20DeleteMonitor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:monitor_name` (`t:string`) The name of the monitor to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_monitor(map(), String.t(), delete_monitor_input(), list()) ::
+  @spec delete_monitor(AWS.Client.t(), String.t(), delete_monitor_input(), Keyword.t()) ::
           {:ok, delete_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_monitor_errors()}
@@ -710,7 +684,8 @@ defmodule AWS.NetworkMonitor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -726,17 +701,18 @@ defmodule AWS.NetworkMonitor do
   end
 
   @doc """
-  Deletes the specified probe.
+  Deletes the specified probe. Once a probe is deleted you'll no longer incur any
+  billing fees for that probe.
 
-  Once a probe is deleted you'll no longer incur any billing
-  fees for that probe.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20DeleteProbe&this_doc_guide=API%2520Reference)
 
-  This action requires both the `monitorName` and `probeId`
-  parameters. Run `ListMonitors` to get a list of monitor names. Run
-  `GetMonitor` to get a list of probes and probe IDs. You can only delete a
-  single probe at a time using this action.
+  ## Parameters:
+  * `:monitor_name` (`t:string`) The name of the monitor to delete.
+  * `:probe_id` (`t:string`) The ID of the probe to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_probe(map(), String.t(), String.t(), delete_probe_input(), list()) ::
+  @spec delete_probe(AWS.Client.t(), String.t(), String.t(), delete_probe_input(), Keyword.t()) ::
           {:ok, delete_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_probe_errors()}
@@ -747,7 +723,8 @@ defmodule AWS.NetworkMonitor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -765,32 +742,62 @@ defmodule AWS.NetworkMonitor do
   @doc """
   Returns details about a specific monitor.
 
-  This action requires the `monitorName` parameter. Run
-  `ListMonitors` to get a list of monitor names.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20GetMonitor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:monitor_name` (`t:string`) The name of the monitor that details are returned
+    for.
+
+  ## Optional parameters:
   """
-  @spec get_monitor(map(), String.t(), list()) ::
+  @spec get_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_monitor_errors()}
   def get_monitor(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/monitors/#{AWS.Util.encode_uri(monitor_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns the details about a probe.
+  Returns the details about a probe. This action requires both the `monitorName`
+  and `probeId` parameters. Run `ListMonitors` to get a list of monitor names.
+  Run `GetMonitor` to get a list of probes and probe IDs.
 
-  This action requires both the
-  `monitorName` and `probeId` parameters. Run
-  `ListMonitors` to get a list of monitor names. Run
-  `GetMonitor` to get a list of probes and probe IDs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20GetProbe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:monitor_name` (`t:string`) The name of the monitor associated with the
+    probe. Run ListMonitors to get a list of monitor names.
+  * `:probe_id` (`t:string`) The ID of the probe to get information about. Run
+    GetMonitor action to get a list of probes and probe IDs for the monitor.
+
+  ## Optional parameters:
   """
-  @spec get_probe(map(), String.t(), String.t(), list()) ::
+  @spec get_probe(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_probe_errors()}
@@ -798,79 +805,155 @@ defmodule AWS.NetworkMonitor do
     url_path =
       "/monitors/#{AWS.Util.encode_uri(monitor_name)}/probes/#{AWS.Util.encode_uri(probe_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all of your monitors.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20ListMonitors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return with a
+    single call. To retrieve the remaining results, make another call with the
+    returned nextToken value.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:state` (`t:`) The list of all monitors and their states.
   """
-  @spec list_monitors(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_monitors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_monitors_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_monitors_errors()}
-  def list_monitors(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        state \\ nil,
-        options \\ []
-      ) do
+  def list_monitors(%Client{} = client, options \\ []) do
     url_path = "/monitors"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, state: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(state) do
-        [{"state", state} | query_params]
+      if opt_val = Keyword.get(options, :state) do
+        [{"state", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :state])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the tags assigned to this resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Adds key-value pairs to a monitor or probe.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the monitor or probe to tag.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_input(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -879,7 +962,8 @@ defmodule AWS.NetworkMonitor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -896,8 +980,17 @@ defmodule AWS.NetworkMonitor do
 
   @doc """
   Removes a key-value pair from a monitor or probe.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the monitor or probe that the tag
+    should be removed from.
+  * `:tag_keys` (`t:list[com.amazonaws.networkmonitor#TagKey]`) The key-value pa
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -911,7 +1004,8 @@ defmodule AWS.NetworkMonitor do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -927,14 +1021,19 @@ defmodule AWS.NetworkMonitor do
   end
 
   @doc """
-  Updates the `aggregationPeriod` for a monitor.
+  Updates the `aggregationPeriod` for a monitor. Monitors support an
+  `aggregationPeriod` of either `30` or `60` seconds. This action requires the
+  `monitorName` and `probeId` parameter. Run `ListMonitors` to get a list of
+  monitor names.
 
-  Monitors support an
-  `aggregationPeriod` of either `30` or `60` seconds.
-  This action requires the `monitorName` and `probeId` parameter.
-  Run `ListMonitors` to get a list of monitor names.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20UpdateMonitor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:monitor_name` (`t:string`) The name of the monitor to update.
+
+  ## Optional parameters:
   """
-  @spec update_monitor(map(), String.t(), update_monitor_input(), list()) ::
+  @spec update_monitor(AWS.Client.t(), String.t(), update_monitor_input(), Keyword.t()) ::
           {:ok, update_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_monitor_errors()}
@@ -943,7 +1042,8 @@ defmodule AWS.NetworkMonitor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -959,45 +1059,22 @@ defmodule AWS.NetworkMonitor do
   end
 
   @doc """
-  Updates a monitor probe.
+  Updates a monitor probe. This action requires both the `monitorName` and
+  `probeId` parameters. Run `ListMonitors` to get a list of monitor names. Run
+  `GetMonitor` to get a list of probes and probe IDs. You can update the
+  following para create a monitor with probes using this command. For each
+  probe, you define the following:
 
-  This action requires both the `monitorName` and `probeId` parameters. Run
-  `ListMonitors` to get a list of monitor names. Run `GetMonitor` to get a list of
-  probes and probe IDs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20UpdateProbe&this_doc_guide=API%2520Reference)
 
-  You can update the following para create a monitor with probes using this
-  command. For
-  each probe, you define the following:
+  ## Parameters:
+  * `:monitor_name` (`t:string`) The name of the monitor that the probe was
+    updated for.
+  * `:probe_id` (`t:string`) The ID of the probe to update.
 
-    *
-
-  `state`—The state of the probe.
-
-    *
-
-  `destination`— The target destination IP address for the
-  probe.
-
-    *
-
-  `destinationPort`—Required only if the protocol is
-  `TCP`.
-
-    *
-
-  `protocol`—The communication protocol between the source and
-  destination. This will be either `TCP` or `ICMP`.
-
-    *
-
-  `packetSize`—The size of the packets. This must be a number between
-  `56` and `8500`.
-
-    *
-  (Optional) `tags` —Key-value pairs created and assigned to the
-  probe.
+  ## Optional parameters:
   """
-  @spec update_probe(map(), String.t(), String.t(), update_probe_input(), list()) ::
+  @spec update_probe(AWS.Client.t(), String.t(), String.t(), update_probe_input(), Keyword.t()) ::
           {:ok, update_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_probe_errors()}
@@ -1008,7 +1085,8 @@ defmodule AWS.NetworkMonitor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

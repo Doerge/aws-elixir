@@ -3665,18 +3665,26 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
-  Associates a knowledge base with an agent.
+  Associates a knowledge base with an agent. If a knowledge base is associated and
+  its `indexState` is set to `Enabled`, the agent queries the knowledge base for
+  information to augment its response to the user.
 
-  If a knowledge base is associated and its `indexState` is set to `Enabled`, the
-  agent queries the knowledge base for information to augment its response to the
-  user.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20AssociateAgentKnowledgeBase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent with which you
+    want to associate the knowledge base.
+  * `:agent_version` (`t:string`) The version of the agent with which you want to
+    associate the knowledge base.
+
+  ## Optional parameters:
   """
   @spec associate_agent_knowledge_base(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           associate_agent_knowledge_base_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_agent_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3694,49 +3702,24 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates an agent that orchestrates interactions between foundation models, data
-  sources, software applications, user conversations, and APIs to carry out tasks
-  to help customers.
+  sources, software applications, user conversations, and APIs to carry out
+  tasks to help customers.
 
-    *
-  Specify the following fields for security purposes.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateAgent&this_doc_guide=API%2520Reference)
 
-      *
+  ## Parameters:
 
-  `agentResourceRoleArn` – The Amazon Resource Name (ARN) of the role with
-  permissions to invoke API operations on an agent.
-
-      *
-  (Optional) `customerEncryptionKeyArn` – The Amazon Resource Name (ARN) of a KMS
-  key to encrypt the creation of the agent.
-
-      *
-  (Optional) `idleSessionTTLinSeconds` – Specify the number of seconds for which
-  the agent should maintain session information. After this time expires, the
-  subsequent `InvokeAgent` request begins a new session.
-
-    *
-  To enable your agent to retain conversational context across multiple sessions,
-  include a `memoryConfiguration` object.
-  For more information, see [Configure memory](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-configure-memory.html).
-
-    *
-  To override the default prompt behavior for agent orchestration and to use
-  advanced prompts, include a `promptOverrideConfiguration` object.
-  For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html).
-
-    *
-  If you agent fails to be created, the response returns a list of
-  `failureReasons` alongside a list of `recommendedActions` for you to
-  troubleshoot.
+  ## Optional parameters:
   """
-  @spec create_agent(map(), create_agent_request(), list()) ::
+  @spec create_agent(AWS.Client.t(), create_agent_request(), Keyword.t()) ::
           {:ok, create_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_agent_errors()}
@@ -3745,42 +3728,36 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
-  Creates an action group for an agent.
-
-  An action group represents the actions that an agent can carry out for the
-  customer by defining the APIs that an agent can call and the logic for calling
-  them.
-
-  To allow your agent to request the user for additional information when trying
-  to complete a task,
-  add an action group with the `parentActionGroupSignature` field set to
+  Creates an action group for an agent. An action group represents the actions
+  that an agent can carry out for the customer by defining the APIs that an
+  agent can call and the logic for calling them. To allow your agent to request
+  the user for additional information when trying to complete a task, add an
+  action group with the `parentActionGroupSignature` field set to
   `AMAZON.UserInput`.
 
-  To allow your agent to generate, run, and troubleshoot code when trying to
-  complete a task,
-  add an action group with the `parentActionGroupSignature` field set to
-  `AMAZON.CodeInterpreter`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateAgentActionGroup&this_doc_guide=API%2520Reference)
 
-  You must leave the `description`, `apiSchema`, and `actionGroupExecutor` fields
-  blank for this action group. During orchestration, if your agent determines that
-  it needs to invoke an API in an action group, but doesn't have enough
-  information to complete the API request, it will invoke this action group
-  instead and return an
-  [Observation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html)
-  reprompting the user for more information.
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent for which to
+    create the action group.
+  * `:agent_version` (`t:string`) The version of the agent for which to create the
+    action group.
+
+  ## Optional parameters:
   """
   @spec create_agent_action_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           create_agent_action_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_agent_action_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3792,15 +3769,23 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates an alias of an agent that can be used to deploy the agent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateAgentAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent.
+
+  ## Optional parameters:
   """
-  @spec create_agent_alias(map(), String.t(), create_agent_alias_request(), list()) ::
+  @spec create_agent_alias(AWS.Client.t(), String.t(), create_agent_alias_request(), Keyword.t()) ::
           {:ok, create_agent_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_agent_alias_errors()}
@@ -3809,7 +3794,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
@@ -3817,10 +3803,15 @@ defmodule AWS.BedrockAgent do
   @doc """
   Creates a data source connector for a knowledge base.
 
-  You can't change the `chunkingConfiguration` after you create the data source
-  connector.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    to which to add the data source.
+
+  ## Optional parameters:
   """
-  @spec create_data_source(map(), String.t(), create_data_source_request(), list()) ::
+  @spec create_data_source(AWS.Client.t(), String.t(), create_data_source_request(), Keyword.t()) ::
           {:ok, create_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_source_errors()}
@@ -3829,22 +3820,29 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a prompt flow that you can use to send an input through various steps to
-  yield an output.
-
-  Configure nodes, each of which corresponds to a step of the flow, and create
-  connections between the nodes to create paths to different outputs. For more
-  information, see [How it works](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-how-it-works.html)
-  and [Create a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-create.html)
+  yield an output. Configure nodes, each of which corresponds to a step of the
+  flow, and create connections between the nodes to create paths to different
+  outputs. For more information, see [How it
+  works](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-how-it-works.html)
+  and [Create a flow in Amazon
+  Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-create.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateFlow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_flow(map(), create_flow_request(), list()) ::
+  @spec create_flow(AWS.Client.t(), create_flow_request(), Keyword.t()) ::
           {:ok, create_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_flow_errors()}
@@ -3853,7 +3851,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3869,12 +3868,20 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
-  Creates an alias of a flow for deployment.
-
-  For more information, see [Deploy a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
+  Creates an alias of a flow for deployment. For more information, see [Deploy a
+  flow in Amazon
+  Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateFlowAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_identifier` (`t:string`) The unique identifier of the flow for which to
+    create an alias.
+
+  ## Optional parameters:
   """
-  @spec create_flow_alias(map(), String.t(), create_flow_alias_request(), list()) ::
+  @spec create_flow_alias(AWS.Client.t(), String.t(), create_flow_alias_request(), Keyword.t()) ::
           {:ok, create_flow_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_flow_alias_errors()}
@@ -3883,7 +3890,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3899,12 +3907,25 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
-  Creates a version of the flow that you can deploy.
-
-  For more information, see [Deploy a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
+  Creates a version of the flow that you can deploy. For more information, see
+  [Deploy a flow in Amazon
+  Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateFlowVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_identifier` (`t:string`) The unique identifier of the flow that you
+    want to create a version of.
+
+  ## Optional parameters:
   """
-  @spec create_flow_version(map(), String.t(), create_flow_version_request(), list()) ::
+  @spec create_flow_version(
+          AWS.Client.t(),
+          String.t(),
+          create_flow_version_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_flow_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_flow_version_errors()}
@@ -3913,7 +3934,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3930,50 +3952,22 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Creates a knowledge base that contains data sources from which information can
-  be queried and used by LLMs.
-
-  To create a knowledge base, you must first set up your data sources and
-  configure a supported vector store. For more information, see [Set up your data for
+  be queried and used by LLMs. To create a knowledge base, you must first set up
+  your data sources and configure a supported vector store. For more
+  information, see [Set up your data for
   ingestion](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html).
-
-  If you prefer to let Amazon Bedrock create and manage a vector store for you in
-  Amazon OpenSearch Service, use the console. For more information, see [Create a knowledge
+  If you prefer to let Amazon Bedrock create and manage a vector store for you
+  in Amazon OpenSearch Service, use the console. For more information, see
+  [Create a knowledge
   base](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-create).
 
-    *
-  Provide the `name` and an optional `description`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateKnowledgeBase&this_doc_guide=API%2520Reference)
 
-    *
-  Provide the Amazon Resource Name (ARN) with permissions to create a knowledge
-  base in the `roleArn` field.
+  ## Parameters:
 
-    *
-  Provide the embedding model to use in the `embeddingModelArn` field in the
-  `knowledgeBaseConfiguration` object.
-
-    *
-  Provide the configuration for your vector store in the `storageConfiguration`
-  object.
-
-      *
-  For an Amazon OpenSearch Service database, use the
-  `opensearchServerlessConfiguration` object. For more information, see [Create a vector store in Amazon OpenSearch
-  Service](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-oss.html).
-
-      *
-  For an Amazon Aurora database, use the `RdsConfiguration` object. For more
-  information, see [Create a vector store in Amazon Aurora](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html).
-
-      *
-  For a Pinecone database, use the `pineconeConfiguration` object. For more
-  information, see [Create a vector store in Pinecone](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-pinecone.html).
-
-      *
-  For a Redis Enterprise Cloud database, use the
-  `redisEnterpriseCloudConfiguration` object. For more information, see [Create a vector store in Redis Enterprise
-  Cloud](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-redis.html).
+  ## Optional parameters:
   """
-  @spec create_knowledge_base(map(), create_knowledge_base_request(), list()) ::
+  @spec create_knowledge_base(AWS.Client.t(), create_knowledge_base_request(), Keyword.t()) ::
           {:ok, create_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_knowledge_base_errors()}
@@ -3982,20 +3976,29 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
-  Creates a prompt in your prompt library that you can add to a flow.
+  Creates a prompt in your prompt library that you can add to a flow. For more
+  information, see [Prompt management in Amazon
+  Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html),
+  [Create a prompt using Prompt
+  management](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html)
+  and [Prompt flows in Amazon
+  Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows.html) in
+  the Amazon Bedrock User Guide.
 
-  For more information, see [Prompt management in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html),
-  [Create a prompt using Prompt management](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html)
-  and [Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows.html) in the
-  Amazon Bedrock User Guide.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreatePrompt&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_prompt(map(), create_prompt_request(), list()) ::
+  @spec create_prompt(AWS.Client.t(), create_prompt_request(), Keyword.t()) ::
           {:ok, create_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_prompt_errors()}
@@ -4004,7 +4007,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4020,12 +4024,25 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
-  Creates a static snapshot of your prompt that can be deployed to production.
-
-  For more information, see [Deploy prompts using Prompt management by creating versions](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-deploy.html)
+  Creates a static snapshot of your prompt that can be deployed to production. For
+  more information, see [Deploy prompts using Prompt management by creating
+  versions](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-deploy.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreatePromptVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:prompt_identifier` (`t:string`) The unique identifier of the prompt that you
+    want to create a version of.
+
+  ## Optional parameters:
   """
-  @spec create_prompt_version(map(), String.t(), create_prompt_version_request(), list()) ::
+  @spec create_prompt_version(
+          AWS.Client.t(),
+          String.t(),
+          create_prompt_version_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_prompt_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_prompt_version_errors()}
@@ -4034,7 +4051,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4051,8 +4069,18 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Deletes an agent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteAgent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent to delete.
+
+  ## Optional parameters:
+  * `:skip_resource_in_use_check` (`t:`) By default, this value is false and
+    deletion is stopped if the resource is in use. If you set it to true, the
+    resource will be deleted even if the resource is in use.
   """
-  @spec delete_agent(map(), String.t(), delete_agent_request(), list()) ::
+  @spec delete_agent(AWS.Client.t(), String.t(), delete_agent_request(), Keyword.t()) ::
           {:ok, delete_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_agent_errors()}
@@ -4066,7 +4094,13 @@ defmodule AWS.BedrockAgent do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:skip_resource_in_use_check])
 
     Request.request_rest(
       client,
@@ -4083,14 +4117,29 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Deletes an action group in an agent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteAgentActionGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:action_group_id` (`t:string`) The unique identifier of the action group to
+    delete.
+  * `:agent_id` (`t:string`) The unique identifier of the agent that the action
+    group belongs to.
+  * `:agent_version` (`t:string`) The version of the agent that the action group
+    belongs to.
+
+  ## Optional parameters:
+  * `:skip_resource_in_use_check` (`t:`) By default, this value is false and
+    deletion is stopped if the resource is in use. If you set it to true, the
+    resource will be deleted even if the resource is in use.
   """
   @spec delete_agent_action_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_agent_action_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_agent_action_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4114,7 +4163,13 @@ defmodule AWS.BedrockAgent do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:skip_resource_in_use_check])
 
     Request.request_rest(
       client,
@@ -4131,8 +4186,23 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Deletes an alias of an agent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteAgentAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_alias_id` (`t:string`) The unique identifier of the alias to delete.
+  * `:agent_id` (`t:string`) The unique identifier of the agent that the alias
+    belongs to.
+
+  ## Optional parameters:
   """
-  @spec delete_agent_alias(map(), String.t(), String.t(), delete_agent_alias_request(), list()) ::
+  @spec delete_agent_alias(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_agent_alias_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_agent_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_agent_alias_errors()}
@@ -4143,7 +4213,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4160,13 +4231,25 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Deletes a version of an agent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteAgentVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent that the version
+    belongs to.
+  * `:agent_version` (`t:string`) The version of the agent to delete.
+
+  ## Optional parameters:
+  * `:skip_resource_in_use_check` (`t:`) By default, this value is false and
+    deletion is stopped if the resource is in use. If you set it to true, the
+    resource will be deleted even if the resource is in use.
   """
   @spec delete_agent_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_agent_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_agent_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4183,7 +4266,13 @@ defmodule AWS.BedrockAgent do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:skip_resource_in_use_check])
 
     Request.request_rest(
       client,
@@ -4200,8 +4289,24 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Deletes a data source from a knowledge base.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_source_id` (`t:string`) The unique identifier of the data source to
+    delete.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    from which to delete the data source.
+
+  ## Optional parameters:
   """
-  @spec delete_data_source(map(), String.t(), String.t(), delete_data_source_request(), list()) ::
+  @spec delete_data_source(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_data_source_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_source_errors()}
@@ -4218,7 +4323,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4235,8 +4341,18 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Deletes a flow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteFlow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_identifier` (`t:string`) The unique identifier of the flow.
+
+  ## Optional parameters:
+  * `:skip_resource_in_use_check` (`t:`) By default, this value is false and
+    deletion is stopped if the resource is in use. If you set it to true, the
+    resource will be deleted even if the resource is in use.
   """
-  @spec delete_flow(map(), String.t(), delete_flow_request(), list()) ::
+  @spec delete_flow(AWS.Client.t(), String.t(), delete_flow_request(), Keyword.t()) ::
           {:ok, delete_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_flow_errors()}
@@ -4250,7 +4366,13 @@ defmodule AWS.BedrockAgent do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:skip_resource_in_use_check])
 
     Request.request_rest(
       client,
@@ -4267,8 +4389,24 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Deletes an alias of a flow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteFlowAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:alias_identifier` (`t:string`) The unique identifier of the alias to be
+    deleted.
+  * `:flow_identifier` (`t:string`) The unique identifier of the flow that the
+    alias belongs to.
+
+  ## Optional parameters:
   """
-  @spec delete_flow_alias(map(), String.t(), String.t(), delete_flow_alias_request(), list()) ::
+  @spec delete_flow_alias(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_flow_alias_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_flow_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_flow_alias_errors()}
@@ -4285,7 +4423,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4302,8 +4441,26 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Deletes a version of a flow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteFlowVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_identifier` (`t:string`) The unique identifier of the flow whose
+    version that you want to delete
+  * `:flow_version` (`t:string`) The version of the flow that you want to delete.
+
+  ## Optional parameters:
+  * `:skip_resource_in_use_check` (`t:`) By default, this value is false and
+    deletion is stopped if the resource is in use. If you set it to true, the
+    resource will be deleted even if the resource is in use.
   """
-  @spec delete_flow_version(map(), String.t(), String.t(), delete_flow_version_request(), list()) ::
+  @spec delete_flow_version(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_flow_version_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_flow_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_flow_version_errors()}
@@ -4319,7 +4476,13 @@ defmodule AWS.BedrockAgent do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:skip_resource_in_use_check])
 
     Request.request_rest(
       client,
@@ -4335,14 +4498,26 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
-  Deletes a knowledge base.
-
-  Before deleting a knowledge base, you should disassociate the knowledge base
-  from any agents that it is associated with by making a
+  Deletes a knowledge base. Before deleting a knowledge base, you should
+  disassociate the knowledge base from any agents that it is associated with by
+  making a
   [DisassociateAgentKnowledgeBase](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DisassociateAgentKnowledgeBase.html)
   request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteKnowledgeBase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_knowledge_base(map(), String.t(), delete_knowledge_base_request(), list()) ::
+  @spec delete_knowledge_base(
+          AWS.Client.t(),
+          String.t(),
+          delete_knowledge_base_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_knowledge_base_errors()}
@@ -4351,7 +4526,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4367,13 +4543,22 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
-  Deletes a prompt or a prompt version from the Prompt management tool.
-
-  For more information, see [Delete prompts from the Prompt management tool](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-manage.html#prompt-management-delete.html)
-  and [Delete a version of a prompt from the Prompt management tool](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-deploy.html#prompt-management-versions-delete.html)
+  Deletes a prompt or a prompt version from the Prompt management tool. For more
+  information, see [Delete prompts from the Prompt management
+  tool](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-manage.html#prompt-management-delete.html)
+  and [Delete a version of a prompt from the Prompt management
+  tool](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-deploy.html#prompt-management-versions-delete.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeletePrompt&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:prompt_identifier` (`t:string`) The unique identifier of the prompt.
+
+  ## Optional parameters:
+  * `:prompt_version` (`t:string`) The version of the prompt to delete.
   """
-  @spec delete_prompt(map(), String.t(), delete_prompt_request(), list()) ::
+  @spec delete_prompt(AWS.Client.t(), String.t(), delete_prompt_request(), Keyword.t()) ::
           {:ok, delete_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_prompt_errors()}
@@ -4387,7 +4572,13 @@ defmodule AWS.BedrockAgent do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:prompt_version])
 
     Request.request_rest(
       client,
@@ -4404,14 +4595,26 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Disassociates a knowledge base from an agent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DisassociateAgentKnowledgeBase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent from which to
+    disassociate the knowledge base.
+  * `:agent_version` (`t:string`) The version of the agent from which to
+    disassociate the knowledge base.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    to disassociate.
+
+  ## Optional parameters:
   """
   @spec disassociate_agent_knowledge_base(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           disassociate_agent_knowledge_base_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_agent_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4430,7 +4633,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4447,25 +4651,62 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Gets information about an agent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetAgent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent.
+
+  ## Optional parameters:
   """
-  @spec get_agent(map(), String.t(), list()) ::
+  @spec get_agent(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_agent_errors()}
   def get_agent(%Client{} = client, agent_id, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(agent_id)}/"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about an action group for an agent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetAgentActionGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:action_group_id` (`t:string`) The unique identifier of the action group for
+    which to get information.
+  * `:agent_id` (`t:string`) The unique identifier of the agent that the action
+    group belongs to.
+  * `:agent_version` (`t:string`) The version of the agent that the action group
+    belongs to.
+
+  ## Optional parameters:
   """
-  @spec get_agent_action_group(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_agent_action_group(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_agent_action_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_agent_action_group_errors()}
@@ -4479,18 +4720,45 @@ defmodule AWS.BedrockAgent do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/actiongroups/#{AWS.Util.encode_uri(action_group_id)}/"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about an alias of an agent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetAgentAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_alias_id` (`t:string`) The unique identifier of the alias for which to
+    get information.
+  * `:agent_id` (`t:string`) The unique identifier of the agent to which the alias
+    to get information belongs.
+
+  ## Optional parameters:
   """
-  @spec get_agent_alias(map(), String.t(), String.t(), list()) ::
+  @spec get_agent_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_agent_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_agent_alias_errors()}
@@ -4498,18 +4766,47 @@ defmodule AWS.BedrockAgent do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentaliases/#{AWS.Util.encode_uri(agent_alias_id)}/"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a knowledge base associated with an agent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetAgentKnowledgeBase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent with which the
+    knowledge base is associated.
+  * `:agent_version` (`t:string`) The version of the agent with which the
+    knowledge base is associated.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    associated with the agent.
+
+  ## Optional parameters:
   """
-  @spec get_agent_knowledge_base(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_agent_knowledge_base(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_agent_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_agent_knowledge_base_errors()}
@@ -4523,18 +4820,43 @@ defmodule AWS.BedrockAgent do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets details about a version of an agent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetAgentVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent.
+  * `:agent_version` (`t:string`) The version of the agent.
+
+  ## Optional parameters:
   """
-  @spec get_agent_version(map(), String.t(), String.t(), list()) ::
+  @spec get_agent_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_agent_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_agent_version_errors()}
@@ -4542,18 +4864,44 @@ defmodule AWS.BedrockAgent do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a data source.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_source_id` (`t:string`) The unique identifier of the data source.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    that the data source was added to.
+
+  ## Optional parameters:
   """
-  @spec get_data_source(map(), String.t(), String.t(), list()) ::
+  @spec get_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_source_errors()}
@@ -4561,41 +4909,93 @@ defmodule AWS.BedrockAgent do
     url_path =
       "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves information about a flow.
-
-  For more information, see [Manage a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-manage.html)
+  Retrieves information about a flow. For more information, see [Manage a flow in
+  Amazon
+  Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-manage.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetFlow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_identifier` (`t:string`) The unique identifier of the flow.
+
+  ## Optional parameters:
   """
-  @spec get_flow(map(), String.t(), list()) ::
+  @spec get_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_flow_errors()}
   def get_flow(%Client{} = client, flow_identifier, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves information about a flow.
-
-  For more information, see [Deploy a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
+  Retrieves information about a flow. For more information, see [Deploy a flow in
+  Amazon
+  Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetFlowAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:alias_identifier` (`t:string`) The unique identifier of the alias for which
+    to retrieve information.
+  * `:flow_identifier` (`t:string`) The unique identifier of the flow that the
+    alias belongs to.
+
+  ## Optional parameters:
   """
-  @spec get_flow_alias(map(), String.t(), String.t(), list()) ::
+  @spec get_flow_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_flow_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_flow_alias_errors()}
@@ -4603,21 +5003,48 @@ defmodule AWS.BedrockAgent do
     url_path =
       "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases/#{AWS.Util.encode_uri(alias_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves information about a version of a flow.
-
-  For more information, see [Deploy a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
+  Retrieves information about a version of a flow. For more information, see
+  [Deploy a flow in Amazon
+  Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetFlowVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_identifier` (`t:string`) The unique identifier of the flow for which to
+    get information.
+  * `:flow_version` (`t:string`) The version of the flow for which to get
+    information.
+
+  ## Optional parameters:
   """
-  @spec get_flow_version(map(), String.t(), String.t(), list()) ::
+  @spec get_flow_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_flow_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_flow_version_errors()}
@@ -4625,10 +5052,27 @@ defmodule AWS.BedrockAgent do
     url_path =
       "/flows/#{AWS.Util.encode_uri(flow_identifier)}/versions/#{AWS.Util.encode_uri(flow_version)}/"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4636,8 +5080,19 @@ defmodule AWS.BedrockAgent do
   @doc """
   Gets information about a ingestion job, in which a data source is added to a
   knowledge base.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetIngestionJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_source_id` (`t:string`) The unique identifier of the data source in the
+    ingestion job.
+  * `:ingestion_job_id` (`t:string`) The unique identifier of the ingestion job.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    for which the ingestion job applies.
+
+  ## Optional parameters:
   """
-  @spec get_ingestion_job(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_ingestion_job(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_ingestion_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ingestion_job_errors()}
@@ -4651,68 +5106,151 @@ defmodule AWS.BedrockAgent do
     url_path =
       "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}/ingestionjobs/#{AWS.Util.encode_uri(ingestion_job_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a knoweldge base.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetKnowledgeBase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    for which to get information.
+
+  ## Optional parameters:
   """
-  @spec get_knowledge_base(map(), String.t(), list()) ::
+  @spec get_knowledge_base(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_knowledge_base_errors()}
   def get_knowledge_base(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves information about a prompt or a version of it.
-
-  For more information, see [View information about prompts using Prompt management](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-manage.html#prompt-management-view.html)
-  and [View information about a version of your prompt](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-deploy.html#prompt-management-versions-view.html)
+  Retrieves information about a prompt or a version of it. For more information,
+  see [View information about prompts using Prompt
+  management](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-manage.html#prompt-management-view.html)
+  and [View information about a version of your
+  prompt](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-deploy.html#prompt-management-versions-view.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetPrompt&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:prompt_identifier` (`t:string`) The unique identifier of the prompt.
+
+  ## Optional parameters:
+  * `:prompt_version` (`t:string`) The version of the prompt about which you want
+    to retrieve information.
   """
-  @spec get_prompt(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_prompt(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_prompt_errors()}
-  def get_prompt(%Client{} = client, prompt_identifier, prompt_version \\ nil, options \\ []) do
+  def get_prompt(%Client{} = client, prompt_identifier, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(prompt_identifier)}/"
+
+    # Validate optional parameters
+    optional_params = [prompt_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(prompt_version) do
-        [{"promptVersion", prompt_version} | query_params]
+      if opt_val = Keyword.get(options, :prompt_version) do
+        [{"promptVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:prompt_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the action groups for an agent and information about each one.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListAgentActionGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent.
+  * `:agent_version` (`t:string`) The version of the agent.
+
+  ## Optional parameters:
   """
   @spec list_agent_action_groups(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           list_agent_action_groups_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_agent_action_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4724,7 +5262,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4741,8 +5280,15 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Lists the aliases of an agent and information about each one.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListAgentAliases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent.
+
+  ## Optional parameters:
   """
-  @spec list_agent_aliases(map(), String.t(), list_agent_aliases_request(), list()) ::
+  @spec list_agent_aliases(AWS.Client.t(), String.t(), list_agent_aliases_request(), Keyword.t()) ::
           {:ok, list_agent_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_agent_aliases_errors()}
@@ -4751,7 +5297,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4768,13 +5315,23 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Lists knowledge bases associated with an agent and information about each one.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListAgentKnowledgeBases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent for which to
+    return information about knowledge bases associated with it.
+  * `:agent_version` (`t:string`) The version of the agent for which to return
+    information about knowledge bases associated with it.
+
+  ## Optional parameters:
   """
   @spec list_agent_knowledge_bases(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           list_agent_knowledge_bases_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_agent_knowledge_bases_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4792,7 +5349,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4809,8 +5367,20 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Lists the versions of an agent and information about each version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListAgentVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent.
+
+  ## Optional parameters:
   """
-  @spec list_agent_versions(map(), String.t(), list_agent_versions_request(), list()) ::
+  @spec list_agent_versions(
+          AWS.Client.t(),
+          String.t(),
+          list_agent_versions_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_agent_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_agent_versions_errors()}
@@ -4819,7 +5389,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4836,8 +5407,14 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Lists the agents belonging to an account and information about each agent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListAgents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_agents(map(), list_agents_request(), list()) ::
+  @spec list_agents(AWS.Client.t(), list_agents_request(), Keyword.t()) ::
           {:ok, list_agents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_agents_errors()}
@@ -4846,7 +5423,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4863,8 +5441,16 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Lists the data sources in a knowledge base and information about each one.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListDataSources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    for which to return a list of information.
+
+  ## Optional parameters:
   """
-  @spec list_data_sources(map(), String.t(), list_data_sources_request(), list()) ::
+  @spec list_data_sources(AWS.Client.t(), String.t(), list_data_sources_request(), Keyword.t()) ::
           {:ok, list_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_sources_errors()}
@@ -4873,7 +5459,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4890,119 +5477,234 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Returns a list of aliases for a flow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListFlowAliases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_identifier` (`t:string`) The unique identifier of the flow for which
+    aliases are being returned.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in the
+    response. If the total number of results is greater than this value, use the
+    token returned in the response in the nextToken field when making another
+    request to return the next batch of results.
+  * `:next_token` (`t:string`) If the total number of results is greater than the
+    maxResults value provided in the request, enter the token returned in the
+    nextToken field in the response in this field to return the next batch of
+    results.
   """
-  @spec list_flow_aliases(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_flow_aliases(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_flow_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_flow_aliases_errors()}
-  def list_flow_aliases(
-        %Client{} = client,
-        flow_identifier,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_flow_aliases(%Client{} = client, flow_identifier, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns a list of information about each flow.
-
-  For more information, see [Deploy a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
+  Returns a list of information about each flow. For more information, see [Deploy
+  a flow in Amazon
+  Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListFlowVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_identifier` (`t:string`) The unique identifier of the flow.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in the
+    response. If the total number of results is greater than this value, use the
+    token returned in the response in the nextToken field when making another
+    request to return the next batch of results.
+  * `:next_token` (`t:string`) If the total number of results is greater than the
+    maxResults value provided in the request, enter the token returned in the
+    nextToken field in the response in this field to return the next batch of
+    results.
   """
-  @spec list_flow_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_flow_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_flow_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_flow_versions_errors()}
-  def list_flow_versions(
-        %Client{} = client,
-        flow_identifier,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_flow_versions(%Client{} = client, flow_identifier, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/versions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns a list of flows and information about each flow.
-
-  For more information, see [Manage a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-manage.html)
+  Returns a list of flows and information about each flow. For more information,
+  see [Manage a flow in Amazon
+  Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-manage.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListFlows&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in the
+    response. If the total number of results is greater than this value, use the
+    token returned in the response in the nextToken field when making another
+    request to return the next batch of results.
+  * `:next_token` (`t:string`) If the total number of results is greater than the
+    maxResults value provided in the request, enter the token returned in the
+    nextToken field in the response in this field to return the next batch of
+    results.
   """
-  @spec list_flows(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_flows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_flows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_flows_errors()}
-  def list_flows(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_flows(%Client{} = client, options \\ []) do
     url_path = "/flows/"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the ingestion jobs for a data source and information about each of them.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListIngestionJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_source_id` (`t:string`) The unique identifier of the data source for
+    which to return ingestion jobs.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    for which to return ingestion jobs.
+
+  ## Optional parameters:
   """
-  @spec list_ingestion_jobs(map(), String.t(), String.t(), list_ingestion_jobs_request(), list()) ::
+  @spec list_ingestion_jobs(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          list_ingestion_jobs_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_ingestion_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ingestion_jobs_errors()}
@@ -5019,7 +5721,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5036,8 +5739,14 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Lists the knowledge bases in an account and information about each of them.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListKnowledgeBases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_knowledge_bases(map(), list_knowledge_bases_request(), list()) ::
+  @spec list_knowledge_bases(AWS.Client.t(), list_knowledge_bases_request(), Keyword.t()) ::
           {:ok, list_knowledge_bases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_knowledge_bases_errors()}
@@ -5046,7 +5755,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5063,73 +5773,138 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Returns a list of prompts from the Prompt management tool and information about
-  each prompt.
-
-  For more information, see [View information about prompts using Prompt management](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-manage.html#prompt-management-view.html)
+  each prompt. For more information, see [View information about prompts using
+  Prompt
+  management](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-manage.html#prompt-management-view.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListPrompts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in the
+    response. If the total number of results is greater than this value, use the
+    token returned in the response in the nextToken field when making another
+    request to return the next batch of results.
+  * `:next_token` (`t:string`) If the total number of results is greater than the
+    maxResults value provided in the request, enter the token returned in the
+    nextToken field in the response in this field to return the next batch of
+    results.
+  * `:prompt_identifier` (`t:string`) The unique identifier of the prompt.
   """
-  @spec list_prompts(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_prompts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_prompts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_prompts_errors()}
-  def list_prompts(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        prompt_identifier \\ nil,
-        options \\ []
-      ) do
+  def list_prompts(%Client{} = client, options \\ []) do
     url_path = "/prompts/"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, prompt_identifier: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(prompt_identifier) do
-        [{"promptIdentifier", prompt_identifier} | query_params]
+      if opt_val = Keyword.get(options, :prompt_identifier) do
+        [{"promptIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :prompt_identifier])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List all the tags for the resource you specify.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    for which to list tags.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Creates a `DRAFT` version of the agent that can be used for internal testing.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20PrepareAgent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent for which to
+    create a DRAFT version.
+
+  ## Optional parameters:
   """
-  @spec prepare_agent(map(), String.t(), prepare_agent_request(), list()) ::
+  @spec prepare_agent(AWS.Client.t(), String.t(), prepare_agent_request(), Keyword.t()) ::
           {:ok, prepare_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, prepare_agent_errors()}
@@ -5138,7 +5913,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5154,12 +5930,19 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
-  Prepares the `DRAFT` version of a flow so that it can be invoked.
-
-  For more information, see [Test a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-test.html)
+  Prepares the `DRAFT` version of a flow so that it can be invoked. For more
+  information, see [Test a flow in Amazon
+  Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-test.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20PrepareFlow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_identifier` (`t:string`) The unique identifier of the flow.
+
+  ## Optional parameters:
   """
-  @spec prepare_flow(map(), String.t(), prepare_flow_request(), list()) ::
+  @spec prepare_flow(AWS.Client.t(), String.t(), prepare_flow_request(), Keyword.t()) ::
           {:ok, prepare_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, prepare_flow_errors()}
@@ -5168,7 +5951,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5185,8 +5969,24 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Begins an ingestion job, in which a data source is added to a knowledge base.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20StartIngestionJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_source_id` (`t:string`) The unique identifier of the data source to
+    ingest.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    to which to add the data source.
+
+  ## Optional parameters:
   """
-  @spec start_ingestion_job(map(), String.t(), String.t(), start_ingestion_job_request(), list()) ::
+  @spec start_ingestion_job(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          start_ingestion_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_ingestion_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_ingestion_job_errors()}
@@ -5203,18 +6003,26 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
-  Associate tags with a resource.
-
-  For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html)
+  Associate tags with a resource. For more information, see [Tagging
+  resources](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
+    tag.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -5223,7 +6031,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5240,8 +6049,18 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Remove tags from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    from which to remove tags.
+  * `:tag_keys` (`t:list[com.amazonaws.bedrockagent#TagKey]`) A list of keys of
+    the tags to remove from the resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -5255,7 +6074,8 @@ defmodule AWS.BedrockAgent do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5272,8 +6092,15 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Updates the configuration of an agent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdateAgent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent.
+
+  ## Optional parameters:
   """
-  @spec update_agent(map(), String.t(), update_agent_request(), list()) ::
+  @spec update_agent(AWS.Client.t(), String.t(), update_agent_request(), Keyword.t()) ::
           {:ok, update_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_agent_errors()}
@@ -5282,21 +6109,33 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
   Updates the configuration for an action group for an agent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdateAgentActionGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:action_group_id` (`t:string`) The unique identifier of the action group.
+  * `:agent_id` (`t:string`) The unique identifier of the agent for which to
+    update the action group.
+  * `:agent_version` (`t:string`) The unique identifier of the agent version for
+    which to update the action group.
+
+  ## Optional parameters:
   """
   @spec update_agent_action_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           update_agent_action_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_agent_action_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5315,15 +6154,30 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates configurations for an alias of an agent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdateAgentAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_alias_id` (`t:string`) The unique identifier of the alias.
+  * `:agent_id` (`t:string`) The unique identifier of the agent.
+
+  ## Optional parameters:
   """
-  @spec update_agent_alias(map(), String.t(), String.t(), update_agent_alias_request(), list()) ::
+  @spec update_agent_alias(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_agent_alias_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_agent_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_agent_alias_errors()}
@@ -5334,7 +6188,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
@@ -5342,14 +6197,26 @@ defmodule AWS.BedrockAgent do
   @doc """
   Updates the configuration for a knowledge base that has been associated with an
   agent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdateAgentKnowledgeBase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent associated with
+    the knowledge base that you want to update.
+  * `:agent_version` (`t:string`) The version of the agent associated with the
+    knowledge base that you want to update.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    that has been associated with an agent.
+
+  ## Optional parameters:
   """
   @spec update_agent_knowledge_base(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           update_agent_knowledge_base_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_agent_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5368,7 +6235,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -5376,10 +6244,22 @@ defmodule AWS.BedrockAgent do
   @doc """
   Updates the configurations for a data source connector.
 
-  You can't change the `chunkingConfiguration` after you create the data source
-  connector. Specify the existing `chunkingConfiguration`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdateDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_source_id` (`t:string`) The unique identifier of the data source.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    for the data source.
+
+  ## Optional parameters:
   """
-  @spec update_data_source(map(), String.t(), String.t(), update_data_source_request(), list()) ::
+  @spec update_data_source(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_data_source_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_source_errors()}
@@ -5396,20 +6276,28 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Modifies a flow.
-
-  Include both fields that you want to keep and fields that you want to change.
-  For more information, see [How it works](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-how-it-works.html)
-  and [Create a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-create.html)
+  Modifies a flow. Include both fields that you want to keep and fields that you
+  want to change. For more information, see [How it
+  works](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-how-it-works.html)
+  and [Create a flow in Amazon
+  Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-create.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdateFlow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_identifier` (`t:string`) The unique identifier of the flow.
+
+  ## Optional parameters:
   """
-  @spec update_flow(map(), String.t(), update_flow_request(), list()) ::
+  @spec update_flow(AWS.Client.t(), String.t(), update_flow_request(), Keyword.t()) ::
           {:ok, update_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_flow_errors()}
@@ -5418,19 +6306,33 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Modifies the alias of a flow.
-
-  Include both fields that you want to keep and ones that you want to change. For
-  more information, see [Deploy a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
+  Modifies the alias of a flow. Include both fields that you want to keep and ones
+  that you want to change. For more information, see [Deploy a flow in Amazon
+  Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdateFlowAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:alias_identifier` (`t:string`) The unique identifier of the alias.
+  * `:flow_identifier` (`t:string`) The unique identifier of the flow.
+
+  ## Optional parameters:
   """
-  @spec update_flow_alias(map(), String.t(), String.t(), update_flow_alias_request(), list()) ::
+  @spec update_flow_alias(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_flow_alias_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_flow_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_flow_alias_errors()}
@@ -5447,38 +6349,31 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the configuration of a knowledge base with the fields that you specify.
-
   Because all fields will be overwritten, you must include the same values for
-  fields that you want to keep the same.
+  fields that you want to keep the same. You can change the following fields:
 
-  You can change the following fields:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdateKnowledgeBase&this_doc_guide=API%2520Reference)
 
-    *
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    to update.
 
-  `name`
-
-    *
-
-  `description`
-
-    *
-
-  `roleArn`
-
-  You can't change the `knowledgeBaseConfiguration` or `storageConfiguration`
-  fields, so you must specify the same configurations as when you created the
-  knowledge base. You can send a
-  [GetKnowledgeBase](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetKnowledgeBase.html)
-  request and copy the same configurations.
+  ## Optional parameters:
   """
-  @spec update_knowledge_base(map(), String.t(), update_knowledge_base_request(), list()) ::
+  @spec update_knowledge_base(
+          AWS.Client.t(),
+          String.t(),
+          update_knowledge_base_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_knowledge_base_errors()}
@@ -5487,20 +6382,29 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
-  Modifies a prompt in your prompt library.
-
-  Include both fields that you want to keep and fields that you want to replace.
-  For more information, see [Prompt management in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html)
-  and [Edit prompts in your prompt library](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-manage.html#prompt-management-edit)
+  Modifies a prompt in your prompt library. Include both fields that you want to
+  keep and fields that you want to replace. For more information, see [Prompt
+  management in Amazon
+  Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html)
+  and [Edit prompts in your prompt
+  library](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-manage.html#prompt-management-edit)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdatePrompt&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:prompt_identifier` (`t:string`) The unique identifier of the prompt.
+
+  ## Optional parameters:
   """
-  @spec update_prompt(map(), String.t(), update_prompt_request(), list()) ::
+  @spec update_prompt(AWS.Client.t(), String.t(), update_prompt_request(), Keyword.t()) ::
           {:ok, update_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_prompt_errors()}
@@ -5509,7 +6413,8 @@ defmodule AWS.BedrockAgent do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

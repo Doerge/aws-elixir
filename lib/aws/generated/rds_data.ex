@@ -3,25 +3,9 @@
 
 defmodule AWS.RDSData do
   @moduledoc """
-  RDS Data API
-
-  Amazon RDS provides an HTTP endpoint to run SQL statements on an Amazon Aurora
-  DB cluster.
-
-  To run these
-  statements, you use the RDS Data API (Data API).
-
-  Data API is available with the following types of Aurora databases:
-
-    *
-  Aurora PostgreSQL - Serverless v2, Serverless v1, and provisioned
-
-    *
-  Aurora MySQL - Serverless v1 only
-
-  For more information about the Data API, see
-  [Using RDS Data API](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html)
-  in the *Amazon Aurora User Guide*.
+  RDS Data API Amazon RDS provides an HTTP endpoint to run SQL statements on an
+  Amazon Aurora DB cluster. To run these statements, you use the RDS Data API
+  (Data API).
   """
 
   alias AWS.Client
@@ -570,31 +554,18 @@ defmodule AWS.RDSData do
   end
 
   @doc """
-  Runs a batch SQL statement over an array of data.
+  Runs a batch SQL statement over an array of data. You can run bulk update and
+  insert operations for multiple records using a DML statement with different
+  parameter sets. Bulk operations can provide a significant performance
+  improvement over individual insert and update operations.
 
-  You can run bulk update and insert operations for multiple records using a DML
-  statement with different parameter sets. Bulk operations can provide a
-  significant
-  performance improvement over individual insert and update operations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rdsdata%20BatchExecuteStatement&this_doc_guide=API%2520Reference)
 
-  If a call isn't part of a transaction because it doesn't include the
-  `transactionID` parameter,
-  changes that result from the call are committed automatically.
+  ## Parameters:
 
-  There isn't a fixed upper limit on the number of parameter sets. However, the
-  maximum size of the HTTP request
-  submitted through the Data API is 4 MiB. If the request exceeds this limit, the
-  Data API returns an error and doesn't
-  process the request. This 4-MiB limit includes the size of the HTTP headers and
-  the JSON notation in the request. Thus, the
-  number of parameter sets that you can include depends on a combination of
-  factors, such as the size of the SQL statement and
-  the size of each parameter set.
-
-  The response size limit is 1 MiB. If the call returns more than 1 MiB of
-  response data, the call is terminated.
+  ## Optional parameters:
   """
-  @spec batch_execute_statement(map(), batch_execute_statement_request(), list()) ::
+  @spec batch_execute_statement(AWS.Client.t(), batch_execute_statement_request(), Keyword.t()) ::
           {:ok, batch_execute_statement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_execute_statement_errors()}
@@ -603,7 +574,8 @@ defmodule AWS.RDSData do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -621,19 +593,13 @@ defmodule AWS.RDSData do
   @doc """
   Starts a SQL transaction.
 
-  A transaction can run for a maximum of 24 hours. A transaction is terminated and
-  rolled back automatically after 24
-  hours.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rdsdata%20BeginTransaction&this_doc_guide=API%2520Reference)
 
-  A transaction times out if no calls use its transaction ID in three minutes. If
-  a transaction times out before it's
-  committed, it's rolled back automatically.
+  ## Parameters:
 
-  DDL statements inside a transaction cause an implicit commit. We recommend that
-  you run each DDL statement in a separate
-  `ExecuteStatement` call with `continueAfterTimeout` enabled.
+  ## Optional parameters:
   """
-  @spec begin_transaction(map(), begin_transaction_request(), list()) ::
+  @spec begin_transaction(AWS.Client.t(), begin_transaction_request(), Keyword.t()) ::
           {:ok, begin_transaction_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, begin_transaction_errors()}
@@ -642,7 +608,8 @@ defmodule AWS.RDSData do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -658,10 +625,16 @@ defmodule AWS.RDSData do
   end
 
   @doc """
-  Ends a SQL transaction started with the `BeginTransaction` operation and
-  commits the changes.
+  Ends a SQL transaction started with the `BeginTransaction` operation and commits
+  the changes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rdsdata%20CommitTransaction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec commit_transaction(map(), commit_transaction_request(), list()) ::
+  @spec commit_transaction(AWS.Client.t(), commit_transaction_request(), Keyword.t()) ::
           {:ok, commit_transaction_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, commit_transaction_errors()}
@@ -670,7 +643,8 @@ defmodule AWS.RDSData do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -688,12 +662,13 @@ defmodule AWS.RDSData do
   @doc """
   Runs one or more SQL statements.
 
-  This operation isn't supported for Aurora PostgreSQL Serverless v2 and
-  provisioned DB clusters, and for Aurora Serverless v1 DB clusters,
-  the operation is deprecated. Use the `BatchExecuteStatement` or
-  `ExecuteStatement` operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rdsdata%20ExecuteSql&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec execute_sql(map(), execute_sql_request(), list()) ::
+  @spec execute_sql(AWS.Client.t(), execute_sql_request(), Keyword.t()) ::
           {:ok, execute_sql_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_sql_errors()}
@@ -702,7 +677,8 @@ defmodule AWS.RDSData do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -720,14 +696,13 @@ defmodule AWS.RDSData do
   @doc """
   Runs a SQL statement against a database.
 
-  If a call isn't part of a transaction because it doesn't include the
-  `transactionID` parameter, changes that result from the call are
-  committed automatically.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rdsdata%20ExecuteStatement&this_doc_guide=API%2520Reference)
 
-  If the binary response data from the database is more than 1 MB, the call is
-  terminated.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec execute_statement(map(), execute_statement_request(), list()) ::
+  @spec execute_statement(AWS.Client.t(), execute_statement_request(), Keyword.t()) ::
           {:ok, execute_statement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_statement_errors()}
@@ -736,7 +711,8 @@ defmodule AWS.RDSData do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -752,11 +728,16 @@ defmodule AWS.RDSData do
   end
 
   @doc """
-  Performs a rollback of a transaction.
+  Performs a rollback of a transaction. Rolling back a transaction cancels its
+  changes.
 
-  Rolling back a transaction cancels its changes.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rdsdata%20RollbackTransaction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec rollback_transaction(map(), rollback_transaction_request(), list()) ::
+  @spec rollback_transaction(AWS.Client.t(), rollback_transaction_request(), Keyword.t()) ::
           {:ok, rollback_transaction_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, rollback_transaction_errors()}
@@ -765,7 +746,8 @@ defmodule AWS.RDSData do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

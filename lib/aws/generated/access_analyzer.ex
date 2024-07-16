@@ -4,48 +4,19 @@
 defmodule AWS.AccessAnalyzer do
   @moduledoc """
   Identity and Access Management Access Analyzer helps you to set, verify, and
-  refine your IAM policies by providing
-  a suite of capabilities.
-
-  Its features include findings for external and unused access,
-  basic and custom policy checks for validating policies, and policy generation to
-  generate
-  fine-grained policies. To start using IAM Access Analyzer to identify external
-  or unused access,
-  you first need to create an analyzer.
-
-  **External access analyzers** help identify potential risks
-  of accessing resources by enabling you to identify any resource policies that
-  grant access
-  to an external principal. It does this by using logic-based reasoning to analyze
-  resource-based policies in your Amazon Web Services environment. An external
-  principal can be another
-  Amazon Web Services account, a root user, an IAM user or role, a federated user,
-  an Amazon Web Services service, or an
-  anonymous user. You can also use IAM Access Analyzer to preview public and
-  cross-account access
-  to your resources before deploying permissions changes.
-
-  **Unused access analyzers** help identify potential
-  identity access risks by enabling you to identify unused IAM roles, unused
-  access keys,
-  unused console passwords, and IAM principals with unused service and
-  action-level
-  permissions.
-
-  Beyond findings, IAM Access Analyzer provides basic and custom policy checks to
-  validate IAM
-  policies before deploying permissions changes. You can use policy generation to
-  refine
-  permissions by attaching a policy generated using access activity logged in
-  CloudTrail logs.
-
-  This guide describes the IAM Access Analyzer operations that you can call
-  programmatically.
-  For general information about IAM Access Analyzer, see [Identity and Access Management Access
-  Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html)
-  in the
-  **IAM User Guide**.
+  refine your IAM policies by providing a suite of capabilities. Its features
+  include findings for external and unused access, basic and custom policy
+  checks for validating policies, and policy generation to generate fine-grained
+  policies. To start using IAM Access Analyzer to identify external or unused
+  access, you first need to create an analyzer. **External access analyzers**
+  help identify potential risks of accessing resources by enabling you to
+  identify any resource policies that grant access to an external principal. It
+  does this by using logic-based reasoning to analyze resource-based policies in
+  your Amazon Web Services environment. An external principal can be another
+  Amazon Web Services account, a root user, an IAM user or role, a federated
+  user, an Amazon Web Services service, or an anonymous user. You can also use
+  IAM Access Analyzer to preview public and cross-account access to your
+  resources before deploying permissions changes.
   """
 
   alias AWS.Client
@@ -2062,10 +2033,15 @@ defmodule AWS.AccessAnalyzer do
 
   @doc """
   Retroactively applies the archive rule to existing findings that meet the
-  archive rule
-  criteria.
+  archive rule criteria.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ApplyArchiveRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec apply_archive_rule(map(), apply_archive_rule_request(), list()) ::
+  @spec apply_archive_rule(AWS.Client.t(), apply_archive_rule_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, apply_archive_rule_errors()}
@@ -2074,15 +2050,31 @@ defmodule AWS.AccessAnalyzer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Cancels the requested policy generation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CancelPolicyGeneration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The JobId that is returned by the StartPolicyGeneration
+    operation. The JobId can be used with GetGeneratedPolicy to retrieve the
+    generated policies or used with CancelPolicyGeneration to cancel the policy
+    generation request.
+
+  ## Optional parameters:
   """
-  @spec cancel_policy_generation(map(), String.t(), cancel_policy_generation_request(), list()) ::
+  @spec cancel_policy_generation(
+          AWS.Client.t(),
+          String.t(),
+          cancel_policy_generation_request(),
+          Keyword.t()
+        ) ::
           {:ok, cancel_policy_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_policy_generation_errors()}
@@ -2091,15 +2083,22 @@ defmodule AWS.AccessAnalyzer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Checks whether the specified access isn't allowed by a policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CheckAccessNotGranted&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec check_access_not_granted(map(), check_access_not_granted_request(), list()) ::
+  @spec check_access_not_granted(AWS.Client.t(), check_access_not_granted_request(), Keyword.t()) ::
           {:ok, check_access_not_granted_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, check_access_not_granted_errors()}
@@ -2108,7 +2107,8 @@ defmodule AWS.AccessAnalyzer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2125,17 +2125,15 @@ defmodule AWS.AccessAnalyzer do
 
   @doc """
   Checks whether new access is allowed for an updated policy when compared to the
-  existing
-  policy.
+  existing policy.
 
-  You can find examples for reference policies and learn how to set up and run a
-  custom
-  policy check for new access in the [IAM Access Analyzer custom policy checks samples](https://github.com/aws-samples/iam-access-analyzer-custom-policy-check-samples)
-  repository on GitHub. The reference
-  policies in this repository are meant to be passed to the
-  `existingPolicyDocument` request parameter.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CheckNoNewAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec check_no_new_access(map(), check_no_new_access_request(), list()) ::
+  @spec check_no_new_access(AWS.Client.t(), check_no_new_access_request(), Keyword.t()) ::
           {:ok, check_no_new_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, check_no_new_access_errors()}
@@ -2144,7 +2142,8 @@ defmodule AWS.AccessAnalyzer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2161,10 +2160,15 @@ defmodule AWS.AccessAnalyzer do
 
   @doc """
   Checks whether a resource policy can grant public access to the specified
-  resource
-  type.
+  resource type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CheckNoPublicAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec check_no_public_access(map(), check_no_public_access_request(), list()) ::
+  @spec check_no_public_access(AWS.Client.t(), check_no_public_access_request(), Keyword.t()) ::
           {:ok, check_no_public_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, check_no_public_access_errors()}
@@ -2173,7 +2177,8 @@ defmodule AWS.AccessAnalyzer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2190,10 +2195,15 @@ defmodule AWS.AccessAnalyzer do
 
   @doc """
   Creates an access preview that allows you to preview IAM Access Analyzer
-  findings for your
-  resource before deploying resource permissions.
+  findings for your resource before deploying resource permissions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CreateAccessPreview&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_access_preview(map(), create_access_preview_request(), list()) ::
+  @spec create_access_preview(AWS.Client.t(), create_access_preview_request(), Keyword.t()) ::
           {:ok, create_access_preview_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_access_preview_errors()}
@@ -2202,15 +2212,22 @@ defmodule AWS.AccessAnalyzer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates an analyzer for your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CreateAnalyzer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_analyzer(map(), create_analyzer_request(), list()) ::
+  @spec create_analyzer(AWS.Client.t(), create_analyzer_request(), Keyword.t()) ::
           {:ok, create_analyzer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_analyzer_errors()}
@@ -2219,22 +2236,30 @@ defmodule AWS.AccessAnalyzer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Creates an archive rule for the specified analyzer.
+  Creates an archive rule for the specified analyzer. Archive rules automatically
+  archive new findings that meet the criteria you define when you create the
+  rule.
 
-  Archive rules automatically archive
-  new findings that meet the criteria you define when you create the rule.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CreateArchiveRule&this_doc_guide=API%2520Reference)
 
-  To learn about filter keys that you can use to create an archive rule, see [IAM Access Analyzer filter
-  keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html)
-  in the **IAM User Guide**.
+  ## Parameters:
+  * `:analyzer_name` (`t:string`) The name of the created analyzer.
+
+  ## Optional parameters:
   """
-  @spec create_archive_rule(map(), String.t(), create_archive_rule_request(), list()) ::
+  @spec create_archive_rule(
+          AWS.Client.t(),
+          String.t(),
+          create_archive_rule_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_archive_rule_errors()}
@@ -2243,20 +2268,27 @@ defmodule AWS.AccessAnalyzer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Deletes the specified analyzer.
+  Deletes the specified analyzer. When you delete an analyzer, IAM Access Analyzer
+  is disabled for the account or organization in the current or specific Region.
+  All findings that were generated by the analyzer are deleted. You cannot undo
+  this action.
 
-  When you delete an analyzer, IAM Access Analyzer is disabled
-  for the account or organization in the current or specific Region. All findings
-  that were
-  generated by the analyzer are deleted. You cannot undo this action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20DeleteAnalyzer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:analyzer_name` (`t:string`) The name of the analyzer to delete.
+
+  ## Optional parameters:
+  * `:client_token` (`t:`) A client token.
   """
-  @spec delete_analyzer(map(), String.t(), delete_analyzer_request(), list()) ::
+  @spec delete_analyzer(AWS.Client.t(), String.t(), delete_analyzer_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_analyzer_errors()}
@@ -2270,7 +2302,13 @@ defmodule AWS.AccessAnalyzer do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -2287,8 +2325,24 @@ defmodule AWS.AccessAnalyzer do
 
   @doc """
   Deletes the specified archive rule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20DeleteArchiveRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:analyzer_name` (`t:string`) The name of the analyzer that associated with
+    the archive rule to delete.
+  * `:rule_name` (`t:string`) The name of the rule to delete.
+
+  ## Optional parameters:
+  * `:client_token` (`t:`) A client token.
   """
-  @spec delete_archive_rule(map(), String.t(), String.t(), delete_archive_rule_request(), list()) ::
+  @spec delete_archive_rule(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_archive_rule_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_archive_rule_errors()}
@@ -2304,7 +2358,13 @@ defmodule AWS.AccessAnalyzer do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -2321,12 +2381,21 @@ defmodule AWS.AccessAnalyzer do
 
   @doc """
   Creates a recommendation for an unused permissions finding.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GenerateFindingRecommendation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:`) The unique ID for the finding recommendation.
+  * `:analyzer_arn` (`t:string`) The ARN of the analyzer used to generate the
+    finding recommendation.
+
+  ## Optional parameters:
   """
   @spec generate_finding_recommendation(
-          map(),
+          AWS.Client.t(),
           String.t(),
           generate_finding_recommendation_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -2341,7 +2410,8 @@ defmodule AWS.AccessAnalyzer do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2358,72 +2428,131 @@ defmodule AWS.AccessAnalyzer do
 
   @doc """
   Retrieves information about an access preview for the specified analyzer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GetAccessPreview&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:access_preview_id` (`t:string`) The unique ID for the access preview.
+  * `:analyzer_arn` (`t:string`) The ARN of the analyzer used to generate the
+    access preview.
+
+  ## Optional parameters:
   """
-  @spec get_access_preview(map(), String.t(), String.t(), list()) ::
+  @spec get_access_preview(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_preview_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_access_preview_errors()}
   def get_access_preview(%Client{} = client, access_preview_id, analyzer_arn, options \\ []) do
     url_path = "/access-preview/#{AWS.Util.encode_uri(access_preview_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(analyzer_arn) do
-        [{"analyzerArn", analyzer_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"analyzerArn", analyzer_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a resource that was analyzed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GetAnalyzedResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:analyzer_arn` (`t:string`) The ARN of the analyzer to retrieve information
+    from.
+  * `:resource_arn` (`t:string`) The ARN of the resource to retrieve information
+    about.
+
+  ## Optional parameters:
   """
-  @spec get_analyzed_resource(map(), String.t(), String.t(), list()) ::
+  @spec get_analyzed_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_analyzed_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_analyzed_resource_errors()}
   def get_analyzed_resource(%Client{} = client, analyzer_arn, resource_arn, options \\ []) do
     url_path = "/analyzed-resource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(resource_arn) do
-        [{"resourceArn", resource_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    query_params =
-      if !is_nil(analyzer_arn) do
-        [{"analyzerArn", analyzer_arn} | query_params]
-      else
-        query_params
-      end
+    # Required query params
+    query_params = [{"analyzerArn", analyzer_arn}, {"resourceArn", resource_arn}]
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about the specified analyzer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GetAnalyzer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:analyzer_name` (`t:string`) The name of the analyzer retrieved.
+
+  ## Optional parameters:
   """
-  @spec get_analyzer(map(), String.t(), list()) ::
+  @spec get_analyzer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_analyzer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_analyzer_errors()}
   def get_analyzer(%Client{} = client, analyzer_name, options \\ []) do
     url_path = "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2431,11 +2560,15 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Retrieves information about an archive rule.
 
-  To learn about filter keys that you can use to create an archive rule, see [IAM Access Analyzer filter
-  keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html)
-  in the **IAM User Guide**.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GetArchiveRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:analyzer_name` (`t:string`) The name of the analyzer to retrieve rules from.
+  * `:rule_name` (`t:string`) The name of the rule to retrieve.
+
+  ## Optional parameters:
   """
-  @spec get_archive_rule(map(), String.t(), String.t(), list()) ::
+  @spec get_archive_rule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_archive_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_archive_rule_errors()}
@@ -2443,178 +2576,274 @@ defmodule AWS.AccessAnalyzer do
     url_path =
       "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}/archive-rule/#{AWS.Util.encode_uri(rule_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves information about the specified finding.
-
-  GetFinding and GetFindingV2 both use
-  `access-analyzer:GetFinding` in the `Action` element of an IAM
-  policy statement. You must have permission to perform the
+  Retrieves information about the specified finding. GetFinding and GetFindingV2
+  both use `access-analyzer:GetFinding` in the `Action` element of an IAM policy
+  statement. You must have permission to perform the
   `access-analyzer:GetFinding` action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GetFinding&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the finding to retrieve.
+  * `:analyzer_arn` (`t:string`) The ARN of the analyzer that generated the
+    finding.
+
+  ## Optional parameters:
   """
-  @spec get_finding(map(), String.t(), String.t(), list()) ::
+  @spec get_finding(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_finding_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_finding_errors()}
   def get_finding(%Client{} = client, id, analyzer_arn, options \\ []) do
     url_path = "/finding/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(analyzer_arn) do
-        [{"analyzerArn", analyzer_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"analyzerArn", analyzer_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a finding recommendation for the specified analyzer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GetFindingRecommendation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:`) The unique ID for the finding recommendation.
+  * `:analyzer_arn` (`t:string`) The ARN of the analyzer used to generate the
+    finding recommendation.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of results to return in the response.
+  * `:next_token` (`t:string`) A token used for pagination of results returned.
   """
-  @spec get_finding_recommendation(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_finding_recommendation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_finding_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_finding_recommendation_errors()}
-  def get_finding_recommendation(
-        %Client{} = client,
-        id,
-        analyzer_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_finding_recommendation(%Client{} = client, id, analyzer_arn, options \\ []) do
     url_path = "/recommendation/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"analyzerArn", analyzer_arn}]
+
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(analyzer_arn) do
-        [{"analyzerArn", analyzer_arn} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves information about the specified finding.
-
-  GetFinding and GetFindingV2 both use
-  `access-analyzer:GetFinding` in the `Action` element of an IAM
-  policy statement. You must have permission to perform the
+  Retrieves information about the specified finding. GetFinding and GetFindingV2
+  both use `access-analyzer:GetFinding` in the `Action` element of an IAM policy
+  statement. You must have permission to perform the
   `access-analyzer:GetFinding` action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GetFindingV2&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the finding to retrieve.
+  * `:analyzer_arn` (`t:string`) The ARN of the analyzer that generated the
+    finding.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of results to return in the response.
+  * `:next_token` (`t:string`) A token used for pagination of results returned.
   """
-  @spec get_finding_v2(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_finding_v2(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_finding_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_finding_v2_errors()}
-  def get_finding_v2(
-        %Client{} = client,
-        id,
-        analyzer_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_finding_v2(%Client{} = client, id, analyzer_arn, options \\ []) do
     url_path = "/findingv2/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"analyzerArn", analyzer_arn}]
+
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(analyzer_arn) do
-        [{"analyzerArn", analyzer_arn} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the policy that was generated using `StartPolicyGeneration`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GetGeneratedPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The JobId that is returned by the StartPolicyGeneration
+    operation. The JobId can be used with GetGeneratedPolicy to retrieve the
+    generated policies or used with CancelPolicyGeneration to cancel the policy
+    generation request.
+
+  ## Optional parameters:
+  * `:include_resource_placeholders` (`t:`) The level of detail that you want to
+    generate. You can specify whether to generate policies with placeholders for
+    resource ARNs for actions that support resource level granularity in
+    policies.
+  * `:include_service_level_template` (`t:`) The level of detail that you want to
+    generate. You can specify whether to generate service-level policies.
   """
-  @spec get_generated_policy(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_generated_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_generated_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_generated_policy_errors()}
-  def get_generated_policy(
-        %Client{} = client,
-        job_id,
-        include_resource_placeholders \\ nil,
-        include_service_level_template \\ nil,
-        options \\ []
-      ) do
+  def get_generated_policy(%Client{} = client, job_id, options \\ []) do
     url_path = "/policy/generation/#{AWS.Util.encode_uri(job_id)}"
+
+    # Validate optional parameters
+    optional_params = [include_resource_placeholders: nil, include_service_level_template: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(include_service_level_template) do
-        [{"includeServiceLevelTemplate", include_service_level_template} | query_params]
+      if opt_val = Keyword.get(options, :include_service_level_template) do
+        [{"includeServiceLevelTemplate", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(include_resource_placeholders) do
-        [{"includeResourcePlaceholders", include_resource_placeholders} | query_params]
+      if opt_val = Keyword.get(options, :include_resource_placeholders) do
+        [{"includeResourcePlaceholders", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:include_resource_placeholders, :include_service_level_template])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2622,12 +2851,19 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Retrieves a list of access preview findings generated by the specified access
   preview.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListAccessPreviewFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:access_preview_id` (`t:string`) The unique ID for the access preview.
+
+  ## Optional parameters:
   """
   @spec list_access_preview_findings(
-          map(),
+          AWS.Client.t(),
           String.t(),
           list_access_preview_findings_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_access_preview_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2637,7 +2873,8 @@ defmodule AWS.AccessAnalyzer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2654,57 +2891,79 @@ defmodule AWS.AccessAnalyzer do
 
   @doc """
   Retrieves a list of access previews for the specified analyzer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListAccessPreviews&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:analyzer_arn` (`t:string`) The ARN of the analyzer used to generate the
+    access preview.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of results to return in the response.
+  * `:next_token` (`t:string`) A token used for pagination of results returned.
   """
-  @spec list_access_previews(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_access_previews(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_previews_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_access_previews_errors()}
-  def list_access_previews(
-        %Client{} = client,
-        analyzer_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_access_previews(%Client{} = client, analyzer_arn, options \\ []) do
     url_path = "/access-preview"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"analyzerArn", analyzer_arn}]
+
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(analyzer_arn) do
-        [{"analyzerArn", analyzer_arn} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of resources of the specified type that have been analyzed by
-  the
-  specified external access analyzer.
+  the specified external access analyzer. This action is not supported for
+  unused access analyzers.
 
-  This action is not supported for unused access
-  analyzers.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListAnalyzedResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_analyzed_resources(map(), list_analyzed_resources_request(), list()) ::
+  @spec list_analyzed_resources(AWS.Client.t(), list_analyzed_resources_request(), Keyword.t()) ::
           {:ok, list_analyzed_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_analyzed_resources_errors()}
@@ -2713,7 +2972,8 @@ defmodule AWS.AccessAnalyzer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2730,98 +2990,148 @@ defmodule AWS.AccessAnalyzer do
 
   @doc """
   Retrieves a list of analyzers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListAnalyzers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of results to return in the response.
+  * `:next_token` (`t:string`) A token used for pagination of results returned.
+  * `:type` (`t:string`) The type of analyzer.
   """
-  @spec list_analyzers(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_analyzers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_analyzers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_analyzers_errors()}
-  def list_analyzers(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        type \\ nil,
-        options \\ []
-      ) do
+  def list_analyzers(%Client{} = client, options \\ []) do
     url_path = "/analyzer"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
+      if opt_val = Keyword.get(options, :type) do
+        [{"type", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of archive rules created for the specified analyzer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListArchiveRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:analyzer_name` (`t:string`) The name of the analyzer to retrieve rules from.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of results to return in the request.
+  * `:next_token` (`t:string`) A token used for pagination of results returned.
   """
-  @spec list_archive_rules(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_archive_rules(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_archive_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_archive_rules_errors()}
-  def list_archive_rules(
-        %Client{} = client,
-        analyzer_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_archive_rules(%Client{} = client, analyzer_name, options \\ []) do
     url_path = "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}/archive-rule"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves a list of findings generated by the specified analyzer.
+  Retrieves a list of findings generated by the specified analyzer. ListFindings
+  and ListFindingsV2 both use `access-analyzer:ListFindings` in the `Action`
+  element of an IAM policy statement. You must have permission to perform the
+  `access-analyzer:ListFindings` action.
 
-  ListFindings and
-  ListFindingsV2 both use `access-analyzer:ListFindings` in the
-  `Action` element of an IAM policy statement. You must have permission to
-  perform the `access-analyzer:ListFindings` action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListFindings&this_doc_guide=API%2520Reference)
 
-  To learn about filter keys that you can use to retrieve a list of findings, see
-  [IAM Access Analyzer filter keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html)
-  in the **IAM User Guide**.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_findings(map(), list_findings_request(), list()) ::
+  @spec list_findings(AWS.Client.t(), list_findings_request(), Keyword.t()) ::
           {:ok, list_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_findings_errors()}
@@ -2830,7 +3140,8 @@ defmodule AWS.AccessAnalyzer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2846,18 +3157,18 @@ defmodule AWS.AccessAnalyzer do
   end
 
   @doc """
-  Retrieves a list of findings generated by the specified analyzer.
+  Retrieves a list of findings generated by the specified analyzer. ListFindings
+  and ListFindingsV2 both use `access-analyzer:ListFindings` in the `Action`
+  element of an IAM policy statement. You must have permission to perform the
+  `access-analyzer:ListFindings` action.
 
-  ListFindings and
-  ListFindingsV2 both use `access-analyzer:ListFindings` in the
-  `Action` element of an IAM policy statement. You must have permission to
-  perform the `access-analyzer:ListFindings` action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListFindingsV2&this_doc_guide=API%2520Reference)
 
-  To learn about filter keys that you can use to retrieve a list of findings, see
-  [IAM Access Analyzer filter keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html)
-  in the **IAM User Guide**.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_findings_v2(map(), list_findings_v2_request(), list()) ::
+  @spec list_findings_v2(AWS.Client.t(), list_findings_v2_request(), Keyword.t()) ::
           {:ok, list_findings_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_findings_v2_errors()}
@@ -2866,7 +3177,8 @@ defmodule AWS.AccessAnalyzer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2883,75 +3195,127 @@ defmodule AWS.AccessAnalyzer do
 
   @doc """
   Lists all of the policy generations requested in the last seven days.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListPolicyGenerations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of results to return in the response.
+  * `:next_token` (`t:string`) A token used for pagination of results returned.
+  * `:principal_arn` (`t:string`) The ARN of the IAM entity (user or role) for
+    which you are generating a policy. Use this with ListGeneratedPolicies to
+    filter the results to only include results for a specific principal.
   """
-  @spec list_policy_generations(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_policy_generations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_policy_generations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_policy_generations_errors()}
-  def list_policy_generations(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        principal_arn \\ nil,
-        options \\ []
-      ) do
+  def list_policy_generations(%Client{} = client, options \\ []) do
     url_path = "/policy/generation"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, principal_arn: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(principal_arn) do
-        [{"principalArn", principal_arn} | query_params]
+      if opt_val = Keyword.get(options, :principal_arn) do
+        [{"principalArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :principal_arn])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of tags applied to the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The ARN of the resource to retrieve tags from.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Starts the policy generation request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20StartPolicyGeneration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_policy_generation(map(), start_policy_generation_request(), list()) ::
+  @spec start_policy_generation(AWS.Client.t(), start_policy_generation_request(), Keyword.t()) ::
           {:ok, start_policy_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_policy_generation_errors()}
@@ -2960,15 +3324,22 @@ defmodule AWS.AccessAnalyzer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Immediately starts a scan of the policies applied to the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20StartResourceScan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_resource_scan(map(), start_resource_scan_request(), list()) ::
+  @spec start_resource_scan(AWS.Client.t(), start_resource_scan_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_resource_scan_errors()}
@@ -2977,7 +3348,8 @@ defmodule AWS.AccessAnalyzer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2994,8 +3366,15 @@ defmodule AWS.AccessAnalyzer do
 
   @doc """
   Adds a tag to the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The ARN of the resource to add the tag to.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -3004,7 +3383,8 @@ defmodule AWS.AccessAnalyzer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3021,8 +3401,16 @@ defmodule AWS.AccessAnalyzer do
 
   @doc """
   Removes a tag from the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The ARN of the resource to remove the tag from.
+  * `:tag_keys` (`t:list[smithy.api#String]`) The key for the tag to add.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -3036,7 +3424,8 @@ defmodule AWS.AccessAnalyzer do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3053,8 +3442,23 @@ defmodule AWS.AccessAnalyzer do
 
   @doc """
   Updates the criteria and values for the specified archive rule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20UpdateArchiveRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:analyzer_name` (`t:string`) The name of the analyzer to update the archive
+    rules for.
+  * `:rule_name` (`t:string`) The name of the rule to update.
+
+  ## Optional parameters:
   """
-  @spec update_archive_rule(map(), String.t(), String.t(), update_archive_rule_request(), list()) ::
+  @spec update_archive_rule(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_archive_rule_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_archive_rule_errors()}
@@ -3065,15 +3469,22 @@ defmodule AWS.AccessAnalyzer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the status for the specified findings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20UpdateFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_findings(map(), update_findings_request(), list()) ::
+  @spec update_findings(AWS.Client.t(), update_findings_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_findings_errors()}
@@ -3082,20 +3493,27 @@ defmodule AWS.AccessAnalyzer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Requests the validation of a policy and returns a list of findings.
+  Requests the validation of a policy and returns a list of findings. The findings
+  help you identify issues and provide actionable recommendations to resolve the
+  issue and enable you to author functional policies that meet security best
+  practices.
 
-  The findings help
-  you identify issues and provide actionable recommendations to resolve the issue
-  and enable
-  you to author functional policies that meet security best practices.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ValidatePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of results to return in the response.
+  * `:next_token` (`t:string`) A token used for pagination of results returned.
   """
-  @spec validate_policy(map(), validate_policy_request(), list()) ::
+  @spec validate_policy(AWS.Client.t(), validate_policy_request(), Keyword.t()) ::
           {:ok, validate_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_policy_errors()}
@@ -3110,7 +3528,13 @@ defmodule AWS.AccessAnalyzer do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,

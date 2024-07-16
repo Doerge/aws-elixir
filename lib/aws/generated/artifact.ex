@@ -385,156 +385,282 @@ defmodule AWS.Artifact do
 
   @doc """
   Get the account settings for Artifact.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=artifact%20GetAccountSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_account_settings(map(), list()) ::
+  @spec get_account_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_settings_errors()}
   def get_account_settings(%Client{} = client, options \\ []) do
     url_path = "/v1/account-settings/get"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get the content for a single report.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=artifact%20GetReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:report_id` (`t:string`) Unique resource ID for the report resource.
+  * `:term_token` (`t:string`) Unique download token provided by GetTermForReport
+    API.
+
+  ## Optional parameters:
+  * `:report_version` (`t:long`) Version for the report resource.
   """
-  @spec get_report(map(), String.t(), String.t() | nil, String.t(), list()) ::
+  @spec get_report(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_report_errors()}
-  def get_report(%Client{} = client, report_id, report_version \\ nil, term_token, options \\ []) do
+  def get_report(%Client{} = client, report_id, term_token, options \\ []) do
     url_path = "/v1/report/get"
+
+    # Validate optional parameters
+    optional_params = [report_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"reportId", report_id}, {"termToken", term_token}]
+
+    # Optional query params
     query_params =
-      if !is_nil(term_token) do
-        [{"termToken", term_token} | query_params]
+      if opt_val = Keyword.get(options, :report_version) do
+        [{"reportVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(report_version) do
-        [{"reportVersion", report_version} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    query_params =
-      if !is_nil(report_id) do
-        [{"reportId", report_id} | query_params]
-      else
-        query_params
-      end
-
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:report_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get the metadata for a single report.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=artifact%20GetReportMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:report_id` (`t:string`) Unique resource ID for the report resource.
+
+  ## Optional parameters:
+  * `:report_version` (`t:long`) Version for the report resource.
   """
-  @spec get_report_metadata(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_report_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_report_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_report_metadata_errors()}
-  def get_report_metadata(%Client{} = client, report_id, report_version \\ nil, options \\ []) do
+  def get_report_metadata(%Client{} = client, report_id, options \\ []) do
     url_path = "/v1/report/getMetadata"
+
+    # Validate optional parameters
+    optional_params = [report_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"reportId", report_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(report_version) do
-        [{"reportVersion", report_version} | query_params]
+      if opt_val = Keyword.get(options, :report_version) do
+        [{"reportVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(report_id) do
-        [{"reportId", report_id} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:report_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get the Term content associated with a single report.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=artifact%20GetTermForReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:report_id` (`t:string`) Unique resource ID for the report resource.
+
+  ## Optional parameters:
+  * `:report_version` (`t:long`) Version for the report resource.
   """
-  @spec get_term_for_report(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_term_for_report(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_term_for_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_term_for_report_errors()}
-  def get_term_for_report(%Client{} = client, report_id, report_version \\ nil, options \\ []) do
+  def get_term_for_report(%Client{} = client, report_id, options \\ []) do
     url_path = "/v1/report/getTermForReport"
+
+    # Validate optional parameters
+    optional_params = [report_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"reportId", report_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(report_version) do
-        [{"reportVersion", report_version} | query_params]
+      if opt_val = Keyword.get(options, :report_version) do
+        [{"reportVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(report_id) do
-        [{"reportId", report_id} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:report_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List available reports.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=artifact%20ListReports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Maximum number of resources to return in the
+    paginated response.
+  * `:next_token` (`t:string`) Pagination token to request the next page of
+    resources.
   """
-  @spec list_reports(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_reports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_reports_errors()}
-  def list_reports(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_reports(%Client{} = client, options \\ []) do
     url_path = "/v1/report/list"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Put the account settings for Artifact.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=artifact%20PutAccountSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_account_settings(map(), put_account_settings_request(), list()) ::
+  @spec put_account_settings(AWS.Client.t(), put_account_settings_request(), Keyword.t()) ::
           {:ok, put_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_account_settings_errors()}
@@ -543,7 +669,8 @@ defmodule AWS.Artifact do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

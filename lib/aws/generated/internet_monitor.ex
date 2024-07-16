@@ -4,41 +4,23 @@
 defmodule AWS.InternetMonitor do
   @moduledoc """
   Amazon CloudWatch Internet Monitor provides visibility into how internet issues
-  impact the performance and availability
-  between your applications hosted on Amazon Web Services and your end users.
-
-  It can reduce the time it takes for you to diagnose
-  internet issues from days to minutes. Internet Monitor uses the connectivity
-  data that Amazon Web Services captures from its global
-  networking footprint to calculate a baseline of performance and availability for
-  internet traffic. This
-  is the same data that Amazon Web Services uses to monitor internet uptime and
-  availability. With those measurements
-  as a baseline, Internet Monitor raises awareness for you when there are
-  significant problems for your
-  end users in the different geographic locations where your application runs.
-
-  Internet Monitor publishes internet measurements to CloudWatch Logs and
-  CloudWatch Metrics,
-  to easily support using CloudWatch tools with health information for geographies
-  and networks specific to your application.
-  Internet Monitor sends health events to Amazon EventBridge so that you can set
-  up notifications. If an issue is caused by the Amazon Web Services network,
-  you also automatically receive an Amazon Web Services Health Dashboard
-  notification with the steps that Amazon Web Services is taking to mitigate the
-  problem.
-
-  To use Internet Monitor, you create a *monitor* and associate your application's
-  resources
-  with it - VPCs, NLBs, CloudFront distributions, or WorkSpaces directories - so
-  Internet Monitor can determine
-  where your application's internet traffic is. Internet Monitor then provides
-  internet measurements from Amazon Web Services that are specific to
-  the locations and ASNs (typically, internet service providers or ISPs) that
-  communicate with your application.
-
-  For more information, see [Using Amazon CloudWatch Internet Monitor](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html)
-  in the *Amazon CloudWatch User Guide*.
+  impact the performance and availability between your applications hosted on
+  Amazon Web Services and your end users. It can reduce the time it takes for
+  you to diagnose internet issues from days to minutes. Internet Monitor uses
+  the connectivity data that Amazon Web Services captures from its global
+  networking footprint to calculate a baseline of performance and availability
+  for internet traffic. This is the same data that Amazon Web Services uses to
+  monitor internet uptime and availability. With those measurements as a
+  baseline, Internet Monitor raises awareness for you when there are significant
+  problems for your end users in the different geographic locations where your
+  application runs. Internet Monitor publishes internet measurements to
+  CloudWatch Logs and CloudWatch Metrics, to easily support using CloudWatch
+  tools with health information for geographies and networks specific to your
+  application. Internet Monitor sends health events to Amazon EventBridge so
+  that you can set up notifications. If an issue is caused by the Amazon Web
+  Services network, you also automatically receive an Amazon Web Services Health
+  Dashboard notification with the steps that Amazon Web Services is taking to
+  mitigate the problem.
   """
 
   alias AWS.Client
@@ -938,31 +920,33 @@ defmodule AWS.InternetMonitor do
   end
 
   @doc """
-  Creates a monitor in Amazon CloudWatch Internet Monitor.
-
-  A monitor is built based on information from the application resources that you
-  add: VPCs,
+  Creates a monitor in Amazon CloudWatch Internet Monitor. A monitor is built
+  based on information from the application resources that you add: VPCs,
   Network Load Balancers (NLBs), Amazon CloudFront distributions, and Amazon
   WorkSpaces directories. Internet Monitor then publishes internet measurements
-  from Amazon Web Services
-  that are specific to the *city-networks*. That is, the locations and ASNs
-  (typically internet service providers or ISPs),
-  where clients access your application. For more information, see [Using Amazon CloudWatch Internet
+  from Amazon Web Services that are specific to the *city-networks*. That is,
+  the locations and ASNs (typically internet service providers or ISPs), where
+  clients access your application. For more information, see [Using Amazon
+  CloudWatch Internet
   Monitor](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html)
-  in the *Amazon CloudWatch User
-  Guide*.
-
-  When you create a monitor, you choose the percentage of traffic that you want to
-  monitor. You can also set a maximum limit for the
-  number of city-networks where client traffic is monitored, that caps the total
-  traffic that Internet Monitor monitors. A city-network
-  maximum is the limit of city-networks, but you only pay for the number of
-  city-networks that are actually monitored. You can update your monitor
-  at any time to change the percentage of traffic to monitor or the city-networks
-  maximum. For more information, see [Choosing a city-network maximum value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html)
+  in the *Amazon CloudWatch User Guide*. When you create a monitor, you choose
+  the percentage of traffic that you want to monitor. You can also set a maximum
+  limit for the number of city-networks where client traffic is monitored, that
+  caps the total traffic that Internet Monitor monitors. A city-network maximum
+  is the limit of city-networks, but you only pay for the number of
+  city-networks that are actually monitored. You can update your monitor at any
+  time to change the percentage of traffic to monitor or the city-networks
+  maximum. For more information, see [Choosing a city-network maximum
+  value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html)
   in the *Amazon CloudWatch User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20CreateMonitor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_monitor(map(), create_monitor_input(), list()) ::
+  @spec create_monitor(AWS.Client.t(), create_monitor_input(), Keyword.t()) ::
           {:ok, create_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_monitor_errors()}
@@ -971,7 +955,8 @@ defmodule AWS.InternetMonitor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -988,8 +973,15 @@ defmodule AWS.InternetMonitor do
 
   @doc """
   Deletes a monitor in Amazon CloudWatch Internet Monitor.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20DeleteMonitor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:monitor_name` (`t:string`) The name of the monitor to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_monitor(map(), String.t(), delete_monitor_input(), list()) ::
+  @spec delete_monitor(AWS.Client.t(), String.t(), delete_monitor_input(), Keyword.t()) ::
           {:ok, delete_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_monitor_errors()}
@@ -998,7 +990,8 @@ defmodule AWS.InternetMonitor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1015,186 +1008,263 @@ defmodule AWS.InternetMonitor do
 
   @doc """
   Gets information that Amazon CloudWatch Internet Monitor has created and stored
-  about a health event for a specified monitor.
-
-  This information includes the impacted locations,
-  and all the information related to the event, by location.
-
+  about a health event for a specified monitor. This information includes the
+  impacted locations, and all the information related to the event, by location.
   The information returned includes the impact on performance, availability, and
-  round-trip time, information about the network providers (ASNs),
-  the event type, and so on.
+  round-trip time, information about the network providers (ASNs), the event
+  type, and so on.
 
-  Information rolled up at the global traffic level is also returned, including
-  the impact type and total traffic impact.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20GetHealthEvent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:event_id` (`t:string`) The internally-generated identifier of a health
+    event. Because EventID contains the forward slash (“/”) character, you must
+    URL-encode the EventID field in the request URL.
+  * `:monitor_name` (`t:string`) The name of the monitor.
+
+  ## Optional parameters:
+  * `:linked_account_id` (`t:string`) The account ID for an account that you've
+    set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You
+    configure cross-account sharing by using Amazon CloudWatch Observability
+    Access Manager. For more information, see Internet Monitor cross-account
+    observability in the Amazon CloudWatch Internet Monitor User Guide.
   """
-  @spec get_health_event(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_health_event(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_health_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_health_event_errors()}
-  def get_health_event(
-        %Client{} = client,
-        event_id,
-        monitor_name,
-        linked_account_id \\ nil,
-        options \\ []
-      ) do
+  def get_health_event(%Client{} = client, event_id, monitor_name, options \\ []) do
     url_path =
       "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/HealthEvents/#{AWS.Util.encode_uri(event_id)}"
 
+    # Validate optional parameters
+    optional_params = [linked_account_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(linked_account_id) do
-        [{"LinkedAccountId", linked_account_id} | query_params]
+      if opt_val = Keyword.get(options, :linked_account_id) do
+        [{"LinkedAccountId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:linked_account_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information that Amazon CloudWatch Internet Monitor has generated about an
-  internet event.
+  internet event. Internet Monitor displays information about recent global
+  health events, called internet events, on a global outages map that is
+  available to all Amazon Web Services customers.
 
-  Internet Monitor displays information about
-  recent global health events, called internet events, on a global outages map
-  that is available to all Amazon Web Services
-  customers.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20GetInternetEvent&this_doc_guide=API%2520Reference)
 
-  The information returned here includes the impacted location,
-  when the event started and (if the event is over) ended, the type of event
-  (`PERFORMANCE` or `AVAILABILITY`),
-  and the status (`ACTIVE` or `RESOLVED`).
+  ## Parameters:
+  * `:event_id` (`t:string`) The EventId of the internet event to return
+    information for.
+
+  ## Optional parameters:
   """
-  @spec get_internet_event(map(), String.t(), list()) ::
+  @spec get_internet_event(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_internet_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_internet_event_errors()}
   def get_internet_event(%Client{} = client, event_id, options \\ []) do
     url_path = "/v20210603/InternetEvents/#{AWS.Util.encode_uri(event_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a monitor in Amazon CloudWatch Internet Monitor based on
-  a monitor name.
+  a monitor name. The information returned includes the Amazon Resource Name
+  (ARN), create time, modified time, resources included in the monitor, and
+  status information.
 
-  The information returned includes the Amazon Resource Name (ARN), create time,
-  modified time, resources included in the monitor, and status information.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20GetMonitor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:monitor_name` (`t:string`) The name of the monitor.
+
+  ## Optional parameters:
+  * `:linked_account_id` (`t:string`) The account ID for an account that you've
+    set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You
+    configure cross-account sharing by using Amazon CloudWatch Observability
+    Access Manager. For more information, see Internet Monitor cross-account
+    observability in the Amazon CloudWatch Internet Monitor User Guide.
   """
-  @spec get_monitor(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_monitor_errors()}
-  def get_monitor(%Client{} = client, monitor_name, linked_account_id \\ nil, options \\ []) do
+  def get_monitor(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}"
+
+    # Validate optional parameters
+    optional_params = [linked_account_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(linked_account_id) do
-        [{"LinkedAccountId", linked_account_id} | query_params]
+      if opt_val = Keyword.get(options, :linked_account_id) do
+        [{"LinkedAccountId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:linked_account_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Return the data for a query with the Amazon CloudWatch Internet Monitor query
-  interface.
-
-  Specify the query that you want to return results for by providing
+  interface. Specify the query that you want to return results for by providing
   a `QueryId` and a monitor name.
 
-  For more information about using the query interface, including examples, see
-  [Using the Amazon CloudWatch Internet Monitor query interface](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html)
-  in the Amazon CloudWatch Internet Monitor User Guide.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20GetQueryResults&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:monitor_name` (`t:string`) The name of the monitor to return data for.
+  * `:query_id` (`t:`) The ID of the query that you want to return data results
+    for. A QueryId is an internally-generated identifier for a specific query.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The number of query results that you want to
+    return with this call.
+  * `:next_token` (`t:`) The token for the next set of results. You receive this
+    token from a previous call.
   """
-  @spec get_query_results(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_query_results(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_query_results_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_query_results_errors()}
-  def get_query_results(
-        %Client{} = client,
-        monitor_name,
-        query_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_query_results(%Client{} = client, monitor_name, query_id, options \\ []) do
     url_path =
       "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/Queries/#{AWS.Util.encode_uri(query_id)}/Results"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the current status of a query for the Amazon CloudWatch Internet Monitor
-  query interface, for a specified query ID and monitor.
+  query interface, for a specified query ID and monitor. When you run a query,
+  check the status to make sure that the query has `SUCCEEDED` before you review
+  the results.
 
-  When you run a query, check the status to make sure that the query has
-  `SUCCEEDED` before you review the results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20GetQueryStatus&this_doc_guide=API%2520Reference)
 
-    *
+  ## Parameters:
+  * `:monitor_name` (`t:string`) The name of the monitor.
+  * `:query_id` (`t:`) The ID of the query that you want to return the status for.
+    A QueryId is an internally-generated dentifier for a specific query.
 
-  `QUEUED`: The query is scheduled to run.
-
-    *
-
-  `RUNNING`: The query is in progress but not complete.
-
-    *
-
-  `SUCCEEDED`: The query completed sucessfully.
-
-    *
-
-  `FAILED`: The query failed due to an error.
-
-    *
-
-  `CANCELED`: The query was canceled.
+  ## Optional parameters:
   """
-  @spec get_query_status(map(), String.t(), String.t(), list()) ::
+  @spec get_query_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_query_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_query_status_errors()}
@@ -1202,188 +1272,262 @@ defmodule AWS.InternetMonitor do
     url_path =
       "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/Queries/#{AWS.Util.encode_uri(query_id)}/Status"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all health events for a monitor in Amazon CloudWatch Internet Monitor.
-
   Returns information for health events including the event start and end times,
-  and
-  the status.
+  and the status.
 
-  Health events that have start times during the time frame that is requested are
-  not included in the list of health events.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20ListHealthEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:monitor_name` (`t:string`) The name of the monitor.
+
+  ## Optional parameters:
+  * `:end_time` (`t:`) The time when a health event ended. If the health event is
+    still ongoing, then the end time is not set.
+  * `:event_status` (`t:string`) The status of a health event.
+  * `:linked_account_id` (`t:string`) The account ID for an account that you've
+    set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You
+    configure cross-account sharing by using Amazon CloudWatch Observability
+    Access Manager. For more information, see Internet Monitor cross-account
+    observability in the Amazon CloudWatch Internet Monitor User Guide.
+  * `:max_results` (`t:integer`) The number of health event objects that you want
+    to return with this call.
+  * `:next_token` (`t:`) The token for the next set of results. You receive this
+    token from a previous call.
+  * `:start_time` (`t:`) The time when a health event started.
   """
-  @spec list_health_events(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_health_events(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_health_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_health_events_errors()}
-  def list_health_events(
-        %Client{} = client,
-        monitor_name,
-        end_time \\ nil,
-        event_status \\ nil,
-        linked_account_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        start_time \\ nil,
-        options \\ []
-      ) do
+  def list_health_events(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/HealthEvents"
+
+    # Validate optional parameters
+    optional_params = [
+      end_time: nil,
+      event_status: nil,
+      linked_account_id: nil,
+      max_results: nil,
+      next_token: nil,
+      start_time: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(start_time) do
-        [{"StartTime", start_time} | query_params]
+      if opt_val = Keyword.get(options, :start_time) do
+        [{"StartTime", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(linked_account_id) do
-        [{"LinkedAccountId", linked_account_id} | query_params]
+      if opt_val = Keyword.get(options, :linked_account_id) do
+        [{"LinkedAccountId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(event_status) do
-        [{"EventStatus", event_status} | query_params]
+      if opt_val = Keyword.get(options, :event_status) do
+        [{"EventStatus", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(end_time) do
-        [{"EndTime", end_time} | query_params]
+      if opt_val = Keyword.get(options, :end_time) do
+        [{"EndTime", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :end_time,
+        :event_status,
+        :linked_account_id,
+        :max_results,
+        :next_token,
+        :start_time
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists internet events that cause performance or availability issues for client
-  locations.
-
-  Amazon CloudWatch Internet Monitor displays information about
+  locations. Amazon CloudWatch Internet Monitor displays information about
   recent global health events, called internet events, on a global outages map
-  that is available to all Amazon Web Services
-  customers.
+  that is available to all Amazon Web Services customers. You can constrain the
+  list of internet events returned by providing a start time and end time to
+  define a total time frame for events you want to list. Both start time and end
+  time specify the time when an event started. End time is optional. If you
+  don't include it, the default end time is the current time.
 
-  You can constrain the list of internet events returned by providing a start time
-  and end time to define a total
-  time frame for events you want to list. Both start time and end time specify the
-  time when an event started. End time
-  is optional. If you don't include it, the default end time is the current time.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20ListInternetEvents&this_doc_guide=API%2520Reference)
 
-  You can also limit the events returned to a specific status
-  (`ACTIVE` or `RESOLVED`) or type (`PERFORMANCE` or `AVAILABILITY`).
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:end_time` (`t:`) The end time of the time window that you want to get a list
+    of internet events for.
+  * `:event_status` (`t:`) The status of an internet event.
+  * `:event_type` (`t:`) The type of network impairment.
+  * `:max_results` (`t:integer`) The number of query results that you want to
+    return with this call.
+  * `:next_token` (`t:`) The token for the next set of results. You receive this
+    token from a previous call.
+  * `:start_time` (`t:`) The start time of the time window that you want to get a
+    list of internet events for.
   """
-  @spec list_internet_events(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_internet_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_internet_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_internet_events_errors()}
-  def list_internet_events(
-        %Client{} = client,
-        end_time \\ nil,
-        event_status \\ nil,
-        event_type \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        start_time \\ nil,
-        options \\ []
-      ) do
+  def list_internet_events(%Client{} = client, options \\ []) do
     url_path = "/v20210603/InternetEvents"
+
+    # Validate optional parameters
+    optional_params = [
+      end_time: nil,
+      event_status: nil,
+      event_type: nil,
+      max_results: nil,
+      next_token: nil,
+      start_time: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(start_time) do
-        [{"StartTime", start_time} | query_params]
+      if opt_val = Keyword.get(options, :start_time) do
+        [{"StartTime", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"InternetEventMaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"InternetEventMaxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(event_type) do
-        [{"EventType", event_type} | query_params]
+      if opt_val = Keyword.get(options, :event_type) do
+        [{"EventType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(event_status) do
-        [{"EventStatus", event_status} | query_params]
+      if opt_val = Keyword.get(options, :event_status) do
+        [{"EventStatus", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(end_time) do
-        [{"EndTime", end_time} | query_params]
+      if opt_val = Keyword.get(options, :end_time) do
+        [{"EndTime", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :end_time,
+        :event_status,
+        :event_type,
+        :max_results,
+        :next_token,
+        :start_time
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1391,97 +1535,151 @@ defmodule AWS.InternetMonitor do
   @doc """
   Lists all of your monitors for Amazon CloudWatch Internet Monitor and their
   statuses, along with the Amazon Resource Name (ARN) and name of each monitor.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20ListMonitors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:include_linked_accounts` (`t:`) A boolean option that you can set to TRUE to
+    include monitors for linked accounts in a list of monitors, when you've set
+    up cross-account sharing in Amazon CloudWatch Internet Monitor. You
+    configure cross-account sharing by using Amazon CloudWatch Observability
+    Access Manager. For more information, see Internet Monitor cross-account
+    observability in the Amazon CloudWatch Internet Monitor User Guide.
+  * `:max_results` (`t:integer`) The number of monitor objects that you want to
+    return with this call.
+  * `:monitor_status` (`t:`) The status of a monitor. This includes the status of
+    the data processing for the monitor and the status of the monitor itself.
+  * `:next_token` (`t:`) The token for the next set of results. You receive this
+    token from a previous call.
   """
-  @spec list_monitors(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_monitors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_monitors_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_monitors_errors()}
-  def list_monitors(
-        %Client{} = client,
-        include_linked_accounts \\ nil,
-        max_results \\ nil,
-        monitor_status \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_monitors(%Client{} = client, options \\ []) do
     url_path = "/v20210603/Monitors"
+
+    # Validate optional parameters
+    optional_params = [
+      include_linked_accounts: nil,
+      max_results: nil,
+      monitor_status: nil,
+      next_token: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(monitor_status) do
-        [{"MonitorStatus", monitor_status} | query_params]
+      if opt_val = Keyword.get(options, :monitor_status) do
+        [{"MonitorStatus", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(include_linked_accounts) do
-        [{"IncludeLinkedAccounts", include_linked_accounts} | query_params]
+      if opt_val = Keyword.get(options, :include_linked_accounts) do
+        [{"IncludeLinkedAccounts", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:include_linked_accounts, :max_results, :monitor_status, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the tags for a resource.
+  Lists the tags for a resource. Tags are supported only for monitors in Amazon
+  CloudWatch Internet Monitor.
 
-  Tags are supported only for monitors in Amazon CloudWatch Internet Monitor.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Start a query to return data for a specific query type for the Amazon CloudWatch
-  Internet Monitor query interface.
+  Internet Monitor query interface. Specify a time period for the data that you
+  want returned by using `StartTime` and `EndTime`. You filter the query results
+  to return by providing parameters that you specify with `FilterParameters`.
 
-  Specify a time period
-  for the data that you want returned by using `StartTime` and `EndTime`. You
-  filter the query
-  results to return by providing parameters that you specify with
-  `FilterParameters`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20StartQuery&this_doc_guide=API%2520Reference)
 
-  For more information about using the query interface, including examples, see
-  [Using the Amazon CloudWatch Internet Monitor query interface](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html)
-  in the Amazon CloudWatch Internet Monitor User Guide.
+  ## Parameters:
+  * `:monitor_name` (`t:string`) The name of the monitor to query.
+
+  ## Optional parameters:
   """
-  @spec start_query(map(), String.t(), start_query_input(), list()) ::
+  @spec start_query(AWS.Client.t(), String.t(), start_query_input(), Keyword.t()) ::
           {:ok, start_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_query_errors()}
@@ -1490,7 +1688,8 @@ defmodule AWS.InternetMonitor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1507,8 +1706,17 @@ defmodule AWS.InternetMonitor do
 
   @doc """
   Stop a query that is progress for a specific monitor.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20StopQuery&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:monitor_name` (`t:string`) The name of the monitor.
+  * `:query_id` (`t:`) The ID of the query that you want to stop. A QueryId is an
+    internally-generated identifier for a specific query.
+
+  ## Optional parameters:
   """
-  @spec stop_query(map(), String.t(), String.t(), stop_query_input(), list()) ::
+  @spec stop_query(AWS.Client.t(), String.t(), String.t(), stop_query_input(), Keyword.t()) ::
           {:ok, stop_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_query_errors()}
@@ -1519,7 +1727,8 @@ defmodule AWS.InternetMonitor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1535,15 +1744,20 @@ defmodule AWS.InternetMonitor do
   end
 
   @doc """
-  Adds a tag to a resource.
+  Adds a tag to a resource. Tags are supported only for monitors in Amazon
+  CloudWatch Internet Monitor. You can add a maximum of 50 tags in Internet
+  Monitor.
 
-  Tags are supported only for monitors in Amazon CloudWatch Internet Monitor. You
-  can add a maximum of 50 tags in Internet Monitor.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20TagResource&this_doc_guide=API%2520Reference)
 
-  A minimum of one tag is required for this call. It returns an error if you use
-  the `TagResource` request with 0 tags.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a tag that you
+    add to a resource. Tags are supported only for monitors in Amazon CloudWatch
+    Internet Monitor.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_input(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1552,7 +1766,8 @@ defmodule AWS.InternetMonitor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1569,8 +1784,18 @@ defmodule AWS.InternetMonitor do
 
   @doc """
   Removes a tag from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a tag you
+    remove a resource from.
+  * `:tag_keys` (`t:list[com.amazonaws.internetmonitor#TagKey]`) Tag keys that you
+    remove from a resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1584,7 +1809,8 @@ defmodule AWS.InternetMonitor do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1600,19 +1826,19 @@ defmodule AWS.InternetMonitor do
   end
 
   @doc """
-  Updates a monitor.
+  Updates a monitor. You can update a monitor to change the percentage of traffic
+  to monitor or the maximum number of city-networks (locations and ASNs), to add
+  or remove resources, or to change the status of the monitor. Note that you
+  can't change the name of a monitor.
 
-  You can update a monitor to change the percentage of traffic to monitor or the
-  maximum number of city-networks
-  (locations and ASNs), to add or remove resources, or to change the status of the
-  monitor. Note that you can't change the name of a monitor.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=internetmonitor%20UpdateMonitor&this_doc_guide=API%2520Reference)
 
-  The city-network maximum that you choose is the limit, but you only pay for the
-  number of city-networks that are actually monitored.
-  For more information, see [Choosing a city-network maximum value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html)
-  in the *Amazon CloudWatch User Guide*.
+  ## Parameters:
+  * `:monitor_name` (`t:string`) The name of the monitor.
+
+  ## Optional parameters:
   """
-  @spec update_monitor(map(), String.t(), update_monitor_input(), list()) ::
+  @spec update_monitor(AWS.Client.t(), String.t(), update_monitor_input(), Keyword.t()) ::
           {:ok, update_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_monitor_errors()}
@@ -1621,7 +1847,8 @@ defmodule AWS.InternetMonitor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

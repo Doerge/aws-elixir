@@ -4,10 +4,9 @@
 defmodule AWS.Fis do
   @moduledoc """
   Fault Injection Service is a managed service that enables you to perform fault
-  injection
-  experiments on your Amazon Web Services workloads.
-
-  For more information, see the [Fault Injection Service User Guide](https://docs.aws.amazon.com/fis/latest/userguide/).
+  injection experiments on your Amazon Web Services workloads. For more
+  information, see the [Fault Injection Service User
+  Guide](https://docs.aws.amazon.com/fis/latest/userguide/).
   """
 
   alias AWS.Client
@@ -1332,33 +1331,20 @@ defmodule AWS.Fis do
   end
 
   @doc """
-  Creates an experiment template.
+  Creates an experiment template. An experiment template includes the following
+  components:
 
-  An experiment template includes the following components:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20CreateExperimentTemplate&this_doc_guide=API%2520Reference)
 
-    *
+  ## Parameters:
 
-  **Targets**: A target can be a specific resource in
-  your Amazon Web Services environment, or one or more resources that match
-  criteria that you
-  specify, for example, resources that have specific tags.
-
-    *
-
-  **Actions**: The actions to carry out on the
-  target. You can specify multiple actions, the duration of each action, and when
-  to start each action during an experiment.
-
-    *
-
-  **Stop conditions**: If a stop condition is
-  triggered while an experiment is running, the experiment is automatically
-  stopped. You can define a stop condition as a CloudWatch alarm.
-
-  For more information, see [experiment templates](https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html)
-  in the *Fault Injection Service User Guide*.
+  ## Optional parameters:
   """
-  @spec create_experiment_template(map(), create_experiment_template_request(), list()) ::
+  @spec create_experiment_template(
+          AWS.Client.t(),
+          create_experiment_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_experiment_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_experiment_template_errors()}
@@ -1367,7 +1353,8 @@ defmodule AWS.Fis do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1383,20 +1370,28 @@ defmodule AWS.Fis do
   end
 
   @doc """
-  Creates a target account configuration for the experiment template.
-
-  A target account configuration
-  is required when `accountTargeting` of `experimentOptions` is set to
-  `multi-account`.
-  For more information, see [experiment options](https://docs.aws.amazon.com/fis/latest/userguide/experiment-options.html)
+  Creates a target account configuration for the experiment template. A target
+  account configuration is required when `accountTargeting` of
+  `experimentOptions` is set to `multi-account`. For more information, see
+  [experiment
+  options](https://docs.aws.amazon.com/fis/latest/userguide/experiment-options.html)
   in the *Fault Injection Service User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20CreateTargetAccountConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the target
+    account.
+  * `:experiment_template_id` (`t:string`) The experiment template ID.
+
+  ## Optional parameters:
   """
   @spec create_target_account_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           create_target_account_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_target_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1414,7 +1409,8 @@ defmodule AWS.Fis do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1431,12 +1427,19 @@ defmodule AWS.Fis do
 
   @doc """
   Deletes the specified experiment template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20DeleteExperimentTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the experiment template.
+
+  ## Optional parameters:
   """
   @spec delete_experiment_template(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_experiment_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_experiment_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1446,7 +1449,8 @@ defmodule AWS.Fis do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1463,13 +1467,22 @@ defmodule AWS.Fis do
 
   @doc """
   Deletes the specified target account configuration of the experiment template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20DeleteTargetAccountConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the target
+    account.
+  * `:experiment_template_id` (`t:string`) The ID of the experiment template.
+
+  ## Optional parameters:
   """
   @spec delete_target_account_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_target_account_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_target_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1487,7 +1500,8 @@ defmodule AWS.Fis do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1504,34 +1518,84 @@ defmodule AWS.Fis do
 
   @doc """
   Gets information about the specified FIS action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20GetAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the action.
+
+  ## Optional parameters:
   """
-  @spec get_action(map(), String.t(), list()) ::
+  @spec get_action(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_action_errors()}
   def get_action(%Client{} = client, id, options \\ []) do
     url_path = "/actions/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about the specified experiment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20GetExperiment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the experiment.
+
+  ## Optional parameters:
   """
-  @spec get_experiment(map(), String.t(), list()) ::
+  @spec get_experiment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_experiment_errors()}
   def get_experiment(%Client{} = client, id, options \\ []) do
     url_path = "/experiments/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1539,8 +1603,22 @@ defmodule AWS.Fis do
   @doc """
   Gets information about the specified target account configuration of the
   experiment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20GetExperimentTargetAccountConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the target
+    account.
+  * `:experiment_id` (`t:string`) The ID of the experiment.
+
+  ## Optional parameters:
   """
-  @spec get_experiment_target_account_configuration(map(), String.t(), String.t(), list()) ::
+  @spec get_experiment_target_account_configuration(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, get_experiment_target_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_experiment_target_account_configuration_errors()}
@@ -1553,27 +1631,69 @@ defmodule AWS.Fis do
     url_path =
       "/experiments/#{AWS.Util.encode_uri(experiment_id)}/targetAccountConfigurations/#{AWS.Util.encode_uri(account_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about the specified experiment template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20GetExperimentTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the experiment template.
+
+  ## Optional parameters:
   """
-  @spec get_experiment_template(map(), String.t(), list()) ::
+  @spec get_experiment_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_experiment_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_experiment_template_errors()}
   def get_experiment_template(%Client{} = client, id, options \\ []) do
     url_path = "/experimentTemplates/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1581,8 +1701,17 @@ defmodule AWS.Fis do
   @doc """
   Gets information about the specified target account configuration of the
   experiment template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20GetTargetAccountConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the target
+    account.
+  * `:experiment_template_id` (`t:string`) The ID of the experiment template.
+
+  ## Optional parameters:
   """
-  @spec get_target_account_configuration(map(), String.t(), String.t(), list()) ::
+  @spec get_target_account_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_target_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_target_account_configuration_errors()}
@@ -1595,324 +1724,583 @@ defmodule AWS.Fis do
     url_path =
       "/experimentTemplates/#{AWS.Util.encode_uri(experiment_template_id)}/targetAccountConfigurations/#{AWS.Util.encode_uri(account_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about the specified resource type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20GetTargetResourceType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_type` (`t:string`) The resource type.
+
+  ## Optional parameters:
   """
-  @spec get_target_resource_type(map(), String.t(), list()) ::
+  @spec get_target_resource_type(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_target_resource_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_target_resource_type_errors()}
   def get_target_resource_type(%Client{} = client, resource_type, options \\ []) do
     url_path = "/targetResourceTypes/#{AWS.Util.encode_uri(resource_type)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the available FIS actions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20ListActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return with a
+    single call. To retrieve the remaining results, make another call with the
+    returned nextToken value.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
-  @spec list_actions(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_actions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_actions_errors()}
-  def list_actions(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_actions(%Client{} = client, options \\ []) do
     url_path = "/actions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the resolved targets information of the specified experiment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20ListExperimentResolvedTargets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:experiment_id` (`t:string`) The ID of the experiment.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return with a
+    single call. To retrieve the remaining results, make another call with the
+    returned nextToken value.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:target_name` (`t:string`) The name of the target.
   """
-  @spec list_experiment_resolved_targets(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_experiment_resolved_targets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_experiment_resolved_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_experiment_resolved_targets_errors()}
-  def list_experiment_resolved_targets(
-        %Client{} = client,
-        experiment_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        target_name \\ nil,
-        options \\ []
-      ) do
+  def list_experiment_resolved_targets(%Client{} = client, experiment_id, options \\ []) do
     url_path = "/experiments/#{AWS.Util.encode_uri(experiment_id)}/resolvedTargets"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, target_name: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(target_name) do
-        [{"targetName", target_name} | query_params]
+      if opt_val = Keyword.get(options, :target_name) do
+        [{"targetName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :target_name])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the target account configurations of the specified experiment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20ListExperimentTargetAccountConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:experiment_id` (`t:string`) The ID of the experiment.
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
-  @spec list_experiment_target_account_configurations(map(), String.t(), String.t() | nil, list()) ::
+  @spec list_experiment_target_account_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_experiment_target_account_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_experiment_target_account_configurations_errors()}
   def list_experiment_target_account_configurations(
         %Client{} = client,
         experiment_id,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path = "/experiments/#{AWS.Util.encode_uri(experiment_id)}/targetAccountConfigurations"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists your experiment templates.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20ListExperimentTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return with a
+    single call. To retrieve the remaining results, make another call with the
+    returned nextToken value.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
-  @spec list_experiment_templates(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_experiment_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_experiment_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_experiment_templates_errors()}
-  def list_experiment_templates(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_experiment_templates(%Client{} = client, options \\ []) do
     url_path = "/experimentTemplates"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists your experiments.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20ListExperiments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:experiment_template_id` (`t:string`) The ID of the experiment template.
+  * `:max_results` (`t:integer`) The maximum number of results to return with a
+    single call. To retrieve the remaining results, make another call with the
+    returned nextToken value.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
-  @spec list_experiments(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_experiments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_experiments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_experiments_errors()}
-  def list_experiments(
-        %Client{} = client,
-        experiment_template_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_experiments(%Client{} = client, options \\ []) do
     url_path = "/experiments"
+
+    # Validate optional parameters
+    optional_params = [experiment_template_id: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(experiment_template_id) do
-        [{"experimentTemplateId", experiment_template_id} | query_params]
+      if opt_val = Keyword.get(options, :experiment_template_id) do
+        [{"experimentTemplateId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:experiment_template_id, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the tags for the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the target account configurations of the specified experiment template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20ListTargetAccountConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:experiment_template_id` (`t:string`) The ID of the experiment template.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return with a
+    single call. To retrieve the remaining results, make another call with the
+    returned nextToken value.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
-  @spec list_target_account_configurations(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_target_account_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_target_account_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_target_account_configurations_errors()}
   def list_target_account_configurations(
         %Client{} = client,
         experiment_template_id,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/experimentTemplates/#{AWS.Util.encode_uri(experiment_template_id)}/targetAccountConfigurations"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the target resource types.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20ListTargetResourceTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return with a
+    single call. To retrieve the remaining results, make another call with the
+    returned nextToken value.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
-  @spec list_target_resource_types(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_target_resource_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_target_resource_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_target_resource_types_errors()}
-  def list_target_resource_types(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_target_resource_types(%Client{} = client, options \\ []) do
     url_path = "/targetResourceTypes"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Starts running an experiment from the specified experiment template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20StartExperiment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_experiment(map(), start_experiment_request(), list()) ::
+  @spec start_experiment(AWS.Client.t(), start_experiment_request(), Keyword.t()) ::
           {:ok, start_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_experiment_errors()}
@@ -1921,7 +2309,8 @@ defmodule AWS.Fis do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1938,8 +2327,15 @@ defmodule AWS.Fis do
 
   @doc """
   Stops the specified experiment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20StopExperiment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the experiment.
+
+  ## Optional parameters:
   """
-  @spec stop_experiment(map(), String.t(), stop_experiment_request(), list()) ::
+  @spec stop_experiment(AWS.Client.t(), String.t(), stop_experiment_request(), Keyword.t()) ::
           {:ok, stop_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_experiment_errors()}
@@ -1948,7 +2344,8 @@ defmodule AWS.Fis do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1965,8 +2362,15 @@ defmodule AWS.Fis do
 
   @doc """
   Applies the specified tags to the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
@@ -1974,7 +2378,8 @@ defmodule AWS.Fis do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1991,8 +2396,16 @@ defmodule AWS.Fis do
 
   @doc """
   Removes the specified tags from the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
+  * `:tag_keys` (`t:list[com.amazonaws.fis#TagKey]`) The tag keys to remove.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
@@ -2005,7 +2418,13 @@ defmodule AWS.Fis do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:tag_keys])
 
     Request.request_rest(
       client,
@@ -2022,12 +2441,19 @@ defmodule AWS.Fis do
 
   @doc """
   Updates the specified experiment template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20UpdateExperimentTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the experiment template.
+
+  ## Optional parameters:
   """
   @spec update_experiment_template(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_experiment_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_experiment_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2037,7 +2463,8 @@ defmodule AWS.Fis do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2054,13 +2481,22 @@ defmodule AWS.Fis do
 
   @doc """
   Updates the target account configuration for the specified experiment template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20UpdateTargetAccountConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the target
+    account.
+  * `:experiment_template_id` (`t:string`) The ID of the experiment template.
+
+  ## Optional parameters:
   """
   @spec update_target_account_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_target_account_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_target_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2078,7 +2514,8 @@ defmodule AWS.Fis do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

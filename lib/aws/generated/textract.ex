@@ -3,11 +3,9 @@
 
 defmodule AWS.Textract do
   @moduledoc """
-  Amazon Textract detects and analyzes text in documents and converts it
-  into machine-readable text.
-
-  This is the API reference documentation for
-  Amazon Textract.
+  Amazon Textract detects and analyzes text in documents and converts it into
+  machine-readable text. This is the API reference documentation for Amazon
+  Textract.
   """
 
   alias AWS.Client
@@ -1805,232 +1803,153 @@ defmodule AWS.Textract do
   end
 
   @doc """
-  Analyzes an input document for relationships between detected items.
-
-  The types of information returned are as follows:
-
-    *
-  Form data (key-value pairs). The related information is returned in two `Block`
-  objects, each of type `KEY_VALUE_SET`: a KEY
-  `Block` object and a VALUE `Block` object. For example,
-  *Name: Ana Silva Carolina* contains a key and value.
-  *Name:* is the key. *Ana Silva Carolina* is
-  the value.
-
-    *
-  Table and table cell data. A TABLE `Block` object contains information
-  about a detected table. A CELL `Block` object is returned for each cell in
-  a table.
-
-    *
-  Lines and words of text. A LINE `Block` object contains one or more
-  WORD `Block` objects. All lines and words that are detected in the
-  document are returned (including text that doesn't have a relationship with the
-  value
-  of `FeatureTypes`).
-
-    *
-  Signatures. A SIGNATURE `Block` object contains the location information
-  of a signature in a document. If used in conjunction with forms or tables, a
-  signature
-  can be given a Key-Value pairing or be detected in the cell of a table.
-
-    *
-  Query. A QUERY Block object contains the query text, alias and link to the
-  associated Query results block object.
-
-    *
-  Query Result. A QUERY_RESULT Block object contains the answer to the query and
-  an
-  ID that connects it to the query asked. This Block also contains a confidence
-  score.
-
-  Selection elements such as check boxes and option buttons (radio buttons) can be
-  detected in form data and in tables. A SELECTION_ELEMENT `Block` object contains
-  information about a selection element, including the selection status.
-
-  You can choose which type of analysis to perform by specifying the
-  `FeatureTypes` list.
-
-  The output is returned in a list of `Block` objects.
-
-  `AnalyzeDocument` is a synchronous operation. To analyze documents
-  asynchronously, use `StartDocumentAnalysis`.
-
-  For more information, see [Document Text Analysis](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html).
+  Analyzes an input document for relationships between detected items. The types
+  of information returned are as follows:
   """
-  @spec analyze_document(map(), analyze_document_request(), list()) ::
+  @spec analyze_document(AWS.Client.t(), analyze_document_request(), Keyword.t()) ::
           {:ok, analyze_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, analyze_document_errors()}
   def analyze_document(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AnalyzeDocument", input, options)
   end
 
   @doc """
-
   `AnalyzeExpense` synchronously analyzes an input document for financially
-  related relationships between text.
-
-  Information is returned as `ExpenseDocuments` and seperated as
-  follows:
-
-    *
-
-  `LineItemGroups`- A data set containing `LineItems` which
-  store information about the lines of text, such as an item purchased and its
-  price on
-  a receipt.
-
-    *
-
-  `SummaryFields`- Contains all other information a receipt, such as
-  header information or the vendors name.
+  related relationships between text. Information is returned as
+  `ExpenseDocuments` and seperated as follows:
   """
-  @spec analyze_expense(map(), analyze_expense_request(), list()) ::
+  @spec analyze_expense(AWS.Client.t(), analyze_expense_request(), Keyword.t()) ::
           {:ok, analyze_expense_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, analyze_expense_errors()}
   def analyze_expense(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AnalyzeExpense", input, options)
   end
 
   @doc """
-  Analyzes identity documents for relevant information.
-
-  This information is extracted and
-  returned as `IdentityDocumentFields`, which records both the normalized field
-  and value of the extracted text. Unlike other Amazon Textract operations,
-  `AnalyzeID` doesn't return any Geometry data.
+  Analyzes identity documents for relevant information. This information is
+  extracted and returned as `IdentityDocumentFields`, which records both the
+  normalized field and value of the extracted text. Unlike other Amazon Textract
+  operations, `AnalyzeID` doesn't return any Geometry data.
   """
-  @spec analyze_id(map(), analyze_id_request(), list()) ::
+  @spec analyze_id(AWS.Client.t(), analyze_id_request(), Keyword.t()) ::
           {:ok, analyze_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, analyze_id_errors()}
   def analyze_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AnalyzeID", input, options)
   end
 
   @doc """
   Creates an adapter, which can be fine-tuned for enhanced performance on user
-  provided
-  documents.
-
-  Takes an AdapterName and FeatureType. Currently the only supported feature type
-  is `QUERIES`. You can also provide a Description, Tags, and a
-  ClientRequestToken. You can choose whether or not the adapter should be
-  AutoUpdated with
-  the AutoUpdate argument. By default, AutoUpdate is set to DISABLED.
+  provided documents. Takes an AdapterName and FeatureType. Currently the only
+  supported feature type is `QUERIES`. You can also provide a Description, Tags,
+  and a ClientRequestToken. You can choose whether or not the adapter should be
+  AutoUpdated with the AutoUpdate argument. By default, AutoUpdate is set to
+  DISABLED.
   """
-  @spec create_adapter(map(), create_adapter_request(), list()) ::
+  @spec create_adapter(AWS.Client.t(), create_adapter_request(), Keyword.t()) ::
           {:ok, create_adapter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_adapter_errors()}
   def create_adapter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAdapter", input, options)
   end
 
   @doc """
-  Creates a new version of an adapter.
-
-  Operates on a provided AdapterId and a specified
-  dataset provided via the DatasetConfig argument. Requires that you
+  Creates a new version of an adapter. Operates on a provided AdapterId and a
+  specified dataset provided via the DatasetConfig argument. Requires that you
   specify an Amazon S3 bucket with the OutputConfig argument. You can provide an
-  optional KMSKeyId,
-  an optional ClientRequestToken, and optional tags.
+  optional KMSKeyId, an optional ClientRequestToken, and optional tags.
   """
-  @spec create_adapter_version(map(), create_adapter_version_request(), list()) ::
+  @spec create_adapter_version(AWS.Client.t(), create_adapter_version_request(), Keyword.t()) ::
           {:ok, create_adapter_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_adapter_version_errors()}
   def create_adapter_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAdapterVersion", input, options)
   end
 
   @doc """
-  Deletes an Amazon Textract adapter.
-
-  Takes an AdapterId and deletes the adapter specified by the ID.
+  Deletes an Amazon Textract adapter. Takes an AdapterId and deletes the adapter
+  specified by the ID.
   """
-  @spec delete_adapter(map(), delete_adapter_request(), list()) ::
+  @spec delete_adapter(AWS.Client.t(), delete_adapter_request(), Keyword.t()) ::
           {:ok, delete_adapter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_adapter_errors()}
   def delete_adapter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAdapter", input, options)
   end
 
   @doc """
-  Deletes an Amazon Textract adapter version.
-
-  Requires that you specify both an AdapterId and a
-  AdapterVersion. Deletes the adapter version specified by the AdapterId and the
-  AdapterVersion.
+  Deletes an Amazon Textract adapter version. Requires that you specify both an
+  AdapterId and a AdapterVersion. Deletes the adapter version specified by the
+  AdapterId and the AdapterVersion.
   """
-  @spec delete_adapter_version(map(), delete_adapter_version_request(), list()) ::
+  @spec delete_adapter_version(AWS.Client.t(), delete_adapter_version_request(), Keyword.t()) ::
           {:ok, delete_adapter_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_adapter_version_errors()}
   def delete_adapter_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAdapterVersion", input, options)
   end
 
   @doc """
-  Detects text in the input document.
-
-  Amazon Textract can detect lines of text and the
-  words that make up a line of text. The input document must be in one of the
-  following image
-  formats: JPEG, PNG, PDF, or TIFF. `DetectDocumentText` returns the detected
-  text in an array of `Block` objects.
-
-  Each document page has as an associated `Block` of type PAGE. Each PAGE `Block`
-  object
-  is the parent of LINE `Block` objects that represent the lines of detected text
-  on a page. A LINE `Block` object is
-  a parent for each word that makes up the line. Words are represented by `Block`
-  objects of type WORD.
-
-  `DetectDocumentText` is a synchronous operation. To analyze documents
-  asynchronously, use `StartDocumentTextDetection`.
-
-  For more information, see [Document Text Detection](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html).
+  Detects text in the input document. Amazon Textract can detect lines of text and
+  the words that make up a line of text. The input document must be in one of
+  the following image formats: JPEG, PNG, PDF, or TIFF. `DetectDocumentText`
+  returns the detected text in an array of `Block` objects. Each document page
+  has as an associated `Block` of type PAGE. Each PAGE `Block` object is the
+  parent of LINE `Block` objects that represent the lines of detected text on a
+  page. A LINE `Block` object is a parent for each word that makes up the line.
+  Words are represented by `Block` objects of type WORD.
   """
-  @spec detect_document_text(map(), detect_document_text_request(), list()) ::
+  @spec detect_document_text(AWS.Client.t(), detect_document_text_request(), Keyword.t()) ::
           {:ok, detect_document_text_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_document_text_errors()}
   def detect_document_text(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetectDocumentText", input, options)
   end
 
   @doc """
   Gets configuration information for an adapter specified by an AdapterId,
-  returning information on AdapterName, Description,
-  CreationTime, AutoUpdate status, and FeatureTypes.
+  returning information on AdapterName, Description, CreationTime, AutoUpdate
+  status, and FeatureTypes.
   """
-  @spec get_adapter(map(), get_adapter_request(), list()) ::
+  @spec get_adapter(AWS.Client.t(), get_adapter_request(), Keyword.t()) ::
           {:ok, get_adapter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_adapter_errors()}
   def get_adapter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAdapter", input, options)
   end
@@ -2040,247 +1959,134 @@ defmodule AWS.Textract do
   AdapterId, AdapterVersion, FeatureTypes, Status, StatusMessage, DatasetConfig,
   KMSKeyId, OutputConfig, Tags and EvaluationMetrics.
   """
-  @spec get_adapter_version(map(), get_adapter_version_request(), list()) ::
+  @spec get_adapter_version(AWS.Client.t(), get_adapter_version_request(), Keyword.t()) ::
           {:ok, get_adapter_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_adapter_version_errors()}
   def get_adapter_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAdapterVersion", input, options)
   end
 
   @doc """
   Gets the results for an Amazon Textract asynchronous operation that analyzes
-  text in a
-  document.
-
-  You start asynchronous text analysis by calling `StartDocumentAnalysis`,
-  which returns a job identifier (`JobId`). When the text analysis operation
-  finishes, Amazon Textract publishes a completion status to the Amazon Simple
-  Notification Service (Amazon SNS) topic
-  that's registered in the initial call to `StartDocumentAnalysis`. To get the
-  results of the text-detection operation, first check that the status value
-  published to the
-  Amazon SNS topic is `SUCCEEDED`. If so, call `GetDocumentAnalysis`, and
+  text in a document. You start asynchronous text analysis by calling
+  `StartDocumentAnalysis`, which returns a job identifier (`JobId`). When the
+  text analysis operation finishes, Amazon Textract publishes a completion
+  status to the Amazon Simple Notification Service (Amazon SNS) topic that's
+  registered in the initial call to `StartDocumentAnalysis`. To get the results
+  of the text-detection operation, first check that the status value published
+  to the Amazon SNS topic is `SUCCEEDED`. If so, call `GetDocumentAnalysis`, and
   pass the job identifier (`JobId`) from the initial call to
   `StartDocumentAnalysis`.
-
-  `GetDocumentAnalysis` returns an array of `Block` objects.
-  The following types of information are returned:
-
-    *
-  Form data (key-value pairs). The related information is returned in two `Block`
-  objects, each of type `KEY_VALUE_SET`: a KEY
-  `Block` object and a VALUE `Block` object. For example,
-  *Name: Ana Silva Carolina* contains a key and value.
-  *Name:* is the key. *Ana Silva Carolina* is
-  the value.
-
-    *
-  Table and table cell data. A TABLE `Block` object contains information
-  about a detected table. A CELL `Block` object is returned for each cell in
-  a table.
-
-    *
-  Lines and words of text. A LINE `Block` object contains one or more
-  WORD `Block` objects. All lines and words that are detected in the
-  document are returned (including text that doesn't have a relationship with the
-  value
-  of the `StartDocumentAnalysis`
-  `FeatureTypes` input parameter).
-
-    *
-  Query. A QUERY Block object contains the query text, alias and link to the
-  associated Query results block object.
-
-    *
-  Query Results. A QUERY_RESULT Block object contains the answer to the query and
-  an
-  ID that connects it to the query asked. This Block also contains a confidence
-  score.
-
-  While processing a document with queries, look out for
-  `INVALID_REQUEST_PARAMETERS` output. This indicates that either the per
-  page query limit has been exceeded or that the operation is trying to query a
-  page in
-  the document which doesn’t exist.
-
-  Selection elements such as check boxes and option buttons (radio buttons) can be
-  detected in form data and in tables. A SELECTION_ELEMENT `Block` object contains
-  information about a selection element, including the selection status.
-
-  Use the `MaxResults` parameter to limit the number of blocks that are
-  returned. If there are more results than specified in `MaxResults`, the value of
-  `NextToken` in the operation response contains a pagination token for getting
-  the next set of results. To get the next page of results, call
-  `GetDocumentAnalysis`, and populate the `NextToken` request
-  parameter with the token value that's returned from the previous call to
-  `GetDocumentAnalysis`.
-
-  For more information, see [Document Text Analysis](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html).
   """
-  @spec get_document_analysis(map(), get_document_analysis_request(), list()) ::
+  @spec get_document_analysis(AWS.Client.t(), get_document_analysis_request(), Keyword.t()) ::
           {:ok, get_document_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_document_analysis_errors()}
   def get_document_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDocumentAnalysis", input, options)
   end
 
   @doc """
   Gets the results for an Amazon Textract asynchronous operation that detects text
-  in a document.
-
-  Amazon Textract can detect lines of text and the words that make up a line of
-  text.
-
-  You start asynchronous text detection by calling `StartDocumentTextDetection`,
-  which returns a job identifier
-  (`JobId`). When the text detection operation finishes, Amazon Textract publishes
-  a
-  completion status to the Amazon Simple Notification Service (Amazon SNS) topic
-  that's registered in the initial call to
-  `StartDocumentTextDetection`. To get the results of the text-detection
-  operation, first check that the status value published to the Amazon SNS topic
-  is
-  `SUCCEEDED`. If so, call `GetDocumentTextDetection`, and pass the
-  job identifier (`JobId`) from the initial call to
-  `StartDocumentTextDetection`.
-
-  `GetDocumentTextDetection` returns an array of `Block`
-  objects.
-
-  Each document page has as an associated `Block` of type PAGE. Each PAGE `Block`
-  object
-  is the parent of LINE `Block` objects that represent the lines of detected text
-  on a page. A LINE `Block` object is
-  a parent for each word that makes up the line. Words are represented by `Block`
-  objects of type WORD.
-
-  Use the MaxResults parameter to limit the number of blocks that are returned. If
-  there
-  are more results than specified in `MaxResults`, the value of
-  `NextToken` in the operation response contains a pagination token for getting
-  the next set of results. To get the next page of results, call
-  `GetDocumentTextDetection`, and populate the `NextToken` request
-  parameter with the token value that's returned from the previous call to
-  `GetDocumentTextDetection`.
-
-  For more information, see [Document Text Detection](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html).
+  in a document. Amazon Textract can detect lines of text and the words that
+  make up a line of text. You start asynchronous text detection by calling
+  `StartDocumentTextDetection`, which returns a job identifier (`JobId`). When
+  the text detection operation finishes, Amazon Textract publishes a completion
+  status to the Amazon Simple Notification Service (Amazon SNS) topic that's
+  registered in the initial call to `StartDocumentTextDetection`. To get the
+  results of the text-detection operation, first check that the status value
+  published to the Amazon SNS topic is `SUCCEEDED`. If so, call
+  `GetDocumentTextDetection`, and pass the job identifier (`JobId`) from the
+  initial call to `StartDocumentTextDetection`.
   """
-  @spec get_document_text_detection(map(), get_document_text_detection_request(), list()) ::
+  @spec get_document_text_detection(
+          AWS.Client.t(),
+          get_document_text_detection_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_document_text_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_document_text_detection_errors()}
   def get_document_text_detection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDocumentTextDetection", input, options)
   end
 
   @doc """
   Gets the results for an Amazon Textract asynchronous operation that analyzes
-  invoices and
-  receipts.
-
-  Amazon Textract finds contact information, items purchased, and vendor name,
-  from input
-  invoices and receipts.
-
-  You start asynchronous invoice/receipt analysis by calling
-  `StartExpenseAnalysis`, which returns a job identifier (`JobId`). Upon
-  completion of the invoice/receipt analysis, Amazon Textract publishes the
-  completion status to the
-  Amazon Simple Notification Service (Amazon SNS) topic. This topic must be
-  registered in the initial call to
-  `StartExpenseAnalysis`. To get the results of the invoice/receipt analysis
-  operation,
-  first ensure that the status value published to the Amazon SNS topic is
-  `SUCCEEDED`. If so,
-  call `GetExpenseAnalysis`, and pass the job identifier (`JobId`) from the
-  initial call to `StartExpenseAnalysis`.
-
-  Use the MaxResults parameter to limit the number of blocks that are returned. If
-  there are
-  more results than specified in `MaxResults`, the value of `NextToken` in
-  the operation response contains a pagination token for getting the next set of
-  results. To get
-  the next page of results, call `GetExpenseAnalysis`, and populate the
-  `NextToken` request parameter with the token value that's returned from the
-  previous
-  call to `GetExpenseAnalysis`.
-
-  For more information, see [Analyzing Invoices and Receipts](https://docs.aws.amazon.com/textract/latest/dg/invoices-receipts.html).
+  invoices and receipts. Amazon Textract finds contact information, items
+  purchased, and vendor name, from input invoices and receipts. You start
+  asynchronous invoice/receipt analysis by calling `StartExpenseAnalysis`, which
+  returns a job identifier (`JobId`). Upon completion of the invoice/receipt
+  analysis, Amazon Textract publishes the completion status to the Amazon Simple
+  Notification Service (Amazon SNS) topic. This topic must be registered in the
+  initial call to `StartExpenseAnalysis`. To get the results of the
+  invoice/receipt analysis operation, first ensure that the status value
+  published to the Amazon SNS topic is `SUCCEEDED`. If so, call
+  `GetExpenseAnalysis`, and pass the job identifier (`JobId`) from the initial
+  call to `StartExpenseAnalysis`.
   """
-  @spec get_expense_analysis(map(), get_expense_analysis_request(), list()) ::
+  @spec get_expense_analysis(AWS.Client.t(), get_expense_analysis_request(), Keyword.t()) ::
           {:ok, get_expense_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_expense_analysis_errors()}
   def get_expense_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetExpenseAnalysis", input, options)
   end
 
   @doc """
   Gets the results for an Amazon Textract asynchronous operation that analyzes
-  text in a
-  lending document.
-
-  You start asynchronous text analysis by calling `StartLendingAnalysis`,
-  which returns a job identifier (`JobId`). When the text analysis operation
-  finishes, Amazon Textract publishes a completion status to the Amazon Simple
-  Notification Service (Amazon SNS) topic that's registered in the initial call to
-  `StartLendingAnalysis`.
-
-  To get the results of the text analysis operation, first check that the status
-  value
-  published to the Amazon SNS topic is SUCCEEDED. If so, call GetLendingAnalysis,
-  and pass
-  the job identifier (`JobId`) from the initial call to
-  `StartLendingAnalysis`.
+  text in a lending document. You start asynchronous text analysis by calling
+  `StartLendingAnalysis`, which returns a job identifier (`JobId`). When the
+  text analysis operation finishes, Amazon Textract publishes a completion
+  status to the Amazon Simple Notification Service (Amazon SNS) topic that's
+  registered in the initial call to `StartLendingAnalysis`.
   """
-  @spec get_lending_analysis(map(), get_lending_analysis_request(), list()) ::
+  @spec get_lending_analysis(AWS.Client.t(), get_lending_analysis_request(), Keyword.t()) ::
           {:ok, get_lending_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lending_analysis_errors()}
   def get_lending_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLendingAnalysis", input, options)
   end
 
   @doc """
   Gets summarized results for the `StartLendingAnalysis` operation, which analyzes
-  text in a lending document.
-
-  The returned summary consists of information about documents grouped
-  together by a common document type. Information like detected signatures, page
-  numbers, and split
-  documents is returned with respect to the type of grouped document.
-
-  You start asynchronous text analysis by calling `StartLendingAnalysis`, which
-  returns a job identifier (`JobId`). When the text analysis operation finishes,
-  Amazon
-  Textract publishes a completion status to the Amazon Simple Notification Service
-  (Amazon SNS)
-  topic that's registered in the initial call to `StartLendingAnalysis`.
-
-  To get the results of the text analysis operation, first check that the status
-  value
-  published to the Amazon SNS topic is SUCCEEDED. If so, call
-  `GetLendingAnalysisSummary`, and pass the job identifier (`JobId`) from
-  the initial call to `StartLendingAnalysis`.
+  text in a lending document. The returned summary consists of information about
+  documents grouped together by a common document type. Information like
+  detected signatures, page numbers, and split documents is returned with
+  respect to the type of grouped document. You start asynchronous text analysis
+  by calling `StartLendingAnalysis`, which returns a job identifier (`JobId`).
+  When the text analysis operation finishes, Amazon Textract publishes a
+  completion status to the Amazon Simple Notification Service (Amazon SNS) topic
+  that's registered in the initial call to `StartLendingAnalysis`.
   """
-  @spec get_lending_analysis_summary(map(), get_lending_analysis_summary_request(), list()) ::
+  @spec get_lending_analysis_summary(
+          AWS.Client.t(),
+          get_lending_analysis_summary_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_lending_analysis_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lending_analysis_summary_errors()}
   def get_lending_analysis_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLendingAnalysisSummary", input, options)
   end
@@ -2288,12 +2094,13 @@ defmodule AWS.Textract do
   @doc """
   List all version of an adapter that meet the specified filtration criteria.
   """
-  @spec list_adapter_versions(map(), list_adapter_versions_request(), list()) ::
+  @spec list_adapter_versions(AWS.Client.t(), list_adapter_versions_request(), Keyword.t()) ::
           {:ok, list_adapter_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_adapter_versions_errors()}
   def list_adapter_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAdapterVersions", input, options)
   end
@@ -2301,12 +2108,13 @@ defmodule AWS.Textract do
   @doc """
   Lists all adapters that match the specified filtration criteria.
   """
-  @spec list_adapters(map(), list_adapters_request(), list()) ::
+  @spec list_adapters(AWS.Client.t(), list_adapters_request(), Keyword.t()) ::
           {:ok, list_adapters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_adapters_errors()}
   def list_adapters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAdapters", input, options)
   end
@@ -2314,167 +2122,93 @@ defmodule AWS.Textract do
   @doc """
   Lists all tags for an Amazon Textract resource.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
   Starts the asynchronous analysis of an input document for relationships between
-  detected
-  items such as key-value pairs, tables, and selection elements.
-
+  detected items such as key-value pairs, tables, and selection elements.
   `StartDocumentAnalysis` can analyze text in documents that are in JPEG, PNG,
-  TIFF, and PDF format. The
-  documents are stored in an Amazon S3 bucket. Use `DocumentLocation` to specify
-  the bucket name and file name
-  of the document.
-
-  `StartDocumentAnalysis` returns a job identifier
-  (`JobId`) that you use to get the results of the operation. When text
-  analysis is finished, Amazon Textract publishes a completion status to the
-  Amazon Simple Notification Service (Amazon SNS)
-  topic that you specify in `NotificationChannel`. To get the results of the text
-  analysis operation, first check that the status value published to the Amazon
-  SNS topic is
-  `SUCCEEDED`. If so, call `GetDocumentAnalysis`, and pass
-  the job identifier (`JobId`) from the initial call to
-  `StartDocumentAnalysis`.
-
-  For more information, see [Document Text Analysis](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html).
+  TIFF, and PDF format. The documents are stored in an Amazon S3 bucket. Use
+  `DocumentLocation` to specify the bucket name and file name of the document.
   """
-  @spec start_document_analysis(map(), start_document_analysis_request(), list()) ::
+  @spec start_document_analysis(AWS.Client.t(), start_document_analysis_request(), Keyword.t()) ::
           {:ok, start_document_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_document_analysis_errors()}
   def start_document_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDocumentAnalysis", input, options)
   end
 
   @doc """
-  Starts the asynchronous detection of text in a document.
-
-  Amazon Textract can detect lines of
-  text and the words that make up a line of text.
-
+  Starts the asynchronous detection of text in a document. Amazon Textract can
+  detect lines of text and the words that make up a line of text.
   `StartDocumentTextDetection` can analyze text in documents that are in JPEG,
-  PNG, TIFF, and PDF format. The
-  documents are stored in an Amazon S3 bucket. Use `DocumentLocation` to specify
-  the bucket name and file name
-  of the document.
-
-  `StartTextDetection` returns a job identifier
-  (`JobId`) that you use to get the results of the operation. When text
-  detection is finished, Amazon Textract publishes a completion status to the
-  Amazon Simple Notification Service (Amazon SNS)
-  topic that you specify in `NotificationChannel`. To get the results of the text
-  detection operation, first check that the status value published to the Amazon
-  SNS topic is
-  `SUCCEEDED`. If so, call `GetDocumentTextDetection`, and
-  pass the job identifier (`JobId`) from the initial call to
-  `StartDocumentTextDetection`.
-
-  For more information, see [Document Text Detection](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html).
+  PNG, TIFF, and PDF format. The documents are stored in an Amazon S3 bucket.
+  Use `DocumentLocation` to specify the bucket name and file name of the
+  document.
   """
-  @spec start_document_text_detection(map(), start_document_text_detection_request(), list()) ::
+  @spec start_document_text_detection(
+          AWS.Client.t(),
+          start_document_text_detection_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_document_text_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_document_text_detection_errors()}
   def start_document_text_detection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDocumentTextDetection", input, options)
   end
 
   @doc """
   Starts the asynchronous analysis of invoices or receipts for data like contact
-  information,
-  items purchased, and vendor names.
-
-  `StartExpenseAnalysis` can analyze text in documents that are in JPEG, PNG, and
-  PDF format. The documents must be stored in an Amazon S3 bucket. Use the
-  `DocumentLocation` parameter to specify the name of your S3 bucket and the name
-  of the
-  document in that bucket.
-
-  `StartExpenseAnalysis` returns a job identifier (`JobId`) that you
-  will provide to `GetExpenseAnalysis` to retrieve the results of the operation.
-  When
-  the analysis of the input invoices/receipts is finished, Amazon Textract
-  publishes a completion
-  status to the Amazon Simple Notification Service (Amazon SNS) topic that you
-  provide to the `NotificationChannel`.
-  To obtain the results of the invoice and receipt analysis operation, ensure that
-  the status value
-  published to the Amazon SNS topic is `SUCCEEDED`. If so, call
-  `GetExpenseAnalysis`, and pass the job identifier (`JobId`) that was
-  returned by your call to `StartExpenseAnalysis`.
-
-  For more information, see [Analyzing Invoices and Receipts](https://docs.aws.amazon.com/textract/latest/dg/invoice-receipts.html).
+  information, items purchased, and vendor names. `StartExpenseAnalysis` can
+  analyze text in documents that are in JPEG, PNG, and PDF format. The documents
+  must be stored in an Amazon S3 bucket. Use the `DocumentLocation` parameter to
+  specify the name of your S3 bucket and the name of the document in that
+  bucket.
   """
-  @spec start_expense_analysis(map(), start_expense_analysis_request(), list()) ::
+  @spec start_expense_analysis(AWS.Client.t(), start_expense_analysis_request(), Keyword.t()) ::
           {:ok, start_expense_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_expense_analysis_errors()}
   def start_expense_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartExpenseAnalysis", input, options)
   end
 
   @doc """
   Starts the classification and analysis of an input document.
-
-  `StartLendingAnalysis` initiates the classification and analysis of a packet of
-  lending documents. `StartLendingAnalysis` operates on a document file located in
-  an
-  Amazon S3 bucket.
-
-  `StartLendingAnalysis` can analyze text in documents that are in one of the
-  following formats: JPEG, PNG, TIFF, PDF. Use `DocumentLocation` to specify the
-  bucket
-  name and the file name of the document.
-
-  `StartLendingAnalysis` returns a job identifier (`JobId`) that you use
-  to get the results of the operation. When the text analysis is finished, Amazon
-  Textract
-  publishes a completion status to the Amazon Simple Notification Service (Amazon
-  SNS) topic that
-  you specify in `NotificationChannel`. To get the results of the text analysis
-  operation, first check that the status value published to the Amazon SNS topic
-  is SUCCEEDED. If
-  the status is SUCCEEDED you can call either `GetLendingAnalysis` or
-  `GetLendingAnalysisSummary` and provide the `JobId` to obtain the results
-  of the analysis.
-
-  If using `OutputConfig` to specify an Amazon S3 bucket, the output will be
-  contained
-  within the specified prefix in a directory labeled with the job-id. In the
-  directory there are 3
-  sub-directories:
-
-    *
-  detailedResponse (contains the GetLendingAnalysis response)
-
-    *
-  summaryResponse (for the GetLendingAnalysisSummary response)
-
-    *
-  splitDocuments (documents split across logical boundaries)
+  `StartLendingAnalysis` initiates the classification and analysis of a packet
+  of lending documents. `StartLendingAnalysis` operates on a document file
+  located in an Amazon S3 bucket. `StartLendingAnalysis` can analyze text in
+  documents that are in one of the following formats: JPEG, PNG, TIFF, PDF. Use
+  `DocumentLocation` to specify the bucket name and the file name of the
+  document.
   """
-  @spec start_lending_analysis(map(), start_lending_analysis_request(), list()) ::
+  @spec start_lending_analysis(AWS.Client.t(), start_lending_analysis_request(), Keyword.t()) ::
           {:ok, start_lending_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_lending_analysis_errors()}
   def start_lending_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartLendingAnalysis", input, options)
   end
@@ -2482,12 +2216,13 @@ defmodule AWS.Textract do
   @doc """
   Adds one or more tags to the specified resource.
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2495,28 +2230,28 @@ defmodule AWS.Textract do
   @doc """
   Removes any tags with the specified keys from the specified resource.
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
-  Update the configuration for an adapter.
-
-  FeatureTypes configurations cannot be updated.
-  At least one new parameter must be specified as an argument.
+  Update the configuration for an adapter. FeatureTypes configurations cannot be
+  updated. At least one new parameter must be specified as an argument.
   """
-  @spec update_adapter(map(), update_adapter_request(), list()) ::
+  @spec update_adapter(AWS.Client.t(), update_adapter_request(), Keyword.t()) ::
           {:ok, update_adapter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_adapter_errors()}
   def update_adapter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAdapter", input, options)
   end

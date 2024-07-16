@@ -3,66 +3,11 @@
 
 defmodule AWS.Support do
   @moduledoc """
-  Amazon Web Services Support
-
-  The *Amazon Web Services Support API Reference* is intended for programmers who
-  need detailed
-  information about the Amazon Web Services Support operations and data types.
-
-  You can use the API to manage
-  your support cases programmatically. The Amazon Web Services Support API uses
-  HTTP methods that return
-  results in JSON format.
-
-    
-  You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use
-  the Amazon Web Services Support
-  API.
-
-    
-  If you call the Amazon Web Services Support API from an account that doesn't
-  have a
-  Business, Enterprise On-Ramp, or Enterprise Support plan, the
-  `SubscriptionRequiredException` error message appears. For
-  information about changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
-
-  You can also use the Amazon Web Services Support API to access features for
-  [Trusted Advisor](http://aws.amazon.com/premiumsupport/trustedadvisor/). You can return a list of
-  checks and their descriptions, get check results, specify checks to refresh, and
-  get the
-  refresh status of checks.
-
-  You can manage your support cases with the following Amazon Web Services Support
-  API operations:
-
-    *
-  The `CreateCase`, `DescribeCases`, `DescribeAttachment`, and `ResolveCase`
-  operations
-  create Amazon Web Services Support cases, retrieve information about cases, and
-  resolve cases.
-
-    *
-  The `DescribeCommunications`, `AddCommunicationToCase`, and
-  `AddAttachmentsToSet` operations retrieve and add communications and attachments
-  to Amazon Web Services Support
-  cases.
-
-    *
-  The `DescribeServices` and `DescribeSeverityLevels` operations return Amazon Web
-  Service names, service codes, service categories, and problem
-  severity levels. You use these values when you call the `CreateCase` operation.
-
-  You can also use the Amazon Web Services Support API to call the Trusted Advisor
-  operations. For more
-  information, see [Trusted Advisor](https://docs.aws.amazon.com/) in the
-  *Amazon Web Services Support User Guide*.
-
-  For authentication of requests, Amazon Web Services Support uses [Signature Version 4 Signing
-  Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
-
-  For more information about this service and the endpoints to use, see [About the Amazon Web Services Support
-  API](https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html)
-  in the *Amazon Web Services Support User Guide*.
+  Amazon Web Services Support The *Amazon Web Services Support API Reference* is
+  intended for programmers who need detailed information about the Amazon Web
+  Services Support operations and data types. You can use the API to manage your
+  support cases programmatically. The Amazon Web Services Support API uses HTTP
+  methods that return results in JSON format.
   """
 
   alias AWS.Client
@@ -907,406 +852,210 @@ defmodule AWS.Support do
   end
 
   @doc """
-  Adds one or more attachments to an attachment set.
-
-  An attachment set is a temporary container for attachments that you add to a
-  case or
-  case communication. The set is available for 1 hour after it's created. The
+  Adds one or more attachments to an attachment set. An attachment set is a
+  temporary container for attachments that you add to a case or case
+  communication. The set is available for 1 hour after it's created. The
   `expiryTime` returned in the response is when the set expires.
-
-    
-  You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use
-  the Amazon Web Services Support
-  API.
-
-    
-  If you call the Amazon Web Services Support API from an account that doesn't
-  have a
-  Business, Enterprise On-Ramp, or Enterprise Support plan, the
-  `SubscriptionRequiredException` error message appears. For
-  information about changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
   """
-  @spec add_attachments_to_set(map(), add_attachments_to_set_request(), list()) ::
+  @spec add_attachments_to_set(AWS.Client.t(), add_attachments_to_set_request(), Keyword.t()) ::
           {:ok, add_attachments_to_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_attachments_to_set_errors()}
   def add_attachments_to_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddAttachmentsToSet", input, options)
   end
 
   @doc """
   Adds additional customer communication to an Amazon Web Services Support case.
-
-  Use the `caseId`
-  parameter to identify the case to which to add communication. You can list a set
-  of
-  email addresses to copy on the communication by using the `ccEmailAddresses`
-  parameter. The `communicationBody` value contains the text of the
-  communication.
-
-    
-  You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use
-  the Amazon Web Services Support
-  API.
-
-    
-  If you call the Amazon Web Services Support API from an account that doesn't
-  have a
-  Business, Enterprise On-Ramp, or Enterprise Support plan, the
-  `SubscriptionRequiredException` error message appears. For
-  information about changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
+  Use the `caseId` parameter to identify the case to which to add communication.
+  You can list a set of email addresses to copy on the communication by using
+  the `ccEmailAddresses` parameter. The `communicationBody` value contains the
+  text of the communication.
   """
-  @spec add_communication_to_case(map(), add_communication_to_case_request(), list()) ::
+  @spec add_communication_to_case(
+          AWS.Client.t(),
+          add_communication_to_case_request(),
+          Keyword.t()
+        ) ::
           {:ok, add_communication_to_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_communication_to_case_errors()}
   def add_communication_to_case(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddCommunicationToCase", input, options)
   end
 
   @doc """
-  Creates a case in the Amazon Web Services Support Center.
-
-  This operation is similar to how you create a case
-  in the Amazon Web Services Support Center [Create Case](https://console.aws.amazon.com/support/home#/case/create) page.
-
+  Creates a case in the Amazon Web Services Support Center. This operation is
+  similar to how you create a case in the Amazon Web Services Support Center
+  [Create Case](https://console.aws.amazon.com/support/home#/case/create) page.
   The Amazon Web Services Support API doesn't support requesting service limit
-  increases. You can submit a
-  service limit increase in the following ways:
-
-    *
-  Submit a request from the Amazon Web Services Support Center [Create Case](https://console.aws.amazon.com/support/home#/case/create) page.
-
-    *
-  Use the Service Quotas
-  [RequestServiceQuotaIncrease](https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_RequestServiceQuotaIncrease.html) operation.
-
-  A successful `CreateCase` request returns an Amazon Web Services Support case
-  number. You can use
-  the `DescribeCases` operation and specify the case number to get
-  existing Amazon Web Services Support cases. After you create a case, use the
-  `AddCommunicationToCase` operation to add additional communication or
-  attachments to an existing case.
-
-  The `caseId` is separate from the `displayId` that appears in
-  the [Amazon Web Services Support
-  Center](https://console.aws.amazon.com/support). Use the `DescribeCases`
-  operation to get the `displayId`.
-
-    
-  You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use
-  the Amazon Web Services Support
-  API.
-
-    
-  If you call the Amazon Web Services Support API from an account that doesn't
-  have a
-  Business, Enterprise On-Ramp, or Enterprise Support plan, the
-  `SubscriptionRequiredException` error message appears. For
-  information about changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
+  increases. You can submit a service limit increase in the following ways:
   """
-  @spec create_case(map(), create_case_request(), list()) ::
+  @spec create_case(AWS.Client.t(), create_case_request(), Keyword.t()) ::
           {:ok, create_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_case_errors()}
   def create_case(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCase", input, options)
   end
 
   @doc """
-  Returns the attachment that has the specified ID.
-
-  Attachments can include screenshots,
-  error logs, or other files that describe your issue. Attachment IDs are
-  generated by the
-  case management system when you add an attachment to a case or case
-  communication.
-  Attachment IDs are returned in the `AttachmentDetails` objects that are
-  returned by the `DescribeCommunications` operation.
-
-    
-  You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use
-  the Amazon Web Services Support
-  API.
-
-    
-  If you call the Amazon Web Services Support API from an account that doesn't
-  have a
-  Business, Enterprise On-Ramp, or Enterprise Support plan, the
-  `SubscriptionRequiredException` error message appears. For
-  information about changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
+  Returns the attachment that has the specified ID. Attachments can include
+  screenshots, error logs, or other files that describe your issue. Attachment
+  IDs are generated by the case management system when you add an attachment to
+  a case or case communication. Attachment IDs are returned in the
+  `AttachmentDetails` objects that are returned by the `DescribeCommunications`
+  operation.
   """
-  @spec describe_attachment(map(), describe_attachment_request(), list()) ::
+  @spec describe_attachment(AWS.Client.t(), describe_attachment_request(), Keyword.t()) ::
           {:ok, describe_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_attachment_errors()}
   def describe_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAttachment", input, options)
   end
 
   @doc """
-  Returns a list of cases that you specify by passing one or more case IDs.
-
-  You can use
-  the `afterTime` and `beforeTime` parameters to filter the cases by
+  Returns a list of cases that you specify by passing one or more case IDs. You
+  can use the `afterTime` and `beforeTime` parameters to filter the cases by
   date. You can set values for the `includeResolvedCases` and
-  `includeCommunications` parameters to specify how much information to
-  return.
-
+  `includeCommunications` parameters to specify how much information to return.
   The response returns the following in JSON format:
-
-    *
-  One or more
-  [CaseDetails](https://docs.aws.amazon.com/awssupport/latest/APIReference/API_CaseDetails.html) data types.
-
-    *
-  One or more `nextToken` values, which specify where to paginate the
-  returned records represented by the `CaseDetails` objects.
-
-  Case data is available for 12 months after creation. If a case was created more
-  than
-  12 months ago, a request might return an error.
-
-    
-  You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use
-  the Amazon Web Services Support
-  API.
-
-    
-  If you call the Amazon Web Services Support API from an account that doesn't
-  have a
-  Business, Enterprise On-Ramp, or Enterprise Support plan, the
-  `SubscriptionRequiredException` error message appears. For
-  information about changing your support plan, see [Amazon Web Services
-  Support](http://aws.amazon.com/premiumsupport/).
   """
-  @spec describe_cases(map(), describe_cases_request(), list()) ::
+  @spec describe_cases(AWS.Client.t(), describe_cases_request(), Keyword.t()) ::
           {:ok, describe_cases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cases_errors()}
   def describe_cases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCases", input, options)
   end
 
   @doc """
-  Returns communications and attachments for one or more support cases.
-
-  Use the
-  `afterTime` and `beforeTime` parameters to filter by date. You
-  can use the `caseId` parameter to restrict the results to a specific
-  case.
-
-  Case data is available for 12 months after creation. If a case was created more
-  than
-  12 months ago, a request for data might cause an error.
-
-  You can use the `maxResults` and `nextToken` parameters to
-  control the pagination of the results. Set `maxResults` to the number of
-  cases that you want to display on each page, and use `nextToken` to specify
-  the resumption of pagination.
-
-    
-  You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use
-  the Amazon Web Services Support
-  API.
-
-    
-  If you call the Amazon Web Services Support API from an account that doesn't
-  have a
-  Business, Enterprise On-Ramp, or Enterprise Support plan, the
-  `SubscriptionRequiredException` error message appears. For
-  information about changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
+  Returns communications and attachments for one or more support cases. Use the
+  `afterTime` and `beforeTime` parameters to filter by date. You can use the
+  `caseId` parameter to restrict the results to a specific case. Case data is
+  available for 12 months after creation. If a case was created more than 12
+  months ago, a request for data might cause an error.
   """
-  @spec describe_communications(map(), describe_communications_request(), list()) ::
+  @spec describe_communications(AWS.Client.t(), describe_communications_request(), Keyword.t()) ::
           {:ok, describe_communications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_communications_errors()}
   def describe_communications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCommunications", input, options)
   end
 
   @doc """
-  Returns a list of CreateCaseOption types along with the
-  corresponding supported hours and language availability.
-
-  You can specify the `language`
-  `categoryCode`,
-  `issueType` and `serviceCode` used to retrieve the CreateCaseOptions.
-
-    
-  You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use
-  the Amazon Web Services Support
-  API.
-
-    
-  If you call the Amazon Web Services Support API from an account that doesn't
-  have a
-  Business, Enterprise On-Ramp, or Enterprise Support plan, the
-  `SubscriptionRequiredException` error message appears. For
-  information about changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
+  Returns a list of CreateCaseOption types along with the corresponding supported
+  hours and language availability. You can specify the `language`
+  `categoryCode`, `issueType` and `serviceCode` used to retrieve the
+  CreateCaseOptions.
   """
-  @spec describe_create_case_options(map(), describe_create_case_options_request(), list()) ::
+  @spec describe_create_case_options(
+          AWS.Client.t(),
+          describe_create_case_options_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_create_case_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_create_case_options_errors()}
   def describe_create_case_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCreateCaseOptions", input, options)
   end
 
   @doc """
   Returns the current list of Amazon Web Services services and a list of service
-  categories for each
-  service.
-
-  You then use service names and categories in your `CreateCase`
-  requests. Each Amazon Web Services service has its own set of categories.
-
-  The service codes and category codes correspond to the values that appear in the
-  **Service** and **Category** lists on the Amazon Web Services Support Center
-  [Create Case](https://console.aws.amazon.com/support/home#/case/create) page. The values in those fields
-  don't necessarily match the service codes and categories returned by the
-  `DescribeServices` operation. Always use the service codes and categories
-  that the `DescribeServices` operation returns, so that you have the most
-  recent set of service and category codes.
-
-    
-  You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use
-  the Amazon Web Services Support
-  API.
-
-    
-  If you call the Amazon Web Services Support API from an account that doesn't
-  have a
-  Business, Enterprise On-Ramp, or Enterprise Support plan, the
-  `SubscriptionRequiredException` error message appears. For
-  information about changing your support plan, see [Amazon Web Services
-  Support](http://aws.amazon.com/premiumsupport/).
+  categories for each service. You then use service names and categories in your
+  `CreateCase` requests. Each Amazon Web Services service has its own set of
+  categories.
   """
-  @spec describe_services(map(), describe_services_request(), list()) ::
+  @spec describe_services(AWS.Client.t(), describe_services_request(), Keyword.t()) ::
           {:ok, describe_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_services_errors()}
   def describe_services(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServices", input, options)
   end
 
   @doc """
-  Returns the list of severity levels that you can assign to a support case.
-
-  The
-  severity level for a case is also a field in the `CaseDetails` data type
-  that you include for a `CreateCase` request.
-
-    
-  You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use
-  the Amazon Web Services Support
-  API.
-
-    
-  If you call the Amazon Web Services Support API from an account that doesn't
-  have a
-  Business, Enterprise On-Ramp, or Enterprise Support plan, the
-  `SubscriptionRequiredException` error message appears. For
-  information about changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
+  Returns the list of severity levels that you can assign to a support case. The
+  severity level for a case is also a field in the `CaseDetails` data type that
+  you include for a `CreateCase` request.
   """
-  @spec describe_severity_levels(map(), describe_severity_levels_request(), list()) ::
+  @spec describe_severity_levels(AWS.Client.t(), describe_severity_levels_request(), Keyword.t()) ::
           {:ok, describe_severity_levels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_severity_levels_errors()}
   def describe_severity_levels(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSeverityLevels", input, options)
   end
 
   @doc """
   Returns a list of supported languages for a specified `categoryCode`,
-  `issueType` and `serviceCode`.
-
-  The returned supported languages will
-  include a ISO 639-1 code for the `language`, and the language display name.
-
-    
-  You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use
-  the Amazon Web Services Support
-  API.
-
-    
-  If you call the Amazon Web Services Support API from an account that doesn't
-  have a
-  Business, Enterprise On-Ramp, or Enterprise Support plan, the
-  `SubscriptionRequiredException` error message appears. For
-  information about changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
+  `issueType` and `serviceCode`. The returned supported languages will include a
+  ISO 639-1 code for the `language`, and the language display name.
   """
-  @spec describe_supported_languages(map(), describe_supported_languages_request(), list()) ::
+  @spec describe_supported_languages(
+          AWS.Client.t(),
+          describe_supported_languages_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_supported_languages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_supported_languages_errors()}
   def describe_supported_languages(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSupportedLanguages", input, options)
   end
 
   @doc """
   Returns the refresh status of the Trusted Advisor checks that have the specified
-  check
-  IDs.
-
-  You can get the check IDs by calling the `DescribeTrustedAdvisorChecks`
-  operation.
-
-  Some checks are refreshed automatically, and you can't return their refresh
-  statuses
-  by using the `DescribeTrustedAdvisorCheckRefreshStatuses` operation. If you
-  call this operation for these checks, you might see an
-  `InvalidParameterValue` error.
-
-    
-  You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use
-  the Amazon Web Services Support
-  API.
-
-    
-  If you call the Amazon Web Services Support API from an account that doesn't
-  have a
-  Business, Enterprise On-Ramp, or Enterprise Support plan, the
-  `SubscriptionRequiredException` error message appears. For
-  information about changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
-
-  To call the Trusted Advisor operations in
-  the Amazon Web Services Support API, you must use the US East (N. Virginia)
-  endpoint. Currently, the US West (Oregon) and Europe (Ireland)
-  endpoints don't support the Trusted Advisor operations. For more information,
-  see [About the Amazon Web Services Support API](https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html#endpoint)
-  in the *Amazon Web Services Support User Guide*.
+  check IDs. You can get the check IDs by calling the
+  `DescribeTrustedAdvisorChecks` operation. Some checks are refreshed
+  automatically, and you can't return their refresh statuses by using the
+  `DescribeTrustedAdvisorCheckRefreshStatuses` operation. If you call this
+  operation for these checks, you might see an `InvalidParameterValue` error.
   """
   @spec describe_trusted_advisor_check_refresh_statuses(
-          map(),
+          AWS.Client.t(),
           describe_trusted_advisor_check_refresh_statuses_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_trusted_advisor_check_refresh_statuses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_trusted_advisor_check_refresh_statuses_errors()}
   def describe_trusted_advisor_check_refresh_statuses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -1319,233 +1068,100 @@ defmodule AWS.Support do
 
   @doc """
   Returns the results of the Trusted Advisor check that has the specified check
-  ID.
-
-  You
-  can get the check IDs by calling the `DescribeTrustedAdvisorChecks`
-  operation.
-
-  The response contains a `TrustedAdvisorCheckResult` object, which
+  ID. You can get the check IDs by calling the `DescribeTrustedAdvisorChecks`
+  operation. The response contains a `TrustedAdvisorCheckResult` object, which
   contains these three objects:
-
-    *
-
-  `TrustedAdvisorCategorySpecificSummary`
-
-    *
-
-  `TrustedAdvisorResourceDetail`
-
-    *
-
-  `TrustedAdvisorResourcesSummary`
-
-  In addition, the response contains these fields:
-
-    *
-
-  **status** - The alert status of the check
-  can be `ok` (green), `warning` (yellow),
-  `error` (red), or `not_available`.
-
-    *
-
-  **timestamp** - The time of the last refresh
-  of the check.
-
-    *
-
-  **checkId** - The unique identifier for the
-  check.
-
-    
-  You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use
-  the Amazon Web Services Support
-  API.
-
-    
-  If you call the Amazon Web Services Support API from an account that doesn't
-  have a
-  Business, Enterprise On-Ramp, or Enterprise Support plan, the
-  `SubscriptionRequiredException` error message appears. For
-  information about changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
-
-  To call the Trusted Advisor operations in
-  the Amazon Web Services Support API, you must use the US East (N. Virginia)
-  endpoint. Currently, the US West (Oregon) and Europe (Ireland)
-  endpoints don't support the Trusted Advisor operations. For more information,
-  see [About the Amazon Web Services Support API](https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html#endpoint)
-  in the *Amazon Web Services Support User Guide*.
   """
   @spec describe_trusted_advisor_check_result(
-          map(),
+          AWS.Client.t(),
           describe_trusted_advisor_check_result_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_trusted_advisor_check_result_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_trusted_advisor_check_result_errors()}
   def describe_trusted_advisor_check_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrustedAdvisorCheckResult", input, options)
   end
 
   @doc """
   Returns the results for the Trusted Advisor check summaries for the check IDs
-  that you
-  specified.
-
-  You can get the check IDs by calling the `DescribeTrustedAdvisorChecks`
-  operation.
-
-  The response contains an array of `TrustedAdvisorCheckSummary`
-  objects.
-
-    
-  You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use
-  the Amazon Web Services Support
-  API.
-
-    
-  If you call the Amazon Web Services Support API from an account that doesn't
-  have a
-  Business, Enterprise On-Ramp, or Enterprise Support plan, the
-  `SubscriptionRequiredException` error message appears. For
-  information about changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
-
-  To call the Trusted Advisor operations in
-  the Amazon Web Services Support API, you must use the US East (N. Virginia)
-  endpoint. Currently, the US West (Oregon) and Europe (Ireland)
-  endpoints don't support the Trusted Advisor operations. For more information,
-  see [About the Amazon Web Services Support API](https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html#endpoint)
-  in the *Amazon Web Services Support User Guide*.
+  that you specified. You can get the check IDs by calling the
+  `DescribeTrustedAdvisorChecks` operation. The response contains an array of
+  `TrustedAdvisorCheckSummary` objects.
   """
   @spec describe_trusted_advisor_check_summaries(
-          map(),
+          AWS.Client.t(),
           describe_trusted_advisor_check_summaries_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_trusted_advisor_check_summaries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_trusted_advisor_check_summaries_errors()}
   def describe_trusted_advisor_check_summaries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrustedAdvisorCheckSummaries", input, options)
   end
 
   @doc """
   Returns information about all available Trusted Advisor checks, including the
-  name, ID,
-  category, description, and metadata.
-
-  You must specify a language code.
-
-  The response contains a `TrustedAdvisorCheckDescription` object for
-  each check. You must set the Amazon Web Services Region to us-east-1.
-
-    
-  You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use
-  the Amazon Web Services Support API.
-
-    
-  If you call the Amazon Web Services Support API from an account that doesn't
-  have a
-  Business, Enterprise On-Ramp, or Enterprise Support plan, the
-  `SubscriptionRequiredException` error
-  message appears. For information about changing your support plan, see
-  [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/). 
-    
-  The names and descriptions for Trusted Advisor checks are subject to change. We
-  recommend that you specify the check ID in your code to uniquely identify a
-  check.
-
-  To call the Trusted Advisor operations in
-  the Amazon Web Services Support API, you must use the US East (N. Virginia)
-  endpoint. Currently, the US West (Oregon) and Europe (Ireland)
-  endpoints don't support the Trusted Advisor operations. For more information,
-  see [About the Amazon Web Services Support
-  API](https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html#endpoint)
-  in the *Amazon Web Services Support User Guide*.
+  name, ID, category, description, and metadata. You must specify a language
+  code. The response contains a `TrustedAdvisorCheckDescription` object for each
+  check. You must set the Amazon Web Services Region to us-east-1.
   """
-  @spec describe_trusted_advisor_checks(map(), describe_trusted_advisor_checks_request(), list()) ::
+  @spec describe_trusted_advisor_checks(
+          AWS.Client.t(),
+          describe_trusted_advisor_checks_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_trusted_advisor_checks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_trusted_advisor_checks_errors()}
   def describe_trusted_advisor_checks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrustedAdvisorChecks", input, options)
   end
 
   @doc """
-  Refreshes the Trusted Advisor check that you specify using the check ID.
-
-  You can get the
-  check IDs by calling the `DescribeTrustedAdvisorChecks`
-  operation.
-
+  Refreshes the Trusted Advisor check that you specify using the check ID. You can
+  get the check IDs by calling the `DescribeTrustedAdvisorChecks` operation.
   Some checks are refreshed automatically. If you call the
-  `RefreshTrustedAdvisorCheck` operation to refresh them, you might see
-  the `InvalidParameterValue` error.
-
-  The response contains a `TrustedAdvisorCheckRefreshStatus`
-  object.
-
-    
-  You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use
-  the Amazon Web Services Support
-  API.
-
-    
-  If you call the Amazon Web Services Support API from an account that doesn't
-  have a
-  Business, Enterprise On-Ramp, or Enterprise Support plan, the
-  `SubscriptionRequiredException` error message appears. For
-  information about changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
-
-  To call the Trusted Advisor operations in
-  the Amazon Web Services Support API, you must use the US East (N. Virginia)
-  endpoint. Currently, the US West (Oregon) and Europe (Ireland)
-  endpoints don't support the Trusted Advisor operations. For more information,
-  see [About the Amazon Web Services Support API](https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html#endpoint)
-  in the *Amazon Web Services Support User Guide*.
+  `RefreshTrustedAdvisorCheck` operation to refresh them, you might see the
+  `InvalidParameterValue` error.
   """
-  @spec refresh_trusted_advisor_check(map(), refresh_trusted_advisor_check_request(), list()) ::
+  @spec refresh_trusted_advisor_check(
+          AWS.Client.t(),
+          refresh_trusted_advisor_check_request(),
+          Keyword.t()
+        ) ::
           {:ok, refresh_trusted_advisor_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, refresh_trusted_advisor_check_errors()}
   def refresh_trusted_advisor_check(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RefreshTrustedAdvisorCheck", input, options)
   end
 
   @doc """
-  Resolves a support case.
-
-  This operation takes a `caseId` and returns the
-  initial and final state of the case.
-
-    
-  You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use
-  the Amazon Web Services Support
-  API.
-
-    
-  If you call the Amazon Web Services Support API from an account that doesn't
-  have a
-  Business, Enterprise On-Ramp, or Enterprise Support plan, the
-  `SubscriptionRequiredException` error message appears. For
-  information about changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
+  Resolves a support case. This operation takes a `caseId` and returns the initial
+  and final state of the case.
   """
-  @spec resolve_case(map(), resolve_case_request(), list()) ::
+  @spec resolve_case(AWS.Client.t(), resolve_case_request(), Keyword.t()) ::
           {:ok, resolve_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resolve_case_errors()}
   def resolve_case(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResolveCase", input, options)
   end

@@ -883,8 +883,24 @@ defmodule AWS.BedrockRuntime do
 
   @doc """
   The action to apply a guardrail.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockruntime%20ApplyGuardrail&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:guardrail_identifier` (`t:string`) The guardrail identifier used in the
+    request to apply the guardrail.
+  * `:guardrail_version` (`t:string`) The guardrail version used in the request to
+    apply the guardrail.
+
+  ## Optional parameters:
   """
-  @spec apply_guardrail(map(), String.t(), String.t(), apply_guardrail_request(), list()) ::
+  @spec apply_guardrail(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          apply_guardrail_request(),
+          Keyword.t()
+        ) ::
           {:ok, apply_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, apply_guardrail_errors()}
@@ -901,7 +917,8 @@ defmodule AWS.BedrockRuntime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -917,29 +934,23 @@ defmodule AWS.BedrockRuntime do
   end
 
   @doc """
-  Sends messages to the specified Amazon Bedrock model.
+  Sends messages to the specified Amazon Bedrock model. `Converse` provides a
+  consistent interface that works with all models that support messages. This
+  allows you to write code once and use it with different models. Should a model
+  have unique inference parameters, you can also pass those unique parameters to
+  the model. For information about the Converse API, see *Use the Converse API*
+  in the *Amazon Bedrock User Guide*. To use a guardrail, see *Use a guardrail
+  with the Converse API* in the *Amazon Bedrock User Guide*. To use a tool with
+  a model, see *Tool use (Function calling)* in the *Amazon Bedrock User Guide*
 
-  `Converse` provides
-  a consistent interface that works with all models that
-  support messages. This allows you to write code once and use it with different
-  models.
-  Should a model have unique inference parameters, you can also pass those unique
-  parameters
-  to the model.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockruntime%20Converse&this_doc_guide=API%2520Reference)
 
-  For information about the Converse API, see *Use the Converse API* in the
-  *Amazon Bedrock User Guide*.
-  To use a guardrail, see *Use a guardrail with the Converse API* in the *Amazon
-  Bedrock User Guide*.
-  To use a tool with a model, see *Tool use (Function calling)* in the *Amazon
-  Bedrock User Guide*
+  ## Parameters:
+  * `:model_id` (`t:string`) The identifier for the model that you want to call.
 
-  For example code, see *Converse API examples* in the *Amazon Bedrock User
-  Guide*.
-
-  This operation requires permission for the `bedrock:InvokeModel` action.
+  ## Optional parameters:
   """
-  @spec converse(map(), String.t(), converse_request(), list()) ::
+  @spec converse(AWS.Client.t(), String.t(), converse_request(), Keyword.t()) ::
           {:ok, converse_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, converse_errors()}
@@ -948,7 +959,8 @@ defmodule AWS.BedrockRuntime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -964,34 +976,23 @@ defmodule AWS.BedrockRuntime do
   end
 
   @doc """
-  Sends messages to the specified Amazon Bedrock model and returns
-  the response in a stream.
-
-  `ConverseStream` provides a consistent API
-  that works with all Amazon Bedrock models that support messages.
-  This allows you to write code once and use it with different models. Should a
-  model have unique inference parameters, you can also pass those unique
-  parameters to the
-  model.
-
-  To find out if a model supports streaming, call
+  Sends messages to the specified Amazon Bedrock model and returns the response in
+  a stream. `ConverseStream` provides a consistent API that works with all
+  Amazon Bedrock models that support messages. This allows you to write code
+  once and use it with different models. Should a model have unique inference
+  parameters, you can also pass those unique parameters to the model. To find
+  out if a model supports streaming, call
   [GetFoundationModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetFoundationModel.html)
   and check the `responseStreamingSupported` field in the response.
 
-  For information about the Converse API, see *Use the Converse API* in the
-  *Amazon Bedrock User Guide*.
-  To use a guardrail, see *Use a guardrail with the Converse API* in the *Amazon
-  Bedrock User Guide*.
-  To use a tool with a model, see *Tool use (Function calling)* in the *Amazon
-  Bedrock User Guide*
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockruntime%20ConverseStream&this_doc_guide=API%2520Reference)
 
-  For example code, see *Conversation streaming example* in the *Amazon Bedrock
-  User Guide*.
+  ## Parameters:
+  * `:model_id` (`t:string`) The ID for the model.
 
-  This operation requires permission for the
-  `bedrock:InvokeModelWithResponseStream` action.
+  ## Optional parameters:
   """
-  @spec converse_stream(map(), String.t(), converse_stream_request(), list()) ::
+  @spec converse_stream(AWS.Client.t(), String.t(), converse_stream_request(), Keyword.t()) ::
           {:ok, converse_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, converse_stream_errors()}
@@ -1000,7 +1001,8 @@ defmodule AWS.BedrockRuntime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1017,21 +1019,49 @@ defmodule AWS.BedrockRuntime do
 
   @doc """
   Invokes the specified Amazon Bedrock model to run inference using the prompt and
-  inference parameters provided in the request body.
+  inference parameters provided in the request body. You use model inference to
+  generate text, images, and embeddings. For example code, see *Invoke model
+  code examples* in the *Amazon Bedrock User Guide*.
 
-  You use model inference to generate text, images, and embeddings.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockruntime%20InvokeModel&this_doc_guide=API%2520Reference)
 
-  For example code, see *Invoke model code examples* in the *Amazon Bedrock User
-  Guide*.
+  ## Parameters:
+  * `:model_id` (`t:string`) The unique identifier of the model to invoke to run
+    inference.
 
-  This operation requires permission for the `bedrock:InvokeModel` action.
+  ## Optional parameters:
+  * `:accept` (`t:string`) The desired MIME type of the inference body in the
+    response. The default value is application/json.
+  * `:content_type` (`t:string`) The MIME type of the input data in the request.
+    You must specify application/json.
+  * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail
+    that you want to use. If you don't provide a value, no guardrail is applied
+    to the invocation.
+  * `:guardrail_version` (`t:string`) The version number for the guardrail. The
+    value can also be DRAFT.
+  * `:trace` (`t:enum["DISABLED|ENABLED"]`) Specifies whether to enable or disable
+    the Bedrock trace. If enabled, you can see the full Bedrock trace.
   """
-  @spec invoke_model(map(), String.t(), invoke_model_request(), list()) ::
+  @spec invoke_model(AWS.Client.t(), String.t(), invoke_model_request(), Keyword.t()) ::
           {:ok, invoke_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invoke_model_errors()}
   def invoke_model(%Client{} = client, model_id, input, options \\ []) do
     url_path = "/model/#{AWS.Util.encode_uri(model_id)}/invoke"
+
+    optional_params = [
+      accept: nil,
+      content_type: nil,
+      guardrail_identifier: nil,
+      guardrail_version: nil,
+      trace: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -1052,7 +1082,13 @@ defmodule AWS.BedrockRuntime do
         [{"Content-Type", "contentType"}]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:accept, :content_type, :guardrail_identifier, :guardrail_version, :trace])
 
     Request.request_rest(
       client,
@@ -1069,33 +1105,55 @@ defmodule AWS.BedrockRuntime do
 
   @doc """
   Invoke the specified Amazon Bedrock model to run inference using the prompt and
-  inference parameters provided in the request body.
-
-  The response is returned in a stream.
-
-  To see if a model supports streaming, call
+  inference parameters provided in the request body. The response is returned in
+  a stream. To see if a model supports streaming, call
   [GetFoundationModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetFoundationModel.html)
   and check the `responseStreamingSupported` field in the response.
 
-  The CLI doesn't support `InvokeModelWithResponseStream`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockruntime%20InvokeModelWithResponseStream&this_doc_guide=API%2520Reference)
 
-  For example code, see *Invoke model with streaming code
-  example* in the *Amazon Bedrock User Guide*.
+  ## Parameters:
+  * `:model_id` (`t:string`) The unique identifier of the model to invoke to run
+    inference.
 
-  This operation requires permissions to perform the
-  `bedrock:InvokeModelWithResponseStream` action.
+  ## Optional parameters:
+  * `:accept` (`t:string`) The desired MIME type of the inference body in the
+    response. The default value is application/json.
+  * `:content_type` (`t:string`) The MIME type of the input data in the request.
+    You must specify application/json.
+  * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail
+    that you want to use. If you don't provide a value, no guardrail is applied
+    to the invocation.
+  * `:guardrail_version` (`t:string`) The version number for the guardrail. The
+    value can also be DRAFT.
+  * `:trace` (`t:enum["DISABLED|ENABLED"]`) Specifies whether to enable or disable
+    the Bedrock trace. If enabled, you can see the full Bedrock trace.
   """
   @spec invoke_model_with_response_stream(
-          map(),
+          AWS.Client.t(),
           String.t(),
           invoke_model_with_response_stream_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, invoke_model_with_response_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invoke_model_with_response_stream_errors()}
   def invoke_model_with_response_stream(%Client{} = client, model_id, input, options \\ []) do
     url_path = "/model/#{AWS.Util.encode_uri(model_id)}/invoke-with-response-stream"
+
+    optional_params = [
+      accept: nil,
+      content_type: nil,
+      guardrail_identifier: nil,
+      guardrail_version: nil,
+      trace: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -1116,7 +1174,13 @@ defmodule AWS.BedrockRuntime do
         [{"X-Amzn-Bedrock-Content-Type", "contentType"}]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:accept, :content_type, :guardrail_identifier, :guardrail_version, :trace])
 
     Request.request_rest(
       client,

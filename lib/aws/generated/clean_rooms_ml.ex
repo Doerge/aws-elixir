@@ -3,23 +3,14 @@
 
 defmodule AWS.CleanRoomsML do
   @moduledoc """
-  Welcome to the *Amazon Web Services Clean Rooms ML API Reference*.
-
-  Amazon Web Services Clean Rooms ML provides a privacy-enhancing method for two
-  parties to identify similar users in their data without the need to share their
-  data with each other. The first party brings the training data to Clean Rooms so
-  that they can create and configure an audience model (lookalike model) and
-  associate it with a collaboration. The second party then brings their seed data
-  to Clean Rooms and generates an audience (lookalike segment) that resembles the
-  training data.
-
-  To learn more about Amazon Web Services Clean Rooms ML concepts, procedures, and
-  best practices, see the
-  [Clean Rooms User Guide](https://docs.aws.amazon.com/clean-rooms/latest/userguide/machine-learning.html).
-
-  To learn more about SQL commands, functions, and conditions supported in Clean
-  Rooms, see the
-  [Clean Rooms SQL Reference](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/sql-reference.html).
+  Welcome to the *Amazon Web Services Clean Rooms ML API Reference*. Amazon Web
+  Services Clean Rooms ML provides a privacy-enhancing method for two parties to
+  identify similar users in their data without the need to share their data with
+  each other. The first party brings the training data to Clean Rooms so that
+  they can create and configure an audience model (lookalike model) and
+  associate it with a collaboration. The second party then brings their seed
+  data to Clean Rooms and generates an audience (lookalike segment) that
+  resembles the training data.
   """
 
   alias AWS.Client
@@ -1007,14 +998,19 @@ defmodule AWS.CleanRoomsML do
   end
 
   @doc """
-  Defines the information necessary to create an audience model.
-
-  An audience model is a machine learning model that Clean Rooms ML trains to
-  measure similarity between users. Clean Rooms ML manages training and storing
-  the audience model. The audience model can be used in multiple calls to the
+  Defines the information necessary to create an audience model. An audience model
+  is a machine learning model that Clean Rooms ML trains to measure similarity
+  between users. Clean Rooms ML manages training and storing the audience model.
+  The audience model can be used in multiple calls to the
   `StartAudienceGenerationJob` API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20CreateAudienceModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_audience_model(map(), create_audience_model_request(), list()) ::
+  @spec create_audience_model(AWS.Client.t(), create_audience_model_request(), Keyword.t()) ::
           {:ok, create_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_audience_model_errors()}
@@ -1023,7 +1019,8 @@ defmodule AWS.CleanRoomsML do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1040,11 +1037,17 @@ defmodule AWS.CleanRoomsML do
 
   @doc """
   Defines the information necessary to create a configured audience model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20CreateConfiguredAudienceModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_configured_audience_model(
-          map(),
+          AWS.Client.t(),
           create_configured_audience_model_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_configured_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1054,7 +1057,8 @@ defmodule AWS.CleanRoomsML do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1070,12 +1074,17 @@ defmodule AWS.CleanRoomsML do
   end
 
   @doc """
-  Defines the information necessary to create a training dataset.
+  Defines the information necessary to create a training dataset. In Clean Rooms
+  ML, the `TrainingDataset` is metadata that points to a Glue table, which is
+  read only during `AudienceModel` creation.
 
-  In Clean Rooms ML, the `TrainingDataset` is metadata that points to a Glue
-  table, which is read only during `AudienceModel` creation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20CreateTrainingDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_training_dataset(map(), create_training_dataset_request(), list()) ::
+  @spec create_training_dataset(AWS.Client.t(), create_training_dataset_request(), Keyword.t()) ::
           {:ok, create_training_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_training_dataset_errors()}
@@ -1084,7 +1093,8 @@ defmodule AWS.CleanRoomsML do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1102,12 +1112,20 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Deletes the specified audience generation job, and removes all data associated
   with the job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20DeleteAudienceGenerationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:audience_generation_job_arn` (`t:string`) The Amazon Resource Name (ARN) of
+    the audience generation job that you want to delete.
+
+  ## Optional parameters:
   """
   @spec delete_audience_generation_job(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_audience_generation_job_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -1122,7 +1140,8 @@ defmodule AWS.CleanRoomsML do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1138,12 +1157,24 @@ defmodule AWS.CleanRoomsML do
   end
 
   @doc """
-  Specifies an audience model that you want to delete.
+  Specifies an audience model that you want to delete. You can't delete an
+  audience model if there are any configured audience models that depend on the
+  audience model.
 
-  You can't delete an audience model if there are any configured audience models
-  that depend on the audience model.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20DeleteAudienceModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    audience model that you want to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_audience_model(map(), String.t(), delete_audience_model_request(), list()) ::
+  @spec delete_audience_model(
+          AWS.Client.t(),
+          String.t(),
+          delete_audience_model_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_audience_model_errors()}
@@ -1152,7 +1183,8 @@ defmodule AWS.CleanRoomsML do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1168,17 +1200,24 @@ defmodule AWS.CleanRoomsML do
   end
 
   @doc """
-  Deletes the specified configured audience model.
+  Deletes the specified configured audience model. You can't delete a configured
+  audience model if there are any lookalike models that use the configured
+  audience model. If you delete a configured audience model, it will be removed
+  from any collaborations that it is associated to.
 
-  You can't delete a configured audience model if there are any lookalike models
-  that use the configured audience model. If you delete a configured audience
-  model, it will be removed from any collaborations that it is associated to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20DeleteConfiguredAudienceModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
+    of the configured audience model that you want to delete.
+
+  ## Optional parameters:
   """
   @spec delete_configured_audience_model(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_configured_audience_model_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -1193,7 +1232,8 @@ defmodule AWS.CleanRoomsML do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1210,12 +1250,20 @@ defmodule AWS.CleanRoomsML do
 
   @doc """
   Deletes the specified configured audience model policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20DeleteConfiguredAudienceModelPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
+    of the configured audience model policy that you want to delete.
+
+  ## Optional parameters:
   """
   @spec delete_configured_audience_model_policy(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_configured_audience_model_policy_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -1232,7 +1280,8 @@ defmodule AWS.CleanRoomsML do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1248,14 +1297,26 @@ defmodule AWS.CleanRoomsML do
   end
 
   @doc """
-  Specifies a training dataset that you want to delete.
+  Specifies a training dataset that you want to delete. You can't delete a
+  training dataset if there are any audience models that depend on the training
+  dataset. In Clean Rooms ML, the `TrainingDataset` is metadata that points to a
+  Glue table, which is read only during `AudienceModel` creation. This action
+  deletes the metadata.
 
-  You can't delete a training dataset if there are any audience models that depend
-  on the training dataset. In Clean Rooms ML, the `TrainingDataset` is metadata
-  that points to a Glue table, which is read only during `AudienceModel` creation.
-  This action deletes the metadata.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20DeleteTrainingDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:training_dataset_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    training dataset that you want to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_training_dataset(map(), String.t(), delete_training_dataset_request(), list()) ::
+  @spec delete_training_dataset(
+          AWS.Client.t(),
+          String.t(),
+          delete_training_dataset_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_training_dataset_errors()}
@@ -1264,7 +1325,8 @@ defmodule AWS.CleanRoomsML do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1281,42 +1343,102 @@ defmodule AWS.CleanRoomsML do
 
   @doc """
   Returns information about an audience generation job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20GetAudienceGenerationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:audience_generation_job_arn` (`t:string`) The Amazon Resource Name (ARN) of
+    the audience generation job that you are interested in.
+
+  ## Optional parameters:
   """
-  @spec get_audience_generation_job(map(), String.t(), list()) ::
+  @spec get_audience_generation_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_audience_generation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_audience_generation_job_errors()}
   def get_audience_generation_job(%Client{} = client, audience_generation_job_arn, options \\ []) do
     url_path = "/audience-generation-job/#{AWS.Util.encode_uri(audience_generation_job_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about an audience model
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20GetAudienceModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    audience model that you are interested in.
+
+  ## Optional parameters:
   """
-  @spec get_audience_model(map(), String.t(), list()) ::
+  @spec get_audience_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_audience_model_errors()}
   def get_audience_model(%Client{} = client, audience_model_arn, options \\ []) do
     url_path = "/audience-model/#{AWS.Util.encode_uri(audience_model_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a specified configured audience model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20GetConfiguredAudienceModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
+    of the configured audience model that you are interested in.
+
+  ## Optional parameters:
   """
-  @spec get_configured_audience_model(map(), String.t(), list()) ::
+  @spec get_configured_audience_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configured_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configured_audience_model_errors()}
@@ -1326,18 +1448,44 @@ defmodule AWS.CleanRoomsML do
         options \\ []
       ) do
     url_path = "/configured-audience-model/#{AWS.Util.encode_uri(configured_audience_model_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a configured audience model policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20GetConfiguredAudienceModelPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
+    of the configured audience model that you are interested in.
+
+  ## Optional parameters:
   """
-  @spec get_configured_audience_model_policy(map(), String.t(), list()) ::
+  @spec get_configured_audience_model_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configured_audience_model_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configured_audience_model_policy_errors()}
@@ -1349,273 +1497,486 @@ defmodule AWS.CleanRoomsML do
     url_path =
       "/configured-audience-model/#{AWS.Util.encode_uri(configured_audience_model_arn)}/policy"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a training dataset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20GetTrainingDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:training_dataset_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    training dataset that you are interested in.
+
+  ## Optional parameters:
   """
-  @spec get_training_dataset(map(), String.t(), list()) ::
+  @spec get_training_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_training_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_training_dataset_errors()}
   def get_training_dataset(%Client{} = client, training_dataset_arn, options \\ []) do
     url_path = "/training-dataset/#{AWS.Util.encode_uri(training_dataset_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of the audience export jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20ListAudienceExportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:audience_generation_job_arn` (`t:string`) The Amazon Resource Name (ARN) of
+    the audience generation job that you are interested in.
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned
+    per call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to
+    access the next page of results.
   """
-  @spec list_audience_export_jobs(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_audience_export_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_audience_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_audience_export_jobs_errors()}
-  def list_audience_export_jobs(
-        %Client{} = client,
-        audience_generation_job_arn \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_audience_export_jobs(%Client{} = client, options \\ []) do
     url_path = "/audience-export-job"
+
+    # Validate optional parameters
+    optional_params = [audience_generation_job_arn: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(audience_generation_job_arn) do
-        [{"audienceGenerationJobArn", audience_generation_job_arn} | query_params]
+      if opt_val = Keyword.get(options, :audience_generation_job_arn) do
+        [{"audienceGenerationJobArn", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:audience_generation_job_arn, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of audience generation jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20ListAudienceGenerationJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:collaboration_id` (`t:string`) The identifier of the collaboration that
+    contains the audience generation jobs that you are interested in.
+  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
+    of the configured audience model that was used for the audience generation
+    jobs that you are interested in.
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned
+    per call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to
+    access the next page of results.
   """
-  @spec list_audience_generation_jobs(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_audience_generation_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_audience_generation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_audience_generation_jobs_errors()}
-  def list_audience_generation_jobs(
-        %Client{} = client,
-        collaboration_id \\ nil,
-        configured_audience_model_arn \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_audience_generation_jobs(%Client{} = client, options \\ []) do
     url_path = "/audience-generation-job"
+
+    # Validate optional parameters
+    optional_params = [
+      collaboration_id: nil,
+      configured_audience_model_arn: nil,
+      max_results: nil,
+      next_token: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(configured_audience_model_arn) do
-        [{"configuredAudienceModelArn", configured_audience_model_arn} | query_params]
+      if opt_val = Keyword.get(options, :configured_audience_model_arn) do
+        [{"configuredAudienceModelArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(collaboration_id) do
-        [{"collaborationId", collaboration_id} | query_params]
+      if opt_val = Keyword.get(options, :collaboration_id) do
+        [{"collaborationId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :collaboration_id,
+        :configured_audience_model_arn,
+        :max_results,
+        :next_token
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of audience models.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20ListAudienceModels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned
+    per call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to
+    access the next page of results.
   """
-  @spec list_audience_models(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_audience_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_audience_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_audience_models_errors()}
-  def list_audience_models(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_audience_models(%Client{} = client, options \\ []) do
     url_path = "/audience-model"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of the configured audience models.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20ListConfiguredAudienceModels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned
+    per call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to
+    access the next page of results.
   """
-  @spec list_configured_audience_models(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_configured_audience_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configured_audience_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configured_audience_models_errors()}
-  def list_configured_audience_models(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_configured_audience_models(%Client{} = client, options \\ []) do
     url_path = "/configured-audience-model"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of tags for a provided resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    that you are interested in.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of training datasets.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20ListTrainingDatasets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned
+    per call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to
+    access the next page of results.
   """
-  @spec list_training_datasets(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_training_datasets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_training_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_training_datasets_errors()}
-  def list_training_datasets(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_training_datasets(%Client{} = client, options \\ []) do
     url_path = "/training-dataset"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Create or update the resource policy for a configured audience model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20PutConfiguredAudienceModelPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
+    of the configured audience model that the resource policy will govern.
+
+  ## Optional parameters:
   """
   @spec put_configured_audience_model_policy(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_configured_audience_model_policy_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_configured_audience_model_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1632,15 +1993,26 @@ defmodule AWS.CleanRoomsML do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Export an audience of a specified size after you have generated an audience.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20StartAudienceExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_audience_export_job(map(), start_audience_export_job_request(), list()) ::
+  @spec start_audience_export_job(
+          AWS.Client.t(),
+          start_audience_export_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_audience_export_job_errors()}
@@ -1649,7 +2021,8 @@ defmodule AWS.CleanRoomsML do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1666,8 +2039,18 @@ defmodule AWS.CleanRoomsML do
 
   @doc """
   Information necessary to start the audience generation job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20StartAudienceGenerationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_audience_generation_job(map(), start_audience_generation_job_request(), list()) ::
+  @spec start_audience_generation_job(
+          AWS.Client.t(),
+          start_audience_generation_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_audience_generation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_audience_generation_job_errors()}
@@ -1676,7 +2059,8 @@ defmodule AWS.CleanRoomsML do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1693,8 +2077,16 @@ defmodule AWS.CleanRoomsML do
 
   @doc """
   Adds metadata tags to a specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    that you want to assign tags.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1703,7 +2095,8 @@ defmodule AWS.CleanRoomsML do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1720,8 +2113,18 @@ defmodule AWS.CleanRoomsML do
 
   @doc """
   Removes metadata tags from a specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    that you want to remove tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.cleanroomsml#TagKey]`) The key values of
+    tags that you want to remove.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1735,7 +2138,8 @@ defmodule AWS.CleanRoomsML do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1752,15 +2156,22 @@ defmodule AWS.CleanRoomsML do
 
   @doc """
   Provides the information necessary to update a configured audience model.
+  Updates that impact audience generation jobs take effect when a new job
+  starts, but do not impact currently running jobs.
 
-  Updates that impact audience generation jobs take effect when a new job starts,
-  but do not impact currently running jobs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20UpdateConfiguredAudienceModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
+    of the configured audience model that you want to update.
+
+  ## Optional parameters:
   """
   @spec update_configured_audience_model(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_configured_audience_model_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_configured_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1775,7 +2186,8 @@ defmodule AWS.CleanRoomsML do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

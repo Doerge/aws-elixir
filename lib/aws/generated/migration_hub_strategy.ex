@@ -4,18 +4,6 @@
 defmodule AWS.MigrationHubStrategy do
   @moduledoc """
   Migration Hub Strategy Recommendations
-
-  This API reference provides descriptions, syntax, and other details about each
-  of the
-  actions and data types for Migration Hub Strategy Recommendations (Strategy
-  Recommendations).
-
-  The topic for each action shows the API
-  request parameters and the response. Alternatively, you can use one of the AWS
-  SDKs to
-  access an API that is tailored to the programming language or platform that
-  you're using. For
-  more information, see [AWS SDKs](http://aws.amazon.com/tools/#SDKs).
   """
 
   alias AWS.Client
@@ -1457,8 +1445,16 @@ defmodule AWS.MigrationHubStrategy do
 
   @doc """
   Retrieves details about an application component.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetApplicationComponentDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_component_id` (`t:string`) The ID of the application component.
+    The ID is unique within an AWS account.
+
+  ## Optional parameters:
   """
-  @spec get_application_component_details(map(), String.t(), list()) ::
+  @spec get_application_component_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_component_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_component_details_errors()}
@@ -1470,20 +1466,44 @@ defmodule AWS.MigrationHubStrategy do
     url_path =
       "/get-applicationcomponent-details/#{AWS.Util.encode_uri(application_component_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of all the recommended strategies and tools for an application
-  component
-  running on a server.
+  component running on a server.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetApplicationComponentStrategies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_component_id` (`t:string`) The ID of the application component.
+    The ID is unique within an AWS account.
+
+  ## Optional parameters:
   """
-  @spec get_application_component_strategies(map(), String.t(), list()) ::
+  @spec get_application_component_strategies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_component_strategies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_component_strategies_errors()}
@@ -1495,168 +1515,388 @@ defmodule AWS.MigrationHubStrategy do
     url_path =
       "/get-applicationcomponent-strategies/#{AWS.Util.encode_uri(application_component_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the status of an on-going assessment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The assessmentid returned by StartAssessment.
+
+  ## Optional parameters:
   """
-  @spec get_assessment(map(), String.t(), list()) ::
+  @spec get_assessment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_assessment_errors()}
   def get_assessment(%Client{} = client, id, options \\ []) do
     url_path = "/get-assessment/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the details about a specific import task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetImportFileTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the import file task. This ID is returned in the
+    response of StartImportFileTask.
+
+  ## Optional parameters:
   """
-  @spec get_import_file_task(map(), String.t(), list()) ::
+  @spec get_import_file_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_import_file_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_import_file_task_errors()}
   def get_import_file_task(%Client{} = client, id, options \\ []) do
     url_path = "/get-import-file-task/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve the latest ID of a specific assessment task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetLatestAssessmentId&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_latest_assessment_id(map(), list()) ::
+  @spec get_latest_assessment_id(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_latest_assessment_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_latest_assessment_id_errors()}
   def get_latest_assessment_id(%Client{} = client, options \\ []) do
     url_path = "/get-latest-assessment-id"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves your migration and modernization preferences.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetPortfolioPreferences&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_portfolio_preferences(map(), list()) ::
+  @spec get_portfolio_preferences(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_portfolio_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_portfolio_preferences_errors()}
   def get_portfolio_preferences(%Client{} = client, options \\ []) do
     url_path = "/get-portfolio-preferences"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves overall summary including the number of servers to rehost and the
-  overall
-  number of anti-patterns.
+  overall number of anti-patterns.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetPortfolioSummary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_portfolio_summary(map(), list()) ::
+  @spec get_portfolio_summary(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_portfolio_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_portfolio_summary_errors()}
   def get_portfolio_summary(%Client{} = client, options \\ []) do
     url_path = "/get-portfolio-summary"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves detailed information about the specified recommendation report.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetRecommendationReportDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The recommendation report generation task id returned by
+    StartRecommendationReportGeneration.
+
+  ## Optional parameters:
   """
-  @spec get_recommendation_report_details(map(), String.t(), list()) ::
+  @spec get_recommendation_report_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_recommendation_report_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recommendation_report_details_errors()}
   def get_recommendation_report_details(%Client{} = client, id, options \\ []) do
     url_path = "/get-recommendation-report-details/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves detailed information about a specified server.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetServerDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:server_id` (`t:string`) The ID of the server.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to include in the
+    response. The maximum value is 100.
+  * `:next_token` (`t:string`) The token from a previous call that you use to
+    retrieve the next set of results. For example, if a previous call to this
+    action returned 100 items, but you set maxResults to 10. You'll receive a
+    set of 10 results along with a token. You then use the returned token to
+    retrieve the next set of 10.
   """
-  @spec get_server_details(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_server_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_server_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_server_details_errors()}
-  def get_server_details(
-        %Client{} = client,
-        server_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_server_details(%Client{} = client, server_id, options \\ []) do
     url_path = "/get-server-details/#{AWS.Util.encode_uri(server_id)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves recommended strategies and tools for the specified server.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetServerStrategies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:server_id` (`t:string`) The ID of the server.
+
+  ## Optional parameters:
   """
-  @spec get_server_strategies(map(), String.t(), list()) ::
+  @spec get_server_strategies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_server_strategies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_server_strategies_errors()}
   def get_server_strategies(%Client{} = client, server_id, options \\ []) do
     url_path = "/get-server-strategies/#{AWS.Util.encode_uri(server_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1664,8 +1904,14 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Retrieves a list of all the servers fetched from customer vCenter using Strategy
   Recommendation Collector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20ListAnalyzableServers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_analyzable_servers(map(), list_analyzable_servers_request(), list()) ::
+  @spec list_analyzable_servers(AWS.Client.t(), list_analyzable_servers_request(), Keyword.t()) ::
           {:ok, list_analyzable_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_analyzable_servers_errors()}
@@ -1674,7 +1920,8 @@ defmodule AWS.MigrationHubStrategy do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1691,8 +1938,18 @@ defmodule AWS.MigrationHubStrategy do
 
   @doc """
   Retrieves a list of all the application components (processes).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20ListApplicationComponents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_application_components(map(), list_application_components_request(), list()) ::
+  @spec list_application_components(
+          AWS.Client.t(),
+          list_application_components_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_application_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_components_errors()}
@@ -1701,7 +1958,8 @@ defmodule AWS.MigrationHubStrategy do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1718,75 +1976,146 @@ defmodule AWS.MigrationHubStrategy do
 
   @doc """
   Retrieves a list of all the installed collectors.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20ListCollectors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to include in the
+    response. The maximum value is 100.
+  * `:next_token` (`t:string`) The token from a previous call that you use to
+    retrieve the next set of results. For example, if a previous call to this
+    action returned 100 items, but you set maxResults to 10. You'll receive a
+    set of 10 results along with a token. You then use the returned token to
+    retrieve the next set of 10.
   """
-  @spec list_collectors(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_collectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_collectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_collectors_errors()}
-  def list_collectors(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_collectors(%Client{} = client, options \\ []) do
     url_path = "/list-collectors"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of all the imports performed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20ListImportFileTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The total number of items to return. The maximum
+    value is 100.
+  * `:next_token` (`t:string`) The token from a previous call that you use to
+    retrieve the next set of results. For example, if a previous call to this
+    action returned 100 items, but you set maxResults to 10. You'll receive a
+    set of 10 results along with a token. You then use the returned token to
+    retrieve the next set of 10.
   """
-  @spec list_import_file_task(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_import_file_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_import_file_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_import_file_task_errors()}
-  def list_import_file_task(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_import_file_task(%Client{} = client, options \\ []) do
     url_path = "/list-import-file-task"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all the servers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20ListServers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_servers(map(), list_servers_request(), list()) ::
+  @spec list_servers(AWS.Client.t(), list_servers_request(), Keyword.t()) ::
           {:ok, list_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_servers_errors()}
@@ -1795,7 +2124,8 @@ defmodule AWS.MigrationHubStrategy do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1812,8 +2142,18 @@ defmodule AWS.MigrationHubStrategy do
 
   @doc """
   Saves the specified migration and modernization preferences.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20PutPortfolioPreferences&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_portfolio_preferences(map(), put_portfolio_preferences_request(), list()) ::
+  @spec put_portfolio_preferences(
+          AWS.Client.t(),
+          put_portfolio_preferences_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_portfolio_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_portfolio_preferences_errors()}
@@ -1822,7 +2162,8 @@ defmodule AWS.MigrationHubStrategy do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1839,8 +2180,14 @@ defmodule AWS.MigrationHubStrategy do
 
   @doc """
   Starts the assessment of an on-premises environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20StartAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_assessment(map(), start_assessment_request(), list()) ::
+  @spec start_assessment(AWS.Client.t(), start_assessment_request(), Keyword.t()) ::
           {:ok, start_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_assessment_errors()}
@@ -1849,7 +2196,8 @@ defmodule AWS.MigrationHubStrategy do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1866,8 +2214,14 @@ defmodule AWS.MigrationHubStrategy do
 
   @doc """
   Starts a file import.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20StartImportFileTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_import_file_task(map(), start_import_file_task_request(), list()) ::
+  @spec start_import_file_task(AWS.Client.t(), start_import_file_task_request(), Keyword.t()) ::
           {:ok, start_import_file_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_import_file_task_errors()}
@@ -1876,7 +2230,8 @@ defmodule AWS.MigrationHubStrategy do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1893,11 +2248,17 @@ defmodule AWS.MigrationHubStrategy do
 
   @doc """
   Starts generating a recommendation report.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20StartRecommendationReportGeneration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec start_recommendation_report_generation(
-          map(),
+          AWS.Client.t(),
           start_recommendation_report_generation_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_recommendation_report_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1907,7 +2268,8 @@ defmodule AWS.MigrationHubStrategy do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1924,8 +2286,14 @@ defmodule AWS.MigrationHubStrategy do
 
   @doc """
   Stops the assessment of an on-premises environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20StopAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec stop_assessment(map(), stop_assessment_request(), list()) ::
+  @spec stop_assessment(AWS.Client.t(), stop_assessment_request(), Keyword.t()) ::
           {:ok, stop_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_assessment_errors()}
@@ -1934,7 +2302,8 @@ defmodule AWS.MigrationHubStrategy do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1951,11 +2320,17 @@ defmodule AWS.MigrationHubStrategy do
 
   @doc """
   Updates the configuration of an application component.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20UpdateApplicationComponentConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec update_application_component_config(
-          map(),
+          AWS.Client.t(),
           update_application_component_config_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_application_component_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1965,7 +2340,8 @@ defmodule AWS.MigrationHubStrategy do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1982,8 +2358,14 @@ defmodule AWS.MigrationHubStrategy do
 
   @doc """
   Updates the configuration of the specified server.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20UpdateServerConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_server_config(map(), update_server_config_request(), list()) ::
+  @spec update_server_config(AWS.Client.t(), update_server_config_request(), Keyword.t()) ::
           {:ok, update_server_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_server_config_errors()}
@@ -1992,7 +2374,8 @@ defmodule AWS.MigrationHubStrategy do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

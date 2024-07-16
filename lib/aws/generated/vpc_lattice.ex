@@ -4,14 +4,12 @@
 defmodule AWS.VPCLattice do
   @moduledoc """
   Amazon VPC Lattice is a fully managed application networking service that you
-  use to connect, secure,
-  and monitor all of your services across multiple accounts and virtual private
-  clouds (VPCs).
-
-  Amazon VPC Lattice interconnects your microservices and legacy services within a
-  logical boundary, so that
-  you can discover and manage them more efficiently. For more information, see the
-  [Amazon VPC Lattice User Guide](https://docs.aws.amazon.com/vpc-lattice/latest/ug/)
+  use to connect, secure, and monitor all of your services across multiple
+  accounts and virtual private clouds (VPCs). Amazon VPC Lattice interconnects
+  your microservices and legacy services within a logical boundary, so that you
+  can discover and manage them more efficiently. For more information, see the
+  [Amazon VPC Lattice User
+  Guide](https://docs.aws.amazon.com/vpc-lattice/latest/ug/)
   """
 
   alias AWS.Client
@@ -2194,18 +2192,27 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Updates the listener rules in a batch.
+  Updates the listener rules in a batch. You can use this operation to change the
+  priority of listener rules. This can be useful when bulk updating or swapping
+  rule priority. **Required permissions:** `vpc-lattice:UpdateRule`
 
-  You can use this operation to change the priority of
-  listener rules. This can be useful when bulk updating or swapping rule priority.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20BatchUpdateRule&this_doc_guide=API%2520Reference)
 
-  ## Required permissions:
-  `vpc-lattice:UpdateRule`
+  ## Parameters:
+  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the listener.
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
 
-  For more information, see [How Amazon VPC Lattice works with IAM](https://docs.aws.amazon.com/vpc-lattice/latest/ug/security_iam_service-with-iam.html)
-  in the *Amazon VPC Lattice User Guide*.
+  ## Optional parameters:
   """
-  @spec batch_update_rule(map(), String.t(), String.t(), batch_update_rule_request(), list()) ::
+  @spec batch_update_rule(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          batch_update_rule_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_update_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_rule_errors()}
@@ -2222,7 +2229,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2239,20 +2247,25 @@ defmodule AWS.VPCLattice do
 
   @doc """
   Enables access logs to be sent to Amazon CloudWatch, Amazon S3, and Amazon
-  Kinesis Data Firehose.
+  Kinesis Data Firehose. The service network owner can use the access logs to
+  audit the services in the network. The service network owner can only see
+  access logs from clients and services that are associated with their service
+  network. Access log entries represent traffic originated from VPCs associated
+  with that network. For more information, see [Access
+  logs](https://docs.aws.amazon.com/vpc-lattice/latest/ug/monitoring-access-logs.html)
+  in the *Amazon VPC Lattice User Guide*.
 
-  The service network owner
-  can use the access logs to audit the services in the network. The service
-  network owner can only
-  see access logs from clients and services that are associated with their service
-  network. Access
-  log entries represent traffic originated from VPCs associated with that network.
-  For more
-  information, see [Access logs](https://docs.aws.amazon.com/vpc-lattice/latest/ug/monitoring-access-logs.html)
-  in the
-  *Amazon VPC Lattice User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateAccessLogSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_access_log_subscription(map(), create_access_log_subscription_request(), list()) ::
+  @spec create_access_log_subscription(
+          AWS.Client.t(),
+          create_access_log_subscription_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_access_log_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_access_log_subscription_errors()}
@@ -2261,7 +2274,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2277,17 +2291,21 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Creates a listener for a service.
+  Creates a listener for a service. Before you start using your Amazon VPC Lattice
+  service, you must add one or more listeners. A listener is a process that
+  checks for connection requests to your services. For more information, see
+  [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html)
+  in the *Amazon VPC Lattice User Guide*.
 
-  Before you start using your Amazon VPC Lattice service, you must
-  add one or more listeners. A listener is a process that checks for connection
-  requests to your
-  services. For more information, see
-  [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in
-  the
-  *Amazon VPC Lattice User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateListener&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
+
+  ## Optional parameters:
   """
-  @spec create_listener(map(), String.t(), create_listener_request(), list()) ::
+  @spec create_listener(AWS.Client.t(), String.t(), create_listener_request(), Keyword.t()) ::
           {:ok, create_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_listener_errors()}
@@ -2296,7 +2314,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2312,16 +2331,24 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Creates a listener rule.
+  Creates a listener rule. Each listener has a default rule for checking
+  connection requests, but you can define additional rules. Each rule consists
+  of a priority, one or more actions, and one or more conditions. For more
+  information, see [Listener
+  rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules)
+  in the *Amazon VPC Lattice User Guide*.
 
-  Each listener has a default rule for checking connection requests,
-  but you can define additional rules. Each rule consists of a priority, one or
-  more actions, and
-  one or more conditions. For more information, see [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules)
-  in the
-  *Amazon VPC Lattice User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the listener.
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
+
+  ## Optional parameters:
   """
-  @spec create_rule(map(), String.t(), String.t(), create_rule_request(), list()) ::
+  @spec create_rule(AWS.Client.t(), String.t(), String.t(), create_rule_request(), Keyword.t()) ::
           {:ok, create_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rule_errors()}
@@ -2338,7 +2365,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2354,18 +2382,17 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Creates a service.
+  Creates a service. A service is any software application that can run on
+  instances containers, or serverless functions within an account or virtual
+  private cloud (VPC).
 
-  A service is any software application that can run on instances
-  containers, or serverless functions within an account or virtual private cloud
-  (VPC).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateService&this_doc_guide=API%2520Reference)
 
-  For more information, see
-  [Services](https://docs.aws.amazon.com/vpc-lattice/latest/ug/services.html) in
-  the
-  *Amazon VPC Lattice User Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_service(map(), create_service_request(), list()) ::
+  @spec create_service(AWS.Client.t(), create_service_request(), Keyword.t()) ::
           {:ok, create_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_errors()}
@@ -2374,7 +2401,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2390,16 +2418,17 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Creates a service network.
+  Creates a service network. A service network is a logical boundary for a
+  collection of services. You can associate services and VPCs with a service
+  network.
 
-  A service network is a logical boundary for a collection of
-  services. You can associate services and VPCs with a service network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateServiceNetwork&this_doc_guide=API%2520Reference)
 
-  For more information, see [Service networks](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html)
-  in the
-  *Amazon VPC Lattice User Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_service_network(map(), create_service_network_request(), list()) ::
+  @spec create_service_network(AWS.Client.t(), create_service_network_request(), Keyword.t()) ::
           {:ok, create_service_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_network_errors()}
@@ -2408,7 +2437,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2424,29 +2454,24 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Associates a service with a service network.
+  Associates a service with a service network. For more information, see [Manage
+  service
+  associations](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-network-associations.html#service-network-service-associations)
+  in the *Amazon VPC Lattice User Guide*. You can't use this operation if the
+  service and service network are already associated or if there is a
+  disassociation or deletion in progress. If the association fails, you can
+  retry the operation by deleting the association and recreating it.
 
-  For more information, see [Manage service associations](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-network-associations.html#service-network-service-associations)
-  in the *Amazon VPC Lattice User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateServiceNetworkServiceAssociation&this_doc_guide=API%2520Reference)
 
-  You can't use this operation if the service and service network are already
-  associated or if
-  there is a disassociation or deletion in progress. If the association fails, you
-  can retry the
-  operation by deleting the association and recreating it.
+  ## Parameters:
 
-  You cannot associate a service and service network that are shared with a
-  caller. The caller
-  must own either the service or the service network.
-
-  As a result of this operation, the association is created in the service network
-  account and
-  the association owner account.
+  ## Optional parameters:
   """
   @spec create_service_network_service_association(
-          map(),
+          AWS.Client.t(),
           create_service_network_service_association_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_service_network_service_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2456,7 +2481,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2472,34 +2498,25 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Associates a VPC with a service network.
+  Associates a VPC with a service network. When you associate a VPC with the
+  service network, it enables all the resources within that VPC to be clients
+  and communicate with other services in the service network. For more
+  information, see [Manage VPC
+  associations](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-network-associations.html#service-network-vpc-associations)
+  in the *Amazon VPC Lattice User Guide*. You can't use this operation if there
+  is a disassociation in progress. If the association fails, retry by deleting
+  the association and recreating it.
 
-  When you associate a VPC with the service network,
-  it enables all the resources within that VPC to be clients and communicate with
-  other services in
-  the service network. For more information, see [Manage VPC associations](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-network-associations.html#service-network-vpc-associations)
-  in the *Amazon VPC Lattice User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateServiceNetworkVpcAssociation&this_doc_guide=API%2520Reference)
 
-  You can't use this operation if there is a disassociation in progress. If the
-  association
-  fails, retry by deleting the association and recreating it.
+  ## Parameters:
 
-  As a result of this operation, the association gets created in the service
-  network account
-  and the VPC owner account.
-
-  If you add a security group to the service network and VPC association, the
-  association must
-  continue to always have at least one security group. You can add or edit
-  security groups at any
-  time. However, to remove all security groups, you must first delete the
-  association and recreate
-  it without security groups.
+  ## Optional parameters:
   """
   @spec create_service_network_vpc_association(
-          map(),
+          AWS.Client.t(),
           create_service_network_vpc_association_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_service_network_vpc_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2509,7 +2526,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2525,17 +2543,17 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Creates a target group.
+  Creates a target group. A target group is a collection of targets, or compute
+  resources, that run your application or service. A target group can only be
+  used by a single service.
 
-  A target group is a collection of targets, or compute resources,
-  that run your application or service. A target group can only be used by a
-  single service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateTargetGroup&this_doc_guide=API%2520Reference)
 
-  For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in
-  the
-  *Amazon VPC Lattice User Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_target_group(map(), create_target_group_request(), list()) ::
+  @spec create_target_group(AWS.Client.t(), create_target_group_request(), Keyword.t()) ::
           {:ok, create_target_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_target_group_errors()}
@@ -2544,7 +2562,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2561,12 +2580,20 @@ defmodule AWS.VPCLattice do
 
   @doc """
   Deletes the specified access log subscription.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteAccessLogSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:access_log_subscription_identifier` (`t:string`) The ID or Amazon Resource
+    Name (ARN) of the access log subscription.
+
+  ## Optional parameters:
   """
   @spec delete_access_log_subscription(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_access_log_subscription_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_access_log_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2583,7 +2610,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2599,15 +2627,20 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Deletes the specified auth policy.
+  Deletes the specified auth policy. If an auth is set to `AWS_IAM` and the auth
+  policy is deleted, all requests are denied. If you are trying to remove the
+  auth policy completely, you must set the auth type to `NONE`. If auth is
+  enabled on the resource, but no auth policy is set, all requests are denied.
 
-  If an auth is set to `AWS_IAM` and the auth
-  policy is deleted, all requests are denied. If you are trying to remove the auth
-  policy completely, you must set the auth type to `NONE`. If auth is enabled on
-  the
-  resource, but no auth policy is set, all requests are denied.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteAuthPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the resource.
+
+  ## Optional parameters:
   """
-  @spec delete_auth_policy(map(), String.t(), delete_auth_policy_request(), list()) ::
+  @spec delete_auth_policy(AWS.Client.t(), String.t(), delete_auth_policy_request(), Keyword.t()) ::
           {:ok, delete_auth_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_auth_policy_errors()}
@@ -2616,7 +2649,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2633,8 +2667,24 @@ defmodule AWS.VPCLattice do
 
   @doc """
   Deletes the specified listener.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteListener&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the listener.
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
+
+  ## Optional parameters:
   """
-  @spec delete_listener(map(), String.t(), String.t(), delete_listener_request(), list()) ::
+  @spec delete_listener(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_listener_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_listener_errors()}
@@ -2651,7 +2701,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2668,8 +2719,20 @@ defmodule AWS.VPCLattice do
 
   @doc """
   Deletes the specified resource policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec delete_resource_policy(map(), String.t(), delete_resource_policy_request(), list()) ::
+  @spec delete_resource_policy(
+          AWS.Client.t(),
+          String.t(),
+          delete_resource_policy_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
@@ -2678,7 +2741,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2694,20 +2758,31 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Deletes a listener rule.
+  Deletes a listener rule. Each listener has a default rule for checking
+  connection requests, but you can define additional rules. Each rule consists
+  of a priority, one or more actions, and one or more conditions. You can delete
+  additional listener rules, but you cannot delete the default rule.
 
-  Each listener has a default rule for checking connection requests,
-  but you can define additional rules. Each rule consists of a priority, one or
-  more actions, and
-  one or more conditions. You can delete additional listener rules, but you cannot
-  delete the
-  default rule.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteRule&this_doc_guide=API%2520Reference)
 
-  For more information, see [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules)
-  in the
-  *Amazon VPC Lattice User Guide*.
+  ## Parameters:
+  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the listener.
+  * `:rule_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    rule.
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
+
+  ## Optional parameters:
   """
-  @spec delete_rule(map(), String.t(), String.t(), String.t(), delete_rule_request(), list()) ::
+  @spec delete_rule(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_rule_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rule_errors()}
@@ -2725,7 +2800,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2741,18 +2817,22 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Deletes a service.
+  Deletes a service. A service can't be deleted if it's associated with a service
+  network. If you delete a service, all resources related to the service, such
+  as the resource policy, auth policy, listeners, listener rules, and access log
+  subscriptions, are also deleted. For more information, see [Delete a
+  service](https://docs.aws.amazon.com/vpc-lattice/latest/ug/services.html#delete-service)
+  in the *Amazon VPC Lattice User Guide*.
 
-  A service can't be deleted if it's associated with a service network. If
-  you delete a service, all resources related to the service, such as the resource
-  policy, auth
-  policy, listeners, listener rules, and access log subscriptions, are also
-  deleted. For more
-  information, see [Delete a service](https://docs.aws.amazon.com/vpc-lattice/latest/ug/services.html#delete-service)
-  in the
-  *Amazon VPC Lattice User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
+
+  ## Optional parameters:
   """
-  @spec delete_service(map(), String.t(), delete_service_request(), list()) ::
+  @spec delete_service(AWS.Client.t(), String.t(), delete_service_request(), Keyword.t()) ::
           {:ok, delete_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_errors()}
@@ -2761,7 +2841,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2777,17 +2858,28 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Deletes a service network.
-
-  You can only delete the service network if there is no service or
-  VPC associated with it. If you delete a service network, all resources related
-  to the service
-  network, such as the resource policy, auth policy, and access log subscriptions,
-  are also
-  deleted. For more information, see [Delete a service network](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#delete-service-network)
+  Deletes a service network. You can only delete the service network if there is
+  no service or VPC associated with it. If you delete a service network, all
+  resources related to the service network, such as the resource policy, auth
+  policy, and access log subscriptions, are also deleted. For more information,
+  see [Delete a service
+  network](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#delete-service-network)
   in the *Amazon VPC Lattice User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteServiceNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:service_network_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    ID of the service network.
+
+  ## Optional parameters:
   """
-  @spec delete_service_network(map(), String.t(), delete_service_network_request(), list()) ::
+  @spec delete_service_network(
+          AWS.Client.t(),
+          String.t(),
+          delete_service_network_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_service_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_network_errors()}
@@ -2796,7 +2888,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2813,16 +2906,21 @@ defmodule AWS.VPCLattice do
 
   @doc """
   Deletes the association between a specified service and the specific service
-  network.
+  network. This operation fails if an association is still in progress.
 
-  This
-  operation fails if an association is still in progress.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteServiceNetworkServiceAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:service_network_service_association_identifier` (`t:string`) The ID or
+    Amazon Resource Name (ARN) of the association.
+
+  ## Optional parameters:
   """
   @spec delete_service_network_service_association(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_service_network_service_association_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_service_network_service_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2839,7 +2937,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2855,16 +2954,22 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Disassociates the VPC from the service network.
+  Disassociates the VPC from the service network. You can't disassociate the VPC
+  if there is a create or update association in progress.
 
-  You can't disassociate the VPC if there is a
-  create or update association in progress.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteServiceNetworkVpcAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:service_network_vpc_association_identifier` (`t:string`) The ID or Amazon
+    Resource Name (ARN) of the association.
+
+  ## Optional parameters:
   """
   @spec delete_service_network_vpc_association(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_service_network_vpc_association_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_service_network_vpc_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2881,7 +2986,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2897,12 +3003,23 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Deletes a target group.
+  Deletes a target group. You can't delete a target group if it is used in a
+  listener rule or if the target group creation is in progress.
 
-  You can't delete a target group if it is used in a listener rule or
-  if the target group creation is in progress.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteTargetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
+    of the target group.
+
+  ## Optional parameters:
   """
-  @spec delete_target_group(map(), String.t(), delete_target_group_request(), list()) ::
+  @spec delete_target_group(
+          AWS.Client.t(),
+          String.t(),
+          delete_target_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_target_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_target_group_errors()}
@@ -2911,7 +3028,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2928,8 +3046,16 @@ defmodule AWS.VPCLattice do
 
   @doc """
   Deregisters the specified targets from the specified target group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeregisterTargets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
+    of the target group.
+
+  ## Optional parameters:
   """
-  @spec deregister_targets(map(), String.t(), deregister_targets_request(), list()) ::
+  @spec deregister_targets(AWS.Client.t(), String.t(), deregister_targets_request(), Keyword.t()) ::
           {:ok, deregister_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_targets_errors()}
@@ -2938,7 +3064,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2955,8 +3082,16 @@ defmodule AWS.VPCLattice do
 
   @doc """
   Retrieves information about the specified access log subscription.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetAccessLogSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:access_log_subscription_identifier` (`t:string`) The ID or Amazon Resource
+    Name (ARN) of the access log subscription.
+
+  ## Optional parameters:
   """
-  @spec get_access_log_subscription(map(), String.t(), list()) ::
+  @spec get_access_log_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_log_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_access_log_subscription_errors()}
@@ -2968,10 +3103,27 @@ defmodule AWS.VPCLattice do
     url_path =
       "/accesslogsubscriptions/#{AWS.Util.encode_uri(access_log_subscription_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2979,25 +3131,61 @@ defmodule AWS.VPCLattice do
   @doc """
   Retrieves information about the auth policy for the specified service or service
   network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetAuthPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the service network or service.
+
+  ## Optional parameters:
   """
-  @spec get_auth_policy(map(), String.t(), list()) ::
+  @spec get_auth_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_auth_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_auth_policy_errors()}
   def get_auth_policy(%Client{} = client, resource_identifier, options \\ []) do
     url_path = "/authpolicy/#{AWS.Util.encode_uri(resource_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about the specified listener for the specified service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetListener&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the listener.
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
+
+  ## Optional parameters:
   """
-  @spec get_listener(map(), String.t(), String.t(), list()) ::
+  @spec get_listener(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_listener_errors()}
@@ -3005,43 +3193,94 @@ defmodule AWS.VPCLattice do
     url_path =
       "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners/#{AWS.Util.encode_uri(listener_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves information about the resource policy.
+  Retrieves information about the resource policy. The resource policy is an IAM
+  policy created on behalf of the resource owner when they share a resource.
 
-  The resource policy is an IAM policy
-  created on behalf of the resource owner when they share a resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the service
+    network or service.
+
+  ## Optional parameters:
   """
-  @spec get_resource_policy(map(), String.t(), list()) ::
+  @spec get_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves information about listener rules.
+  Retrieves information about listener rules. You can also retrieve information
+  about the default listener rule. For more information, see [Listener
+  rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules)
+  in the *Amazon VPC Lattice User Guide*.
 
-  You can also retrieve information about the
-  default listener rule. For more information, see [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules)
-  in the
-  *Amazon VPC Lattice User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the listener.
+  * `:rule_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    listener rule.
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
+
+  ## Optional parameters:
   """
-  @spec get_rule(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_rule(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rule_errors()}
@@ -3055,54 +3294,130 @@ defmodule AWS.VPCLattice do
     url_path =
       "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners/#{AWS.Util.encode_uri(listener_identifier)}/rules/#{AWS.Util.encode_uri(rule_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about the specified service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
+
+  ## Optional parameters:
   """
-  @spec get_service(map(), String.t(), list()) ::
+  @spec get_service(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_errors()}
   def get_service(%Client{} = client, service_identifier, options \\ []) do
     url_path = "/services/#{AWS.Util.encode_uri(service_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about the specified service network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetServiceNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:service_network_identifier` (`t:string`) The ID or Amazon Resource Name
+    (ARN) of the service network.
+
+  ## Optional parameters:
   """
-  @spec get_service_network(map(), String.t(), list()) ::
+  @spec get_service_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_network_errors()}
   def get_service_network(%Client{} = client, service_network_identifier, options \\ []) do
     url_path = "/servicenetworks/#{AWS.Util.encode_uri(service_network_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about the specified association between a service network
-  and a
-  service.
+  and a service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetServiceNetworkServiceAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:service_network_service_association_identifier` (`t:string`) The ID or
+    Amazon Resource Name (ARN) of the association.
+
+  ## Optional parameters:
   """
-  @spec get_service_network_service_association(map(), String.t(), list()) ::
+  @spec get_service_network_service_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_network_service_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_network_service_association_errors()}
@@ -3114,18 +3429,43 @@ defmodule AWS.VPCLattice do
     url_path =
       "/servicenetworkserviceassociations/#{AWS.Util.encode_uri(service_network_service_association_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about the association between a service network and a VPC.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetServiceNetworkVpcAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:service_network_vpc_association_identifier` (`t:string`) The ID or Amazon
+    Resource Name (ARN) of the association.
+
+  ## Optional parameters:
   """
-  @spec get_service_network_vpc_association(map(), String.t(), list()) ::
+  @spec get_service_network_vpc_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_network_vpc_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_network_vpc_association_errors()}
@@ -3137,332 +3477,502 @@ defmodule AWS.VPCLattice do
     url_path =
       "/servicenetworkvpcassociations/#{AWS.Util.encode_uri(service_network_vpc_association_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about the specified target group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetTargetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
+    of the target group.
+
+  ## Optional parameters:
   """
-  @spec get_target_group(map(), String.t(), list()) ::
+  @spec get_target_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_target_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_target_group_errors()}
   def get_target_group(%Client{} = client, target_group_identifier, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all access log subscriptions for the specified service network or service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListAccessLogSubscriptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the service network or service.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) A pagination token for the next page of results.
   """
-  @spec list_access_log_subscriptions(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          list()
-        ) ::
+  @spec list_access_log_subscriptions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_log_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_access_log_subscriptions_errors()}
-  def list_access_log_subscriptions(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        resource_identifier,
-        options \\ []
-      ) do
+  def list_access_log_subscriptions(%Client{} = client, resource_identifier, options \\ []) do
     url_path = "/accesslogsubscriptions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"resourceIdentifier", resource_identifier}]
+
+    # Optional query params
     query_params =
-      if !is_nil(resource_identifier) do
-        [{"resourceIdentifier", resource_identifier} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the listeners for the specified service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListListeners&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) A pagination token for the next page of results.
   """
-  @spec list_listeners(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_listeners(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_listeners_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_listeners_errors()}
-  def list_listeners(
-        %Client{} = client,
-        service_identifier,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_listeners(%Client{} = client, service_identifier, options \\ []) do
     url_path = "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the rules for the listener.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the listener.
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) A pagination token for the next page of results.
   """
-  @spec list_rules(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_rules(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rules_errors()}
-  def list_rules(
-        %Client{} = client,
-        listener_identifier,
-        service_identifier,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_rules(%Client{} = client, listener_identifier, service_identifier, options \\ []) do
     url_path =
       "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners/#{AWS.Util.encode_uri(listener_identifier)}/rules"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the associations between the service network and the service.
+  Lists the associations between the service network and the service. You can
+  filter the list either by service or service network. You must provide either
+  the service network identifier or the service identifier.
 
-  You can filter the list
-  either by service or service network. You must provide either the service
-  network identifier or
-  the service identifier.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListServiceNetworkServiceAssociations&this_doc_guide=API%2520Reference)
 
-  Every association in Amazon VPC Lattice is given a unique Amazon Resource Name
-  (ARN), such as when a
-  service network is associated with a VPC or when a service is associated with a
-  service network.
-  If the association is for a resource that is shared with another account, the
-  association
-  includes the local account ID as the prefix in the ARN for each account the
-  resource is shared
-  with.
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) A pagination token for the next page of results.
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
+  * `:service_network_identifier` (`t:string`) The ID or Amazon Resource Name
+    (ARN) of the service network.
   """
-  @spec list_service_network_service_associations(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_service_network_service_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_service_network_service_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_network_service_associations_errors()}
-  def list_service_network_service_associations(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        service_identifier \\ nil,
-        service_network_identifier \\ nil,
-        options \\ []
-      ) do
+  def list_service_network_service_associations(%Client{} = client, options \\ []) do
     url_path = "/servicenetworkserviceassociations"
+
+    # Validate optional parameters
+    optional_params = [
+      max_results: nil,
+      next_token: nil,
+      service_identifier: nil,
+      service_network_identifier: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(service_network_identifier) do
-        [{"serviceNetworkIdentifier", service_network_identifier} | query_params]
+      if opt_val = Keyword.get(options, :service_network_identifier) do
+        [{"serviceNetworkIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(service_identifier) do
-        [{"serviceIdentifier", service_identifier} | query_params]
+      if opt_val = Keyword.get(options, :service_identifier) do
+        [{"serviceIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :max_results,
+        :next_token,
+        :service_identifier,
+        :service_network_identifier
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the service network and VPC associations.
+  Lists the service network and VPC associations. You can filter the list either
+  by VPC or service network. You must provide either the service network
+  identifier or the VPC identifier.
 
-  You can filter the list either by VPC or
-  service network. You must provide either the service network identifier or the
-  VPC
-  identifier.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListServiceNetworkVpcAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) A pagination token for the next page of results.
+  * `:service_network_identifier` (`t:string`) The ID or Amazon Resource Name
+    (ARN) of the service network.
+  * `:vpc_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    VPC.
   """
-  @spec list_service_network_vpc_associations(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_service_network_vpc_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_service_network_vpc_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_network_vpc_associations_errors()}
-  def list_service_network_vpc_associations(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        service_network_identifier \\ nil,
-        vpc_identifier \\ nil,
-        options \\ []
-      ) do
+  def list_service_network_vpc_associations(%Client{} = client, options \\ []) do
     url_path = "/servicenetworkvpcassociations"
+
+    # Validate optional parameters
+    optional_params = [
+      max_results: nil,
+      next_token: nil,
+      service_network_identifier: nil,
+      vpc_identifier: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(vpc_identifier) do
-        [{"vpcIdentifier", vpc_identifier} | query_params]
+      if opt_val = Keyword.get(options, :vpc_identifier) do
+        [{"vpcIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(service_network_identifier) do
-        [{"serviceNetworkIdentifier", service_network_identifier} | query_params]
+      if opt_val = Keyword.get(options, :service_network_identifier) do
+        [{"serviceNetworkIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :service_network_identifier, :vpc_identifier])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the service networks owned by the caller account or shared with the caller
-  account.
+  account. Also includes the account ID in the ARN to show which account owns
+  the service network.
 
-  Also includes the account ID in the ARN to show which account owns the service
-  network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListServiceNetworks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) A pagination token for the next page of results.
   """
-  @spec list_service_networks(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_service_networks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_service_networks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_networks_errors()}
-  def list_service_networks(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_service_networks(%Client{} = client, options \\ []) do
     url_path = "/servicenetworks"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -3470,122 +3980,207 @@ defmodule AWS.VPCLattice do
   @doc """
   Lists the services owned by the caller account or shared with the caller
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListServices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) A pagination token for the next page of results.
   """
-  @spec list_services(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_services(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_services_errors()}
-  def list_services(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_services(%Client{} = client, options \\ []) do
     url_path = "/services"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the tags for the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists your target groups.
+  Lists your target groups. You can narrow your search by using the filters below
+  in your request.
 
-  You can narrow your search by using the filters below in your
-  request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListTargetGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) A pagination token for the next page of results.
+  * `:target_group_type` (`t:string`) The target group type.
+  * `:vpc_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    VPC.
   """
-  @spec list_target_groups(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_target_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_target_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_target_groups_errors()}
-  def list_target_groups(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        target_group_type \\ nil,
-        vpc_identifier \\ nil,
-        options \\ []
-      ) do
+  def list_target_groups(%Client{} = client, options \\ []) do
     url_path = "/targetgroups"
+
+    # Validate optional parameters
+    optional_params = [
+      max_results: nil,
+      next_token: nil,
+      target_group_type: nil,
+      vpc_identifier: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(vpc_identifier) do
-        [{"vpcIdentifier", vpc_identifier} | query_params]
+      if opt_val = Keyword.get(options, :vpc_identifier) do
+        [{"vpcIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(target_group_type) do
-        [{"targetGroupType", target_group_type} | query_params]
+      if opt_val = Keyword.get(options, :target_group_type) do
+        [{"targetGroupType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :target_group_type, :vpc_identifier])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the targets for the target group.
+  Lists the targets for the target group. By default, all targets are included.
+  You can use this API to check the health status of targets. You can also ﬁlter
+  the results by target.
 
-  By default, all targets are included. You can use
-  this API to check the health status of targets. You can also ﬁlter the results
-  by target.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListTargets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
+    of the target group.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) A pagination token for the next page of results.
   """
-  @spec list_targets(map(), String.t(), list_targets_request(), list()) ::
+  @spec list_targets(AWS.Client.t(), String.t(), list_targets_request(), Keyword.t()) ::
           {:ok, list_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_targets_errors()}
@@ -3600,7 +4195,13 @@ defmodule AWS.VPCLattice do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -3616,15 +4217,18 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Creates or updates the auth policy.
+  Creates or updates the auth policy. The policy string in JSON must not contain
+  newlines or blank lines.
 
-  The policy string in JSON must not contain newlines or
-  blank lines.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20PutAuthPolicy&this_doc_guide=API%2520Reference)
 
-  For more information, see [Auth policies](https://docs.aws.amazon.com/vpc-lattice/latest/ug/auth-policies.html)
-  in the *Amazon VPC Lattice User Guide*.
+  ## Parameters:
+  * `:resource_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the service network or service for which the policy is created.
+
+  ## Optional parameters:
   """
-  @spec put_auth_policy(map(), String.t(), put_auth_policy_request(), list()) ::
+  @spec put_auth_policy(AWS.Client.t(), String.t(), put_auth_policy_request(), Keyword.t()) ::
           {:ok, put_auth_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_auth_policy_errors()}
@@ -3633,20 +4237,32 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Attaches a resource-based permission policy to a service or service network.
+  Attaches a resource-based permission policy to a service or service network. The
+  policy must contain the same actions and condition statements as the Amazon
+  Web Services Resource Access Manager permission for sharing services and
+  service networks.
 
-  The policy must
-  contain the same actions and condition statements as the Amazon Web Services
-  Resource Access
-  Manager permission for sharing services and service networks.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20PutResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service network or service for which the policy is created.
+
+  ## Optional parameters:
   """
-  @spec put_resource_policy(map(), String.t(), put_resource_policy_request(), list()) ::
+  @spec put_resource_policy(
+          AWS.Client.t(),
+          String.t(),
+          put_resource_policy_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
@@ -3655,18 +4271,25 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Registers the targets with the target group.
+  Registers the targets with the target group. If it's a Lambda target, you can
+  only have one target in a target group.
 
-  If it's a Lambda target, you can only have one
-  target in a target group.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20RegisterTargets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
+    of the target group.
+
+  ## Optional parameters:
   """
-  @spec register_targets(map(), String.t(), register_targets_request(), list()) ::
+  @spec register_targets(AWS.Client.t(), String.t(), register_targets_request(), Keyword.t()) ::
           {:ok, register_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_targets_errors()}
@@ -3675,7 +4298,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3692,8 +4316,15 @@ defmodule AWS.VPCLattice do
 
   @doc """
   Adds the specified tags to the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -3702,7 +4333,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3719,8 +4351,17 @@ defmodule AWS.VPCLattice do
 
   @doc """
   Removes the specified tags from the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.vpclattice#TagKey]`) The tag keys of the
+    tags to remove.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -3734,7 +4375,8 @@ defmodule AWS.VPCLattice do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3751,12 +4393,20 @@ defmodule AWS.VPCLattice do
 
   @doc """
   Updates the specified access log subscription.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UpdateAccessLogSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:access_log_subscription_identifier` (`t:string`) The ID or Amazon Resource
+    Name (ARN) of the access log subscription.
+
+  ## Optional parameters:
   """
   @spec update_access_log_subscription(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_access_log_subscription_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_access_log_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3773,7 +4423,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3790,8 +4441,24 @@ defmodule AWS.VPCLattice do
 
   @doc """
   Updates the specified listener for the specified service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UpdateListener&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the listener.
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
+
+  ## Optional parameters:
   """
-  @spec update_listener(map(), String.t(), String.t(), update_listener_request(), list()) ::
+  @spec update_listener(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_listener_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_listener_errors()}
@@ -3808,7 +4475,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3824,12 +4492,29 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Updates a rule for the listener.
+  Updates a rule for the listener. You can't modify a default listener rule. To
+  modify a default listener rule, use `UpdateListener`.
 
-  You can't modify a default listener rule. To modify a
-  default listener rule, use `UpdateListener`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UpdateRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the listener.
+  * `:rule_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    rule.
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
+
+  ## Optional parameters:
   """
-  @spec update_rule(map(), String.t(), String.t(), String.t(), update_rule_request(), list()) ::
+  @spec update_rule(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          update_rule_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rule_errors()}
@@ -3847,7 +4532,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3864,8 +4550,16 @@ defmodule AWS.VPCLattice do
 
   @doc """
   Updates the specified service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UpdateService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
+
+  ## Optional parameters:
   """
-  @spec update_service(map(), String.t(), update_service_request(), list()) ::
+  @spec update_service(AWS.Client.t(), String.t(), update_service_request(), Keyword.t()) ::
           {:ok, update_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_errors()}
@@ -3874,7 +4568,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3891,8 +4586,21 @@ defmodule AWS.VPCLattice do
 
   @doc """
   Updates the specified service network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UpdateServiceNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:service_network_identifier` (`t:string`) The ID or Amazon Resource Name
+    (ARN) of the service network.
+
+  ## Optional parameters:
   """
-  @spec update_service_network(map(), String.t(), update_service_network_request(), list()) ::
+  @spec update_service_network(
+          AWS.Client.t(),
+          String.t(),
+          update_service_network_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_service_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_network_errors()}
@@ -3901,7 +4609,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3917,20 +4626,25 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Updates the service network and VPC association.
+  Updates the service network and VPC association. If you add a security group to
+  the service network and VPC association, the association must continue to
+  always have at least one security group. You can add or edit security groups
+  at any time. However, to remove all security groups, you must first delete the
+  association and recreate it without security groups.
 
-  If you add a security group to the service
-  network and VPC association, the association must continue to always have at
-  least one security
-  group. You can add or edit security groups at any time. However, to remove all
-  security groups,
-  you must first delete the association and recreate it without security groups.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UpdateServiceNetworkVpcAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:service_network_vpc_association_identifier` (`t:string`) The ID or Amazon
+    Resource Name (ARN) of the association.
+
+  ## Optional parameters:
   """
   @spec update_service_network_vpc_association(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_service_network_vpc_association_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_service_network_vpc_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3947,7 +4661,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3964,8 +4679,21 @@ defmodule AWS.VPCLattice do
 
   @doc """
   Updates the specified target group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UpdateTargetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
+    of the target group.
+
+  ## Optional parameters:
   """
-  @spec update_target_group(map(), String.t(), update_target_group_request(), list()) ::
+  @spec update_target_group(
+          AWS.Client.t(),
+          String.t(),
+          update_target_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_target_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_target_group_errors()}
@@ -3974,7 +4702,8 @@ defmodule AWS.VPCLattice do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

@@ -4,16 +4,12 @@
 defmodule AWS.Outposts do
   @moduledoc """
   Amazon Web Services Outposts is a fully managed service that extends Amazon Web
-  Services infrastructure, APIs, and tools to
-  customer premises.
-
-  By providing local access to Amazon Web Services managed infrastructure, Amazon
-  Web Services Outposts enables
-  customers to build and run applications on premises using the same programming
-  interfaces as
-  in Amazon Web Services Regions, while using local compute and storage resources
-  for lower latency and local
-  data processing needs.
+  Services infrastructure, APIs, and tools to customer premises. By providing
+  local access to Amazon Web Services managed infrastructure, Amazon Web
+  Services Outposts enables customers to build and run applications on premises
+  using the same programming interfaces as in Amazon Web Services Regions, while
+  using local compute and storage resources for lower latency and local data
+  processing needs.
   """
 
   alias AWS.Client
@@ -1328,8 +1324,24 @@ defmodule AWS.Outposts do
 
   @doc """
   Cancels the capacity task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20CancelCapacityTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:capacity_task_id` (`t:string`) ID of the capacity task that you want to
+    cancel.
+  * `:outpost_identifier` (`t:string`) ID or ARN of the Outpost associated with
+    the capacity task that you want to cancel.
+
+  ## Optional parameters:
   """
-  @spec cancel_capacity_task(map(), String.t(), String.t(), cancel_capacity_task_input(), list()) ::
+  @spec cancel_capacity_task(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          cancel_capacity_task_input(),
+          Keyword.t()
+        ) ::
           {:ok, cancel_capacity_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_capacity_task_errors()}
@@ -1346,7 +1358,8 @@ defmodule AWS.Outposts do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1363,8 +1376,15 @@ defmodule AWS.Outposts do
 
   @doc """
   Cancels the specified order for an Outpost.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20CancelOrder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:order_id` (`t:string`) The ID of the order.
+
+  ## Optional parameters:
   """
-  @spec cancel_order(map(), String.t(), cancel_order_input(), list()) ::
+  @spec cancel_order(AWS.Client.t(), String.t(), cancel_order_input(), Keyword.t()) ::
           {:ok, cancel_order_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_order_errors()}
@@ -1373,7 +1393,8 @@ defmodule AWS.Outposts do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1390,8 +1411,14 @@ defmodule AWS.Outposts do
 
   @doc """
   Creates an order for an Outpost.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20CreateOrder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_order(map(), create_order_input(), list()) ::
+  @spec create_order(AWS.Client.t(), create_order_input(), Keyword.t()) ::
           {:ok, create_order_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_order_errors()}
@@ -1400,7 +1427,8 @@ defmodule AWS.Outposts do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1418,9 +1446,13 @@ defmodule AWS.Outposts do
   @doc """
   Creates an Outpost.
 
-  You can specify either an Availability one or an AZ ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20CreateOutpost&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_outpost(map(), create_outpost_input(), list()) ::
+  @spec create_outpost(AWS.Client.t(), create_outpost_input(), Keyword.t()) ::
           {:ok, create_outpost_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_outpost_errors()}
@@ -1429,7 +1461,8 @@ defmodule AWS.Outposts do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1446,8 +1479,14 @@ defmodule AWS.Outposts do
 
   @doc """
   Creates a site for an Outpost.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20CreateSite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_site(map(), create_site_input(), list()) ::
+  @spec create_site(AWS.Client.t(), create_site_input(), Keyword.t()) ::
           {:ok, create_site_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_site_errors()}
@@ -1456,7 +1495,8 @@ defmodule AWS.Outposts do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1473,8 +1513,15 @@ defmodule AWS.Outposts do
 
   @doc """
   Deletes the specified Outpost.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20DeleteOutpost&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:outpost_id` (`t:string`) The ID or ARN of the Outpost.
+
+  ## Optional parameters:
   """
-  @spec delete_outpost(map(), String.t(), delete_outpost_input(), list()) ::
+  @spec delete_outpost(AWS.Client.t(), String.t(), delete_outpost_input(), Keyword.t()) ::
           {:ok, delete_outpost_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_outpost_errors()}
@@ -1483,7 +1530,8 @@ defmodule AWS.Outposts do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1500,8 +1548,15 @@ defmodule AWS.Outposts do
 
   @doc """
   Deletes the specified site.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20DeleteSite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:site_id` (`t:string`) The ID or the Amazon Resource Name (ARN) of the site.
+
+  ## Optional parameters:
   """
-  @spec delete_site(map(), String.t(), delete_site_input(), list()) ::
+  @spec delete_site(AWS.Client.t(), String.t(), delete_site_input(), Keyword.t()) ::
           {:ok, delete_site_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_site_errors()}
@@ -1510,7 +1565,8 @@ defmodule AWS.Outposts do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1527,8 +1583,17 @@ defmodule AWS.Outposts do
 
   @doc """
   Gets details of the specified capacity task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetCapacityTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:capacity_task_id` (`t:string`) ID of the capacity task.
+  * `:outpost_identifier` (`t:string`) ID or ARN of the Outpost associated with
+    the specified capacity task.
+
+  ## Optional parameters:
   """
-  @spec get_capacity_task(map(), String.t(), String.t(), list()) ::
+  @spec get_capacity_task(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_capacity_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_capacity_task_errors()}
@@ -1536,228 +1601,415 @@ defmodule AWS.Outposts do
     url_path =
       "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/capacity/#{AWS.Util.encode_uri(capacity_task_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about the specified catalog item.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetCatalogItem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:catalog_item_id` (`t:string`) The ID of the catalog item.
+
+  ## Optional parameters:
   """
-  @spec get_catalog_item(map(), String.t(), list()) ::
+  @spec get_catalog_item(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_catalog_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_catalog_item_errors()}
   def get_catalog_item(%Client{} = client, catalog_item_id, options \\ []) do
     url_path = "/catalog/item/#{AWS.Util.encode_uri(catalog_item_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+  Amazon Web Services uses this action to install Outpost servers. Gets
+  information about the specified connection.
 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetConnection&this_doc_guide=API%2520Reference)
 
-  Amazon Web Services uses this action to install Outpost servers.
+  ## Parameters:
+  * `:connection_id` (`t:string`) The ID of the connection.
 
-  Gets information about the specified connection.
-
-  Use CloudTrail to monitor this action or Amazon Web Services managed policy for
-  Amazon Web Services Outposts to secure it. For
-  more information, see [
-  Amazon Web Services managed policies for Amazon Web Services
-  Outposts](https://docs.aws.amazon.com/outposts/latest/userguide/security-iam-awsmanpol.html)
-  and [
-  Logging Amazon Web Services Outposts API calls with Amazon Web Services
-  CloudTrail](https://docs.aws.amazon.com/outposts/latest/userguide/logging-using-cloudtrail.html)
-  in the *Amazon Web Services Outposts User Guide*.
+  ## Optional parameters:
   """
-  @spec get_connection(map(), String.t(), list()) ::
+  @spec get_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connection_errors()}
   def get_connection(%Client{} = client, connection_id, options \\ []) do
     url_path = "/connections/#{AWS.Util.encode_uri(connection_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about the specified order.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetOrder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:order_id` (`t:string`) The ID of the order.
+
+  ## Optional parameters:
   """
-  @spec get_order(map(), String.t(), list()) ::
+  @spec get_order(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_order_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_order_errors()}
   def get_order(%Client{} = client, order_id, options \\ []) do
     url_path = "/orders/#{AWS.Util.encode_uri(order_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about the specified Outpost.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetOutpost&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:outpost_id` (`t:string`) The ID or ARN of the Outpost.
+
+  ## Optional parameters:
   """
-  @spec get_outpost(map(), String.t(), list()) ::
+  @spec get_outpost(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_outpost_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_outpost_errors()}
   def get_outpost(%Client{} = client, outpost_id, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the instance types for the specified Outpost.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetOutpostInstanceTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:outpost_id` (`t:string`) The ID or ARN of the Outpost.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec get_outpost_instance_types(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_outpost_instance_types(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_outpost_instance_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_outpost_instance_types_errors()}
-  def get_outpost_instance_types(
-        %Client{} = client,
-        outpost_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_outpost_instance_types(%Client{} = client, outpost_id, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}/instanceTypes"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets the instance types that an
-  Outpost can support in `InstanceTypeCapacity`.
+  Gets the instance types that an Outpost can support in `InstanceTypeCapacity`.
+  This will generally include instance types that are not currently configured
+  and therefore cannot be launched with the current Outpost capacity
+  configuration.
 
-  This will generally include instance types that
-  are not currently configured and therefore cannot be launched with the current
-  Outpost
-  capacity configuration.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetOutpostSupportedInstanceTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:outpost_identifier` (`t:string`) The ID or ARN of the Outpost.
+  * `:order_id` (`t:string`) The ID for the Amazon Web Services Outposts order.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec get_outpost_supported_instance_types(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          list()
-        ) ::
+  @spec get_outpost_supported_instance_types(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_outpost_supported_instance_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_outpost_supported_instance_types_errors()}
   def get_outpost_supported_instance_types(
         %Client{} = client,
         outpost_identifier,
-        max_results \\ nil,
-        next_token \\ nil,
         order_id,
         options \\ []
       ) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/supportedInstanceTypes"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"OrderId", order_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(order_id) do
-        [{"OrderId", order_id} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about the specified Outpost site.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetSite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:site_id` (`t:string`) The ID or the Amazon Resource Name (ARN) of the site.
+
+  ## Optional parameters:
   """
-  @spec get_site(map(), String.t(), list()) ::
+  @spec get_site(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_site_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_site_errors()}
   def get_site(%Client{} = client, site_id, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the site address of the specified site.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetSiteAddress&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:site_id` (`t:string`) The ID or the Amazon Resource Name (ARN) of the site.
+  * `:address_type` (`t:enum["OPERATING_ADDRESS|SHIPPING_ADDRESS"]`) The type of
+    the address you request.
+
+  ## Optional parameters:
   """
-  @spec get_site_address(map(), String.t(), String.t(), list()) ::
+  @spec get_site_address(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_site_address_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_site_address_errors()}
   def get_site_address(%Client{} = client, site_id, address_type, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}/address"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(address_type) do
-        [{"AddressType", address_type} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"AddressType", address_type}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1765,66 +2017,80 @@ defmodule AWS.Outposts do
   @doc """
   Lists the hardware assets for the specified Outpost.
 
-  Use filters to return specific results. If you specify multiple filters, the
-  results include only the resources that match
-  all of the specified filters. For a filter where you can specify multiple
-  values, the results include
-  items that match any of the values that you specify for the filter.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20ListAssets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:outpost_identifier` (`t:string`) The ID or the Amazon Resource Name (ARN) of
+    the Outpost.
+
+  ## Optional parameters:
+  * `:host_id_filter` (`t:list[com.amazonaws.outposts#HostId]`) Filters the
+    results by the host ID of a Dedicated Host.
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:status_filter` (`t:list[com.amazonaws.outposts#AssetState]`) Filters the
+    results by state.
   """
-  @spec list_assets(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_assets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_assets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assets_errors()}
-  def list_assets(
-        %Client{} = client,
-        outpost_identifier,
-        host_id_filter \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        status_filter \\ nil,
-        options \\ []
-      ) do
+  def list_assets(%Client{} = client, outpost_identifier, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/assets"
+
+    # Validate optional parameters
+    optional_params = [host_id_filter: nil, max_results: nil, next_token: nil, status_filter: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status_filter) do
-        [{"StatusFilter", status_filter} | query_params]
+      if opt_val = Keyword.get(options, :status_filter) do
+        [{"StatusFilter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(host_id_filter) do
-        [{"HostIdFilter", host_id_filter} | query_params]
+      if opt_val = Keyword.get(options, :host_id_filter) do
+        [{"HostIdFilter", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:host_id_filter, :max_results, :next_token, :status_filter])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1832,64 +2098,89 @@ defmodule AWS.Outposts do
   @doc """
   Lists the capacity tasks for your Amazon Web Services account.
 
-  Use filters to return specific results. If you specify multiple filters, the
-  results include only the resources that match
-  all of the specified filters. For a filter where you can specify multiple
-  values, the results include
-  items that match any of the values that you specify for the filter.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20ListCapacityTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:capacity_task_status_filter`
+    (`t:list[com.amazonaws.outposts#CapacityTaskStatus]`) A list of statuses.
+    For example, REQUESTED or WAITING_FOR_EVACUATION.
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:outpost_identifier_filter` (`t:string`) Filters the results by an Outpost ID
+    or an Outpost ARN.
   """
-  @spec list_capacity_tasks(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_capacity_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_capacity_tasks_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_capacity_tasks_errors()}
-  def list_capacity_tasks(
-        %Client{} = client,
-        capacity_task_status_filter \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        outpost_identifier_filter \\ nil,
-        options \\ []
-      ) do
+  def list_capacity_tasks(%Client{} = client, options \\ []) do
     url_path = "/capacity/tasks"
+
+    # Validate optional parameters
+    optional_params = [
+      capacity_task_status_filter: nil,
+      max_results: nil,
+      next_token: nil,
+      outpost_identifier_filter: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(outpost_identifier_filter) do
-        [{"OutpostIdentifierFilter", outpost_identifier_filter} | query_params]
+      if opt_val = Keyword.get(options, :outpost_identifier_filter) do
+        [{"OutpostIdentifierFilter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(capacity_task_status_filter) do
-        [{"CapacityTaskStatusFilter", capacity_task_status_filter} | query_params]
+      if opt_val = Keyword.get(options, :capacity_task_status_filter) do
+        [{"CapacityTaskStatusFilter", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :capacity_task_status_filter,
+        :max_results,
+        :next_token,
+        :outpost_identifier_filter
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1897,117 +2188,170 @@ defmodule AWS.Outposts do
   @doc """
   Lists the items in the catalog.
 
-  Use filters to return specific results. If you specify multiple filters, the
-  results include only the resources that match
-  all of the specified filters. For a filter where you can specify multiple
-  values, the results include
-  items that match any of the values that you specify for the filter.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20ListCatalogItems&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:ec2_family_filter` (`t:list[com.amazonaws.outposts#Family]`) Filters the
+    results by EC2 family (for example, M5).
+  * `:item_class_filter` (`t:list[com.amazonaws.outposts#CatalogItemClass]`)
+    Filters the results by item class.
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:supported_storage_filter`
+    (`t:list[com.amazonaws.outposts#SupportedStorageEnum]`) Filters the results
+    by storage option.
   """
-  @spec list_catalog_items(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_catalog_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_catalog_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_catalog_items_errors()}
-  def list_catalog_items(
-        %Client{} = client,
-        ec2_family_filter \\ nil,
-        item_class_filter \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        supported_storage_filter \\ nil,
-        options \\ []
-      ) do
+  def list_catalog_items(%Client{} = client, options \\ []) do
     url_path = "/catalog/items"
+
+    # Validate optional parameters
+    optional_params = [
+      ec2_family_filter: nil,
+      item_class_filter: nil,
+      max_results: nil,
+      next_token: nil,
+      supported_storage_filter: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(supported_storage_filter) do
-        [{"SupportedStorageFilter", supported_storage_filter} | query_params]
+      if opt_val = Keyword.get(options, :supported_storage_filter) do
+        [{"SupportedStorageFilter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(item_class_filter) do
-        [{"ItemClassFilter", item_class_filter} | query_params]
+      if opt_val = Keyword.get(options, :item_class_filter) do
+        [{"ItemClassFilter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(ec2_family_filter) do
-        [{"EC2FamilyFilter", ec2_family_filter} | query_params]
+      if opt_val = Keyword.get(options, :ec2_family_filter) do
+        [{"EC2FamilyFilter", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :ec2_family_filter,
+        :item_class_filter,
+        :max_results,
+        :next_token,
+        :supported_storage_filter
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the Outpost orders for your Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20ListOrders&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:outpost_identifier_filter` (`t:string`) The ID or the Amazon Resource Name
+    (ARN) of the Outpost.
   """
-  @spec list_orders(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_orders(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_orders_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_orders_errors()}
-  def list_orders(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        outpost_identifier_filter \\ nil,
-        options \\ []
-      ) do
+  def list_orders(%Client{} = client, options \\ []) do
     url_path = "/list-orders"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, outpost_identifier_filter: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(outpost_identifier_filter) do
-        [{"OutpostIdentifierFilter", outpost_identifier_filter} | query_params]
+      if opt_val = Keyword.get(options, :outpost_identifier_filter) do
+        [{"OutpostIdentifierFilter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :outpost_identifier_filter])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2015,183 +2359,263 @@ defmodule AWS.Outposts do
   @doc """
   Lists the Outposts for your Amazon Web Services account.
 
-  Use filters to return specific results. If you specify multiple filters, the
-  results include only the resources that match
-  all of the specified filters. For a filter where you can specify multiple
-  values, the results include
-  items that match any of the values that you specify for the filter.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20ListOutposts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:availability_zone_filter`
+    (`t:list[com.amazonaws.outposts#AvailabilityZone]`) Filters the results by
+    Availability Zone (for example, us-east-1a).
+  * `:availability_zone_id_filter`
+    (`t:list[com.amazonaws.outposts#AvailabilityZoneId]`) Filters the results by
+    AZ ID (for example, use1-az1).
+  * `:life_cycle_status_filter` (`t:list[com.amazonaws.outposts#LifeCycleStatus]`)
+    Filters the results by the lifecycle status.
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_outposts(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_outposts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_outposts_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_outposts_errors()}
-  def list_outposts(
-        %Client{} = client,
-        availability_zone_filter \\ nil,
-        availability_zone_id_filter \\ nil,
-        life_cycle_status_filter \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_outposts(%Client{} = client, options \\ []) do
     url_path = "/outposts"
+
+    # Validate optional parameters
+    optional_params = [
+      availability_zone_filter: nil,
+      availability_zone_id_filter: nil,
+      life_cycle_status_filter: nil,
+      max_results: nil,
+      next_token: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(life_cycle_status_filter) do
-        [{"LifeCycleStatusFilter", life_cycle_status_filter} | query_params]
+      if opt_val = Keyword.get(options, :life_cycle_status_filter) do
+        [{"LifeCycleStatusFilter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(availability_zone_id_filter) do
-        [{"AvailabilityZoneIdFilter", availability_zone_id_filter} | query_params]
+      if opt_val = Keyword.get(options, :availability_zone_id_filter) do
+        [{"AvailabilityZoneIdFilter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(availability_zone_filter) do
-        [{"AvailabilityZoneFilter", availability_zone_filter} | query_params]
+      if opt_val = Keyword.get(options, :availability_zone_filter) do
+        [{"AvailabilityZoneFilter", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :availability_zone_filter,
+        :availability_zone_id_filter,
+        :life_cycle_status_filter,
+        :max_results,
+        :next_token
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the Outpost sites for your Amazon Web Services account.
+  Lists the Outpost sites for your Amazon Web Services account. Use filters to
+  return specific results.
 
-  Use filters to return specific
-  results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20ListSites&this_doc_guide=API%2520Reference)
 
-  Use filters to return specific results. If you specify multiple filters, the
-  results include only the resources that match
-  all of the specified filters. For a filter where you can specify multiple
-  values, the results include
-  items that match any of the values that you specify for the filter.
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:operating_address_city_filter` (`t:list[com.amazonaws.outposts#City]`)
+    Filters the results by city.
+  * `:operating_address_country_code_filter`
+    (`t:list[com.amazonaws.outposts#CountryCode]`) Filters the results by
+    country code.
+  * `:operating_address_state_or_region_filter`
+    (`t:list[com.amazonaws.outposts#StateOrRegion]`) Filters the results by
+    state or region.
   """
-  @spec list_sites(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_sites(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sites_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sites_errors()}
-  def list_sites(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        operating_address_city_filter \\ nil,
-        operating_address_country_code_filter \\ nil,
-        operating_address_state_or_region_filter \\ nil,
-        options \\ []
-      ) do
+  def list_sites(%Client{} = client, options \\ []) do
     url_path = "/sites"
+
+    # Validate optional parameters
+    optional_params = [
+      max_results: nil,
+      next_token: nil,
+      operating_address_city_filter: nil,
+      operating_address_country_code_filter: nil,
+      operating_address_state_or_region_filter: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(operating_address_state_or_region_filter) do
-        [
-          {"OperatingAddressStateOrRegionFilter", operating_address_state_or_region_filter}
-          | query_params
-        ]
+      if opt_val = Keyword.get(options, :operating_address_state_or_region_filter) do
+        [{"OperatingAddressStateOrRegionFilter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(operating_address_country_code_filter) do
-        [
-          {"OperatingAddressCountryCodeFilter", operating_address_country_code_filter}
-          | query_params
-        ]
+      if opt_val = Keyword.get(options, :operating_address_country_code_filter) do
+        [{"OperatingAddressCountryCodeFilter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(operating_address_city_filter) do
-        [{"OperatingAddressCityFilter", operating_address_city_filter} | query_params]
+      if opt_val = Keyword.get(options, :operating_address_city_filter) do
+        [{"OperatingAddressCityFilter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :max_results,
+        :next_token,
+        :operating_address_city_filter,
+        :operating_address_country_code_filter,
+        :operating_address_state_or_region_filter
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the tags for the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Starts the specified capacity task.
+  Starts the specified capacity task. You can have one active capacity task for an
+  order.
 
-  You can have one active capacity task for an order.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20StartCapacityTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:outpost_identifier` (`t:string`) The ID or ARN of the Outposts associated
+    with the specified capacity task.
+
+  ## Optional parameters:
   """
-  @spec start_capacity_task(map(), String.t(), start_capacity_task_input(), list()) ::
+  @spec start_capacity_task(AWS.Client.t(), String.t(), start_capacity_task_input(), Keyword.t()) ::
           {:ok, start_capacity_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_capacity_task_errors()}
@@ -2200,7 +2624,8 @@ defmodule AWS.Outposts do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2216,23 +2641,16 @@ defmodule AWS.Outposts do
   end
 
   @doc """
+  Amazon Web Services uses this action to install Outpost servers. Starts the
+  connection required for Outpost server installation.
 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20StartConnection&this_doc_guide=API%2520Reference)
 
-  Amazon Web Services uses this action to install Outpost servers.
+  ## Parameters:
 
-  Starts the connection required for Outpost server installation.
-
-  Use CloudTrail to monitor this action or Amazon Web Services managed policy for
-  Amazon Web Services Outposts to secure it. For
-  more information, see [
-  Amazon Web Services managed policies for Amazon Web Services
-  Outposts](https://docs.aws.amazon.com/outposts/latest/userguide/security-iam-awsmanpol.html)
-  and [
-  Logging Amazon Web Services Outposts API calls with Amazon Web Services
-  CloudTrail](https://docs.aws.amazon.com/outposts/latest/userguide/logging-using-cloudtrail.html)
-  in the *Amazon Web Services Outposts User Guide*.
+  ## Optional parameters:
   """
-  @spec start_connection(map(), start_connection_request(), list()) ::
+  @spec start_connection(AWS.Client.t(), start_connection_request(), Keyword.t()) ::
           {:ok, start_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_connection_errors()}
@@ -2241,7 +2659,8 @@ defmodule AWS.Outposts do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2258,8 +2677,15 @@ defmodule AWS.Outposts do
 
   @doc """
   Adds tags to the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2268,7 +2694,8 @@ defmodule AWS.Outposts do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2285,8 +2712,16 @@ defmodule AWS.Outposts do
 
   @doc """
   Removes tags from the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.outposts#TagKey]`) The tag keys.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2300,7 +2735,8 @@ defmodule AWS.Outposts do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2317,8 +2753,15 @@ defmodule AWS.Outposts do
 
   @doc """
   Updates an Outpost.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20UpdateOutpost&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:outpost_id` (`t:string`) The ID or ARN of the Outpost.
+
+  ## Optional parameters:
   """
-  @spec update_outpost(map(), String.t(), update_outpost_input(), list()) ::
+  @spec update_outpost(AWS.Client.t(), String.t(), update_outpost_input(), Keyword.t()) ::
           {:ok, update_outpost_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_outpost_errors()}
@@ -2327,7 +2770,8 @@ defmodule AWS.Outposts do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2344,8 +2788,15 @@ defmodule AWS.Outposts do
 
   @doc """
   Updates the specified site.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20UpdateSite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:site_id` (`t:string`) The ID or the Amazon Resource Name (ARN) of the site.
+
+  ## Optional parameters:
   """
-  @spec update_site(map(), String.t(), update_site_input(), list()) ::
+  @spec update_site(AWS.Client.t(), String.t(), update_site_input(), Keyword.t()) ::
           {:ok, update_site_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_site_errors()}
@@ -2354,7 +2805,8 @@ defmodule AWS.Outposts do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2370,17 +2822,18 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Updates the address of the specified site.
+  Updates the address of the specified site. You can't update a site address if
+  there is an order in progress. You must wait for the order to complete or
+  cancel the order.
 
-  You can't update a site address if there is an order in progress. You must wait
-  for the
-  order to complete or cancel the order.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20UpdateSiteAddress&this_doc_guide=API%2520Reference)
 
-  You can update the operating address before you place an order at the site, or
-  after all
-  Outposts that belong to the site have been deactivated.
+  ## Parameters:
+  * `:site_id` (`t:string`) The ID or the Amazon Resource Name (ARN) of the site.
+
+  ## Optional parameters:
   """
-  @spec update_site_address(map(), String.t(), update_site_address_input(), list()) ::
+  @spec update_site_address(AWS.Client.t(), String.t(), update_site_address_input(), Keyword.t()) ::
           {:ok, update_site_address_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_site_address_errors()}
@@ -2389,27 +2842,30 @@ defmodule AWS.Outposts do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Update the physical and logistical details for a rack at a site.
-
-  For more information
-  about hardware requirements for racks, see [Network readiness
+  Update the physical and logistical details for a rack at a site. For more
+  information about hardware requirements for racks, see [Network readiness
   checklist](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist)
   in the Amazon Web Services Outposts User Guide.
 
-  To update a rack at a site with an order of `IN_PROGRESS`, you must wait for
-  the order to complete or cancel the order.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20UpdateSiteRackPhysicalProperties&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:site_id` (`t:string`) The ID or the Amazon Resource Name (ARN) of the site.
+
+  ## Optional parameters:
   """
   @spec update_site_rack_physical_properties(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_site_rack_physical_properties_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_site_rack_physical_properties_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2419,7 +2875,8 @@ defmodule AWS.Outposts do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

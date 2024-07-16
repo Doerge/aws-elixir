@@ -4,30 +4,24 @@
 defmodule AWS.Billingconductor do
   @moduledoc """
   Amazon Web Services Billing Conductor is a fully managed service that you can
-  use to
-  customize a
-  [proforma](https://docs.aws.amazon.com/billingconductor/latest/userguide/understanding-eb.html#eb-other-definitions) version of your billing data each month, to accurately show or chargeback
-  your end customers.
-
-  Amazon Web Services Billing Conductor doesn't change the way you're billed
-  by Amazon Web Services each month by design. Instead, it provides you with a
-  mechanism to
-  configure, generate, and display rates to certain customers over a given billing
-  period. You
-  can also analyze the difference between the rates you apply to your accounting
-  groupings
-  relative to your actual rates from Amazon Web Services. As a result of your
-  Amazon Web Services
-  Billing Conductor configuration, the payer account can also see the custom rate
-  applied on the
-  billing details page of the [Amazon Web Services Billing
-  console](https://console.aws.amazon.com/billing), or configure a cost and usage
-  report per billing group.
-
-  This documentation shows how you can configure Amazon Web Services Billing
-  Conductor using its
-  API. For more information about using the [Amazon Web Services Billing Conductor](https://console.aws.amazon.com/billingconductor/) user
-  interface, see the [ Amazon Web Services Billing Conductor User Guide](https://docs.aws.amazon.com/billingconductor/latest/userguide/what-is-billingconductor.html).
+  use to customize a
+  [proforma](https://docs.aws.amazon.com/billingconductor/latest/userguide/understanding-eb.html#eb-other-definitions)
+  version of your billing data each month, to accurately show or chargeback your
+  end customers. Amazon Web Services Billing Conductor doesn't change the way
+  you're billed by Amazon Web Services each month by design. Instead, it
+  provides you with a mechanism to configure, generate, and display rates to
+  certain customers over a given billing period. You can also analyze the
+  difference between the rates you apply to your accounting groupings relative
+  to your actual rates from Amazon Web Services. As a result of your Amazon Web
+  Services Billing Conductor configuration, the payer account can also see the
+  custom rate applied on the billing details page of the [Amazon Web Services
+  Billing console](https://console.aws.amazon.com/billing), or configure a cost
+  and usage report per billing group. This documentation shows how you can
+  configure Amazon Web Services Billing Conductor using its API. For more
+  information about using the [Amazon Web Services Billing
+  Conductor](https://console.aws.amazon.com/billingconductor/) user interface,
+  see the [ Amazon Web Services Billing Conductor User
+  Guide](https://docs.aws.amazon.com/billingconductor/latest/userguide/what-is-billingconductor.html).
   """
 
   alias AWS.Client
@@ -1804,15 +1798,18 @@ defmodule AWS.Billingconductor do
 
   @doc """
   Connects an array of account IDs in a consolidated billing family to a
-  predefined
-  billing group.
+  predefined billing group. The account IDs must be a part of the consolidated
+  billing family during the current month, and not already associated with
+  another billing group. The maximum number of accounts that can be associated
+  in one call is 30.
 
-  The account IDs must be a part of the consolidated billing family during the
-  current month, and not already associated with another billing group. The
-  maximum number of
-  accounts that can be associated in one call is 30.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20AssociateAccounts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec associate_accounts(map(), associate_accounts_input(), list()) ::
+  @spec associate_accounts(AWS.Client.t(), associate_accounts_input(), Keyword.t()) ::
           {:ok, associate_accounts_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_accounts_errors()}
@@ -1821,7 +1818,8 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1837,11 +1835,16 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-  Connects an array of `PricingRuleArns` to a defined `PricingPlan`.
+  Connects an array of `PricingRuleArns` to a defined `PricingPlan`. The maximum
+  number `PricingRuleArn` that can be associated in one call is 30.
 
-  The maximum number `PricingRuleArn` that can be associated in one call is 30.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20AssociatePricingRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec associate_pricing_rules(map(), associate_pricing_rules_input(), list()) ::
+  @spec associate_pricing_rules(AWS.Client.t(), associate_pricing_rules_input(), Keyword.t()) ::
           {:ok, associate_pricing_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_pricing_rules_errors()}
@@ -1850,19 +1853,25 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-
   Associates a batch of resources to a percentage custom line item.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20BatchAssociateResourcesToCustomLineItem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec batch_associate_resources_to_custom_line_item(
-          map(),
+          AWS.Client.t(),
           batch_associate_resources_to_custom_line_item_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_associate_resources_to_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1872,19 +1881,25 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-
   Disassociates a batch of resources from a percentage custom line item.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20BatchDisassociateResourcesFromCustomLineItem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec batch_disassociate_resources_from_custom_line_item(
-          map(),
+          AWS.Client.t(),
           batch_disassociate_resources_from_custom_line_item_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_disassociate_resources_from_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1894,22 +1909,39 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-
   Creates a billing group that resembles a consolidated billing family that Amazon
   Web Services charges, based off of the predefined pricing plan computation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20CreateBillingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The token that is needed to support idempotency.
+    Idempotency isn't currently supported, but will be implemented in a future
+    update.
   """
-  @spec create_billing_group(map(), create_billing_group_input(), list()) ::
+  @spec create_billing_group(AWS.Client.t(), create_billing_group_input(), Keyword.t()) ::
           {:ok, create_billing_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_billing_group_errors()}
   def create_billing_group(%Client{} = client, input, options \\ []) do
     url_path = "/create-billing-group"
+
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -1919,7 +1951,13 @@ defmodule AWS.Billingconductor do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -1936,18 +1974,32 @@ defmodule AWS.Billingconductor do
 
   @doc """
   Creates a custom line item that can be used to create a one-time fixed charge
-  that can be
-  applied to a single billing group for the current or previous billing period.
+  that can be applied to a single billing group for the current or previous
+  billing period. The one-time fixed charge is either a fee or discount.
 
-  The one-time
-  fixed charge is either a fee or discount.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20CreateCustomLineItem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The token that is needed to support idempotency.
+    Idempotency isn't currently supported, but will be implemented in a future
+    update.
   """
-  @spec create_custom_line_item(map(), create_custom_line_item_input(), list()) ::
+  @spec create_custom_line_item(AWS.Client.t(), create_custom_line_item_input(), Keyword.t()) ::
           {:ok, create_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_custom_line_item_errors()}
   def create_custom_line_item(%Client{} = client, input, options \\ []) do
     url_path = "/create-custom-line-item"
+
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -1957,7 +2009,13 @@ defmodule AWS.Billingconductor do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -1975,14 +2033,31 @@ defmodule AWS.Billingconductor do
   @doc """
   Creates a pricing plan that is used for computing Amazon Web Services charges
   for billing groups.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20CreatePricingPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The token that is needed to support idempotency.
+    Idempotency isn't currently supported, but will be implemented in a future
+    update.
   """
-  @spec create_pricing_plan(map(), create_pricing_plan_input(), list()) ::
+  @spec create_pricing_plan(AWS.Client.t(), create_pricing_plan_input(), Keyword.t()) ::
           {:ok, create_pricing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pricing_plan_errors()}
   def create_pricing_plan(%Client{} = client, input, options \\ []) do
     url_path = "/create-pricing-plan"
 
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"ClientToken", "X-Amzn-Client-Token"}
@@ -1991,7 +2066,13 @@ defmodule AWS.Billingconductor do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -2007,17 +2088,33 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Creates a pricing rule can be associated to a pricing plan, or a set of pricing
   plans.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20CreatePricingRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) The token that's needed to support idempotency.
+    Idempotency isn't currently supported, but will be implemented in a future
+    update.
   """
-  @spec create_pricing_rule(map(), create_pricing_rule_input(), list()) ::
+  @spec create_pricing_rule(AWS.Client.t(), create_pricing_rule_input(), Keyword.t()) ::
           {:ok, create_pricing_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pricing_rule_errors()}
   def create_pricing_rule(%Client{} = client, input, options \\ []) do
     url_path = "/create-pricing-rule"
 
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"ClientToken", "X-Amzn-Client-Token"}
@@ -2026,7 +2123,13 @@ defmodule AWS.Billingconductor do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -2042,10 +2145,15 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Deletes a billing group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DeleteBillingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_billing_group(map(), delete_billing_group_input(), list()) ::
+  @spec delete_billing_group(AWS.Client.t(), delete_billing_group_input(), Keyword.t()) ::
           {:ok, delete_billing_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_billing_group_errors()}
@@ -2054,7 +2162,8 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2070,11 +2179,16 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Deletes the custom line item identified by the given ARN in the current, or
   previous billing period.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DeleteCustomLineItem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_custom_line_item(map(), delete_custom_line_item_input(), list()) ::
+  @spec delete_custom_line_item(AWS.Client.t(), delete_custom_line_item_input(), Keyword.t()) ::
           {:ok, delete_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_line_item_errors()}
@@ -2083,7 +2197,8 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2099,12 +2214,16 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-  Deletes a pricing plan.
+  Deletes a pricing plan. The pricing plan must not be associated with any billing
+  groups to delete successfully.
 
-  The pricing plan must not be associated with any billing groups to
-  delete successfully.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DeletePricingPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_pricing_plan(map(), delete_pricing_plan_input(), list()) ::
+  @spec delete_pricing_plan(AWS.Client.t(), delete_pricing_plan_input(), Keyword.t()) ::
           {:ok, delete_pricing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pricing_plan_errors()}
@@ -2113,7 +2232,8 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2131,8 +2251,14 @@ defmodule AWS.Billingconductor do
   @doc """
   Deletes the pricing rule that's identified by the input Amazon Resource Name
   (ARN).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DeletePricingRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_pricing_rule(map(), delete_pricing_rule_input(), list()) ::
+  @spec delete_pricing_rule(AWS.Client.t(), delete_pricing_rule_input(), Keyword.t()) ::
           {:ok, delete_pricing_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pricing_rule_errors()}
@@ -2141,7 +2267,8 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2158,8 +2285,14 @@ defmodule AWS.Billingconductor do
 
   @doc """
   Removes the specified list of account IDs from the given billing group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DisassociateAccounts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec disassociate_accounts(map(), disassociate_accounts_input(), list()) ::
+  @spec disassociate_accounts(AWS.Client.t(), disassociate_accounts_input(), Keyword.t()) ::
           {:ok, disassociate_accounts_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_accounts_errors()}
@@ -2168,7 +2301,8 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2184,10 +2318,19 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Disassociates a list of pricing rules from a pricing plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DisassociatePricingRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec disassociate_pricing_rules(map(), disassociate_pricing_rules_input(), list()) ::
+  @spec disassociate_pricing_rules(
+          AWS.Client.t(),
+          disassociate_pricing_rules_input(),
+          Keyword.t()
+        ) ::
           {:ok, disassociate_pricing_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_pricing_rules_errors()}
@@ -2196,17 +2339,28 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Retrieves the margin summary report, which includes the Amazon Web Services cost
-  and charged
-  amount (pro forma cost) by Amazon Web Service for a specific billing group.
+  and charged amount (pro forma cost) by Amazon Web Service for a specific
+  billing group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20GetBillingGroupCostReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_billing_group_cost_report(map(), get_billing_group_cost_report_input(), list()) ::
+  @spec get_billing_group_cost_report(
+          AWS.Client.t(),
+          get_billing_group_cost_report_input(),
+          Keyword.t()
+        ) ::
           {:ok, get_billing_group_cost_report_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_billing_group_cost_report_errors()}
@@ -2215,7 +2369,8 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2232,15 +2387,17 @@ defmodule AWS.Billingconductor do
 
   @doc """
   This is a paginated call to list linked accounts that are linked to the payer
-  account for
-  the specified time period.
+  account for the specified time period. If no information is provided, the
+  current billing period is used. The response will optionally include the
+  billing group that's associated with the linked account.
 
-  If no information is provided, the current billing period is used.
-  The response will optionally include the billing group that's associated with
-  the linked
-  account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListAccountAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_account_associations(map(), list_account_associations_input(), list()) ::
+  @spec list_account_associations(AWS.Client.t(), list_account_associations_input(), Keyword.t()) ::
           {:ok, list_account_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_account_associations_errors()}
@@ -2249,7 +2406,8 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2266,11 +2424,20 @@ defmodule AWS.Billingconductor do
 
   @doc """
   A paginated call to retrieve a summary report of actual Amazon Web Services
-  charges and the calculated
-  Amazon Web Services charges based on the associated pricing plan of a billing
-  group.
+  charges and the calculated Amazon Web Services charges based on the associated
+  pricing plan of a billing group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListBillingGroupCostReports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_billing_group_cost_reports(map(), list_billing_group_cost_reports_input(), list()) ::
+  @spec list_billing_group_cost_reports(
+          AWS.Client.t(),
+          list_billing_group_cost_reports_input(),
+          Keyword.t()
+        ) ::
           {:ok, list_billing_group_cost_reports_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_billing_group_cost_reports_errors()}
@@ -2279,7 +2446,8 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2296,11 +2464,16 @@ defmodule AWS.Billingconductor do
 
   @doc """
   A paginated call to retrieve a list of billing groups for the given billing
-  period.
+  period. If you don't provide a billing group, the current billing period is
+  used.
 
-  If you don't provide a billing group, the current billing period is used.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListBillingGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_billing_groups(map(), list_billing_groups_input(), list()) ::
+  @spec list_billing_groups(AWS.Client.t(), list_billing_groups_input(), Keyword.t()) ::
           {:ok, list_billing_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_billing_groups_errors()}
@@ -2309,7 +2482,8 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2326,8 +2500,18 @@ defmodule AWS.Billingconductor do
 
   @doc """
   A paginated call to get a list of all custom line item versions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListCustomLineItemVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_custom_line_item_versions(map(), list_custom_line_item_versions_input(), list()) ::
+  @spec list_custom_line_item_versions(
+          AWS.Client.t(),
+          list_custom_line_item_versions_input(),
+          Keyword.t()
+        ) ::
           {:ok, list_custom_line_item_versions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_line_item_versions_errors()}
@@ -2336,7 +2520,8 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2352,13 +2537,17 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   A paginated call to get a list of all custom line items (FFLIs) for the given
-  billing period.
+  billing period. If you don't provide a billing period, the current billing
+  period is used.
 
-  If you don't provide a billing period, the current billing period is used.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListCustomLineItems&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_custom_line_items(map(), list_custom_line_items_input(), list()) ::
+  @spec list_custom_line_items(AWS.Client.t(), list_custom_line_items_input(), Keyword.t()) ::
           {:ok, list_custom_line_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_line_items_errors()}
@@ -2367,7 +2556,8 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2383,11 +2573,16 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-  A paginated call to get pricing plans for the given billing period.
+  A paginated call to get pricing plans for the given billing period. If you don't
+  provide a billing period, the current billing period is used.
 
-  If you don't provide a billing period, the current billing period is used.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListPricingPlans&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_pricing_plans(map(), list_pricing_plans_input(), list()) ::
+  @spec list_pricing_plans(AWS.Client.t(), list_pricing_plans_input(), Keyword.t()) ::
           {:ok, list_pricing_plans_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pricing_plans_errors()}
@@ -2396,7 +2591,8 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2412,13 +2608,18 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   A list of the pricing plans that are associated with a pricing rule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListPricingPlansAssociatedWithPricingRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec list_pricing_plans_associated_with_pricing_rule(
-          map(),
+          AWS.Client.t(),
           list_pricing_plans_associated_with_pricing_rule_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_pricing_plans_associated_with_pricing_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2428,7 +2629,8 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2444,11 +2646,16 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Describes a pricing rule that can be associated to a pricing plan, or set of
   pricing plans.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListPricingRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_pricing_rules(map(), list_pricing_rules_input(), list()) ::
+  @spec list_pricing_rules(AWS.Client.t(), list_pricing_rules_input(), Keyword.t()) ::
           {:ok, list_pricing_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pricing_rules_errors()}
@@ -2457,7 +2664,8 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2473,13 +2681,18 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Lists the pricing rules that are associated with a pricing plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListPricingRulesAssociatedToPricingPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec list_pricing_rules_associated_to_pricing_plan(
-          map(),
+          AWS.Client.t(),
           list_pricing_rules_associated_to_pricing_plan_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_pricing_rules_associated_to_pricing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2489,7 +2702,8 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2505,13 +2719,18 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   List the resources that are associated to a custom line item.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListResourcesAssociatedToCustomLineItem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec list_resources_associated_to_custom_line_item(
-          map(),
+          AWS.Client.t(),
           list_resources_associated_to_custom_line_item_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_resources_associated_to_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2521,7 +2740,8 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2537,31 +2757,62 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   A list the tags for a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies
+    the resource to list the tags.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 204)
   end
 
   @doc """
-  Associates the specified tags to a resource with the specified `resourceArn`.
+  Associates the specified tags to a resource with the specified `resourceArn`. If
+  existing tags on a resource are not specified in the request parameters, they
+  are not changed.
 
-  If existing tags on a resource are not specified in the request parameters, they
-  are not
-  changed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
+    which to add tags.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2570,7 +2821,8 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2586,10 +2838,19 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Deletes specified tags from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
+    which to delete tags.
+  * `:tag_keys` (`t:list[com.amazonaws.billingconductor#TagKey]`) The tags to
+    delete from the resource as a list of key-value pairs.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2603,7 +2864,8 @@ defmodule AWS.Billingconductor do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2620,8 +2882,14 @@ defmodule AWS.Billingconductor do
 
   @doc """
   This updates an existing billing group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20UpdateBillingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_billing_group(map(), update_billing_group_input(), list()) ::
+  @spec update_billing_group(AWS.Client.t(), update_billing_group_input(), Keyword.t()) ::
           {:ok, update_billing_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_billing_group_errors()}
@@ -2630,7 +2898,8 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2646,10 +2915,15 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Update an existing custom line item in the current or previous billing period.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20UpdateCustomLineItem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_custom_line_item(map(), update_custom_line_item_input(), list()) ::
+  @spec update_custom_line_item(AWS.Client.t(), update_custom_line_item_input(), Keyword.t()) ::
           {:ok, update_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_custom_line_item_errors()}
@@ -2658,7 +2932,8 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2675,8 +2950,14 @@ defmodule AWS.Billingconductor do
 
   @doc """
   This updates an existing pricing plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20UpdatePricingPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_pricing_plan(map(), update_pricing_plan_input(), list()) ::
+  @spec update_pricing_plan(AWS.Client.t(), update_pricing_plan_input(), Keyword.t()) ::
           {:ok, update_pricing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pricing_plan_errors()}
@@ -2685,16 +2966,22 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-
   Updates an existing pricing rule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20UpdatePricingRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_pricing_rule(map(), update_pricing_rule_input(), list()) ::
+  @spec update_pricing_rule(AWS.Client.t(), update_pricing_rule_input(), Keyword.t()) ::
           {:ok, update_pricing_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pricing_rule_errors()}
@@ -2703,7 +2990,8 @@ defmodule AWS.Billingconductor do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

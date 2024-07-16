@@ -4,16 +4,7 @@
 defmodule AWS.MarketplaceCatalog do
   @moduledoc """
   Catalog API actions allow you to manage your entities through list, describe,
-  and
-  update capabilities.
-
-  An entity can be a product or an offer on AWS Marketplace.
-
-  You can automate your entity update process by integrating the AWS Marketplace
-  Catalog
-  API with your AWS Marketplace product build or deployment pipelines. You can
-  also create
-  your own applications on top of the Catalog API to manage your products on AWS
+  and update capabilities. An entity can be a product or an offer on AWS
   Marketplace.
   """
 
@@ -1531,12 +1522,17 @@ defmodule AWS.MarketplaceCatalog do
   end
 
   @doc """
-  Returns metadata and content for multiple entities.
+  Returns metadata and content for multiple entities. This is the Batch version of
+  the `DescribeEntity` API and uses the same IAM permission action as
+  `DescribeEntity` API.
 
-  This is the Batch version of the `DescribeEntity` API and uses the same IAM
-  permission action as `DescribeEntity` API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20BatchDescribeEntities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_describe_entities(map(), batch_describe_entities_request(), list()) ::
+  @spec batch_describe_entities(AWS.Client.t(), batch_describe_entities_request(), Keyword.t()) ::
           {:ok, batch_describe_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_describe_entities_errors()}
@@ -1545,7 +1541,8 @@ defmodule AWS.MarketplaceCatalog do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1561,14 +1558,22 @@ defmodule AWS.MarketplaceCatalog do
   end
 
   @doc """
-  Used to cancel an open change request.
+  Used to cancel an open change request. Must be sent before the status of the
+  request changes to `APPLYING`, the final stage of completing your change
+  request. You can describe a change during the 60-day request history retention
+  period for API calls.
 
-  Must be sent before the status of the request
-  changes to `APPLYING`, the final stage of completing your change request. You
-  can describe a change during the 60-day request history retention period for API
-  calls.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20CancelChangeSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:catalog` (`t:string`) Required. The catalog related to the request. Fixed
+    value: AWSMarketplace.
+  * `:change_set_id` (`t:string`) Required. The unique identifier of the
+    StartChangeSet request that you want to cancel.
+
+  ## Optional parameters:
   """
-  @spec cancel_change_set(map(), cancel_change_set_request(), list()) ::
+  @spec cancel_change_set(AWS.Client.t(), cancel_change_set_request(), Keyword.t()) ::
           {:ok, cancel_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_change_set_errors()}
@@ -1583,7 +1588,8 @@ defmodule AWS.MarketplaceCatalog do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1601,8 +1607,16 @@ defmodule AWS.MarketplaceCatalog do
   @doc """
   Deletes a resource-based policy on an entity that is identified by its resource
   ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the entity
+    resource that is associated with the resource policy.
+
+  ## Optional parameters:
   """
-  @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
+  @spec delete_resource_policy(AWS.Client.t(), delete_resource_policy_request(), Keyword.t()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
@@ -1616,7 +1630,8 @@ defmodule AWS.MarketplaceCatalog do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1633,62 +1648,89 @@ defmodule AWS.MarketplaceCatalog do
 
   @doc """
   Provides information about a given change set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20DescribeChangeSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:catalog` (`t:string`) Required. The catalog related to the request. Fixed
+    value: AWSMarketplace
+  * `:change_set_id` (`t:string`) Required. The unique identifier for the
+    StartChangeSet request that you want to describe the details for.
+
+  ## Optional parameters:
   """
-  @spec describe_change_set(map(), String.t(), String.t(), list()) ::
+  @spec describe_change_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_change_set_errors()}
   def describe_change_set(%Client{} = client, catalog, change_set_id, options \\ []) do
     url_path = "/DescribeChangeSet"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(change_set_id) do
-        [{"changeSetId", change_set_id} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    query_params =
-      if !is_nil(catalog) do
-        [{"catalog", catalog} | query_params]
-      else
-        query_params
-      end
+    # Required query params
+    query_params = [{"catalog", catalog}, {"changeSetId", change_set_id}]
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the metadata and content of the entity.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20DescribeEntity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:catalog` (`t:string`) Required. The catalog related to the request. Fixed
+    value: AWSMarketplace
+  * `:entity_id` (`t:string`) Required. The unique ID of the entity to describe.
+
+  ## Optional parameters:
   """
-  @spec describe_entity(map(), String.t(), String.t(), list()) ::
+  @spec describe_entity(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_entity_errors()}
   def describe_entity(%Client{} = client, catalog, entity_id, options \\ []) do
     url_path = "/DescribeEntity"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(entity_id) do
-        [{"entityId", entity_id} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    query_params =
-      if !is_nil(catalog) do
-        [{"catalog", catalog} | query_params]
-      else
-        query_params
-      end
+    # Required query params
+    query_params = [{"catalog", catalog}, {"entityId", entity_id}]
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1696,42 +1738,60 @@ defmodule AWS.MarketplaceCatalog do
   @doc """
   Gets a resource-based policy of an entity that is identified by its resource
   ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20GetResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the entity
+    resource that is associated with the resource policy.
+
+  ## Optional parameters:
   """
-  @spec get_resource_policy(map(), String.t(), list()) ::
+  @spec get_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/GetResourcePolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(resource_arn) do
-        [{"resourceArn", resource_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"resourceArn", resource_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the list of change sets owned by the account being used to make the
-  call.
-
-  You
-  can filter this list by providing any combination of `entityId`,
+  call. You can filter this list by providing any combination of `entityId`,
   `ChangeSetName`, and status. If you provide more than one filter, the API
   operation applies a logical AND between the filters.
 
-  You can describe a change during the 60-day request history retention period for
-  API
-  calls.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20ListChangeSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_change_sets(map(), list_change_sets_request(), list()) ::
+  @spec list_change_sets(AWS.Client.t(), list_change_sets_request(), Keyword.t()) ::
           {:ok, list_change_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_change_sets_errors()}
@@ -1740,7 +1800,8 @@ defmodule AWS.MarketplaceCatalog do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1757,8 +1818,14 @@ defmodule AWS.MarketplaceCatalog do
 
   @doc """
   Provides the list of entities of a given type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20ListEntities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_entities(map(), list_entities_request(), list()) ::
+  @spec list_entities(AWS.Client.t(), list_entities_request(), Keyword.t()) ::
           {:ok, list_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_entities_errors()}
@@ -1767,7 +1834,8 @@ defmodule AWS.MarketplaceCatalog do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1784,10 +1852,17 @@ defmodule AWS.MarketplaceCatalog do
 
   @doc """
   Lists all tags that have been added to a resource (either an
-  [entity](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities) or [change
+  [entity](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities)
+  or [change
   set](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets)).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
@@ -1796,7 +1871,8 @@ defmodule AWS.MarketplaceCatalog do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1812,12 +1888,16 @@ defmodule AWS.MarketplaceCatalog do
   end
 
   @doc """
-  Attaches a resource-based policy to an entity.
-
-  Examples of an entity include:
+  Attaches a resource-based policy to an entity. Examples of an entity include:
   `AmiProduct` and `ContainerProduct`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20PutResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
+  @spec put_resource_policy(AWS.Client.t(), put_resource_policy_request(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
@@ -1826,7 +1906,8 @@ defmodule AWS.MarketplaceCatalog do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1842,31 +1923,21 @@ defmodule AWS.MarketplaceCatalog do
   end
 
   @doc """
-  Allows you to request changes for your entities.
-
-  Within a single
-  `ChangeSet`, you can't start the same change type against the same entity
-  multiple times. Additionally, when a `ChangeSet` is running, all the entities
-  targeted by the different changes are locked until the change set has completed
-  (either
-  succeeded, cancelled, or failed). If you try to start a change set containing a
-  change
-  against an entity that is already locked, you will receive a
+  Allows you to request changes for your entities. Within a single `ChangeSet`,
+  you can't start the same change type against the same entity multiple times.
+  Additionally, when a `ChangeSet` is running, all the entities targeted by the
+  different changes are locked until the change set has completed (either
+  succeeded, cancelled, or failed). If you try to start a change set containing
+  a change against an entity that is already locked, you will receive a
   `ResourceInUseException` error.
 
-  For example, you can't start the `ChangeSet` described in the
-  [example](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples) later in this topic because it contains two changes to run the same
-  change type (`AddRevisions`) against the same entity
-  (`entity-id@1`).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20StartChangeSet&this_doc_guide=API%2520Reference)
 
-  For more information about working with change sets, see [ Working with change
-  sets](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets).
-  For information about change types for
-  single-AMI products, see [Working with single-AMI products](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products).
-  Also, for more information about change
-  types available for container-based products, see [Working with container products](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products).
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_change_set(map(), start_change_set_request(), list()) ::
+  @spec start_change_set(AWS.Client.t(), start_change_set_request(), Keyword.t()) ::
           {:ok, start_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_change_set_errors()}
@@ -1875,7 +1946,8 @@ defmodule AWS.MarketplaceCatalog do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1892,10 +1964,17 @@ defmodule AWS.MarketplaceCatalog do
 
   @doc """
   Tags a resource (either an
-  [entity](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities) or [change
+  [entity](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities)
+  or [change
   set](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets)).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1904,7 +1983,8 @@ defmodule AWS.MarketplaceCatalog do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1921,10 +2001,17 @@ defmodule AWS.MarketplaceCatalog do
 
   @doc """
   Removes a tag or list of tags from a resource (either an
-  [entity](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities) or [change
+  [entity](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities)
+  or [change
   set](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets)).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1933,7 +2020,8 @@ defmodule AWS.MarketplaceCatalog do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

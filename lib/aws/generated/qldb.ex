@@ -740,23 +740,24 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Ends a given Amazon QLDB journal stream.
+  Ends a given Amazon QLDB journal stream. Before a stream can be canceled, its
+  current status must be `ACTIVE`.
 
-  Before a stream can be canceled, its current
-  status must be `ACTIVE`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20CancelJournalKinesisStream&this_doc_guide=API%2520Reference)
 
-  You can't restart a stream after you cancel it. Canceled QLDB stream resources
-  are
-  subject to a 7-day retention period, so they are automatically deleted after
-  this limit
-  expires.
+  ## Parameters:
+  * `:ledger_name` (`t:string`) The name of the ledger.
+  * `:stream_id` (`t:string`) The UUID (represented in Base62-encoded text) of the
+    QLDB journal stream to be canceled.
+
+  ## Optional parameters:
   """
   @spec cancel_journal_kinesis_stream(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           cancel_journal_kinesis_stream_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, cancel_journal_kinesis_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -774,7 +775,8 @@ defmodule AWS.QLDB do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -791,8 +793,14 @@ defmodule AWS.QLDB do
 
   @doc """
   Creates a new ledger in your Amazon Web Services account in the current Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20CreateLedger&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_ledger(map(), create_ledger_request(), list()) ::
+  @spec create_ledger(AWS.Client.t(), create_ledger_request(), Keyword.t()) ::
           {:ok, create_ledger_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ledger_errors()}
@@ -801,7 +809,8 @@ defmodule AWS.QLDB do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -817,16 +826,16 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Deletes a ledger and all of its contents.
+  Deletes a ledger and all of its contents. This action is irreversible.
 
-  This action is irreversible.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20DeleteLedger&this_doc_guide=API%2520Reference)
 
-  If deletion protection is enabled, you must first disable it before you can
-  delete the
-  ledger. You can disable it by calling the `UpdateLedger` operation to set this
-  parameter to `false`.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the ledger that you want to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_ledger(map(), String.t(), delete_ledger_request(), list()) ::
+  @spec delete_ledger(AWS.Client.t(), String.t(), delete_ledger_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ledger_errors()}
@@ -835,7 +844,8 @@ defmodule AWS.QLDB do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -851,20 +861,20 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Returns detailed information about a given Amazon QLDB journal stream.
+  Returns detailed information about a given Amazon QLDB journal stream. The
+  output includes the Amazon Resource Name (ARN), stream name, current status,
+  creation time, and the parameters of the original stream creation request.
 
-  The output
-  includes the Amazon Resource Name (ARN), stream name, current status, creation
-  time, and
-  the parameters of the original stream creation request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20DescribeJournalKinesisStream&this_doc_guide=API%2520Reference)
 
-  This action does not return any expired journal streams. For more information,
-  see
-  [Expiration for terminal streams](https://docs.aws.amazon.com/qldb/latest/developerguide/streams.create.html#streams.create.states.expiration)
-  in the *Amazon QLDB Developer
-  Guide*.
+  ## Parameters:
+  * `:ledger_name` (`t:string`) The name of the ledger.
+  * `:stream_id` (`t:string`) The UUID (represented in Base62-encoded text) of the
+    QLDB journal stream to describe.
+
+  ## Optional parameters:
   """
-  @spec describe_journal_kinesis_stream(map(), String.t(), String.t(), list()) ::
+  @spec describe_journal_kinesis_stream(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_journal_kinesis_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_journal_kinesis_stream_errors()}
@@ -872,33 +882,49 @@ defmodule AWS.QLDB do
     url_path =
       "/ledgers/#{AWS.Util.encode_uri(ledger_name)}/journal-kinesis-streams/#{AWS.Util.encode_uri(stream_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a journal export job, including the ledger name,
-  export ID,
-  creation time, current status, and the parameters of the original export
-  creation
-  request.
+  export ID, creation time, current status, and the parameters of the original
+  export creation request. This action does not return any expired export jobs.
+  For more information, see [Export job
+  expiration](https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration)
+  in the *Amazon QLDB Developer Guide*.
 
-  This action does not return any expired export jobs. For more information, see
-  [Export job expiration](https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration)
-  in the *Amazon QLDB Developer
-  Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20DescribeJournalS3Export&this_doc_guide=API%2520Reference)
 
-  If the export job with the given `ExportId` doesn't exist, then throws
-  `ResourceNotFoundException`.
+  ## Parameters:
+  * `:export_id` (`t:string`) The UUID (represented in Base62-encoded text) of the
+    journal export job to describe.
+  * `:name` (`t:string`) The name of the ledger.
 
-  If the ledger with the given `Name` doesn't exist, then throws
-  `ResourceNotFoundException`.
+  ## Optional parameters:
   """
-  @spec describe_journal_s3_export(map(), String.t(), String.t(), list()) ::
+  @spec describe_journal_s3_export(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_journal_s3_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_journal_s3_export_errors()}
@@ -906,53 +932,94 @@ defmodule AWS.QLDB do
     url_path =
       "/ledgers/#{AWS.Util.encode_uri(name)}/journal-s3-exports/#{AWS.Util.encode_uri(export_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a ledger, including its state, permissions mode,
-  encryption at
-  rest settings, and when it was created.
+  encryption at rest settings, and when it was created.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20DescribeLedger&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the ledger that you want to describe.
+
+  ## Optional parameters:
   """
-  @spec describe_ledger(map(), String.t(), list()) ::
+  @spec describe_ledger(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_ledger_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_ledger_errors()}
   def describe_ledger(%Client{} = client, name, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Exports journal contents within a date and time range from a ledger into a
-  specified
-  Amazon Simple Storage Service (Amazon S3) bucket.
+  specified Amazon Simple Storage Service (Amazon S3) bucket. A journal export
+  job can write the data objects in either the text or binary representation of
+  Amazon Ion format, or in *JSON Lines* text format. If the ledger with the
+  given `Name` doesn't exist, then throws `ResourceNotFoundException`.
 
-  A journal export job can write the data objects in either the text
-  or binary representation of Amazon Ion format, or in *JSON Lines* text
-  format.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20ExportJournalToS3&this_doc_guide=API%2520Reference)
 
-  If the ledger with the given `Name` doesn't exist, then throws
-  `ResourceNotFoundException`.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the ledger.
 
-  If the ledger with the given `Name` is in `CREATING` status, then
-  throws `ResourcePreconditionNotMetException`.
-
-  You can initiate up to two concurrent journal export requests for each ledger.
-  Beyond
-  this limit, journal export requests throw `LimitExceededException`.
+  ## Optional parameters:
   """
-  @spec export_journal_to_s3(map(), String.t(), export_journal_to_s3_request(), list()) ::
+  @spec export_journal_to_s3(
+          AWS.Client.t(),
+          String.t(),
+          export_journal_to_s3_request(),
+          Keyword.t()
+        ) ::
           {:ok, export_journal_to_s3_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_journal_to_s3_errors()}
@@ -961,7 +1028,8 @@ defmodule AWS.QLDB do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -977,25 +1045,20 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Returns a block object at a specified address in a journal.
+  Returns a block object at a specified address in a journal. Also returns a proof
+  of the specified block for verification if `DigestTipAddress` is provided. For
+  information about the data contents in a block, see [Journal
+  contents](https://docs.aws.amazon.com/qldb/latest/developerguide/journal-contents.html)
+  in the *Amazon QLDB Developer Guide*.
 
-  Also returns a proof of the
-  specified block for verification if `DigestTipAddress` is provided.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20GetBlock&this_doc_guide=API%2520Reference)
 
-  For information about the data contents in a block, see [Journal contents](https://docs.aws.amazon.com/qldb/latest/developerguide/journal-contents.html)
-  in the
-  *Amazon QLDB Developer Guide*.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the ledger.
 
-  If the specified ledger doesn't exist or is in `DELETING` status, then throws
-  `ResourceNotFoundException`.
-
-  If the specified ledger is in `CREATING` status, then throws
-  `ResourcePreconditionNotMetException`.
-
-  If no block exists with the specified address, then throws
-  `InvalidParameterException`.
+  ## Optional parameters:
   """
-  @spec get_block(map(), String.t(), get_block_request(), list()) ::
+  @spec get_block(AWS.Client.t(), String.t(), get_block_request(), Keyword.t()) ::
           {:ok, get_block_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_block_errors()}
@@ -1004,7 +1067,8 @@ defmodule AWS.QLDB do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1020,12 +1084,17 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Returns the digest of a ledger at the latest committed block in the journal.
-
-  The
+  Returns the digest of a ledger at the latest committed block in the journal. The
   response includes a 256-bit hash value and a block address.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20GetDigest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the ledger.
+
+  ## Optional parameters:
   """
-  @spec get_digest(map(), String.t(), get_digest_request(), list()) ::
+  @spec get_digest(AWS.Client.t(), String.t(), get_digest_request(), Keyword.t()) ::
           {:ok, get_digest_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_digest_errors()}
@@ -1034,7 +1103,8 @@ defmodule AWS.QLDB do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1051,12 +1121,17 @@ defmodule AWS.QLDB do
 
   @doc """
   Returns a revision data object for a specified document ID and block address.
+  Also returns a proof of the specified revision for verification if
+  `DigestTipAddress` is provided.
 
-  Also
-  returns a proof of the specified revision for verification if `DigestTipAddress`
-  is provided.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20GetRevision&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the ledger.
+
+  ## Optional parameters:
   """
-  @spec get_revision(map(), String.t(), get_revision_request(), list()) ::
+  @spec get_revision(AWS.Client.t(), String.t(), get_revision_request(), Keyword.t()) ::
           {:ok, get_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_revision_errors()}
@@ -1065,7 +1140,8 @@ defmodule AWS.QLDB do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1081,216 +1157,339 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Returns all Amazon QLDB journal streams for a given ledger.
+  Returns all Amazon QLDB journal streams for a given ledger. This action does not
+  return any expired journal streams. For more information, see [Expiration for
+  terminal
+  streams](https://docs.aws.amazon.com/qldb/latest/developerguide/streams.create.html#streams.create.states.expiration)
+  in the *Amazon QLDB Developer Guide*.
 
-  This action does not return any expired journal streams. For more information,
-  see
-  [Expiration for terminal streams](https://docs.aws.amazon.com/qldb/latest/developerguide/streams.create.html#streams.create.states.expiration)
-  in the *Amazon QLDB Developer
-  Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20ListJournalKinesisStreamsForLedger&this_doc_guide=API%2520Reference)
 
-  This action returns a maximum of `MaxResults` items. It is paginated so that
-  you can retrieve all the items by calling `ListJournalKinesisStreamsForLedger`
-  multiple times.
+  ## Parameters:
+  * `:ledger_name` (`t:string`) The name of the ledger.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single ListJournalKinesisStreamsForLedger request. (The actual number of
+    results returned might be fewer.)
+  * `:next_token` (`t:string`) A pagination token, indicating that you want to
+    retrieve the next page of results. If you received a value for NextToken in
+    the response from a previous ListJournalKinesisStreamsForLedger call, you
+    should use that value as input here.
   """
-  @spec list_journal_kinesis_streams_for_ledger(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_journal_kinesis_streams_for_ledger(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_journal_kinesis_streams_for_ledger_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_journal_kinesis_streams_for_ledger_errors()}
-  def list_journal_kinesis_streams_for_ledger(
-        %Client{} = client,
-        ledger_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_journal_kinesis_streams_for_ledger(%Client{} = client, ledger_name, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(ledger_name)}/journal-kinesis-streams"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next_token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max_results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns all journal export jobs for all ledgers that are associated with the
-  current
-  Amazon Web Services account and Region.
+  current Amazon Web Services account and Region. This action returns a maximum
+  of `MaxResults` items, and is paginated so that you can retrieve all the items
+  by calling `ListJournalS3Exports` multiple times.
 
-  This action returns a maximum of `MaxResults` items, and is paginated so that
-  you can retrieve all the items by calling `ListJournalS3Exports` multiple
-  times.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20ListJournalS3Exports&this_doc_guide=API%2520Reference)
 
-  This action does not return any expired export jobs. For more information, see
-  [Export job expiration](https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration)
-  in the *Amazon QLDB Developer
-  Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single ListJournalS3Exports request. (The actual number of results returned
+    might be fewer.)
+  * `:next_token` (`t:string`) A pagination token, indicating that you want to
+    retrieve the next page of results. If you received a value for NextToken in
+    the response from a previous ListJournalS3Exports call, then you should use
+    that value as input here.
   """
-  @spec list_journal_s3_exports(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_journal_s3_exports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_journal_s3_exports_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_journal_s3_exports(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_journal_s3_exports(%Client{} = client, options \\ []) do
     url_path = "/journal-s3-exports"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next_token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max_results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns all journal export jobs for a specified ledger.
+  Returns all journal export jobs for a specified ledger. This action returns a
+  maximum of `MaxResults` items, and is paginated so that you can retrieve all
+  the items by calling `ListJournalS3ExportsForLedger` multiple times.
 
-  This action returns a maximum of `MaxResults` items, and is paginated so that
-  you can retrieve all the items by calling `ListJournalS3ExportsForLedger`
-  multiple times.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20ListJournalS3ExportsForLedger&this_doc_guide=API%2520Reference)
 
-  This action does not return any expired export jobs. For more information, see
-  [Export job expiration](https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration)
-  in the *Amazon QLDB Developer
-  Guide*.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the ledger.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single ListJournalS3ExportsForLedger request. (The actual number of results
+    returned might be fewer.)
+  * `:next_token` (`t:string`) A pagination token, indicating that you want to
+    retrieve the next page of results. If you received a value for NextToken in
+    the response from a previous ListJournalS3ExportsForLedger call, then you
+    should use that value as input here.
   """
-  @spec list_journal_s3_exports_for_ledger(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_journal_s3_exports_for_ledger(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_journal_s3_exports_for_ledger_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_journal_s3_exports_for_ledger(
-        %Client{} = client,
-        name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_journal_s3_exports_for_ledger(%Client{} = client, name, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}/journal-s3-exports"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next_token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max_results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns all ledgers that are associated with the current Amazon Web Services
-  account and
-  Region.
+  account and Region.
 
-  This action returns a maximum of `MaxResults` items and is paginated so that
-  you can retrieve all the items by calling `ListLedgers` multiple times.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20ListLedgers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single ListLedgers request. (The actual number of results returned might be
+    fewer.)
+  * `:next_token` (`t:string`) A pagination token, indicating that you want to
+    retrieve the next page of results. If you received a value for NextToken in
+    the response from a previous ListLedgers call, then you should use that
+    value as input here.
   """
-  @spec list_ledgers(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_ledgers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ledgers_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_ledgers(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_ledgers(%Client{} = client, options \\ []) do
     url_path = "/ledgers"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next_token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max_results", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns all tags for a specified Amazon QLDB resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for which to list
+    the tags. For example:
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Creates a journal stream for a given Amazon QLDB ledger.
+  Creates a journal stream for a given Amazon QLDB ledger. The stream captures
+  every document revision that is committed to the ledger's journal and delivers
+  the data to a specified Amazon Kinesis Data Streams resource.
 
-  The stream captures every
-  document revision that is committed to the ledger's journal and delivers the
-  data to a
-  specified Amazon Kinesis Data Streams resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20StreamJournalToKinesis&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:ledger_name` (`t:string`) The name of the ledger.
+
+  ## Optional parameters:
   """
-  @spec stream_journal_to_kinesis(map(), String.t(), stream_journal_to_kinesis_request(), list()) ::
+  @spec stream_journal_to_kinesis(
+          AWS.Client.t(),
+          String.t(),
+          stream_journal_to_kinesis_request(),
+          Keyword.t()
+        ) ::
           {:ok, stream_journal_to_kinesis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stream_journal_to_kinesis_errors()}
@@ -1299,7 +1498,8 @@ defmodule AWS.QLDB do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1317,10 +1517,15 @@ defmodule AWS.QLDB do
   @doc """
   Adds one or more tags to a specified Amazon QLDB resource.
 
-  A resource can have up to 50 tags. If you try to create more than 50 tags for a
-  resource, your request fails and returns an error.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) to which you want
+    to add the tags. For example:
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1329,7 +1534,8 @@ defmodule AWS.QLDB do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1345,12 +1551,20 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Removes one or more tags from a specified Amazon QLDB resource.
+  Removes one or more tags from a specified Amazon QLDB resource. You can specify
+  up to 50 tag keys to remove.
 
-  You can specify up to 50
-  tag keys to remove.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) from which to
+    remove the tags. For example:
+  * `:tag_keys` (`t:list[com.amazonaws.qldb#TagKey]`) The list of tag keys to
+    remove.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1364,7 +1578,8 @@ defmodule AWS.QLDB do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1381,8 +1596,15 @@ defmodule AWS.QLDB do
 
   @doc """
   Updates properties on a ledger.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20UpdateLedger&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the ledger.
+
+  ## Optional parameters:
   """
-  @spec update_ledger(map(), String.t(), update_ledger_request(), list()) ::
+  @spec update_ledger(AWS.Client.t(), String.t(), update_ledger_request(), Keyword.t()) ::
           {:ok, update_ledger_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ledger_errors()}
@@ -1391,7 +1613,8 @@ defmodule AWS.QLDB do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1409,18 +1632,18 @@ defmodule AWS.QLDB do
   @doc """
   Updates the permissions mode of a ledger.
 
-  Before you switch to the `STANDARD` permissions mode, you must first
-  create all required IAM policies and table tags to avoid disruption to your
-  users. To
-  learn more, see [Migrating to the standard permissions mode](https://docs.aws.amazon.com/qldb/latest/developerguide/ledger-management.basics.html#ledger-mgmt.basics.update-permissions.migrating)
-  in the *Amazon QLDB
-  Developer Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20UpdateLedgerPermissionsMode&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the ledger.
+
+  ## Optional parameters:
   """
   @spec update_ledger_permissions_mode(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_ledger_permissions_mode_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_ledger_permissions_mode_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1430,7 +1653,8 @@ defmodule AWS.QLDB do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

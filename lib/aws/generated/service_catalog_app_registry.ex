@@ -5,9 +5,8 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @moduledoc """
   Amazon Web Services Service Catalog AppRegistry enables organizations to
   understand the application context of their Amazon Web Services resources.
-
-  AppRegistry provides a repository of your applications, their resources, and the
-  application metadata that you use within your enterprise.
+  AppRegistry provides a repository of your applications, their resources, and
+  the application metadata that you use within your enterprise.
   """
 
   alias AWS.Client
@@ -943,19 +942,25 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   @doc """
   Associates an attribute group with an application to augment the application's
-  metadata
-  with the group's attributes.
+  metadata with the group's attributes. This feature enables applications to be
+  described with user-defined details that are machine-readable, such as
+  third-party integrations.
 
-  This feature enables applications to be described with
-  user-defined details that are machine-readable, such as third-party
-  integrations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20AssociateAttributeGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application` (`t:string`) The name, ID, or ARN of the application.
+  * `:attribute_group` (`t:string`) The name, ID, or ARN of the attribute group
+    that holds the attributes to describe the application.
+
+  ## Optional parameters:
   """
   @spec associate_attribute_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           associate_attribute_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -973,61 +978,35 @@ defmodule AWS.ServiceCatalogAppRegistry do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
+  Associates a resource with an application. The resource can be specified by its
+  ARN or name. The application can be specified by ARN, ID, or name. **Minimum
+  permissions**
 
-  Associates a resource with an application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20AssociateResource&this_doc_guide=API%2520Reference)
 
-  The resource can be specified by its ARN or name.
-  The application can be specified by ARN, ID, or name.
+  ## Parameters:
+  * `:application` (`t:string`) The name, ID, or ARN of the application.
+  * `:resource` (`t:string`) The name or ID of the resource of which the
+    application will be associated.
+  * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]`) The type of
+    resource of which the application will be associated.
 
-  ## Minimum permissions
-
-  You must have the following permissions to associate a resource using the
-  `OPTIONS` parameter set to `APPLY_APPLICATION_TAG`.
-
-    *
-
-  `tag:GetResources`
-
-    *
-
-  `tag:TagResources`
-
-  You must also have these additional permissions if you don't use the
-  `AWSServiceCatalogAppRegistryFullAccess` policy.
-  For more information, see
-  [AWSServiceCatalogAppRegistryFullAccess](https://docs.aws.amazon.com/servicecatalog/latest/arguide/full.html) in the AppRegistry Administrator Guide.
-
-    *
-
-  `resource-groups:AssociateResource`
-
-    *
-
-  `cloudformation:UpdateStack`
-
-    *
-
-  `cloudformation:DescribeStacks`
-
-  In addition, you must have the tagging permission defined by the Amazon Web
-  Services service that creates the resource.
-  For more information, see
-  [TagResources](https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_TagResources.html)
-  in the *Resource Groups Tagging API Reference*.
+  ## Optional parameters:
   """
   @spec associate_resource(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           associate_resource_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1046,7 +1025,8 @@ defmodule AWS.ServiceCatalogAppRegistry do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -1054,8 +1034,14 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @doc """
   Creates a new application that is the top-level node in a hierarchy of related
   cloud resource abstractions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20CreateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_application(map(), create_application_request(), list()) ::
+  @spec create_application(AWS.Client.t(), create_application_request(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
@@ -1064,7 +1050,8 @@ defmodule AWS.ServiceCatalogAppRegistry do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1080,16 +1067,18 @@ defmodule AWS.ServiceCatalogAppRegistry do
   end
 
   @doc """
-  Creates a new attribute group as a container for user-defined attributes.
+  Creates a new attribute group as a container for user-defined attributes. This
+  feature enables users to have full control over their cloud application's
+  metadata in a rich machine-readable format to facilitate integration with
+  automated workflows and third-party tools.
 
-  This feature
-  enables users to have full control over their cloud application's metadata in a
-  rich
-  machine-readable format to facilitate integration with automated workflows and
-  third-party
-  tools.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20CreateAttributeGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_attribute_group(map(), create_attribute_group_request(), list()) ::
+  @spec create_attribute_group(AWS.Client.t(), create_attribute_group_request(), Keyword.t()) ::
           {:ok, create_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_attribute_group_errors()}
@@ -1098,7 +1087,8 @@ defmodule AWS.ServiceCatalogAppRegistry do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1115,12 +1105,17 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   @doc """
   Deletes an application that is specified either by its application ID, name, or
-  ARN.
+  ARN. All associated attribute groups and resources must be disassociated from
+  it before deleting an application.
 
-  All associated attribute groups and resources must be disassociated from it
-  before deleting an application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20DeleteApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application` (`t:string`) The name, ID, or ARN of the application.
+
+  ## Optional parameters:
   """
-  @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
+  @spec delete_application(AWS.Client.t(), String.t(), delete_application_request(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
@@ -1129,7 +1124,8 @@ defmodule AWS.ServiceCatalogAppRegistry do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1147,8 +1143,21 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @doc """
   Deletes an attribute group, specified either by its attribute group ID, name, or
   ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20DeleteAttributeGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:attribute_group` (`t:string`) The name, ID, or ARN of the attribute group
+    that holds the attributes to describe the application.
+
+  ## Optional parameters:
   """
-  @spec delete_attribute_group(map(), String.t(), delete_attribute_group_request(), list()) ::
+  @spec delete_attribute_group(
+          AWS.Client.t(),
+          String.t(),
+          delete_attribute_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_attribute_group_errors()}
@@ -1157,7 +1166,8 @@ defmodule AWS.ServiceCatalogAppRegistry do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1175,15 +1185,23 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @doc """
   Disassociates an attribute group from an application to remove the extra
   attributes contained in the attribute group from the application's metadata.
-
   This operation reverts `AssociateAttributeGroup`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20DisassociateAttributeGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application` (`t:string`) The name, ID, or ARN of the application.
+  * `:attribute_group` (`t:string`) The name, ID, or ARN of the attribute group
+    that holds the attributes to describe the application.
+
+  ## Optional parameters:
   """
   @spec disassociate_attribute_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           disassociate_attribute_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1201,7 +1219,8 @@ defmodule AWS.ServiceCatalogAppRegistry do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1217,56 +1236,26 @@ defmodule AWS.ServiceCatalogAppRegistry do
   end
 
   @doc """
+  Disassociates a resource from application. Both the resource and the application
+  can be specified either by ID or name. **Minimum permissions**
 
-  Disassociates a resource from application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20DisassociateResource&this_doc_guide=API%2520Reference)
 
-  Both the resource and the application can be specified either by ID or name.
+  ## Parameters:
+  * `:application` (`t:string`) The name or ID of the application.
+  * `:resource` (`t:string`) The name or ID of the resource.
+  * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]`) The type of the
+    resource that is being disassociated.
 
-  ## Minimum permissions
-
-  You must have the following permissions to remove a resource that's been
-  associated with an application using the `APPLY_APPLICATION_TAG` option for
-  [AssociateResource](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_app-registry_AssociateResource.html). 
-
-    *
-
-  `tag:GetResources`
-
-    *
-
-  `tag:UntagResources`
-
-  You must also have the following permissions if you don't use the
-  `AWSServiceCatalogAppRegistryFullAccess` policy.
-  For more information, see
-  [AWSServiceCatalogAppRegistryFullAccess](https://docs.aws.amazon.com/servicecatalog/latest/arguide/full.html)
-  in the AppRegistry Administrator Guide.
-
-    *
-
-  `resource-groups:DisassociateResource`
-
-    *
-
-  `cloudformation:UpdateStack`
-
-    *
-
-  `cloudformation:DescribeStacks`
-
-  In addition, you must have the tagging permission defined by the Amazon Web
-  Services service that creates the resource.
-  For more information, see
-  [UntagResources](https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_UntTagResources.html)
-  in the *Resource Groups Tagging API Reference*.
+  ## Optional parameters:
   """
   @spec disassociate_resource(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           disassociate_resource_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1285,7 +1274,8 @@ defmodule AWS.ServiceCatalogAppRegistry do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1301,54 +1291,76 @@ defmodule AWS.ServiceCatalogAppRegistry do
   end
 
   @doc """
+  Retrieves metadata information about one of your applications. The application
+  can be specified by its ARN, ID, or name (which is unique within one account
+  in one region at a given point in time). Specify by ARN or ID in automated
+  workflows if you want to make sure that the exact same application is returned
+  or a `ResourceNotFoundException` is thrown, avoiding the ABA addressing
+  problem.
 
-  Retrieves metadata information
-  about one
-  of your applications.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20GetApplication&this_doc_guide=API%2520Reference)
 
-  The application can be specified
-  by its ARN, ID, or name
-  (which is unique
-  within one account
-  in one region
-  at a given point
-  in time).
-  Specify
-  by ARN or ID
-  in automated workflows
-  if you want
-  to make sure
-  that the exact same application is returned or a `ResourceNotFoundException` is
-  thrown,
-  avoiding the ABA addressing problem.
+  ## Parameters:
+  * `:application` (`t:string`) The name, ID, or ARN of the application.
+
+  ## Optional parameters:
   """
-  @spec get_application(map(), String.t(), list()) ::
+  @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_errors()}
   def get_application(%Client{} = client, application, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the resource associated with the application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20GetAssociatedResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application` (`t:string`) The name, ID, or ARN of the application.
+  * `:resource` (`t:string`) The name or ID of the resource associated with the
+    application.
+  * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]`) The type of
+    resource associated with the application.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. If the
+    parameter is omitted, it defaults to 25. The value is optional.
+  * `:next_token` (`t:string`) A unique pagination token for each page of results.
+    Make the call again with the returned token to retrieve the next page of
+    results.
+  * `:resource_tag_status`
+    (`t:list[com.amazonaws.servicecatalogappregistry#ResourceItemStatus]`)
+    States whether an application tag is applied, not applied, in the process of
+    being applied, or skipped.
   """
-  @spec get_associated_resource(
-          map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_associated_resource(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_associated_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_associated_resource_errors()}
@@ -1357,323 +1369,525 @@ defmodule AWS.ServiceCatalogAppRegistry do
         application,
         resource,
         resource_type,
-        max_results \\ nil,
-        next_token \\ nil,
-        resource_tag_status \\ nil,
         options \\ []
       ) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application)}/resources/#{AWS.Util.encode_uri(resource_type)}/#{AWS.Util.encode_uri(resource)}"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, resource_tag_status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(resource_tag_status) do
-        [{"resourceTagStatus", resource_tag_status} | query_params]
+      if opt_val = Keyword.get(options, :resource_tag_status) do
+        [{"resourceTagStatus", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :resource_tag_status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+  Retrieves an attribute group by its ARN, ID, or name. The attribute group can be
+  specified by its ARN, ID, or name.
 
-  Retrieves an attribute group
-  by its ARN, ID, or name.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20GetAttributeGroup&this_doc_guide=API%2520Reference)
 
-  The attribute group can be specified
-  by its ARN, ID, or name.
+  ## Parameters:
+  * `:attribute_group` (`t:string`) The name, ID, or ARN of the attribute group
+    that holds the attributes to describe the application.
+
+  ## Optional parameters:
   """
-  @spec get_attribute_group(map(), String.t(), list()) ::
+  @spec get_attribute_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_attribute_group_errors()}
   def get_attribute_group(%Client{} = client, attribute_group, options \\ []) do
     url_path = "/attribute-groups/#{AWS.Util.encode_uri(attribute_group)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+  Retrieves a `TagKey` configuration from an account.
 
-  Retrieves a `TagKey` configuration
-  from an account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20GetConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_configuration(map(), list()) ::
+  @spec get_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_errors()}
   def get_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves a list of all of your applications.
+  Retrieves a list of all of your applications. Results are paginated.
 
-  Results are paginated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20ListApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The upper bound of the number of results to
+    return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
+    This value is optional.
+  * `:next_token` (`t:string`) The token to use to get the next page of results
+    after a previous API call.
   """
-  @spec list_applications(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
-  def list_applications(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_applications(%Client{} = client, options \\ []) do
     url_path = "/applications"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all attribute groups that are associated with specified application.
-
   Results are paginated.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20ListAssociatedAttributeGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application` (`t:string`) The name or ID of the application.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The upper bound of the number of results to
+    return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
+    This value is optional.
+  * `:next_token` (`t:string`) The token to use to get the next page of results
+    after a previous API call.
   """
-  @spec list_associated_attribute_groups(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_associated_attribute_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_attribute_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_associated_attribute_groups_errors()}
-  def list_associated_attribute_groups(
-        %Client{} = client,
-        application,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_associated_attribute_groups(%Client{} = client, application, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application)}/attribute-groups"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
-  Lists all
-  of the resources
-  that are associated
-  with the specified application.
-
+  Lists all of the resources that are associated with the specified application.
   Results are paginated.
 
-  If you share an application,
-  and a consumer account associates a tag query
-  to the application,
-  all of the users
-  who can access the application
-  can also view the tag values
-  in all accounts
-  that are associated
-  with it
-  using this API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20ListAssociatedResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application` (`t:string`) The name, ID, or ARN of the application.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The upper bound of the number of results to
+    return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
+    This value is optional.
+  * `:next_token` (`t:string`) The token to use to get the next page of results
+    after a previous API call.
   """
-  @spec list_associated_resources(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_associated_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_associated_resources_errors()}
-  def list_associated_resources(
-        %Client{} = client,
-        application,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_associated_resources(%Client{} = client, application, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application)}/resources"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists all attribute groups which you have access to.
+  Lists all attribute groups which you have access to. Results are paginated.
 
-  Results are paginated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20ListAttributeGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The upper bound of the number of results to
+    return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
+    This value is optional.
+  * `:next_token` (`t:string`) The token to use to get the next page of results
+    after a previous API call.
   """
-  @spec list_attribute_groups(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_attribute_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_attribute_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attribute_groups_errors()}
-  def list_attribute_groups(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_attribute_groups(%Client{} = client, options \\ []) do
     url_path = "/attribute-groups"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the details of all attribute groups associated with a specific
-  application.
+  application. The results display in pages.
 
-  The results display in pages.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20ListAttributeGroupsForApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application` (`t:string`) The name or ID of the application.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The upper bound of the number of results to
+    return. The value cannot exceed 25. If you omit this parameter, it defaults
+    to 25. This value is optional.
+  * `:next_token` (`t:string`) This token retrieves the next page of results after
+    a previous API call.
   """
-  @spec list_attribute_groups_for_application(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_attribute_groups_for_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_attribute_groups_for_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attribute_groups_for_application_errors()}
-  def list_attribute_groups_for_application(
-        %Client{} = client,
-        application,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_attribute_groups_for_application(%Client{} = client, application, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application)}/attribute-group-details"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all of the tags on the resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon resource name (ARN) that specifies the
+    resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+  Associates a `TagKey` configuration to an account.
 
-  Associates a `TagKey` configuration
-  to an account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20PutConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_configuration(map(), put_configuration_request(), list()) ::
+  @spec put_configuration(AWS.Client.t(), put_configuration_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_configuration_errors()}
@@ -1682,7 +1896,8 @@ defmodule AWS.ServiceCatalogAppRegistry do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -1690,12 +1905,24 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @doc """
   Syncs the resource with current AppRegistry records.
 
-  Specifically, the resource’s AppRegistry system tags sync with its associated
-  application. We remove the resource's AppRegistry system tags if it does not
-  associate with the application. The caller must have permissions to read and
-  update the resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20SyncResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource` (`t:string`) An entity you can work with and specify with a name
+    or ID. Examples include an Amazon EC2 instance, an Amazon Web Services
+    CloudFormation stack, or an Amazon S3 bucket.
+  * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]`) The type of
+    resource of which the application will be associated.
+
+  ## Optional parameters:
   """
-  @spec sync_resource(map(), String.t(), String.t(), sync_resource_request(), list()) ::
+  @spec sync_resource(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          sync_resource_request(),
+          Keyword.t()
+        ) ::
           {:ok, sync_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, sync_resource_errors()}
@@ -1704,7 +1931,8 @@ defmodule AWS.ServiceCatalogAppRegistry do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1720,14 +1948,19 @@ defmodule AWS.ServiceCatalogAppRegistry do
   end
 
   @doc """
-  Assigns one or more tags (key-value pairs) to the specified resource.
+  Assigns one or more tags (key-value pairs) to the specified resource. Each tag
+  consists of a key and an optional value. If a tag with the same key is already
+  associated with the resource, this action updates its value.
 
-  Each tag consists of a key and an optional value. If a tag with the same key is
-  already associated with the resource, this action updates its value.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20TagResource&this_doc_guide=API%2520Reference)
 
-  This operation returns an empty response if the call was successful.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon resource name (ARN) that specifies the
+    resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1736,7 +1969,8 @@ defmodule AWS.ServiceCatalogAppRegistry do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1754,9 +1988,17 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @doc """
   Removes tags from a resource.
 
-  This operation returns an empty response if the call was successful.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon resource name (ARN) that specifies the
+    resource.
+  * `:tag_keys` (`t:list[com.amazonaws.servicecatalogappregistry#TagKey]`) A list
+    of the tag keys to remove from the specified resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1770,7 +2012,8 @@ defmodule AWS.ServiceCatalogAppRegistry do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1787,8 +2030,16 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   @doc """
   Updates an existing application with new attributes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20UpdateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application` (`t:string`) The name, ID, or ARN of the application that will
+    be updated.
+
+  ## Optional parameters:
   """
-  @spec update_application(map(), String.t(), update_application_request(), list()) ::
+  @spec update_application(AWS.Client.t(), String.t(), update_application_request(), Keyword.t()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
@@ -1797,7 +2048,8 @@ defmodule AWS.ServiceCatalogAppRegistry do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1814,8 +2066,21 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   @doc """
   Updates an existing attribute group with new details.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20UpdateAttributeGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:attribute_group` (`t:string`) The name, ID, or ARN of the attribute group
+    that holds the attributes to describe the application.
+
+  ## Optional parameters:
   """
-  @spec update_attribute_group(map(), String.t(), update_attribute_group_request(), list()) ::
+  @spec update_attribute_group(
+          AWS.Client.t(),
+          String.t(),
+          update_attribute_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_attribute_group_errors()}
@@ -1824,7 +2089,8 @@ defmodule AWS.ServiceCatalogAppRegistry do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

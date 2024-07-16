@@ -3,7 +3,6 @@
 
 defmodule AWS.Route53Profiles do
   @moduledoc """
-
   With Amazon Route 53 Profiles you can share Route 53 configurations with VPCs
   and AWS accounts
   """
@@ -704,15 +703,18 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
-  Associates a Route 53 Profiles profile with a VPC.
-
-  A VPC can have only one Profile associated with it, but a Profile can be
-  associated with 1000 of VPCs (and you can request a higher quota).
-  For more information, see
+  Associates a Route 53 Profiles profile with a VPC. A VPC can have only one
+  Profile associated with it, but a Profile can be associated with 1000 of VPCs
+  (and you can request a higher quota). For more information, see
   [https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20AssociateProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec associate_profile(map(), associate_profile_request(), list()) ::
+  @spec associate_profile(AWS.Client.t(), associate_profile_request(), Keyword.t()) ::
           {:ok, associate_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_profile_errors()}
@@ -721,7 +723,8 @@ defmodule AWS.Route53Profiles do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -737,10 +740,19 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Associates a DNS reource configuration to a Route 53 Profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20AssociateResourceToProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec associate_resource_to_profile(map(), associate_resource_to_profile_request(), list()) ::
+  @spec associate_resource_to_profile(
+          AWS.Client.t(),
+          associate_resource_to_profile_request(),
+          Keyword.t()
+        ) ::
           {:ok, associate_resource_to_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_resource_to_profile_errors()}
@@ -749,7 +761,8 @@ defmodule AWS.Route53Profiles do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -765,10 +778,15 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Creates an empty Route 53 Profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20CreateProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_profile(map(), create_profile_request(), list()) ::
+  @spec create_profile(AWS.Client.t(), create_profile_request(), Keyword.t()) ::
           {:ok, create_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_profile_errors()}
@@ -777,7 +795,8 @@ defmodule AWS.Route53Profiles do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -793,12 +812,17 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
+  Deletes the specified Route 53 Profile. Before you can delete a profile, you
+  must first disassociate it from all VPCs.
 
-  Deletes the specified Route 53 Profile.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20DeleteProfile&this_doc_guide=API%2520Reference)
 
-  Before you can delete a profile, you must first disassociate it from all VPCs.
+  ## Parameters:
+  * `:profile_id` (`t:string`) The ID of the Profile that you want to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_profile(map(), String.t(), delete_profile_request(), list()) ::
+  @spec delete_profile(AWS.Client.t(), String.t(), delete_profile_request(), Keyword.t()) ::
           {:ok, delete_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_profile_errors()}
@@ -807,7 +831,8 @@ defmodule AWS.Route53Profiles do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -823,15 +848,22 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Dissociates a specified Route 53 Profile from the specified VPC.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20DisassociateProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_id` (`t:string`) ID of the Profile.
+  * `:resource_id` (`t:string`) The ID of the VPC.
+
+  ## Optional parameters:
   """
   @spec disassociate_profile(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           disassociate_profile_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -843,7 +875,8 @@ defmodule AWS.Route53Profiles do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -859,15 +892,22 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Dissoaciated a specified resource, from the Route 53 Profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20DisassociateResourceFromProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_id` (`t:string`) The ID of the Profile.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
   @spec disassociate_resource_from_profile(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           disassociate_resource_from_profile_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_resource_from_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -885,7 +925,8 @@ defmodule AWS.Route53Profiles do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -901,50 +942,104 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Returns information about a specified Route 53 Profile, such as whether whether
   the Profile is shared, and the current status of the Profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20GetProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_id` (`t:string`) ID of the Profile.
+
+  ## Optional parameters:
   """
-  @spec get_profile(map(), String.t(), list()) ::
+  @spec get_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_profile_errors()}
   def get_profile(%Client{} = client, profile_id, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+  Retrieves a Route 53 Profile association for a VPC. A VPC can have only one
+  Profile association, but a Profile can be associated with up to 5000 VPCs.
 
-  Retrieves a Route 53 Profile association for a VPC.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20GetProfileAssociation&this_doc_guide=API%2520Reference)
 
-  A VPC can have only one Profile association, but a Profile can be associated
-  with up to 5000 VPCs.
+  ## Parameters:
+  * `:profile_association_id` (`t:string`) The identifier of the association you
+    want to get information about.
+
+  ## Optional parameters:
   """
-  @spec get_profile_association(map(), String.t(), list()) ::
+  @spec get_profile_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_profile_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_profile_association_errors()}
   def get_profile_association(%Client{} = client, profile_association_id, options \\ []) do
     url_path = "/profileassociation/#{AWS.Util.encode_uri(profile_association_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Returns information about a specified Route 53 Profile resource association.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20GetProfileResourceAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_resource_association_id` (`t:string`) The ID of the profile resource
+    association that you want to get information about.
+
+  ## Optional parameters:
   """
-  @spec get_profile_resource_association(map(), String.t(), list()) ::
+  @spec get_profile_resource_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_profile_resource_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_profile_resource_association_errors()}
@@ -956,183 +1051,308 @@ defmodule AWS.Route53Profiles do
     url_path =
       "/profileresourceassociation/#{AWS.Util.encode_uri(profile_resource_association_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Lists all the VPCs that the specified Route 53 Profile is associated with.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20ListProfileAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of objects that you want to
+    return for this request. If more objects are available, in the response, a
+    NextToken value, which you can use in a subsequent call to get the next
+    batch of objects, is provided.
+  * `:next_token` (`t:string`) For the first call to this list request, omit this
+    value.
+  * `:profile_id` (`t:string`) ID of the Profile.
+  * `:resource_id` (`t:string`) ID of the VPC.
   """
-  @spec list_profile_associations(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_profile_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profile_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profile_associations_errors()}
-  def list_profile_associations(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        profile_id \\ nil,
-        resource_id \\ nil,
-        options \\ []
-      ) do
+  def list_profile_associations(%Client{} = client, options \\ []) do
     url_path = "/profileassociations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, profile_id: nil, resource_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(resource_id) do
-        [{"resourceId", resource_id} | query_params]
+      if opt_val = Keyword.get(options, :resource_id) do
+        [{"resourceId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(profile_id) do
-        [{"profileId", profile_id} | query_params]
+      if opt_val = Keyword.get(options, :profile_id) do
+        [{"profileId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :profile_id, :resource_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Lists all the resource associations for the specified Route 53 Profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20ListProfileResourceAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_id` (`t:string`) The ID of the Profile.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of objects that you want to
+    return for this request. If more objects are available, in the response, a
+    NextToken value, which you can use in a subsequent call to get the next
+    batch of objects, is provided.
+  * `:next_token` (`t:string`) For the first call to this list request, omit this
+    value.
+  * `:resource_type` (`t:string`) ID of a resource if you want information on only
+    one type.
   """
-  @spec list_profile_resource_associations(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_profile_resource_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_profile_resource_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profile_resource_associations_errors()}
-  def list_profile_resource_associations(
-        %Client{} = client,
-        profile_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        resource_type \\ nil,
-        options \\ []
-      ) do
+  def list_profile_resource_associations(%Client{} = client, profile_id, options \\ []) do
     url_path = "/profileresourceassociations/profileid/#{AWS.Util.encode_uri(profile_id)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, resource_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(resource_type) do
-        [{"resourceType", resource_type} | query_params]
+      if opt_val = Keyword.get(options, :resource_type) do
+        [{"resourceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :resource_type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Lists all the Route 53 Profiles associated with your Amazon Web Services
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20ListProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of objects that you want to
+    return for this request. If more objects are available, in the response, a
+    NextToken value, which you can use in a subsequent call to get the next
+    batch of objects, is provided.
+  * `:next_token` (`t:string`) For the first call to this list request, omit this
+    value.
   """
-  @spec list_profiles(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profiles_errors()}
-  def list_profiles(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_profiles(%Client{} = client, options \\ []) do
     url_path = "/profiles"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Lists the tags that you associated with the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
+    that you want to list the tags for.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Adds one or more tags to a specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
+    that you want to add tags to.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1141,7 +1361,8 @@ defmodule AWS.Route53Profiles do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1157,10 +1378,19 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Removes one or more tags from a specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
+    that you want to remove tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.route53profiles#TagKey]`) The tags that you
+    want to remove to the specified resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1174,7 +1404,8 @@ defmodule AWS.Route53Profiles do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1190,14 +1421,21 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Updates the specified Route 53 Profile resourse association.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20UpdateProfileResourceAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_resource_association_id` (`t:string`) ID of the resource
+    association.
+
+  ## Optional parameters:
   """
   @spec update_profile_resource_association(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_profile_resource_association_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_profile_resource_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1214,7 +1452,8 @@ defmodule AWS.Route53Profiles do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

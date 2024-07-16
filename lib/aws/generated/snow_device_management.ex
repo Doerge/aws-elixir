@@ -680,15 +680,18 @@ defmodule AWS.SnowDeviceManagement do
   end
 
   @doc """
-  Sends a cancel request for a specified task.
+  Sends a cancel request for a specified task. You can cancel a task only if it's
+  still in a `QUEUED` state. Tasks that are already running can't be cancelled.
 
-  You can cancel a task only if it's still in a
-  `QUEUED` state. Tasks that are already running can't be cancelled.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20CancelTask&this_doc_guide=API%2520Reference)
 
-  A task might still run if it's processed from the queue before the
-  `CancelTask` operation changes the task's state.
+  ## Parameters:
+  * `:task_id` (`t:string`) The ID of the task that you are attempting to cancel.
+    You can retrieve a task ID by using the ListTasks operation.
+
+  ## Optional parameters:
   """
-  @spec cancel_task(map(), String.t(), cancel_task_input(), list()) ::
+  @spec cancel_task(AWS.Client.t(), String.t(), cancel_task_input(), Keyword.t()) ::
           {:ok, cancel_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_task_errors()}
@@ -697,7 +700,8 @@ defmodule AWS.SnowDeviceManagement do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -714,8 +718,14 @@ defmodule AWS.SnowDeviceManagement do
 
   @doc """
   Instructs one or more devices to start a task, such as unlocking or rebooting.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20CreateTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_task(map(), create_task_input(), list()) ::
+  @spec create_task(AWS.Client.t(), create_task_input(), Keyword.t()) ::
           {:ok, create_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_task_errors()}
@@ -724,7 +734,8 @@ defmodule AWS.SnowDeviceManagement do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -741,10 +752,17 @@ defmodule AWS.SnowDeviceManagement do
 
   @doc """
   Checks device-specific information, such as the device type, software version,
-  IP
-  addresses, and lock status.
+  IP addresses, and lock status.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20DescribeDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:managed_device_id` (`t:string`) The ID of the device that you are checking
+    the information of.
+
+  ## Optional parameters:
   """
-  @spec describe_device(map(), String.t(), describe_device_input(), list()) ::
+  @spec describe_device(AWS.Client.t(), String.t(), describe_device_input(), Keyword.t()) ::
           {:ok, describe_device_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_device_errors()}
@@ -753,7 +771,8 @@ defmodule AWS.SnowDeviceManagement do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -769,13 +788,23 @@ defmodule AWS.SnowDeviceManagement do
   end
 
   @doc """
-  Checks the current state of the Amazon EC2 instances.
-
-  The output is similar to
+  Checks the current state of the Amazon EC2 instances. The output is similar to
   `describeDevice`, but the results are sourced from the device cache in the
   Amazon Web Services Cloud and include a subset of the available fields.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20DescribeDeviceEc2Instances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:managed_device_id` (`t:string`) The ID of the managed device.
+
+  ## Optional parameters:
   """
-  @spec describe_device_ec2_instances(map(), String.t(), describe_device_ec2_input(), list()) ::
+  @spec describe_device_ec2_instances(
+          AWS.Client.t(),
+          String.t(),
+          describe_device_ec2_input(),
+          Keyword.t()
+        ) ::
           {:ok, describe_device_ec2_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_device_ec2_instances_errors()}
@@ -784,7 +813,8 @@ defmodule AWS.SnowDeviceManagement do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -801,8 +831,22 @@ defmodule AWS.SnowDeviceManagement do
 
   @doc """
   Checks the status of a remote task running on one or more target devices.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20DescribeExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:managed_device_id` (`t:string`) The ID of the managed device.
+  * `:task_id` (`t:string`) The ID of the task that the action is describing.
+
+  ## Optional parameters:
   """
-  @spec describe_execution(map(), String.t(), String.t(), describe_execution_input(), list()) ::
+  @spec describe_execution(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          describe_execution_input(),
+          Keyword.t()
+        ) ::
           {:ok, describe_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_execution_errors()}
@@ -813,7 +857,8 @@ defmodule AWS.SnowDeviceManagement do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -830,8 +875,15 @@ defmodule AWS.SnowDeviceManagement do
 
   @doc """
   Checks the metadata for a given task on a device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20DescribeTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:task_id` (`t:string`) The ID of the task to be described.
+
+  ## Optional parameters:
   """
-  @spec describe_task(map(), String.t(), describe_task_input(), list()) ::
+  @spec describe_task(AWS.Client.t(), String.t(), describe_task_input(), Keyword.t()) ::
           {:ok, describe_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_task_errors()}
@@ -840,7 +892,8 @@ defmodule AWS.SnowDeviceManagement do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -857,228 +910,344 @@ defmodule AWS.SnowDeviceManagement do
 
   @doc """
   Returns a list of the Amazon Web Services resources available for a device.
-
   Currently, Amazon EC2 instances are the only supported resource type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20ListDeviceResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:managed_device_id` (`t:string`) The ID of the managed device that you are
+    listing the resources of.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of resources per page.
+  * `:next_token` (`t:string`) A pagination token to continue to the next page of
+    results.
+  * `:type` (`t:`) A structure used to filter the results by type of resource.
   """
-  @spec list_device_resources(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_device_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_device_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_device_resources_errors()}
-  def list_device_resources(
-        %Client{} = client,
-        managed_device_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        type \\ nil,
-        options \\ []
-      ) do
+  def list_device_resources(%Client{} = client, managed_device_id, options \\ []) do
     url_path = "/managed-device/#{AWS.Util.encode_uri(managed_device_id)}/resources"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
+      if opt_val = Keyword.get(options, :type) do
+        [{"type", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all devices on your Amazon Web Services account that have
-  Amazon Web Services Snow Device Management
-  enabled in the Amazon Web Services Region where the command is run.
+  Amazon Web Services Snow Device Management enabled in the Amazon Web Services
+  Region where the command is run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20ListDevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:job_id` (`t:string`) The ID of the job used to order the device.
+  * `:max_results` (`t:integer`) The maximum number of devices to list per page.
+  * `:next_token` (`t:string`) A pagination token to continue to the next page of
+    results.
   """
-  @spec list_devices(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_devices_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_devices_errors()}
-  def list_devices(
-        %Client{} = client,
-        job_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_devices(%Client{} = client, options \\ []) do
     url_path = "/managed-devices"
+
+    # Validate optional parameters
+    optional_params = [job_id: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(job_id) do
-        [{"jobId", job_id} | query_params]
+      if opt_val = Keyword.get(options, :job_id) do
+        [{"jobId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:job_id, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the status of tasks for one or more target devices.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20ListExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:task_id` (`t:string`) The ID of the task.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of tasks to list per page.
+  * `:next_token` (`t:string`) A pagination token to continue to the next page of
+    tasks.
+  * `:state` (`t:string`) A structure used to filter the tasks by their current
+    state.
   """
-  @spec list_executions(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          list()
-        ) ::
+  @spec list_executions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_executions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_executions_errors()}
-  def list_executions(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        state \\ nil,
-        task_id,
-        options \\ []
-      ) do
+  def list_executions(%Client{} = client, task_id, options \\ []) do
     url_path = "/executions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, state: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"taskId", task_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(task_id) do
-        [{"taskId", task_id} | query_params]
+      if opt_val = Keyword.get(options, :state) do
+        [{"state", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(state) do
-        [{"state", state} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :state])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of tags for a managed device or task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the device or task.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of tasks that can be filtered by state.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20ListTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of tasks per page.
+  * `:next_token` (`t:string`) A pagination token to continue to the next page of
+    tasks.
+  * `:state` (`t:string`) A structure used to filter the list of tasks.
   """
-  @spec list_tasks(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tasks_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tasks_errors()}
-  def list_tasks(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        state \\ nil,
-        options \\ []
-      ) do
+  def list_tasks(%Client{} = client, options \\ []) do
     url_path = "/tasks"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, state: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(state) do
-        [{"state", state} | query_params]
+      if opt_val = Keyword.get(options, :state) do
+        [{"state", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :state])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Adds or replaces tags on a device or task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the device or task.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1087,7 +1256,8 @@ defmodule AWS.SnowDeviceManagement do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1104,8 +1274,18 @@ defmodule AWS.SnowDeviceManagement do
 
   @doc """
   Removes a tag from a device or task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the device or task.
+  * `:tag_keys` (`t:list[smithy.api#String]`) Optional metadata that you assign to
+    a resource. You can use tags to categorize a resource in different ways,
+    such as by purpose, owner, or environment.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1119,7 +1299,8 @@ defmodule AWS.SnowDeviceManagement do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

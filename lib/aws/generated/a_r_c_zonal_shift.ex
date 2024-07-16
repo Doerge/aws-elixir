@@ -3,50 +3,13 @@
 
 defmodule AWS.ARCZonalShift do
   @moduledoc """
-  Welcome to the Zonal Shift API Reference Guide for Amazon Route 53 Application
-  Recovery Controller (Route 53 ARC).
-
-  You can start a zonal shift to move traffic for a load balancer resource away
-  from an Availability Zone to
-  help your application recover quickly from an impairment in an Availability
-  Zone. For example,
-  you can recover your application from a developer's bad code deployment or from
-  an
-  Amazon Web Services infrastructure failure in a single Availability Zone.
-
-  You can also configure zonal autoshift for a load balancer resource. Zonal
-  autoshift
-  is a capability in Route 53 ARC where Amazon Web Services shifts away
-  application resource
-  traffic from an Availability Zone, on your behalf, to help reduce your time to
-  recovery during events.
-  Amazon Web Services shifts away traffic for resources that are enabled for zonal
-  autoshift whenever Amazon Web Services
-  determines that there's an issue in the Availability Zone that could potentially
-  affect
-  customers.
-
-  To ensure that zonal autoshift is safe for your application, you must
-  also configure practice runs when you enable zonal autoshift for a resource.
-  Practice runs start
-  weekly zonal shifts for a resource, to shift
-  traffic for the resource out of an Availability Zone. Practice runs make sure,
-  on a regular basis,
-  that you have enough capacity in all the Availability Zones in an Amazon Web
-  Services Region
-  for your application to continue to operate normally
-  when traffic for a resource is shifted away from one Availability Zone.
-
-  You must prescale resource capacity in all Availability Zones in the Region
-  where your application is deployed, before you configure practice runs or enable
-  zonal autoshift
-  for a resource. You should not rely on scaling on demand when an autoshift or
-  practice run
-  starts.
-
-  For more information about using zonal shift and zonal autoshift, see the
-  [Amazon Route 53 Application Recovery Controller Developer
-  Guide](https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route53-recovery.html).
+  Welcome to the API Reference Guide for zonal shift and zonal autoshift in Amazon
+  Route 53 Application Recovery Controller (Route 53 ARC). You can start a zonal
+  shift to move traffic for a load balancer resource away from an Availability
+  Zone to help your application recover quickly from an impairment in an
+  Availability Zone. For example, you can recover your application from a
+  developer's bad code deployment or from an Amazon Web Services infrastructure
+  failure in a single Availability Zone.
   """
 
   alias AWS.Client
@@ -238,7 +201,7 @@ defmodule AWS.ARCZonalShift do
 
       conflict_exception() :: %{
         "message" => [String.t()],
-        "reason" => String.t(),
+        "reason" => list(any()),
         "zonalShiftId" => [String.t()]
       }
 
@@ -328,6 +291,17 @@ defmodule AWS.ARCZonalShift do
 
   ## Example:
 
+      update_autoshift_observer_notification_status_response() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type update_autoshift_observer_notification_status_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_practice_run_configuration_response() :: %{
         "arn" => String.t(),
         "name" => String.t(),
@@ -348,6 +322,28 @@ defmodule AWS.ARCZonalShift do
 
   """
   @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_autoshift_observer_notification_status_request() :: %{
+        required("status") => list(any())
+      }
+
+  """
+  @type update_autoshift_observer_notification_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_autoshift_observer_notification_status_response() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type get_autoshift_observer_notification_status_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -460,6 +456,15 @@ defmodule AWS.ARCZonalShift do
 
   ## Example:
 
+      get_autoshift_observer_notification_status_request() :: %{}
+
+  """
+  @type get_autoshift_observer_notification_status_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       practice_run_configuration() :: %{
         "blockedDates" => list(String.t()()),
         "blockedWindows" => list(String.t()()),
@@ -507,6 +512,9 @@ defmodule AWS.ARCZonalShift do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type get_autoshift_observer_notification_status_errors() ::
+          throttling_exception() | access_denied_exception() | internal_server_exception()
+
   @type get_managed_resource_errors() ::
           throttling_exception()
           | validation_exception()
@@ -539,6 +547,12 @@ defmodule AWS.ARCZonalShift do
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type update_autoshift_observer_notification_status_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type update_practice_run_configuration_errors() ::
           throttling_exception()
@@ -581,17 +595,18 @@ defmodule AWS.ARCZonalShift do
   end
 
   @doc """
-  Cancel a zonal shift in Amazon Route 53 Application Recovery Controller.
+  Cancel a zonal shift in Amazon Route 53 Application Recovery Controller. To
+  cancel the zonal shift, specify the zonal shift ID.
 
-  To cancel the zonal shift, specify the zonal shift ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20CancelZonalShift&this_doc_guide=API%2520Reference)
 
-  A zonal shift can be one that you've started for a resource in your Amazon Web
-  Services account
-  in an Amazon Web Services Region, or it can be a zonal shift started by a
-  practice run with zonal
-  autoshift.
+  ## Parameters:
+  * `:zonal_shift_id` (`t:string`) The internally-generated identifier of a zonal
+    shift.
+
+  ## Optional parameters:
   """
-  @spec cancel_zonal_shift(map(), String.t(), cancel_zonal_shift_request(), list()) ::
+  @spec cancel_zonal_shift(AWS.Client.t(), String.t(), cancel_zonal_shift_request(), Keyword.t()) ::
           {:ok, zonal_shift(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_zonal_shift_errors()}
@@ -600,7 +615,8 @@ defmodule AWS.ARCZonalShift do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -617,25 +633,26 @@ defmodule AWS.ARCZonalShift do
 
   @doc """
   A practice run configuration for zonal autoshift is required when you enable
-  zonal autoshift.
-
-  A practice run configuration includes specifications for blocked dates and
-  blocked time windows,
-  and for Amazon CloudWatch alarms that you create to use with practice runs. The
-  alarms that you specify are an
+  zonal autoshift. A practice run configuration includes specifications for
+  blocked dates and blocked time windows, and for Amazon CloudWatch alarms that
+  you create to use with practice runs. The alarms that you specify are an
   *outcome alarm*, to monitor application health during practice runs and,
-  optionally, a *blocking alarm*, to block practice runs from starting.
+  optionally, a *blocking alarm*, to block practice runs from starting. When a
+  resource has a practice run configuration, Route 53 ARC starts zonal shifts
+  for the resource weekly, to shift traffic for practice runs. Practice runs
+  help you to ensure that shifting away traffic from an Availability Zone during
+  an autoshift is safe for your application.
 
-  For more information, see
-  [
-  Considerations when you configure zonal
-  autoshift](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html)
-  in the Amazon Route 53 Application Recovery Controller Developer Guide.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20CreatePracticeRunConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_practice_run_configuration(
-          map(),
+          AWS.Client.t(),
           create_practice_run_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_practice_run_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -645,7 +662,8 @@ defmodule AWS.ARCZonalShift do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -661,19 +679,25 @@ defmodule AWS.ARCZonalShift do
   end
 
   @doc """
-  Deletes the practice run configuration for a resource.
-
-  Before you can delete
-  a practice run configuration for a resource., you must disable zonal autoshift
-  for
-  the resource. Practice runs must be configured for zonal autoshift to be
+  Deletes the practice run configuration for a resource. Before you can delete a
+  practice run configuration for a resource., you must disable zonal autoshift
+  for the resource. Practice runs must be configured for zonal autoshift to be
   enabled.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20DeletePracticeRunConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_identifier` (`t:string`) The identifier for the resource that you
+    want to delete the practice run configuration for. The identifier is the
+    Amazon Resource Name (ARN) for the resource.
+
+  ## Optional parameters:
   """
   @spec delete_practice_run_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_practice_run_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_practice_run_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -688,7 +712,8 @@ defmodule AWS.ARCZonalShift do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -704,116 +729,243 @@ defmodule AWS.ARCZonalShift do
   end
 
   @doc """
-  Get information about a resource that's been registered for zonal shifts with
-  Amazon Route 53 Application Recovery Controller in this Amazon Web Services
-  Region.
+  Returns the status of autoshift observer notification. Autoshift observer
+  notification enables you to be notified, through Amazon EventBridge, when
+  there is an autoshift event for zonal autoshift. If the status is `ENABLED`,
+  Route 53 ARC includes all autoshift events when you use the EventBridge
+  pattern `Autoshift In Progress`. When the status is `DISABLED`, Route 53 ARC
+  includes only autoshift events for autoshifts when one or more of your
+  resources is included in the autoshift.
 
-  Resources that are registered for
-  zonal shifts are managed resources in Route 53 ARC. You can start zonal shifts
-  and configure zonal autoshift for managed resources.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20GetAutoshiftObserverNotificationStatus&this_doc_guide=API%2520Reference)
 
-  At this time, you can only start a zonal shift or configure zonal autoshift for
-  Network Load Balancers and Application Load Balancers with cross-zone load
-  balancing turned off.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_managed_resource(map(), String.t(), list()) ::
-          {:ok, get_managed_resource_response(), any()}
+  @spec get_autoshift_observer_notification_status(AWS.Client.t(), Keyword.t()) ::
+          {:ok, get_autoshift_observer_notification_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, get_managed_resource_errors()}
-  def get_managed_resource(%Client{} = client, resource_identifier, options \\ []) do
-    url_path = "/managedresources/#{AWS.Util.encode_uri(resource_identifier)}"
+          | {:error, get_autoshift_observer_notification_status_errors()}
+  def get_autoshift_observer_notification_status(%Client{} = client, options \\ []) do
+    url_path = "/autoshift-observer-notification"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns the active autoshifts for a specified resource.
+  Get information about a resource that's been registered for zonal shifts with
+  Amazon Route 53 Application Recovery Controller in this Amazon Web Services
+  Region. Resources that are registered for zonal shifts are managed resources
+  in Route 53 ARC. You can start zonal shifts and configure zonal autoshift for
+  managed resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20GetManagedResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_identifier` (`t:string`) The identifier for the resource that
+    Amazon Web Services shifts traffic for. The identifier is the Amazon
+    Resource Name (ARN) for the resource.
+
+  ## Optional parameters:
   """
-  @spec list_autoshifts(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec get_managed_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_managed_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_managed_resource_errors()}
+  def get_managed_resource(%Client{} = client, resource_identifier, options \\ []) do
+    url_path = "/managedresources/#{AWS.Util.encode_uri(resource_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = []
+
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+
+    meta =
+      metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of autoshifts for an Amazon Web Services Region. By default, the
+  call returns only `ACTIVE` autoshifts. Optionally, you can specify the
+  `status` parameter to return `COMPLETED` autoshifts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20ListAutoshifts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:`) Specifies that you want to receive the next page of
+    results. Valid only if you received a NextToken response in the previous
+    request. If you did, it indicates that more output is available. Set this
+    parameter to the value provided by the previous call's NextToken response to
+    request the next page of results.
+  * `:status` (`t:enum["ACTIVE|COMPLETED"]`) The status of the autoshift.
+  """
+  @spec list_autoshifts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_autoshifts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_autoshifts_errors()}
-  def list_autoshifts(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_autoshifts(%Client{} = client, options \\ []) do
     url_path = "/autoshifts"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all the resources in your Amazon Web Services account in this Amazon Web
-  Services Region that are managed for
-  zonal shifts in Amazon Route 53 Application Recovery Controller, and information
-  about them.
+  Services Region that are managed for zonal shifts in Amazon Route 53
+  Application Recovery Controller, and information about them. The information
+  includes the zonal autoshift status for the resource, as well as the Amazon
+  Resource Name (ARN), the Availability Zones that each resource is deployed in,
+  and the resource name.
 
-  The information includes the zonal autoshift status for the resource,
-  as well as the Amazon Resource Name (ARN), the Availability Zones that each
-  resource is deployed in, and
-  the resource name.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20ListManagedResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:`) Specifies that you want to receive the next page of
+    results. Valid only if you received a NextToken response in the previous
+    request. If you did, it indicates that more output is available. Set this
+    parameter to the value provided by the previous call's NextToken response to
+    request the next page of results.
   """
-  @spec list_managed_resources(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_managed_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_managed_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_managed_resources_errors()}
-  def list_managed_resources(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_managed_resources(%Client{} = client, options \\ []) do
     url_path = "/managedresources"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -821,98 +973,110 @@ defmodule AWS.ARCZonalShift do
   @doc """
   Lists all active and completed zonal shifts in Amazon Route 53 Application
   Recovery Controller in your Amazon Web Services account in this Amazon Web
-  Services Region.
+  Services Region. `ListZonalShifts` returns customer-initiated zonal shifts, as
+  well as practice run zonal shifts that Route 53 ARC started on your behalf for
+  zonal autoshift.
 
-  `ListZonalShifts` returns customer-started zonal shifts, as well as practice run
-  zonal shifts that Route 53 ARC started on
-  your behalf for zonal autoshift.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20ListZonalShifts&this_doc_guide=API%2520Reference)
 
-  The `ListZonalShifts` operation does not list autoshifts. For more information
-  about listing
-  autoshifts, see
-  [">ListAutoshifts](https://docs.aws.amazon.com/arc-zonal-shift/latest/api/API_ListAutoshifts.html).
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:`) Specifies that you want to receive the next page of
+    results. Valid only if you received a NextToken response in the previous
+    request. If you did, it indicates that more output is available. Set this
+    parameter to the value provided by the previous call's NextToken response to
+    request the next page of results.
+  * `:resource_identifier` (`t:string`) The identifier for the resource that you
+    want to list zonal shifts for. The identifier is the Amazon Resource Name
+    (ARN) for the resource.
+  * `:status` (`t:enum["ACTIVE|CANCELED|EXPIRED"]`) A status for a zonal shift.
   """
-  @spec list_zonal_shifts(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_zonal_shifts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_zonal_shifts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_zonal_shifts_errors()}
-  def list_zonal_shifts(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        resource_identifier \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_zonal_shifts(%Client{} = client, options \\ []) do
     url_path = "/zonalshifts"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, resource_identifier: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(resource_identifier) do
-        [{"resourceIdentifier", resource_identifier} | query_params]
+      if opt_val = Keyword.get(options, :resource_identifier) do
+        [{"resourceIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :resource_identifier, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   You start a zonal shift to temporarily move load balancer traffic away from an
-  Availability Zone in an Amazon Web Services Region,
-  to help your application recover immediately, for example, from a developer's
-  bad code deployment or from an Amazon Web Services
-  infrastructure failure in a single Availability Zone.
+  Availability Zone in an Amazon Web Services Region, to help your application
+  recover immediately, for example, from a developer's bad code deployment or
+  from an Amazon Web Services infrastructure failure in a single Availability
+  Zone. You can start a zonal shift in Route 53 ARC only for managed resources
+  in your Amazon Web Services account in an Amazon Web Services Region.
+  Resources are automatically registered with Route 53 ARC by Amazon Web
+  Services services. At this time, you can only start a zonal shift for Network
+  Load Balancers and Application Load Balancers with cross-zone load balancing
+  turned off.
 
-  You can start a zonal shift in Route 53 ARC only for managed
-  resources in your Amazon Web Services account in an Amazon Web Services Region.
-  Resources are automatically registered with Route 53 ARC
-  by Amazon Web Services services.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20StartZonalShift&this_doc_guide=API%2520Reference)
 
-  At this time, you can only start a zonal shift for Network Load Balancers and
-  Application Load Balancers with cross-zone load balancing turned off.
+  ## Parameters:
 
-  When you start a zonal shift, traffic for the resource is no longer routed to
-  the Availability Zone. The
-  zonal shift is created immediately in Route 53 ARC. However, it can take a short
-  time, typically up to a few minutes,
-  for existing, in-progress connections in the Availability Zone to complete.
-
-  For more information, see [Zonal shift](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.html)
-  in the Amazon Route 53 Application Recovery Controller Developer Guide.
+  ## Optional parameters:
   """
-  @spec start_zonal_shift(map(), start_zonal_shift_request(), list()) ::
+  @spec start_zonal_shift(AWS.Client.t(), start_zonal_shift_request(), Keyword.t()) ::
           {:ok, zonal_shift(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_zonal_shift_errors()}
@@ -921,7 +1085,8 @@ defmodule AWS.ARCZonalShift do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -937,15 +1102,58 @@ defmodule AWS.ARCZonalShift do
   end
 
   @doc """
+  Update the status of autoshift observer notification. Autoshift observer
+  notification enables you to be notified, through Amazon EventBridge, when
+  there is an autoshift event for zonal autoshift. If the status is `ENABLED`,
+  Route 53 ARC includes all autoshift events when you use the EventBridge
+  pattern `Autoshift In Progress`. When the status is `DISABLED`, Route 53 ARC
+  includes only autoshift events for autoshifts when one or more of your
+  resources is included in the autoshift.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20UpdateAutoshiftObserverNotificationStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  """
+  @spec update_autoshift_observer_notification_status(
+          AWS.Client.t(),
+          update_autoshift_observer_notification_status_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_autoshift_observer_notification_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_autoshift_observer_notification_status_errors()}
+  def update_autoshift_observer_notification_status(%Client{} = client, input, options \\ []) do
+    url_path = "/autoshift-observer-notification"
+    headers = []
+    query_params = []
+
+    meta =
+      metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
   Update a practice run configuration to change one or more of the following: add,
-  change, or remove the blocking alarm; change the outcome alarm; or add, change,
-  or remove blocking dates or time windows.
+  change, or remove the blocking alarm; change the outcome alarm; or add,
+  change, or remove blocking dates or time windows.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20UpdatePracticeRunConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_identifier` (`t:string`) The identifier for the resource that you
+    want to update the practice run configuration for. The identifier is the
+    Amazon Resource Name (ARN) for the resource.
+
+  ## Optional parameters:
   """
   @spec update_practice_run_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_practice_run_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_practice_run_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -960,7 +1168,8 @@ defmodule AWS.ARCZonalShift do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -976,21 +1185,27 @@ defmodule AWS.ARCZonalShift do
   end
 
   @doc """
-  You can update the zonal autoshift status for a resource, to enable or disable
-  zonal
-  autoshift.
+  The zonal autoshift configuration for a resource includes the practice run
+  configuration and the status for running autoshifts, zonal autoshift status.
+  When a resource has a practice run configuation, Route 53 ARC starts weekly
+  zonal shifts for the resource, to shift traffic away from an Availability
+  Zone. Weekly practice runs help you to make sure that your application can
+  continue to operate normally with the loss of one Availability Zone.
 
-  When zonal autoshift is `ENABLED`, Amazon Web Services shifts away
-  resource traffic from an Availability Zone, on your behalf, when Amazon Web
-  Services
-  determines that there's an issue in the Availability Zone that could potentially
-  affect customers.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20UpdateZonalAutoshiftConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_identifier` (`t:string`) The identifier for the resource that you
+    want to update the zonal autoshift configuration for. The identifier is the
+    Amazon Resource Name (ARN) for the resource.
+
+  ## Optional parameters:
   """
   @spec update_zonal_autoshift_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_zonal_autoshift_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_zonal_autoshift_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1005,19 +1220,25 @@ defmodule AWS.ARCZonalShift do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Update an active zonal shift in Amazon Route 53 Application Recovery Controller
-  in your Amazon Web Services account.
+  in your Amazon Web Services account. You can update a zonal shift to set a new
+  expiration, or edit or replace the comment for the zonal shift.
 
-  You can update a zonal shift to set a new expiration, or
-  edit or replace the comment for the zonal shift.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20UpdateZonalShift&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:zonal_shift_id` (`t:string`) The identifier of a zonal shift.
+
+  ## Optional parameters:
   """
-  @spec update_zonal_shift(map(), String.t(), update_zonal_shift_request(), list()) ::
+  @spec update_zonal_shift(AWS.Client.t(), String.t(), update_zonal_shift_request(), Keyword.t()) ::
           {:ok, zonal_shift(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_zonal_shift_errors()}
@@ -1026,7 +1247,8 @@ defmodule AWS.ARCZonalShift do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

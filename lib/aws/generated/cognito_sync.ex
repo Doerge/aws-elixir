@@ -3,34 +3,15 @@
 
 defmodule AWS.CognitoSync do
   @moduledoc """
-  Amazon Cognito Sync
-
-  Amazon Cognito Sync provides an AWS service and client library that enable
-  cross-device syncing of
-  application-related user data.
-
-  High-level client libraries are available for both iOS and
-  Android. You can use these libraries to persist data locally so that it's
-  available even if
-  the device is offline. Developer credentials don't need to be stored on the
-  mobile device
-  to access the service. You can use Amazon Cognito to obtain a normalized user ID
-  and
-  credentials. User data is persisted in a dataset that can store up to 1 MB of
-  key-value
-  pairs, and you can have up to 20 datasets per user identity.
-
-  With Amazon Cognito Sync, the data stored for each identity is accessible only
-  to
-  credentials assigned to that identity. In order to use the Cognito Sync service,
-  you need
-  to make API calls using credentials retrieved with [Amazon Cognito Identity service](http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html).
-
-  If you want to use Cognito Sync in an Android or iOS application, you will
-  probably want to
-  make API calls via the AWS Mobile SDK. To learn more, see the [Developer Guide for
-  Android](http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/cognito-sync.html)
-  and the [Developer Guide for iOS](http://docs.aws.amazon.com/mobile/sdkforios/developerguide/cognito-sync.html).
+  Amazon Cognito Sync Amazon Cognito Sync provides an AWS service and client
+  library that enable cross-device syncing of application-related user data.
+  High-level client libraries are available for both iOS and Android. You can
+  use these libraries to persist data locally so that it's available even if the
+  device is offline. Developer credentials don't need to be stored on the mobile
+  device to access the service. You can use Amazon Cognito to obtain a
+  normalized user ID and credentials. User data is persisted in a dataset that
+  can store up to 1 MB of key-value pairs, and you can have up to 20 datasets
+  per user identity.
   """
 
   alias AWS.Client
@@ -794,16 +775,18 @@ defmodule AWS.CognitoSync do
 
   @doc """
   Initiates a bulk publish of all existing datasets for an Identity Pool to the
-  configured stream.
+  configured stream. Customers are limited to one successful bulk publish per 24
+  hours. Bulk publish is an asynchronous request, customers can see the status
+  of the request via the GetBulkPublishDetails operation.
 
-  Customers are limited to one successful bulk publish per 24 hours. Bulk publish
-  is an asynchronous request, customers can see the status of the request via the
-  GetBulkPublishDetails operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20BulkPublish&this_doc_guide=API%2520Reference)
 
-  This API can only be called with developer credentials. You cannot call this API
-  with the temporary user credentials provided by Cognito Identity.
+  ## Parameters:
+  * `:identity_pool_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec bulk_publish(map(), String.t(), bulk_publish_request(), list()) ::
+  @spec bulk_publish(AWS.Client.t(), String.t(), bulk_publish_request(), Keyword.t()) ::
           {:ok, bulk_publish_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, bulk_publish_errors()}
@@ -812,7 +795,8 @@ defmodule AWS.CognitoSync do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -828,24 +812,27 @@ defmodule AWS.CognitoSync do
   end
 
   @doc """
-  Deletes the specific dataset.
+  Deletes the specific dataset. The dataset will be deleted permanently, and the
+  action can't be undone. Datasets that this dataset was merged with will no
+  longer report the merge. Any subsequent operation on this dataset will result
+  in a ResourceNotFoundException.
 
-  The dataset will be deleted permanently, and the action can't
-  be undone. Datasets that this dataset was merged with will no longer report the
-  merge. Any
-  subsequent operation on this dataset will result in a
-  ResourceNotFoundException.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20DeleteDataset&this_doc_guide=API%2520Reference)
 
-  This API can be called with temporary user credentials provided by Cognito
-  Identity or with developer credentials.
+  ## Parameters:
+  * `:dataset_name` (`t:string`)
+  * `:identity_id` (`t:string`)
+  * `:identity_pool_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec delete_dataset(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_dataset_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -864,7 +851,8 @@ defmodule AWS.CognitoSync do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -880,18 +868,20 @@ defmodule AWS.CognitoSync do
   end
 
   @doc """
-  Gets meta data about a dataset by identity and dataset name.
+  Gets meta data about a dataset by identity and dataset name. With Amazon Cognito
+  Sync, each identity has access only to its own data. Thus, the credentials
+  used to make this API call need to have access to the identity data.
 
-  With Amazon Cognito Sync, each
-  identity has access only to its own data. Thus, the credentials used to make
-  this API call
-  need to have access to the identity data.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20DescribeDataset&this_doc_guide=API%2520Reference)
 
-  This API can be called with temporary user credentials provided by Cognito
-  Identity or with developer credentials. You should use Cognito Identity
-  credentials to make this API call.
+  ## Parameters:
+  * `:dataset_name` (`t:string`)
+  * `:identity_id` (`t:string`)
+  * `:identity_pool_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec describe_dataset(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_dataset(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dataset_errors()}
@@ -905,146 +895,89 @@ defmodule AWS.CognitoSync do
     url_path =
       "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}/datasets/#{AWS.Util.encode_uri(dataset_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets usage details (for example, data storage) about a particular identity pool.
+  This API can only be called with developer credentials. You cannot call this
+  API with the temporary user credentials provided by Cognito Identity.
 
-  This API can only be called with developer credentials. You cannot call this API
-  with the temporary user credentials provided by Cognito Identity.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20DescribeIdentityPoolUsage&this_doc_guide=API%2520Reference)
 
-  <examples>
-  <example>
-  <name>DescribeIdentityPoolUsage</name>
-  <description>The following examples have been edited for
-  readability.</description>
-  <request>
-  POST / HTTP/1.1
-  CONTENT-TYPE: application/json
-  X-AMZN-REQUESTID: 8dc0e749-c8cd-48bd-8520-da6be00d528b
-  X-AMZ-TARGET:
-  com.amazonaws.cognito.sync.model.AWSCognitoSyncService.DescribeIdentityPoolUsage
-  HOST: cognito-sync.us-east-1.amazonaws.com:443
-  X-AMZ-DATE: 20141111T205737Z
-  AUTHORIZATION: AWS4-HMAC-SHA256 Credential=<credential>,
-  SignedHeaders=content-type;host;x-amz-date;x-amz-target;x-amzn-requestid,
-  Signature=<signature>
+  ## Parameters:
+  * `:identity_pool_id` (`t:string`)
 
-  {
-  "Operation": "com.amazonaws.cognito.sync.model#DescribeIdentityPoolUsage",
-  "Service": "com.amazonaws.cognito.sync.model#AWSCognitoSyncService",
-  "Input":
-  {
-  "IdentityPoolId": "IDENTITY_POOL_ID"
-  }
-  }
-  </signature></credential></request>
-  <response>
-  1.1 200 OK
-  x-amzn-requestid: 8dc0e749-c8cd-48bd-8520-da6be00d528b
-  content-type: application/json
-  content-length: 271
-  date: Tue, 11 Nov 2014 20:57:37 GMT
-
-  {
-  "Output":
-  {
-  "__type": "com.amazonaws.cognito.sync.model#DescribeIdentityPoolUsageResponse",
-  "IdentityPoolUsage":
-  {
-  "DataStorage": 0,
-  "IdentityPoolId": "IDENTITY_POOL_ID",
-  "LastModifiedDate": 1.413231134115E9,
-  "SyncSessionsCount": null
-  }
-  },
-  "Version": "1.0"
-  }
-  </response>
-  </example>
-  </examples>
+  ## Optional parameters:
   """
-  @spec describe_identity_pool_usage(map(), String.t(), list()) ::
+  @spec describe_identity_pool_usage(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_identity_pool_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_identity_pool_usage_errors()}
   def describe_identity_pool_usage(%Client{} = client, identity_pool_id, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets usage information for an identity, including number of datasets and data
-  usage.
+  usage. This API can be called with temporary user credentials provided by
+  Cognito Identity or with developer credentials.
 
-  This API can be called with temporary user credentials provided by Cognito
-  Identity or with developer credentials.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20DescribeIdentityUsage&this_doc_guide=API%2520Reference)
 
-  <examples>
-  <example>
-  <name>DescribeIdentityUsage</name>
-  <description>The following examples have been edited for
-  readability.</description>
-  <request>
-  POST / HTTP/1.1
-  CONTENT-TYPE: application/json
-  X-AMZN-REQUESTID: 33f9b4e4-a177-4aad-a3bb-6edb7980b283
-  X-AMZ-TARGET:
-  com.amazonaws.cognito.sync.model.AWSCognitoSyncService.DescribeIdentityUsage
-  HOST: cognito-sync.us-east-1.amazonaws.com:443
-  X-AMZ-DATE: 20141111T215129Z
-  AUTHORIZATION: AWS4-HMAC-SHA256 Credential=<credential>,
-  SignedHeaders=content-type;host;x-amz-date;x-amz-target;x-amzn-requestid,
-  Signature=<signature>
+  ## Parameters:
+  * `:identity_id` (`t:string`)
+  * `:identity_pool_id` (`t:string`)
 
-  {
-  "Operation": "com.amazonaws.cognito.sync.model#DescribeIdentityUsage",
-  "Service": "com.amazonaws.cognito.sync.model#AWSCognitoSyncService",
-  "Input":
-  {
-  "IdentityPoolId": "IDENTITY_POOL_ID",
-  "IdentityId": "IDENTITY_ID"
-  }
-  }
-  </signature></credential></request>
-  <response>
-  1.1 200 OK
-  x-amzn-requestid: 33f9b4e4-a177-4aad-a3bb-6edb7980b283
-  content-type: application/json
-  content-length: 318
-  date: Tue, 11 Nov 2014 21:51:29 GMT
-
-  {
-  "Output":
-  {
-  "__type": "com.amazonaws.cognito.sync.model#DescribeIdentityUsageResponse",
-  "IdentityUsage":
-  {
-  "DataStorage": 16,
-  "DatasetCount": 1,
-  "IdentityId": "IDENTITY_ID",
-  "IdentityPoolId": "IDENTITY_POOL_ID",
-  "LastModifiedDate": 1.412974081336E9
-  }
-  },
-  "Version": "1.0"
-  }
-  </response>
-  </example>
-  </examples>
+  ## Optional parameters:
   """
-  @spec describe_identity_usage(map(), String.t(), String.t(), list()) ::
+  @spec describe_identity_usage(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_identity_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_identity_usage_errors()}
@@ -1052,10 +985,27 @@ defmodule AWS.CognitoSync do
     url_path =
       "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1063,10 +1013,19 @@ defmodule AWS.CognitoSync do
   @doc """
   Get the status of the last BulkPublish operation for an identity pool.
 
-  This API can only be called with developer credentials. You cannot call this API
-  with the temporary user credentials provided by Cognito Identity.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20GetBulkPublishDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identity_pool_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_bulk_publish_details(map(), String.t(), get_bulk_publish_details_request(), list()) ::
+  @spec get_bulk_publish_details(
+          AWS.Client.t(),
+          String.t(),
+          get_bulk_publish_details_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_bulk_publish_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bulk_publish_details_errors()}
@@ -1075,7 +1034,8 @@ defmodule AWS.CognitoSync do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1094,493 +1054,336 @@ defmodule AWS.CognitoSync do
   Gets the events and the corresponding Lambda functions associated with an
   identity pool.
 
-  This API can only be called with developer credentials. You cannot call this API
-  with the temporary user credentials provided by Cognito Identity.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20GetCognitoEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identity_pool_id` (`t:string`) The Cognito Identity Pool ID for the request
+
+  ## Optional parameters:
   """
-  @spec get_cognito_events(map(), String.t(), list()) ::
+  @spec get_cognito_events(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cognito_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cognito_events_errors()}
   def get_cognito_events(%Client{} = client, identity_pool_id, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/events"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets the configuration settings of an identity pool.
+  Gets the configuration settings of an identity pool. This API can only be called
+  with developer credentials. You cannot call this API with the temporary user
+  credentials provided by Cognito Identity.
 
-  This API can only be called with developer credentials. You cannot call this API
-  with the temporary user credentials provided by Cognito Identity.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20GetIdentityPoolConfiguration&this_doc_guide=API%2520Reference)
 
-  <examples>
-  <example>
-  <name>GetIdentityPoolConfiguration</name>
-  <description>The following examples have been edited for
-  readability.</description>
-  <request>
-  POST / HTTP/1.1
-  CONTENT-TYPE: application/json
-  X-AMZN-REQUESTID: b1cfdd4b-f620-4fe4-be0f-02024a1d33da
-  X-AMZ-TARGET:
-  com.amazonaws.cognito.sync.model.AWSCognitoSyncService.GetIdentityPoolConfiguration
-  HOST: cognito-sync.us-east-1.amazonaws.com
-  X-AMZ-DATE: 20141004T195722Z
-  AUTHORIZATION: AWS4-HMAC-SHA256 Credential=<credential>,
-  SignedHeaders=content-type;content-length;host;x-amz-date;x-amz-target,
-  Signature=<signature>
+  ## Parameters:
+  * `:identity_pool_id` (`t:string`) A name-spaced GUID (for example,
+    us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+    This is the ID of the pool for which to return a configuration.
 
-  {
-  "Operation": "com.amazonaws.cognito.sync.model#GetIdentityPoolConfiguration",
-  "Service": "com.amazonaws.cognito.sync.model#AWSCognitoSyncService",
-  "Input":
-  {
-  "IdentityPoolId": "ID_POOL_ID"
-  }
-  }
-
-  </signature></credential></request>
-  <response>
-  1.1 200 OK
-  x-amzn-requestid: b1cfdd4b-f620-4fe4-be0f-02024a1d33da
-  date: Sat, 04 Oct 2014 19:57:22 GMT
-  content-type: application/json
-  content-length: 332
-
-  {
-  "Output":
-  {
-  "__type":
-  "com.amazonaws.cognito.sync.model#GetIdentityPoolConfigurationResponse",
-  "IdentityPoolId": "ID_POOL_ID",
-  "PushSync":
-  {
-  "ApplicationArns": ["PLATFORMARN1", "PLATFORMARN2"],
-  "RoleArn": "ROLEARN"
-  }
-  },
-  "Version": "1.0"
-  }
-  </response>
-  </example>
-  </examples>
+  ## Optional parameters:
   """
-  @spec get_identity_pool_configuration(map(), String.t(), list()) ::
+  @spec get_identity_pool_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_identity_pool_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_identity_pool_configuration_errors()}
   def get_identity_pool_configuration(%Client{} = client, identity_pool_id, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists datasets for an identity.
+  Lists datasets for an identity. With Amazon Cognito Sync, each identity has
+  access only to its own data. Thus, the credentials used to make this API call
+  need to have access to the identity data. ListDatasets can be called with
+  temporary user credentials provided by Cognito Identity or with developer
+  credentials. You should use the Cognito Identity credentials to make this API
+  call.
 
-  With Amazon Cognito Sync, each identity has access only to
-  its own data. Thus, the credentials used to make this API call need to have
-  access to the
-  identity data.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20ListDatasets&this_doc_guide=API%2520Reference)
 
-  ListDatasets can be called with temporary user credentials provided by Cognito
-  Identity or with developer credentials. You should use the Cognito Identity
-  credentials to
-  make this API call.
+  ## Parameters:
+  * `:identity_id` (`t:string`)
+  * `:identity_pool_id` (`t:string`)
 
-  <examples>
-  <example>
-  <name>ListDatasets</name>
-  <description>The following examples have been edited for
-  readability.</description>
-  <request>
-  POST / HTTP/1.1
-  CONTENT-TYPE: application/json
-  X-AMZN-REQUESTID: 15225768-209f-4078-aaed-7494ace9f2db
-  X-AMZ-TARGET:
-  com.amazonaws.cognito.sync.model.AWSCognitoSyncService.ListDatasets
-  HOST: cognito-sync.us-east-1.amazonaws.com:443
-  X-AMZ-DATE: 20141111T215640Z
-  AUTHORIZATION: AWS4-HMAC-SHA256 Credential=<credential>,
-  SignedHeaders=content-type;host;x-amz-date;x-amz-target;x-amzn-requestid,
-  Signature=<signature>
-
-  {
-  "Operation": "com.amazonaws.cognito.sync.model#ListDatasets",
-  "Service": "com.amazonaws.cognito.sync.model#AWSCognitoSyncService",
-  "Input":
-  {
-  "IdentityPoolId": "IDENTITY_POOL_ID",
-  "IdentityId": "IDENTITY_ID",
-  "MaxResults": "3"
-  }
-  }
-  </signature></credential></request>
-  <response>
-  1.1 200 OK
-  x-amzn-requestid: 15225768-209f-4078-aaed-7494ace9f2db,
-  15225768-209f-4078-aaed-7494ace9f2db
-  content-type: application/json
-  content-length: 355
-  date: Tue, 11 Nov 2014 21:56:40 GMT
-
-  {
-  "Output":
-  {
-  "__type": "com.amazonaws.cognito.sync.model#ListDatasetsResponse",
-  "Count": 1,
-  "Datasets": [
-  {
-  "CreationDate": 1.412974057151E9,
-  "DataStorage": 16,
-  "DatasetName": "my_list",
-  "IdentityId": "IDENTITY_ID",
-  "LastModifiedBy": "123456789012",
-  "LastModifiedDate": 1.412974057244E9,
-  "NumRecords": 1
-  }],
-  "NextToken": null
-  },
-  "Version": "1.0"
-  }
-  </response>
-  </example>
-  </examples>
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_datasets(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_datasets(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_datasets_errors()}
-  def list_datasets(
-        %Client{} = client,
-        identity_id,
-        identity_pool_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_datasets(%Client{} = client, identity_id, identity_pool_id, options \\ []) do
     url_path =
       "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}/datasets"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets a list of identity pools registered with Cognito.
+  Gets a list of identity pools registered with Cognito. ListIdentityPoolUsage can
+  only be called with developer credentials. You cannot make this API call with
+  the temporary user credentials provided by Cognito Identity.
 
-  ListIdentityPoolUsage can only be called with developer credentials. You
-  cannot make this API call with the temporary user credentials provided by
-  Cognito
-  Identity.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20ListIdentityPoolUsage&this_doc_guide=API%2520Reference)
 
-  <examples>
-  <example>
-  <name>ListIdentityPoolUsage</name>
-  <description>The following examples have been edited for
-  readability.</description>
-  <request>
-  POST / HTTP/1.1
-  CONTENT-TYPE: application/json
-  X-AMZN-REQUESTID: 9be7c425-ef05-48c0-aef3-9f0ff2fe17d3
-  X-AMZ-TARGET:
-  com.amazonaws.cognito.sync.model.AWSCognitoSyncService.ListIdentityPoolUsage
-  HOST: cognito-sync.us-east-1.amazonaws.com:443
-  X-AMZ-DATE: 20141111T211414Z
-  AUTHORIZATION: AWS4-HMAC-SHA256 Credential=<credential>,
-  SignedHeaders=content-type;host;x-amz-date;x-amz-target;x-amzn-requestid,
-  Signature=<signature>
+  ## Parameters:
 
-  {
-  "Operation": "com.amazonaws.cognito.sync.model#ListIdentityPoolUsage",
-  "Service": "com.amazonaws.cognito.sync.model#AWSCognitoSyncService",
-  "Input":
-  {
-  "MaxResults": "2"
-  }
-  }
-  </signature></credential></request>
-  <response>
-  1.1 200 OK
-  x-amzn-requestid: 9be7c425-ef05-48c0-aef3-9f0ff2fe17d3
-  content-type: application/json
-  content-length: 519
-  date: Tue, 11 Nov 2014 21:14:14 GMT
-
-  {
-  "Output":
-  {
-  "__type": "com.amazonaws.cognito.sync.model#ListIdentityPoolUsageResponse",
-  "Count": 2,
-  "IdentityPoolUsages": [
-  {
-  "DataStorage": 0,
-  "IdentityPoolId": "IDENTITY_POOL_ID",
-  "LastModifiedDate": 1.413836234607E9,
-  "SyncSessionsCount": null
-  },
-  {
-  "DataStorage": 0,
-  "IdentityPoolId": "IDENTITY_POOL_ID",
-  "LastModifiedDate": 1.410892165601E9,
-  "SyncSessionsCount": null
-  }],
-  "MaxResults": 2,
-  "NextToken": "dXMtZWFzdC0xOjBjMWJhMDUyLWUwOTgtNDFmYS1hNzZlLWVhYTJjMTI1Zjg2MQ=="
-  },
-  "Version": "1.0"
-  }
-  </response>
-  </example>
-  </examples>
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_identity_pool_usage(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_identity_pool_usage(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_identity_pool_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_identity_pool_usage_errors()}
-  def list_identity_pool_usage(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_identity_pool_usage(%Client{} = client, options \\ []) do
     url_path = "/identitypools"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets paginated records, optionally changed after a particular sync count for a
-  dataset and
-  identity.
+  dataset and identity. With Amazon Cognito Sync, each identity has access only
+  to its own data. Thus, the credentials used to make this API call need to have
+  access to the identity data. ListRecords can be called with temporary user
+  credentials provided by Cognito Identity or with developer credentials. You
+  should use Cognito Identity credentials to make this API call.
 
-  With Amazon Cognito Sync, each identity has access only to its own data. Thus,
-  the credentials used to make this API call need to have access to the identity
-  data.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20ListRecords&this_doc_guide=API%2520Reference)
 
-  ListRecords can be called with temporary user credentials provided by Cognito
-  Identity or with developer credentials. You should use Cognito Identity
-  credentials to make
-  this API call.
+  ## Parameters:
+  * `:dataset_name` (`t:string`)
+  * `:identity_id` (`t:string`)
+  * `:identity_pool_id` (`t:string`)
 
-  <examples>
-  <example>
-  <name>ListRecords</name>
-  <description>The following examples have been edited for
-  readability.</description>
-  <request>
-  POST / HTTP/1.1
-  CONTENT-TYPE: application/json
-  X-AMZN-REQUESTID: b3d2e31e-d6b7-4612-8e84-c9ba288dab5d
-  X-AMZ-TARGET: com.amazonaws.cognito.sync.model.AWSCognitoSyncService.ListRecords
-  HOST: cognito-sync.us-east-1.amazonaws.com:443
-  X-AMZ-DATE: 20141111T183230Z
-  AUTHORIZATION: AWS4-HMAC-SHA256 Credential=<credential>,
-  SignedHeaders=content-type;host;x-amz-date;x-amz-target;x-amzn-requestid,
-  Signature=<signature>
-
-  {
-  "Operation": "com.amazonaws.cognito.sync.model#ListRecords",
-  "Service": "com.amazonaws.cognito.sync.model#AWSCognitoSyncService",
-  "Input":
-  {
-  "IdentityPoolId": "IDENTITY_POOL_ID",
-  "IdentityId": "IDENTITY_ID",
-  "DatasetName": "newDataSet"
-  }
-  }
-  </signature></credential></request>
-  <response>
-  1.1 200 OK
-  x-amzn-requestid: b3d2e31e-d6b7-4612-8e84-c9ba288dab5d
-  content-type: application/json
-  content-length: 623
-  date: Tue, 11 Nov 2014 18:32:30 GMT
-
-  {
-  "Output":
-  {
-  "__type": "com.amazonaws.cognito.sync.model#ListRecordsResponse",
-  "Count": 0,
-  "DatasetDeletedAfterRequestedSyncCount": false,
-  "DatasetExists": false,
-  "DatasetSyncCount": 0,
-  "LastModifiedBy": null,
-  "MergedDatasetNames": null,
-  "NextToken": null,
-  "Records": [],
-  "SyncSessionToken": "SYNC_SESSION_TOKEN"
-  },
-  "Version": "1.0"
-  }
-  </response>
-  </example>
-  </examples>
+  ## Optional parameters:
+  * `:last_sync_count` (`t:long`)
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:sync_session_token` (`t:string`)
   """
-  @spec list_records(
-          map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_records(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_records_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_records_errors()}
-  def list_records(
-        %Client{} = client,
-        dataset_name,
-        identity_id,
-        identity_pool_id,
-        last_sync_count \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        sync_session_token \\ nil,
-        options \\ []
-      ) do
+  def list_records(%Client{} = client, dataset_name, identity_id, identity_pool_id, options \\ []) do
     url_path =
       "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}/datasets/#{AWS.Util.encode_uri(dataset_name)}/records"
 
+    # Validate optional parameters
+    optional_params = [
+      last_sync_count: nil,
+      max_results: nil,
+      next_token: nil,
+      sync_session_token: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(sync_session_token) do
-        [{"syncSessionToken", sync_session_token} | query_params]
+      if opt_val = Keyword.get(options, :sync_session_token) do
+        [{"syncSessionToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(last_sync_count) do
-        [{"lastSyncCount", last_sync_count} | query_params]
+      if opt_val = Keyword.get(options, :last_sync_count) do
+        [{"lastSyncCount", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:last_sync_count, :max_results, :next_token, :sync_session_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Registers a device to receive push sync notifications.
+  Registers a device to receive push sync notifications. This API can only be
+  called with temporary credentials provided by Cognito Identity. You cannot
+  call this API with developer credentials.
 
-  This API can only be called with temporary credentials provided by Cognito
-  Identity. You cannot call this API with developer credentials.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20RegisterDevice&this_doc_guide=API%2520Reference)
 
-  <examples>
-  <example>
-  <name>RegisterDevice</name>
-  <description>The following examples have been edited for
-  readability.</description>
-  <request>
-  POST / HTTP/1.1
-  CONTENT-TYPE: application/json
-  X-AMZN-REQUESTID: 368f9200-3eca-449e-93b3-7b9c08d8e185
-  X-AMZ-TARGET:
-  com.amazonaws.cognito.sync.model.AWSCognitoSyncService.RegisterDevice
-  HOST: cognito-sync.us-east-1.amazonaws.com
-  X-AMZ-DATE: 20141004T194643Z
-  X-AMZ-SECURITY-TOKEN: <securitytoken>
-  AUTHORIZATION: AWS4-HMAC-SHA256 Credential=<credential>,
-  SignedHeaders=content-type;content-length;host;x-amz-date;x-amz-target,
-  Signature=<signature>
+  ## Parameters:
+  * `:identity_id` (`t:string`) The unique ID for this identity.
+  * `:identity_pool_id` (`t:string`) A name-spaced GUID (for example,
+    us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+    Here, the ID of the pool that the identity belongs to.
 
-  {
-  "Operation": "com.amazonaws.cognito.sync.model#RegisterDevice",
-  "Service": "com.amazonaws.cognito.sync.model#AWSCognitoSyncService",
-  "Input":
-  {
-  "IdentityPoolId": "ID_POOL_ID",
-  "IdentityId": "IDENTITY_ID",
-  "Platform": "GCM",
-  "Token": "PUSH_TOKEN"
-  }
-  }
-  </signature></credential></securitytoken></request>
-  <response>
-  1.1 200 OK
-  x-amzn-requestid: 368f9200-3eca-449e-93b3-7b9c08d8e185
-  date: Sat, 04 Oct 2014 19:46:44 GMT
-  content-type: application/json
-  content-length: 145
-
-  {
-  "Output":
-  {
-  "__type": "com.amazonaws.cognito.sync.model#RegisterDeviceResponse",
-  "DeviceId": "5cd28fbe-dd83-47ab-9f83-19093a5fb014"
-  },
-  "Version": "1.0"
-  }
-  </response>
-  </example>
-  </examples>
+  ## Optional parameters:
   """
-  @spec register_device(map(), String.t(), String.t(), register_device_request(), list()) ::
+  @spec register_device(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          register_device_request(),
+          Keyword.t()
+        ) ::
           {:ok, register_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_device_errors()}
@@ -1591,7 +1394,8 @@ defmodule AWS.CognitoSync do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1607,16 +1411,20 @@ defmodule AWS.CognitoSync do
   end
 
   @doc """
-  Sets the AWS Lambda function for a given event type for an identity pool.
+  Sets the AWS Lambda function for a given event type for an identity pool. This
+  request only updates the key/value pair specified. Other key/values pairs are
+  not updated. To remove a key value pair, pass a empty value for the particular
+  key.
 
-  This request only updates the key/value pair specified. Other key/values pairs
-  are not updated. To remove a key value pair, pass a empty value for the
-  particular key.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20SetCognitoEvents&this_doc_guide=API%2520Reference)
 
-  This API can only be called with developer credentials. You cannot call this API
-  with the temporary user credentials provided by Cognito Identity.
+  ## Parameters:
+  * `:identity_pool_id` (`t:string`) The Cognito Identity Pool to use when
+    configuring Cognito Events
+
+  ## Optional parameters:
   """
-  @spec set_cognito_events(map(), String.t(), set_cognito_events_request(), list()) ::
+  @spec set_cognito_events(AWS.Client.t(), String.t(), set_cognito_events_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_cognito_events_errors()}
@@ -1625,7 +1433,8 @@ defmodule AWS.CognitoSync do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1641,71 +1450,24 @@ defmodule AWS.CognitoSync do
   end
 
   @doc """
-  Sets the necessary configuration for push sync.
+  Sets the necessary configuration for push sync. This API can only be called with
+  developer credentials. You cannot call this API with the temporary user
+  credentials provided by Cognito Identity.
 
-  This API can only be called with developer credentials. You cannot call this API
-  with the temporary user credentials provided by Cognito Identity.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20SetIdentityPoolConfiguration&this_doc_guide=API%2520Reference)
 
-  <examples>
-  <example>
-  <name>SetIdentityPoolConfiguration</name>
-  <description>The following examples have been edited for
-  readability.</description>
-  <request>
-  POST / HTTP/1.1
-  CONTENT-TYPE: application/json
-  X-AMZN-REQUESTID: a46db021-f5dd-45d6-af5b-7069fa4a211b
-  X-AMZ-TARGET:
-  com.amazonaws.cognito.sync.model.AWSCognitoSyncService.SetIdentityPoolConfiguration
-  HOST: cognito-sync.us-east-1.amazonaws.com
-  X-AMZ-DATE: 20141004T200006Z
-  AUTHORIZATION: AWS4-HMAC-SHA256 Credential=<credential>,
-  SignedHeaders=content-type;content-length;host;x-amz-date;x-amz-target,
-  Signature=<signature>
+  ## Parameters:
+  * `:identity_pool_id` (`t:string`) A name-spaced GUID (for example,
+    us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+    This is the ID of the pool to modify.
 
-  {
-  "Operation": "com.amazonaws.cognito.sync.model#SetIdentityPoolConfiguration",
-  "Service": "com.amazonaws.cognito.sync.model#AWSCognitoSyncService",
-  "Input":
-  {
-  "IdentityPoolId": "ID_POOL_ID",
-  "PushSync":
-  {
-  "ApplicationArns": ["PLATFORMARN1", "PLATFORMARN2"], "RoleArn": "ROLEARN"
-  }
-  }
-  }
-  </signature></credential></request>
-  <response>
-  1.1 200 OK
-  x-amzn-requestid: a46db021-f5dd-45d6-af5b-7069fa4a211b
-  date: Sat, 04 Oct 2014 20:00:06 GMT
-  content-type: application/json
-  content-length: 332
-
-  {
-  "Output":
-  {
-  "__type":
-  "com.amazonaws.cognito.sync.model#SetIdentityPoolConfigurationResponse",
-  "IdentityPoolId": "ID_POOL_ID",
-  "PushSync":
-  {
-  "ApplicationArns": ["PLATFORMARN1", "PLATFORMARN2"],
-  "RoleArn": "ROLEARN"
-  }
-  },
-  "Version": "1.0"
-  }
-  </response>
-  </example>
-  </examples>
+  ## Optional parameters:
   """
   @spec set_identity_pool_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           set_identity_pool_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, set_identity_pool_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1715,7 +1477,8 @@ defmodule AWS.CognitoSync do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1732,67 +1495,29 @@ defmodule AWS.CognitoSync do
 
   @doc """
   Subscribes to receive notifications when a dataset is modified by another
-  device.
+  device. This API can only be called with temporary credentials provided by
+  Cognito Identity. You cannot call this API with developer credentials.
 
-  This API can only be called with temporary credentials provided by Cognito
-  Identity. You cannot call this API with developer credentials.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20SubscribeToDataset&this_doc_guide=API%2520Reference)
 
-  <examples>
-  <example>
-  <name>SubscribeToDataset</name>
-  <description>The following examples have been edited for
-  readability.</description>
-  <request>
-  POST / HTTP/1.1
-  CONTENT-TYPE: application/json
-  X-AMZN-REQUESTID: 8b9932b7-201d-4418-a960-0a470e11de9f
-  X-AMZ-TARGET:
-  com.amazonaws.cognito.sync.model.AWSCognitoSyncService.SubscribeToDataset
-  HOST: cognito-sync.us-east-1.amazonaws.com
-  X-AMZ-DATE: 20141004T195350Z
-  X-AMZ-SECURITY-TOKEN: <securitytoken>
-  AUTHORIZATION: AWS4-HMAC-SHA256 Credential=<credential>,
-  SignedHeaders=content-type;content-length;host;x-amz-date;x-amz-target,
-  Signature=<signature>
+  ## Parameters:
+  * `:dataset_name` (`t:string`) The name of the dataset to subcribe to.
+  * `:device_id` (`t:string`) The unique ID generated for this device by Cognito.
+  * `:identity_id` (`t:string`) Unique ID for this identity.
+  * `:identity_pool_id` (`t:string`) A name-spaced GUID (for example,
+    us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+    The ID of the pool to which the identity belongs.
 
-  {
-  "Operation": "com.amazonaws.cognito.sync.model#SubscribeToDataset",
-  "Service": "com.amazonaws.cognito.sync.model#AWSCognitoSyncService",
-  "Input":
-  {
-  "IdentityPoolId": "ID_POOL_ID",
-  "IdentityId": "IDENTITY_ID",
-  "DatasetName": "Rufus",
-  "DeviceId": "5cd28fbe-dd83-47ab-9f83-19093a5fb014"
-  }
-  }
-  </signature></credential></securitytoken></request>
-  <response>
-  1.1 200 OK
-  x-amzn-requestid: 8b9932b7-201d-4418-a960-0a470e11de9f
-  date: Sat, 04 Oct 2014 19:53:50 GMT
-  content-type: application/json
-  content-length: 99
-
-  {
-  "Output":
-  {
-  "__type": "com.amazonaws.cognito.sync.model#SubscribeToDatasetResponse"
-  },
-  "Version": "1.0"
-  }
-  </response>
-  </example>
-  </examples>
+  ## Optional parameters:
   """
   @spec subscribe_to_dataset(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
           subscribe_to_dataset_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, subscribe_to_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1812,7 +1537,8 @@ defmodule AWS.CognitoSync do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1829,68 +1555,29 @@ defmodule AWS.CognitoSync do
 
   @doc """
   Unsubscribes from receiving notifications when a dataset is modified by another
-  device.
+  device. This API can only be called with temporary credentials provided by
+  Cognito Identity. You cannot call this API with developer credentials.
 
-  This API can only be called with temporary credentials provided by Cognito
-  Identity. You cannot call this API with developer credentials.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20UnsubscribeFromDataset&this_doc_guide=API%2520Reference)
 
-  <examples>
-  <example>
-  <name>UnsubscribeFromDataset</name>
-  <description>The following examples have been edited for
-  readability.</description>
-  <request>
-  POST / HTTP/1.1
-  CONTENT-TYPE: application/json
-  X-AMZ-REQUESTSUPERTRACE: true
-  X-AMZN-REQUESTID: 676896d6-14ca-45b1-8029-6d36b10a077e
-  X-AMZ-TARGET:
-  com.amazonaws.cognito.sync.model.AWSCognitoSyncService.UnsubscribeFromDataset
-  HOST: cognito-sync.us-east-1.amazonaws.com
-  X-AMZ-DATE: 20141004T195446Z
-  X-AMZ-SECURITY-TOKEN: <securitytoken>
-  AUTHORIZATION: AWS4-HMAC-SHA256 Credential=<credential>,
-  SignedHeaders=content-type;content-length;host;x-amz-date;x-amz-target,
-  Signature=<signature>
+  ## Parameters:
+  * `:dataset_name` (`t:string`) The name of the dataset from which to unsubcribe.
+  * `:device_id` (`t:string`) The unique ID generated for this device by Cognito.
+  * `:identity_id` (`t:string`) Unique ID for this identity.
+  * `:identity_pool_id` (`t:string`) A name-spaced GUID (for example,
+    us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+    The ID of the pool to which this identity belongs.
 
-  {
-  "Operation": "com.amazonaws.cognito.sync.model#UnsubscribeFromDataset",
-  "Service": "com.amazonaws.cognito.sync.model#AWSCognitoSyncService",
-  "Input":
-  {
-  "IdentityPoolId": "ID_POOL_ID",
-  "IdentityId": "IDENTITY_ID",
-  "DatasetName": "Rufus",
-  "DeviceId": "5cd28fbe-dd83-47ab-9f83-19093a5fb014"
-  }
-  }
-  </signature></credential></securitytoken></request>
-  <response>
-  1.1 200 OK
-  x-amzn-requestid: 676896d6-14ca-45b1-8029-6d36b10a077e
-  date: Sat, 04 Oct 2014 19:54:46 GMT
-  content-type: application/json
-  content-length: 103
-
-  {
-  "Output":
-  {
-  "__type": "com.amazonaws.cognito.sync.model#UnsubscribeFromDatasetResponse"
-  },
-  "Version": "1.0"
-  }
-  </response>
-  </example>
-  </examples>
+  ## Optional parameters:
   """
   @spec unsubscribe_from_dataset(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
           unsubscribe_from_dataset_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, unsubscribe_from_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1910,7 +1597,8 @@ defmodule AWS.CognitoSync do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1927,29 +1615,28 @@ defmodule AWS.CognitoSync do
 
   @doc """
   Posts updates to records and adds and deletes records for a dataset and user.
-
   The sync count in the record patch is your last known sync count for that
   record. The server will reject an UpdateRecords request with a
   ResourceConflictException if you try to patch a record with a new value but a
   stale sync count.
 
-  For example, if the sync count on the server is 5 for a key called highScore and
-  you try and submit a new highScore with sync count of 4, the request will be
-  rejected. To obtain the current sync count for a record, call ListRecords. On a
-  successful update of the record, the response returns the new sync count for
-  that record. You should present that sync count the next time you try to update
-  that same record. When the record does not exist, specify the sync count as 0.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20UpdateRecords&this_doc_guide=API%2520Reference)
 
-  This API can be called with temporary user credentials provided by Cognito
-  Identity or with developer credentials.
+  ## Parameters:
+  * `:dataset_name` (`t:string`)
+  * `:identity_id` (`t:string`)
+  * `:identity_pool_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:client_context` (`t:string`)
   """
   @spec update_records(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           update_records_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_records_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1965,6 +1652,14 @@ defmodule AWS.CognitoSync do
     url_path =
       "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}/datasets/#{AWS.Util.encode_uri(dataset_name)}"
 
+    optional_params = [client_context: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"ClientContext", "x-amz-Client-Context"}
@@ -1973,7 +1668,13 @@ defmodule AWS.CognitoSync do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_context])
 
     Request.request_rest(
       client,

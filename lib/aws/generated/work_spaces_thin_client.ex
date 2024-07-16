@@ -4,27 +4,13 @@
 defmodule AWS.WorkSpacesThinClient do
   @moduledoc """
   Amazon WorkSpaces Thin Client is an affordable device built to work with Amazon
-  Web Services End User
-  Computing (EUC) virtual desktops to provide users with a complete cloud desktop
-  solution.
-
-  WorkSpaces Thin Client is a compact device designed to connect up to two
-  monitors and USB
-  devices like a keyboard, mouse, headset, and webcam. To maximize endpoint
-  security, WorkSpaces Thin Client
+  Web Services End User Computing (EUC) virtual desktops to provide users with a
+  complete cloud desktop solution. WorkSpaces Thin Client is a compact device
+  designed to connect up to two monitors and USB devices like a keyboard, mouse,
+  headset, and webcam. To maximize endpoint security, WorkSpaces Thin Client
   devices do not allow local data storage or installation of unapproved
-  applications. The
-  WorkSpaces Thin Client device ships preloaded with device management software.
-
-  You can use these APIs to complete WorkSpaces Thin Client tasks, such as
-  creating environments or
-  viewing devices. For more information about WorkSpaces Thin Client, including
-  the required permissions to
-  use the service, see the [Amazon WorkSpaces Thin Client Administrator Guide](https://docs.aws.amazon.com/workspaces-thin-client/latest/ag/). For
-  more information about using the Command Line Interface (CLI) to manage
-  your WorkSpaces Thin Client resources, see the [WorkSpaces Thin Client section of the
-  CLI
-  Reference](https://docs.aws.amazon.com/cli/latest/reference/workspaces-thin-client/index.html).
+  applications. The WorkSpaces Thin Client device ships preloaded with device
+  management software.
   """
 
   alias AWS.Client
@@ -798,8 +784,14 @@ defmodule AWS.WorkSpacesThinClient do
 
   @doc """
   Creates an environment for your thin client devices.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20CreateEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_environment(map(), create_environment_request(), list()) ::
+  @spec create_environment(AWS.Client.t(), create_environment_request(), Keyword.t()) ::
           {:ok, create_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_errors()}
@@ -808,7 +800,8 @@ defmodule AWS.WorkSpacesThinClient do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -825,8 +818,21 @@ defmodule AWS.WorkSpacesThinClient do
 
   @doc """
   Deletes a thin client device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20DeleteDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the device to delete.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier
+    that you provide to ensure the idempotency of the request. This lets you
+    safely retry the request without accidentally performing the same operation
+    a second time. Passing the same value to a later call to an operation
+    requires that you also pass the same value for all other parameters. We
+    recommend that you use a UUID type of value.
   """
-  @spec delete_device(map(), String.t(), delete_device_request(), list()) ::
+  @spec delete_device(AWS.Client.t(), String.t(), delete_device_request(), Keyword.t()) ::
           {:ok, delete_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_device_errors()}
@@ -840,7 +846,13 @@ defmodule AWS.WorkSpacesThinClient do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -857,8 +869,21 @@ defmodule AWS.WorkSpacesThinClient do
 
   @doc """
   Deletes an environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20DeleteEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the environment to delete.
+
+  ## Optional parameters:
+  * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier
+    that you provide to ensure the idempotency of the request. This lets you
+    safely retry the request without accidentally performing the same operation
+    a second time. Passing the same value to a later call to an operation
+    requires that you also pass the same value for all other parameters. We
+    recommend that you use a UUID type of value.
   """
-  @spec delete_environment(map(), String.t(), delete_environment_request(), list()) ::
+  @spec delete_environment(AWS.Client.t(), String.t(), delete_environment_request(), Keyword.t()) ::
           {:ok, delete_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_errors()}
@@ -872,7 +897,13 @@ defmodule AWS.WorkSpacesThinClient do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:client_token])
 
     Request.request_rest(
       client,
@@ -889,8 +920,15 @@ defmodule AWS.WorkSpacesThinClient do
 
   @doc """
   Deregisters a thin client device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20DeregisterDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the device to deregister.
+
+  ## Optional parameters:
   """
-  @spec deregister_device(map(), String.t(), deregister_device_request(), list()) ::
+  @spec deregister_device(AWS.Client.t(), String.t(), deregister_device_request(), Keyword.t()) ::
           {:ok, deregister_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_device_errors()}
@@ -899,7 +937,8 @@ defmodule AWS.WorkSpacesThinClient do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -916,169 +955,386 @@ defmodule AWS.WorkSpacesThinClient do
 
   @doc """
   Returns information for a thin client device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20GetDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the device for which to return information.
+
+  ## Optional parameters:
   """
-  @spec get_device(map(), String.t(), list()) ::
+  @spec get_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_errors()}
   def get_device(%Client{} = client, id, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information for an environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20GetEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the environment for which to return information.
+
+  ## Optional parameters:
   """
-  @spec get_environment(map(), String.t(), list()) ::
+  @spec get_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_errors()}
   def get_environment(%Client{} = client, id, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information for a software set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20GetSoftwareSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the software set for which to return information.
+
+  ## Optional parameters:
   """
-  @spec get_software_set(map(), String.t(), list()) ::
+  @spec get_software_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_software_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_software_set_errors()}
   def get_software_set(%Client{} = client, id, options \\ []) do
     url_path = "/softwaresets/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of thin client devices.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20ListDevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results that are returned
+    per call. You can use nextToken to obtain further pages of results.
+  * `:next_token` (`t:string`) If nextToken is returned, there are more results
+    available. The value of nextToken is a unique pagination token for each
+    page. Make the call again using the returned token to retrieve the next
+    page. Keep all other arguments unchanged. Each pagination token expires
+    after 24 hours. Using an expired pagination token will return an HTTP 400
+    InvalidToken error.
   """
-  @spec list_devices(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_devices_errors()}
-  def list_devices(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_devices(%Client{} = client, options \\ []) do
     url_path = "/devices"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of environments.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20ListEnvironments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results that are returned
+    per call. You can use nextToken to obtain further pages of results.
+  * `:next_token` (`t:string`) If nextToken is returned, there are more results
+    available. The value of nextToken is a unique pagination token for each
+    page. Make the call again using the returned token to retrieve the next
+    page. Keep all other arguments unchanged. Each pagination token expires
+    after 24 hours. Using an expired pagination token will return an HTTP 400
+    InvalidToken error.
   """
-  @spec list_environments(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_environments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environments_errors()}
-  def list_environments(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_environments(%Client{} = client, options \\ []) do
     url_path = "/environments"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of software sets.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20ListSoftwareSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results that are returned
+    per call. You can use nextToken to obtain further pages of results.
+  * `:next_token` (`t:string`) If nextToken is returned, there are more results
+    available. The value of nextToken is a unique pagination token for each
+    page. Make the call again using the returned token to retrieve the next
+    page. Keep all other arguments unchanged. Each pagination token expires
+    after 24 hours. Using an expired pagination token will return an HTTP 400
+    InvalidToken error.
   """
-  @spec list_software_sets(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_software_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_software_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_software_sets_errors()}
-  def list_software_sets(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_software_sets(%Client{} = client, options \\ []) do
     url_path = "/softwaresets"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of tags for a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the resource for
+    which you want to retrieve tags.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Assigns one or more tags (key-value pairs) to the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the resource that you
+    want to tag.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1087,7 +1343,8 @@ defmodule AWS.WorkSpacesThinClient do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -1104,8 +1361,18 @@ defmodule AWS.WorkSpacesThinClient do
 
   @doc """
   Removes a tag or tags from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the resource that you
+    want to untag.
+  * `:tag_keys` (`t:list[smithy.api#String]`) The keys of the key-value pairs for
+    the tag or tags you want to remove from the specified resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1119,7 +1386,8 @@ defmodule AWS.WorkSpacesThinClient do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -1136,8 +1404,15 @@ defmodule AWS.WorkSpacesThinClient do
 
   @doc """
   Updates a thin client device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20UpdateDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the device to update.
+
+  ## Optional parameters:
   """
-  @spec update_device(map(), String.t(), update_device_request(), list()) ::
+  @spec update_device(AWS.Client.t(), String.t(), update_device_request(), Keyword.t()) ::
           {:ok, update_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_device_errors()}
@@ -1146,7 +1421,8 @@ defmodule AWS.WorkSpacesThinClient do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -1163,8 +1439,15 @@ defmodule AWS.WorkSpacesThinClient do
 
   @doc """
   Updates an environment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20UpdateEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the environment to update.
+
+  ## Optional parameters:
   """
-  @spec update_environment(map(), String.t(), update_environment_request(), list()) ::
+  @spec update_environment(AWS.Client.t(), String.t(), update_environment_request(), Keyword.t()) ::
           {:ok, update_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_environment_errors()}
@@ -1173,7 +1456,8 @@ defmodule AWS.WorkSpacesThinClient do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -1190,8 +1474,20 @@ defmodule AWS.WorkSpacesThinClient do
 
   @doc """
   Updates a software set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20UpdateSoftwareSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the software set to update.
+
+  ## Optional parameters:
   """
-  @spec update_software_set(map(), String.t(), update_software_set_request(), list()) ::
+  @spec update_software_set(
+          AWS.Client.t(),
+          String.t(),
+          update_software_set_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_software_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_software_set_errors()}
@@ -1200,7 +1496,8 @@ defmodule AWS.WorkSpacesThinClient do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,

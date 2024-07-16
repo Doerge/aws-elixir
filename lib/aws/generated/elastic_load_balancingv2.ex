@@ -3,49 +3,16 @@
 
 defmodule AWS.ElasticLoadBalancingv2 do
   @moduledoc """
-  Elastic Load Balancing
-
-  A load balancer distributes incoming traffic across targets, such as your EC2
-  instances.
-
-  This enables you to increase the availability of your application. The load
-  balancer also
-  monitors the health of its registered targets and ensures that it routes traffic
-  only to
-  healthy targets. You configure your load balancer to accept incoming traffic by
-  specifying one
-  or more listeners, which are configured with a protocol and port number for
-  connections from
-  clients to the load balancer. You configure a target group with a protocol and
-  port number for
-  connections from the load balancer to the targets, and with health check
-  settings to be used
-  when checking the health status of the targets.
-
-  Elastic Load Balancing supports the following types of load balancers:
-  Application Load
-  Balancers, Network Load Balancers, Gateway Load Balancers, and Classic Load
-  Balancers. This
-  reference covers the following load balancer types:
-
-    *
-  Application Load Balancer - Operates at the application layer (layer 7) and
-  supports
-  HTTP and HTTPS.
-
-    *
-  Network Load Balancer - Operates at the transport layer (layer 4) and supports
-  TCP,
-  TLS, and UDP.
-
-    *
-  Gateway Load Balancer - Operates at the network layer (layer 3).
-
-  For more information, see the [Elastic Load Balancing User Guide](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/).
-
-  All Elastic Load Balancing operations are idempotent, which means that they
-  complete at
-  most one time. If you repeat an operation, it succeeds.
+  Elastic Load Balancing A load balancer distributes incoming traffic across
+  targets, such as your EC2 instances. This enables you to increase the
+  availability of your application. The load balancer also monitors the health
+  of its registered targets and ensures that it routes traffic only to healthy
+  targets. You configure your load balancer to accept incoming traffic by
+  specifying one or more listeners, which are configured with a protocol and
+  port number for connections from clients to the load balancer. You configure a
+  target group with a protocol and port number for connections from the load
+  balancer to the targets, and with health check settings to be used when
+  checking the health status of the targets.
   """
 
   alias AWS.Client
@@ -2520,45 +2487,33 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   @doc """
   Adds the specified SSL server certificate to the certificate list for the
-  specified HTTPS
-  or TLS listener.
-
-  If the certificate in already in the certificate list, the call is successful
-  but the
-  certificate is not added again.
-
-  For more information, see [HTTPS listeners](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html)
-  in the *Application Load Balancers Guide* or [TLS listeners](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html)
-  in the *Network Load Balancers Guide*.
+  specified HTTPS or TLS listener. If the certificate in already in the
+  certificate list, the call is successful but the certificate is not added
+  again.
   """
-  @spec add_listener_certificates(map(), add_listener_certificates_input(), list()) ::
+  @spec add_listener_certificates(AWS.Client.t(), add_listener_certificates_input(), Keyword.t()) ::
           {:ok, add_listener_certificates_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_listener_certificates_errors()}
   def add_listener_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddListenerCertificates", input, options)
   end
 
   @doc """
-  Adds the specified tags to the specified Elastic Load Balancing resource.
-
-  You can tag your
-  Application Load Balancers, Network Load Balancers, Gateway Load Balancers,
-  target groups,
-  trust stores, listeners, and rules.
-
-  Each tag consists of a key and an optional value. If a resource already has a
-  tag with the
-  same key, `AddTags` updates its value.
+  Adds the specified tags to the specified Elastic Load Balancing resource. You
+  can tag your Application Load Balancers, Network Load Balancers, Gateway Load
+  Balancers, target groups, trust stores, listeners, and rules.
   """
-  @spec add_tags(map(), add_tags_input(), list()) ::
+  @spec add_tags(AWS.Client.t(), add_tags_input(), Keyword.t()) ::
           {:ok, add_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTags", input, options)
   end
@@ -2566,142 +2521,76 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @doc """
   Adds the specified revocation file to the specified trust store.
   """
-  @spec add_trust_store_revocations(map(), add_trust_store_revocations_input(), list()) ::
+  @spec add_trust_store_revocations(
+          AWS.Client.t(),
+          add_trust_store_revocations_input(),
+          Keyword.t()
+        ) ::
           {:ok, add_trust_store_revocations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_trust_store_revocations_errors()}
   def add_trust_store_revocations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTrustStoreRevocations", input, options)
   end
 
   @doc """
   Creates a listener for the specified Application Load Balancer, Network Load
-  Balancer, or
-  Gateway Load Balancer.
-
-  For more information, see the following:
-
-    *
-
-  [Listeners for your Application Load
-  Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html)
-
-    *
-
-  [Listeners for your Network Load
-  Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html)
-
-    *
-
-  [Listeners for your Gateway Load
-  Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-listeners.html)
-
-  This operation is idempotent, which means that it completes at most one time. If
-  you
-  attempt to create multiple listeners with the same settings, each call succeeds.
+  Balancer, or Gateway Load Balancer. For more information, see the following:
   """
-  @spec create_listener(map(), create_listener_input(), list()) ::
+  @spec create_listener(AWS.Client.t(), create_listener_input(), Keyword.t()) ::
           {:ok, create_listener_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_listener_errors()}
   def create_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateListener", input, options)
   end
 
   @doc """
   Creates an Application Load Balancer, Network Load Balancer, or Gateway Load
-  Balancer.
-
-  For more information, see the following:
-
-    *
-
-  [Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html)
-
-    *
-
-  [Network Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html)
-
-    *
-
-  [Gateway Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-load-balancers.html)
-
-  This operation is idempotent, which means that it completes at most one time. If
-  you
-  attempt to create multiple load balancers with the same settings, each call
-  succeeds.
+  Balancer. For more information, see the following:
   """
-  @spec create_load_balancer(map(), create_load_balancer_input(), list()) ::
+  @spec create_load_balancer(AWS.Client.t(), create_load_balancer_input(), Keyword.t()) ::
           {:ok, create_load_balancer_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_load_balancer_errors()}
   def create_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLoadBalancer", input, options)
   end
 
   @doc """
-  Creates a rule for the specified listener.
-
-  The listener must be associated with an
-  Application Load Balancer.
-
-  Each rule consists of a priority, one or more actions, and one or more
-  conditions. Rules
-  are evaluated in priority order, from the lowest value to the highest value.
-  When the
-  conditions for a rule are met, its actions are performed. If the conditions for
-  no rules are
-  met, the actions for the default rule are performed. For more information, see
-  [Listener rules](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules)
-  in the *Application Load Balancers Guide*.
+  Creates a rule for the specified listener. The listener must be associated with
+  an Application Load Balancer.
   """
-  @spec create_rule(map(), create_rule_input(), list()) ::
+  @spec create_rule(AWS.Client.t(), create_rule_input(), Keyword.t()) ::
           {:ok, create_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rule_errors()}
   def create_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRule", input, options)
   end
 
   @doc """
-  Creates a target group.
-
-  For more information, see the following:
-
-    *
-
-  [Target groups for your Application Load
-  Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html)
-
-    *
-
-  [Target groups for your Network Load
-  Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html)
-
-    *
-
-  [Target groups for your Gateway Load
-  Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-groups.html)
-
-  This operation is idempotent, which means that it completes at most one time. If
-  you
-  attempt to create multiple target groups with the same settings, each call
-  succeeds.
+  Creates a target group. For more information, see the following:
   """
-  @spec create_target_group(map(), create_target_group_input(), list()) ::
+  @spec create_target_group(AWS.Client.t(), create_target_group_input(), Keyword.t()) ::
           {:ok, create_target_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_target_group_errors()}
   def create_target_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTargetGroup", input, options)
   end
@@ -2709,92 +2598,72 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @doc """
   Creates a trust store.
   """
-  @spec create_trust_store(map(), create_trust_store_input(), list()) ::
+  @spec create_trust_store(AWS.Client.t(), create_trust_store_input(), Keyword.t()) ::
           {:ok, create_trust_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_trust_store_errors()}
   def create_trust_store(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrustStore", input, options)
   end
 
   @doc """
   Deletes the specified listener.
-
-  Alternatively, your listener is deleted when you delete the load balancer to
-  which it is
-  attached.
   """
-  @spec delete_listener(map(), delete_listener_input(), list()) ::
+  @spec delete_listener(AWS.Client.t(), delete_listener_input(), Keyword.t()) ::
           {:ok, delete_listener_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_listener_errors()}
   def delete_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteListener", input, options)
   end
 
   @doc """
   Deletes the specified Application Load Balancer, Network Load Balancer, or
-  Gateway Load
-  Balancer.
-
-  Deleting a load balancer also deletes its listeners.
-
-  You can't delete a load balancer if deletion protection is enabled. If the load
-  balancer
-  does not exist or has already been deleted, the call succeeds.
-
-  Deleting a load balancer does not affect its registered targets. For example,
-  your EC2
-  instances continue to run and are still registered to their target groups. If
-  you no longer
-  need these EC2 instances, you can stop or terminate them.
+  Gateway Load Balancer. Deleting a load balancer also deletes its listeners.
+  You can't delete a load balancer if deletion protection is enabled. If the
+  load balancer does not exist or has already been deleted, the call succeeds.
   """
-  @spec delete_load_balancer(map(), delete_load_balancer_input(), list()) ::
+  @spec delete_load_balancer(AWS.Client.t(), delete_load_balancer_input(), Keyword.t()) ::
           {:ok, delete_load_balancer_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_load_balancer_errors()}
   def delete_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLoadBalancer", input, options)
   end
 
   @doc """
   Deletes the specified rule.
-
-  You can't delete the default rule.
   """
-  @spec delete_rule(map(), delete_rule_input(), list()) ::
+  @spec delete_rule(AWS.Client.t(), delete_rule_input(), Keyword.t()) ::
           {:ok, delete_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rule_errors()}
   def delete_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRule", input, options)
   end
 
   @doc """
   Deletes the specified target group.
-
-  You can delete a target group if it is not referenced by any actions. Deleting a
-  target
-  group also deletes any associated health checks. Deleting a target group does
-  not affect its
-  registered targets. For example, any EC2 instances continue to run until you
-  stop or terminate
-  them.
   """
-  @spec delete_target_group(map(), delete_target_group_input(), list()) ::
+  @spec delete_target_group(AWS.Client.t(), delete_target_group_input(), Keyword.t()) ::
           {:ok, delete_target_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_target_group_errors()}
   def delete_target_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTargetGroup", input, options)
   end
@@ -2802,174 +2671,103 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @doc """
   Deletes a trust store.
   """
-  @spec delete_trust_store(map(), delete_trust_store_input(), list()) ::
+  @spec delete_trust_store(AWS.Client.t(), delete_trust_store_input(), Keyword.t()) ::
           {:ok, delete_trust_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_trust_store_errors()}
   def delete_trust_store(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTrustStore", input, options)
   end
 
   @doc """
-  Deregisters the specified targets from the specified target group.
-
-  After the targets are
-  deregistered, they no longer receive traffic from the load balancer.
-
-  The load balancer stops sending requests to targets that are deregistering, but
-  uses
-  connection draining to ensure that in-flight traffic completes on the existing
-  connections.
-  This deregistration delay is configured by default but can be updated for each
-  target group.
-
-  For more information, see the following:
-
-    *
-
-  [
-  Deregistration
-  delay](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#deregistration-delay)
-  in the *Application Load Balancers User Guide*
-
-    *
-
-  [
-  Deregistration
-  delay](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay)
-  in the *Network Load Balancers User Guide*
-
-    *
-
-  [
-  Deregistration
-  delay](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-groups.html#deregistration-delay)
-  in the *Gateway Load Balancers User Guide*
-
-  Note: If the specified target does not exist, the action returns successfully.
+  Deregisters the specified targets from the specified target group. After the
+  targets are deregistered, they no longer receive traffic from the load
+  balancer. The load balancer stops sending requests to targets that are
+  deregistering, but uses connection draining to ensure that in-flight traffic
+  completes on the existing connections. This deregistration delay is configured
+  by default but can be updated for each target group.
   """
-  @spec deregister_targets(map(), deregister_targets_input(), list()) ::
+  @spec deregister_targets(AWS.Client.t(), deregister_targets_input(), Keyword.t()) ::
           {:ok, deregister_targets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_targets_errors()}
   def deregister_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterTargets", input, options)
   end
 
   @doc """
   Describes the current Elastic Load Balancing resource limits for your Amazon Web
-  Services
-  account.
-
-  For more information, see the following:
-
-    *
-
-  [Quotas for your Application Load
-  Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html)
-
-    *
-
-  [Quotas for your Network Load
-  Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html)
-
-    *
-
-  [Quotas for your Gateway Load
-  Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/quotas-limits.html)
+  Services account. For more information, see the following:
   """
-  @spec describe_account_limits(map(), describe_account_limits_input(), list()) ::
+  @spec describe_account_limits(AWS.Client.t(), describe_account_limits_input(), Keyword.t()) ::
           {:ok, describe_account_limits_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def describe_account_limits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccountLimits", input, options)
   end
 
   @doc """
   Describes the default certificate and the certificate list for the specified
-  HTTPS or TLS
-  listener.
-
-  If the default certificate is also in the certificate list, it appears twice in
-  the
-  results (once with `IsDefault` set to true and once with `IsDefault` set
-  to false).
-
-  For more information, see [SSL certificates](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#https-listener-certificates)
-  in the *Application Load Balancers Guide* or
-  [Server certificates](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#tls-listener-certificate)
-  in the *Network Load Balancers
-  Guide*.
+  HTTPS or TLS listener. If the default certificate is also in the certificate
+  list, it appears twice in the results (once with `IsDefault` set to true and
+  once with `IsDefault` set to false).
   """
-  @spec describe_listener_certificates(map(), describe_listener_certificates_input(), list()) ::
+  @spec describe_listener_certificates(
+          AWS.Client.t(),
+          describe_listener_certificates_input(),
+          Keyword.t()
+        ) ::
           {:ok, describe_listener_certificates_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_listener_certificates_errors()}
   def describe_listener_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeListenerCertificates", input, options)
   end
 
   @doc """
   Describes the specified listeners or the listeners for the specified Application
-  Load
-  Balancer, Network Load Balancer, or Gateway Load Balancer.
-
-  You must specify either a load
-  balancer or one or more listeners.
+  Load Balancer, Network Load Balancer, or Gateway Load Balancer. You must
+  specify either a load balancer or one or more listeners.
   """
-  @spec describe_listeners(map(), describe_listeners_input(), list()) ::
+  @spec describe_listeners(AWS.Client.t(), describe_listeners_input(), Keyword.t()) ::
           {:ok, describe_listeners_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_listeners_errors()}
   def describe_listeners(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeListeners", input, options)
   end
 
   @doc """
   Describes the attributes for the specified Application Load Balancer, Network
-  Load
-  Balancer, or Gateway Load Balancer.
-
-  For more information, see the following:
-
-    *
-
-  [Load balancer attributes](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#load-balancer-attributes)
-  in the *Application Load Balancers
-  Guide*
-
-    *
-
-  [Load balancer attributes](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#load-balancer-attributes)
-  in the *Network Load Balancers
-  Guide*
-
-    *
-
-  [Load balancer attributes](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-load-balancers.html#load-balancer-attributes)
-  in the *Gateway Load Balancers
-  Guide*
+  Load Balancer, or Gateway Load Balancer. For more information, see the
+  following:
   """
   @spec describe_load_balancer_attributes(
-          map(),
+          AWS.Client.t(),
           describe_load_balancer_attributes_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_load_balancer_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_load_balancer_attributes_errors()}
   def describe_load_balancer_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLoadBalancerAttributes", input, options)
   end
@@ -2977,117 +2775,94 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @doc """
   Describes the specified load balancers or all of your load balancers.
   """
-  @spec describe_load_balancers(map(), describe_load_balancers_input(), list()) ::
+  @spec describe_load_balancers(AWS.Client.t(), describe_load_balancers_input(), Keyword.t()) ::
           {:ok, describe_load_balancers_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_load_balancers_errors()}
   def describe_load_balancers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLoadBalancers", input, options)
   end
 
   @doc """
-  Describes the specified rules or the rules for the specified listener.
-
-  You must specify
-  either a listener or one or more rules.
+  Describes the specified rules or the rules for the specified listener. You must
+  specify either a listener or one or more rules.
   """
-  @spec describe_rules(map(), describe_rules_input(), list()) ::
+  @spec describe_rules(AWS.Client.t(), describe_rules_input(), Keyword.t()) ::
           {:ok, describe_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_rules_errors()}
   def describe_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRules", input, options)
   end
 
   @doc """
   Describes the specified policies or all policies used for SSL negotiation.
-
-  For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies)
-  in the *Application Load Balancers Guide* or
-  [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies)
-  in the *Network Load Balancers Guide*.
   """
-  @spec describe_ssl_policies(map(), describe_ssl_policies_input(), list()) ::
+  @spec describe_ssl_policies(AWS.Client.t(), describe_ssl_policies_input(), Keyword.t()) ::
           {:ok, describe_ssl_policies_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_ssl_policies_errors()}
   def describe_ssl_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSSLPolicies", input, options)
   end
 
   @doc """
-  Describes the tags for the specified Elastic Load Balancing resources.
-
-  You can describe
-  the tags for one or more Application Load Balancers, Network Load Balancers,
-  Gateway Load
-  Balancers, target groups, listeners, or rules.
+  Describes the tags for the specified Elastic Load Balancing resources. You can
+  describe the tags for one or more Application Load Balancers, Network Load
+  Balancers, Gateway Load Balancers, target groups, listeners, or rules.
   """
-  @spec describe_tags(map(), describe_tags_input(), list()) ::
+  @spec describe_tags(AWS.Client.t(), describe_tags_input(), Keyword.t()) ::
           {:ok, describe_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
   end
 
   @doc """
-  Describes the attributes for the specified target group.
-
-  For more information, see the following:
-
-    *
-
-  [Target group attributes](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes)
-  in the *Application Load Balancers
-  Guide*
-
-    *
-
-  [Target group attributes](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#target-group-attributes)
-  in the *Network Load Balancers
-  Guide*
-
-    *
-
-  [Target group attributes](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-groups.html#target-group-attributes)
-  in the *Gateway Load Balancers
-  Guide*
+  Describes the attributes for the specified target group. For more information,
+  see the following:
   """
-  @spec describe_target_group_attributes(map(), describe_target_group_attributes_input(), list()) ::
+  @spec describe_target_group_attributes(
+          AWS.Client.t(),
+          describe_target_group_attributes_input(),
+          Keyword.t()
+        ) ::
           {:ok, describe_target_group_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_target_group_attributes_errors()}
   def describe_target_group_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTargetGroupAttributes", input, options)
   end
 
   @doc """
-  Describes the specified target groups or all of your target groups.
-
-  By default, all target
-  groups are described. Alternatively, you can specify one of the following to
-  filter the
-  results: the ARN of the load balancer, the names of one or more target groups,
-  or the ARNs of
-  one or more target groups.
+  Describes the specified target groups or all of your target groups. By default,
+  all target groups are described. Alternatively, you can specify one of the
+  following to filter the results: the ARN of the load balancer, the names of
+  one or more target groups, or the ARNs of one or more target groups.
   """
-  @spec describe_target_groups(map(), describe_target_groups_input(), list()) ::
+  @spec describe_target_groups(AWS.Client.t(), describe_target_groups_input(), Keyword.t()) ::
           {:ok, describe_target_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_target_groups_errors()}
   def describe_target_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTargetGroups", input, options)
   end
@@ -3095,12 +2870,13 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @doc """
   Describes the health of the specified targets or all of your targets.
   """
-  @spec describe_target_health(map(), describe_target_health_input(), list()) ::
+  @spec describe_target_health(AWS.Client.t(), describe_target_health_input(), Keyword.t()) ::
           {:ok, describe_target_health_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_target_health_errors()}
   def describe_target_health(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTargetHealth", input, options)
   end
@@ -3109,167 +2885,152 @@ defmodule AWS.ElasticLoadBalancingv2 do
   Describes all resources associated with the specified trust store.
   """
   @spec describe_trust_store_associations(
-          map(),
+          AWS.Client.t(),
           describe_trust_store_associations_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_trust_store_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_trust_store_associations_errors()}
   def describe_trust_store_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrustStoreAssociations", input, options)
   end
 
   @doc """
-  Describes the revocation files in use by the specified
-  trust store arn, or revocation ID.
+  Describes the revocation files in use by the specified trust store arn, or
+  revocation ID.
   """
-  @spec describe_trust_store_revocations(map(), describe_trust_store_revocations_input(), list()) ::
+  @spec describe_trust_store_revocations(
+          AWS.Client.t(),
+          describe_trust_store_revocations_input(),
+          Keyword.t()
+        ) ::
           {:ok, describe_trust_store_revocations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_trust_store_revocations_errors()}
   def describe_trust_store_revocations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrustStoreRevocations", input, options)
   end
 
   @doc """
-  Describes all trust stores for a given account
-  by trust store arn’s or name.
+  Describes all trust stores for a given account by trust store arn’s or name.
   """
-  @spec describe_trust_stores(map(), describe_trust_stores_input(), list()) ::
+  @spec describe_trust_stores(AWS.Client.t(), describe_trust_stores_input(), Keyword.t()) ::
           {:ok, describe_trust_stores_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_trust_stores_errors()}
   def describe_trust_stores(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrustStores", input, options)
   end
 
   @doc """
   Retrieves the ca certificate bundle.
-
-  This action returns a pre-signed S3 URI which is
-  active for ten minutes.
   """
   @spec get_trust_store_ca_certificates_bundle(
-          map(),
+          AWS.Client.t(),
           get_trust_store_ca_certificates_bundle_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_trust_store_ca_certificates_bundle_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_trust_store_ca_certificates_bundle_errors()}
   def get_trust_store_ca_certificates_bundle(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTrustStoreCaCertificatesBundle", input, options)
   end
 
   @doc """
   Retrieves the specified revocation file.
-
-  This action returns a pre-signed S3 URI which is
-  active for ten minutes.
   """
   @spec get_trust_store_revocation_content(
-          map(),
+          AWS.Client.t(),
           get_trust_store_revocation_content_input(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_trust_store_revocation_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_trust_store_revocation_content_errors()}
   def get_trust_store_revocation_content(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTrustStoreRevocationContent", input, options)
   end
 
   @doc """
-  Replaces the specified properties of the specified listener.
-
-  Any properties that you do
-  not specify remain unchanged.
-
-  Changing the protocol from HTTPS to HTTP, or from TLS to TCP, removes the
-  security policy
-  and default certificate properties. If you change the protocol from HTTP to
-  HTTPS, or from TCP
-  to TLS, you must add the security policy and default certificate properties.
-
-  To add an item to a list, remove an item from a list, or update an item in a
-  list, you
-  must provide the entire list. For example, to add an action, specify a list with
-  the current
-  actions plus the new action.
+  Replaces the specified properties of the specified listener. Any properties that
+  you do not specify remain unchanged. Changing the protocol from HTTPS to HTTP,
+  or from TLS to TCP, removes the security policy and default certificate
+  properties. If you change the protocol from HTTP to HTTPS, or from TCP to TLS,
+  you must add the security policy and default certificate properties.
   """
-  @spec modify_listener(map(), modify_listener_input(), list()) ::
+  @spec modify_listener(AWS.Client.t(), modify_listener_input(), Keyword.t()) ::
           {:ok, modify_listener_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_listener_errors()}
   def modify_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyListener", input, options)
   end
 
   @doc """
   Modifies the specified attributes of the specified Application Load Balancer,
-  Network Load
-  Balancer, or Gateway Load Balancer.
-
-  If any of the specified attributes can't be modified as requested, the call
-  fails. Any
-  existing attributes that you do not modify retain their current values.
+  Network Load Balancer, or Gateway Load Balancer.
   """
-  @spec modify_load_balancer_attributes(map(), modify_load_balancer_attributes_input(), list()) ::
+  @spec modify_load_balancer_attributes(
+          AWS.Client.t(),
+          modify_load_balancer_attributes_input(),
+          Keyword.t()
+        ) ::
           {:ok, modify_load_balancer_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_load_balancer_attributes_errors()}
   def modify_load_balancer_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyLoadBalancerAttributes", input, options)
   end
 
   @doc """
-  Replaces the specified properties of the specified rule.
-
-  Any properties that you do not
-  specify are unchanged.
-
-  To add an item to a list, remove an item from a list, or update an item in a
-  list, you
-  must provide the entire list. For example, to add an action, specify a list with
-  the current
-  actions plus the new action.
+  Replaces the specified properties of the specified rule. Any properties that you
+  do not specify are unchanged.
   """
-  @spec modify_rule(map(), modify_rule_input(), list()) ::
+  @spec modify_rule(AWS.Client.t(), modify_rule_input(), Keyword.t()) ::
           {:ok, modify_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_rule_errors()}
   def modify_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyRule", input, options)
   end
 
   @doc """
   Modifies the health checks used when evaluating the health state of the targets
-  in the
-  specified target group.
+  in the specified target group.
   """
-  @spec modify_target_group(map(), modify_target_group_input(), list()) ::
+  @spec modify_target_group(AWS.Client.t(), modify_target_group_input(), Keyword.t()) ::
           {:ok, modify_target_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_target_group_errors()}
   def modify_target_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyTargetGroup", input, options)
   end
@@ -3277,12 +3038,17 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @doc """
   Modifies the specified attributes of the specified target group.
   """
-  @spec modify_target_group_attributes(map(), modify_target_group_attributes_input(), list()) ::
+  @spec modify_target_group_attributes(
+          AWS.Client.t(),
+          modify_target_group_attributes_input(),
+          Keyword.t()
+        ) ::
           {:ok, modify_target_group_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_target_group_attributes_errors()}
   def modify_target_group_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyTargetGroupAttributes", input, options)
   end
@@ -3290,75 +3056,63 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @doc """
   Update the ca certificate bundle for a given trust store.
   """
-  @spec modify_trust_store(map(), modify_trust_store_input(), list()) ::
+  @spec modify_trust_store(AWS.Client.t(), modify_trust_store_input(), Keyword.t()) ::
           {:ok, modify_trust_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_trust_store_errors()}
   def modify_trust_store(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyTrustStore", input, options)
   end
 
   @doc """
-  Registers the specified targets with the specified target group.
-
-  If the target is an EC2 instance, it must be in the `running` state when you
-  register it.
-
-  By default, the load balancer routes requests to registered targets using the
-  protocol and
-  port for the target group. Alternatively, you can override the port for a target
-  when you
-  register it. You can register each EC2 instance or IP address with the same
-  target group
-  multiple times using different ports.
-
-  With a Network Load Balancer, you cannot register instances by instance ID if
-  they have
-  the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1,
-  HS1, M1, M2, M3,
-  and T1. You can register instances of these types by IP address.
+  Registers the specified targets with the specified target group. If the target
+  is an EC2 instance, it must be in the `running` state when you register it.
   """
-  @spec register_targets(map(), register_targets_input(), list()) ::
+  @spec register_targets(AWS.Client.t(), register_targets_input(), Keyword.t()) ::
           {:ok, register_targets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_targets_errors()}
   def register_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterTargets", input, options)
   end
 
   @doc """
   Removes the specified certificate from the certificate list for the specified
-  HTTPS or TLS
-  listener.
+  HTTPS or TLS listener.
   """
-  @spec remove_listener_certificates(map(), remove_listener_certificates_input(), list()) ::
+  @spec remove_listener_certificates(
+          AWS.Client.t(),
+          remove_listener_certificates_input(),
+          Keyword.t()
+        ) ::
           {:ok, remove_listener_certificates_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_listener_certificates_errors()}
   def remove_listener_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveListenerCertificates", input, options)
   end
 
   @doc """
   Removes the specified tags from the specified Elastic Load Balancing resources.
-
-  You can
-  remove the tags for one or more Application Load Balancers, Network Load
-  Balancers, Gateway
-  Load Balancers, target groups, listeners, or rules.
+  You can remove the tags for one or more Application Load Balancers, Network
+  Load Balancers, Gateway Load Balancers, target groups, listeners, or rules.
   """
-  @spec remove_tags(map(), remove_tags_input(), list()) ::
+  @spec remove_tags(AWS.Client.t(), remove_tags_input(), Keyword.t()) ::
           {:ok, remove_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_errors()}
   def remove_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTags", input, options)
   end
@@ -3366,12 +3120,17 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @doc """
   Removes the specified revocation file from the specified trust store.
   """
-  @spec remove_trust_store_revocations(map(), remove_trust_store_revocations_input(), list()) ::
+  @spec remove_trust_store_revocations(
+          AWS.Client.t(),
+          remove_trust_store_revocations_input(),
+          Keyword.t()
+        ) ::
           {:ok, remove_trust_store_revocations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_trust_store_revocations_errors()}
   def remove_trust_store_revocations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTrustStoreRevocations", input, options)
   end
@@ -3380,76 +3139,61 @@ defmodule AWS.ElasticLoadBalancingv2 do
   Sets the type of IP addresses used by the subnets of the specified load
   balancer.
   """
-  @spec set_ip_address_type(map(), set_ip_address_type_input(), list()) ::
+  @spec set_ip_address_type(AWS.Client.t(), set_ip_address_type_input(), Keyword.t()) ::
           {:ok, set_ip_address_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_ip_address_type_errors()}
   def set_ip_address_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetIpAddressType", input, options)
   end
 
   @doc """
   Sets the priorities of the specified rules.
-
-  You can reorder the rules as long as there are no priority conflicts in the new
-  order. Any
-  existing rules that you do not specify retain their current priority.
   """
-  @spec set_rule_priorities(map(), set_rule_priorities_input(), list()) ::
+  @spec set_rule_priorities(AWS.Client.t(), set_rule_priorities_input(), Keyword.t()) ::
           {:ok, set_rule_priorities_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_rule_priorities_errors()}
   def set_rule_priorities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetRulePriorities", input, options)
   end
 
   @doc """
   Associates the specified security groups with the specified Application Load
-  Balancer or
-  Network Load Balancer.
-
-  The specified security groups override the previously associated
-  security groups.
-
-  You can't perform this operation on a Network Load Balancer unless you specified
-  a
-  security group for the load balancer when you created it.
-
-  You can't associate a security group with a Gateway Load Balancer.
+  Balancer or Network Load Balancer. The specified security groups override the
+  previously associated security groups. You can't perform this operation on a
+  Network Load Balancer unless you specified a security group for the load
+  balancer when you created it.
   """
-  @spec set_security_groups(map(), set_security_groups_input(), list()) ::
+  @spec set_security_groups(AWS.Client.t(), set_security_groups_input(), Keyword.t()) ::
           {:ok, set_security_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_security_groups_errors()}
   def set_security_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetSecurityGroups", input, options)
   end
 
   @doc """
   Enables the Availability Zones for the specified public subnets for the
-  specified
-  Application Load Balancer, Network Load Balancer or Gateway Load Balancer.
-
-  The specified subnets replace the
-  previously enabled subnets.
-
-  When you specify subnets for a Network Load Balancer, or Gateway Load Balancer
-  you must include all subnets that
-  were enabled previously, with their existing configurations, plus any additional
-  subnets.
+  specified Application Load Balancer, Network Load Balancer or Gateway Load
+  Balancer. The specified subnets replace the previously enabled subnets.
   """
-  @spec set_subnets(map(), set_subnets_input(), list()) ::
+  @spec set_subnets(AWS.Client.t(), set_subnets_input(), Keyword.t()) ::
           {:ok, set_subnets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_subnets_errors()}
   def set_subnets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetSubnets", input, options)
   end

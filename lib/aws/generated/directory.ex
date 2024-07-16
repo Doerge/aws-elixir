@@ -4,29 +4,6 @@
 defmodule AWS.Directory do
   @moduledoc """
   Directory Service
-
-  Directory Service is a web service that makes it easy for you to setup and run
-  directories in the
-  Amazon Web Services cloud, or connect your Amazon Web Services resources with an
-  existing self-managed Microsoft Active
-  Directory.
-
-  This guide provides detailed information about Directory Service operations,
-  data types,
-  parameters, and errors. For information about Directory Services features, see
-  [Directory Service](https://aws.amazon.com/directoryservice/) and the [Directory Service
-  Administration
-  Guide](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html).
-
-  Amazon Web Services provides SDKs that consist of libraries and sample code for
-  various
-  programming languages and platforms (Java, Ruby, .Net, iOS, Android, etc.). The
-  SDKs
-  provide a convenient way to create programmatic access to Directory Service and
-  other Amazon Web Services
-  services. For more information about the Amazon Web Services SDKs, including how
-  to download and
-  install them, see [Tools for Amazon Web Services](http://aws.amazon.com/tools/).
   """
 
   alias AWS.Client
@@ -3098,39 +3075,31 @@ defmodule AWS.Directory do
   Accepts a directory sharing request that was sent from the directory owner
   account.
   """
-  @spec accept_shared_directory(map(), accept_shared_directory_request(), list()) ::
+  @spec accept_shared_directory(AWS.Client.t(), accept_shared_directory_request(), Keyword.t()) ::
           {:ok, accept_shared_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_shared_directory_errors()}
   def accept_shared_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptSharedDirectory", input, options)
   end
 
   @doc """
   If the DNS server for your self-managed domain uses a publicly addressable IP
-  address,
-  you must add a CIDR address block to correctly route traffic to and from your
-  Microsoft AD
-  on Amazon Web Services.
-
-  *AddIpRoutes* adds this address block. You can
-  also use *AddIpRoutes* to facilitate routing traffic that uses public IP
-  ranges from your Microsoft AD on Amazon Web Services to a peer VPC.
-
-  Before you call *AddIpRoutes*, ensure that all of the required
-  permissions have been explicitly granted through a policy. For details about
-  what
-  permissions are required to run the *AddIpRoutes* operation, see [Directory Service API Permissions: Actions, Resources, and Conditions
-  Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
+  address, you must add a CIDR address block to correctly route traffic to and
+  from your Microsoft AD on Amazon Web Services. *AddIpRoutes* adds this address
+  block. You can also use *AddIpRoutes* to facilitate routing traffic that uses
+  public IP ranges from your Microsoft AD on Amazon Web Services to a peer VPC.
   """
-  @spec add_ip_routes(map(), add_ip_routes_request(), list()) ::
+  @spec add_ip_routes(AWS.Client.t(), add_ip_routes_request(), Keyword.t()) ::
           {:ok, add_ip_routes_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_ip_routes_errors()}
   def add_ip_routes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddIpRoutes", input, options)
   end
@@ -3138,89 +3107,77 @@ defmodule AWS.Directory do
   @doc """
   Adds two domain controllers in the specified Region for the specified directory.
   """
-  @spec add_region(map(), add_region_request(), list()) ::
+  @spec add_region(AWS.Client.t(), add_region_request(), Keyword.t()) ::
           {:ok, add_region_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_region_errors()}
   def add_region(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddRegion", input, options)
   end
 
   @doc """
-  Adds or overwrites one or more tags for the specified directory.
-
-  Each directory can
-  have a maximum of 50 tags. Each tag consists of a key and optional value. Tag
-  keys must be
-  unique to each resource.
+  Adds or overwrites one or more tags for the specified directory. Each directory
+  can have a maximum of 50 tags. Each tag consists of a key and optional value.
+  Tag keys must be unique to each resource.
   """
-  @spec add_tags_to_resource(map(), add_tags_to_resource_request(), list()) ::
+  @spec add_tags_to_resource(AWS.Client.t(), add_tags_to_resource_request(), Keyword.t()) ::
           {:ok, add_tags_to_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
 
   @doc """
-  Cancels an in-progress schema extension to a Microsoft AD directory.
-
-  Once a schema
-  extension has started replicating to all domain controllers, the task can no
-  longer be
-  canceled. A schema extension can be canceled during any of the following states;
-  `Initializing`, `CreatingSnapshot`, and
+  Cancels an in-progress schema extension to a Microsoft AD directory. Once a
+  schema extension has started replicating to all domain controllers, the task
+  can no longer be canceled. A schema extension can be canceled during any of
+  the following states; `Initializing`, `CreatingSnapshot`, and
   `UpdatingSchema`.
   """
-  @spec cancel_schema_extension(map(), cancel_schema_extension_request(), list()) ::
+  @spec cancel_schema_extension(AWS.Client.t(), cancel_schema_extension_request(), Keyword.t()) ::
           {:ok, cancel_schema_extension_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_schema_extension_errors()}
   def cancel_schema_extension(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelSchemaExtension", input, options)
   end
 
   @doc """
   Creates an AD Connector to connect to a self-managed directory.
-
-  Before you call `ConnectDirectory`, ensure that all of the required permissions
-  have been explicitly granted through a policy. For details about what
-  permissions are required
-  to run the `ConnectDirectory` operation, see [Directory Service API Permissions: Actions, Resources, and Conditions
-  Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
-  @spec connect_directory(map(), connect_directory_request(), list()) ::
+  @spec connect_directory(AWS.Client.t(), connect_directory_request(), Keyword.t()) ::
           {:ok, connect_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, connect_directory_errors()}
   def connect_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConnectDirectory", input, options)
   end
 
   @doc """
-  Creates an alias for a directory and assigns the alias to the directory.
-
-  The alias is used
-  to construct the access URL for the directory, such as
+  Creates an alias for a directory and assigns the alias to the directory. The
+  alias is used to construct the access URL for the directory, such as
   `http://.awsapps.com`.
-
-  After an alias has been created, it cannot be deleted or reused, so this
-  operation should only be used when absolutely necessary.
   """
-  @spec create_alias(map(), create_alias_request(), list()) ::
+  @spec create_alias(AWS.Client.t(), create_alias_request(), Keyword.t()) ::
           {:ok, create_alias_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_alias_errors()}
   def create_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAlias", input, options)
   end
@@ -3228,92 +3185,93 @@ defmodule AWS.Directory do
   @doc """
   Creates an Active Directory computer object in the specified directory.
   """
-  @spec create_computer(map(), create_computer_request(), list()) ::
+  @spec create_computer(AWS.Client.t(), create_computer_request(), Keyword.t()) ::
           {:ok, create_computer_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_computer_errors()}
   def create_computer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateComputer", input, options)
   end
 
   @doc """
   Creates a conditional forwarder associated with your Amazon Web Services
-  directory.
-
-  Conditional
-  forwarders are required in order to set up a trust relationship with another
-  domain. The
-  conditional forwarder points to the trusted domain.
+  directory. Conditional forwarders are required in order to set up a trust
+  relationship with another domain. The conditional forwarder points to the
+  trusted domain.
   """
-  @spec create_conditional_forwarder(map(), create_conditional_forwarder_request(), list()) ::
+  @spec create_conditional_forwarder(
+          AWS.Client.t(),
+          create_conditional_forwarder_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_conditional_forwarder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_conditional_forwarder_errors()}
   def create_conditional_forwarder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConditionalForwarder", input, options)
   end
 
   @doc """
-  Creates a Simple AD directory.
-
-  For more information, see [Simple Active Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html)
-  in the *Directory Service Admin
-  Guide*.
-
-  Before you call `CreateDirectory`, ensure that all of the required permissions
-  have been explicitly granted through a policy. For details about what
-  permissions are required
-  to run the `CreateDirectory` operation, see [Directory Service API Permissions: Actions, Resources, and Conditions
+  Creates a Simple AD directory. For more information, see [Simple Active
+  Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html)
+  in the *Directory Service Admin Guide*. Before you call `CreateDirectory`,
+  ensure that all of the required permissions have been explicitly granted
+  through a policy. For details about what permissions are required to run the
+  `CreateDirectory` operation, see [Directory Service API Permissions: Actions,
+  Resources, and Conditions
   Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
-  @spec create_directory(map(), create_directory_request(), list()) ::
+  @spec create_directory(AWS.Client.t(), create_directory_request(), Keyword.t()) ::
           {:ok, create_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_directory_errors()}
   def create_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDirectory", input, options)
   end
 
   @doc """
   Creates a subscription to forward real-time Directory Service domain controller
-  security
-  logs to the specified Amazon CloudWatch log group in your Amazon Web Services
-  account.
+  security logs to the specified Amazon CloudWatch log group in your Amazon Web
+  Services account.
   """
-  @spec create_log_subscription(map(), create_log_subscription_request(), list()) ::
+  @spec create_log_subscription(AWS.Client.t(), create_log_subscription_request(), Keyword.t()) ::
           {:ok, create_log_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_log_subscription_errors()}
   def create_log_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLogSubscription", input, options)
   end
 
   @doc """
-  Creates a Microsoft AD directory in the Amazon Web Services Cloud.
-
-  For more information, see [Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html)
-  in the *Directory Service Admin Guide*.
-
-  Before you call *CreateMicrosoftAD*, ensure that all of the required
-  permissions have been explicitly granted through a policy. For details about
-  what permissions
-  are required to run the *CreateMicrosoftAD* operation, see [Directory Service API Permissions: Actions, Resources, and Conditions
+  Creates a Microsoft AD directory in the Amazon Web Services Cloud. For more
+  information, see [Managed Microsoft
+  AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html)
+  in the *Directory Service Admin Guide*. Before you call *CreateMicrosoftAD*,
+  ensure that all of the required permissions have been explicitly granted
+  through a policy. For details about what permissions are required to run the
+  *CreateMicrosoftAD* operation, see [Directory Service API Permissions:
+  Actions, Resources, and Conditions
   Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
-  @spec create_microsoft_ad(map(), create_microsoft_ad_request(), list()) ::
+  @spec create_microsoft_ad(AWS.Client.t(), create_microsoft_ad_request(), Keyword.t()) ::
           {:ok, create_microsoft_ad_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_microsoft_ad_errors()}
   def create_microsoft_ad(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMicrosoftAD", input, options)
   end
@@ -3321,76 +3279,65 @@ defmodule AWS.Directory do
   @doc """
   Creates a snapshot of a Simple AD or Microsoft AD directory in the Amazon Web
   Services cloud.
-
-  You cannot take snapshots of AD Connector directories.
   """
-  @spec create_snapshot(map(), create_snapshot_request(), list()) ::
+  @spec create_snapshot(AWS.Client.t(), create_snapshot_request(), Keyword.t()) ::
           {:ok, create_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
 
   @doc """
   Directory Service for Microsoft Active Directory allows you to configure trust
-  relationships.
-
-  For
-  example, you can establish a trust between your Managed Microsoft AD directory,
-  and your existing
-  self-managed Microsoft Active Directory. This would allow you to provide users
-  and groups
-  access to resources in either domain, with a single set of credentials.
-
-  This action initiates the creation of the Amazon Web Services side of a trust
-  relationship between an
-  Managed Microsoft AD directory and an external domain. You can create either a
-  forest trust or an
-  external trust.
+  relationships. For example, you can establish a trust between your Managed
+  Microsoft AD directory, and your existing self-managed Microsoft Active
+  Directory. This would allow you to provide users and groups access to
+  resources in either domain, with a single set of credentials.
   """
-  @spec create_trust(map(), create_trust_request(), list()) ::
+  @spec create_trust(AWS.Client.t(), create_trust_request(), Keyword.t()) ::
           {:ok, create_trust_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_trust_errors()}
   def create_trust(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrust", input, options)
   end
 
   @doc """
   Deletes a conditional forwarder that has been set up for your Amazon Web
-  Services
-  directory.
+  Services directory.
   """
-  @spec delete_conditional_forwarder(map(), delete_conditional_forwarder_request(), list()) ::
+  @spec delete_conditional_forwarder(
+          AWS.Client.t(),
+          delete_conditional_forwarder_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_conditional_forwarder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_conditional_forwarder_errors()}
   def delete_conditional_forwarder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConditionalForwarder", input, options)
   end
 
   @doc """
   Deletes an Directory Service directory.
-
-  Before you call `DeleteDirectory`, ensure that all of the required permissions
-  have been explicitly granted through a policy. For details about what
-  permissions are required
-  to run the `DeleteDirectory` operation, see [Directory Service API Permissions: Actions, Resources, and Conditions
-  Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
-  @spec delete_directory(map(), delete_directory_request(), list()) ::
+  @spec delete_directory(AWS.Client.t(), delete_directory_request(), Keyword.t()) ::
           {:ok, delete_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_directory_errors()}
   def delete_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDirectory", input, options)
   end
@@ -3398,12 +3345,13 @@ defmodule AWS.Directory do
   @doc """
   Deletes the specified log subscription.
   """
-  @spec delete_log_subscription(map(), delete_log_subscription_request(), list()) ::
+  @spec delete_log_subscription(AWS.Client.t(), delete_log_subscription_request(), Keyword.t()) ::
           {:ok, delete_log_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_log_subscription_errors()}
   def delete_log_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLogSubscription", input, options)
   end
@@ -3411,27 +3359,28 @@ defmodule AWS.Directory do
   @doc """
   Deletes a directory snapshot.
   """
-  @spec delete_snapshot(map(), delete_snapshot_request(), list()) ::
+  @spec delete_snapshot(AWS.Client.t(), delete_snapshot_request(), Keyword.t()) ::
           {:ok, delete_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_snapshot_errors()}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSnapshot", input, options)
   end
 
   @doc """
   Deletes an existing trust relationship between your Managed Microsoft AD
-  directory and an external
-  domain.
+  directory and an external domain.
   """
-  @spec delete_trust(map(), delete_trust_request(), list()) ::
+  @spec delete_trust(AWS.Client.t(), delete_trust_request(), Keyword.t()) ::
           {:ok, delete_trust_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_trust_errors()}
   def delete_trust(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTrust", input, options)
   end
@@ -3440,12 +3389,13 @@ defmodule AWS.Directory do
   Deletes from the system the certificate that was registered for secure LDAP or
   client certificate authentication.
   """
-  @spec deregister_certificate(map(), deregister_certificate_request(), list()) ::
+  @spec deregister_certificate(AWS.Client.t(), deregister_certificate_request(), Keyword.t()) ::
           {:ok, deregister_certificate_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_certificate_errors()}
   def deregister_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterCertificate", input, options)
   end
@@ -3454,12 +3404,13 @@ defmodule AWS.Directory do
   Removes the specified directory as a publisher to the specified Amazon SNS
   topic.
   """
-  @spec deregister_event_topic(map(), deregister_event_topic_request(), list()) ::
+  @spec deregister_event_topic(AWS.Client.t(), deregister_event_topic_request(), Keyword.t()) ::
           {:ok, deregister_event_topic_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_event_topic_errors()}
   def deregister_event_topic(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterEventTopic", input, options)
   end
@@ -3468,78 +3419,69 @@ defmodule AWS.Directory do
   Displays information about the certificate registered for secure LDAP or client
   certificate authentication.
   """
-  @spec describe_certificate(map(), describe_certificate_request(), list()) ::
+  @spec describe_certificate(AWS.Client.t(), describe_certificate_request(), Keyword.t()) ::
           {:ok, describe_certificate_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_certificate_errors()}
   def describe_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCertificate", input, options)
   end
 
   @doc """
   Retrieves information about the type of client authentication for the specified
-  directory, if the type is specified.
-
-  If no type is specified, information about all client authentication types that
-  are supported for the specified directory is retrieved. Currently, only
-  `SmartCard` is supported.
+  directory, if the type is specified. If no type is specified, information
+  about all client authentication types that are supported for the specified
+  directory is retrieved. Currently, only `SmartCard` is supported.
   """
   @spec describe_client_authentication_settings(
-          map(),
+          AWS.Client.t(),
           describe_client_authentication_settings_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_client_authentication_settings_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_client_authentication_settings_errors()}
   def describe_client_authentication_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClientAuthenticationSettings", input, options)
   end
 
   @doc """
   Obtains information about the conditional forwarders for this account.
-
-  If no input parameters are provided for RemoteDomainNames, this request
-  describes all
-  conditional forwarders for the specified directory ID.
   """
-  @spec describe_conditional_forwarders(map(), describe_conditional_forwarders_request(), list()) ::
+  @spec describe_conditional_forwarders(
+          AWS.Client.t(),
+          describe_conditional_forwarders_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_conditional_forwarders_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_conditional_forwarders_errors()}
   def describe_conditional_forwarders(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConditionalForwarders", input, options)
   end
 
   @doc """
-  Obtains information about the directories that belong to this account.
-
-  You can retrieve information about specific directories by passing the directory
+  Obtains information about the directories that belong to this account. You can
+  retrieve information about specific directories by passing the directory
   identifiers in the `DirectoryIds` parameter. Otherwise, all directories that
-  belong
-  to the current account are returned.
-
-  This operation supports pagination with the use of the `NextToken` request and
-  response parameters. If more results are available, the
-  `DescribeDirectoriesResult.NextToken` member contains a token that you pass in
-  the next call to `DescribeDirectories` to retrieve the next set of
-  items.
-
-  You can also specify a maximum number of return results with the `Limit`
-  parameter.
+  belong to the current account are returned.
   """
-  @spec describe_directories(map(), describe_directories_request(), list()) ::
+  @spec describe_directories(AWS.Client.t(), describe_directories_request(), Keyword.t()) ::
           {:ok, describe_directories_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_directories_errors()}
   def describe_directories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDirectories", input, options)
   end
@@ -3547,31 +3489,32 @@ defmodule AWS.Directory do
   @doc """
   Provides information about any domain controllers in your directory.
   """
-  @spec describe_domain_controllers(map(), describe_domain_controllers_request(), list()) ::
+  @spec describe_domain_controllers(
+          AWS.Client.t(),
+          describe_domain_controllers_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_domain_controllers_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_controllers_errors()}
   def describe_domain_controllers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDomainControllers", input, options)
   end
 
   @doc """
   Obtains information about which Amazon SNS topics receive status messages from
-  the specified
-  directory.
-
-  If no input parameters are provided, such as DirectoryId or TopicName, this
-  request
-  describes all of the associations in the account.
+  the specified directory.
   """
-  @spec describe_event_topics(map(), describe_event_topics_request(), list()) ::
+  @spec describe_event_topics(AWS.Client.t(), describe_event_topics_request(), Keyword.t()) ::
           {:ok, describe_event_topics_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_topics_errors()}
   def describe_event_topics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventTopics", input, options)
   end
@@ -3579,12 +3522,13 @@ defmodule AWS.Directory do
   @doc """
   Describes the status of LDAP security for the specified directory.
   """
-  @spec describe_ldaps_settings(map(), describe_ldaps_settings_request(), list()) ::
+  @spec describe_ldaps_settings(AWS.Client.t(), describe_ldaps_settings_request(), Keyword.t()) ::
           {:ok, describe_ldaps_settings_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_ldaps_settings_errors()}
   def describe_ldaps_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLDAPSSettings", input, options)
   end
@@ -3593,12 +3537,13 @@ defmodule AWS.Directory do
   Provides information about the Regions that are configured for multi-Region
   replication.
   """
-  @spec describe_regions(map(), describe_regions_request(), list()) ::
+  @spec describe_regions(AWS.Client.t(), describe_regions_request(), Keyword.t()) ::
           {:ok, describe_regions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_regions_errors()}
   def describe_regions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRegions", input, options)
   end
@@ -3607,12 +3552,13 @@ defmodule AWS.Directory do
   Retrieves information about the configurable settings for the specified
   directory.
   """
-  @spec describe_settings(map(), describe_settings_request(), list()) ::
+  @spec describe_settings(AWS.Client.t(), describe_settings_request(), Keyword.t()) ::
           {:ok, describe_settings_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_settings_errors()}
   def describe_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSettings", input, options)
   end
@@ -3620,65 +3566,67 @@ defmodule AWS.Directory do
   @doc """
   Returns the shared directories in your account.
   """
-  @spec describe_shared_directories(map(), describe_shared_directories_request(), list()) ::
+  @spec describe_shared_directories(
+          AWS.Client.t(),
+          describe_shared_directories_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_shared_directories_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_shared_directories_errors()}
   def describe_shared_directories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSharedDirectories", input, options)
   end
 
   @doc """
   Obtains information about the directory snapshots that belong to this account.
-
   This operation supports pagination with the use of the *NextToken* request and
   response parameters. If more results are available, the
-  *DescribeSnapshots.NextToken*
-  member contains a token that you pass in the next call to `DescribeSnapshots` to
-  retrieve the next set of items.
-
-  You can also specify a maximum number of return results with the *Limit*
-  parameter.
+  *DescribeSnapshots.NextToken* member contains a token that you pass in the
+  next call to `DescribeSnapshots` to retrieve the next set of items.
   """
-  @spec describe_snapshots(map(), describe_snapshots_request(), list()) ::
+  @spec describe_snapshots(AWS.Client.t(), describe_snapshots_request(), Keyword.t()) ::
           {:ok, describe_snapshots_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_snapshots_errors()}
   def describe_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSnapshots", input, options)
   end
 
   @doc """
   Obtains information about the trust relationships for this account.
-
-  If no input parameters are provided, such as DirectoryId or TrustIds, this
-  request
-  describes all the trust relationships belonging to the account.
   """
-  @spec describe_trusts(map(), describe_trusts_request(), list()) ::
+  @spec describe_trusts(AWS.Client.t(), describe_trusts_request(), Keyword.t()) ::
           {:ok, describe_trusts_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_trusts_errors()}
   def describe_trusts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrusts", input, options)
   end
 
   @doc """
-
   Describes the updates of a directory for a particular update type.
   """
-  @spec describe_update_directory(map(), describe_update_directory_request(), list()) ::
+  @spec describe_update_directory(
+          AWS.Client.t(),
+          describe_update_directory_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_update_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_update_directory_errors()}
   def describe_update_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUpdateDirectory", input, options)
   end
@@ -3686,12 +3634,17 @@ defmodule AWS.Directory do
   @doc """
   Disables alternative client authentication methods for the specified directory.
   """
-  @spec disable_client_authentication(map(), disable_client_authentication_request(), list()) ::
+  @spec disable_client_authentication(
+          AWS.Client.t(),
+          disable_client_authentication_request(),
+          Keyword.t()
+        ) ::
           {:ok, disable_client_authentication_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_client_authentication_errors()}
   def disable_client_authentication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableClientAuthentication", input, options)
   end
@@ -3699,27 +3652,28 @@ defmodule AWS.Directory do
   @doc """
   Deactivates LDAP secure calls for the specified directory.
   """
-  @spec disable_ldaps(map(), disable_ldaps_request(), list()) ::
+  @spec disable_ldaps(AWS.Client.t(), disable_ldaps_request(), Keyword.t()) ::
           {:ok, disable_ldaps_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_ldaps_errors()}
   def disable_ldaps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableLDAPS", input, options)
   end
 
   @doc """
   Disables multi-factor authentication (MFA) with the Remote Authentication Dial
-  In
-  User Service (RADIUS) server for an AD Connector or Microsoft AD directory.
+  In User Service (RADIUS) server for an AD Connector or Microsoft AD directory.
   """
-  @spec disable_radius(map(), disable_radius_request(), list()) ::
+  @spec disable_radius(AWS.Client.t(), disable_radius_request(), Keyword.t()) ::
           {:ok, disable_radius_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_radius_errors()}
   def disable_radius(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableRadius", input, options)
   end
@@ -3727,12 +3681,13 @@ defmodule AWS.Directory do
   @doc """
   Disables single-sign on for a directory.
   """
-  @spec disable_sso(map(), disable_sso_request(), list()) ::
+  @spec disable_sso(AWS.Client.t(), disable_sso_request(), Keyword.t()) ::
           {:ok, disable_sso_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_sso_errors()}
   def disable_sso(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableSso", input, options)
   end
@@ -3740,12 +3695,17 @@ defmodule AWS.Directory do
   @doc """
   Enables alternative client authentication methods for the specified directory.
   """
-  @spec enable_client_authentication(map(), enable_client_authentication_request(), list()) ::
+  @spec enable_client_authentication(
+          AWS.Client.t(),
+          enable_client_authentication_request(),
+          Keyword.t()
+        ) ::
           {:ok, enable_client_authentication_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_client_authentication_errors()}
   def enable_client_authentication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableClientAuthentication", input, options)
   end
@@ -3753,45 +3713,44 @@ defmodule AWS.Directory do
   @doc """
   Activates the switch for the specific directory to always use LDAP secure calls.
   """
-  @spec enable_ldaps(map(), enable_ldaps_request(), list()) ::
+  @spec enable_ldaps(AWS.Client.t(), enable_ldaps_request(), Keyword.t()) ::
           {:ok, enable_ldaps_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_ldaps_errors()}
   def enable_ldaps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableLDAPS", input, options)
   end
 
   @doc """
   Enables multi-factor authentication (MFA) with the Remote Authentication Dial In
-  User
-  Service (RADIUS) server for an AD Connector or Microsoft AD directory.
+  User Service (RADIUS) server for an AD Connector or Microsoft AD directory.
   """
-  @spec enable_radius(map(), enable_radius_request(), list()) ::
+  @spec enable_radius(AWS.Client.t(), enable_radius_request(), Keyword.t()) ::
           {:ok, enable_radius_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_radius_errors()}
   def enable_radius(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableRadius", input, options)
   end
 
   @doc """
-  Enables single sign-on for a directory.
-
-  Single sign-on allows users in your directory to
-  access certain Amazon Web Services services from a computer joined to the
-  directory without having to enter
-  their credentials separately.
+  Enables single sign-on for a directory. Single sign-on allows users in your
+  directory to access certain Amazon Web Services services from a computer
+  joined to the directory without having to enter their credentials separately.
   """
-  @spec enable_sso(map(), enable_sso_request(), list()) ::
+  @spec enable_sso(AWS.Client.t(), enable_sso_request(), Keyword.t()) ::
           {:ok, enable_sso_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_sso_errors()}
   def enable_sso(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableSso", input, options)
   end
@@ -3799,12 +3758,13 @@ defmodule AWS.Directory do
   @doc """
   Obtains directory limit information for the current Region.
   """
-  @spec get_directory_limits(map(), get_directory_limits_request(), list()) ::
+  @spec get_directory_limits(AWS.Client.t(), get_directory_limits_request(), Keyword.t()) ::
           {:ok, get_directory_limits_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_directory_limits_errors()}
   def get_directory_limits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDirectoryLimits", input, options)
   end
@@ -3812,12 +3772,13 @@ defmodule AWS.Directory do
   @doc """
   Obtains the manual snapshot limits for a directory.
   """
-  @spec get_snapshot_limits(map(), get_snapshot_limits_request(), list()) ::
+  @spec get_snapshot_limits(AWS.Client.t(), get_snapshot_limits_request(), Keyword.t()) ::
           {:ok, get_snapshot_limits_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_snapshot_limits_errors()}
   def get_snapshot_limits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSnapshotLimits", input, options)
   end
@@ -3826,12 +3787,13 @@ defmodule AWS.Directory do
   For the specified directory, lists all the certificates registered for a secure
   LDAP or client certificate authentication.
   """
-  @spec list_certificates(map(), list_certificates_request(), list()) ::
+  @spec list_certificates(AWS.Client.t(), list_certificates_request(), Keyword.t()) ::
           {:ok, list_certificates_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_certificates_errors()}
   def list_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCertificates", input, options)
   end
@@ -3839,12 +3801,13 @@ defmodule AWS.Directory do
   @doc """
   Lists the address blocks that you have added to a directory.
   """
-  @spec list_ip_routes(map(), list_ip_routes_request(), list()) ::
+  @spec list_ip_routes(AWS.Client.t(), list_ip_routes_request(), Keyword.t()) ::
           {:ok, list_ip_routes_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ip_routes_errors()}
   def list_ip_routes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListIpRoutes", input, options)
   end
@@ -3852,12 +3815,13 @@ defmodule AWS.Directory do
   @doc """
   Lists the active log subscriptions for the Amazon Web Services account.
   """
-  @spec list_log_subscriptions(map(), list_log_subscriptions_request(), list()) ::
+  @spec list_log_subscriptions(AWS.Client.t(), list_log_subscriptions_request(), Keyword.t()) ::
           {:ok, list_log_subscriptions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_log_subscriptions_errors()}
   def list_log_subscriptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLogSubscriptions", input, options)
   end
@@ -3865,12 +3829,13 @@ defmodule AWS.Directory do
   @doc """
   Lists all schema extensions applied to a Microsoft AD Directory.
   """
-  @spec list_schema_extensions(map(), list_schema_extensions_request(), list()) ::
+  @spec list_schema_extensions(AWS.Client.t(), list_schema_extensions_request(), Keyword.t()) ::
           {:ok, list_schema_extensions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schema_extensions_errors()}
   def list_schema_extensions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSchemaExtensions", input, options)
   end
@@ -3878,12 +3843,13 @@ defmodule AWS.Directory do
   @doc """
   Lists all tags on a directory.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3891,34 +3857,32 @@ defmodule AWS.Directory do
   @doc """
   Registers a certificate for a secure LDAP or client certificate authentication.
   """
-  @spec register_certificate(map(), register_certificate_request(), list()) ::
+  @spec register_certificate(AWS.Client.t(), register_certificate_request(), Keyword.t()) ::
           {:ok, register_certificate_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_certificate_errors()}
   def register_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterCertificate", input, options)
   end
 
   @doc """
-  Associates a directory with an Amazon SNS topic.
-
-  This establishes the directory as a
-  publisher to the specified Amazon SNS topic. You can then receive email or text
-  (SMS) messages when
-  the status of your directory changes. You get notified if your directory goes
-  from an Active
-  status to an Impaired or Inoperable status. You also receive a notification when
-  the directory
-  returns to an Active status.
+  Associates a directory with an Amazon SNS topic. This establishes the directory
+  as a publisher to the specified Amazon SNS topic. You can then receive email
+  or text (SMS) messages when the status of your directory changes. You get
+  notified if your directory goes from an Active status to an Impaired or
+  Inoperable status. You also receive a notification when the directory returns
+  to an Active status.
   """
-  @spec register_event_topic(map(), register_event_topic_request(), list()) ::
+  @spec register_event_topic(AWS.Client.t(), register_event_topic_request(), Keyword.t()) ::
           {:ok, register_event_topic_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_event_topic_errors()}
   def register_event_topic(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterEventTopic", input, options)
   end
@@ -3927,12 +3891,13 @@ defmodule AWS.Directory do
   Rejects a directory sharing request that was sent from the directory owner
   account.
   """
-  @spec reject_shared_directory(map(), reject_shared_directory_request(), list()) ::
+  @spec reject_shared_directory(AWS.Client.t(), reject_shared_directory_request(), Keyword.t()) ::
           {:ok, reject_shared_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_shared_directory_errors()}
   def reject_shared_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RejectSharedDirectory", input, options)
   end
@@ -3940,30 +3905,29 @@ defmodule AWS.Directory do
   @doc """
   Removes IP address blocks from a directory.
   """
-  @spec remove_ip_routes(map(), remove_ip_routes_request(), list()) ::
+  @spec remove_ip_routes(AWS.Client.t(), remove_ip_routes_request(), Keyword.t()) ::
           {:ok, remove_ip_routes_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_ip_routes_errors()}
   def remove_ip_routes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveIpRoutes", input, options)
   end
 
   @doc """
   Stops all replication and removes the domain controllers from the specified
-  Region.
-
-  You
-  cannot remove the primary Region with this operation. Instead, use the
-  `DeleteDirectory` API.
+  Region. You cannot remove the primary Region with this operation. Instead, use
+  the `DeleteDirectory` API.
   """
-  @spec remove_region(map(), remove_region_request(), list()) ::
+  @spec remove_region(AWS.Client.t(), remove_region_request(), Keyword.t()) ::
           {:ok, remove_region_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_region_errors()}
   def remove_region(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveRegion", input, options)
   end
@@ -3971,106 +3935,71 @@ defmodule AWS.Directory do
   @doc """
   Removes tags from a directory.
   """
-  @spec remove_tags_from_resource(map(), remove_tags_from_resource_request(), list()) ::
+  @spec remove_tags_from_resource(
+          AWS.Client.t(),
+          remove_tags_from_resource_request(),
+          Keyword.t()
+        ) ::
           {:ok, remove_tags_from_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
 
   @doc """
   Resets the password for any user in your Managed Microsoft AD or Simple AD
-  directory.
-
-  You can reset the password for any user in your directory with the following
-  exceptions:
-
-    *
-  For Simple AD, you cannot reset the password for any user that is a member of
-  either
-  the **Domain Admins** or **Enterprise
-  Admins** group except for the administrator user.
-
-    *
-  For Managed Microsoft AD, you can only reset the password for a user that is in
-  an
-  OU based off of the NetBIOS name that you typed when you created your directory.
-  For
-  example, you cannot reset the password for a user in the **Amazon Web Services
-  Reserved** OU. For more information about the OU structure for an Managed
-  Microsoft AD directory, see [What Gets Created](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html)
-  in the *Directory Service Administration
-  Guide*.
+  directory. You can reset the password for any user in your directory with the
+  following exceptions:
   """
-  @spec reset_user_password(map(), reset_user_password_request(), list()) ::
+  @spec reset_user_password(AWS.Client.t(), reset_user_password_request(), Keyword.t()) ::
           {:ok, reset_user_password_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_user_password_errors()}
   def reset_user_password(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetUserPassword", input, options)
   end
 
   @doc """
-  Restores a directory using an existing directory snapshot.
-
-  When you restore a directory from a snapshot, any changes made to the directory
-  after the snapshot date are overwritten.
-
-  This action returns as soon as the restore operation is initiated. You can
-  monitor the
-  progress of the restore operation by calling the `DescribeDirectories` operation
-  with
-  the directory identifier. When the **DirectoryDescription.Stage** value changes
-  to
-  `Active`, the restore operation is complete.
+  Restores a directory using an existing directory snapshot. When you restore a
+  directory from a snapshot, any changes made to the directory after the
+  snapshot date are overwritten.
   """
-  @spec restore_from_snapshot(map(), restore_from_snapshot_request(), list()) ::
+  @spec restore_from_snapshot(AWS.Client.t(), restore_from_snapshot_request(), Keyword.t()) ::
           {:ok, restore_from_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_from_snapshot_errors()}
   def restore_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreFromSnapshot", input, options)
   end
 
   @doc """
   Shares a specified directory (`DirectoryId`) in your Amazon Web Services account
-  (directory
-  owner) with another Amazon Web Services account (directory consumer).
-
-  With this operation you can use your
-  directory from any Amazon Web Services account and from any Amazon VPC within an
-  Amazon Web Services Region.
-
-  When you share your Managed Microsoft AD directory, Directory Service creates a
-  shared directory in the directory consumer account. This shared directory
-  contains the
-  metadata to provide access to the directory within the directory owner account.
-  The shared
-  directory is visible in all VPCs in the directory consumer account.
-
-  The `ShareMethod` parameter determines whether the specified directory can be
-  shared between Amazon Web Services accounts inside the same Amazon Web Services
-  organization (`ORGANIZATIONS`). It
-  also determines whether you can share the directory with any other Amazon Web
-  Services account either inside
-  or outside of the organization (`HANDSHAKE`).
-
-  The `ShareNotes` parameter is only used when `HANDSHAKE` is called,
-  which sends a directory sharing request to the directory consumer.
+  (directory owner) with another Amazon Web Services account (directory
+  consumer). With this operation you can use your directory from any Amazon Web
+  Services account and from any Amazon VPC within an Amazon Web Services Region.
+  When you share your Managed Microsoft AD directory, Directory Service creates
+  a shared directory in the directory consumer account. This shared directory
+  contains the metadata to provide access to the directory within the directory
+  owner account. The shared directory is visible in all VPCs in the directory
+  consumer account.
   """
-  @spec share_directory(map(), share_directory_request(), list()) ::
+  @spec share_directory(AWS.Client.t(), share_directory_request(), Keyword.t()) ::
           {:ok, share_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, share_directory_errors()}
   def share_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ShareDirectory", input, options)
   end
@@ -4078,12 +4007,13 @@ defmodule AWS.Directory do
   @doc """
   Applies a schema extension to a Microsoft AD directory.
   """
-  @spec start_schema_extension(map(), start_schema_extension_request(), list()) ::
+  @spec start_schema_extension(AWS.Client.t(), start_schema_extension_request(), Keyword.t()) ::
           {:ok, start_schema_extension_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_schema_extension_errors()}
   def start_schema_extension(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartSchemaExtension", input, options)
   end
@@ -4091,82 +4021,84 @@ defmodule AWS.Directory do
   @doc """
   Stops the directory sharing between the directory owner and consumer accounts.
   """
-  @spec unshare_directory(map(), unshare_directory_request(), list()) ::
+  @spec unshare_directory(AWS.Client.t(), unshare_directory_request(), Keyword.t()) ::
           {:ok, unshare_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unshare_directory_errors()}
   def unshare_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UnshareDirectory", input, options)
   end
 
   @doc """
   Updates a conditional forwarder that has been set up for your Amazon Web
-  Services
-  directory.
+  Services directory.
   """
-  @spec update_conditional_forwarder(map(), update_conditional_forwarder_request(), list()) ::
+  @spec update_conditional_forwarder(
+          AWS.Client.t(),
+          update_conditional_forwarder_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_conditional_forwarder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_conditional_forwarder_errors()}
   def update_conditional_forwarder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateConditionalForwarder", input, options)
   end
 
   @doc """
-
   Updates the directory for a particular update type.
   """
-  @spec update_directory_setup(map(), update_directory_setup_request(), list()) ::
+  @spec update_directory_setup(AWS.Client.t(), update_directory_setup_request(), Keyword.t()) ::
           {:ok, update_directory_setup_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_directory_setup_errors()}
   def update_directory_setup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDirectorySetup", input, options)
   end
 
   @doc """
-  Adds or removes domain controllers to or from the directory.
-
-  Based on the difference
-  between current value and new value (provided through this API call), domain
-  controllers will
-  be added or removed. It may take up to 45 minutes for any new domain controllers
-  to become
-  fully active once the requested number of domain controllers is updated. During
-  this time, you
+  Adds or removes domain controllers to or from the directory. Based on the
+  difference between current value and new value (provided through this API
+  call), domain controllers will be added or removed. It may take up to 45
+  minutes for any new domain controllers to become fully active once the
+  requested number of domain controllers is updated. During this time, you
   cannot make another update request.
   """
   @spec update_number_of_domain_controllers(
-          map(),
+          AWS.Client.t(),
           update_number_of_domain_controllers_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_number_of_domain_controllers_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_number_of_domain_controllers_errors()}
   def update_number_of_domain_controllers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateNumberOfDomainControllers", input, options)
   end
 
   @doc """
   Updates the Remote Authentication Dial In User Service (RADIUS) server
-  information
-  for an AD Connector or Microsoft AD directory.
+  information for an AD Connector or Microsoft AD directory.
   """
-  @spec update_radius(map(), update_radius_request(), list()) ::
+  @spec update_radius(AWS.Client.t(), update_radius_request(), Keyword.t()) ::
           {:ok, update_radius_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_radius_errors()}
   def update_radius(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRadius", input, options)
   end
@@ -4174,46 +4106,43 @@ defmodule AWS.Directory do
   @doc """
   Updates the configurable settings for the specified directory.
   """
-  @spec update_settings(map(), update_settings_request(), list()) ::
+  @spec update_settings(AWS.Client.t(), update_settings_request(), Keyword.t()) ::
           {:ok, update_settings_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_settings_errors()}
   def update_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSettings", input, options)
   end
 
   @doc """
   Updates the trust that has been set up between your Managed Microsoft AD
-  directory and an
-  self-managed Active Directory.
+  directory and an self-managed Active Directory.
   """
-  @spec update_trust(map(), update_trust_request(), list()) ::
+  @spec update_trust(AWS.Client.t(), update_trust_request(), Keyword.t()) ::
           {:ok, update_trust_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_trust_errors()}
   def update_trust(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTrust", input, options)
   end
 
   @doc """
   Directory Service for Microsoft Active Directory allows you to configure and
-  verify trust
-  relationships.
-
-  This action verifies a trust relationship between your Managed Microsoft AD
-  directory and an
-  external domain.
+  verify trust relationships.
   """
-  @spec verify_trust(map(), verify_trust_request(), list()) ::
+  @spec verify_trust(AWS.Client.t(), verify_trust_request(), Keyword.t()) ::
           {:ok, verify_trust_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, verify_trust_errors()}
   def verify_trust(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "VerifyTrust", input, options)
   end

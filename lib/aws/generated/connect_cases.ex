@@ -4,14 +4,12 @@
 defmodule AWS.ConnectCases do
   @moduledoc """
   With Amazon Connect Cases, your agents can track and manage customer issues that
-  require
-  multiple interactions, follow-up tasks, and teams in your contact center.
-
-  A case represents a
-  customer issue. It records the issue, the steps and interactions taken to
-  resolve the issue,
-  and the outcome. For more information, see [Amazon Connect Cases](https://docs.aws.amazon.com/connect/latest/adminguide/cases.html) in the
-  *Amazon Connect Administrator Guide*.
+  require multiple interactions, follow-up tasks, and teams in your contact
+  center. A case represents a customer issue. It records the issue, the steps
+  and interactions taken to resolve the issue, and the outcome. For more
+  information, see [Amazon Connect
+  Cases](https://docs.aws.amazon.com/connect/latest/adminguide/cases.html) in
+  the *Amazon Connect Administrator Guide*.
   """
 
   alias AWS.Client
@@ -1574,8 +1572,15 @@ defmodule AWS.ConnectCases do
 
   @doc """
   Returns the description for the list of fields in the request parameters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20BatchGetField&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+
+  ## Optional parameters:
   """
-  @spec batch_get_field(map(), String.t(), batch_get_field_request(), list()) ::
+  @spec batch_get_field(AWS.Client.t(), String.t(), batch_get_field_request(), Keyword.t()) ::
           {:ok, batch_get_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_field_errors()}
@@ -1584,7 +1589,8 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1602,13 +1608,21 @@ defmodule AWS.ConnectCases do
   @doc """
   Creates and updates a set of field options for a single select field in a Cases
   domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20BatchPutFieldOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+  * `:field_id` (`t:string`) The unique identifier of a field.
+
+  ## Optional parameters:
   """
   @spec batch_put_field_options(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           batch_put_field_options_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_put_field_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1620,38 +1634,27 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-
   If you provide a value for `PerformedBy.UserArn` you must also have
   [connect:DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html)
-  permission on the User ARN resource that you provide
+  permission on the User ARN resource that you provide Creates a case in the
+  specified Cases domain. Case system and custom fields are taken as an array
+  id/value pairs with a declared data types.
 
-  Creates a case in the specified Cases domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20CreateCase&this_doc_guide=API%2520Reference)
 
-  Case system and custom fields are taken
-  as an array id/value pairs with a declared data types.
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
 
-  The following fields are required when creating a case:
-
-    *
-
-  `customer_id` - You must provide the full customer profile ARN in this format:
-
-  ```
-  arn:aws:profile:your_AWS_Region:your_AWS_account
-  ID:domains/your_profiles_domain_name/profiles/profile_ID
-  ```
-
-    *
-
-  `title`
+  ## Optional parameters:
   """
-  @spec create_case(map(), String.t(), create_case_request(), list()) ::
+  @spec create_case(AWS.Client.t(), String.t(), create_case_request(), Keyword.t()) ::
           {:ok, create_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_case_errors()}
@@ -1660,7 +1663,8 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1677,21 +1681,16 @@ defmodule AWS.ConnectCases do
 
   @doc """
   Creates a domain, which is a container for all case data, such as cases, fields,
-  templates
-  and layouts.
+  templates and layouts. Each Amazon Connect instance can be associated with
+  only one Cases domain.
 
-  Each Amazon Connect instance can be associated with only one Cases
-  domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20CreateDomain&this_doc_guide=API%2520Reference)
 
-  This will not associate your connect instance to Cases domain. Instead, use the
-  Amazon Connect
-  [CreateIntegrationAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html) API. You need specific IAM
-  permissions to successfully associate the Cases domain. For more information,
-  see
-  [Onboard to
-  Cases](https://docs.aws.amazon.com/connect/latest/adminguide/required-permissions-iam-cases.html#onboard-cases-iam).
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_domain(map(), create_domain_request(), list()) ::
+  @spec create_domain(AWS.Client.t(), create_domain_request(), Keyword.t()) ::
           {:ok, create_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_domain_errors()}
@@ -1700,7 +1699,8 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1716,12 +1716,18 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
-  Creates a field in the Cases domain.
+  Creates a field in the Cases domain. This field is used to define the case
+  object model (that is, defines what data can be captured on cases) in a Cases
+  domain.
 
-  This field is used to define the case object
-  model (that is, defines what data can be captured on cases) in a Cases domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20CreateField&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+
+  ## Optional parameters:
   """
-  @spec create_field(map(), String.t(), create_field_request(), list()) ::
+  @spec create_field(AWS.Client.t(), String.t(), create_field_request(), Keyword.t()) ::
           {:ok, create_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_field_errors()}
@@ -1730,7 +1736,8 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1746,21 +1753,17 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
-  Creates a layout in the Cases domain.
+  Creates a layout in the Cases domain. Layouts define the following configuration
+  in the top section and More Info tab of the Cases user interface:
 
-  Layouts define the following configuration in
-  the top section and More Info tab of the Cases user interface:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20CreateLayout&this_doc_guide=API%2520Reference)
 
-    *
-  Fields to display to the users
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
 
-    *
-  Field ordering
-
-  Title and Status fields cannot be part of layouts since they are not
-  configurable.
+  ## Optional parameters:
   """
-  @spec create_layout(map(), String.t(), create_layout_request(), list()) ::
+  @spec create_layout(AWS.Client.t(), String.t(), create_layout_request(), Keyword.t()) ::
           {:ok, create_layout_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_layout_errors()}
@@ -1769,7 +1772,8 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1788,20 +1792,21 @@ defmodule AWS.ConnectCases do
   Creates a related item (comments, tasks, and contacts) and associates it with a
   case.
 
-    
-  A Related Item is a resource that is associated with a case. It may or may not
-  have
-  an external identifier linking it to an external resource (for example, a
-  `contactArn`). All Related Items have their own internal identifier, the
-  `relatedItemArn`. Examples of related items include `comments`
-  and `contacts`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20CreateRelatedItem&this_doc_guide=API%2520Reference)
 
-    
-  If you provide a value for `performedBy.userArn` you must also have
-  [DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html)
-  permission on the ARN of the user that you provide.
+  ## Parameters:
+  * `:case_id` (`t:string`) A unique identifier of the case.
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+
+  ## Optional parameters:
   """
-  @spec create_related_item(map(), String.t(), String.t(), create_related_item_request(), list()) ::
+  @spec create_related_item(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          create_related_item_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_related_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_related_item_errors()}
@@ -1812,7 +1817,8 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1828,20 +1834,22 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
-  Creates a template in the Cases domain.
-
-  This template is used to define the case object
-  model (that is, to define what data can be captured on cases) in a Cases domain.
-  A template
-  must have a unique name within a domain, and it must reference existing field
-  IDs and layout
-  IDs. Additionally, multiple fields with same IDs are not allowed within the same
-  Template. A
-  template can be either Active or Inactive, as indicated by its status. Inactive
-  templates
+  Creates a template in the Cases domain. This template is used to define the case
+  object model (that is, to define what data can be captured on cases) in a
+  Cases domain. A template must have a unique name within a domain, and it must
+  reference existing field IDs and layout IDs. Additionally, multiple fields
+  with same IDs are not allowed within the same Template. A template can be
+  either Active or Inactive, as indicated by its status. Inactive templates
   cannot be used to create cases.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20CreateTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+
+  ## Optional parameters:
   """
-  @spec create_template(map(), String.t(), create_template_request(), list()) ::
+  @spec create_template(AWS.Client.t(), String.t(), create_template_request(), Keyword.t()) ::
           {:ok, create_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_template_errors()}
@@ -1850,7 +1858,8 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1868,13 +1877,14 @@ defmodule AWS.ConnectCases do
   @doc """
   Deletes a Cases domain.
 
-  After deleting your domain you must disassociate the deleted domain from your
-  Amazon Connect instance with another API call before being able to use Cases
-  again with this
-  Amazon Connect instance. See
-  [DeleteIntegrationAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteIntegrationAssociation.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20DeleteDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+
+  ## Optional parameters:
   """
-  @spec delete_domain(map(), String.t(), delete_domain_request(), list()) ::
+  @spec delete_domain(AWS.Client.t(), String.t(), delete_domain_request(), Keyword.t()) ::
           {:ok, delete_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_errors()}
@@ -1883,7 +1893,8 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1899,68 +1910,18 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
-  Deletes a field from a cases template.
+  Deletes a field from a cases template. You can delete up to 100 fields per
+  domain. After a field is deleted:
 
-  You can delete up to 100 fields per domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20DeleteField&this_doc_guide=API%2520Reference)
 
-  After a field is deleted:
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+  * `:field_id` (`t:string`) Unique identifier of the field.
 
-    *
-  You can still retrieve the field by calling `BatchGetField`.
-
-    *
-  You cannot update a deleted field by calling `UpdateField`; it throws a
-  `ValidationException`.
-
-    *
-  Deleted fields are not included in the `ListFields` response.
-
-    *
-  Calling `CreateCase` with a deleted field throws a `ValidationException`
-  denoting
-  which field IDs in the request have been deleted.
-
-    *
-  Calling `GetCase` with a deleted field ID returns the deleted field's value if
-  one
-  exists.
-
-    *
-  Calling `UpdateCase` with a deleted field ID throws a `ValidationException` if
-  the
-  case does not already contain a value for the deleted field. Otherwise it
-  succeeds,
-  allowing you to update or remove (using `emptyValue: {}`) the field's value from
-  the
-  case.
-
-    *
-
-  `GetTemplate` does not return field IDs for deleted fields.
-
-    *
-
-  `GetLayout` does not return field IDs for deleted fields.
-
-    *
-  Calling `SearchCases` with the deleted field ID as a filter returns any cases
-  that
-  have a value for the deleted field that matches the filter criteria.
-
-    *
-  Calling `SearchCases` with a `searchTerm` value that matches a deleted field's
-  value on a
-  case returns the case in the response.
-
-    *
-  Calling `BatchPutFieldOptions` with a deleted field ID throw a
-  `ValidationException`.
-
-    *
-  Calling `GetCaseEventConfiguration` does not return field IDs for deleted
-  fields.
+  ## Optional parameters:
   """
-  @spec delete_field(map(), String.t(), String.t(), delete_field_request(), list()) ::
+  @spec delete_field(AWS.Client.t(), String.t(), String.t(), delete_field_request(), Keyword.t()) ::
           {:ok, delete_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_field_errors()}
@@ -1971,7 +1932,8 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1987,23 +1949,24 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
-  Deletes a layout from a cases template.
+  Deletes a layout from a cases template. You can delete up to 100 layouts per
+  domain.
 
-  You can delete up to 100 layouts per domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20DeleteLayout&this_doc_guide=API%2520Reference)
 
-  After a layout is deleted:
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+  * `:layout_id` (`t:string`) The unique identifier of the layout.
 
-    *
-  You can still retrieve the layout by calling `GetLayout`.
-
-    *
-  You cannot update a deleted layout by calling `UpdateLayout`; it throws a
-  `ValidationException`.
-
-    *
-  Deleted layouts are not included in the `ListLayouts` response.
+  ## Optional parameters:
   """
-  @spec delete_layout(map(), String.t(), String.t(), delete_layout_request(), list()) ::
+  @spec delete_layout(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_layout_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_layout_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_layout_errors()}
@@ -2014,7 +1977,8 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2030,25 +1994,23 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
-  Deletes a cases template.
+  Deletes a cases template. You can delete up to 100 templates per domain.
 
-  You can delete up to 100 templates per domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20DeleteTemplate&this_doc_guide=API%2520Reference)
 
-  After a cases template is deleted:
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+  * `:template_id` (`t:string`) A unique identifier of a template.
 
-    *
-  You can still retrieve the template by calling `GetTemplate`.
-
-    *
-  You cannot update the template.
-
-    *
-  You cannot create a case by using the deleted template.
-
-    *
-  Deleted templates are not included in the `ListTemplates` response.
+  ## Optional parameters:
   """
-  @spec delete_template(map(), String.t(), String.t(), delete_template_request(), list()) ::
+  @spec delete_template(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_template_errors()}
@@ -2059,7 +2021,8 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2076,8 +2039,16 @@ defmodule AWS.ConnectCases do
 
   @doc """
   Returns information about a specific case if it exists.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20GetCase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:case_id` (`t:string`) A unique identifier of the case.
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+
+  ## Optional parameters:
   """
-  @spec get_case(map(), String.t(), String.t(), get_case_request(), list()) ::
+  @spec get_case(AWS.Client.t(), String.t(), String.t(), get_case_request(), Keyword.t()) ::
           {:ok, get_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_case_errors()}
@@ -2086,7 +2057,8 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2103,13 +2075,21 @@ defmodule AWS.ConnectCases do
 
   @doc """
   Returns the audit history about a specific case if it exists.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20GetCaseAuditEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:case_id` (`t:string`) A unique identifier of the case.
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+
+  ## Optional parameters:
   """
   @spec get_case_audit_events(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           get_case_audit_events_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_case_audit_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2121,7 +2101,8 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2138,12 +2119,19 @@ defmodule AWS.ConnectCases do
 
   @doc """
   Returns the case event publishing configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20GetCaseEventConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+
+  ## Optional parameters:
   """
   @spec get_case_event_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           get_case_event_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_case_event_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2153,7 +2141,8 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2170,8 +2159,15 @@ defmodule AWS.ConnectCases do
 
   @doc """
   Returns information about a specific domain if it exists.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20GetDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+
+  ## Optional parameters:
   """
-  @spec get_domain(map(), String.t(), get_domain_request(), list()) ::
+  @spec get_domain(AWS.Client.t(), String.t(), get_domain_request(), Keyword.t()) ::
           {:ok, get_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_errors()}
@@ -2180,7 +2176,8 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2197,8 +2194,16 @@ defmodule AWS.ConnectCases do
 
   @doc """
   Returns the details for the requested layout.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20GetLayout&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+  * `:layout_id` (`t:string`) The unique identifier of the layout.
+
+  ## Optional parameters:
   """
-  @spec get_layout(map(), String.t(), String.t(), get_layout_request(), list()) ::
+  @spec get_layout(AWS.Client.t(), String.t(), String.t(), get_layout_request(), Keyword.t()) ::
           {:ok, get_layout_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_layout_errors()}
@@ -2209,7 +2214,8 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2226,8 +2232,16 @@ defmodule AWS.ConnectCases do
 
   @doc """
   Returns the details for the requested template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20GetTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+  * `:template_id` (`t:string`) A unique identifier of a template.
+
+  ## Optional parameters:
   """
-  @spec get_template(map(), String.t(), String.t(), get_template_request(), list()) ::
+  @spec get_template(AWS.Client.t(), String.t(), String.t(), get_template_request(), Keyword.t()) ::
           {:ok, get_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_template_errors()}
@@ -2238,7 +2252,8 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2255,8 +2270,20 @@ defmodule AWS.ConnectCases do
 
   @doc """
   Lists cases for a given contact.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20ListCasesForContact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+
+  ## Optional parameters:
   """
-  @spec list_cases_for_contact(map(), String.t(), list_cases_for_contact_request(), list()) ::
+  @spec list_cases_for_contact(
+          AWS.Client.t(),
+          String.t(),
+          list_cases_for_contact_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_cases_for_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cases_for_contact_errors()}
@@ -2265,7 +2292,8 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2281,12 +2309,20 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
-  Lists all cases domains in the Amazon Web Services account.
+  Lists all cases domains in the Amazon Web Services account. Each list item is a
+  condensed summary object of the domain.
 
-  Each list item is a condensed
-  summary object of the domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20ListDomains&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_domains(map(), list_domains_request(), list()) ::
+  @spec list_domains(AWS.Client.t(), list_domains_request(), Keyword.t()) ::
           {:ok, list_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domains_errors()}
@@ -2301,7 +2337,13 @@ defmodule AWS.ConnectCases do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -2318,8 +2360,28 @@ defmodule AWS.ConnectCases do
 
   @doc """
   Lists all of the field options for a field identifier in the domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20ListFieldOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+  * `:field_id` (`t:string`) The unique identifier of a field.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
+  * `:values` (`t:list[com.amazonaws.connectcases#Value]`) A list of FieldOption
+    values to filter on for ListFieldOptions.
   """
-  @spec list_field_options(map(), String.t(), String.t(), list_field_options_request(), list()) ::
+  @spec list_field_options(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          list_field_options_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_field_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_field_options_errors()}
@@ -2337,7 +2399,13 @@ defmodule AWS.ConnectCases do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :values])
 
     Request.request_rest(
       client,
@@ -2354,8 +2422,19 @@ defmodule AWS.ConnectCases do
 
   @doc """
   Lists all fields in a Cases domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20ListFields&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_fields(map(), String.t(), list_fields_request(), list()) ::
+  @spec list_fields(AWS.Client.t(), String.t(), list_fields_request(), Keyword.t()) ::
           {:ok, list_fields_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fields_errors()}
@@ -2370,7 +2449,13 @@ defmodule AWS.ConnectCases do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -2386,12 +2471,21 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
-  Lists all layouts in the given cases domain.
+  Lists all layouts in the given cases domain. Each list item is a condensed
+  summary object of the layout.
 
-  Each list item is a condensed summary object
-  of the layout.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20ListLayouts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_layouts(map(), String.t(), list_layouts_request(), list()) ::
+  @spec list_layouts(AWS.Client.t(), String.t(), list_layouts_request(), Keyword.t()) ::
           {:ok, list_layouts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_layouts_errors()}
@@ -2406,7 +2500,13 @@ defmodule AWS.ConnectCases do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -2423,28 +2523,64 @@ defmodule AWS.ConnectCases do
 
   @doc """
   Lists tags for a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN)
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists all of the templates in a Cases domain.
+  Lists all of the templates in a Cases domain. Each list item is a condensed
+  summary object of the template.
 
-  Each list item is a condensed summary
-  object of the template.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20ListTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
+  * `:status` (`t:list[com.amazonaws.connectcases#TemplateStatus]`) A list of
+    status values to filter on.
   """
-  @spec list_templates(map(), String.t(), list_templates_request(), list()) ::
+  @spec list_templates(AWS.Client.t(), String.t(), list_templates_request(), Keyword.t()) ::
           {:ok, list_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_templates_errors()}
@@ -2460,7 +2596,13 @@ defmodule AWS.ConnectCases do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :status])
 
     Request.request_rest(
       client,
@@ -2476,18 +2618,23 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
-  Adds case event publishing configuration.
+  Adds case event publishing configuration. For a complete list of fields you can
+  add to the event message, see [Create case
+  fields](https://docs.aws.amazon.com/connect/latest/adminguide/case-fields.html)
+  in the *Amazon Connect Administrator Guide*
 
-  For a complete list of fields you can add to the
-  event message, see [Create case fields](https://docs.aws.amazon.com/connect/latest/adminguide/case-fields.html)
-  in the
-  *Amazon Connect Administrator Guide*
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20PutCaseEventConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+
+  ## Optional parameters:
   """
   @spec put_case_event_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_case_event_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_case_event_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2497,28 +2644,24 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Searches for cases within their associated Cases domain.
+  Searches for cases within their associated Cases domain. Search results are
+  returned as a paginated list of abridged case documents.
 
-  Search results are returned
-  as a paginated list of abridged case documents.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20SearchCases&this_doc_guide=API%2520Reference)
 
-  For `customer_id` you must provide the full customer profile ARN in this
-  format:
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
 
-  ```
-  arn:aws:profile:your AWS Region:your AWS account ID:domains/profiles domain
-  name/profiles/profile ID
-  ```
-
-  .
+  ## Optional parameters:
   """
-  @spec search_cases(map(), String.t(), search_cases_request(), list()) ::
+  @spec search_cases(AWS.Client.t(), String.t(), search_cases_request(), Keyword.t()) ::
           {:ok, search_cases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_cases_errors()}
@@ -2527,7 +2670,8 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2545,15 +2689,20 @@ defmodule AWS.ConnectCases do
   @doc """
   Searches for related items that are associated with a case.
 
-  If no filters are provided, this returns all related items associated with a
-  case.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20SearchRelatedItems&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:case_id` (`t:string`) A unique identifier of the case.
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+
+  ## Optional parameters:
   """
   @spec search_related_items(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           search_related_items_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, search_related_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2565,7 +2714,8 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2582,8 +2732,15 @@ defmodule AWS.ConnectCases do
 
   @doc """
   Adds tags to a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN)
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2592,7 +2749,8 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2609,8 +2767,16 @@ defmodule AWS.ConnectCases do
 
   @doc """
   Untags a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN)
+  * `:tag_keys` (`t:list[com.amazonaws.connectcases#TagKey]`) List of tag keys.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2624,7 +2790,8 @@ defmodule AWS.ConnectCases do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2640,21 +2807,21 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
-
   If you provide a value for `PerformedBy.UserArn` you must also have
   [connect:DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html)
-  permission on the User ARN resource that you provide
+  permission on the User ARN resource that you provide Updates the values of
+  fields on a case. Fields to be updated are received as an array of id/value
+  pairs identical to the `CreateCase` input .
 
-  Updates the values of fields on a case.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20UpdateCase&this_doc_guide=API%2520Reference)
 
-  Fields to be updated are received as an array of
-  id/value pairs identical to the `CreateCase` input .
+  ## Parameters:
+  * `:case_id` (`t:string`) A unique identifier of the case.
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
 
-  If the action is successful, the service sends back an HTTP 200 response with an
-  empty
-  HTTP body.
+  ## Optional parameters:
   """
-  @spec update_case(map(), String.t(), String.t(), update_case_request(), list()) ::
+  @spec update_case(AWS.Client.t(), String.t(), String.t(), update_case_request(), Keyword.t()) ::
           {:ok, update_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_case_errors()}
@@ -2663,15 +2830,24 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the properties of an existing field.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20UpdateField&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+  * `:field_id` (`t:string`) The unique identifier of a field.
+
+  ## Optional parameters:
   """
-  @spec update_field(map(), String.t(), String.t(), update_field_request(), list()) ::
+  @spec update_field(AWS.Client.t(), String.t(), String.t(), update_field_request(), Keyword.t()) ::
           {:ok, update_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_field_errors()}
@@ -2682,25 +2858,31 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Updates the attributes of an existing layout.
+  Updates the attributes of an existing layout. If the action is successful, the
+  service sends back an HTTP 200 response with an empty HTTP body.
 
-  If the action is successful, the service sends back an HTTP 200 response with an
-  empty
-  HTTP body.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20UpdateLayout&this_doc_guide=API%2520Reference)
 
-  A `ValidationException` is returned when you add non-existent
-  `fieldIds` to a layout.
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+  * `:layout_id` (`t:string`) The unique identifier of the layout.
 
-  Title and Status fields cannot be part of layouts because they are not
-  configurable.
+  ## Optional parameters:
   """
-  @spec update_layout(map(), String.t(), String.t(), update_layout_request(), list()) ::
+  @spec update_layout(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_layout_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_layout_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_layout_errors()}
@@ -2711,22 +2893,34 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Updates the attributes of an existing template.
+  Updates the attributes of an existing template. The template attributes that can
+  be modified include `name`, `description`, `layoutConfiguration`,
+  `requiredFields`, and `status`. At least one of these attributes must not be
+  null. If a null value is provided for a given attribute, that attribute is
+  ignored and its current value is preserved.
 
-  The template attributes that can be
-  modified include `name`, `description`,
-  `layoutConfiguration`, `requiredFields`, and `status`. At
-  least one of these attributes must not be null. If a null value is provided for
-  a given
-  attribute, that attribute is ignored and its current value is preserved.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20UpdateTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+  * `:template_id` (`t:string`) A unique identifier for the template.
+
+  ## Optional parameters:
   """
-  @spec update_template(map(), String.t(), String.t(), update_template_request(), list()) ::
+  @spec update_template(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_template_errors()}
@@ -2737,7 +2931,8 @@ defmodule AWS.ConnectCases do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

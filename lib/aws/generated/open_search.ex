@@ -4,12 +4,10 @@
 defmodule AWS.OpenSearch do
   @moduledoc """
   Use the Amazon OpenSearch Service configuration API to create, configure, and
-  manage
-  OpenSearch Service domains.
-
-  The endpoint for configuration service requests is Region specific:
-  es.*region*.amazonaws.com. For example, es.us-east-1.amazonaws.com. For a
-  current list of supported Regions and endpoints, see [Amazon Web Services service
+  manage OpenSearch Service domains. The endpoint for configuration service
+  requests is Region specific: es.*region*.amazonaws.com. For example,
+  es.us-east-1.amazonaws.com. For a current list of supported Regions and
+  endpoints, see [Amazon Web Services service
   endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#service-regions).
   """
 
@@ -3579,13 +3577,23 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Allows the destination Amazon OpenSearch Service domain owner to accept an
-  inbound
-  cross-cluster search connection request.
-
-  For more information, see [Cross-cluster search for Amazon OpenSearch
+  inbound cross-cluster search connection request. For more information, see
+  [Cross-cluster search for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20AcceptInboundConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connection_id` (`t:string`) The ID of the inbound connection to accept.
+
+  ## Optional parameters:
   """
-  @spec accept_inbound_connection(map(), String.t(), accept_inbound_connection_request(), list()) ::
+  @spec accept_inbound_connection(
+          AWS.Client.t(),
+          String.t(),
+          accept_inbound_connection_request(),
+          Keyword.t()
+        ) ::
           {:ok, accept_inbound_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_inbound_connection_errors()}
@@ -3596,18 +3604,26 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Creates a new direct-query data source to the specified domain.
+  Creates a new direct-query data source to the specified domain. For more
+  information, see [Creating Amazon OpenSearch Service data source integrations
+  with Amazon
+  S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html).
 
-  For more information, see
-  [Creating Amazon OpenSearch Service data source integrations with Amazon S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20AddDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain to add the data source to.
+
+  ## Optional parameters:
   """
-  @spec add_data_source(map(), String.t(), add_data_source_request(), list()) ::
+  @spec add_data_source(AWS.Client.t(), String.t(), add_data_source_request(), Keyword.t()) ::
           {:ok, add_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_data_source_errors()}
@@ -3616,7 +3632,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3632,14 +3649,18 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Attaches tags to an existing Amazon OpenSearch Service domain.
-
-  Tags are a set of
+  Attaches tags to an existing Amazon OpenSearch Service domain. Tags are a set of
   case-sensitive key-value pairs. A domain can have up to 10 tags. For more
-  information, see
-  [Tagging Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html).
+  information, see [Tagging Amazon OpenSearch Service
+  domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20AddTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec add_tags(map(), add_tags_request(), list()) ::
+  @spec add_tags(AWS.Client.t(), add_tags_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_errors()}
@@ -3648,7 +3669,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3664,13 +3686,26 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Associates a package with an Amazon OpenSearch Service domain.
-
-  For more information, see
-  [Custom packages for Amazon OpenSearch
+  Associates a package with an Amazon OpenSearch Service domain. For more
+  information, see [Custom packages for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20AssociatePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) Name of the domain to associate the package with.
+  * `:package_id` (`t:string`) Internal ID of the package to associate with a
+    domain. Use DescribePackages to find this value.
+
+  ## Optional parameters:
   """
-  @spec associate_package(map(), String.t(), String.t(), associate_package_request(), list()) ::
+  @spec associate_package(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          associate_package_request(),
+          Keyword.t()
+        ) ::
           {:ok, associate_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_package_errors()}
@@ -3681,7 +3716,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3698,14 +3734,21 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Provides access to an Amazon OpenSearch Service domain through the use of an
-  interface VPC
-  endpoint.
+  interface VPC endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20AuthorizeVpcEndpointAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain to
+    provide access to.
+
+  ## Optional parameters:
   """
   @spec authorize_vpc_endpoint_access(
-          map(),
+          AWS.Client.t(),
           String.t(),
           authorize_vpc_endpoint_access_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, authorize_vpc_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3717,7 +3760,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3734,12 +3778,19 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Cancels a pending configuration change on an Amazon OpenSearch Service domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20CancelDomainConfigChange&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec cancel_domain_config_change(
-          map(),
+          AWS.Client.t(),
           String.t(),
           cancel_domain_config_change_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, cancel_domain_config_change_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3749,7 +3800,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3766,15 +3818,22 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Cancels a scheduled service software update for an Amazon OpenSearch Service
-  domain.
-
-  You can
-  only perform this operation before the `AutomatedUpdateDate` and when the
-  domain's
-  `UpdateStatus` is `PENDING_UPDATE`. For more information, see [Service software updates in Amazon OpenSearch
+  domain. You can only perform this operation before the `AutomatedUpdateDate`
+  and when the domain's `UpdateStatus` is `PENDING_UPDATE`. For more
+  information, see [Service software updates in Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20CancelServiceSoftwareUpdate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec cancel_service_software_update(map(), cancel_service_software_update_request(), list()) ::
+  @spec cancel_service_software_update(
+          AWS.Client.t(),
+          cancel_service_software_update_request(),
+          Keyword.t()
+        ) ::
           {:ok, cancel_service_software_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_service_software_update_errors()}
@@ -3783,7 +3842,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3799,11 +3859,17 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Creates an Amazon OpenSearch Service domain.
+  Creates an Amazon OpenSearch Service domain. For more information, see [Creating
+  and managing Amazon OpenSearch Service
+  domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html).
 
-  For more information, see [Creating and managing Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20CreateDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_domain(map(), create_domain_request(), list()) ::
+  @spec create_domain(AWS.Client.t(), create_domain_request(), Keyword.t()) ::
           {:ok, create_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_domain_errors()}
@@ -3812,7 +3878,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3829,13 +3896,21 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Creates a new cross-cluster search connection from a source Amazon OpenSearch
-  Service domain
-  to a destination domain.
-
-  For more information, see [Cross-cluster search for Amazon OpenSearch
+  Service domain to a destination domain. For more information, see
+  [Cross-cluster search for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20CreateOutboundConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_outbound_connection(map(), create_outbound_connection_request(), list()) ::
+  @spec create_outbound_connection(
+          AWS.Client.t(),
+          create_outbound_connection_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_outbound_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_outbound_connection_errors()}
@@ -3844,7 +3919,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3860,12 +3936,17 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Creates a package for use with Amazon OpenSearch Service domains.
+  Creates a package for use with Amazon OpenSearch Service domains. For more
+  information, see [Custom packages for Amazon OpenSearch
+  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
 
-  For more information, see
-  [Custom packages for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20CreatePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_package(map(), create_package_request(), list()) ::
+  @spec create_package(AWS.Client.t(), create_package_request(), Keyword.t()) ::
           {:ok, create_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_package_errors()}
@@ -3874,7 +3955,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3891,8 +3973,14 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Creates an Amazon OpenSearch Service-managed VPC endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20CreateVpcEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_vpc_endpoint(map(), create_vpc_endpoint_request(), list()) ::
+  @spec create_vpc_endpoint(AWS.Client.t(), create_vpc_endpoint_request(), Keyword.t()) ::
           {:ok, create_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vpc_endpoint_errors()}
@@ -3901,7 +3989,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3917,12 +4006,25 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Deletes a direct-query data source.
-
-  For more information, see [Deleting an Amazon OpenSearch Service data source with Amazon
+  Deletes a direct-query data source. For more information, see [Deleting an
+  Amazon OpenSearch Service data source with Amazon
   S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-delete.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DeleteDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain.
+  * `:name` (`t:string`) The name of the data source to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_data_source(map(), String.t(), String.t(), delete_data_source_request(), list()) ::
+  @spec delete_data_source(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_data_source_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_source_errors()}
@@ -3933,7 +4035,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3949,12 +4052,18 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Deletes an Amazon OpenSearch Service domain and all of its data.
+  Deletes an Amazon OpenSearch Service domain and all of its data. You can't
+  recover a domain after you delete it.
 
-  You can't recover a domain
-  after you delete it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DeleteDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain you want to permanently
+    delete.
+
+  ## Optional parameters:
   """
-  @spec delete_domain(map(), String.t(), delete_domain_request(), list()) ::
+  @spec delete_domain(AWS.Client.t(), String.t(), delete_domain_request(), Keyword.t()) ::
           {:ok, delete_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_errors()}
@@ -3963,7 +4072,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3980,13 +4090,24 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Allows the destination Amazon OpenSearch Service domain owner to delete an
-  existing inbound
-  cross-cluster search connection.
-
-  For more information, see [Cross-cluster search for Amazon OpenSearch
+  existing inbound cross-cluster search connection. For more information, see
+  [Cross-cluster search for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DeleteInboundConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connection_id` (`t:string`) The ID of the inbound connection to permanently
+    delete.
+
+  ## Optional parameters:
   """
-  @spec delete_inbound_connection(map(), String.t(), delete_inbound_connection_request(), list()) ::
+  @spec delete_inbound_connection(
+          AWS.Client.t(),
+          String.t(),
+          delete_inbound_connection_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_inbound_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_inbound_connection_errors()}
@@ -3995,7 +4116,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4012,17 +4134,23 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Allows the source Amazon OpenSearch Service domain owner to delete an existing
-  outbound
-  cross-cluster search connection.
-
-  For more information, see [Cross-cluster search for Amazon OpenSearch
+  outbound cross-cluster search connection. For more information, see
+  [Cross-cluster search for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DeleteOutboundConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connection_id` (`t:string`) The ID of the outbound connection you want to
+    permanently delete.
+
+  ## Optional parameters:
   """
   @spec delete_outbound_connection(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_outbound_connection_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_outbound_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4034,7 +4162,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4050,12 +4179,19 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Deletes an Amazon OpenSearch Service package.
-
-  For more information, see [Custom packages for Amazon OpenSearch
+  Deletes an Amazon OpenSearch Service package. For more information, see [Custom
+  packages for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DeletePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_id` (`t:string`) The internal ID of the package you want to delete.
+    Use DescribePackages to find this value.
+
+  ## Optional parameters:
   """
-  @spec delete_package(map(), String.t(), delete_package_request(), list()) ::
+  @spec delete_package(AWS.Client.t(), String.t(), delete_package_request(), Keyword.t()) ::
           {:ok, delete_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_package_errors()}
@@ -4064,7 +4200,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4081,8 +4218,20 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Deletes an Amazon OpenSearch Service-managed interface VPC endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DeleteVpcEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:vpc_endpoint_id` (`t:string`) The unique identifier of the endpoint.
+
+  ## Optional parameters:
   """
-  @spec delete_vpc_endpoint(map(), String.t(), delete_vpc_endpoint_request(), list()) ::
+  @spec delete_vpc_endpoint(
+          AWS.Client.t(),
+          String.t(),
+          delete_vpc_endpoint_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vpc_endpoint_errors()}
@@ -4091,7 +4240,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4108,90 +4258,193 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Describes the domain configuration for the specified Amazon OpenSearch Service
-  domain,
-  including the domain ID, domain service endpoint, and domain ARN.
+  domain, including the domain ID, domain service endpoint, and domain ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain that you want information
+    about.
+
+  ## Optional parameters:
   """
-  @spec describe_domain(map(), String.t(), list()) ::
+  @spec describe_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_errors()}
   def describe_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the list of optimizations that Auto-Tune has made to an Amazon
-  OpenSearch Service
-  domain.
+  OpenSearch Service domain. For more information, see [Auto-Tune for Amazon
+  OpenSearch
+  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html).
 
-  For more information, see [Auto-Tune for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDomainAutoTunes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) Name of the domain that you want Auto-Tune details
+    about.
+
+  ## Optional parameters:
   """
-  @spec describe_domain_auto_tunes(map(), String.t(), list()) ::
+  @spec describe_domain_auto_tunes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_auto_tunes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_auto_tunes_errors()}
   def describe_domain_auto_tunes(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/autoTunes"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about the current blue/green deployment happening on an
-  Amazon
-  OpenSearch Service domain.
+  Amazon OpenSearch Service domain. For more information, see [Making
+  configuration changes in Amazon OpenSearch
+  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html).
 
-  For more information, see [Making configuration changes in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDomainChangeProgress&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain to get progress information
+    for.
+
+  ## Optional parameters:
+  * `:change_id` (`t:string`) The specific change ID for which you want to get
+    progress information. If omitted, the request returns information about the
+    most recent configuration change.
   """
-  @spec describe_domain_change_progress(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_domain_change_progress(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_change_progress_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_change_progress_errors()}
-  def describe_domain_change_progress(
-        %Client{} = client,
-        domain_name,
-        change_id \\ nil,
-        options \\ []
-      ) do
+  def describe_domain_change_progress(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/progress"
+
+    # Validate optional parameters
+    optional_params = [change_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(change_id) do
-        [{"changeid", change_id} | query_params]
+      if opt_val = Keyword.get(options, :change_id) do
+        [{"changeid", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:change_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the configuration of an Amazon OpenSearch Service domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDomainConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) Name of the OpenSearch Service domain
+    configuration that you want to describe.
+
+  ## Optional parameters:
   """
-  @spec describe_domain_config(map(), String.t(), list()) ::
+  @spec describe_domain_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_config_errors()}
   def describe_domain_config(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/config"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4199,47 +4452,101 @@ defmodule AWS.OpenSearch do
   @doc """
   Returns information about domain and node health, the standby Availability Zone,
   number of nodes per Availability Zone, and shard count per node.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDomainHealth&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain.
+
+  ## Optional parameters:
   """
-  @spec describe_domain_health(map(), String.t(), list()) ::
+  @spec describe_domain_health(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_health_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_health_errors()}
   def describe_domain_health(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/health"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about domain and nodes, including data nodes, master nodes,
-  ultrawarm
-  nodes, Availability Zone(s), standby nodes, node configurations, and node
-  states.
+  ultrawarm nodes, Availability Zone(s), standby nodes, node configurations, and
+  node states.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDomainNodes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain.
+
+  ## Optional parameters:
   """
-  @spec describe_domain_nodes(map(), String.t(), list()) ::
+  @spec describe_domain_nodes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_nodes_errors()}
   def describe_domain_nodes(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/nodes"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns domain configuration information about the specified Amazon OpenSearch
-  Service
-  domains.
+  Service domains.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDomains&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_domains(map(), describe_domains_request(), list()) ::
+  @spec describe_domains(AWS.Client.t(), describe_domains_request(), Keyword.t()) ::
           {:ok, describe_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domains_errors()}
@@ -4248,7 +4555,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4265,53 +4573,88 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Describes the progress of a pre-update dry run analysis on an Amazon OpenSearch
-  Service domain.
+  Service domain. For more information, see [Determining whether a change will
+  cause a blue/green
+  deployment](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#dryrun).
 
-  For more information, see [Determining whether a change will cause a blue/green deployment](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#dryrun).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDryRunProgress&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain.
+
+  ## Optional parameters:
+  * `:dry_run_id` (`t:string`) The unique identifier of the dry run.
+  * `:load_dry_run_config` (`t:boolean`) Whether to include the configuration of
+    the dry run in the response. The configuration specifies the updates that
+    you're planning to make on the domain.
   """
-  @spec describe_dry_run_progress(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec describe_dry_run_progress(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dry_run_progress_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dry_run_progress_errors()}
-  def describe_dry_run_progress(
-        %Client{} = client,
-        domain_name,
-        dry_run_id \\ nil,
-        load_dry_run_config \\ nil,
-        options \\ []
-      ) do
+  def describe_dry_run_progress(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dryRun"
+
+    # Validate optional parameters
+    optional_params = [dry_run_id: nil, load_dry_run_config: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(load_dry_run_config) do
-        [{"loadDryRunConfig", load_dry_run_config} | query_params]
+      if opt_val = Keyword.get(options, :load_dry_run_config) do
+        [{"loadDryRunConfig", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(dry_run_id) do
-        [{"dryRunId", dry_run_id} | query_params]
+      if opt_val = Keyword.get(options, :dry_run_id) do
+        [{"dryRunId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:dry_run_id, :load_dry_run_config])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all the inbound cross-cluster search connections for a destination
-  (remote) Amazon
-  OpenSearch Service domain.
-
-  For more information, see [Cross-cluster search for Amazon OpenSearch
+  (remote) Amazon OpenSearch Service domain. For more information, see
+  [Cross-cluster search for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeInboundConnections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_inbound_connections(map(), describe_inbound_connections_request(), list()) ::
+  @spec describe_inbound_connections(
+          AWS.Client.t(),
+          describe_inbound_connections_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_inbound_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_inbound_connections_errors()}
@@ -4320,7 +4663,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4337,10 +4681,23 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Describes the instance count, storage, and master node limits for a given
-  OpenSearch or
-  Elasticsearch version and instance type.
+  OpenSearch or Elasticsearch version and instance type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeInstanceTypeLimits&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:engine_version` (`t:string`) Version of OpenSearch or Elasticsearch, in the
+    format Elasticsearch_X.Y or OpenSearch_X.Y. Defaults to the latest version
+    of OpenSearch.
+  * `:instance_type`
+    (`t:enum["ultrawarm1_xlarge_search|c6g_2xlarge_search|d2_2xlarge_search|m5_24xlarge_search|c4_2xlarge_search|r4_large_search|r4_xlarge_search|c5_9xlarge_search|r5_large_search|m3_medium_search|r4_4xlarge_search|r6g_2xlarge_search|c5_4xlarge_search|m6g_4xlarge_search|m4_4xlarge_search|t2_small_search|r4_8xlarge_search|c4_large_search|m6g_8xlarge_search|or1_8xlarge_search|r3_8xlarge_search|or1_xlarge_search|or1_16xlarge_search|r6gd_8xlarge_search|r6g_xlarge_search|m6g_2xlarge_search|m5_xlarge_search|d2_xlarge_search|or1_2xlarge_search|m3_large_search|m5_2xlarge_search|i2_xlarge_search|r6gd_4xlarge_search|c6g_large_search|or1_12xlarge_search|or1_large_search|t3_large_search|or1_medium_search|i3_large_search|c6g_12xlarge_search|i3_16xlarge_search|r3_4xlarge_search|i3_2xlarge_search|r6gd_xlarge_search|t3_2xlarge_search|m5_4xlarge_search|m4_2xlarge_search|r6g_4xlarge_search|c4_xlarge_search|r5_xlarge_search|c4_4xlarge_search|r3_2xlarge_search|r6g_8xlarge_search|t3_small_search|r4_2xlarge_search|m6g_xlarge_search|t4g_small_search|m4_xlarge_search|c4_8xlarge_search|i2_2xlarge_search|r3_xlarge_search|c6g_4xlarge_search|r5_24xlarge_search|c5_large_search|ultrawarm1_medium_search|r4_16xlarge_search|m5_large_search|r5_12xlarge_search|t2_micro_search|i3_8xlarge_search|m3_2xlarge_search|d2_8xlarge_search|m4_large_search|or1_4xlarge_search|r5_4xlarge_search|r6g_large_search|c5_18xlarge_search|c5_xlarge_search|i3_4xlarge_search|c5_2xlarge_search|r3_large_search|t3_xlarge_search|c6g_8xlarge_search|m6g_12xlarge_search|t3_nano_search|m5_12xlarge_search|r5_2xlarge_search|t3_micro_search|m6g_large_search|r6g_12xlarge_search|t3_medium_search|r6gd_16xlarge_search|ultrawarm1_large_search|c6g_xlarge_search|r6gd_2xlarge_search|r6gd_12xlarge_search|t2_medium_search|m3_xlarge_search|m4_10xlarge_search|i3_xlarge_search|r6gd_large_search|d2_4xlarge_search|t4g_medium_search"]`)
+    The OpenSearch Service instance type for which you need limit information.
+
+  ## Optional parameters:
+  * `:domain_name` (`t:string`) The name of the domain. Only specify if you need
+    the limits for an existing domain.
   """
-  @spec describe_instance_type_limits(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec describe_instance_type_limits(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_instance_type_limits_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instance_type_limits_errors()}
@@ -4348,36 +4705,64 @@ defmodule AWS.OpenSearch do
         %Client{} = client,
         engine_version,
         instance_type,
-        domain_name \\ nil,
         options \\ []
       ) do
     url_path =
       "/2021-01-01/opensearch/instanceTypeLimits/#{AWS.Util.encode_uri(engine_version)}/#{AWS.Util.encode_uri(instance_type)}"
 
+    # Validate optional parameters
+    optional_params = [domain_name: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(domain_name) do
-        [{"domainName", domain_name} | query_params]
+      if opt_val = Keyword.get(options, :domain_name) do
+        [{"domainName", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:domain_name])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all the outbound cross-cluster connections for a local (source) Amazon
-  OpenSearch
-  Service domain.
-
-  For more information, see [Cross-cluster search for Amazon OpenSearch
+  OpenSearch Service domain. For more information, see [Cross-cluster search for
+  Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeOutboundConnections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_outbound_connections(map(), describe_outbound_connections_request(), list()) ::
+  @spec describe_outbound_connections(
+          AWS.Client.t(),
+          describe_outbound_connections_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_outbound_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_outbound_connections_errors()}
@@ -4386,7 +4771,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4402,12 +4788,17 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Describes all packages available to OpenSearch Service.
-
-  For more information, see [Custom packages for Amazon OpenSearch
+  Describes all packages available to OpenSearch Service. For more information,
+  see [Custom packages for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribePackages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_packages(map(), describe_packages_request(), list()) ::
+  @spec describe_packages(AWS.Client.t(), describe_packages_request(), Keyword.t()) ::
           {:ok, describe_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_packages_errors()}
@@ -4416,7 +4807,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4433,115 +4825,172 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Describes the available Amazon OpenSearch Service Reserved Instance offerings
-  for a given
-  Region.
+  for a given Region. For more information, see [Reserved Instances in Amazon
+  OpenSearch
+  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html).
 
-  For more information, see [Reserved Instances in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeReservedInstanceOfferings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
+    number of results to return. You can use nextToken to get the next page of
+    results.
+  * `:next_token` (`t:string`) If your initial DescribeReservedInstanceOfferings
+    operation returns a nextToken, you can include the returned nextToken in
+    subsequent DescribeReservedInstanceOfferings operations, which returns
+    results in the next page.
+  * `:reserved_instance_offering_id` (`t:string`) The Reserved Instance identifier
+    filter value. Use this parameter to show only the available instance types
+    that match the specified reservation identifier.
   """
-  @spec describe_reserved_instance_offerings(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec describe_reserved_instance_offerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_reserved_instance_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_reserved_instance_offerings_errors()}
-  def describe_reserved_instance_offerings(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        reserved_instance_offering_id \\ nil,
-        options \\ []
-      ) do
+  def describe_reserved_instance_offerings(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/opensearch/reservedInstanceOfferings"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, reserved_instance_offering_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(reserved_instance_offering_id) do
-        [{"offeringId", reserved_instance_offering_id} | query_params]
+      if opt_val = Keyword.get(options, :reserved_instance_offering_id) do
+        [{"offeringId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :reserved_instance_offering_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes the Amazon OpenSearch Service instances that you have reserved in a
-  given Region.
+  given Region. For more information, see [Reserved Instances in Amazon
+  OpenSearch
+  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html).
 
-  For more information, see [Reserved Instances in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeReservedInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
+    number of results to return. You can use nextToken to get the next page of
+    results.
+  * `:next_token` (`t:string`) If your initial DescribeReservedInstances operation
+    returns a nextToken, you can include the returned nextToken in subsequent
+    DescribeReservedInstances operations, which returns results in the next
+    page.
+  * `:reserved_instance_id` (`t:string`) The reserved instance identifier filter
+    value. Use this parameter to show only the reservation that matches the
+    specified reserved OpenSearch instance ID.
   """
-  @spec describe_reserved_instances(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec describe_reserved_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_reserved_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_reserved_instances_errors()}
-  def describe_reserved_instances(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        reserved_instance_id \\ nil,
-        options \\ []
-      ) do
+  def describe_reserved_instances(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/opensearch/reservedInstances"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, reserved_instance_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(reserved_instance_id) do
-        [{"reservationId", reserved_instance_id} | query_params]
+      if opt_val = Keyword.get(options, :reserved_instance_id) do
+        [{"reservationId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :reserved_instance_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes one or more Amazon OpenSearch Service-managed VPC endpoints.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeVpcEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_vpc_endpoints(map(), describe_vpc_endpoints_request(), list()) ::
+  @spec describe_vpc_endpoints(AWS.Client.t(), describe_vpc_endpoints_request(), Keyword.t()) ::
           {:ok, describe_vpc_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_vpc_endpoints_errors()}
@@ -4550,7 +4999,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4566,15 +5016,28 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Removes a package from the specified Amazon OpenSearch Service domain.
-
-  The package can't be
-  in use with any OpenSearch index for the dissociation to succeed. The package is
-  still available
-  in OpenSearch Service for association later. For more information, see [Custom packages for Amazon OpenSearch
+  Removes a package from the specified Amazon OpenSearch Service domain. The
+  package can't be in use with any OpenSearch index for the dissociation to
+  succeed. The package is still available in OpenSearch Service for association
+  later. For more information, see [Custom packages for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DissociatePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) Name of the domain to dissociate the package from.
+  * `:package_id` (`t:string`) Internal ID of the package to dissociate from the
+    domain. Use ListPackagesForDomain to find this value.
+
+  ## Optional parameters:
   """
-  @spec dissociate_package(map(), String.t(), String.t(), dissociate_package_request(), list()) ::
+  @spec dissociate_package(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          dissociate_package_request(),
+          Keyword.t()
+        ) ::
           {:ok, dissociate_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, dissociate_package_errors()}
@@ -4585,7 +5048,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4602,34 +5066,71 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Returns a map of OpenSearch or Elasticsearch versions and the versions you can
-  upgrade them
-  to.
+  upgrade them to.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20GetCompatibleVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:domain_name` (`t:string`) The name of an existing domain. Provide this
+    parameter to limit the results to a single domain.
   """
-  @spec get_compatible_versions(map(), String.t() | nil, list()) ::
+  @spec get_compatible_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_compatible_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_compatible_versions_errors()}
-  def get_compatible_versions(%Client{} = client, domain_name \\ nil, options \\ []) do
+  def get_compatible_versions(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/opensearch/compatibleVersions"
+
+    # Validate optional parameters
+    optional_params = [domain_name: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(domain_name) do
-        [{"domainName", domain_name} | query_params]
+      if opt_val = Keyword.get(options, :domain_name) do
+        [{"domainName", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:domain_name])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a direct query data source.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20GetDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain.
+  * `:name` (`t:string`) The name of the data source to get information about.
+
+  ## Optional parameters:
   """
-  @spec get_data_source(map(), String.t(), String.t(), list()) ::
+  @spec get_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_source_errors()}
@@ -4637,18 +5138,43 @@ defmodule AWS.OpenSearch do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dataSource/#{AWS.Util.encode_uri(name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   The status of the maintenance action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20GetDomainMaintenanceStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain.
+  * `:maintenance_id` (`t:string`) The request ID of the maintenance action.
+
+  ## Optional parameters:
   """
-  @spec get_domain_maintenance_status(map(), String.t(), String.t(), list()) ::
+  @spec get_domain_maintenance_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_domain_maintenance_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_maintenance_status_errors()}
@@ -4661,514 +5187,874 @@ defmodule AWS.OpenSearch do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/domainMaintenance"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(maintenance_id) do
-        [{"maintenanceId", maintenance_id} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"maintenanceId", maintenance_id}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of Amazon OpenSearch Service package versions, along with their
-  creation time, commit message, and plugin properties (if the
-  package is a zip plugin package).
-
-  For more information, see [Custom packages for Amazon OpenSearch
+  creation time, commit message, and plugin properties (if the package is a zip
+  plugin package). For more information, see [Custom packages for Amazon
+  OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20GetPackageVersionHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_id` (`t:string`) The unique identifier of the package.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
+    number of results to return. You can use nextToken to get the next page of
+    results.
+  * `:next_token` (`t:string`) If your initial GetPackageVersionHistory operation
+    returns a nextToken, you can include the returned nextToken in subsequent
+    GetPackageVersionHistory operations, which returns results in the next page.
   """
-  @spec get_package_version_history(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_package_version_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_package_version_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_package_version_history_errors()}
-  def get_package_version_history(
-        %Client{} = client,
-        package_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_package_version_history(%Client{} = client, package_id, options \\ []) do
     url_path = "/2021-01-01/packages/#{AWS.Util.encode_uri(package_id)}/history"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the complete history of the last 10 upgrades performed on an Amazon
-  OpenSearch
-  Service domain.
+  OpenSearch Service domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20GetUpgradeHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of an existing domain.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
+    number of results to return. You can use nextToken to get the next page of
+    results.
+  * `:next_token` (`t:string`) If your initial GetUpgradeHistory operation returns
+    a nextToken, you can include the returned nextToken in subsequent
+    GetUpgradeHistory operations, which returns results in the next page.
   """
-  @spec get_upgrade_history(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_upgrade_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_upgrade_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_upgrade_history_errors()}
-  def get_upgrade_history(
-        %Client{} = client,
-        domain_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def get_upgrade_history(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/upgradeDomain/#{AWS.Util.encode_uri(domain_name)}/history"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the most recent status of the last upgrade or upgrade eligibility check
-  performed on
-  an Amazon OpenSearch Service domain.
+  performed on an Amazon OpenSearch Service domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20GetUpgradeStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The domain of the domain to get upgrade status
+    information for.
+
+  ## Optional parameters:
   """
-  @spec get_upgrade_status(map(), String.t(), list()) ::
+  @spec get_upgrade_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_upgrade_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_upgrade_status_errors()}
   def get_upgrade_status(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/upgradeDomain/#{AWS.Util.encode_uri(domain_name)}/status"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists direct-query data sources for a specific domain.
+  Lists direct-query data sources for a specific domain. For more information, see
+  For more information, see [Working with Amazon OpenSearch Service direct
+  queries with Amazon
+  S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3.html).
 
-  For more information, see
-  For more information, see
-  [Working with Amazon OpenSearch Service direct queries with Amazon S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListDataSources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain.
+
+  ## Optional parameters:
   """
-  @spec list_data_sources(map(), String.t(), list()) ::
+  @spec list_data_sources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_sources_errors()}
   def list_data_sources(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dataSource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   A list of maintenance actions for the domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListDomainMaintenances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain.
+
+  ## Optional parameters:
+  * `:action` (`t:enum["REBOOT_NODE|RESTART_DASHBOARD|RESTART_SEARCH_PROCESS"]`)
+    The name of the action.
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
+    number of results to return. You can use nextToken to get the next page of
+    results.
+  * `:next_token` (`t:string`) If your initial ListDomainMaintenances operation
+    returns a nextToken, include the returned nextToken in subsequent
+    ListDomainMaintenances operations, which returns results in the next page.
+  * `:status` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|PENDING|TIMED_OUT"]`) The
+    status of the action.
   """
-  @spec list_domain_maintenances(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_domain_maintenances(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_domain_maintenances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domain_maintenances_errors()}
-  def list_domain_maintenances(
-        %Client{} = client,
-        domain_name,
-        action \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_domain_maintenances(%Client{} = client, domain_name, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/domainMaintenances"
 
+    # Validate optional parameters
+    optional_params = [action: nil, max_results: nil, next_token: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(action) do
-        [{"action", action} | query_params]
+      if opt_val = Keyword.get(options, :action) do
+        [{"action", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:action, :max_results, :next_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the names of all Amazon OpenSearch Service domains owned by the current
-  user in the
-  active Region.
+  user in the active Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListDomainNames&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:engine_type` (`t:enum["Elasticsearch|OpenSearch"]`) Filters the output by
+    domain engine type.
   """
-  @spec list_domain_names(map(), String.t() | nil, list()) ::
+  @spec list_domain_names(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domain_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domain_names_errors()}
-  def list_domain_names(%Client{} = client, engine_type \\ nil, options \\ []) do
+  def list_domain_names(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/domain"
+
+    # Validate optional parameters
+    optional_params = [engine_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(engine_type) do
-        [{"engineType", engine_type} | query_params]
+      if opt_val = Keyword.get(options, :engine_type) do
+        [{"engineType", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:engine_type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists all Amazon OpenSearch Service domains associated with a given package.
-
-  For more
-  information, see [Custom packages for Amazon OpenSearch
+  Lists all Amazon OpenSearch Service domains associated with a given package. For
+  more information, see [Custom packages for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListDomainsForPackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_id` (`t:string`) The unique identifier of the package for which to
+    list associated domains.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
+    number of results to return. You can use nextToken to get the next page of
+    results.
+  * `:next_token` (`t:string`) If your initial ListDomainsForPackage operation
+    returns a nextToken, you can include the returned nextToken in subsequent
+    ListDomainsForPackage operations, which returns results in the next page.
   """
-  @spec list_domains_for_package(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_domains_for_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_domains_for_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domains_for_package_errors()}
-  def list_domains_for_package(
-        %Client{} = client,
-        package_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_domains_for_package(%Client{} = client, package_id, options \\ []) do
     url_path = "/2021-01-01/packages/#{AWS.Util.encode_uri(package_id)}/domains"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all instance types and available features for a given OpenSearch or
-  Elasticsearch
-  version.
+  Elasticsearch version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListInstanceTypeDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:engine_version` (`t:string`) The version of OpenSearch or Elasticsearch, in
+    the format Elasticsearch_X.Y or OpenSearch_X.Y. Defaults to the latest
+    version of OpenSearch.
+
+  ## Optional parameters:
+  * `:domain_name` (`t:string`) The name of the domain.
+  * `:instance_type` (`t:string`) An optional parameter that lists information for
+    a given instance type.
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
+    number of results to return. You can use nextToken to get the next page of
+    results.
+  * `:next_token` (`t:string`) If your initial ListInstanceTypeDetails operation
+    returns a nextToken, you can include the returned nextToken in subsequent
+    ListInstanceTypeDetails operations, which returns results in the next page.
+  * `:retrieve_a_zs` (`t:boolean`) An optional parameter that specifies the
+    Availability Zones for the domain.
   """
-  @spec list_instance_type_details(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_instance_type_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_instance_type_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instance_type_details_errors()}
-  def list_instance_type_details(
-        %Client{} = client,
-        engine_version,
-        domain_name \\ nil,
-        instance_type \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        retrieve_a_zs \\ nil,
-        options \\ []
-      ) do
+  def list_instance_type_details(%Client{} = client, engine_version, options \\ []) do
     url_path = "/2021-01-01/opensearch/instanceTypeDetails/#{AWS.Util.encode_uri(engine_version)}"
+
+    # Validate optional parameters
+    optional_params = [
+      domain_name: nil,
+      instance_type: nil,
+      max_results: nil,
+      next_token: nil,
+      retrieve_a_zs: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(retrieve_a_zs) do
-        [{"retrieveAZs", retrieve_a_zs} | query_params]
+      if opt_val = Keyword.get(options, :retrieve_a_zs) do
+        [{"retrieveAZs", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(instance_type) do
-        [{"instanceType", instance_type} | query_params]
+      if opt_val = Keyword.get(options, :instance_type) do
+        [{"instanceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(domain_name) do
-        [{"domainName", domain_name} | query_params]
+      if opt_val = Keyword.get(options, :domain_name) do
+        [{"domainName", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:domain_name, :instance_type, :max_results, :next_token, :retrieve_a_zs])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists all packages associated with an Amazon OpenSearch Service domain.
-
-  For more
+  Lists all packages associated with an Amazon OpenSearch Service domain. For more
   information, see [Custom packages for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListPackagesForDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain for which you want to list
+    associated packages.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
+    number of results to return. You can use nextToken to get the next page of
+    results.
+  * `:next_token` (`t:string`) If your initial ListPackagesForDomain operation
+    returns a nextToken, you can include the returned nextToken in subsequent
+    ListPackagesForDomain operations, which returns results in the next page.
   """
-  @spec list_packages_for_domain(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_packages_for_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_packages_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_packages_for_domain_errors()}
-  def list_packages_for_domain(
-        %Client{} = client,
-        domain_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_packages_for_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/domain/#{AWS.Util.encode_uri(domain_name)}/packages"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves a list of configuration changes that are scheduled for a domain.
-
-  These changes can
-  be [service software updates](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html)
+  Retrieves a list of configuration changes that are scheduled for a domain. These
+  changes can be [service software
+  updates](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html)
   or [blue/green Auto-Tune
   enhancements](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListScheduledActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
+    number of results to return. You can use nextToken to get the next page of
+    results.
+  * `:next_token` (`t:string`) If your initial ListScheduledActions operation
+    returns a nextToken, you can include the returned nextToken in subsequent
+    ListScheduledActions operations, which returns results in the next page.
   """
-  @spec list_scheduled_actions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_scheduled_actions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_scheduled_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_scheduled_actions_errors()}
-  def list_scheduled_actions(
-        %Client{} = client,
-        domain_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_scheduled_actions(%Client{} = client, domain_name, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/scheduledActions"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns all resource tags for an Amazon OpenSearch Service domain.
+  Returns all resource tags for an Amazon OpenSearch Service domain. For more
+  information, see [Tagging Amazon OpenSearch Service
+  domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html).
 
-  For more information, see
-  [Tagging Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) Amazon Resource Name (ARN) for the domain to view tags
+    for.
+
+  ## Optional parameters:
   """
-  @spec list_tags(map(), String.t(), list()) ::
+  @spec list_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, arn, options \\ []) do
     url_path = "/2021-01-01/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(arn) do
-        [{"arn", arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"arn", arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all versions of OpenSearch and Elasticsearch that Amazon OpenSearch
-  Service
-  supports.
+  Service supports.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
+    number of results to return. You can use nextToken to get the next page of
+    results.
+  * `:next_token` (`t:string`) If your initial ListVersions operation returns a
+    nextToken, you can include the returned nextToken in subsequent ListVersions
+    operations, which returns results in the next page.
   """
-  @spec list_versions(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_versions_errors()}
-  def list_versions(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_versions(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/opensearch/versions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about each Amazon Web Services principal that is allowed
-  to access a
-  given Amazon OpenSearch Service domain through the use of an interface VPC
-  endpoint.
+  to access a given Amazon OpenSearch Service domain through the use of an
+  interface VPC endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListVpcEndpointAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain to
+    retrieve access information for.
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) If your initial ListVpcEndpointAccess operation
+    returns a nextToken, you can include the returned nextToken in subsequent
+    ListVpcEndpointAccess operations, which returns results in the next page.
   """
-  @spec list_vpc_endpoint_access(map(), String.t(), String.t() | nil, list()) ::
+  @spec list_vpc_endpoint_access(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vpc_endpoint_access_errors()}
-  def list_vpc_endpoint_access(%Client{} = client, domain_name, next_token \\ nil, options \\ []) do
+  def list_vpc_endpoint_access(%Client{} = client, domain_name, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/listVpcEndpointAccess"
 
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5176,66 +6062,130 @@ defmodule AWS.OpenSearch do
   @doc """
   Retrieves all Amazon OpenSearch Service-managed VPC endpoints in the current
   Amazon Web Services account and Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListVpcEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) If your initial ListVpcEndpoints operation returns
+    a nextToken, you can include the returned nextToken in subsequent
+    ListVpcEndpoints operations, which returns results in the next page.
   """
-  @spec list_vpc_endpoints(map(), String.t() | nil, list()) ::
+  @spec list_vpc_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vpc_endpoints_errors()}
-  def list_vpc_endpoints(%Client{} = client, next_token \\ nil, options \\ []) do
+  def list_vpc_endpoints(%Client{} = client, options \\ []) do
     url_path = "/2021-01-01/opensearch/vpcEndpoints"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves all Amazon OpenSearch Service-managed VPC endpoints associated with a
-  particular
-  domain.
+  particular domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListVpcEndpointsForDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain to list associated VPC
+    endpoints for.
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) If your initial ListEndpointsForDomain operation
+    returns a nextToken, you can include the returned nextToken in subsequent
+    ListEndpointsForDomain operations, which returns results in the next page.
   """
-  @spec list_vpc_endpoints_for_domain(map(), String.t(), String.t() | nil, list()) ::
+  @spec list_vpc_endpoints_for_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoints_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vpc_endpoints_for_domain_errors()}
-  def list_vpc_endpoints_for_domain(
-        %Client{} = client,
-        domain_name,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_vpc_endpoints_for_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/vpcEndpoints"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Allows you to purchase Amazon OpenSearch Service Reserved Instances.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20PurchaseReservedInstanceOffering&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec purchase_reserved_instance_offering(
-          map(),
+          AWS.Client.t(),
           purchase_reserved_instance_offering_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, purchase_reserved_instance_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5245,7 +6195,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5262,10 +6213,22 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Allows the remote Amazon OpenSearch Service domain owner to reject an inbound
-  cross-cluster
-  connection request.
+  cross-cluster connection request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20RejectInboundConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connection_id` (`t:string`) The unique identifier of the inbound connection
+    to reject.
+
+  ## Optional parameters:
   """
-  @spec reject_inbound_connection(map(), String.t(), reject_inbound_connection_request(), list()) ::
+  @spec reject_inbound_connection(
+          AWS.Client.t(),
+          String.t(),
+          reject_inbound_connection_request(),
+          Keyword.t()
+        ) ::
           {:ok, reject_inbound_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_inbound_connection_errors()}
@@ -5276,18 +6239,24 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Removes the specified set of tags from an Amazon OpenSearch Service domain.
+  Removes the specified set of tags from an Amazon OpenSearch Service domain. For
+  more information, see [ Tagging Amazon OpenSearch Service
+  domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging).
 
-  For more
-  information, see [ Tagging Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20RemoveTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec remove_tags(map(), remove_tags_request(), list()) ::
+  @spec remove_tags(AWS.Client.t(), remove_tags_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_errors()}
@@ -5296,7 +6265,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5313,14 +6283,20 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Revokes access to an Amazon OpenSearch Service domain that was provided through
-  an interface
-  VPC endpoint.
+  an interface VPC endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20RevokeVpcEndpointAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain.
+
+  ## Optional parameters:
   """
   @spec revoke_vpc_endpoint_access(
-          map(),
+          AWS.Client.t(),
           String.t(),
           revoke_vpc_endpoint_access_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, revoke_vpc_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5332,7 +6308,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5348,13 +6325,23 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Starts the node maintenance process on the data node.
+  Starts the node maintenance process on the data node. These processes can
+  include a node reboot, an Opensearch or Elasticsearch process restart, or a
+  Dashboard or Kibana restart.
 
-  These processes can include a node reboot, an Opensearch or Elasticsearch
-  process restart,
-  or a Dashboard or Kibana restart.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20StartDomainMaintenance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain.
+
+  ## Optional parameters:
   """
-  @spec start_domain_maintenance(map(), String.t(), start_domain_maintenance_request(), list()) ::
+  @spec start_domain_maintenance(
+          AWS.Client.t(),
+          String.t(),
+          start_domain_maintenance_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_domain_maintenance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_domain_maintenance_errors()}
@@ -5365,7 +6352,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5381,13 +6369,21 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Schedules a service software update for an Amazon OpenSearch Service domain.
-
-  For more
-  information, see [Service software updates in Amazon OpenSearch
+  Schedules a service software update for an Amazon OpenSearch Service domain. For
+  more information, see [Service software updates in Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20StartServiceSoftwareUpdate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_service_software_update(map(), start_service_software_update_request(), list()) ::
+  @spec start_service_software_update(
+          AWS.Client.t(),
+          start_service_software_update_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_service_software_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_service_software_update_errors()}
@@ -5396,7 +6392,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5412,12 +6409,25 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Updates a direct-query data source.
+  Updates a direct-query data source. For more information, see [Working with
+  Amazon OpenSearch Service data source integrations with Amazon
+  S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html).
 
-  For more information, see
-  [Working with Amazon OpenSearch Service data source integrations with Amazon S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20UpdateDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain.
+  * `:name` (`t:string`) The name of the data source to modify.
+
+  ## Optional parameters:
   """
-  @spec update_data_source(map(), String.t(), String.t(), update_data_source_request(), list()) ::
+  @spec update_data_source(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_data_source_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_source_errors()}
@@ -5428,7 +6438,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -5436,8 +6447,20 @@ defmodule AWS.OpenSearch do
   @doc """
   Modifies the cluster configuration of the specified Amazon OpenSearch Service
   domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20UpdateDomainConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain that you're updating.
+
+  ## Optional parameters:
   """
-  @spec update_domain_config(map(), String.t(), update_domain_config_request(), list()) ::
+  @spec update_domain_config(
+          AWS.Client.t(),
+          String.t(),
+          update_domain_config_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_domain_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_domain_config_errors()}
@@ -5446,7 +6469,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5462,12 +6486,17 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Updates a package for use with Amazon OpenSearch Service domains.
+  Updates a package for use with Amazon OpenSearch Service domains. For more
+  information, see [Custom packages for Amazon OpenSearch
+  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
 
-  For more information, see
-  [Custom packages for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20UpdatePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_package(map(), update_package_request(), list()) ::
+  @spec update_package(AWS.Client.t(), update_package_request(), Keyword.t()) ::
           {:ok, update_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_package_errors()}
@@ -5476,7 +6505,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5492,14 +6522,26 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Reschedules a planned domain configuration change for a later time.
-
-  This change can be a
-  scheduled [service software update](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html)
+  Reschedules a planned domain configuration change for a later time. This change
+  can be a scheduled [service software
+  update](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html)
   or a [blue/green Auto-Tune
   enhancement](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20UpdateScheduledAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain to reschedule an action
+    for.
+
+  ## Optional parameters:
   """
-  @spec update_scheduled_action(map(), String.t(), update_scheduled_action_request(), list()) ::
+  @spec update_scheduled_action(
+          AWS.Client.t(),
+          String.t(),
+          update_scheduled_action_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_scheduled_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_scheduled_action_errors()}
@@ -5510,15 +6552,22 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Modifies an Amazon OpenSearch Service-managed interface VPC endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20UpdateVpcEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_vpc_endpoint(map(), update_vpc_endpoint_request(), list()) ::
+  @spec update_vpc_endpoint(AWS.Client.t(), update_vpc_endpoint_request(), Keyword.t()) ::
           {:ok, update_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_vpc_endpoint_errors()}
@@ -5527,7 +6576,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5544,10 +6594,16 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Allows you to either upgrade your Amazon OpenSearch Service domain or perform an
-  upgrade
-  eligibility check to a compatible version of OpenSearch or Elasticsearch.
+  upgrade eligibility check to a compatible version of OpenSearch or
+  Elasticsearch.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20UpgradeDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec upgrade_domain(map(), upgrade_domain_request(), list()) ::
+  @spec upgrade_domain(AWS.Client.t(), upgrade_domain_request(), Keyword.t()) ::
           {:ok, upgrade_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upgrade_domain_errors()}
@@ -5556,7 +6612,8 @@ defmodule AWS.OpenSearch do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

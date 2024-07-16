@@ -4,19 +4,9 @@
 defmodule AWS.SSMContacts do
   @moduledoc """
   Systems Manager Incident Manager is an incident management console designed to
-  help users
-  mitigate and recover from incidents affecting their Amazon Web Services-hosted
-  applications.
-
-  An incident is any unplanned interruption or reduction in quality of services.
-
-  Incident Manager increases incident resolution by notifying responders of
-  impact, highlighting relevant troubleshooting data, and providing collaboration
-  tools to
-  get services back up and running. To achieve the primary goal of reducing the
-  time-to-resolution of critical incidents, Incident Manager automates response
-  plans
-  and enables responder team escalation.
+  help users mitigate and recover from incidents affecting their Amazon Web
+  Services-hosted applications. An incident is any unplanned interruption or
+  reduction in quality of services.
   """
 
   alias AWS.Client
@@ -1740,45 +1730,44 @@ defmodule AWS.SSMContacts do
   @doc """
   Used to acknowledge an engagement to a contact channel during an incident.
   """
-  @spec accept_page(map(), accept_page_request(), list()) ::
+  @spec accept_page(AWS.Client.t(), accept_page_request(), Keyword.t()) ::
           {:ok, accept_page_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_page_errors()}
   def accept_page(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptPage", input, options)
   end
 
   @doc """
-  Activates a contact's contact channel.
-
-  Incident Manager can't engage a contact until the
-  contact channel has been activated.
+  Activates a contact's contact channel. Incident Manager can't engage a contact
+  until the contact channel has been activated.
   """
-  @spec activate_contact_channel(map(), activate_contact_channel_request(), list()) ::
+  @spec activate_contact_channel(AWS.Client.t(), activate_contact_channel_request(), Keyword.t()) ::
           {:ok, activate_contact_channel_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, activate_contact_channel_errors()}
   def activate_contact_channel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ActivateContactChannel", input, options)
   end
 
   @doc """
   Contacts are either the contacts that Incident Manager engages during an
-  incident or the
-  escalation plans that Incident Manager uses to engage contacts in phases during
-  an
-  incident.
+  incident or the escalation plans that Incident Manager uses to engage contacts
+  in phases during an incident.
   """
-  @spec create_contact(map(), create_contact_request(), list()) ::
+  @spec create_contact(AWS.Client.t(), create_contact_request(), Keyword.t()) ::
           {:ok, create_contact_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_contact_errors()}
   def create_contact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateContact", input, options)
   end
@@ -1787,12 +1776,13 @@ defmodule AWS.SSMContacts do
   A contact channel is the method that Incident Manager uses to engage your
   contact.
   """
-  @spec create_contact_channel(map(), create_contact_channel_request(), list()) ::
+  @spec create_contact_channel(AWS.Client.t(), create_contact_channel_request(), Keyword.t()) ::
           {:ok, create_contact_channel_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_contact_channel_errors()}
   def create_contact_channel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateContactChannel", input, options)
   end
@@ -1800,12 +1790,13 @@ defmodule AWS.SSMContacts do
   @doc """
   Creates a rotation in an on-call schedule.
   """
-  @spec create_rotation(map(), create_rotation_request(), list()) ::
+  @spec create_rotation(AWS.Client.t(), create_rotation_request(), Keyword.t()) ::
           {:ok, create_rotation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rotation_errors()}
   def create_rotation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRotation", input, options)
   end
@@ -1813,84 +1804,82 @@ defmodule AWS.SSMContacts do
   @doc """
   Creates an override for a rotation in an on-call schedule.
   """
-  @spec create_rotation_override(map(), create_rotation_override_request(), list()) ::
+  @spec create_rotation_override(AWS.Client.t(), create_rotation_override_request(), Keyword.t()) ::
           {:ok, create_rotation_override_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rotation_override_errors()}
   def create_rotation_override(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRotationOverride", input, options)
   end
 
   @doc """
   To no longer receive Incident Manager engagements to a contact channel, you can
-  deactivate
-  the channel.
+  deactivate the channel.
   """
-  @spec deactivate_contact_channel(map(), deactivate_contact_channel_request(), list()) ::
+  @spec deactivate_contact_channel(
+          AWS.Client.t(),
+          deactivate_contact_channel_request(),
+          Keyword.t()
+        ) ::
           {:ok, deactivate_contact_channel_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deactivate_contact_channel_errors()}
   def deactivate_contact_channel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeactivateContactChannel", input, options)
   end
 
   @doc """
-  To remove a contact from Incident Manager, you can delete the contact.
-
-  Deleting a contact
-  removes them from all escalation plans and related response plans. Deleting an
-  escalation
-  plan removes it from all related response plans. You will have to recreate the
-  contact and
-  its contact channels before you can use it again.
+  To remove a contact from Incident Manager, you can delete the contact. Deleting
+  a contact removes them from all escalation plans and related response plans.
+  Deleting an escalation plan removes it from all related response plans. You
+  will have to recreate the contact and its contact channels before you can use
+  it again.
   """
-  @spec delete_contact(map(), delete_contact_request(), list()) ::
+  @spec delete_contact(AWS.Client.t(), delete_contact_request(), Keyword.t()) ::
           {:ok, delete_contact_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_contact_errors()}
   def delete_contact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteContact", input, options)
   end
 
   @doc """
   To no longer receive engagements on a contact channel, you can delete the
-  channel from a
-  contact.
-
-  Deleting the contact channel removes it from the contact's engagement plan. If
-  you
-  delete the only contact channel for a contact, you won't be able to engage that
-  contact
-  during an incident.
+  channel from a contact. Deleting the contact channel removes it from the
+  contact's engagement plan. If you delete the only contact channel for a
+  contact, you won't be able to engage that contact during an incident.
   """
-  @spec delete_contact_channel(map(), delete_contact_channel_request(), list()) ::
+  @spec delete_contact_channel(AWS.Client.t(), delete_contact_channel_request(), Keyword.t()) ::
           {:ok, delete_contact_channel_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_contact_channel_errors()}
   def delete_contact_channel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteContactChannel", input, options)
   end
 
   @doc """
-  Deletes a rotation from the system.
-
-  If a rotation belongs to more than one on-call
-  schedule, this operation deletes it from all of them.
+  Deletes a rotation from the system. If a rotation belongs to more than one
+  on-call schedule, this operation deletes it from all of them.
   """
-  @spec delete_rotation(map(), delete_rotation_request(), list()) ::
+  @spec delete_rotation(AWS.Client.t(), delete_rotation_request(), Keyword.t()) ::
           {:ok, delete_rotation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rotation_errors()}
   def delete_rotation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRotation", input, options)
   end
@@ -1898,28 +1887,29 @@ defmodule AWS.SSMContacts do
   @doc """
   Deletes an existing override for an on-call rotation.
   """
-  @spec delete_rotation_override(map(), delete_rotation_override_request(), list()) ::
+  @spec delete_rotation_override(AWS.Client.t(), delete_rotation_override_request(), Keyword.t()) ::
           {:ok, delete_rotation_override_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rotation_override_errors()}
   def delete_rotation_override(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRotationOverride", input, options)
   end
 
   @doc """
   Incident Manager uses engagements to engage contacts and escalation plans during
+  an incident. Use this command to describe the engagement that occurred during
   an incident.
-
-  Use this command to describe the engagement that occurred during an incident.
   """
-  @spec describe_engagement(map(), describe_engagement_request(), list()) ::
+  @spec describe_engagement(AWS.Client.t(), describe_engagement_request(), Keyword.t()) ::
           {:ok, describe_engagement_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_engagement_errors()}
   def describe_engagement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEngagement", input, options)
   end
@@ -1927,12 +1917,13 @@ defmodule AWS.SSMContacts do
   @doc """
   Lists details of the engagement to a contact channel.
   """
-  @spec describe_page(map(), describe_page_request(), list()) ::
+  @spec describe_page(AWS.Client.t(), describe_page_request(), Keyword.t()) ::
           {:ok, describe_page_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_page_errors()}
   def describe_page(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePage", input, options)
   end
@@ -1940,12 +1931,13 @@ defmodule AWS.SSMContacts do
   @doc """
   Retrieves information about the specified contact or escalation plan.
   """
-  @spec get_contact(map(), get_contact_request(), list()) ::
+  @spec get_contact(AWS.Client.t(), get_contact_request(), Keyword.t()) ::
           {:ok, get_contact_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_contact_errors()}
   def get_contact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetContact", input, options)
   end
@@ -1953,12 +1945,13 @@ defmodule AWS.SSMContacts do
   @doc """
   List details about a specific contact channel.
   """
-  @spec get_contact_channel(map(), get_contact_channel_request(), list()) ::
+  @spec get_contact_channel(AWS.Client.t(), get_contact_channel_request(), Keyword.t()) ::
           {:ok, get_contact_channel_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_contact_channel_errors()}
   def get_contact_channel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetContactChannel", input, options)
   end
@@ -1967,12 +1960,13 @@ defmodule AWS.SSMContacts do
   Retrieves the resource policies attached to the specified contact or escalation
   plan.
   """
-  @spec get_contact_policy(map(), get_contact_policy_request(), list()) ::
+  @spec get_contact_policy(AWS.Client.t(), get_contact_policy_request(), Keyword.t()) ::
           {:ok, get_contact_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_contact_policy_errors()}
   def get_contact_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetContactPolicy", input, options)
   end
@@ -1980,12 +1974,13 @@ defmodule AWS.SSMContacts do
   @doc """
   Retrieves information about an on-call rotation.
   """
-  @spec get_rotation(map(), get_rotation_request(), list()) ::
+  @spec get_rotation(AWS.Client.t(), get_rotation_request(), Keyword.t()) ::
           {:ok, get_rotation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rotation_errors()}
   def get_rotation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRotation", input, options)
   end
@@ -1993,12 +1988,13 @@ defmodule AWS.SSMContacts do
   @doc """
   Retrieves information about an override to an on-call rotation.
   """
-  @spec get_rotation_override(map(), get_rotation_override_request(), list()) ::
+  @spec get_rotation_override(AWS.Client.t(), get_rotation_override_request(), Keyword.t()) ::
           {:ok, get_rotation_override_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rotation_override_errors()}
   def get_rotation_override(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRotationOverride", input, options)
   end
@@ -2006,12 +2002,13 @@ defmodule AWS.SSMContacts do
   @doc """
   Lists all contact channels for the specified contact.
   """
-  @spec list_contact_channels(map(), list_contact_channels_request(), list()) ::
+  @spec list_contact_channels(AWS.Client.t(), list_contact_channels_request(), Keyword.t()) ::
           {:ok, list_contact_channels_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contact_channels_errors()}
   def list_contact_channels(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListContactChannels", input, options)
   end
@@ -2019,12 +2016,13 @@ defmodule AWS.SSMContacts do
   @doc """
   Lists all contacts and escalation plans in Incident Manager.
   """
-  @spec list_contacts(map(), list_contacts_request(), list()) ::
+  @spec list_contacts(AWS.Client.t(), list_contacts_request(), Keyword.t()) ::
           {:ok, list_contacts_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contacts_errors()}
   def list_contacts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListContacts", input, options)
   end
@@ -2032,12 +2030,13 @@ defmodule AWS.SSMContacts do
   @doc """
   Lists all engagements that have happened in an incident.
   """
-  @spec list_engagements(map(), list_engagements_request(), list()) ::
+  @spec list_engagements(AWS.Client.t(), list_engagements_request(), Keyword.t()) ::
           {:ok, list_engagements_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_engagements_errors()}
   def list_engagements(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEngagements", input, options)
   end
@@ -2045,33 +2044,31 @@ defmodule AWS.SSMContacts do
   @doc """
   Lists all of the engagements to contact channels that have been acknowledged.
   """
-  @spec list_page_receipts(map(), list_page_receipts_request(), list()) ::
+  @spec list_page_receipts(AWS.Client.t(), list_page_receipts_request(), Keyword.t()) ::
           {:ok, list_page_receipts_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_page_receipts_errors()}
   def list_page_receipts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPageReceipts", input, options)
   end
 
   @doc """
-  Returns the resolution path of an engagement.
-
-  For example, the escalation plan engaged
-  in an incident might target an on-call schedule that includes several contacts
-  in a
-  rotation, but just one contact on-call when the incident starts. The resolution
-  path
-  indicates the hierarchy of *escalation plan > on-call schedule >
-  contact*.
+  Returns the resolution path of an engagement. For example, the escalation plan
+  engaged in an incident might target an on-call schedule that includes several
+  contacts in a rotation, but just one contact on-call when the incident starts.
+  The resolution path indicates the hierarchy of *escalation plan > on-call
+  schedule > contact*.
   """
-  @spec list_page_resolutions(map(), list_page_resolutions_request(), list()) ::
+  @spec list_page_resolutions(AWS.Client.t(), list_page_resolutions_request(), Keyword.t()) ::
           {:ok, list_page_resolutions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_page_resolutions_errors()}
   def list_page_resolutions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPageResolutions", input, options)
   end
@@ -2079,12 +2076,13 @@ defmodule AWS.SSMContacts do
   @doc """
   Lists the engagements to a contact's contact channels.
   """
-  @spec list_pages_by_contact(map(), list_pages_by_contact_request(), list()) ::
+  @spec list_pages_by_contact(AWS.Client.t(), list_pages_by_contact_request(), Keyword.t()) ::
           {:ok, list_pages_by_contact_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pages_by_contact_errors()}
   def list_pages_by_contact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPagesByContact", input, options)
   end
@@ -2092,28 +2090,31 @@ defmodule AWS.SSMContacts do
   @doc """
   Lists the engagements to contact channels that occurred by engaging a contact.
   """
-  @spec list_pages_by_engagement(map(), list_pages_by_engagement_request(), list()) ::
+  @spec list_pages_by_engagement(AWS.Client.t(), list_pages_by_engagement_request(), Keyword.t()) ::
           {:ok, list_pages_by_engagement_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pages_by_engagement_errors()}
   def list_pages_by_engagement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPagesByEngagement", input, options)
   end
 
   @doc """
   Returns a list of shifts based on rotation configuration parameters.
-
-  The Incident Manager primarily uses this operation to populate the ## Preview
-  calendar. It is not typically run by end users.
   """
-  @spec list_preview_rotation_shifts(map(), list_preview_rotation_shifts_request(), list()) ::
+  @spec list_preview_rotation_shifts(
+          AWS.Client.t(),
+          list_preview_rotation_shifts_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_preview_rotation_shifts_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_preview_rotation_shifts_errors()}
   def list_preview_rotation_shifts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPreviewRotationShifts", input, options)
   end
@@ -2121,12 +2122,13 @@ defmodule AWS.SSMContacts do
   @doc """
   Retrieves a list of overrides currently specified for an on-call rotation.
   """
-  @spec list_rotation_overrides(map(), list_rotation_overrides_request(), list()) ::
+  @spec list_rotation_overrides(AWS.Client.t(), list_rotation_overrides_request(), Keyword.t()) ::
           {:ok, list_rotation_overrides_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rotation_overrides_errors()}
   def list_rotation_overrides(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRotationOverrides", input, options)
   end
@@ -2134,12 +2136,13 @@ defmodule AWS.SSMContacts do
   @doc """
   Returns a list of shifts generated by an existing rotation in the system.
   """
-  @spec list_rotation_shifts(map(), list_rotation_shifts_request(), list()) ::
+  @spec list_rotation_shifts(AWS.Client.t(), list_rotation_shifts_request(), Keyword.t()) ::
           {:ok, list_rotation_shifts_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rotation_shifts_errors()}
   def list_rotation_shifts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRotationShifts", input, options)
   end
@@ -2147,12 +2150,13 @@ defmodule AWS.SSMContacts do
   @doc """
   Retrieves a list of on-call rotations.
   """
-  @spec list_rotations(map(), list_rotations_request(), list()) ::
+  @spec list_rotations(AWS.Client.t(), list_rotations_request(), Keyword.t()) ::
           {:ok, list_rotations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rotations_errors()}
   def list_rotations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRotations", input, options)
   end
@@ -2160,95 +2164,93 @@ defmodule AWS.SSMContacts do
   @doc """
   Lists the tags of an escalation plan or contact.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
-  Adds a resource policy to the specified contact or escalation plan.
-
-  The resource policy
-  is used to share the contact or escalation plan using Resource Access Manager
-  (RAM). For more information about cross-account sharing, see [Setting up cross-account
+  Adds a resource policy to the specified contact or escalation plan. The resource
+  policy is used to share the contact or escalation plan using Resource Access
+  Manager (RAM). For more information about cross-account sharing, see [Setting
+  up cross-account
   functionality](https://docs.aws.amazon.com/incident-manager/latest/userguide/xa.html).
   """
-  @spec put_contact_policy(map(), put_contact_policy_request(), list()) ::
+  @spec put_contact_policy(AWS.Client.t(), put_contact_policy_request(), Keyword.t()) ::
           {:ok, put_contact_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_contact_policy_errors()}
   def put_contact_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutContactPolicy", input, options)
   end
 
   @doc """
-  Sends an activation code to a contact channel.
-
-  The contact can use this code to activate
-  the contact channel in the console or with the `ActivateChannel` operation.
-  Incident Manager can't engage a contact channel until it has been activated.
+  Sends an activation code to a contact channel. The contact can use this code to
+  activate the contact channel in the console or with the `ActivateChannel`
+  operation. Incident Manager can't engage a contact channel until it has been
+  activated.
   """
-  @spec send_activation_code(map(), send_activation_code_request(), list()) ::
+  @spec send_activation_code(AWS.Client.t(), send_activation_code_request(), Keyword.t()) ::
           {:ok, send_activation_code_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_activation_code_errors()}
   def send_activation_code(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendActivationCode", input, options)
   end
 
   @doc """
-  Starts an engagement to a contact or escalation plan.
-
-  The engagement engages each
-  contact specified in the incident.
+  Starts an engagement to a contact or escalation plan. The engagement engages
+  each contact specified in the incident.
   """
-  @spec start_engagement(map(), start_engagement_request(), list()) ::
+  @spec start_engagement(AWS.Client.t(), start_engagement_request(), Keyword.t()) ::
           {:ok, start_engagement_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_engagement_errors()}
   def start_engagement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartEngagement", input, options)
   end
 
   @doc """
   Stops an engagement before it finishes the final stage of the escalation plan or
-  engagement plan.
-
-  Further contacts aren't engaged.
+  engagement plan. Further contacts aren't engaged.
   """
-  @spec stop_engagement(map(), stop_engagement_request(), list()) ::
+  @spec stop_engagement(AWS.Client.t(), stop_engagement_request(), Keyword.t()) ::
           {:ok, stop_engagement_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_engagement_errors()}
   def stop_engagement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopEngagement", input, options)
   end
 
   @doc """
-  Tags a contact or escalation plan.
-
-  You can tag only contacts and escalation plans in the
-  first region of your replication set.
+  Tags a contact or escalation plan. You can tag only contacts and escalation
+  plans in the first region of your replication set.
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2256,12 +2258,13 @@ defmodule AWS.SSMContacts do
   @doc """
   Removes tags from the specified resource.
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2269,12 +2272,13 @@ defmodule AWS.SSMContacts do
   @doc """
   Updates the contact or escalation plan specified.
   """
-  @spec update_contact(map(), update_contact_request(), list()) ::
+  @spec update_contact(AWS.Client.t(), update_contact_request(), Keyword.t()) ::
           {:ok, update_contact_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_errors()}
   def update_contact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateContact", input, options)
   end
@@ -2282,12 +2286,13 @@ defmodule AWS.SSMContacts do
   @doc """
   Updates a contact's contact channel.
   """
-  @spec update_contact_channel(map(), update_contact_channel_request(), list()) ::
+  @spec update_contact_channel(AWS.Client.t(), update_contact_channel_request(), Keyword.t()) ::
           {:ok, update_contact_channel_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_channel_errors()}
   def update_contact_channel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateContactChannel", input, options)
   end
@@ -2295,12 +2300,13 @@ defmodule AWS.SSMContacts do
   @doc """
   Updates the information specified for an on-call rotation.
   """
-  @spec update_rotation(map(), update_rotation_request(), list()) ::
+  @spec update_rotation(AWS.Client.t(), update_rotation_request(), Keyword.t()) ::
           {:ok, update_rotation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rotation_errors()}
   def update_rotation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRotation", input, options)
   end

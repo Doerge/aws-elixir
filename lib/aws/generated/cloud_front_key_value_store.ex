@@ -321,14 +321,33 @@ defmodule AWS.CloudFrontKeyValueStore do
 
   @doc """
   Deletes the key value pair specified by the key.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfrontkeyvaluestore%20DeleteKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:key` (`t:string`) The key to delete.
+  * `:kvs_arn` (`t:string`) The Amazon Resource Name (ARN) of the Key Value Store.
+  * `:if_match` (`t:string`) The current version (ETag) of the Key Value Store
+    that you are deleting keys from, which you can get using
+    DescribeKeyValueStore.
+
+  ## Optional parameters:
   """
-  @spec delete_key(map(), String.t(), String.t(), delete_key_request(), list()) ::
+  @spec delete_key(AWS.Client.t(), String.t(), String.t(), delete_key_request(), Keyword.t()) ::
           {:ok, delete_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_key_errors()}
   def delete_key(%Client{} = client, key, kvs_arn, input, options \\ []) do
     url_path =
       "/key-value-stores/#{AWS.Util.encode_uri(kvs_arn)}/keys/#{AWS.Util.encode_uri(key)}"
+
+    optional_params = [if_match: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -345,7 +364,8 @@ defmodule AWS.CloudFrontKeyValueStore do
         [{"ETag", "ETag"}]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -362,16 +382,39 @@ defmodule AWS.CloudFrontKeyValueStore do
 
   @doc """
   Returns metadata information about Key Value Store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfrontkeyvaluestore%20DescribeKeyValueStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:kvs_arn` (`t:string`) The Amazon Resource Name (ARN) of the Key Value Store.
+
+  ## Optional parameters:
   """
-  @spec describe_key_value_store(map(), String.t(), list()) ::
+  @spec describe_key_value_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_key_value_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_key_value_store_errors()}
   def describe_key_value_store(%Client{} = client, kvs_arn, options \\ []) do
     url_path = "/key-value-stores/#{AWS.Util.encode_uri(kvs_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     options =
       Keyword.put(
         options,
@@ -379,15 +422,24 @@ defmodule AWS.CloudFrontKeyValueStore do
         [{"ETag", "ETag"}]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a key value pair.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfrontkeyvaluestore%20GetKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:key` (`t:string`) The key to get.
+  * `:kvs_arn` (`t:string`) The Amazon Resource Name (ARN) of the Key Value Store.
+
+  ## Optional parameters:
   """
-  @spec get_key(map(), String.t(), String.t(), list()) ::
+  @spec get_key(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_key_errors()}
@@ -395,49 +447,111 @@ defmodule AWS.CloudFrontKeyValueStore do
     url_path =
       "/key-value-stores/#{AWS.Util.encode_uri(kvs_arn)}/keys/#{AWS.Util.encode_uri(key)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of key value pairs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfrontkeyvaluestore%20ListKeys&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:kvs_arn` (`t:string`) The Amazon Resource Name (ARN) of the Key Value Store.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) Maximum number of results that are returned per call.
+    The default is 10 and maximum allowed page is 50.
+  * `:next_token` (`t:`) If nextToken is returned in the response, there are more
+    results available. Make the next call using the returned token to retrieve
+    the next page.
   """
-  @spec list_keys(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_keys(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_keys_errors()}
-  def list_keys(%Client{} = client, kvs_arn, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_keys(%Client{} = client, kvs_arn, options \\ []) do
     url_path = "/key-value-stores/#{AWS.Util.encode_uri(kvs_arn)}/keys"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Creates a new key value pair or replaces the value of an existing key.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfrontkeyvaluestore%20PutKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:key` (`t:string`) The key to put.
+  * `:kvs_arn` (`t:string`) The Amazon Resource Name (ARN) of the Key Value Store.
+  * `:if_match` (`t:string`) The current version (ETag) of the Key Value Store
+    that you are putting keys into, which you can get using
+    DescribeKeyValueStore.
+
+  ## Optional parameters:
   """
-  @spec put_key(map(), String.t(), String.t(), put_key_request(), list()) ::
+  @spec put_key(AWS.Client.t(), String.t(), String.t(), put_key_request(), Keyword.t()) ::
           {:ok, put_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_key_errors()}
@@ -445,6 +559,14 @@ defmodule AWS.CloudFrontKeyValueStore do
     url_path =
       "/key-value-stores/#{AWS.Util.encode_uri(kvs_arn)}/keys/#{AWS.Util.encode_uri(key)}"
 
+    optional_params = [if_match: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"IfMatch", "If-Match"}
@@ -460,20 +582,39 @@ defmodule AWS.CloudFrontKeyValueStore do
         [{"ETag", "ETag"}]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Puts or Deletes multiple key value pairs in a single, all-or-nothing operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfrontkeyvaluestore%20UpdateKeys&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:kvs_arn` (`t:string`) The Amazon Resource Name (ARN) of the Key Value Store.
+  * `:if_match` (`t:string`) The current version (ETag) of the Key Value Store
+    that you are updating keys of, which you can get using
+    DescribeKeyValueStore.
+
+  ## Optional parameters:
   """
-  @spec update_keys(map(), String.t(), update_keys_request(), list()) ::
+  @spec update_keys(AWS.Client.t(), String.t(), update_keys_request(), Keyword.t()) ::
           {:ok, update_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_keys_errors()}
   def update_keys(%Client{} = client, kvs_arn, input, options \\ []) do
     url_path = "/key-value-stores/#{AWS.Util.encode_uri(kvs_arn)}/keys"
+
+    optional_params = [if_match: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -490,7 +631,8 @@ defmodule AWS.CloudFrontKeyValueStore do
         [{"ETag", "ETag"}]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

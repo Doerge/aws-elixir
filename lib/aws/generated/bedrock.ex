@@ -1781,12 +1781,17 @@ defmodule AWS.Bedrock do
 
   @doc """
   API operation for creating and managing Amazon Bedrock automatic model
-  evaluation jobs and model evaluation jobs that use human workers.
+  evaluation jobs and model evaluation jobs that use human workers. To learn
+  more about the requirements for creating a model evaluation job see, [Model
+  evaluations](https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation.html).
 
-  To learn more about the requirements for creating a model evaluation job see,
-  [Model evaluations](https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20CreateEvaluationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_evaluation_job(map(), create_evaluation_job_request(), list()) ::
+  @spec create_evaluation_job(AWS.Client.t(), create_evaluation_job_request(), Keyword.t()) ::
           {:ok, create_evaluation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_evaluation_job_errors()}
@@ -1795,7 +1800,8 @@ defmodule AWS.Bedrock do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1812,49 +1818,17 @@ defmodule AWS.Bedrock do
 
   @doc """
   Creates a guardrail to block topics and to implement safeguards for your
-  generative AI applications.
+  generative AI applications. You can configure the following policies in a
+  guardrail to avoid undesirable and harmful content, filter out denied topics
+  and words, and remove sensitive information for privacy protection.
 
-  You can configure the following policies in a guardrail to avoid undesirable and
-  harmful content, filter
-  out denied topics and words, and remove sensitive information for privacy
-  protection.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20CreateGuardrail&this_doc_guide=API%2520Reference)
 
-    *
+  ## Parameters:
 
-  **Content filters** - Adjust filter strengths
-  to block input prompts or model responses containing harmful content.
-
-    *
-
-  **Denied topics** - Define a set of topics that
-  are undesirable in the context of your application. These topics will be blocked
-  if
-  detected in user queries or model responses.
-
-    *
-
-  **Word filters** - Configure filters to block
-  undesirable words, phrases, and profanity. Such words can include offensive
-  terms,
-  competitor names etc.
-
-    *
-
-  **Sensitive information filters** - Block or
-  mask sensitive information such as personally identifiable information (PII) or
-  custom
-  regex in user inputs and model responses.
-
-  In addition to the above policies, you can also configure the messages to be
-  returned to
-  the user if a user input or model response is in violation of the policies
-  defined in the guardrail.
-
-  For more information, see [Guardrails for Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html)
-  in
-  the *Amazon Bedrock User Guide*.
+  ## Optional parameters:
   """
-  @spec create_guardrail(map(), create_guardrail_request(), list()) ::
+  @spec create_guardrail(AWS.Client.t(), create_guardrail_request(), Keyword.t()) ::
           {:ok, create_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_guardrail_errors()}
@@ -1863,7 +1837,8 @@ defmodule AWS.Bedrock do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1879,13 +1854,24 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Creates a version of the guardrail.
-
-  Use this API to create a snapshot of the
+  Creates a version of the guardrail. Use this API to create a snapshot of the
   guardrail when you are satisfied with a configuration, or to compare the
   configuration with another version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20CreateGuardrailVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail.
+    This can be an ID or the ARN.
+
+  ## Optional parameters:
   """
-  @spec create_guardrail_version(map(), String.t(), create_guardrail_version_request(), list()) ::
+  @spec create_guardrail_version(
+          AWS.Client.t(),
+          String.t(),
+          create_guardrail_version_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_guardrail_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_guardrail_version_errors()}
@@ -1894,7 +1880,8 @@ defmodule AWS.Bedrock do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1910,24 +1897,23 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Creates a fine-tuning job to customize a base model.
+  Creates a fine-tuning job to customize a base model. You specify the base
+  foundation model and the location of the training data. After the
+  model-customization job completes successfully, your custom model resource
+  will be ready to use. Amazon Bedrock returns validation loss metrics and
+  output generations after the job completes.
 
-  You specify the base foundation model and the location of the training data.
-  After the model-customization job completes successfully, your custom model
-  resource will be ready to use. Amazon Bedrock returns validation loss metrics
-  and output generations after the job completes.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20CreateModelCustomizationJob&this_doc_guide=API%2520Reference)
 
-  For information on the format of training and validation data, see [Prepare the datasets](https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-prepare.html).
+  ## Parameters:
 
-  Model-customization jobs are asynchronous and the completion time depends on the
-  base model and the training/validation data size.
-  To monitor a job, use the `GetModelCustomizationJob` operation to retrieve the
-  job status.
-
-  For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
-  in the Amazon Bedrock User Guide.
+  ## Optional parameters:
   """
-  @spec create_model_customization_job(map(), create_model_customization_job_request(), list()) ::
+  @spec create_model_customization_job(
+          AWS.Client.t(),
+          create_model_customization_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_model_customization_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_customization_job_errors()}
@@ -1936,7 +1922,8 @@ defmodule AWS.Bedrock do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1953,16 +1940,22 @@ defmodule AWS.Bedrock do
 
   @doc """
   Creates dedicated throughput for a base or custom model with the model units and
-  for the duration that you specify.
-
-  For pricing details, see [Amazon Bedrock Pricing](http://aws.amazon.com/bedrock/pricing/). For more information, see
-  [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
+  for the duration that you specify. For pricing details, see [Amazon Bedrock
+  Pricing](http://aws.amazon.com/bedrock/pricing/). For more information, see
+  [Provisioned
+  Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20CreateProvisionedModelThroughput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_provisioned_model_throughput(
-          map(),
+          AWS.Client.t(),
           create_provisioned_model_throughput_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_provisioned_model_throughput_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1972,7 +1965,8 @@ defmodule AWS.Bedrock do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1988,12 +1982,24 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Deletes a custom model that you created earlier.
-
-  For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
+  Deletes a custom model that you created earlier. For more information, see
+  [Custom
+  models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20DeleteCustomModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:model_identifier` (`t:string`) Name of the model to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_custom_model(map(), String.t(), delete_custom_model_request(), list()) ::
+  @spec delete_custom_model(
+          AWS.Client.t(),
+          String.t(),
+          delete_custom_model_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_custom_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_model_errors()}
@@ -2002,7 +2008,8 @@ defmodule AWS.Bedrock do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2020,16 +2027,16 @@ defmodule AWS.Bedrock do
   @doc """
   Deletes a guardrail.
 
-    *
-  To delete a guardrail, only specify the ARN of the guardrail in the
-  `guardrailIdentifier` field. If you delete a guardrail, all of its versions will
-  be deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20DeleteGuardrail&this_doc_guide=API%2520Reference)
 
-    *
-  To delete a version of a guardrail, specify the ARN of the guardrail in the
-  `guardrailIdentifier` field and the version in the `guardrailVersion` field.
+  ## Parameters:
+  * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail.
+    This can be an ID or the ARN.
+
+  ## Optional parameters:
+  * `:guardrail_version` (`t:string`) The version of the guardrail.
   """
-  @spec delete_guardrail(map(), String.t(), delete_guardrail_request(), list()) ::
+  @spec delete_guardrail(AWS.Client.t(), String.t(), delete_guardrail_request(), Keyword.t()) ::
           {:ok, delete_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_guardrail_errors()}
@@ -2043,7 +2050,13 @@ defmodule AWS.Bedrock do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:guardrail_version])
 
     Request.request_rest(
       client,
@@ -2060,11 +2073,17 @@ defmodule AWS.Bedrock do
 
   @doc """
   Delete the invocation logging.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20DeleteModelInvocationLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec delete_model_invocation_logging_configuration(
-          map(),
+          AWS.Client.t(),
           delete_model_invocation_logging_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_model_invocation_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2074,7 +2093,8 @@ defmodule AWS.Bedrock do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2090,17 +2110,24 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Deletes a Provisioned Throughput.
-
-  You can't delete a Provisioned Throughput before the commitment term is over.
-  For more information, see [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
+  Deletes a Provisioned Throughput. You can't delete a Provisioned Throughput
+  before the commitment term is over. For more information, see [Provisioned
+  Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20DeleteProvisionedModelThroughput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:provisioned_model_id` (`t:string`) The Amazon Resource Name (ARN) or name of
+    the Provisioned Throughput.
+
+  ## Optional parameters:
   """
   @spec delete_provisioned_model_throughput(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_provisioned_model_throughput_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_provisioned_model_throughput_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2115,7 +2142,8 @@ defmodule AWS.Bedrock do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2132,146 +2160,323 @@ defmodule AWS.Bedrock do
 
   @doc """
   Get the properties associated with a Amazon Bedrock custom model that you have
-  created.For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
+  created.For more information, see [Custom
+  models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20GetCustomModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:model_identifier` (`t:string`) Name or Amazon Resource Name (ARN) of the
+    custom model.
+
+  ## Optional parameters:
   """
-  @spec get_custom_model(map(), String.t(), list()) ::
+  @spec get_custom_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_custom_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_custom_model_errors()}
   def get_custom_model(%Client{} = client, model_identifier, options \\ []) do
     url_path = "/custom-models/#{AWS.Util.encode_uri(model_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the properties associated with a model evaluation job, including the
-  status of the job.
+  status of the job. For more information, see [Model
+  evaluations](https://docs.aws.amazon.com/bedrock/latest/userguide/latest/userguide/model-evaluation.html).
 
-  For more information, see [Model evaluations](https://docs.aws.amazon.com/bedrock/latest/userguide/latest/userguide/model-evaluation.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20GetEvaluationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_identifier` (`t:string`) The Amazon Resource Name (ARN) of the model
+    evaluation job.
+
+  ## Optional parameters:
   """
-  @spec get_evaluation_job(map(), String.t(), list()) ::
+  @spec get_evaluation_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_evaluation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_evaluation_job_errors()}
   def get_evaluation_job(%Client{} = client, job_identifier, options \\ []) do
     url_path = "/evaluation-jobs/#{AWS.Util.encode_uri(job_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get details about a Amazon Bedrock foundation model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20GetFoundationModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:model_identifier` (`t:string`) The model identifier.
+
+  ## Optional parameters:
   """
-  @spec get_foundation_model(map(), String.t(), list()) ::
+  @spec get_foundation_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_foundation_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_foundation_model_errors()}
   def get_foundation_model(%Client{} = client, model_identifier, options \\ []) do
     url_path = "/foundation-models/#{AWS.Util.encode_uri(model_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets details about a guardrail.
+  Gets details about a guardrail. If you don't specify a version, the response
+  returns details for the `DRAFT` version.
 
-  If you don't specify a version, the response returns details for the `DRAFT`
-  version.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20GetGuardrail&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail
+    for which to get details. This can be an ID or the ARN.
+
+  ## Optional parameters:
+  * `:guardrail_version` (`t:string`) The version of the guardrail for which to
+    get details. If you don't specify a version, the response returns details
+    for the DRAFT version.
   """
-  @spec get_guardrail(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_guardrail(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_guardrail_errors()}
-  def get_guardrail(
-        %Client{} = client,
-        guardrail_identifier,
-        guardrail_version \\ nil,
-        options \\ []
-      ) do
+  def get_guardrail(%Client{} = client, guardrail_identifier, options \\ []) do
     url_path = "/guardrails/#{AWS.Util.encode_uri(guardrail_identifier)}"
+
+    # Validate optional parameters
+    optional_params = [guardrail_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(guardrail_version) do
-        [{"guardrailVersion", guardrail_version} | query_params]
+      if opt_val = Keyword.get(options, :guardrail_version) do
+        [{"guardrailVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:guardrail_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the properties associated with a model-customization job, including
-  the status of the job.
-
-  For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
+  the status of the job. For more information, see [Custom
+  models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20GetModelCustomizationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_identifier` (`t:string`) Identifier for the customization job.
+
+  ## Optional parameters:
   """
-  @spec get_model_customization_job(map(), String.t(), list()) ::
+  @spec get_model_customization_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_model_customization_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_model_customization_job_errors()}
   def get_model_customization_job(%Client{} = client, job_identifier, options \\ []) do
     url_path = "/model-customization-jobs/#{AWS.Util.encode_uri(job_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get the current configuration values for model invocation logging.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20GetModelInvocationLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_model_invocation_logging_configuration(map(), list()) ::
+  @spec get_model_invocation_logging_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_model_invocation_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_model_invocation_logging_configuration_errors()}
   def get_model_invocation_logging_configuration(%Client{} = client, options \\ []) do
     url_path = "/logging/modelinvocations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns details for a Provisioned Throughput.
-
-  For more information, see [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
+  Returns details for a Provisioned Throughput. For more information, see
+  [Provisioned
+  Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20GetProvisionedModelThroughput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:provisioned_model_id` (`t:string`) The Amazon Resource Name (ARN) or name of
+    the Provisioned Throughput.
+
+  ## Optional parameters:
   """
-  @spec get_provisioned_model_throughput(map(), String.t(), list()) ::
+  @spec get_provisioned_model_throughput(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_provisioned_model_throughput_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_provisioned_model_throughput_errors()}
   def get_provisioned_model_throughput(%Client{} = client, provisioned_model_id, options \\ []) do
     url_path = "/provisioned-model-throughput/#{AWS.Util.encode_uri(provisioned_model_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2280,525 +2485,741 @@ defmodule AWS.Bedrock do
   Returns a list of the custom models that you have created with the
   `CreateModelCustomizationJob` operation.
 
-  For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
-  in the Amazon Bedrock User Guide.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListCustomModels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:base_model_arn_equals` (`t:string`) Return custom models only if the base
+    model Amazon Resource Name (ARN) matches this parameter.
+  * `:creation_time_after` (`t:timestamp[date-time]`) Return custom models created
+    after the specified time.
+  * `:creation_time_before` (`t:timestamp[date-time]`) Return custom models
+    created before the specified time.
+  * `:foundation_model_arn_equals` (`t:string`) Return custom models only if the
+    foundation model Amazon Resource Name (ARN) matches this parameter.
+  * `:max_results` (`t:integer`) Maximum number of results to return in the
+    response.
+  * `:name_contains` (`t:string`) Return custom models only if the job name
+    contains these characters.
+  * `:next_token` (`t:string`) Continuation token from the previous response, for
+    Amazon Bedrock to list the next set of results.
+  * `:sort_by` (`t:enum["CREATION_TIME"]`) The field to sort by in the returned
+    list of models.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the
+    results.
   """
-  @spec list_custom_models(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_custom_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_custom_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_models_errors()}
-  def list_custom_models(
-        %Client{} = client,
-        base_model_arn_equals \\ nil,
-        creation_time_after \\ nil,
-        creation_time_before \\ nil,
-        foundation_model_arn_equals \\ nil,
-        max_results \\ nil,
-        name_contains \\ nil,
-        next_token \\ nil,
-        sort_by \\ nil,
-        sort_order \\ nil,
-        options \\ []
-      ) do
+  def list_custom_models(%Client{} = client, options \\ []) do
     url_path = "/custom-models"
+
+    # Validate optional parameters
+    optional_params = [
+      base_model_arn_equals: nil,
+      creation_time_after: nil,
+      creation_time_before: nil,
+      foundation_model_arn_equals: nil,
+      max_results: nil,
+      name_contains: nil,
+      next_token: nil,
+      sort_by: nil,
+      sort_order: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(sort_order) do
-        [{"sortOrder", sort_order} | query_params]
+      if opt_val = Keyword.get(options, :sort_order) do
+        [{"sortOrder", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(sort_by) do
-        [{"sortBy", sort_by} | query_params]
+      if opt_val = Keyword.get(options, :sort_by) do
+        [{"sortBy", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name_contains) do
-        [{"nameContains", name_contains} | query_params]
+      if opt_val = Keyword.get(options, :name_contains) do
+        [{"nameContains", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(foundation_model_arn_equals) do
-        [{"foundationModelArnEquals", foundation_model_arn_equals} | query_params]
+      if opt_val = Keyword.get(options, :foundation_model_arn_equals) do
+        [{"foundationModelArnEquals", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(creation_time_before) do
-        [{"creationTimeBefore", creation_time_before} | query_params]
+      if opt_val = Keyword.get(options, :creation_time_before) do
+        [{"creationTimeBefore", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(creation_time_after) do
-        [{"creationTimeAfter", creation_time_after} | query_params]
+      if opt_val = Keyword.get(options, :creation_time_after) do
+        [{"creationTimeAfter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(base_model_arn_equals) do
-        [{"baseModelArnEquals", base_model_arn_equals} | query_params]
+      if opt_val = Keyword.get(options, :base_model_arn_equals) do
+        [{"baseModelArnEquals", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :base_model_arn_equals,
+        :creation_time_after,
+        :creation_time_before,
+        :foundation_model_arn_equals,
+        :max_results,
+        :name_contains,
+        :next_token,
+        :sort_by,
+        :sort_order
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists model evaluation jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListEvaluationJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:creation_time_after` (`t:timestamp[date-time]`) A filter that includes model
+    evaluation jobs created after the time specified.
+  * `:creation_time_before` (`t:timestamp[date-time]`) A filter that includes
+    model evaluation jobs created prior to the time specified.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:name_contains` (`t:string`) Query parameter string for model evaluation job
+    names.
+  * `:next_token` (`t:string`) Continuation token from the previous response, for
+    Amazon Bedrock to list the next set of results.
+  * `:sort_by` (`t:enum["CREATION_TIME"]`) Allows you to sort model evaluation
+    jobs by when they were created.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) How you want the order of
+    jobs sorted.
+  * `:status_equals` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|STOPPED|STOPPING"]`)
+    Only return jobs where the status condition is met.
   """
-  @spec list_evaluation_jobs(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_evaluation_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_evaluation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_evaluation_jobs_errors()}
-  def list_evaluation_jobs(
-        %Client{} = client,
-        creation_time_after \\ nil,
-        creation_time_before \\ nil,
-        max_results \\ nil,
-        name_contains \\ nil,
-        next_token \\ nil,
-        sort_by \\ nil,
-        sort_order \\ nil,
-        status_equals \\ nil,
-        options \\ []
-      ) do
+  def list_evaluation_jobs(%Client{} = client, options \\ []) do
     url_path = "/evaluation-jobs"
+
+    # Validate optional parameters
+    optional_params = [
+      creation_time_after: nil,
+      creation_time_before: nil,
+      max_results: nil,
+      name_contains: nil,
+      next_token: nil,
+      sort_by: nil,
+      sort_order: nil,
+      status_equals: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status_equals) do
-        [{"statusEquals", status_equals} | query_params]
+      if opt_val = Keyword.get(options, :status_equals) do
+        [{"statusEquals", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(sort_order) do
-        [{"sortOrder", sort_order} | query_params]
+      if opt_val = Keyword.get(options, :sort_order) do
+        [{"sortOrder", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(sort_by) do
-        [{"sortBy", sort_by} | query_params]
+      if opt_val = Keyword.get(options, :sort_by) do
+        [{"sortBy", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name_contains) do
-        [{"nameContains", name_contains} | query_params]
+      if opt_val = Keyword.get(options, :name_contains) do
+        [{"nameContains", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(creation_time_before) do
-        [{"creationTimeBefore", creation_time_before} | query_params]
+      if opt_val = Keyword.get(options, :creation_time_before) do
+        [{"creationTimeBefore", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(creation_time_after) do
-        [{"creationTimeAfter", creation_time_after} | query_params]
+      if opt_val = Keyword.get(options, :creation_time_after) do
+        [{"creationTimeAfter", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :creation_time_after,
+        :creation_time_before,
+        :max_results,
+        :name_contains,
+        :next_token,
+        :sort_by,
+        :sort_order,
+        :status_equals
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists Amazon Bedrock foundation models that you can use.
-
-  You can filter the results with the request parameters. For more information,
-  see [Foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/foundation-models.html)
+  Lists Amazon Bedrock foundation models that you can use. You can filter the
+  results with the request parameters. For more information, see [Foundation
+  models](https://docs.aws.amazon.com/bedrock/latest/userguide/foundation-models.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListFoundationModels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:by_customization_type` (`t:enum["CONTINUED_PRE_TRAINING|FINE_TUNING"]`)
+    Return models that support the customization type that you specify. For more
+    information, see Custom models in the Amazon Bedrock User Guide.
+  * `:by_inference_type` (`t:enum["ON_DEMAND|PROVISIONED"]`) Return models that
+    support the inference type that you specify. For more information, see
+    Provisioned Throughput in the Amazon Bedrock User Guide.
+  * `:by_output_modality` (`t:enum["EMBEDDING|IMAGE|TEXT"]`) Return models that
+    support the output modality that you specify.
+  * `:by_provider` (`t:string`) Return models belonging to the model provider that
+    you specify.
   """
-  @spec list_foundation_models(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_foundation_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_foundation_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_foundation_models_errors()}
-  def list_foundation_models(
-        %Client{} = client,
-        by_customization_type \\ nil,
-        by_inference_type \\ nil,
-        by_output_modality \\ nil,
-        by_provider \\ nil,
-        options \\ []
-      ) do
+  def list_foundation_models(%Client{} = client, options \\ []) do
     url_path = "/foundation-models"
+
+    # Validate optional parameters
+    optional_params = [
+      by_customization_type: nil,
+      by_inference_type: nil,
+      by_output_modality: nil,
+      by_provider: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(by_provider) do
-        [{"byProvider", by_provider} | query_params]
+      if opt_val = Keyword.get(options, :by_provider) do
+        [{"byProvider", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_output_modality) do
-        [{"byOutputModality", by_output_modality} | query_params]
+      if opt_val = Keyword.get(options, :by_output_modality) do
+        [{"byOutputModality", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_inference_type) do
-        [{"byInferenceType", by_inference_type} | query_params]
+      if opt_val = Keyword.get(options, :by_inference_type) do
+        [{"byInferenceType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(by_customization_type) do
-        [{"byCustomizationType", by_customization_type} | query_params]
+      if opt_val = Keyword.get(options, :by_customization_type) do
+        [{"byCustomizationType", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :by_customization_type,
+        :by_inference_type,
+        :by_output_modality,
+        :by_provider
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists details about all the guardrails in an account.
+  Lists details about all the guardrails in an account. To list the `DRAFT`
+  version of all your guardrails, don't specify the `guardrailIdentifier` field.
+  To list all versions of a guardrail, specify the ARN of the guardrail in the
+  `guardrailIdentifier` field.
 
-  To list the `DRAFT` version of all your guardrails, don't specify the
-  `guardrailIdentifier` field. To list all versions of a guardrail, specify the
-  ARN of the guardrail in the `guardrailIdentifier` field.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListGuardrails&this_doc_guide=API%2520Reference)
 
-  You can set the maximum number of results to return in a response in the
-  `maxResults` field. If there are more results than the number you set, the
-  response returns a `nextToken` that you can send in another `ListGuardrails`
-  request to see the next batch of results.
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail.
+    This can be an ID or the ARN.
+  * `:max_results` (`t:integer`) The maximum number of results to return in the
+    response.
+  * `:next_token` (`t:string`) If there are more results than were returned in the
+    response, the response returns a nextToken that you can send in another
+    ListGuardrails request to see the next batch of results.
   """
-  @spec list_guardrails(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_guardrails(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_guardrails_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_guardrails_errors()}
-  def list_guardrails(
-        %Client{} = client,
-        guardrail_identifier \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_guardrails(%Client{} = client, options \\ []) do
     url_path = "/guardrails"
+
+    # Validate optional parameters
+    optional_params = [guardrail_identifier: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(guardrail_identifier) do
-        [{"guardrailIdentifier", guardrail_identifier} | query_params]
+      if opt_val = Keyword.get(options, :guardrail_identifier) do
+        [{"guardrailIdentifier", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:guardrail_identifier, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns a list of model customization jobs that you have submitted.
+  Returns a list of model customization jobs that you have submitted. You can
+  filter the jobs to return based on one or more criteria.
 
-  You can filter the jobs to return based on
-  one or more criteria.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListModelCustomizationJobs&this_doc_guide=API%2520Reference)
 
-  For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
-  in the Amazon Bedrock User Guide.
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:creation_time_after` (`t:timestamp[date-time]`) Return customization jobs
+    created after the specified time.
+  * `:creation_time_before` (`t:timestamp[date-time]`) Return customization jobs
+    created before the specified time.
+  * `:max_results` (`t:integer`) Maximum number of results to return in the
+    response.
+  * `:name_contains` (`t:string`) Return customization jobs only if the job name
+    contains these characters.
+  * `:next_token` (`t:string`) Continuation token from the previous response, for
+    Amazon Bedrock to list the next set of results.
+  * `:sort_by` (`t:enum["CREATION_TIME"]`) The field to sort by in the returned
+    list of jobs.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the
+    results.
+  * `:status_equals` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|STOPPED|STOPPING"]`)
+    Return customization jobs with the specified status.
   """
-  @spec list_model_customization_jobs(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_model_customization_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_model_customization_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_model_customization_jobs_errors()}
-  def list_model_customization_jobs(
-        %Client{} = client,
-        creation_time_after \\ nil,
-        creation_time_before \\ nil,
-        max_results \\ nil,
-        name_contains \\ nil,
-        next_token \\ nil,
-        sort_by \\ nil,
-        sort_order \\ nil,
-        status_equals \\ nil,
-        options \\ []
-      ) do
+  def list_model_customization_jobs(%Client{} = client, options \\ []) do
     url_path = "/model-customization-jobs"
+
+    # Validate optional parameters
+    optional_params = [
+      creation_time_after: nil,
+      creation_time_before: nil,
+      max_results: nil,
+      name_contains: nil,
+      next_token: nil,
+      sort_by: nil,
+      sort_order: nil,
+      status_equals: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status_equals) do
-        [{"statusEquals", status_equals} | query_params]
+      if opt_val = Keyword.get(options, :status_equals) do
+        [{"statusEquals", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(sort_order) do
-        [{"sortOrder", sort_order} | query_params]
+      if opt_val = Keyword.get(options, :sort_order) do
+        [{"sortOrder", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(sort_by) do
-        [{"sortBy", sort_by} | query_params]
+      if opt_val = Keyword.get(options, :sort_by) do
+        [{"sortBy", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name_contains) do
-        [{"nameContains", name_contains} | query_params]
+      if opt_val = Keyword.get(options, :name_contains) do
+        [{"nameContains", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(creation_time_before) do
-        [{"creationTimeBefore", creation_time_before} | query_params]
+      if opt_val = Keyword.get(options, :creation_time_before) do
+        [{"creationTimeBefore", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(creation_time_after) do
-        [{"creationTimeAfter", creation_time_after} | query_params]
+      if opt_val = Keyword.get(options, :creation_time_after) do
+        [{"creationTimeAfter", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :creation_time_after,
+        :creation_time_before,
+        :max_results,
+        :name_contains,
+        :next_token,
+        :sort_by,
+        :sort_order,
+        :status_equals
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the Provisioned Throughputs in the account.
-
-  For more information, see [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
+  Lists the Provisioned Throughputs in the account. For more information, see
+  [Provisioned
+  Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListProvisionedModelThroughputs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:creation_time_after` (`t:timestamp[date-time]`) A filter that returns
+    Provisioned Throughputs created after the specified time.
+  * `:creation_time_before` (`t:timestamp[date-time]`) A filter that returns
+    Provisioned Throughputs created before the specified time.
+  * `:max_results` (`t:integer`) THe maximum number of results to return in the
+    response. If there are more results than the number you specified, the
+    response returns a nextToken value. To see the next batch of results, send
+    the nextToken value in another list request.
+  * `:model_arn_equals` (`t:string`) A filter that returns Provisioned Throughputs
+    whose model Amazon Resource Name (ARN) is equal to the value that you
+    specify.
+  * `:name_contains` (`t:string`) A filter that returns Provisioned Throughputs if
+    their name contains the expression that you specify.
+  * `:next_token` (`t:string`) If there are more results than the number you
+    specified in the maxResults field, the response returns a nextToken value.
+    To see the next batch of results, specify the nextToken value in this field.
+  * `:sort_by` (`t:enum["CREATION_TIME"]`) The field by which to sort the returned
+    list of Provisioned Throughputs.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the
+    results.
+  * `:status_equals` (`t:enum["CREATING|FAILED|IN_SERVICE|UPDATING"]`) A filter
+    that returns Provisioned Throughputs if their statuses matches the value
+    that you specify.
   """
-  @spec list_provisioned_model_throughputs(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_provisioned_model_throughputs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_provisioned_model_throughputs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_provisioned_model_throughputs_errors()}
-  def list_provisioned_model_throughputs(
-        %Client{} = client,
-        creation_time_after \\ nil,
-        creation_time_before \\ nil,
-        max_results \\ nil,
-        model_arn_equals \\ nil,
-        name_contains \\ nil,
-        next_token \\ nil,
-        sort_by \\ nil,
-        sort_order \\ nil,
-        status_equals \\ nil,
-        options \\ []
-      ) do
+  def list_provisioned_model_throughputs(%Client{} = client, options \\ []) do
     url_path = "/provisioned-model-throughputs"
+
+    # Validate optional parameters
+    optional_params = [
+      creation_time_after: nil,
+      creation_time_before: nil,
+      max_results: nil,
+      model_arn_equals: nil,
+      name_contains: nil,
+      next_token: nil,
+      sort_by: nil,
+      sort_order: nil,
+      status_equals: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status_equals) do
-        [{"statusEquals", status_equals} | query_params]
+      if opt_val = Keyword.get(options, :status_equals) do
+        [{"statusEquals", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(sort_order) do
-        [{"sortOrder", sort_order} | query_params]
+      if opt_val = Keyword.get(options, :sort_order) do
+        [{"sortOrder", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(sort_by) do
-        [{"sortBy", sort_by} | query_params]
+      if opt_val = Keyword.get(options, :sort_by) do
+        [{"sortBy", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name_contains) do
-        [{"nameContains", name_contains} | query_params]
+      if opt_val = Keyword.get(options, :name_contains) do
+        [{"nameContains", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(model_arn_equals) do
-        [{"modelArnEquals", model_arn_equals} | query_params]
+      if opt_val = Keyword.get(options, :model_arn_equals) do
+        [{"modelArnEquals", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(creation_time_before) do
-        [{"creationTimeBefore", creation_time_before} | query_params]
+      if opt_val = Keyword.get(options, :creation_time_before) do
+        [{"creationTimeBefore", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(creation_time_after) do
-        [{"creationTimeAfter", creation_time_after} | query_params]
+      if opt_val = Keyword.get(options, :creation_time_after) do
+        [{"creationTimeAfter", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :creation_time_after,
+        :creation_time_before,
+        :max_results,
+        :model_arn_equals,
+        :name_contains,
+        :next_token,
+        :sort_by,
+        :sort_order,
+        :status_equals
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2806,10 +3227,13 @@ defmodule AWS.Bedrock do
   @doc """
   List the tags associated with the specified resource.
 
-  For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html) in
-  the Amazon Bedrock User Guide.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
@@ -2818,7 +3242,8 @@ defmodule AWS.Bedrock do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2835,11 +3260,17 @@ defmodule AWS.Bedrock do
 
   @doc """
   Set the configuration values for model invocation logging.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20PutModelInvocationLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec put_model_invocation_logging_configuration(
-          map(),
+          AWS.Client.t(),
           put_model_invocation_logging_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_model_invocation_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2849,15 +3280,29 @@ defmodule AWS.Bedrock do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Stops an in progress model evaluation job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20StopEvaluationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_identifier` (`t:string`) The ARN of the model evaluation job you want to
+    stop.
+
+  ## Optional parameters:
   """
-  @spec stop_evaluation_job(map(), String.t(), stop_evaluation_job_request(), list()) ::
+  @spec stop_evaluation_job(
+          AWS.Client.t(),
+          String.t(),
+          stop_evaluation_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, stop_evaluation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_evaluation_job_errors()}
@@ -2866,7 +3311,8 @@ defmodule AWS.Bedrock do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2882,16 +3328,22 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Stops an active model customization job.
-
-  For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
+  Stops an active model customization job. For more information, see [Custom
+  models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20StopModelCustomizationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_identifier` (`t:string`) Job identifier of the job to stop.
+
+  ## Optional parameters:
   """
   @spec stop_model_customization_job(
-          map(),
+          AWS.Client.t(),
           String.t(),
           stop_model_customization_job_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, stop_model_customization_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2901,7 +3353,8 @@ defmodule AWS.Bedrock do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2917,12 +3370,17 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Associate tags with a resource.
+  Associate tags with a resource. For more information, see [Tagging
+  resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html)
+  in the Amazon Bedrock User Guide.
 
-  For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html) in
-  the Amazon Bedrock User Guide.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2931,7 +3389,8 @@ defmodule AWS.Bedrock do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2947,12 +3406,17 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Remove one or more tags from a resource.
+  Remove one or more tags from a resource. For more information, see [Tagging
+  resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html)
+  in the Amazon Bedrock User Guide.
 
-  For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html) in
-  the Amazon Bedrock User Guide.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2961,7 +3425,8 @@ defmodule AWS.Bedrock do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2979,48 +3444,15 @@ defmodule AWS.Bedrock do
   @doc """
   Updates a guardrail with the values you specify.
 
-    *
-  Specify a `name` and optional `description`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20UpdateGuardrail&this_doc_guide=API%2520Reference)
 
-    *
-  Specify messages for when the guardrail successfully blocks a prompt or a model
-  response in the `blockedInputMessaging` and `blockedOutputsMessaging` fields.
+  ## Parameters:
+  * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail.
+    This can be an ID or the ARN.
 
-    *
-  Specify topics for the guardrail to deny in the `topicPolicyConfig` object. Each
-  [GuardrailTopicConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailTopicConfig.html) object in the `topicsConfig` list pertains to one topic.
-
-      *
-  Give a `name` and `description` so that the guardrail can properly identify the
-  topic.
-
-      *
-  Specify `DENY` in the `type` field.
-
-      *
-  (Optional) Provide up to five prompts that you would categorize as belonging to
-  the topic in the `examples` list.
-
-    *
-  Specify filter strengths for the harmful categories defined in Amazon Bedrock in
-  the `contentPolicyConfig` object. Each
-  [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html)
-  object in the `filtersConfig` list pertains to a harmful category. For more
-  information, see [Content filters](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-content-filters).
-  For more information about the fields in a content filter, see
-  [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html). 
-      *
-  Specify the category in the `type` field.
-
-      *
-  Specify the strength of the filter for prompts in the `inputStrength` field and
-  for model responses in the `strength` field of the
-  [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html).
-
-    *
-  (Optional) For security, include the ARN of a KMS key in the `kmsKeyId` field.
+  ## Optional parameters:
   """
-  @spec update_guardrail(map(), String.t(), update_guardrail_request(), list()) ::
+  @spec update_guardrail(AWS.Client.t(), String.t(), update_guardrail_request(), Keyword.t()) ::
           {:ok, update_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_guardrail_errors()}
@@ -3029,22 +3461,31 @@ defmodule AWS.Bedrock do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
-  Updates the name or associated model for a Provisioned Throughput.
-
-  For more information, see [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
+  Updates the name or associated model for a Provisioned Throughput. For more
+  information, see [Provisioned
+  Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20UpdateProvisionedModelThroughput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:provisioned_model_id` (`t:string`) The Amazon Resource Name (ARN) or name of
+    the Provisioned Throughput to update.
+
+  ## Optional parameters:
   """
   @spec update_provisioned_model_throughput(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_provisioned_model_throughput_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_provisioned_model_throughput_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3059,7 +3500,8 @@ defmodule AWS.Bedrock do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

@@ -4,8 +4,7 @@
 defmodule AWS.LicenseManagerLinuxSubscriptions do
   @moduledoc """
   With License Manager, you can discover and track your commercial Linux
-  subscriptions on running
-  Amazon EC2 instances.
+  subscriptions on running Amazon EC2 instances.
   """
 
   alias AWS.Client
@@ -450,13 +449,18 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   @doc """
   Remove a third-party subscription provider from the Bring Your Own License
-  (BYOL) subscriptions
-  registered to your account.
+  (BYOL) subscriptions registered to your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20DeregisterSubscriptionProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec deregister_subscription_provider(
-          map(),
+          AWS.Client.t(),
           deregister_subscription_provider_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, deregister_subscription_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -466,7 +470,8 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -484,11 +489,17 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   @doc """
   Get details for a Bring Your Own License (BYOL) subscription that's registered
   to your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20GetRegisteredSubscriptionProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec get_registered_subscription_provider(
-          map(),
+          AWS.Client.t(),
           get_registered_subscription_provider_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_registered_subscription_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -498,7 +509,8 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -515,8 +527,14 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   @doc """
   Lists the Linux subscriptions service settings for your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20GetServiceSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_service_settings(map(), get_service_settings_request(), list()) ::
+  @spec get_service_settings(AWS.Client.t(), get_service_settings_request(), Keyword.t()) ::
           {:ok, get_service_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_settings_errors()}
@@ -525,7 +543,8 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -542,13 +561,18 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   @doc """
   Lists the running Amazon EC2 instances that were discovered with commercial
-  Linux
-  subscriptions.
+  Linux subscriptions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20ListLinuxSubscriptionInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec list_linux_subscription_instances(
-          map(),
+          AWS.Client.t(),
           list_linux_subscription_instances_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_linux_subscription_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -558,7 +582,8 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -574,14 +599,17 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   end
 
   @doc """
-  Lists the Linux subscriptions that have been discovered.
-
-  If you have linked your
+  Lists the Linux subscriptions that have been discovered. If you have linked your
   organization, the returned results will include data aggregated across your
-  accounts in
-  Organizations.
+  accounts in Organizations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20ListLinuxSubscriptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_linux_subscriptions(map(), list_linux_subscriptions_request(), list()) ::
+  @spec list_linux_subscriptions(AWS.Client.t(), list_linux_subscriptions_request(), Keyword.t()) ::
           {:ok, list_linux_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_linux_subscriptions_errors()}
@@ -590,7 +618,8 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -608,11 +637,17 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   @doc """
   List Bring Your Own License (BYOL) subscription registration resources for your
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20ListRegisteredSubscriptionProviders&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec list_registered_subscription_providers(
-          map(),
+          AWS.Client.t(),
           list_registered_subscription_providers_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_registered_subscription_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -622,7 +657,8 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -638,19 +674,45 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   end
 
   @doc """
-  List the metadata tags that are assigned to the
-  specified Amazon Web Services resource.
+  List the metadata tags that are assigned to the specified Amazon Web Services
+  resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    for which to list metadata tags.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -658,8 +720,18 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   @doc """
   Register the supported third-party subscription provider for your Bring Your Own
   License (BYOL) subscription.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20RegisterSubscriptionProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec register_subscription_provider(map(), register_subscription_provider_request(), list()) ::
+  @spec register_subscription_provider(
+          AWS.Client.t(),
+          register_subscription_provider_request(),
+          Keyword.t()
+        ) ::
           {:ok, register_subscription_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_subscription_provider_errors()}
@@ -668,7 +740,8 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -685,8 +758,16 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   @doc """
   Add metadata tags to the specified Amazon Web Services resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon Web
+    Services resource to which to add the specified metadata tags.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -695,15 +776,26 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Remove one or more metadata tag from the specified Amazon Web Services resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon Web
+    Services resource to remove the metadata tags from.
+  * `:tag_keys` (`t:list[smithy.api#String]`) A list of metadata tag keys to
+    remove from the requested resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -717,7 +809,8 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -734,8 +827,14 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   @doc """
   Updates the service settings for Linux subscriptions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20UpdateServiceSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_service_settings(map(), update_service_settings_request(), list()) ::
+  @spec update_service_settings(AWS.Client.t(), update_service_settings_request(), Keyword.t()) ::
           {:ok, update_service_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_settings_errors()}
@@ -744,7 +843,8 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

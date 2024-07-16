@@ -4,27 +4,13 @@
 defmodule AWS.IoTJobsDataPlane do
   @moduledoc """
   AWS IoT Jobs is a service that allows you to define a set of jobs — remote
-  operations that are sent to
-  and executed on one or more devices connected to AWS IoT.
-
-  For example, you can define a job that instructs a
-  set of devices to download and install application or firmware updates, reboot,
-  rotate certificates, or perform
-  remote troubleshooting operations.
-
-  To create a job, you make a job document which is a description of the remote
-  operations to be
-  performed, and you specify a list of targets that should perform the operations.
-  The targets can be individual
-  things, thing groups or both.
-
-  AWS IoT Jobs sends a message to inform the targets that a job is available. The
-  target starts the
-  execution of the job by downloading the job document, performing the operations
-  it specifies, and reporting its
-  progress to AWS IoT. The Jobs service provides commands to track the progress of
-  a job on a specific target and
-  for all the targets of the job
+  operations that are sent to and executed on one or more devices connected to
+  AWS IoT. For example, you can define a job that instructs a set of devices to
+  download and install application or firmware updates, reboot, rotate
+  certificates, or perform remote troubleshooting operations. To create a job,
+  you make a job document which is a description of the remote operations to be
+  performed, and you specify a list of targets that should perform the
+  operations. The targets can be individual things, thing groups or both.
   """
 
   alias AWS.Client
@@ -302,62 +288,110 @@ defmodule AWS.IoTJobsDataPlane do
 
   @doc """
   Gets details of a job execution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotjobsdataplane%20DescribeJobExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The unique identifier assigned to this job when it was
+    created.
+  * `:thing_name` (`t:string`) The thing name associated with the device the job
+    execution is running on.
+
+  ## Optional parameters:
+  * `:execution_number` (`t:long`) Optional. A number that identifies a particular
+    job execution on a particular device. If not specified, the latest job
+    execution is returned.
+  * `:include_job_document` (`t:boolean`) Optional. When set to true, the response
+    contains the job document. The default is false.
   """
-  @spec describe_job_execution(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec describe_job_execution(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_execution_errors()}
-  def describe_job_execution(
-        %Client{} = client,
-        job_id,
-        thing_name,
-        execution_number \\ nil,
-        include_job_document \\ nil,
-        options \\ []
-      ) do
+  def describe_job_execution(%Client{} = client, job_id, thing_name, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
+
+    # Validate optional parameters
+    optional_params = [execution_number: nil, include_job_document: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(include_job_document) do
-        [{"includeJobDocument", include_job_document} | query_params]
+      if opt_val = Keyword.get(options, :include_job_document) do
+        [{"includeJobDocument", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(execution_number) do
-        [{"executionNumber", execution_number} | query_params]
+      if opt_val = Keyword.get(options, :execution_number) do
+        [{"executionNumber", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:execution_number, :include_job_document])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the list of all jobs for a thing that are not in a terminal status.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotjobsdataplane%20GetPendingJobExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_name` (`t:string`) The name of the thing that is executing the job.
+
+  ## Optional parameters:
   """
-  @spec get_pending_job_executions(map(), String.t(), list()) ::
+  @spec get_pending_job_executions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_pending_job_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_pending_job_executions_errors()}
   def get_pending_job_executions(%Client{} = client, thing_name, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -365,12 +399,19 @@ defmodule AWS.IoTJobsDataPlane do
   @doc """
   Gets and starts the next pending (status IN_PROGRESS or QUEUED) job execution
   for a thing.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotjobsdataplane%20StartNextPendingJobExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_name` (`t:string`) The name of the thing associated with the device.
+
+  ## Optional parameters:
   """
   @spec start_next_pending_job_execution(
-          map(),
+          AWS.Client.t(),
           String.t(),
           start_next_pending_job_execution_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_next_pending_job_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -380,20 +421,30 @@ defmodule AWS.IoTJobsDataPlane do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the status of a job execution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotjobsdataplane%20UpdateJobExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The unique identifier assigned to this job when it was
+    created.
+  * `:thing_name` (`t:string`) The name of the thing associated with the device.
+
+  ## Optional parameters:
   """
   @spec update_job_execution(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_job_execution_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_job_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -403,7 +454,8 @@ defmodule AWS.IoTJobsDataPlane do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

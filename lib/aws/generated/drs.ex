@@ -2463,11 +2463,20 @@ defmodule AWS.Drs do
 
   @doc """
   Associate a Source Network to an existing CloudFormation Stack and modify launch
-  templates to use this network.
+  templates to use this network. Can be used for reverting to previously
+  deployed CloudFormation stacks.
 
-  Can be used for reverting to previously deployed CloudFormation stacks.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20AssociateSourceNetworkStack&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec associate_source_network_stack(map(), associate_source_network_stack_request(), list()) ::
+  @spec associate_source_network_stack(
+          AWS.Client.t(),
+          associate_source_network_stack_request(),
+          Keyword.t()
+        ) ::
           {:ok, associate_source_network_stack_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_source_network_stack_errors()}
@@ -2476,7 +2485,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2494,8 +2504,18 @@ defmodule AWS.Drs do
   @doc """
   Create an extended source server in the target Account based on the source
   server in staging account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20CreateExtendedSourceServer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_extended_source_server(map(), create_extended_source_server_request(), list()) ::
+  @spec create_extended_source_server(
+          AWS.Client.t(),
+          create_extended_source_server_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_extended_source_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_extended_source_server_errors()}
@@ -2504,7 +2524,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2521,11 +2542,17 @@ defmodule AWS.Drs do
 
   @doc """
   Creates a new Launch Configuration Template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20CreateLaunchConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_launch_configuration_template(
-          map(),
+          AWS.Client.t(),
           create_launch_configuration_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_launch_configuration_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2535,7 +2562,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2552,11 +2580,17 @@ defmodule AWS.Drs do
 
   @doc """
   Creates a new ReplicationConfigurationTemplate.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20CreateReplicationConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_replication_configuration_template(
-          map(),
+          AWS.Client.t(),
           create_replication_configuration_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, replication_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2566,7 +2600,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2583,8 +2618,14 @@ defmodule AWS.Drs do
 
   @doc """
   Create a new Source Network resource for a provided VPC ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20CreateSourceNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_source_network(map(), create_source_network_request(), list()) ::
+  @spec create_source_network(AWS.Client.t(), create_source_network_request(), Keyword.t()) ::
           {:ok, create_source_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_source_network_errors()}
@@ -2593,7 +2634,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2610,8 +2652,14 @@ defmodule AWS.Drs do
 
   @doc """
   Deletes a single Job by ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DeleteJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_job(map(), delete_job_request(), list()) ::
+  @spec delete_job(AWS.Client.t(), delete_job_request(), Keyword.t()) ::
           {:ok, delete_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_job_errors()}
@@ -2620,7 +2668,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2637,8 +2686,14 @@ defmodule AWS.Drs do
 
   @doc """
   Deletes a resource launch action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DeleteLaunchAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_launch_action(map(), delete_launch_action_request(), list()) ::
+  @spec delete_launch_action(AWS.Client.t(), delete_launch_action_request(), Keyword.t()) ::
           {:ok, delete_launch_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_launch_action_errors()}
@@ -2647,7 +2702,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2664,11 +2720,17 @@ defmodule AWS.Drs do
 
   @doc """
   Deletes a single Launch Configuration Template by ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DeleteLaunchConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec delete_launch_configuration_template(
-          map(),
+          AWS.Client.t(),
           delete_launch_configuration_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_launch_configuration_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2678,7 +2740,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2694,12 +2757,17 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  Deletes a single Recovery Instance by ID.
+  Deletes a single Recovery Instance by ID. This deletes the Recovery Instance
+  resource from Elastic Disaster Recovery. The Recovery Instance must be
+  disconnected first in order to delete it.
 
-  This deletes the Recovery Instance resource from Elastic Disaster Recovery. The
-  Recovery Instance must be disconnected first in order to delete it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DeleteRecoveryInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_recovery_instance(map(), delete_recovery_instance_request(), list()) ::
+  @spec delete_recovery_instance(AWS.Client.t(), delete_recovery_instance_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_recovery_instance_errors()}
@@ -2708,7 +2776,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2725,11 +2794,17 @@ defmodule AWS.Drs do
 
   @doc """
   Deletes a single Replication Configuration Template by ID
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DeleteReplicationConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec delete_replication_configuration_template(
-          map(),
+          AWS.Client.t(),
           delete_replication_configuration_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_replication_configuration_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2739,7 +2814,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2756,8 +2832,14 @@ defmodule AWS.Drs do
 
   @doc """
   Delete Source Network resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DeleteSourceNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_source_network(map(), delete_source_network_request(), list()) ::
+  @spec delete_source_network(AWS.Client.t(), delete_source_network_request(), Keyword.t()) ::
           {:ok, delete_source_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_source_network_errors()}
@@ -2766,7 +2848,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2782,11 +2865,16 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  Deletes a single Source Server by ID.
+  Deletes a single Source Server by ID. The Source Server must be disconnected
+  first.
 
-  The Source Server must be disconnected first.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DeleteSourceServer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_source_server(map(), delete_source_server_request(), list()) ::
+  @spec delete_source_server(AWS.Client.t(), delete_source_server_request(), Keyword.t()) ::
           {:ok, delete_source_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_source_server_errors()}
@@ -2795,7 +2883,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2812,8 +2901,14 @@ defmodule AWS.Drs do
 
   @doc """
   Retrieves a detailed Job log with pagination.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeJobLogItems&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_job_log_items(map(), describe_job_log_items_request(), list()) ::
+  @spec describe_job_log_items(AWS.Client.t(), describe_job_log_items_request(), Keyword.t()) ::
           {:ok, describe_job_log_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_log_items_errors()}
@@ -2822,7 +2917,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2838,16 +2934,20 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  Returns a list of Jobs.
+  Returns a list of Jobs. Use the JobsID and fromDate and toDate filters to limit
+  which jobs are returned. The response is sorted by creationDataTime - latest
+  date first. Jobs are created by the StartRecovery, TerminateRecoveryInstances
+  and StartFailbackLaunch APIs. Jobs are also created by DiagnosticLaunch and
+  TerminateDiagnosticInstances, which are APIs available only to *Support* and
+  only used in response to relevant support tickets.
 
-  Use the JobsID and fromDate and toDate filters to limit which jobs are returned.
-  The response is sorted by creationDataTime - latest date first. Jobs are created
-  by the StartRecovery, TerminateRecoveryInstances and StartFailbackLaunch APIs.
-  Jobs are also created by DiagnosticLaunch and TerminateDiagnosticInstances,
-  which are APIs available only to *Support* and only used in response to relevant
-  support tickets.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_jobs(map(), describe_jobs_request(), list()) ::
+  @spec describe_jobs(AWS.Client.t(), describe_jobs_request(), Keyword.t()) ::
           {:ok, describe_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_jobs_errors()}
@@ -2856,7 +2956,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2874,11 +2975,17 @@ defmodule AWS.Drs do
   @doc """
   Lists all Launch Configuration Templates, filtered by Launch Configuration
   Template IDs
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeLaunchConfigurationTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec describe_launch_configuration_templates(
-          map(),
+          AWS.Client.t(),
           describe_launch_configuration_templates_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_launch_configuration_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2888,7 +2995,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2905,8 +3013,18 @@ defmodule AWS.Drs do
 
   @doc """
   Lists all Recovery Instances or multiple Recovery Instances by ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeRecoveryInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_recovery_instances(map(), describe_recovery_instances_request(), list()) ::
+  @spec describe_recovery_instances(
+          AWS.Client.t(),
+          describe_recovery_instances_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_recovery_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_recovery_instances_errors()}
@@ -2915,7 +3033,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2932,8 +3051,18 @@ defmodule AWS.Drs do
 
   @doc """
   Lists all Recovery Snapshots for a single Source Server.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeRecoverySnapshots&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_recovery_snapshots(map(), describe_recovery_snapshots_request(), list()) ::
+  @spec describe_recovery_snapshots(
+          AWS.Client.t(),
+          describe_recovery_snapshots_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_recovery_snapshots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_recovery_snapshots_errors()}
@@ -2942,7 +3071,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2959,11 +3089,17 @@ defmodule AWS.Drs do
 
   @doc """
   Lists all ReplicationConfigurationTemplates, filtered by Source Server IDs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeReplicationConfigurationTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec describe_replication_configuration_templates(
-          map(),
+          AWS.Client.t(),
           describe_replication_configuration_templates_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_replication_configuration_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2973,7 +3109,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2990,8 +3127,14 @@ defmodule AWS.Drs do
 
   @doc """
   Lists all Source Networks or multiple Source Networks filtered by ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeSourceNetworks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_source_networks(map(), describe_source_networks_request(), list()) ::
+  @spec describe_source_networks(AWS.Client.t(), describe_source_networks_request(), Keyword.t()) ::
           {:ok, describe_source_networks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_source_networks_errors()}
@@ -3000,7 +3143,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3017,8 +3161,14 @@ defmodule AWS.Drs do
 
   @doc """
   Lists all Source Servers or multiple Source Servers filtered by ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeSourceServers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_source_servers(map(), describe_source_servers_request(), list()) ::
+  @spec describe_source_servers(AWS.Client.t(), describe_source_servers_request(), Keyword.t()) ::
           {:ok, describe_source_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_source_servers_errors()}
@@ -3027,7 +3177,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3043,21 +3194,30 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  Disconnect a Recovery Instance from Elastic Disaster Recovery.
-
-  Data replication is stopped immediately. All AWS resources created by Elastic
-  Disaster Recovery for enabling the replication of the Recovery Instance will be
-  terminated / deleted within 90 minutes. If the agent on the Recovery Instance
-  has not been prevented from communicating with the Elastic Disaster Recovery
-  service, then it will receive a command to uninstall itself (within
-  approximately 10 minutes). The following properties of the Recovery Instance
-  will be changed immediately: dataReplicationInfo.dataReplicationState will be
-  set to DISCONNECTED; The totalStorageBytes property for each of
+  Disconnect a Recovery Instance from Elastic Disaster Recovery. Data replication
+  is stopped immediately. All AWS resources created by Elastic Disaster Recovery
+  for enabling the replication of the Recovery Instance will be terminated /
+  deleted within 90 minutes. If the agent on the Recovery Instance has not been
+  prevented from communicating with the Elastic Disaster Recovery service, then
+  it will receive a command to uninstall itself (within approximately 10
+  minutes). The following properties of the Recovery Instance will be changed
+  immediately: dataReplicationInfo.dataReplicationState will be set to
+  DISCONNECTED; The totalStorageBytes property for each of
   dataReplicationInfo.replicatedDisks will be set to zero;
   dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be
   nullified.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DisconnectRecoveryInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec disconnect_recovery_instance(map(), disconnect_recovery_instance_request(), list()) ::
+  @spec disconnect_recovery_instance(
+          AWS.Client.t(),
+          disconnect_recovery_instance_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disconnect_recovery_instance_errors()}
@@ -3066,7 +3226,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3082,21 +3243,27 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  Disconnects a specific Source Server from Elastic Disaster Recovery.
-
-  Data replication is stopped immediately. All AWS resources created by Elastic
+  Disconnects a specific Source Server from Elastic Disaster Recovery. Data
+  replication is stopped immediately. All AWS resources created by Elastic
   Disaster Recovery for enabling the replication of the Source Server will be
-  terminated / deleted within 90 minutes. You cannot disconnect a Source Server if
-  it has a Recovery Instance. If the agent on the Source Server has not been
-  prevented from communicating with the Elastic Disaster Recovery service, then it
-  will receive a command to uninstall itself (within approximately 10 minutes).
-  The following properties of the SourceServer will be changed immediately:
-  dataReplicationInfo.dataReplicationState will be set to DISCONNECTED; The
-  totalStorageBytes property for each of dataReplicationInfo.replicatedDisks will
-  be set to zero; dataReplicationInfo.lagDuration and
-  dataReplicationInfo.lagDuration will be nullified.
+  terminated / deleted within 90 minutes. You cannot disconnect a Source Server
+  if it has a Recovery Instance. If the agent on the Source Server has not been
+  prevented from communicating with the Elastic Disaster Recovery service, then
+  it will receive a command to uninstall itself (within approximately 10
+  minutes). The following properties of the SourceServer will be changed
+  immediately: dataReplicationInfo.dataReplicationState will be set to
+  DISCONNECTED; The totalStorageBytes property for each of
+  dataReplicationInfo.replicatedDisks will be set to zero;
+  dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be
+  nullified.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DisconnectSourceServer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec disconnect_source_server(map(), disconnect_source_server_request(), list()) ::
+  @spec disconnect_source_server(AWS.Client.t(), disconnect_source_server_request(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disconnect_source_server_errors()}
@@ -3105,7 +3272,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3122,11 +3290,17 @@ defmodule AWS.Drs do
 
   @doc """
   Export the Source Network CloudFormation template to an S3 bucket.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20ExportSourceNetworkCfnTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec export_source_network_cfn_template(
-          map(),
+          AWS.Client.t(),
           export_source_network_cfn_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, export_source_network_cfn_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3136,7 +3310,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3153,11 +3328,17 @@ defmodule AWS.Drs do
 
   @doc """
   Lists all Failback ReplicationConfigurations, filtered by Recovery Instance ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20GetFailbackReplicationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec get_failback_replication_configuration(
-          map(),
+          AWS.Client.t(),
           get_failback_replication_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_failback_replication_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3167,7 +3348,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3184,8 +3366,14 @@ defmodule AWS.Drs do
 
   @doc """
   Gets a LaunchConfiguration, filtered by Source Server IDs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20GetLaunchConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_launch_configuration(map(), get_launch_configuration_request(), list()) ::
+  @spec get_launch_configuration(AWS.Client.t(), get_launch_configuration_request(), Keyword.t()) ::
           {:ok, launch_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_launch_configuration_errors()}
@@ -3194,7 +3382,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3211,8 +3400,18 @@ defmodule AWS.Drs do
 
   @doc """
   Gets a ReplicationConfiguration, filtered by Source Server ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20GetReplicationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_replication_configuration(map(), get_replication_configuration_request(), list()) ::
+  @spec get_replication_configuration(
+          AWS.Client.t(),
+          get_replication_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, replication_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_replication_configuration_errors()}
@@ -3221,7 +3420,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3238,8 +3438,14 @@ defmodule AWS.Drs do
 
   @doc """
   Initialize Elastic Disaster Recovery.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20InitializeService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec initialize_service(map(), initialize_service_request(), list()) ::
+  @spec initialize_service(AWS.Client.t(), initialize_service_request(), Keyword.t()) ::
           {:ok, initialize_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, initialize_service_errors()}
@@ -3248,7 +3454,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3265,14 +3472,21 @@ defmodule AWS.Drs do
 
   @doc """
   Returns a list of source servers on a staging account that are extensible, which
-  means that:
-  a.
-
-  The source server is not already extended into this Account.
-  b. The source server on the Account we’re reading from is not an extension of
+  means that: a. The source server is not already extended into this Account. b.
+  The source server on the Account we’re reading from is not an extension of
   another source server.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20ListExtensibleSourceServers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_extensible_source_servers(map(), list_extensible_source_servers_request(), list()) ::
+  @spec list_extensible_source_servers(
+          AWS.Client.t(),
+          list_extensible_source_servers_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_extensible_source_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_extensible_source_servers_errors()}
@@ -3281,7 +3495,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3298,8 +3513,14 @@ defmodule AWS.Drs do
 
   @doc """
   Lists resource launch actions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20ListLaunchActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_launch_actions(map(), list_launch_actions_request(), list()) ::
+  @spec list_launch_actions(AWS.Client.t(), list_launch_actions_request(), Keyword.t()) ::
           {:ok, list_launch_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_launch_actions_errors()}
@@ -3308,7 +3529,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3325,61 +3547,118 @@ defmodule AWS.Drs do
 
   @doc """
   Returns an array of staging accounts for existing extended source servers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20ListStagingAccounts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of staging Accounts to retrieve.
+  * `:next_token` (`t:string`) The token of the next staging Account to retrieve.
   """
-  @spec list_staging_accounts(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_staging_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_staging_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_staging_accounts_errors()}
-  def list_staging_accounts(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_staging_accounts(%Client{} = client, options \\ []) do
     url_path = "/ListStagingAccounts"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List all tags for your Elastic Disaster Recovery resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource whose tags should be
+    returned.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Puts a resource launch action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20PutLaunchAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_launch_action(map(), put_launch_action_request(), list()) ::
+  @spec put_launch_action(AWS.Client.t(), put_launch_action_request(), Keyword.t()) ::
           {:ok, put_launch_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_launch_action_errors()}
@@ -3388,7 +3667,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3404,14 +3684,19 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  WARNING: RetryDataReplication is deprecated.
+  WARNING: RetryDataReplication is deprecated. Causes the data replication
+  initiation sequence to begin immediately upon next Handshake for the specified
+  Source Server ID, regardless of when the previous initiation started. This
+  command will work only if the Source Server is stalled or is in a DISCONNECTED
+  or STOPPED state.
 
-  Causes the data replication initiation sequence to begin immediately upon next
-  Handshake for the specified Source Server ID, regardless of when the previous
-  initiation started. This command will work only if the Source Server is stalled
-  or is in a DISCONNECTED or STOPPED state.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20RetryDataReplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec retry_data_replication(map(), retry_data_replication_request(), list()) ::
+  @spec retry_data_replication(AWS.Client.t(), retry_data_replication_request(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retry_data_replication_errors()}
@@ -3420,7 +3705,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3437,14 +3723,17 @@ defmodule AWS.Drs do
 
   @doc """
   Start replication to origin / target region - applies only to protected
-  instances that originated in EC2.
+  instances that originated in EC2. For recovery instances on target region -
+  starts replication back to origin region. For failback instances on origin
+  region - starts replication to target region to re-protect them.
 
-  For recovery instances on target region - starts replication back to origin
-  region.
-  For failback instances on origin region - starts replication to target region to
-  re-protect them.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20ReverseReplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec reverse_replication(map(), reverse_replication_request(), list()) ::
+  @spec reverse_replication(AWS.Client.t(), reverse_replication_request(), Keyword.t()) ::
           {:ok, reverse_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reverse_replication_errors()}
@@ -3453,7 +3742,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3470,12 +3760,16 @@ defmodule AWS.Drs do
 
   @doc """
   Initiates a Job for launching the machine that is being failed back to from the
-  specified Recovery Instance.
+  specified Recovery Instance. This will run conversion on the failback client
+  and will reboot your machine, thus completing the failback process.
 
-  This will run conversion on the failback client and will reboot your machine,
-  thus completing the failback process.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StartFailbackLaunch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_failback_launch(map(), start_failback_launch_request(), list()) ::
+  @spec start_failback_launch(AWS.Client.t(), start_failback_launch_request(), Keyword.t()) ::
           {:ok, start_failback_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_failback_launch_errors()}
@@ -3484,7 +3778,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3500,12 +3795,17 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  Launches Recovery Instances for the specified Source Servers.
+  Launches Recovery Instances for the specified Source Servers. For each Source
+  Server you may choose a point in time snapshot to launch from, or use an on
+  demand snapshot.
 
-  For each Source Server you may choose a point in time snapshot to launch from,
-  or use an on demand snapshot.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StartRecovery&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_recovery(map(), start_recovery_request(), list()) ::
+  @spec start_recovery(AWS.Client.t(), start_recovery_request(), Keyword.t()) ::
           {:ok, start_recovery_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_recovery_errors()}
@@ -3514,7 +3814,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3530,12 +3831,16 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  Starts replication for a stopped Source Server.
+  Starts replication for a stopped Source Server. This action would make the
+  Source Server protected again and restart billing for it.
 
-  This action would make the Source Server protected again and restart billing for
-  it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StartReplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_replication(map(), start_replication_request(), list()) ::
+  @spec start_replication(AWS.Client.t(), start_replication_request(), Keyword.t()) ::
           {:ok, start_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_replication_errors()}
@@ -3544,7 +3849,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3561,11 +3867,19 @@ defmodule AWS.Drs do
 
   @doc """
   Deploy VPC for the specified Source Network and modify launch templates to use
-  this network.
+  this network. The VPC will be deployed using a dedicated CloudFormation stack.
 
-  The VPC will be deployed using a dedicated CloudFormation stack.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StartSourceNetworkRecovery&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_source_network_recovery(map(), start_source_network_recovery_request(), list()) ::
+  @spec start_source_network_recovery(
+          AWS.Client.t(),
+          start_source_network_recovery_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_source_network_recovery_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_source_network_recovery_errors()}
@@ -3574,7 +3888,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3590,14 +3905,19 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  Starts replication for a Source Network.
+  Starts replication for a Source Network. This action would make the Source
+  Network protected.
 
-  This action would make the Source Network protected.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StartSourceNetworkReplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec start_source_network_replication(
-          map(),
+          AWS.Client.t(),
           start_source_network_replication_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_source_network_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3607,7 +3927,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3623,12 +3944,16 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  Stops the failback process for a specified Recovery Instance.
+  Stops the failback process for a specified Recovery Instance. This changes the
+  Failback State of the Recovery Instance back to FAILBACK_NOT_STARTED.
 
-  This changes the Failback State of the Recovery Instance back to
-  FAILBACK_NOT_STARTED.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StopFailback&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec stop_failback(map(), stop_failback_request(), list()) ::
+  @spec stop_failback(AWS.Client.t(), stop_failback_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_failback_errors()}
@@ -3637,7 +3962,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3653,12 +3979,16 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  Stops replication for a Source Server.
+  Stops replication for a Source Server. This action would make the Source Server
+  unprotected, delete its existing snapshots and stop billing for it.
 
-  This action would make the Source Server unprotected, delete its existing
-  snapshots and stop billing for it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StopReplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec stop_replication(map(), stop_replication_request(), list()) ::
+  @spec stop_replication(AWS.Client.t(), stop_replication_request(), Keyword.t()) ::
           {:ok, stop_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_replication_errors()}
@@ -3667,7 +3997,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3683,11 +4014,20 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  Stops replication for a Source Network.
+  Stops replication for a Source Network. This action would make the Source
+  Network unprotected.
 
-  This action would make the Source Network unprotected.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StopSourceNetworkReplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec stop_source_network_replication(map(), stop_source_network_replication_request(), list()) ::
+  @spec stop_source_network_replication(
+          AWS.Client.t(),
+          stop_source_network_replication_request(),
+          Keyword.t()
+        ) ::
           {:ok, stop_source_network_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_source_network_replication_errors()}
@@ -3696,7 +4036,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3713,13 +4054,19 @@ defmodule AWS.Drs do
 
   @doc """
   Adds or overwrites only the specified tags for the specified Elastic Disaster
-  Recovery resource or resources.
+  Recovery resource or resources. When you specify an existing tag key, the
+  value is overwritten with the new value. Each resource can have a maximum of
+  50 tags. Each tag consists of a key and optional value.
 
-  When you specify an existing tag key, the value is overwritten with the new
-  value. Each resource can have a maximum of 50 tags. Each tag consists of a key
-  and optional value.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) ARN of the resource for which tags are to be
+    added or updated.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -3728,7 +4075,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3745,10 +4093,20 @@ defmodule AWS.Drs do
 
   @doc """
   Initiates a Job for terminating the EC2 resources associated with the specified
-  Recovery Instances, and then will delete the Recovery Instances from the Elastic
-  Disaster Recovery service.
+  Recovery Instances, and then will delete the Recovery Instances from the
+  Elastic Disaster Recovery service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20TerminateRecoveryInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec terminate_recovery_instances(map(), terminate_recovery_instances_request(), list()) ::
+  @spec terminate_recovery_instances(
+          AWS.Client.t(),
+          terminate_recovery_instances_request(),
+          Keyword.t()
+        ) ::
           {:ok, terminate_recovery_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, terminate_recovery_instances_errors()}
@@ -3757,7 +4115,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3775,8 +4134,17 @@ defmodule AWS.Drs do
   @doc """
   Deletes the specified set of tags from the specified set of Elastic Disaster
   Recovery resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) ARN of the resource for which tags are to be
+    removed.
+  * `:tag_keys` (`t:list[com.amazonaws.drs#TagKey]`) Array of tags to be removed.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -3790,7 +4158,8 @@ defmodule AWS.Drs do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3808,11 +4177,17 @@ defmodule AWS.Drs do
   @doc """
   Allows you to update the failback replication configuration of a Recovery
   Instance by ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20UpdateFailbackReplicationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec update_failback_replication_configuration(
-          map(),
+          AWS.Client.t(),
           update_failback_replication_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
@@ -3822,7 +4197,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3839,8 +4215,18 @@ defmodule AWS.Drs do
 
   @doc """
   Updates a LaunchConfiguration by Source Server ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20UpdateLaunchConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_launch_configuration(map(), update_launch_configuration_request(), list()) ::
+  @spec update_launch_configuration(
+          AWS.Client.t(),
+          update_launch_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, launch_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_launch_configuration_errors()}
@@ -3849,7 +4235,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3866,11 +4253,17 @@ defmodule AWS.Drs do
 
   @doc """
   Updates an existing Launch Configuration Template by ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20UpdateLaunchConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec update_launch_configuration_template(
-          map(),
+          AWS.Client.t(),
           update_launch_configuration_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_launch_configuration_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3880,7 +4273,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3897,11 +4291,17 @@ defmodule AWS.Drs do
 
   @doc """
   Allows you to update a ReplicationConfiguration by Source Server ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20UpdateReplicationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec update_replication_configuration(
-          map(),
+          AWS.Client.t(),
           update_replication_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, replication_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3911,7 +4311,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3928,11 +4329,17 @@ defmodule AWS.Drs do
 
   @doc """
   Updates a ReplicationConfigurationTemplate by ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20UpdateReplicationConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec update_replication_configuration_template(
-          map(),
+          AWS.Client.t(),
           update_replication_configuration_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, replication_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3942,7 +4349,8 @@ defmodule AWS.Drs do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

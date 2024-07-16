@@ -3,75 +3,8 @@
 
 defmodule AWS.Cloud9 do
   @moduledoc """
-  Cloud9
-
-  Cloud9 is a collection of tools that you can use to code, build, run, test,
-  debug, and
-  release software in the cloud.
-
-  For more information about Cloud9, see the [Cloud9 User Guide](https://docs.aws.amazon.com/cloud9/latest/user-guide).
-
-  Cloud9 supports these operations:
-
-    *
-
-  `CreateEnvironmentEC2`: Creates an Cloud9 development environment, launches
-  an Amazon EC2 instance, and then connects from the instance to the environment.
-
-    *
-
-  `CreateEnvironmentMembership`: Adds an environment member to an
-  environment.
-
-    *
-
-  `DeleteEnvironment`: Deletes an environment. If an Amazon EC2 instance is
-  connected to the environment, also terminates the instance.
-
-    *
-
-  `DeleteEnvironmentMembership`: Deletes an environment member from an
-  environment.
-
-    *
-
-  `DescribeEnvironmentMemberships`: Gets information about environment
-  members for an environment.
-
-    *
-
-  `DescribeEnvironments`: Gets information about environments.
-
-    *
-
-  `DescribeEnvironmentStatus`: Gets status information for an
-  environment.
-
-    *
-
-  `ListEnvironments`: Gets a list of environment identifiers.
-
-    *
-
-  `ListTagsForResource`: Gets the tags for an environment.
-
-    *
-
-  `TagResource`: Adds tags to an environment.
-
-    *
-
-  `UntagResource`: Removes tags from an environment.
-
-    *
-
-  `UpdateEnvironment`: Changes the settings of an existing
-  environment.
-
-    *
-
-  `UpdateEnvironmentMembership`: Changes the settings of an existing
-  environment member for an environment.
+  Cloud9 Cloud9 is a collection of tools that you can use to code, build, run,
+  test, debug, and release software in the cloud.
   """
 
   alias AWS.Client
@@ -667,15 +600,16 @@ defmodule AWS.Cloud9 do
 
   @doc """
   Creates an Cloud9 development environment, launches an Amazon Elastic Compute
-  Cloud (Amazon EC2) instance, and
-  then connects from the instance to the environment.
+  Cloud (Amazon EC2) instance, and then connects from the instance to the
+  environment.
   """
-  @spec create_environment_ec2(map(), create_environment_ec2_request(), list()) ::
+  @spec create_environment_ec2(AWS.Client.t(), create_environment_ec2_request(), Keyword.t()) ::
           {:ok, create_environment_ec2_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_ec2_errors()}
   def create_environment_ec2(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEnvironmentEC2", input, options)
   end
@@ -683,28 +617,32 @@ defmodule AWS.Cloud9 do
   @doc """
   Adds an environment member to an Cloud9 development environment.
   """
-  @spec create_environment_membership(map(), create_environment_membership_request(), list()) ::
+  @spec create_environment_membership(
+          AWS.Client.t(),
+          create_environment_membership_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_environment_membership_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_membership_errors()}
   def create_environment_membership(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEnvironmentMembership", input, options)
   end
 
   @doc """
-  Deletes an Cloud9 development environment.
-
-  If an Amazon EC2 instance is connected to the
-  environment, also terminates the instance.
+  Deletes an Cloud9 development environment. If an Amazon EC2 instance is
+  connected to the environment, also terminates the instance.
   """
-  @spec delete_environment(map(), delete_environment_request(), list()) ::
+  @spec delete_environment(AWS.Client.t(), delete_environment_request(), Keyword.t()) ::
           {:ok, delete_environment_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_errors()}
   def delete_environment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEnvironment", input, options)
   end
@@ -712,12 +650,17 @@ defmodule AWS.Cloud9 do
   @doc """
   Deletes an environment member from a development environment.
   """
-  @spec delete_environment_membership(map(), delete_environment_membership_request(), list()) ::
+  @spec delete_environment_membership(
+          AWS.Client.t(),
+          delete_environment_membership_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_environment_membership_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_membership_errors()}
   def delete_environment_membership(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEnvironmentMembership", input, options)
   end
@@ -727,15 +670,16 @@ defmodule AWS.Cloud9 do
   environment.
   """
   @spec describe_environment_memberships(
-          map(),
+          AWS.Client.t(),
           describe_environment_memberships_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_environment_memberships_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_environment_memberships_errors()}
   def describe_environment_memberships(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEnvironmentMemberships", input, options)
   end
@@ -743,12 +687,17 @@ defmodule AWS.Cloud9 do
   @doc """
   Gets status information for an Cloud9 development environment.
   """
-  @spec describe_environment_status(map(), describe_environment_status_request(), list()) ::
+  @spec describe_environment_status(
+          AWS.Client.t(),
+          describe_environment_status_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_environment_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_environment_status_errors()}
   def describe_environment_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEnvironmentStatus", input, options)
   end
@@ -756,12 +705,13 @@ defmodule AWS.Cloud9 do
   @doc """
   Gets information about Cloud9 development environments.
   """
-  @spec describe_environments(map(), describe_environments_request(), list()) ::
+  @spec describe_environments(AWS.Client.t(), describe_environments_request(), Keyword.t()) ::
           {:ok, describe_environments_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_environments_errors()}
   def describe_environments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEnvironments", input, options)
   end
@@ -769,12 +719,13 @@ defmodule AWS.Cloud9 do
   @doc """
   Gets a list of Cloud9 development environment identifiers.
   """
-  @spec list_environments(map(), list_environments_request(), list()) ::
+  @spec list_environments(AWS.Client.t(), list_environments_request(), Keyword.t()) ::
           {:ok, list_environments_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environments_errors()}
   def list_environments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEnvironments", input, options)
   end
@@ -782,28 +733,27 @@ defmodule AWS.Cloud9 do
   @doc """
   Gets a list of the tags associated with an Cloud9 development environment.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
   Adds tags to an Cloud9 development environment.
-
-  Tags that you add to an Cloud9 environment by using this method will NOT be
-  automatically propagated to underlying resources.
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -811,12 +761,13 @@ defmodule AWS.Cloud9 do
   @doc """
   Removes tags from an Cloud9 development environment.
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -824,12 +775,13 @@ defmodule AWS.Cloud9 do
   @doc """
   Changes the settings of an existing Cloud9 development environment.
   """
-  @spec update_environment(map(), update_environment_request(), list()) ::
+  @spec update_environment(AWS.Client.t(), update_environment_request(), Keyword.t()) ::
           {:ok, update_environment_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_environment_errors()}
   def update_environment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEnvironment", input, options)
   end
@@ -838,12 +790,17 @@ defmodule AWS.Cloud9 do
   Changes the settings of an existing environment member for an Cloud9 development
   environment.
   """
-  @spec update_environment_membership(map(), update_environment_membership_request(), list()) ::
+  @spec update_environment_membership(
+          AWS.Client.t(),
+          update_environment_membership_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_environment_membership_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_environment_membership_errors()}
   def update_environment_membership(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEnvironmentMembership", input, options)
   end

@@ -4,30 +4,9 @@
 defmodule AWS.SageMakerFeatureStoreRuntime do
   @moduledoc """
   Contains all data plane API operations and data types for the Amazon SageMaker
-  Feature
-  Store.
-
-  Use this API to put, delete, and retrieve (get) features from a feature
-  store.
-
-  Use the following operations to configure your `OnlineStore` and
-  `OfflineStore` features, and to create and manage feature groups:
-
-    *
-
-  [CreateFeatureGroup](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateFeatureGroup.html) 
-
-    *
-
-  [DeleteFeatureGroup](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteFeatureGroup.html)
-
-    *
-
-  [DescribeFeatureGroup](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeFeatureGroup.html) 
-
-    *
-
-  [ListFeatureGroups](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListFeatureGroups.html)
+  Feature Store. Use this API to put, delete, and retrieve (get) features from a
+  feature store. Use the following operations to configure your `OnlineStore`
+  and `OfflineStore` features, and to create and manage feature groups:
   """
 
   alias AWS.Client
@@ -265,8 +244,14 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
 
   @doc """
   Retrieves a batch of `Records` from a `FeatureGroup`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakerfeaturestoreruntime%20BatchGetRecord&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_get_record(map(), batch_get_record_request(), list()) ::
+  @spec batch_get_record(AWS.Client.t(), batch_get_record_request(), Keyword.t()) ::
           {:ok, batch_get_record_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_record_errors()}
@@ -275,7 +260,8 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -291,50 +277,40 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   end
 
   @doc """
-  Deletes a `Record` from a `FeatureGroup` in the
-  `OnlineStore`.
+  Deletes a `Record` from a `FeatureGroup` in the `OnlineStore`. Feature Store
+  supports both `SoftDelete` and `HardDelete`. For `SoftDelete` (default),
+  feature columns are set to `null` and the record is no longer retrievable by
+  `GetRecord` or `BatchGetRecord`. For `HardDelete`, the complete `Record` is
+  removed from the `OnlineStore`. In both cases, Feature Store appends the
+  deleted record marker to the `OfflineStore`. The deleted record marker is a
+  record with the same `RecordIdentifer` as the original, but with `is_deleted`
+  value set to `True`, `EventTime` set to the delete input `EventTime`, and
+  other feature values set to `null`. Note that the `EventTime` specified in
+  `DeleteRecord` should be set later than the `EventTime` of the existing record
+  in the `OnlineStore` for that `RecordIdentifer`. If it is not, the deletion
+  does not occur:
 
-  Feature Store supports both `SoftDelete` and
-  `HardDelete`. For `SoftDelete` (default), feature columns are set
-  to `null` and the record is no longer retrievable by `GetRecord` or
-  `BatchGetRecord`. For `HardDelete`, the complete
-  `Record` is removed from the `OnlineStore`. In both cases, Feature
-  Store appends the deleted record marker to the `OfflineStore`. The deleted
-  record marker is a record with the same `RecordIdentifer` as the original, but
-  with `is_deleted` value set to `True`, `EventTime` set to
-  the delete input `EventTime`, and other feature values set to
-  `null`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakerfeaturestoreruntime%20DeleteRecord&this_doc_guide=API%2520Reference)
 
-  Note that the `EventTime` specified in `DeleteRecord` should be
-  set later than the `EventTime` of the existing record in the
-  `OnlineStore` for that `RecordIdentifer`. If it is not, the
-  deletion does not occur:
+  ## Parameters:
+  * `:feature_group_name` (`t:string`) The name or Amazon Resource Name (ARN) of
+    the feature group to delete the record from.
+  * `:event_time` (`t:string`) Timestamp indicating when the deletion event
+    occurred. EventTime can be used to query data at a certain point in time.
+  * `:record_identifier_value_as_string` (`t:string`) The value for the
+    RecordIdentifier that uniquely identifies the record, in string format.
 
-    *
-  For `SoftDelete`, the existing (not deleted) record remains in the
-  `OnlineStore`, though the delete record marker is still written to the
-  `OfflineStore`.
-
-    *
-
-  `HardDelete` returns `EventTime`:
-
-  ```
-  400
-  ValidationException
-  ```
-
-  to indicate that the delete operation failed. No delete
-  record marker is written to the `OfflineStore`.
-
-  When a record is deleted from the `OnlineStore`, the deleted record marker is
-  appended to the `OfflineStore`. If you have the Iceberg table format enabled for
-  your `OfflineStore`, you can remove all history of a record from the
-  `OfflineStore` using Amazon Athena or Apache Spark. For information on how to
-  hard delete a record from the `OfflineStore` with the Iceberg table format
-  enabled, see [Delete records from the offline store](https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store-delete-records-offline-store.html#feature-store-delete-records-offline-store).
+  ## Optional parameters:
+  * `:deletion_mode` (`t:enum["HARD_DELETE|SOFT_DELETE"]`) The name of the
+    deletion mode for deleting the record. By default, the deletion mode is set
+    to SoftDelete.
+  * `:target_stores`
+    (`t:list[com.amazonaws.sagemakerfeaturestoreruntime#TargetStore]`) A list of
+    stores from which you're deleting the record. By default, Feature Store
+    deletes the record from all of the stores that you're using for the
+    FeatureGroup.
   """
-  @spec delete_record(map(), String.t(), delete_record_request(), list()) ::
+  @spec delete_record(AWS.Client.t(), String.t(), delete_record_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_record_errors()}
@@ -351,7 +327,13 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:deletion_mode, :target_stores])
 
     Request.request_rest(
       client,
@@ -367,77 +349,99 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   end
 
   @doc """
-  Use for `OnlineStore` serving from a `FeatureStore`.
-
-  Only the
-  latest records stored in the `OnlineStore` can be retrieved. If no Record with
+  Use for `OnlineStore` serving from a `FeatureStore`. Only the latest records
+  stored in the `OnlineStore` can be retrieved. If no Record with
   `RecordIdentifierValue` is found, then an empty result is returned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakerfeaturestoreruntime%20GetRecord&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:feature_group_name` (`t:string`) The name or Amazon Resource Name (ARN) of
+    the feature group from which you want to retrieve a record.
+  * `:record_identifier_value_as_string` (`t:string`) The value that corresponds
+    to RecordIdentifier type and uniquely identifies the record in the
+    FeatureGroup.
+
+  ## Optional parameters:
+  * `:expiration_time_response` (`t:enum["DISABLED|ENABLED"]`) Parameter to
+    request ExpiresAt in response. If Enabled, GetRecord will return the value
+    of ExpiresAt, if it is not null. If Disabled and null, GetRecord will return
+    null.
+  * `:feature_names`
+    (`t:list[com.amazonaws.sagemakerfeaturestoreruntime#FeatureName]`) List of
+    names of Features to be retrieved. If not specified, the latest value for
+    all the Features are returned.
   """
-  @spec get_record(map(), String.t(), String.t() | nil, String.t() | nil, String.t(), list()) ::
+  @spec get_record(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_record_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_record_errors()}
   def get_record(
         %Client{} = client,
         feature_group_name,
-        expiration_time_response \\ nil,
-        feature_names \\ nil,
         record_identifier_value_as_string,
         options \\ []
       ) do
     url_path = "/FeatureGroup/#{AWS.Util.encode_uri(feature_group_name)}"
+
+    # Validate optional parameters
+    optional_params = [expiration_time_response: nil, feature_names: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"RecordIdentifierValueAsString", record_identifier_value_as_string}]
+
+    # Optional query params
     query_params =
-      if !is_nil(record_identifier_value_as_string) do
-        [{"RecordIdentifierValueAsString", record_identifier_value_as_string} | query_params]
+      if opt_val = Keyword.get(options, :feature_names) do
+        [{"FeatureName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(feature_names) do
-        [{"FeatureName", feature_names} | query_params]
+      if opt_val = Keyword.get(options, :expiration_time_response) do
+        [{"ExpirationTimeResponse", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(expiration_time_response) do
-        [{"ExpirationTimeResponse", expiration_time_response} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:expiration_time_response, :feature_names])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  The `PutRecord` API is used to ingest a list of `Records` into
-  your feature group.
+  The `PutRecord` API is used to ingest a list of `Records` into your feature
+  group. If a new record’s `EventTime` is greater, the new record is written to
+  both the `OnlineStore` and `OfflineStore`. Otherwise, the record is a historic
+  record and it is written only to the `OfflineStore`.
 
-  If a new record’s `EventTime` is greater, the new record is written to both
-  the `OnlineStore` and `OfflineStore`. Otherwise, the record is a
-  historic record and it is written only to the `OfflineStore`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakerfeaturestoreruntime%20PutRecord&this_doc_guide=API%2520Reference)
 
-  You can specify the ingestion to be applied to the `OnlineStore`,
-  `OfflineStore`, or both by using the `TargetStores` request
-  parameter.
+  ## Parameters:
+  * `:feature_group_name` (`t:string`) The name or Amazon Resource Name (ARN) of
+    the feature group that you want to insert the record into.
 
-  You can set the ingested record to expire at a given time to live (TTL) duration
-  after
-  the record’s event time, `ExpiresAt` = `EventTime` +
-  `TtlDuration`, by specifying the `TtlDuration` parameter. A record
-  level `TtlDuration` is set when specifying the `TtlDuration`
-  parameter using the `PutRecord` API call. If the input `TtlDuration`
-  is `null` or unspecified, `TtlDuration` is set to the default feature
-  group level `TtlDuration`. A record level `TtlDuration` supersedes
-  the group level `TtlDuration`.
+  ## Optional parameters:
   """
-  @spec put_record(map(), String.t(), put_record_request(), list()) ::
+  @spec put_record(AWS.Client.t(), String.t(), put_record_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_record_errors()}
@@ -446,7 +450,8 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

@@ -4,15 +4,6 @@
 defmodule AWS.SESv2 do
   @moduledoc """
   Amazon SES API v2
-
-  [Amazon SES](http://aws.amazon.com/ses) is an Amazon Web Services service that you can use to send email messages to your customers.
-
-  If you're new to Amazon SES API v2, you might find it helpful to review the
-  [Amazon Simple Email Service Developer
-  Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/). The *Amazon SES
-  Developer Guide* provides information
-  and code samples that demonstrate how to use Amazon SES API v2 features
-  programmatically.
   """
 
   alias AWS.Client
@@ -3815,10 +3806,13 @@ defmodule AWS.SESv2 do
   @doc """
   Retrieves batches of metric data collected based on your sending activity.
 
-  You can execute this operation no more than 16 times per second,
-  and with at most 160 queries from the batches per second (cumulative).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20BatchGetMetricData&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_get_metric_data(map(), batch_get_metric_data_request(), list()) ::
+  @spec batch_get_metric_data(AWS.Client.t(), batch_get_metric_data_request(), Keyword.t()) ::
           {:ok, batch_get_metric_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_metric_data_errors()}
@@ -3827,7 +3821,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3844,8 +3839,15 @@ defmodule AWS.SESv2 do
 
   @doc """
   Cancels an export job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CancelExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The export job ID.
+
+  ## Optional parameters:
   """
-  @spec cancel_export_job(map(), String.t(), cancel_export_job_request(), list()) ::
+  @spec cancel_export_job(AWS.Client.t(), String.t(), cancel_export_job_request(), Keyword.t()) ::
           {:ok, cancel_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_export_job_errors()}
@@ -3854,24 +3856,26 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Create a configuration set.
+  Create a configuration set. *Configuration sets* are groups of rules that you
+  can apply to the emails that you send. You apply a configuration set to an
+  email by specifying the name of the configuration set when you call the Amazon
+  SES API v2. When you apply a configuration set to an email, all of the rules
+  in that configuration set are applied to the email.
 
-  *Configuration sets* are groups of
-  rules that you can apply to the emails that you send. You apply a configuration
-  set to
-  an email by specifying the name of the configuration set when you call the
-  Amazon SES API v2. When
-  you apply a configuration set to an email, all of the rules in that
-  configuration set
-  are applied to the email.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateConfigurationSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_configuration_set(map(), create_configuration_set_request(), list()) ::
+  @spec create_configuration_set(AWS.Client.t(), create_configuration_set_request(), Keyword.t()) ::
           {:ok, create_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_set_errors()}
@@ -3880,7 +3884,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3896,22 +3901,24 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Create an event destination.
+  Create an event destination. *Events* include message sends, deliveries, opens,
+  clicks, bounces, and complaints. *Event destinations* are places that you can
+  send information about these events to. For example, you can send event data
+  to Amazon EventBridge and associate a rule to send the event to the specified
+  target.
 
-  *Events* include message sends,
-  deliveries, opens, clicks, bounces, and complaints. *Event
-  destinations* are places that you can send information about these events
-  to. For example, you can send event data to Amazon EventBridge and associate a
-  rule to send the event
-  to the specified target.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateConfigurationSetEventDestination&this_doc_guide=API%2520Reference)
 
-  A single configuration set can include more than one event destination.
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set .
+
+  ## Optional parameters:
   """
   @spec create_configuration_set_event_destination(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_configuration_set_event_destination_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3928,7 +3935,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3945,10 +3953,17 @@ defmodule AWS.SESv2 do
 
   @doc """
   Creates a contact, which is an end-user who is receiving the email, and adds
-  them to a
-  contact list.
+  them to a contact list.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateContact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:contact_list_name` (`t:string`) The name of the contact list to which the
+    contact should be added.
+
+  ## Optional parameters:
   """
-  @spec create_contact(map(), String.t(), create_contact_request(), list()) ::
+  @spec create_contact(AWS.Client.t(), String.t(), create_contact_request(), Keyword.t()) ::
           {:ok, create_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_contact_errors()}
@@ -3957,7 +3972,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3974,8 +3990,14 @@ defmodule AWS.SESv2 do
 
   @doc """
   Creates a contact list.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateContactList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_contact_list(map(), create_contact_list_request(), list()) ::
+  @spec create_contact_list(AWS.Client.t(), create_contact_list_request(), Keyword.t()) ::
           {:ok, create_contact_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_contact_list_errors()}
@@ -3984,7 +4006,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4000,19 +4023,21 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Creates a new custom verification email template.
-
-  For more information about custom verification email templates, see [Using custom verification email
+  Creates a new custom verification email template. For more information about
+  custom verification email templates, see [Using custom verification email
   templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
-  in the *Amazon SES Developer
-  Guide*.
+  in the *Amazon SES Developer Guide*.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateCustomVerificationEmailTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_custom_verification_email_template(
-          map(),
+          AWS.Client.t(),
           create_custom_verification_email_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_custom_verification_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4022,7 +4047,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4038,16 +4064,19 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Create a new pool of dedicated IP addresses.
+  Create a new pool of dedicated IP addresses. A pool can include one or more
+  dedicated IP addresses that are associated with your Amazon Web Services
+  account. You can associate a pool with a configuration set. When you send an
+  email that uses that configuration set, the message is sent from one of the
+  addresses in the associated pool.
 
-  A pool can include one or more dedicated
-  IP addresses that are associated with your Amazon Web Services account. You can
-  associate a pool with
-  a configuration set. When you send an email that uses that configuration set,
-  the
-  message is sent from one of the addresses in the associated pool.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateDedicatedIpPool&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_dedicated_ip_pool(map(), create_dedicated_ip_pool_request(), list()) ::
+  @spec create_dedicated_ip_pool(AWS.Client.t(), create_dedicated_ip_pool_request(), Keyword.t()) ::
           {:ok, create_dedicated_ip_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dedicated_ip_pool_errors()}
@@ -4056,7 +4085,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4072,24 +4102,25 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Create a new predictive inbox placement test.
+  Create a new predictive inbox placement test. Predictive inbox placement tests
+  can help you predict how your messages will be handled by various email
+  providers around the world. When you perform a predictive inbox placement
+  test, you provide a sample message that contains the content that you plan to
+  send to your customers. Amazon SES then sends that message to special email
+  addresses spread across several major email providers. After about 24 hours,
+  the test is complete, and you can use the `GetDeliverabilityTestReport`
+  operation to view the results of the test.
 
-  Predictive inbox placement tests can help you predict how your messages will be
-  handled
-  by various email providers around the world. When you perform a predictive inbox
-  placement test, you provide a
-  sample message that contains the content that you plan to send to your
-  customers. Amazon SES
-  then sends that message to special email addresses spread across several major
-  email
-  providers. After about 24 hours, the test is complete, and you can use the
-  `GetDeliverabilityTestReport` operation to view the results of the
-  test.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateDeliverabilityTestReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_deliverability_test_report(
-          map(),
+          AWS.Client.t(),
           create_deliverability_test_report_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_deliverability_test_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4099,7 +4130,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4115,52 +4147,21 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Starts the process of verifying an email identity.
-
-  An *identity* is
-  an email address or domain that you use when you send email. Before you can use
-  an
+  Starts the process of verifying an email identity. An *identity* is an email
+  address or domain that you use when you send email. Before you can use an
   identity to send email, you first have to verify it. By verifying an identity,
-  you
-  demonstrate that you're the owner of the identity, and that you've given Amazon
-  SES API v2
-  permission to send email from the identity.
+  you demonstrate that you're the owner of the identity, and that you've given
+  Amazon SES API v2 permission to send email from the identity. When you verify
+  an email address, Amazon SES sends an email to the address. Your email address
+  is verified as soon as you follow the link in the verification email.
 
-  When you verify an email address, Amazon SES sends an email to the address. Your
-  email
-  address is verified as soon as you follow the link in the verification email.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateEmailIdentity&this_doc_guide=API%2520Reference)
 
-  When you verify a domain without specifying the `DkimSigningAttributes`
-  object, this operation provides a set of DKIM tokens. You can convert these
-  tokens into
-  CNAME records, which you then add to the DNS configuration for your domain. Your
-  domain
-  is verified when Amazon SES detects these records in the DNS configuration for
-  your domain.
-  This verification method is known as [Easy DKIM](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html).
+  ## Parameters:
 
-  Alternatively, you can perform the verification process by providing your own
-  public-private key pair. This verification method is known as Bring Your Own
-  DKIM
-  (BYODKIM). To use BYODKIM, your call to the `CreateEmailIdentity` operation
-  has to include the `DkimSigningAttributes` object. When you specify this
-  object, you provide a selector (a component of the DNS record name that
-  identifies the
-  public key to use for DKIM authentication) and a private key.
-
-  When you verify a domain, this operation provides a set of DKIM tokens, which
-  you can
-  convert into CNAME tokens. You add these CNAME tokens to the DNS configuration
-  for your
-  domain. Your domain is verified when Amazon SES detects these records in the DNS
-  configuration for your domain. For some DNS providers, it can take 72 hours or
-  more to
-  complete the domain verification process.
-
-  Additionally, you can associate an existing configuration set with the email
-  identity that you're verifying.
+  ## Optional parameters:
   """
-  @spec create_email_identity(map(), create_email_identity_request(), list()) ::
+  @spec create_email_identity(AWS.Client.t(), create_email_identity_request(), Keyword.t()) ::
           {:ok, create_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_email_identity_errors()}
@@ -4169,7 +4170,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4186,26 +4188,23 @@ defmodule AWS.SESv2 do
 
   @doc """
   Creates the specified sending authorization policy for the given identity (an
-  email
-  address or a domain).
+  email address or a domain). This API is for the identity owner only. If you
+  have not verified the identity, this API will return an error.
 
-  This API is for the identity owner only. If you have not verified the identity,
-  this API will return an error.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateEmailIdentityPolicy&this_doc_guide=API%2520Reference)
 
-  Sending authorization is a feature that enables an identity owner to authorize
-  other
-  senders to use its identities. For information about using sending
-  authorization, see
-  the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html).
+  ## Parameters:
+  * `:email_identity` (`t:string`) The email identity.
+  * `:policy_name` (`t:string`) The name of the policy.
 
-  You can execute this operation no more than once per second.
+  ## Optional parameters:
   """
   @spec create_email_identity_policy(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           create_email_identity_policy_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_email_identity_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4223,7 +4222,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4239,15 +4239,18 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Creates an email template.
+  Creates an email template. Email templates enable you to send personalized email
+  to one or more destinations in a single API operation. For more information,
+  see the [Amazon SES Developer
+  Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html).
 
-  Email templates enable you to send personalized email to
-  one or more destinations in a single API operation. For more information, see
-  the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateEmailTemplate&this_doc_guide=API%2520Reference)
 
-  You can execute this operation no more than once per second.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_email_template(map(), create_email_template_request(), list()) ::
+  @spec create_email_template(AWS.Client.t(), create_email_template_request(), Keyword.t()) ::
           {:ok, create_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_email_template_errors()}
@@ -4256,7 +4259,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4274,9 +4278,13 @@ defmodule AWS.SESv2 do
   @doc """
   Creates an export job for a data source and destination.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_export_job(map(), create_export_job_request(), list()) ::
+  @spec create_export_job(AWS.Client.t(), create_export_job_request(), Keyword.t()) ::
           {:ok, create_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_export_job_errors()}
@@ -4285,7 +4293,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4302,8 +4311,14 @@ defmodule AWS.SESv2 do
 
   @doc """
   Creates an import job for a data destination.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_import_job(map(), create_import_job_request(), list()) ::
+  @spec create_import_job(AWS.Client.t(), create_import_job_request(), Keyword.t()) ::
           {:ok, create_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_import_job_errors()}
@@ -4312,7 +4327,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4330,14 +4346,19 @@ defmodule AWS.SESv2 do
   @doc """
   Delete an existing configuration set.
 
-  *Configuration sets* are groups of rules that you can apply to the
-  emails you send. You apply a configuration set to an email by including a
-  reference to
-  the configuration set in the headers of the email. When you apply a
-  configuration set to
-  an email, all of the rules in that configuration set are applied to the email.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteConfigurationSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set.
+
+  ## Optional parameters:
   """
-  @spec delete_configuration_set(map(), String.t(), delete_configuration_set_request(), list()) ::
+  @spec delete_configuration_set(
+          AWS.Client.t(),
+          String.t(),
+          delete_configuration_set_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_set_errors()}
@@ -4346,7 +4367,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4364,18 +4386,22 @@ defmodule AWS.SESv2 do
   @doc """
   Delete an event destination.
 
-  *Events* include message sends, deliveries, opens, clicks, bounces,
-  and complaints. *Event destinations* are places that you can send
-  information about these events to. For example, you can send event data to
-  Amazon EventBridge and
-  associate a rule to send the event to the specified target.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteConfigurationSetEventDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that
+    contains the event destination to delete.
+  * `:event_destination_name` (`t:string`) The name of the event destination to
+    delete.
+
+  ## Optional parameters:
   """
   @spec delete_configuration_set_event_destination(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_configuration_set_event_destination_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4393,7 +4419,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4410,8 +4437,23 @@ defmodule AWS.SESv2 do
 
   @doc """
   Removes a contact from a contact list.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteContact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:contact_list_name` (`t:string`) The name of the contact list from which the
+    contact should be removed.
+  * `:email_address` (`t:string`) The contact's email address.
+
+  ## Optional parameters:
   """
-  @spec delete_contact(map(), String.t(), String.t(), delete_contact_request(), list()) ::
+  @spec delete_contact(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_contact_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_contact_errors()}
@@ -4422,7 +4464,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4439,8 +4482,20 @@ defmodule AWS.SESv2 do
 
   @doc """
   Deletes a contact list and all of the contacts on that list.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteContactList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:contact_list_name` (`t:string`) The name of the contact list.
+
+  ## Optional parameters:
   """
-  @spec delete_contact_list(map(), String.t(), delete_contact_list_request(), list()) ::
+  @spec delete_contact_list(
+          AWS.Client.t(),
+          String.t(),
+          delete_contact_list_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_contact_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_contact_list_errors()}
@@ -4449,7 +4504,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4465,20 +4521,25 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Deletes an existing custom verification email template.
-
-  For more information about custom verification email templates, see [Using custom verification email
+  Deletes an existing custom verification email template. For more information
+  about custom verification email templates, see [Using custom verification
+  email
   templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
-  in the *Amazon SES Developer
-  Guide*.
+  in the *Amazon SES Developer Guide*.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteCustomVerificationEmailTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the custom verification email
+    template that you want to delete.
+
+  ## Optional parameters:
   """
   @spec delete_custom_verification_email_template(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_custom_verification_email_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_custom_verification_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4495,7 +4556,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4512,8 +4574,21 @@ defmodule AWS.SESv2 do
 
   @doc """
   Delete a dedicated IP pool.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteDedicatedIpPool&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:pool_name` (`t:string`) The name of the dedicated IP pool that you want to
+    delete.
+
+  ## Optional parameters:
   """
-  @spec delete_dedicated_ip_pool(map(), String.t(), delete_dedicated_ip_pool_request(), list()) ::
+  @spec delete_dedicated_ip_pool(
+          AWS.Client.t(),
+          String.t(),
+          delete_dedicated_ip_pool_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_dedicated_ip_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dedicated_ip_pool_errors()}
@@ -4522,7 +4597,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4538,12 +4614,23 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Deletes an email identity.
+  Deletes an email identity. An identity can be either an email address or a
+  domain name.
 
-  An identity can be either an email address or a domain
-  name.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteEmailIdentity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:email_identity` (`t:string`) The identity (that is, the email address or
+    domain) to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_email_identity(map(), String.t(), delete_email_identity_request(), list()) ::
+  @spec delete_email_identity(
+          AWS.Client.t(),
+          String.t(),
+          delete_email_identity_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_email_identity_errors()}
@@ -4552,7 +4639,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4569,29 +4657,24 @@ defmodule AWS.SESv2 do
 
   @doc """
   Deletes the specified sending authorization policy for the given identity (an
-  email
-  address or a domain).
+  email address or a domain). This API returns successfully even if a policy
+  with the specified name does not exist. This API is for the identity owner
+  only. If you have not verified the identity, this API will return an error.
 
-  This API returns successfully even if a policy with the specified
-  name does not exist.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteEmailIdentityPolicy&this_doc_guide=API%2520Reference)
 
-  This API is for the identity owner only. If you have not verified the identity,
-  this API will return an error.
+  ## Parameters:
+  * `:email_identity` (`t:string`) The email identity.
+  * `:policy_name` (`t:string`) The name of the policy.
 
-  Sending authorization is a feature that enables an identity owner to authorize
-  other
-  senders to use its identities. For information about using sending
-  authorization, see
-  the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html).
-
-  You can execute this operation no more than once per second.
+  ## Optional parameters:
   """
   @spec delete_email_identity_policy(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_email_identity_policy_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_email_identity_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4609,7 +4692,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4627,9 +4711,19 @@ defmodule AWS.SESv2 do
   @doc """
   Deletes an email template.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteEmailTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the template to be deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_email_template(map(), String.t(), delete_email_template_request(), list()) ::
+  @spec delete_email_template(
+          AWS.Client.t(),
+          String.t(),
+          delete_email_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_email_template_errors()}
@@ -4638,7 +4732,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4655,12 +4750,20 @@ defmodule AWS.SESv2 do
 
   @doc """
   Removes an email address from the suppression list for your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteSuppressedDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:email_address` (`t:string`) The suppressed email destination to remove from
+    the account suppression list.
+
+  ## Optional parameters:
   """
   @spec delete_suppressed_destination(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_suppressed_destination_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_suppressed_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4670,7 +4773,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4687,70 +4791,131 @@ defmodule AWS.SESv2 do
 
   @doc """
   Obtain information about the email-sending status and capabilities of your
-  Amazon SES
-  account in the current Amazon Web Services Region.
+  Amazon SES account in the current Amazon Web Services Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_account(map(), list()) ::
+  @spec get_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_errors()}
   def get_account(%Client{} = client, options \\ []) do
     url_path = "/v2/email/account"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve a list of the blacklists that your dedicated IP addresses appear on.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetBlacklistReports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:blacklist_item_names` (`t:list[com.amazonaws.sesv2#BlacklistItemName]`) A
+    list of IP addresses that you want to retrieve blacklist information about.
+    You can only specify the dedicated IP addresses that you use to send email
+    using Amazon SES or Amazon Pinpoint.
+
+  ## Optional parameters:
   """
-  @spec get_blacklist_reports(map(), String.t(), list()) ::
+  @spec get_blacklist_reports(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_blacklist_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_blacklist_reports_errors()}
   def get_blacklist_reports(%Client{} = client, blacklist_item_names, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard/blacklist-report"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(blacklist_item_names) do
-        [{"BlacklistItemNames", blacklist_item_names} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"BlacklistItemNames", blacklist_item_names}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get information about an existing configuration set, including the dedicated IP
-  pool
-  that it's associated with, whether or not it's enabled for sending email, and
-  more.
+  pool that it's associated with, whether or not it's enabled for sending email,
+  and more.
 
-  *Configuration sets* are groups of rules that you can apply to the
-  emails you send. You apply a configuration set to an email by including a
-  reference to
-  the configuration set in the headers of the email. When you apply a
-  configuration set to
-  an email, all of the rules in that configuration set are applied to the email.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetConfigurationSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set.
+
+  ## Optional parameters:
   """
-  @spec get_configuration_set(map(), String.t(), list()) ::
+  @spec get_configuration_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_set_errors()}
   def get_configuration_set(%Client{} = client, configuration_set_name, options \\ []) do
     url_path = "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4759,13 +4924,15 @@ defmodule AWS.SESv2 do
   Retrieve a list of event destinations that are associated with a configuration
   set.
 
-  *Events* include message sends, deliveries, opens, clicks, bounces,
-  and complaints. *Event destinations* are places that you can send
-  information about these events to. For example, you can send event data to
-  Amazon EventBridge and
-  associate a rule to send the event to the specified target.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetConfigurationSetEventDestinations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that
+    contains the event destination.
+
+  ## Optional parameters:
   """
-  @spec get_configuration_set_event_destinations(map(), String.t(), list()) ::
+  @spec get_configuration_set_event_destinations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configuration_set_event_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_set_event_destinations_errors()}
@@ -4777,18 +4944,44 @@ defmodule AWS.SESv2 do
     url_path =
       "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a contact from a contact list.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetContact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:contact_list_name` (`t:string`) The name of the contact list to which the
+    contact belongs.
+  * `:email_address` (`t:string`) The contact's email address.
+
+  ## Optional parameters:
   """
-  @spec get_contact(map(), String.t(), String.t(), list()) ::
+  @spec get_contact(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_contact_errors()}
@@ -4796,46 +4989,90 @@ defmodule AWS.SESv2 do
     url_path =
       "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts/#{AWS.Util.encode_uri(email_address)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns contact list metadata.
+  Returns contact list metadata. It does not return any information about the
+  contacts present in the list.
 
-  It does not return any information about the contacts
-  present in the list.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetContactList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:contact_list_name` (`t:string`) The name of the contact list.
+
+  ## Optional parameters:
   """
-  @spec get_contact_list(map(), String.t(), list()) ::
+  @spec get_contact_list(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_contact_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_contact_list_errors()}
   def get_contact_list(%Client{} = client, contact_list_name, options \\ []) do
     url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the custom email verification template for the template name you
-  specify.
-
-  For more information about custom verification email templates, see [Using custom verification email
+  specify. For more information about custom verification email templates, see
+  [Using custom verification email
   templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
-  in the *Amazon SES Developer
-  Guide*.
+  in the *Amazon SES Developer Guide*.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetCustomVerificationEmailTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the custom verification email
+    template that you want to retrieve.
+
+  ## Optional parameters:
   """
-  @spec get_custom_verification_email_template(map(), String.t(), list()) ::
+  @spec get_custom_verification_email_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_custom_verification_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_custom_verification_email_template_errors()}
@@ -4843,174 +5080,353 @@ defmodule AWS.SESv2 do
     url_path =
       "/v2/email/custom-verification-email-templates/#{AWS.Util.encode_uri(template_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get information about a dedicated IP address, including the name of the
-  dedicated IP
-  pool that it's associated with, as well information about the automatic warm-up
-  process
-  for the address.
+  dedicated IP pool that it's associated with, as well information about the
+  automatic warm-up process for the address.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetDedicatedIp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:ip` (`t:string`) The IP address that you want to obtain more information
+    about. The value you specify has to be a dedicated IP address that's
+    assocaited with your Amazon Web Services account.
+
+  ## Optional parameters:
   """
-  @spec get_dedicated_ip(map(), String.t(), list()) ::
+  @spec get_dedicated_ip(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_dedicated_ip_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dedicated_ip_errors()}
   def get_dedicated_ip(%Client{} = client, ip, options \\ []) do
     url_path = "/v2/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve information about the dedicated pool.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetDedicatedIpPool&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:pool_name` (`t:string`) The name of the dedicated IP pool to retrieve.
+
+  ## Optional parameters:
   """
-  @spec get_dedicated_ip_pool(map(), String.t(), list()) ::
+  @spec get_dedicated_ip_pool(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_dedicated_ip_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dedicated_ip_pool_errors()}
   def get_dedicated_ip_pool(%Client{} = client, pool_name, options \\ []) do
     url_path = "/v2/email/dedicated-ip-pools/#{AWS.Util.encode_uri(pool_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List the dedicated IP addresses that are associated with your Amazon Web
-  Services
-  account.
+  Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetDedicatedIps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) A token returned from a previous call to
+    GetDedicatedIps to indicate the position of the dedicated IP pool in the
+    list of IP pools.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to
+    GetDedicatedIpsRequest. If the number of results is larger than the number
+    you specified in this parameter, then the response includes a NextToken
+    element, which you can use to obtain additional results.
+  * `:pool_name` (`t:string`) The name of the IP pool that the dedicated IP
+    address is associated with.
   """
-  @spec get_dedicated_ips(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec get_dedicated_ips(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_dedicated_ips_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dedicated_ips_errors()}
-  def get_dedicated_ips(
-        %Client{} = client,
-        next_token \\ nil,
-        page_size \\ nil,
-        pool_name \\ nil,
-        options \\ []
-      ) do
+  def get_dedicated_ips(%Client{} = client, options \\ []) do
     url_path = "/v2/email/dedicated-ips"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil, pool_name: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(pool_name) do
-        [{"PoolName", pool_name} | query_params]
+      if opt_val = Keyword.get(options, :pool_name) do
+        [{"PoolName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"PageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size, :pool_name])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve information about the status of the Deliverability dashboard for your
-  account.
+  account. When the Deliverability dashboard is enabled, you gain access to
+  reputation, deliverability, and other metrics for the domains that you use to
+  send email. You also gain the ability to perform predictive inbox placement
+  tests.
 
-  When
-  the Deliverability dashboard is enabled, you gain access to reputation,
-  deliverability, and other
-  metrics for the domains that you use to send email. You also gain the ability to
-  perform
-  predictive inbox placement tests.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetDeliverabilityDashboardOptions&this_doc_guide=API%2520Reference)
 
-  When you use the Deliverability dashboard, you pay a monthly subscription
-  charge, in addition
-  to any other fees that you accrue by using Amazon SES and other Amazon Web
-  Services services. For more
-  information about the features and cost of a Deliverability dashboard
-  subscription, see [Amazon SES Pricing](http://aws.amazon.com/ses/pricing/).
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_deliverability_dashboard_options(map(), list()) ::
+  @spec get_deliverability_dashboard_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_deliverability_dashboard_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deliverability_dashboard_options_errors()}
   def get_deliverability_dashboard_options(%Client{} = client, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve the results of a predictive inbox placement test.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetDeliverabilityTestReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:report_id` (`t:string`) A unique string that identifies the predictive inbox
+    placement test.
+
+  ## Optional parameters:
   """
-  @spec get_deliverability_test_report(map(), String.t(), list()) ::
+  @spec get_deliverability_test_report(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_deliverability_test_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deliverability_test_report_errors()}
   def get_deliverability_test_report(%Client{} = client, report_id, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard/test-reports/#{AWS.Util.encode_uri(report_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieve all the deliverability data for a specific campaign.
+  Retrieve all the deliverability data for a specific campaign. This data is
+  available for a campaign only if the campaign sent email by using a domain
+  that the Deliverability dashboard is enabled for.
 
-  This data is available
-  for a campaign only if the campaign sent email by using a domain that the
-  Deliverability dashboard is enabled for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetDomainDeliverabilityCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:campaign_id` (`t:string`) The unique identifier for the campaign. The
+    Deliverability dashboard automatically generates and assigns this identifier
+    to a campaign.
+
+  ## Optional parameters:
   """
-  @spec get_domain_deliverability_campaign(map(), String.t(), list()) ::
+  @spec get_domain_deliverability_campaign(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_domain_deliverability_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_deliverability_campaign_errors()}
   def get_domain_deliverability_campaign(%Client{} = client, campaign_id, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard/campaigns/#{AWS.Util.encode_uri(campaign_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve inbox placement and engagement rates for the domains that you use to
-  send
-  email.
+  send email.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetDomainStatisticsReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain` (`t:string`) The domain that you want to obtain deliverability
+    metrics for.
+  * `:end_date` (`t:timestamp`) The last day (in Unix time) that you want to
+    obtain domain deliverability metrics for. The EndDate that you specify has
+    to be less than or equal to 30 days after the StartDate.
+  * `:start_date` (`t:timestamp`) The first day (in Unix time) that you want to
+    obtain domain deliverability metrics for.
+
+  ## Optional parameters:
   """
-  @spec get_domain_statistics_report(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_domain_statistics_report(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, get_domain_statistics_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_statistics_report_errors()}
@@ -5024,133 +5440,244 @@ defmodule AWS.SESv2 do
     url_path =
       "/v2/email/deliverability-dashboard/statistics-report/#{AWS.Util.encode_uri(domain)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(start_date) do
-        [{"StartDate", start_date} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    query_params =
-      if !is_nil(end_date) do
-        [{"EndDate", end_date} | query_params]
-      else
-        query_params
-      end
+    # Required query params
+    query_params = [{"EndDate", end_date}, {"StartDate", start_date}]
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Provides information about a specific identity, including the identity's
-  verification
-  status, sending authorization policies, its DKIM authentication status, and its
-  custom
-  Mail-From settings.
+  verification status, sending authorization policies, its DKIM authentication
+  status, and its custom Mail-From settings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetEmailIdentity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:email_identity` (`t:string`) The email identity.
+
+  ## Optional parameters:
   """
-  @spec get_email_identity(map(), String.t(), list()) ::
+  @spec get_email_identity(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_email_identity_errors()}
   def get_email_identity(%Client{} = client, email_identity, options \\ []) do
     url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the requested sending authorization policies for the given identity (an
-  email
-  address or a domain).
-
-  The policies are returned as a map of policy names to policy
-  contents. You can retrieve a maximum of 20 policies at a time.
-
-  This API is for the identity owner only. If you have not verified the identity,
+  email address or a domain). The policies are returned as a map of policy names
+  to policy contents. You can retrieve a maximum of 20 policies at a time. This
+  API is for the identity owner only. If you have not verified the identity,
   this API will return an error.
 
-  Sending authorization is a feature that enables an identity owner to authorize
-  other
-  senders to use its identities. For information about using sending
-  authorization, see
-  the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetEmailIdentityPolicies&this_doc_guide=API%2520Reference)
 
-  You can execute this operation no more than once per second.
+  ## Parameters:
+  * `:email_identity` (`t:string`) The email identity.
+
+  ## Optional parameters:
   """
-  @spec get_email_identity_policies(map(), String.t(), list()) ::
+  @spec get_email_identity_policies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_email_identity_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_email_identity_policies_errors()}
   def get_email_identity_policies(%Client{} = client, email_identity, options \\ []) do
     url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/policies"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Displays the template object (which includes the subject line, HTML part and
-  text
-  part) for the template you specify.
+  text part) for the template you specify.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetEmailTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the template.
+
+  ## Optional parameters:
   """
-  @spec get_email_template(map(), String.t(), list()) ::
+  @spec get_email_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_email_template_errors()}
   def get_email_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/v2/email/templates/#{AWS.Util.encode_uri(template_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Provides information about an export job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The export job ID.
+
+  ## Optional parameters:
   """
-  @spec get_export_job(map(), String.t(), list()) ::
+  @spec get_export_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_export_job_errors()}
   def get_export_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/v2/email/export-jobs/#{AWS.Util.encode_uri(job_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Provides information about an import job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The ID of the import job.
+
+  ## Optional parameters:
   """
-  @spec get_import_job(map(), String.t(), list()) ::
+  @spec get_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_import_job_errors()}
   def get_import_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/v2/email/import-jobs/#{AWS.Util.encode_uri(job_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5160,37 +5687,86 @@ defmodule AWS.SESv2 do
   subject, the recipient address, email tags, as well as events associated with
   the message.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetMessageInsights&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:message_id` (`t:string`) A MessageId is a unique identifier for a message,
+    and is returned when sending emails through Amazon SES.
+
+  ## Optional parameters:
   """
-  @spec get_message_insights(map(), String.t(), list()) ::
+  @spec get_message_insights(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_message_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_message_insights_errors()}
   def get_message_insights(%Client{} = client, message_id, options \\ []) do
     url_path = "/v2/email/insights/#{AWS.Util.encode_uri(message_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a specific email address that's on the suppression
-  list
-  for your account.
+  list for your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetSuppressedDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:email_address` (`t:string`) The email address that's on the account
+    suppression list.
+
+  ## Optional parameters:
   """
-  @spec get_suppressed_destination(map(), String.t(), list()) ::
+  @spec get_suppressed_destination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_suppressed_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_suppressed_destination_errors()}
   def get_suppressed_destination(%Client{} = client, email_address, options \\ []) do
     url_path = "/v2/email/suppression/addresses/#{AWS.Util.encode_uri(email_address)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5199,81 +5775,147 @@ defmodule AWS.SESv2 do
   List all of the configuration sets associated with your account in the current
   region.
 
-  *Configuration sets* are groups of rules that you can apply to the
-  emails you send. You apply a configuration set to an email by including a
-  reference to
-  the configuration set in the headers of the email. When you apply a
-  configuration set to
-  an email, all of the rules in that configuration set are applied to the email.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListConfigurationSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) A token returned from a previous call to
+    ListConfigurationSets to indicate the position in the list of configuration
+    sets.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to
+    ListConfigurationSets. If the number of results is larger than the number
+    you specified in this parameter, then the response includes a NextToken
+    element, which you can use to obtain additional results.
   """
-  @spec list_configuration_sets(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_configuration_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configuration_sets_errors()}
-  def list_configuration_sets(
-        %Client{} = client,
-        next_token \\ nil,
-        page_size \\ nil,
-        options \\ []
-      ) do
+  def list_configuration_sets(%Client{} = client, options \\ []) do
     url_path = "/v2/email/configuration-sets"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"PageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all of the contact lists available.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListContactLists&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) A string token indicating that there might be
+    additional contact lists available to be listed. Use the token provided in
+    the Response to use in the subsequent call to ListContactLists with the same
+    parameters to retrieve the next page of contact lists.
+  * `:page_size` (`t:integer`) Maximum number of contact lists to return at once.
+    Use this parameter to paginate results. If additional contact lists exist
+    beyond the specified limit, the NextToken element is sent in the response.
+    Use the NextToken value in subsequent requests to retrieve additional lists.
   """
-  @spec list_contact_lists(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_contact_lists(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_contact_lists_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contact_lists_errors()}
-  def list_contact_lists(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
+  def list_contact_lists(%Client{} = client, options \\ []) do
     url_path = "/v2/email/contact-lists"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"PageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the contacts present in a specific contact list.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListContacts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:contact_list_name` (`t:string`) The name of the contact list.
+
+  ## Optional parameters:
   """
-  @spec list_contacts(map(), String.t(), list_contacts_request(), list()) ::
+  @spec list_contacts(AWS.Client.t(), String.t(), list_contacts_request(), Keyword.t()) ::
           {:ok, list_contacts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contacts_errors()}
@@ -5282,7 +5924,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5299,150 +5942,242 @@ defmodule AWS.SESv2 do
 
   @doc """
   Lists the existing custom verification email templates for your account in the
-  current
-  Amazon Web Services Region.
-
-  For more information about custom verification email templates, see [Using custom verification email
+  current Amazon Web Services Region. For more information about custom
+  verification email templates, see [Using custom verification email
   templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
-  in the *Amazon SES Developer
-  Guide*.
+  in the *Amazon SES Developer Guide*.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListCustomVerificationEmailTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) A token returned from a previous call to
+    ListCustomVerificationEmailTemplates to indicate the position in the list of
+    custom verification email templates.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to
+    ListCustomVerificationEmailTemplates. If the number of results is larger
+    than the number you specified in this parameter, then the response includes
+    a NextToken element, which you can use to obtain additional results.
   """
-  @spec list_custom_verification_email_templates(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_custom_verification_email_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_custom_verification_email_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_verification_email_templates_errors()}
-  def list_custom_verification_email_templates(
-        %Client{} = client,
-        next_token \\ nil,
-        page_size \\ nil,
-        options \\ []
-      ) do
+  def list_custom_verification_email_templates(%Client{} = client, options \\ []) do
     url_path = "/v2/email/custom-verification-email-templates"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"PageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List all of the dedicated IP pools that exist in your Amazon Web Services
-  account in the current
-  Region.
+  account in the current Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListDedicatedIpPools&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) A token returned from a previous call to
+    ListDedicatedIpPools to indicate the position in the list of dedicated IP
+    pools.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to
+    ListDedicatedIpPools. If the number of results is larger than the number you
+    specified in this parameter, then the response includes a NextToken element,
+    which you can use to obtain additional results.
   """
-  @spec list_dedicated_ip_pools(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_dedicated_ip_pools(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_dedicated_ip_pools_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dedicated_ip_pools_errors()}
-  def list_dedicated_ip_pools(
-        %Client{} = client,
-        next_token \\ nil,
-        page_size \\ nil,
-        options \\ []
-      ) do
+  def list_dedicated_ip_pools(%Client{} = client, options \\ []) do
     url_path = "/v2/email/dedicated-ip-pools"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"PageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Show a list of the predictive inbox placement tests that you've performed,
-  regardless of their statuses.
+  regardless of their statuses. For predictive inbox placement tests that are
+  complete, you can use the `GetDeliverabilityTestReport` operation to view the
+  results.
 
-  For
-  predictive inbox placement tests that are complete, you can use the
-  `GetDeliverabilityTestReport`
-  operation to view the results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListDeliverabilityTestReports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) A token returned from a previous call to
+    ListDeliverabilityTestReports to indicate the position in the list of
+    predictive inbox placement tests.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to
+    ListDeliverabilityTestReports. If the number of results is larger than the
+    number you specified in this parameter, then the response includes a
+    NextToken element, which you can use to obtain additional results.
   """
-  @spec list_deliverability_test_reports(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_deliverability_test_reports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_deliverability_test_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deliverability_test_reports_errors()}
-  def list_deliverability_test_reports(
-        %Client{} = client,
-        next_token \\ nil,
-        page_size \\ nil,
-        options \\ []
-      ) do
+  def list_deliverability_test_reports(%Client{} = client, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard/test-reports"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"PageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve deliverability data for all the campaigns that used a specific domain
-  to send
-  email during a specified time range.
+  to send email during a specified time range. This data is available for a
+  domain only if you enabled the Deliverability dashboard for the domain.
 
-  This data is available for a domain only if you
-  enabled the Deliverability dashboard for the domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListDomainDeliverabilityCampaigns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:subscribed_domain` (`t:string`) The domain to obtain deliverability data
+    for.
+  * `:end_date` (`t:timestamp`) The last day that you want to obtain
+    deliverability data for. This value has to be less than or equal to 30 days
+    after the value of the StartDate parameter.
+  * `:start_date` (`t:timestamp`) The first day that you want to obtain
+    deliverability data for.
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) A token that’s returned from a previous call to the
+    ListDomainDeliverabilityCampaigns operation. This token indicates the
+    position of a campaign in the list of campaigns.
+  * `:page_size` (`t:integer`) The maximum number of results to include in
+    response to a single call to the ListDomainDeliverabilityCampaigns
+    operation. If the number of results is larger than the number that you
+    specify in this parameter, the response includes a NextToken element, which
+    you can use to obtain additional results.
   """
   @spec list_domain_deliverability_campaigns(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
-          String.t() | nil,
-          String.t() | nil,
           String.t(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_domain_deliverability_campaigns_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5451,132 +6186,200 @@ defmodule AWS.SESv2 do
         %Client{} = client,
         subscribed_domain,
         end_date,
-        next_token \\ nil,
-        page_size \\ nil,
         start_date,
         options \\ []
       ) do
     url_path =
       "/v2/email/deliverability-dashboard/domains/#{AWS.Util.encode_uri(subscribed_domain)}/campaigns"
 
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"EndDate", end_date}, {"StartDate", start_date}]
+
+    # Optional query params
     query_params =
-      if !is_nil(start_date) do
-        [{"StartDate", start_date} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"PageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    query_params =
-      if !is_nil(end_date) do
-        [{"EndDate", end_date} | query_params]
-      else
-        query_params
-      end
-
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all of the email identities that are associated with your
-  Amazon Web Services
-  account.
+  Amazon Web Services account. An identity can be either an email address or a
+  domain. This operation returns identities that are verified as well as those
+  that aren't. This operation returns identities that are associated with Amazon
+  SES and Amazon Pinpoint.
 
-  An identity can be either an email address or a domain. This operation returns
-  identities that are verified as well as those that aren't. This operation
-  returns
-  identities that are associated with Amazon SES and Amazon Pinpoint.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListEmailIdentities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) A token returned from a previous call to
+    ListEmailIdentities to indicate the position in the list of identities.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to
+    ListEmailIdentities. If the number of results is larger than the number you
+    specified in this parameter, then the response includes a NextToken element,
+    which you can use to obtain additional results.
   """
-  @spec list_email_identities(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_email_identities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_email_identities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_email_identities_errors()}
-  def list_email_identities(
-        %Client{} = client,
-        next_token \\ nil,
-        page_size \\ nil,
-        options \\ []
-      ) do
+  def list_email_identities(%Client{} = client, options \\ []) do
     url_path = "/v2/email/identities"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"PageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the email templates present in your Amazon SES account in the current
-  Amazon Web Services
-  Region.
+  Amazon Web Services Region.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListEmailTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) A token returned from a previous call to
+    ListEmailTemplates to indicate the position in the list of email templates.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to
+    ListEmailTemplates. If the number of results is larger than the number you
+    specified in this parameter, then the response includes a NextToken element,
+    which you can use to obtain additional results.
   """
-  @spec list_email_templates(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_email_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_email_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_email_templates_errors()}
-  def list_email_templates(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
+  def list_email_templates(%Client{} = client, options \\ []) do
     url_path = "/v2/email/templates"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"PageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all of the export jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListExportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_export_jobs(map(), list_export_jobs_request(), list()) ::
+  @spec list_export_jobs(AWS.Client.t(), list_export_jobs_request(), Keyword.t()) ::
           {:ok, list_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_export_jobs_errors()}
@@ -5585,7 +6388,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5602,8 +6406,14 @@ defmodule AWS.SESv2 do
 
   @doc """
   Lists all of the import jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListImportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_import_jobs(map(), list_import_jobs_request(), list()) ::
+  @spec list_import_jobs(AWS.Client.t(), list_import_jobs_request(), Keyword.t()) ::
           {:ok, list_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_import_jobs_errors()}
@@ -5612,7 +6422,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5631,9 +6442,13 @@ defmodule AWS.SESv2 do
   Lists the recommendations present in your Amazon SES account in the current
   Amazon Web Services Region.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_recommendations(map(), list_recommendations_request(), list()) ::
+  @spec list_recommendations(AWS.Client.t(), list_recommendations_request(), Keyword.t()) ::
           {:ok, list_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recommendations_errors()}
@@ -5642,7 +6457,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5660,112 +6476,166 @@ defmodule AWS.SESv2 do
   @doc """
   Retrieves a list of email addresses that are on the suppression list for your
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListSuppressedDestinations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:end_date` (`t:timestamp`) Used to filter the list of suppressed email
+    destinations so that it only includes addresses that were added to the list
+    before a specific date.
+  * `:next_token` (`t:string`) A token returned from a previous call to
+    ListSuppressedDestinations to indicate the position in the list of
+    suppressed email addresses.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to
+    ListSuppressedDestinations. If the number of results is larger than the
+    number you specified in this parameter, then the response includes a
+    NextToken element, which you can use to obtain additional results.
+  * `:reasons` (`t:list[com.amazonaws.sesv2#SuppressionListReason]`) The factors
+    that caused the email address to be added to .
+  * `:start_date` (`t:timestamp`) Used to filter the list of suppressed email
+    destinations so that it only includes addresses that were added to the list
+    after a specific date.
   """
-  @spec list_suppressed_destinations(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_suppressed_destinations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_suppressed_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_suppressed_destinations_errors()}
-  def list_suppressed_destinations(
-        %Client{} = client,
-        end_date \\ nil,
-        next_token \\ nil,
-        page_size \\ nil,
-        reasons \\ nil,
-        start_date \\ nil,
-        options \\ []
-      ) do
+  def list_suppressed_destinations(%Client{} = client, options \\ []) do
     url_path = "/v2/email/suppression/addresses"
+
+    # Validate optional parameters
+    optional_params = [
+      end_date: nil,
+      next_token: nil,
+      page_size: nil,
+      reasons: nil,
+      start_date: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(start_date) do
-        [{"StartDate", start_date} | query_params]
+      if opt_val = Keyword.get(options, :start_date) do
+        [{"StartDate", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(reasons) do
-        [{"Reason", reasons} | query_params]
+      if opt_val = Keyword.get(options, :reasons) do
+        [{"Reason", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"PageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(end_date) do
-        [{"EndDate", end_date} | query_params]
+      if opt_val = Keyword.get(options, :end_date) do
+        [{"EndDate", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:end_date, :next_token, :page_size, :reasons, :start_date])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve a list of the tags (keys and values) that are associated with a
-  specified
-  resource.
-
-  A *tag* is a label that you optionally define and associate
-  with a resource. Each tag consists of a required *tag key* and an
-  optional associated *tag value*. A tag key is a general label that
-  acts as a category for more specific tag values. A tag value acts as a
-  descriptor within
+  specified resource. A *tag* is a label that you optionally define and
+  associate with a resource. Each tag consists of a required *tag key* and an
+  optional associated *tag value*. A tag key is a general label that acts as a
+  category for more specific tag values. A tag value acts as a descriptor within
   a tag key.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    that you want to retrieve tag information for.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v2/email/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(resource_arn) do
-        [{"ResourceArn", resource_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"ResourceArn", resource_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Enable or disable the automatic warm-up feature for dedicated IP addresses.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutAccountDedicatedIpWarmupAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec put_account_dedicated_ip_warmup_attributes(
-          map(),
+          AWS.Client.t(),
           put_account_dedicated_ip_warmup_attributes_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_account_dedicated_ip_warmup_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5775,15 +6645,22 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Update your Amazon SES account details.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutAccountDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_account_details(map(), put_account_details_request(), list()) ::
+  @spec put_account_details(AWS.Client.t(), put_account_details_request(), Keyword.t()) ::
           {:ok, put_account_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_account_details_errors()}
@@ -5792,7 +6669,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5809,8 +6687,18 @@ defmodule AWS.SESv2 do
 
   @doc """
   Enable or disable the ability of your account to send email.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutAccountSendingAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_account_sending_attributes(map(), put_account_sending_attributes_request(), list()) ::
+  @spec put_account_sending_attributes(
+          AWS.Client.t(),
+          put_account_sending_attributes_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_account_sending_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_account_sending_attributes_errors()}
@@ -5819,18 +6707,25 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Change the settings for the account-level suppression list.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutAccountSuppressionAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec put_account_suppression_attributes(
-          map(),
+          AWS.Client.t(),
           put_account_suppression_attributes_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_account_suppression_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5840,7 +6735,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -5848,9 +6744,17 @@ defmodule AWS.SESv2 do
   @doc """
   Update your Amazon SES account VDM attributes.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutAccountVdmAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_account_vdm_attributes(map(), put_account_vdm_attributes_request(), list()) ::
+  @spec put_account_vdm_attributes(
+          AWS.Client.t(),
+          put_account_vdm_attributes_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_account_vdm_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_account_vdm_attributes_errors()}
@@ -5859,22 +6763,30 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Associate a configuration set with a dedicated IP pool.
+  Associate a configuration set with a dedicated IP pool. You can use dedicated IP
+  pools to create groups of dedicated IP addresses for sending specific types of
+  email.
 
-  You can use dedicated IP pools
-  to create groups of dedicated IP addresses for sending specific types of email.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutConfigurationSetDeliveryOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set to
+    associate with a dedicated IP pool.
+
+  ## Optional parameters:
   """
   @spec put_configuration_set_delivery_options(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_configuration_set_delivery_options_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_configuration_set_delivery_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5891,21 +6803,28 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Enable or disable collection of reputation metrics for emails that you send
-  using a
-  particular configuration set in a specific Amazon Web Services Region.
+  using a particular configuration set in a specific Amazon Web Services Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutConfigurationSetReputationOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set.
+
+  ## Optional parameters:
   """
   @spec put_configuration_set_reputation_options(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_configuration_set_reputation_options_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_configuration_set_reputation_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5922,21 +6841,29 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Enable or disable email sending for messages that use a particular configuration
-  set
-  in a specific Amazon Web Services Region.
+  set in a specific Amazon Web Services Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutConfigurationSetSendingOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set to
+    enable or disable email sending for.
+
+  ## Optional parameters:
   """
   @spec put_configuration_set_sending_options(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_configuration_set_sending_options_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_configuration_set_sending_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5953,19 +6880,28 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Specify the account suppression list preferences for a configuration set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutConfigurationSetSuppressionOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set to
+    change the suppression list preferences for.
+
+  ## Optional parameters:
   """
   @spec put_configuration_set_suppression_options(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_configuration_set_suppression_options_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_configuration_set_suppression_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5982,21 +6918,28 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Specify a custom domain to use for open and click tracking elements in email
-  that you
-  send.
+  that you send.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutConfigurationSetTrackingOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set.
+
+  ## Optional parameters:
   """
   @spec put_configuration_set_tracking_options(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_configuration_set_tracking_options_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_configuration_set_tracking_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6013,7 +6956,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -6021,13 +6965,18 @@ defmodule AWS.SESv2 do
   @doc """
   Specify VDM preferences for email that you send using the configuration set.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutConfigurationSetVdmOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set.
+
+  ## Optional parameters:
   """
   @spec put_configuration_set_vdm_options(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_configuration_set_vdm_options_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_configuration_set_vdm_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6044,7 +6993,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -6052,14 +7002,21 @@ defmodule AWS.SESv2 do
   @doc """
   Move a dedicated IP address to an existing dedicated IP pool.
 
-  The dedicated IP address that you specify must already exist, and must be
-  associated with your Amazon Web Services account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutDedicatedIpInPool&this_doc_guide=API%2520Reference)
 
-  The dedicated IP pool you specify must already exist. You can create a new pool
-  by
-  using the `CreateDedicatedIpPool` operation.
+  ## Parameters:
+  * `:ip` (`t:string`) The IP address that you want to move to the dedicated IP
+    pool. The value you specify has to be a dedicated IP address that's
+    associated with your Amazon Web Services account.
+
+  ## Optional parameters:
   """
-  @spec put_dedicated_ip_in_pool(map(), String.t(), put_dedicated_ip_in_pool_request(), list()) ::
+  @spec put_dedicated_ip_in_pool(
+          AWS.Client.t(),
+          String.t(),
+          put_dedicated_ip_in_pool_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_dedicated_ip_in_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_dedicated_ip_in_pool_errors()}
@@ -6068,7 +7025,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -6076,13 +7034,18 @@ defmodule AWS.SESv2 do
   @doc """
   Used to convert a dedicated IP pool to a different scaling mode.
 
-  `MANAGED` pools cannot be converted to `STANDARD` scaling mode.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutDedicatedIpPoolScalingAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:pool_name` (`t:string`) The name of the dedicated IP pool.
+
+  ## Optional parameters:
   """
   @spec put_dedicated_ip_pool_scaling_attributes(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_dedicated_ip_pool_scaling_attributes_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_dedicated_ip_pool_scaling_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6097,16 +7060,17 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @spec put_dedicated_ip_warmup_attributes(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_dedicated_ip_warmup_attributes_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_dedicated_ip_warmup_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6116,31 +7080,28 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Enable or disable the Deliverability dashboard.
+  Enable or disable the Deliverability dashboard. When you enable the
+  Deliverability dashboard, you gain access to reputation, deliverability, and
+  other metrics for the domains that you use to send email. You also gain the
+  ability to perform predictive inbox placement tests.
 
-  When you enable the Deliverability dashboard, you gain
-  access to reputation, deliverability, and other metrics for the domains that you
-  use to
-  send email. You also gain the ability to perform predictive inbox placement
-  tests.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutDeliverabilityDashboardOption&this_doc_guide=API%2520Reference)
 
-  When you use the Deliverability dashboard, you pay a monthly subscription
-  charge, in addition
-  to any other fees that you accrue by using Amazon SES and other Amazon Web
-  Services services. For more
-  information about the features and cost of a Deliverability dashboard
-  subscription, see [Amazon SES Pricing](http://aws.amazon.com/ses/pricing/).
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec put_deliverability_dashboard_option(
-          map(),
+          AWS.Client.t(),
           put_deliverability_dashboard_option_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_deliverability_dashboard_option_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6150,19 +7111,28 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Used to associate a configuration set with an email identity.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutEmailIdentityConfigurationSetAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:email_identity` (`t:string`) The email address or domain to associate with a
+    configuration set.
+
+  ## Optional parameters:
   """
   @spec put_email_identity_configuration_set_attributes(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_email_identity_configuration_set_attributes_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_email_identity_configuration_set_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6177,19 +7147,27 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Used to enable or disable DKIM authentication for an email identity.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutEmailIdentityDkimAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:email_identity` (`t:string`) The email identity.
+
+  ## Optional parameters:
   """
   @spec put_email_identity_dkim_attributes(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_email_identity_dkim_attributes_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_email_identity_dkim_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6199,41 +7177,28 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Used to configure or change the DKIM authentication settings for an email domain
-  identity.
+  identity. You can use this operation to do any of the following:
 
-  You can use this operation to do any of the following:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutEmailIdentityDkimSigningAttributes&this_doc_guide=API%2520Reference)
 
-    *
-  Update the signing attributes for an identity that uses Bring Your Own DKIM
-  (BYODKIM).
+  ## Parameters:
+  * `:email_identity` (`t:string`) The email identity.
 
-    *
-  Update the key length that should be used for Easy DKIM.
-
-    *
-  Change from using no DKIM authentication to using Easy DKIM.
-
-    *
-  Change from using no DKIM authentication to using BYODKIM.
-
-    *
-  Change from using Easy DKIM to using BYODKIM.
-
-    *
-  Change from using BYODKIM to using Easy DKIM.
+  ## Optional parameters:
   """
   @spec put_email_identity_dkim_signing_attributes(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_email_identity_dkim_signing_attributes_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_email_identity_dkim_signing_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6248,37 +7213,32 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Used to enable or disable feedback forwarding for an identity.
+  Used to enable or disable feedback forwarding for an identity. This setting
+  determines what happens when an identity is used to send an email that results
+  in a bounce or complaint event. If the value is `true`, you receive email
+  notifications when bounce or complaint events occur. These notifications are
+  sent to the address that you specified in the `Return-Path` header of the
+  original email.
 
-  This setting determines
-  what happens when an identity is used to send an email that results in a bounce
-  or
-  complaint event.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutEmailIdentityFeedbackAttributes&this_doc_guide=API%2520Reference)
 
-  If the value is `true`, you receive email notifications when bounce or
-  complaint events occur. These notifications are sent to the address that you
-  specified
-  in the `Return-Path` header of the original email.
+  ## Parameters:
+  * `:email_identity` (`t:string`) The email identity.
 
-  You're required to have a method of tracking bounces and complaints. If you
-  haven't
-  set up another mechanism for receiving bounce or complaint notifications (for
-  example,
-  by setting up an event destination), you receive an email notification when
-  these events
-  occur (even if this setting is disabled).
+  ## Optional parameters:
   """
   @spec put_email_identity_feedback_attributes(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_email_identity_feedback_attributes_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_email_identity_feedback_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6293,7 +7253,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -6301,12 +7262,19 @@ defmodule AWS.SESv2 do
   @doc """
   Used to enable or disable the custom Mail-From domain configuration for an email
   identity.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutEmailIdentityMailFromAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:email_identity` (`t:string`) The verified email identity.
+
+  ## Optional parameters:
   """
   @spec put_email_identity_mail_from_attributes(
-          map(),
+          AWS.Client.t(),
           String.t(),
           put_email_identity_mail_from_attributes_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_email_identity_mail_from_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6321,15 +7289,26 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Adds an email address to the suppression list for your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutSuppressedDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_suppressed_destination(map(), put_suppressed_destination_request(), list()) ::
+  @spec put_suppressed_destination(
+          AWS.Client.t(),
+          put_suppressed_destination_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_suppressed_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_suppressed_destination_errors()}
@@ -6338,15 +7317,22 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Composes an email message to multiple destinations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20SendBulkEmail&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec send_bulk_email(map(), send_bulk_email_request(), list()) ::
+  @spec send_bulk_email(AWS.Client.t(), send_bulk_email_request(), Keyword.t()) ::
           {:ok, send_bulk_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_bulk_email_errors()}
@@ -6355,7 +7341,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6372,24 +7359,25 @@ defmodule AWS.SESv2 do
 
   @doc """
   Adds an email address to the list of identities for your Amazon SES account in
-  the current
-  Amazon Web Services Region and attempts to verify it.
-
-  As a result of executing this
-  operation, a customized verification email is sent to the specified address.
-
-  To use this operation, you must first create a custom verification email
-  template. For
-  more information about creating and using custom verification email templates,
-  see
-  [Using custom verification email
+  the current Amazon Web Services Region and attempts to verify it. As a result
+  of executing this operation, a customized verification email is sent to the
+  specified address. To use this operation, you must first create a custom
+  verification email template. For more information about creating and using
+  custom verification email templates, see [Using custom verification email
   templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
-  in the *Amazon SES Developer
-  Guide*.
+  in the *Amazon SES Developer Guide*.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20SendCustomVerificationEmail&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec send_custom_verification_email(map(), send_custom_verification_email_request(), list()) ::
+  @spec send_custom_verification_email(
+          AWS.Client.t(),
+          send_custom_verification_email_request(),
+          Keyword.t()
+        ) ::
           {:ok, send_custom_verification_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_custom_verification_email_errors()}
@@ -6398,7 +7386,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6414,33 +7403,16 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Sends an email message.
+  Sends an email message. You can use the Amazon SES API v2 to send the following
+  types of messages:
 
-  You can use the Amazon SES API v2 to send the following types of
-  messages:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20SendEmail&this_doc_guide=API%2520Reference)
 
-    *
+  ## Parameters:
 
-  **Simple** – A standard email message. When
-  you create this type of message, you specify the sender, the recipient, and the
-  message body, and Amazon SES assembles the message for you.
-
-    *
-
-  **Raw** – A raw, MIME-formatted email
-  message. When you send this type of email, you have to specify all of the
-  message headers, as well as the message body. You can use this message type to
-  send messages that contain attachments. The message that you specify has to be a
-  valid MIME message.
-
-    *
-
-  **Templated** – A message that contains
-  personalization tags. When you send this type of email, Amazon SES API v2
-  automatically
-  replaces the tags with values that you specify.
+  ## Optional parameters:
   """
-  @spec send_email(map(), send_email_request(), list()) ::
+  @spec send_email(AWS.Client.t(), send_email_request(), Keyword.t()) ::
           {:ok, send_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_email_errors()}
@@ -6449,7 +7421,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6465,23 +7438,18 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Add one or more tags (keys and values) to a specified resource.
+  Add one or more tags (keys and values) to a specified resource. A *tag* is a
+  label that you optionally define and associate with a resource. Tags can help
+  you categorize and manage resources in different ways, such as by purpose,
+  owner, environment, or other criteria. A resource can have as many as 50 tags.
 
-  A
-  *tag* is a label that you optionally define and associate with a
-  resource. Tags can help you categorize and manage resources in different ways,
-  such as
-  by purpose, owner, environment, or other criteria. A resource can have as many
-  as 50
-  tags.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20TagResource&this_doc_guide=API%2520Reference)
 
-  Each tag consists of a required *tag key* and an
-  associated *tag value*, both of which you define. A tag key is a
-  general label that acts as a category for more specific tag values. A tag value
-  acts as
-  a descriptor within a tag key.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -6490,7 +7458,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6507,16 +7476,20 @@ defmodule AWS.SESv2 do
 
   @doc """
   Creates a preview of the MIME content of an email when provided with a template
-  and a
-  set of replacement data.
+  and a set of replacement data.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20TestRenderEmailTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the template.
+
+  ## Optional parameters:
   """
   @spec test_render_email_template(
-          map(),
+          AWS.Client.t(),
           String.t(),
           test_render_email_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, test_render_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6526,7 +7499,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6543,8 +7517,19 @@ defmodule AWS.SESv2 do
 
   @doc """
   Remove one or more tags (keys and values) from a specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    that you want to remove one or more tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.sesv2#TagKey]`) The tags (tag keys) that
+    you want to remove from the resource. When you specify a tag key, the action
+    removes both that key and its associated tag value.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -6559,7 +7544,8 @@ defmodule AWS.SESv2 do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -6577,18 +7563,21 @@ defmodule AWS.SESv2 do
   @doc """
   Update the configuration of an event destination for a configuration set.
 
-  *Events* include message sends, deliveries, opens, clicks, bounces,
-  and complaints. *Event destinations* are places that you can send
-  information about these events to. For example, you can send event data to
-  Amazon EventBridge and
-  associate a rule to send the event to the specified target.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20UpdateConfigurationSetEventDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that
+    contains the event destination to modify.
+  * `:event_destination_name` (`t:string`) The name of the event destination.
+
+  ## Optional parameters:
   """
   @spec update_configuration_set_event_destination(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_configuration_set_event_destination_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6606,7 +7595,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -6614,11 +7604,21 @@ defmodule AWS.SESv2 do
   @doc """
   Updates a contact's preferences for a list.
 
-  You must specify all existing topic preferences in the
-  `TopicPreferences` object, not just the ones that need updating;
-  otherwise, all your existing preferences will be removed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20UpdateContact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:contact_list_name` (`t:string`) The name of the contact list.
+  * `:email_address` (`t:string`) The contact's email address.
+
+  ## Optional parameters:
   """
-  @spec update_contact(map(), String.t(), String.t(), update_contact_request(), list()) ::
+  @spec update_contact(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_contact_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_errors()}
@@ -6629,17 +7629,28 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Updates contact list metadata.
+  Updates contact list metadata. This operation does a complete replacement.
 
-  This operation does a complete replacement.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20UpdateContactList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:contact_list_name` (`t:string`) The name of the contact list.
+
+  ## Optional parameters:
   """
-  @spec update_contact_list(map(), String.t(), update_contact_list_request(), list()) ::
+  @spec update_contact_list(
+          AWS.Client.t(),
+          String.t(),
+          update_contact_list_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_contact_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_list_errors()}
@@ -6648,26 +7659,32 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Updates an existing custom verification email template.
-
-  For more information about custom verification email templates, see [Using custom verification email
+  Updates an existing custom verification email template. For more information
+  about custom verification email templates, see [Using custom verification
+  email
   templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
-  in the *Amazon SES Developer
-  Guide*.
+  in the *Amazon SES Developer Guide*.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20UpdateCustomVerificationEmailTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the custom verification email
+    template that you want to update.
+
+  ## Optional parameters:
   """
   @spec update_custom_verification_email_template(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_custom_verification_email_template_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_custom_verification_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6684,36 +7701,32 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the specified sending authorization policy for the given identity (an
-  email
-  address or a domain).
+  email address or a domain). This API returns successfully even if a policy
+  with the specified name does not exist. This API is for the identity owner
+  only. If you have not verified the identity, this API will return an error.
 
-  This API returns successfully even if a policy with the specified
-  name does not exist.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20UpdateEmailIdentityPolicy&this_doc_guide=API%2520Reference)
 
-  This API is for the identity owner only. If you have not verified the identity,
-  this API will return an error.
+  ## Parameters:
+  * `:email_identity` (`t:string`) The email identity.
+  * `:policy_name` (`t:string`) The name of the policy.
 
-  Sending authorization is a feature that enables an identity owner to authorize
-  other
-  senders to use its identities. For information about using sending
-  authorization, see
-  the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html).
-
-  You can execute this operation no more than once per second.
+  ## Optional parameters:
   """
   @spec update_email_identity_policy(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_email_identity_policy_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_email_identity_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6731,21 +7744,31 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Updates an email template.
+  Updates an email template. Email templates enable you to send personalized email
+  to one or more destinations in a single API operation. For more information,
+  see the [Amazon SES Developer
+  Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html).
 
-  Email templates enable you to send personalized email to
-  one or more destinations in a single API operation. For more information, see
-  the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20UpdateEmailTemplate&this_doc_guide=API%2520Reference)
 
-  You can execute this operation no more than once per second.
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the template.
+
+  ## Optional parameters:
   """
-  @spec update_email_template(map(), String.t(), update_email_template_request(), list()) ::
+  @spec update_email_template(
+          AWS.Client.t(),
+          String.t(),
+          update_email_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_email_template_errors()}
@@ -6754,7 +7777,8 @@ defmodule AWS.SESv2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

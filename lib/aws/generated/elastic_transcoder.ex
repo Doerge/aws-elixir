@@ -4,8 +4,6 @@
 defmodule AWS.ElasticTranscoder do
   @moduledoc """
   AWS Elastic Transcoder Service
-
-  The AWS Elastic Transcoder Service.
   """
 
   alias AWS.Client
@@ -1131,12 +1129,14 @@ defmodule AWS.ElasticTranscoder do
   @doc """
   The CancelJob operation cancels an unfinished job.
 
-  You can only cancel a job that has a status of `Submitted`. To prevent a
-  pipeline from starting to process a job while you're getting the job identifier,
-  use
-  `UpdatePipelineStatus` to temporarily pause the pipeline.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20CancelJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the job that you want to cancel.
+
+  ## Optional parameters:
   """
-  @spec cancel_job(map(), String.t(), cancel_job_request(), list()) ::
+  @spec cancel_job(AWS.Client.t(), String.t(), cancel_job_request(), Keyword.t()) ::
           {:ok, cancel_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_job_errors()}
@@ -1145,7 +1145,8 @@ defmodule AWS.ElasticTranscoder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1162,16 +1163,15 @@ defmodule AWS.ElasticTranscoder do
 
   @doc """
   When you create a job, Elastic Transcoder returns JSON data that includes the
-  values that you specified
-  plus information about the job that is created.
+  values that you specified plus information about the job that is created.
 
-  If you have specified more than one output for your jobs (for example, one
-  output for the
-  Kindle Fire and another output for the Apple iPhone 4s), you currently must use
-  the Elastic Transcoder API to
-  list the jobs (as opposed to the AWS Console).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20CreateJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_job(map(), create_job_request(), list()) ::
+  @spec create_job(AWS.Client.t(), create_job_request(), Keyword.t()) ::
           {:ok, create_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_errors()}
@@ -1180,7 +1180,8 @@ defmodule AWS.ElasticTranscoder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1197,8 +1198,14 @@ defmodule AWS.ElasticTranscoder do
 
   @doc """
   The CreatePipeline operation creates a pipeline with settings that you specify.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20CreatePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_pipeline(map(), create_pipeline_request(), list()) ::
+  @spec create_pipeline(AWS.Client.t(), create_pipeline_request(), Keyword.t()) ::
           {:ok, create_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pipeline_errors()}
@@ -1207,7 +1214,8 @@ defmodule AWS.ElasticTranscoder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1224,30 +1232,24 @@ defmodule AWS.ElasticTranscoder do
 
   @doc """
   The CreatePreset operation creates a preset with settings that you specify.
-
   Elastic Transcoder checks the CreatePreset settings to ensure that they meet
-  Elastic Transcoder requirements
-  and to determine whether they comply with H.264 standards. If your settings are
-  not
-  valid for Elastic Transcoder, Elastic Transcoder returns an HTTP 400 response
-  (`ValidationException`) and
-  does not create the preset. If the settings are valid for Elastic Transcoder but
-  aren't strictly
-  compliant with the H.264 standard, Elastic Transcoder creates the preset and
-  returns a warning message
-  in the response. This helps you determine whether your settings comply with the
-  H.264
-  standard while giving you greater flexibility with respect to the video that
-  Elastic Transcoder
-  produces.
+  Elastic Transcoder requirements and to determine whether they comply with
+  H.264 standards. If your settings are not valid for Elastic Transcoder,
+  Elastic Transcoder returns an HTTP 400 response (`ValidationException`) and
+  does not create the preset. If the settings are valid for Elastic Transcoder
+  but aren't strictly compliant with the H.264 standard, Elastic Transcoder
+  creates the preset and returns a warning message in the response. This helps
+  you determine whether your settings comply with the H.264 standard while
+  giving you greater flexibility with respect to the video that Elastic
+  Transcoder produces.
 
-  Elastic Transcoder uses the H.264 video-compression format. For more
-  information, see the International
-  Telecommunication Union publication *Recommendation ITU-T H.264: Advanced video
-  coding
-  for generic audiovisual services*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20CreatePreset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_preset(map(), create_preset_request(), list()) ::
+  @spec create_preset(AWS.Client.t(), create_preset_request(), Keyword.t()) ::
           {:ok, create_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_preset_errors()}
@@ -1256,7 +1258,8 @@ defmodule AWS.ElasticTranscoder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1274,12 +1277,14 @@ defmodule AWS.ElasticTranscoder do
   @doc """
   The DeletePipeline operation removes a pipeline.
 
-  You can only delete a pipeline that has never been used or that is not currently
-  in use
-  (doesn't contain any active jobs). If the pipeline is currently in use,
-  `DeletePipeline` returns an error.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20DeletePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the pipeline that you want to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_pipeline(map(), String.t(), delete_pipeline_request(), list()) ::
+  @spec delete_pipeline(AWS.Client.t(), String.t(), delete_pipeline_request(), Keyword.t()) ::
           {:ok, delete_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pipeline_errors()}
@@ -1288,7 +1293,8 @@ defmodule AWS.ElasticTranscoder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1306,9 +1312,15 @@ defmodule AWS.ElasticTranscoder do
   @doc """
   The DeletePreset operation removes a preset that you've added in an AWS region.
 
-  You can't delete the default presets that are included with Elastic Transcoder.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20DeletePreset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the preset for which you want to get
+    detailed information.
+
+  ## Optional parameters:
   """
-  @spec delete_preset(map(), String.t(), delete_preset_request(), list()) ::
+  @spec delete_preset(AWS.Client.t(), String.t(), delete_preset_request(), Keyword.t()) ::
           {:ok, delete_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_preset_errors()}
@@ -1317,7 +1329,8 @@ defmodule AWS.ElasticTranscoder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1336,80 +1349,136 @@ defmodule AWS.ElasticTranscoder do
   The ListJobsByPipeline operation gets a list of the jobs currently in a
   pipeline.
 
-  Elastic Transcoder returns all of the jobs currently in the specified pipeline.
-  The response body contains
-  one element for each job that satisfies the search criteria.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20ListJobsByPipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:pipeline_id` (`t:string`) The ID of the pipeline for which you want to get
+    job information.
+
+  ## Optional parameters:
+  * `:ascending` (`t:string`) To list jobs in chronological order by the date and
+    time that they were submitted, enter true. To list jobs in reverse
+    chronological order, enter false.
+  * `:page_token` (`t:string`) When Elastic Transcoder returns more than one page
+    of results, use pageToken in subsequent GET requests to get each successive
+    page of results.
   """
-  @spec list_jobs_by_pipeline(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_jobs_by_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_jobs_by_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_by_pipeline_errors()}
-  def list_jobs_by_pipeline(
-        %Client{} = client,
-        pipeline_id,
-        ascending \\ nil,
-        page_token \\ nil,
-        options \\ []
-      ) do
+  def list_jobs_by_pipeline(%Client{} = client, pipeline_id, options \\ []) do
     url_path = "/2012-09-25/jobsByPipeline/#{AWS.Util.encode_uri(pipeline_id)}"
+
+    # Validate optional parameters
+    optional_params = [ascending: nil, page_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_token) do
-        [{"PageToken", page_token} | query_params]
+      if opt_val = Keyword.get(options, :page_token) do
+        [{"PageToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(ascending) do
-        [{"Ascending", ascending} | query_params]
+      if opt_val = Keyword.get(options, :ascending) do
+        [{"Ascending", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:ascending, :page_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   The ListJobsByStatus operation gets a list of jobs that have a specified status.
+  The response body contains one element for each job that satisfies the search
+  criteria.
 
-  The response
-  body contains one element for each job that satisfies the search criteria.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20ListJobsByStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:status` (`t:string`) To get information about all of the jobs associated
+    with the current AWS account that have a given status, specify the following
+    status: Submitted, Progressing, Complete, Canceled, or Error.
+
+  ## Optional parameters:
+  * `:ascending` (`t:string`) To list jobs in chronological order by the date and
+    time that they were submitted, enter true. To list jobs in reverse
+    chronological order, enter false.
+  * `:page_token` (`t:string`) When Elastic Transcoder returns more than one page
+    of results, use pageToken in subsequent GET requests to get each successive
+    page of results.
   """
-  @spec list_jobs_by_status(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_jobs_by_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_jobs_by_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_by_status_errors()}
-  def list_jobs_by_status(
-        %Client{} = client,
-        status,
-        ascending \\ nil,
-        page_token \\ nil,
-        options \\ []
-      ) do
+  def list_jobs_by_status(%Client{} = client, status, options \\ []) do
     url_path = "/2012-09-25/jobsByStatus/#{AWS.Util.encode_uri(status)}"
+
+    # Validate optional parameters
+    optional_params = [ascending: nil, page_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_token) do
-        [{"PageToken", page_token} | query_params]
+      if opt_val = Keyword.get(options, :page_token) do
+        [{"PageToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(ascending) do
-        [{"Ascending", ascending} | query_params]
+      if opt_val = Keyword.get(options, :ascending) do
+        [{"Ascending", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:ascending, :page_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1417,115 +1486,259 @@ defmodule AWS.ElasticTranscoder do
   @doc """
   The ListPipelines operation gets a list of the pipelines associated with the
   current AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20ListPipelines&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:ascending` (`t:string`) To list pipelines in chronological order by the date
+    and time that they were created, enter true. To list pipelines in reverse
+    chronological order, enter false.
+  * `:page_token` (`t:string`) When Elastic Transcoder returns more than one page
+    of results, use pageToken in subsequent GET requests to get each successive
+    page of results.
   """
-  @spec list_pipelines(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pipelines_errors()}
-  def list_pipelines(%Client{} = client, ascending \\ nil, page_token \\ nil, options \\ []) do
+  def list_pipelines(%Client{} = client, options \\ []) do
     url_path = "/2012-09-25/pipelines"
+
+    # Validate optional parameters
+    optional_params = [ascending: nil, page_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_token) do
-        [{"PageToken", page_token} | query_params]
+      if opt_val = Keyword.get(options, :page_token) do
+        [{"PageToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(ascending) do
-        [{"Ascending", ascending} | query_params]
+      if opt_val = Keyword.get(options, :ascending) do
+        [{"Ascending", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:ascending, :page_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   The ListPresets operation gets a list of the default presets included with
-  Elastic Transcoder and the presets that
-  you've added in an AWS region.
+  Elastic Transcoder and the presets that you've added in an AWS region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20ListPresets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:ascending` (`t:string`) To list presets in chronological order by the date
+    and time that they were created, enter true. To list presets in reverse
+    chronological order, enter false.
+  * `:page_token` (`t:string`) When Elastic Transcoder returns more than one page
+    of results, use pageToken in subsequent GET requests to get each successive
+    page of results.
   """
-  @spec list_presets(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_presets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_presets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_presets_errors()}
-  def list_presets(%Client{} = client, ascending \\ nil, page_token \\ nil, options \\ []) do
+  def list_presets(%Client{} = client, options \\ []) do
     url_path = "/2012-09-25/presets"
+
+    # Validate optional parameters
+    optional_params = [ascending: nil, page_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_token) do
-        [{"PageToken", page_token} | query_params]
+      if opt_val = Keyword.get(options, :page_token) do
+        [{"PageToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(ascending) do
-        [{"Ascending", ascending} | query_params]
+      if opt_val = Keyword.get(options, :ascending) do
+        [{"Ascending", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:ascending, :page_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   The ReadJob operation returns detailed information about a job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20ReadJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the job for which you want to get
+    detailed information.
+
+  ## Optional parameters:
   """
-  @spec read_job(map(), String.t(), list()) ::
+  @spec read_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, read_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, read_job_errors()}
   def read_job(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/jobs/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   The ReadPipeline operation gets detailed information about a pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20ReadPipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the pipeline to read.
+
+  ## Optional parameters:
   """
-  @spec read_pipeline(map(), String.t(), list()) ::
+  @spec read_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, read_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, read_pipeline_errors()}
   def read_pipeline(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   The ReadPreset operation gets detailed information about a preset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20ReadPreset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the preset for which you want to get
+    detailed information.
+
+  ## Optional parameters:
   """
-  @spec read_preset(map(), String.t(), list()) ::
+  @spec read_preset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, read_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, read_preset_errors()}
   def read_preset(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/presets/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1533,16 +1746,13 @@ defmodule AWS.ElasticTranscoder do
   @doc """
   The TestRole operation tests the IAM role used to create the pipeline.
 
-  The `TestRole` action lets you determine whether the IAM role you are using
-  has sufficient permissions to let Elastic Transcoder perform tasks associated
-  with the transcoding
-  process. The action attempts to assume the specified IAM role, checks read
-  access to the
-  input and output buckets, and tries to send a test notification to Amazon SNS
-  topics
-  that you specify.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20TestRole&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec test_role(map(), test_role_request(), list()) ::
+  @spec test_role(AWS.Client.t(), test_role_request(), Keyword.t()) ::
           {:ok, test_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_role_errors()}
@@ -1551,7 +1761,8 @@ defmodule AWS.ElasticTranscoder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1569,12 +1780,14 @@ defmodule AWS.ElasticTranscoder do
   @doc """
   Use the `UpdatePipeline` operation to update settings for a pipeline.
 
-  When you change pipeline settings, your changes take effect immediately.
-  Jobs that you have already submitted and that Elastic Transcoder has not started
-  to process are
-  affected in addition to jobs that you submit after you change settings.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20UpdatePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the pipeline that you want to update.
+
+  ## Optional parameters:
   """
-  @spec update_pipeline(map(), String.t(), update_pipeline_request(), list()) ::
+  @spec update_pipeline(AWS.Client.t(), String.t(), update_pipeline_request(), Keyword.t()) ::
           {:ok, update_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pipeline_errors()}
@@ -1583,7 +1796,8 @@ defmodule AWS.ElasticTranscoder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -1592,14 +1806,19 @@ defmodule AWS.ElasticTranscoder do
   With the UpdatePipelineNotifications operation, you can update Amazon Simple
   Notification Service (Amazon SNS) notifications for a pipeline.
 
-  When you update notifications for a pipeline, Elastic Transcoder returns the
-  values that you specified in the request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20UpdatePipelineNotifications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the pipeline for which you want to change
+    notification settings.
+
+  ## Optional parameters:
   """
   @spec update_pipeline_notifications(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_pipeline_notifications_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_pipeline_notifications_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1609,7 +1828,8 @@ defmodule AWS.ElasticTranscoder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1626,18 +1846,21 @@ defmodule AWS.ElasticTranscoder do
 
   @doc """
   The UpdatePipelineStatus operation pauses or reactivates a pipeline, so that the
-  pipeline
-  stops or restarts the processing of jobs.
+  pipeline stops or restarts the processing of jobs.
 
-  Changing the pipeline status is useful if you want to cancel one or more jobs.
-  You can't
-  cancel jobs after Elastic Transcoder has started processing them; if you pause
-  the pipeline to which
-  you submitted the jobs, you have more time to get the job IDs for the jobs that
-  you want
-  to cancel, and to send a `CancelJob` request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20UpdatePipelineStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the pipeline to update.
+
+  ## Optional parameters:
   """
-  @spec update_pipeline_status(map(), String.t(), update_pipeline_status_request(), list()) ::
+  @spec update_pipeline_status(
+          AWS.Client.t(),
+          String.t(),
+          update_pipeline_status_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_pipeline_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pipeline_status_errors()}
@@ -1646,7 +1869,8 @@ defmodule AWS.ElasticTranscoder do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

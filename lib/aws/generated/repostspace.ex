@@ -4,16 +4,15 @@
 defmodule AWS.Repostspace do
   @moduledoc """
   AWS re:Post Private is a private version of AWS re:Post for enterprises with
-  Enterprise Support or Enterprise On-Ramp Support plans.
-
-  It provides access to knowledge and experts to accelerate cloud adoption and
-  increase developer productivity. With your organization-specific private
-  re:Post, you can build an organization-specific developer community that drives
-  efficiencies at scale and provides access to valuable knowledge resources.
-  Additionally, re:Post Private centralizes trusted AWS technical content and
-  offers private discussion forums to improve how your teams collaborate
-  internally and with AWS to remove technical obstacles, accelerate innovation,
-  and scale more efficiently in the cloud.
+  Enterprise Support or Enterprise On-Ramp Support plans. It provides access to
+  knowledge and experts to accelerate cloud adoption and increase developer
+  productivity. With your organization-specific private re:Post, you can build
+  an organization-specific developer community that drives efficiencies at scale
+  and provides access to valuable knowledge resources. Additionally, re:Post
+  Private centralizes trusted AWS technical content and offers private
+  discussion forums to improve how your teams collaborate internally and with
+  AWS to remove technical obstacles, accelerate innovation, and scale more
+  efficiently in the cloud.
   """
 
   alias AWS.Client
@@ -449,8 +448,14 @@ defmodule AWS.Repostspace do
 
   @doc """
   Creates an AWS re:Post Private private re:Post.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20CreateSpace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_space(map(), create_space_input(), list()) ::
+  @spec create_space(AWS.Client.t(), create_space_input(), Keyword.t()) ::
           {:ok, create_space_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_space_errors()}
@@ -459,7 +464,8 @@ defmodule AWS.Repostspace do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -476,8 +482,15 @@ defmodule AWS.Repostspace do
 
   @doc """
   Deletes an AWS re:Post Private private re:Post.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20DeleteSpace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:space_id` (`t:string`) The unique ID of the private re:Post.
+
+  ## Optional parameters:
   """
-  @spec delete_space(map(), String.t(), delete_space_input(), list()) ::
+  @spec delete_space(AWS.Client.t(), String.t(), delete_space_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_space_errors()}
@@ -486,7 +499,8 @@ defmodule AWS.Repostspace do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -504,8 +518,23 @@ defmodule AWS.Repostspace do
   @doc """
   Removes the user or group from the list of administrators of the private
   re:Post.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20DeregisterAdmin&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:admin_id` (`t:string`) The ID of the admin to remove.
+  * `:space_id` (`t:string`) The ID of the private re:Post to remove the admin
+    from.
+
+  ## Optional parameters:
   """
-  @spec deregister_admin(map(), String.t(), String.t(), deregister_admin_input(), list()) ::
+  @spec deregister_admin(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          deregister_admin_input(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_admin_errors()}
@@ -514,7 +543,8 @@ defmodule AWS.Repostspace do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -531,17 +561,42 @@ defmodule AWS.Repostspace do
 
   @doc """
   Displays information about the AWS re:Post Private private re:Post.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20GetSpace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:space_id` (`t:string`) The ID of the private re:Post.
+
+  ## Optional parameters:
   """
-  @spec get_space(map(), String.t(), list()) ::
+  @spec get_space(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_space_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_space_errors()}
   def get_space(%Client{} = client, space_id, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -549,59 +604,130 @@ defmodule AWS.Repostspace do
   @doc """
   Returns a list of AWS re:Post Private private re:Posts in the account with some
   information about each private re:Post.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20ListSpaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of private re:Posts to include
+    in the results.
+  * `:next_token` (`t:`) The token for the next set of private re:Posts to return.
+    You receive this token from a previous ListSpaces operation.
   """
-  @spec list_spaces(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_spaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_spaces_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_spaces_errors()}
-  def list_spaces(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_spaces(%Client{} = client, options \\ []) do
     url_path = "/spaces"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the tags that are associated with the AWS re:Post Private resource
-  specified by the resourceArn.
+  specified by the resourceArn. The only resource that can be tagged is a
+  private re:Post.
 
-  The only resource that can be tagged is a private re:Post.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource that the tags are
+    associated with.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Adds a user or group to the list of administrators of the private re:Post.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20RegisterAdmin&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:admin_id` (`t:string`) The ID of the administrator.
+  * `:space_id` (`t:string`) The ID of the private re:Post.
+
+  ## Optional parameters:
   """
-  @spec register_admin(map(), String.t(), String.t(), register_admin_input(), list()) ::
+  @spec register_admin(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          register_admin_input(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_admin_errors()}
@@ -610,7 +736,8 @@ defmodule AWS.Repostspace do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -627,8 +754,15 @@ defmodule AWS.Repostspace do
 
   @doc """
   Sends an invitation email to selected users and groups.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20SendInvites&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:space_id` (`t:string`) The ID of the private re:Post.
+
+  ## Optional parameters:
   """
-  @spec send_invites(map(), String.t(), send_invites_input(), list()) ::
+  @spec send_invites(AWS.Client.t(), String.t(), send_invites_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_invites_errors()}
@@ -637,7 +771,8 @@ defmodule AWS.Repostspace do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -653,15 +788,22 @@ defmodule AWS.Repostspace do
   end
 
   @doc """
-  Associates tags with an AWS re:Post Private resource.
-
-  Currently, the only resource that can be tagged is the private re:Post. If you
-  specify a new tag key for the resource, the tag is appended to the list of tags
-  that are associated with the resource. If you specify a tag key that’s already
+  Associates tags with an AWS re:Post Private resource. Currently, the only
+  resource that can be tagged is the private re:Post. If you specify a new tag
+  key for the resource, the tag is appended to the list of tags that are
+  associated with the resource. If you specify a tag key that’s already
   associated with the resource, the new tag value that you specify replaces the
   previous value for that tag.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource that the tag is
+    associated with.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -670,7 +812,8 @@ defmodule AWS.Repostspace do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -687,8 +830,17 @@ defmodule AWS.Repostspace do
 
   @doc """
   Removes the association of the tag with the AWS re:Post Private resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.repostspace#TagKey]`) The key values of the
+    tag.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -702,7 +854,8 @@ defmodule AWS.Repostspace do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -719,8 +872,15 @@ defmodule AWS.Repostspace do
 
   @doc """
   Modifies an existing AWS re:Post Private private re:Post.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20UpdateSpace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:space_id` (`t:string`) The unique ID of this private re:Post.
+
+  ## Optional parameters:
   """
-  @spec update_space(map(), String.t(), update_space_input(), list()) ::
+  @spec update_space(AWS.Client.t(), String.t(), update_space_input(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_space_errors()}
@@ -729,7 +889,8 @@ defmodule AWS.Repostspace do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

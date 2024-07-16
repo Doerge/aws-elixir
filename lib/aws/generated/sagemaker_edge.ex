@@ -210,8 +210,14 @@ defmodule AWS.SagemakerEdge do
 
   @doc """
   Use to get the active deployments from a device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakeredge%20GetDeployments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_deployments(map(), get_deployments_request(), list()) ::
+  @spec get_deployments(AWS.Client.t(), get_deployments_request(), Keyword.t()) ::
           {:ok, get_deployments_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployments_errors()}
@@ -220,7 +226,8 @@ defmodule AWS.SagemakerEdge do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -237,8 +244,14 @@ defmodule AWS.SagemakerEdge do
 
   @doc """
   Use to check if a device is registered with SageMaker Edge Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakeredge%20GetDeviceRegistration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_device_registration(map(), get_device_registration_request(), list()) ::
+  @spec get_device_registration(AWS.Client.t(), get_device_registration_request(), Keyword.t()) ::
           {:ok, get_device_registration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_registration_errors()}
@@ -247,7 +260,8 @@ defmodule AWS.SagemakerEdge do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -264,8 +278,14 @@ defmodule AWS.SagemakerEdge do
 
   @doc """
   Use to get the current status of devices registered on SageMaker Edge Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakeredge%20SendHeartbeat&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec send_heartbeat(map(), send_heartbeat_request(), list()) ::
+  @spec send_heartbeat(AWS.Client.t(), send_heartbeat_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_heartbeat_errors()}
@@ -274,7 +294,8 @@ defmodule AWS.SagemakerEdge do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

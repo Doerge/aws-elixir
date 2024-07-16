@@ -4,24 +4,6 @@
 defmodule AWS.DeviceFarm do
   @moduledoc """
   Welcome to the AWS Device Farm API documentation, which contains APIs for:
-
-    *
-  Testing on desktop browsers
-
-  Device Farm makes it possible for you to test your web applications on desktop
-  browsers using
-  Selenium.
-
-  The APIs for desktop browser testing contain `TestGrid` in their names. For
-  more information, see [Testing Web Applications on Selenium with Device
-  Farm](https://docs.aws.amazon.com/devicefarm/latest/testgrid/).
-
-    *
-  Testing on real mobile devices
-
-  Device Farm makes it possible for you to test apps on physical phones, tablets,
-  and other
-  devices in the cloud. For more information, see the [Device Farm Developer Guide](https://docs.aws.amazon.com/devicefarm/latest/developerguide/).
   """
 
   alias AWS.Client
@@ -3237,12 +3219,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Creates a device pool.
   """
-  @spec create_device_pool(map(), create_device_pool_request(), list()) ::
+  @spec create_device_pool(AWS.Client.t(), create_device_pool_request(), Keyword.t()) ::
           {:ok, create_device_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_device_pool_errors()}
   def create_device_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDevicePool", input, options)
   end
@@ -3251,12 +3234,13 @@ defmodule AWS.DeviceFarm do
   Creates a profile that can be applied to one or more private fleet device
   instances.
   """
-  @spec create_instance_profile(map(), create_instance_profile_request(), list()) ::
+  @spec create_instance_profile(AWS.Client.t(), create_instance_profile_request(), Keyword.t()) ::
           {:ok, create_instance_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_instance_profile_errors()}
   def create_instance_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInstanceProfile", input, options)
   end
@@ -3264,12 +3248,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Creates a network profile.
   """
-  @spec create_network_profile(map(), create_network_profile_request(), list()) ::
+  @spec create_network_profile(AWS.Client.t(), create_network_profile_request(), Keyword.t()) ::
           {:ok, create_network_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_network_profile_errors()}
   def create_network_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateNetworkProfile", input, options)
   end
@@ -3277,12 +3262,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Creates a project.
   """
-  @spec create_project(map(), create_project_request(), list()) ::
+  @spec create_project(AWS.Client.t(), create_project_request(), Keyword.t()) ::
           {:ok, create_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProject", input, options)
   end
@@ -3290,43 +3276,47 @@ defmodule AWS.DeviceFarm do
   @doc """
   Specifies and starts a remote access session.
   """
-  @spec create_remote_access_session(map(), create_remote_access_session_request(), list()) ::
+  @spec create_remote_access_session(
+          AWS.Client.t(),
+          create_remote_access_session_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_remote_access_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_remote_access_session_errors()}
   def create_remote_access_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRemoteAccessSession", input, options)
   end
 
   @doc """
-  Creates a Selenium testing project.
-
-  Projects are used to track `TestGridSession`
+  Creates a Selenium testing project. Projects are used to track `TestGridSession`
   instances.
   """
-  @spec create_test_grid_project(map(), create_test_grid_project_request(), list()) ::
+  @spec create_test_grid_project(AWS.Client.t(), create_test_grid_project_request(), Keyword.t()) ::
           {:ok, create_test_grid_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_test_grid_project_errors()}
   def create_test_grid_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTestGridProject", input, options)
   end
 
   @doc """
   Creates a signed, short-term URL that can be passed to a Selenium
-  `RemoteWebDriver`
-  constructor.
+  `RemoteWebDriver` constructor.
   """
-  @spec create_test_grid_url(map(), create_test_grid_url_request(), list()) ::
+  @spec create_test_grid_url(AWS.Client.t(), create_test_grid_url_request(), Keyword.t()) ::
           {:ok, create_test_grid_url_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_test_grid_url_errors()}
   def create_test_grid_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTestGridUrl", input, options)
   end
@@ -3334,43 +3324,47 @@ defmodule AWS.DeviceFarm do
   @doc """
   Uploads an app or test scripts.
   """
-  @spec create_upload(map(), create_upload_request(), list()) ::
+  @spec create_upload(AWS.Client.t(), create_upload_request(), Keyword.t()) ::
           {:ok, create_upload_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_upload_errors()}
   def create_upload(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUpload", input, options)
   end
 
   @doc """
   Creates a configuration record in Device Farm for your Amazon Virtual Private
-  Cloud
-  (VPC) endpoint.
+  Cloud (VPC) endpoint.
   """
-  @spec create_vpce_configuration(map(), create_vpce_configuration_request(), list()) ::
+  @spec create_vpce_configuration(
+          AWS.Client.t(),
+          create_vpce_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_vpce_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vpce_configuration_errors()}
   def create_vpce_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVPCEConfiguration", input, options)
   end
 
   @doc """
-  Deletes a device pool given the pool ARN.
-
-  Does not allow deletion of curated pools
-  owned by the system.
+  Deletes a device pool given the pool ARN. Does not allow deletion of curated
+  pools owned by the system.
   """
-  @spec delete_device_pool(map(), delete_device_pool_request(), list()) ::
+  @spec delete_device_pool(AWS.Client.t(), delete_device_pool_request(), Keyword.t()) ::
           {:ok, delete_device_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_device_pool_errors()}
   def delete_device_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDevicePool", input, options)
   end
@@ -3378,12 +3372,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Deletes a profile that can be applied to one or more private device instances.
   """
-  @spec delete_instance_profile(map(), delete_instance_profile_request(), list()) ::
+  @spec delete_instance_profile(AWS.Client.t(), delete_instance_profile_request(), Keyword.t()) ::
           {:ok, delete_instance_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_instance_profile_errors()}
   def delete_instance_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInstanceProfile", input, options)
   end
@@ -3391,27 +3386,27 @@ defmodule AWS.DeviceFarm do
   @doc """
   Deletes a network profile.
   """
-  @spec delete_network_profile(map(), delete_network_profile_request(), list()) ::
+  @spec delete_network_profile(AWS.Client.t(), delete_network_profile_request(), Keyword.t()) ::
           {:ok, delete_network_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_network_profile_errors()}
   def delete_network_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNetworkProfile", input, options)
   end
 
   @doc """
   Deletes an AWS Device Farm project, given the project ARN.
-
-  Deleting this resource does not stop an in-progress run.
   """
-  @spec delete_project(map(), delete_project_request(), list()) ::
+  @spec delete_project(AWS.Client.t(), delete_project_request(), Keyword.t()) ::
           {:ok, delete_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProject", input, options)
   end
@@ -3419,44 +3414,46 @@ defmodule AWS.DeviceFarm do
   @doc """
   Deletes a completed remote access session and its results.
   """
-  @spec delete_remote_access_session(map(), delete_remote_access_session_request(), list()) ::
+  @spec delete_remote_access_session(
+          AWS.Client.t(),
+          delete_remote_access_session_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_remote_access_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_remote_access_session_errors()}
   def delete_remote_access_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRemoteAccessSession", input, options)
   end
 
   @doc """
   Deletes the run, given the run ARN.
-
-  Deleting this resource does not stop an in-progress run.
   """
-  @spec delete_run(map(), delete_run_request(), list()) ::
+  @spec delete_run(AWS.Client.t(), delete_run_request(), Keyword.t()) ::
           {:ok, delete_run_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_run_errors()}
   def delete_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRun", input, options)
   end
 
   @doc """
-  Deletes a Selenium testing project and all content generated under it.
-
-  You cannot undo this operation.
-
-  You cannot delete a project if it has active sessions.
+  Deletes a Selenium testing project and all content generated under it. You
+  cannot undo this operation.
   """
-  @spec delete_test_grid_project(map(), delete_test_grid_project_request(), list()) ::
+  @spec delete_test_grid_project(AWS.Client.t(), delete_test_grid_project_request(), Keyword.t()) ::
           {:ok, delete_test_grid_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_test_grid_project_errors()}
   def delete_test_grid_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTestGridProject", input, options)
   end
@@ -3464,12 +3461,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Deletes an upload given the upload ARN.
   """
-  @spec delete_upload(map(), delete_upload_request(), list()) ::
+  @spec delete_upload(AWS.Client.t(), delete_upload_request(), Keyword.t()) ::
           {:ok, delete_upload_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_upload_errors()}
   def delete_upload(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUpload", input, options)
   end
@@ -3477,27 +3475,32 @@ defmodule AWS.DeviceFarm do
   @doc """
   Deletes a configuration for your Amazon Virtual Private Cloud (VPC) endpoint.
   """
-  @spec delete_vpce_configuration(map(), delete_vpce_configuration_request(), list()) ::
+  @spec delete_vpce_configuration(
+          AWS.Client.t(),
+          delete_vpce_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_vpce_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vpce_configuration_errors()}
   def delete_vpce_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVPCEConfiguration", input, options)
   end
 
   @doc """
   Returns the number of unmetered iOS or unmetered Android devices that have been
-  purchased by the
-  account.
+  purchased by the account.
   """
-  @spec get_account_settings(map(), get_account_settings_request(), list()) ::
+  @spec get_account_settings(AWS.Client.t(), get_account_settings_request(), Keyword.t()) ::
           {:ok, get_account_settings_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_settings_errors()}
   def get_account_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAccountSettings", input, options)
   end
@@ -3505,12 +3508,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about a unique device type.
   """
-  @spec get_device(map(), get_device_request(), list()) ::
+  @spec get_device(AWS.Client.t(), get_device_request(), Keyword.t()) ::
           {:ok, get_device_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_errors()}
   def get_device(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDevice", input, options)
   end
@@ -3519,12 +3523,13 @@ defmodule AWS.DeviceFarm do
   Returns information about a device instance that belongs to a private device
   fleet.
   """
-  @spec get_device_instance(map(), get_device_instance_request(), list()) ::
+  @spec get_device_instance(AWS.Client.t(), get_device_instance_request(), Keyword.t()) ::
           {:ok, get_device_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_instance_errors()}
   def get_device_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeviceInstance", input, options)
   end
@@ -3532,12 +3537,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about a device pool.
   """
-  @spec get_device_pool(map(), get_device_pool_request(), list()) ::
+  @spec get_device_pool(AWS.Client.t(), get_device_pool_request(), Keyword.t()) ::
           {:ok, get_device_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_pool_errors()}
   def get_device_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDevicePool", input, options)
   end
@@ -3545,12 +3551,17 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about compatibility with a device pool.
   """
-  @spec get_device_pool_compatibility(map(), get_device_pool_compatibility_request(), list()) ::
+  @spec get_device_pool_compatibility(
+          AWS.Client.t(),
+          get_device_pool_compatibility_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_device_pool_compatibility_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_pool_compatibility_errors()}
   def get_device_pool_compatibility(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDevicePoolCompatibility", input, options)
   end
@@ -3558,12 +3569,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Returns information about the specified instance profile.
   """
-  @spec get_instance_profile(map(), get_instance_profile_request(), list()) ::
+  @spec get_instance_profile(AWS.Client.t(), get_instance_profile_request(), Keyword.t()) ::
           {:ok, get_instance_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_instance_profile_errors()}
   def get_instance_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInstanceProfile", input, options)
   end
@@ -3571,12 +3583,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about a job.
   """
-  @spec get_job(map(), get_job_request(), list()) ::
+  @spec get_job(AWS.Client.t(), get_job_request(), Keyword.t()) ::
           {:ok, get_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_errors()}
   def get_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJob", input, options)
   end
@@ -3584,34 +3597,32 @@ defmodule AWS.DeviceFarm do
   @doc """
   Returns information about a network profile.
   """
-  @spec get_network_profile(map(), get_network_profile_request(), list()) ::
+  @spec get_network_profile(AWS.Client.t(), get_network_profile_request(), Keyword.t()) ::
           {:ok, get_network_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_profile_errors()}
   def get_network_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetNetworkProfile", input, options)
   end
 
   @doc """
   Gets the current status and future status of all offerings purchased by an AWS
-  account.
-
-  The response
-  indicates how many offerings are currently available and the offerings that will
-  be available in the next
-  period. The API returns a `NotEligible` error if the user is not permitted to
-  invoke the
-  operation. If you must be able to invoke this operation, contact
+  account. The response indicates how many offerings are currently available and
+  the offerings that will be available in the next period. The API returns a
+  `NotEligible` error if the user is not permitted to invoke the operation. If
+  you must be able to invoke this operation, contact
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
-  @spec get_offering_status(map(), get_offering_status_request(), list()) ::
+  @spec get_offering_status(AWS.Client.t(), get_offering_status_request(), Keyword.t()) ::
           {:ok, get_offering_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_offering_status_errors()}
   def get_offering_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOfferingStatus", input, options)
   end
@@ -3619,12 +3630,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about a project.
   """
-  @spec get_project(map(), get_project_request(), list()) ::
+  @spec get_project(AWS.Client.t(), get_project_request(), Keyword.t()) ::
           {:ok, get_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_project_errors()}
   def get_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetProject", input, options)
   end
@@ -3632,12 +3644,17 @@ defmodule AWS.DeviceFarm do
   @doc """
   Returns a link to a currently running remote access session.
   """
-  @spec get_remote_access_session(map(), get_remote_access_session_request(), list()) ::
+  @spec get_remote_access_session(
+          AWS.Client.t(),
+          get_remote_access_session_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_remote_access_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_remote_access_session_errors()}
   def get_remote_access_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRemoteAccessSession", input, options)
   end
@@ -3645,12 +3662,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about a run.
   """
-  @spec get_run(map(), get_run_request(), list()) ::
+  @spec get_run(AWS.Client.t(), get_run_request(), Keyword.t()) ::
           {:ok, get_run_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_run_errors()}
   def get_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRun", input, options)
   end
@@ -3658,12 +3676,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about a suite.
   """
-  @spec get_suite(map(), get_suite_request(), list()) ::
+  @spec get_suite(AWS.Client.t(), get_suite_request(), Keyword.t()) ::
           {:ok, get_suite_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_suite_errors()}
   def get_suite(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSuite", input, options)
   end
@@ -3671,12 +3690,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about a test.
   """
-  @spec get_test(map(), get_test_request(), list()) ::
+  @spec get_test(AWS.Client.t(), get_test_request(), Keyword.t()) ::
           {:ok, get_test_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_test_errors()}
   def get_test(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTest", input, options)
   end
@@ -3684,35 +3704,29 @@ defmodule AWS.DeviceFarm do
   @doc """
   Retrieves information about a Selenium testing project.
   """
-  @spec get_test_grid_project(map(), get_test_grid_project_request(), list()) ::
+  @spec get_test_grid_project(AWS.Client.t(), get_test_grid_project_request(), Keyword.t()) ::
           {:ok, get_test_grid_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_test_grid_project_errors()}
   def get_test_grid_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTestGridProject", input, options)
   end
 
   @doc """
   A session is an instance of a browser created through a `RemoteWebDriver` with
-  the URL from `CreateTestGridUrlResult$url`.
-
-  You can use the following to look up sessions:
-
-    *
-  The session ARN (`GetTestGridSessionRequest$sessionArn`).
-
-    *
-  The project ARN and a session ID (`GetTestGridSessionRequest$projectArn` and
-  `GetTestGridSessionRequest$sessionId`).
+  the URL from `CreateTestGridUrlResult$url`. You can use the following to look
+  up sessions:
   """
-  @spec get_test_grid_session(map(), get_test_grid_session_request(), list()) ::
+  @spec get_test_grid_session(AWS.Client.t(), get_test_grid_session_request(), Keyword.t()) ::
           {:ok, get_test_grid_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_test_grid_session_errors()}
   def get_test_grid_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTestGridSession", input, options)
   end
@@ -3720,49 +3734,48 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about an upload.
   """
-  @spec get_upload(map(), get_upload_request(), list()) ::
+  @spec get_upload(AWS.Client.t(), get_upload_request(), Keyword.t()) ::
           {:ok, get_upload_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_upload_errors()}
   def get_upload(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUpload", input, options)
   end
 
   @doc """
   Returns information about the configuration settings for your Amazon Virtual
-  Private
-  Cloud (VPC) endpoint.
+  Private Cloud (VPC) endpoint.
   """
-  @spec get_vpce_configuration(map(), get_vpce_configuration_request(), list()) ::
+  @spec get_vpce_configuration(AWS.Client.t(), get_vpce_configuration_request(), Keyword.t()) ::
           {:ok, get_vpce_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_vpce_configuration_errors()}
   def get_vpce_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetVPCEConfiguration", input, options)
   end
 
   @doc """
-  Installs an application to the device in a remote access session.
-
-  For Android
+  Installs an application to the device in a remote access session. For Android
   applications, the file must be in .apk format. For iOS applications, the file
-  must be in
-  .ipa format.
+  must be in .ipa format.
   """
   @spec install_to_remote_access_session(
-          map(),
+          AWS.Client.t(),
           install_to_remote_access_session_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, install_to_remote_access_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, install_to_remote_access_session_errors()}
   def install_to_remote_access_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "InstallToRemoteAccessSession", input, options)
   end
@@ -3770,27 +3783,28 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about artifacts.
   """
-  @spec list_artifacts(map(), list_artifacts_request(), list()) ::
+  @spec list_artifacts(AWS.Client.t(), list_artifacts_request(), Keyword.t()) ::
           {:ok, list_artifacts_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_artifacts_errors()}
   def list_artifacts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListArtifacts", input, options)
   end
 
   @doc """
   Returns information about the private device instances associated with one or
-  more AWS
-  accounts.
+  more AWS accounts.
   """
-  @spec list_device_instances(map(), list_device_instances_request(), list()) ::
+  @spec list_device_instances(AWS.Client.t(), list_device_instances_request(), Keyword.t()) ::
           {:ok, list_device_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_device_instances_errors()}
   def list_device_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeviceInstances", input, options)
   end
@@ -3798,12 +3812,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about device pools.
   """
-  @spec list_device_pools(map(), list_device_pools_request(), list()) ::
+  @spec list_device_pools(AWS.Client.t(), list_device_pools_request(), Keyword.t()) ::
           {:ok, list_device_pools_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_device_pools_errors()}
   def list_device_pools(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDevicePools", input, options)
   end
@@ -3811,12 +3826,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about unique device types.
   """
-  @spec list_devices(map(), list_devices_request(), list()) ::
+  @spec list_devices(AWS.Client.t(), list_devices_request(), Keyword.t()) ::
           {:ok, list_devices_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_devices_errors()}
   def list_devices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDevices", input, options)
   end
@@ -3824,12 +3840,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Returns information about all the instance profiles in an AWS account.
   """
-  @spec list_instance_profiles(map(), list_instance_profiles_request(), list()) ::
+  @spec list_instance_profiles(AWS.Client.t(), list_instance_profiles_request(), Keyword.t()) ::
           {:ok, list_instance_profiles_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instance_profiles_errors()}
   def list_instance_profiles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInstanceProfiles", input, options)
   end
@@ -3837,12 +3854,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about jobs for a given test run.
   """
-  @spec list_jobs(map(), list_jobs_request(), list()) ::
+  @spec list_jobs(AWS.Client.t(), list_jobs_request(), Keyword.t()) ::
           {:ok, list_jobs_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_errors()}
   def list_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListJobs", input, options)
   end
@@ -3850,76 +3868,73 @@ defmodule AWS.DeviceFarm do
   @doc """
   Returns the list of available network profiles.
   """
-  @spec list_network_profiles(map(), list_network_profiles_request(), list()) ::
+  @spec list_network_profiles(AWS.Client.t(), list_network_profiles_request(), Keyword.t()) ::
           {:ok, list_network_profiles_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_network_profiles_errors()}
   def list_network_profiles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListNetworkProfiles", input, options)
   end
 
   @doc """
-  Returns a list of offering promotions.
-
-  Each offering promotion record contains the ID and description
-  of the promotion. The API returns a `NotEligible` error if the caller is not
-  permitted to invoke
-  the operation. Contact
-  [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com) if
-  you must be able to invoke this operation.
+  Returns a list of offering promotions. Each offering promotion record contains
+  the ID and description of the promotion. The API returns a `NotEligible` error
+  if the caller is not permitted to invoke the operation. Contact
+  [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com)
+  if you must be able to invoke this operation.
   """
-  @spec list_offering_promotions(map(), list_offering_promotions_request(), list()) ::
+  @spec list_offering_promotions(AWS.Client.t(), list_offering_promotions_request(), Keyword.t()) ::
           {:ok, list_offering_promotions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_offering_promotions_errors()}
   def list_offering_promotions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOfferingPromotions", input, options)
   end
 
   @doc """
   Returns a list of all historical purchases, renewals, and system renewal
-  transactions for an AWS
-  account.
-
-  The list is paginated and ordered by a descending timestamp (most recent
-  transactions are first).
-  The API returns a `NotEligible` error if the user is not permitted to invoke the
-  operation. If
+  transactions for an AWS account. The list is paginated and ordered by a
+  descending timestamp (most recent transactions are first). The API returns a
+  `NotEligible` error if the user is not permitted to invoke the operation. If
   you must be able to invoke this operation, contact
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
-  @spec list_offering_transactions(map(), list_offering_transactions_request(), list()) ::
+  @spec list_offering_transactions(
+          AWS.Client.t(),
+          list_offering_transactions_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_offering_transactions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_offering_transactions_errors()}
   def list_offering_transactions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOfferingTransactions", input, options)
   end
 
   @doc """
   Returns a list of products or offerings that the user can manage through the
-  API.
-
-  Each offering record
-  indicates the recurring price per unit and the frequency for that offering. The
-  API returns a
-  `NotEligible` error if the user is not permitted to invoke the operation. If you
-  must be
-  able to invoke this operation, contact
+  API. Each offering record indicates the recurring price per unit and the
+  frequency for that offering. The API returns a `NotEligible` error if the user
+  is not permitted to invoke the operation. If you must be able to invoke this
+  operation, contact
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
-  @spec list_offerings(map(), list_offerings_request(), list()) ::
+  @spec list_offerings(AWS.Client.t(), list_offerings_request(), Keyword.t()) ::
           {:ok, list_offerings_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_offerings_errors()}
   def list_offerings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOfferings", input, options)
   end
@@ -3927,12 +3942,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about projects.
   """
-  @spec list_projects(map(), list_projects_request(), list()) ::
+  @spec list_projects(AWS.Client.t(), list_projects_request(), Keyword.t()) ::
           {:ok, list_projects_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_projects_errors()}
   def list_projects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProjects", input, options)
   end
@@ -3940,12 +3956,17 @@ defmodule AWS.DeviceFarm do
   @doc """
   Returns a list of all currently running remote access sessions.
   """
-  @spec list_remote_access_sessions(map(), list_remote_access_sessions_request(), list()) ::
+  @spec list_remote_access_sessions(
+          AWS.Client.t(),
+          list_remote_access_sessions_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_remote_access_sessions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_remote_access_sessions_errors()}
   def list_remote_access_sessions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRemoteAccessSessions", input, options)
   end
@@ -3953,12 +3974,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about runs, given an AWS Device Farm project ARN.
   """
-  @spec list_runs(map(), list_runs_request(), list()) ::
+  @spec list_runs(AWS.Client.t(), list_runs_request(), Keyword.t()) ::
           {:ok, list_runs_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_runs_errors()}
   def list_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRuns", input, options)
   end
@@ -3966,12 +3988,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about samples, given an AWS Device Farm job ARN.
   """
-  @spec list_samples(map(), list_samples_request(), list()) ::
+  @spec list_samples(AWS.Client.t(), list_samples_request(), Keyword.t()) ::
           {:ok, list_samples_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_samples_errors()}
   def list_samples(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSamples", input, options)
   end
@@ -3979,12 +4002,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about test suites for a given job.
   """
-  @spec list_suites(map(), list_suites_request(), list()) ::
+  @spec list_suites(AWS.Client.t(), list_suites_request(), Keyword.t()) ::
           {:ok, list_suites_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_suites_errors()}
   def list_suites(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSuites", input, options)
   end
@@ -3992,12 +4016,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   List the tags for an AWS Device Farm resource.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4005,12 +4030,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets a list of all Selenium testing projects in your account.
   """
-  @spec list_test_grid_projects(map(), list_test_grid_projects_request(), list()) ::
+  @spec list_test_grid_projects(AWS.Client.t(), list_test_grid_projects_request(), Keyword.t()) ::
           {:ok, list_test_grid_projects_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_grid_projects_errors()}
   def list_test_grid_projects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTestGridProjects", input, options)
   end
@@ -4018,12 +4044,17 @@ defmodule AWS.DeviceFarm do
   @doc """
   Returns a list of the actions taken in a `TestGridSession`.
   """
-  @spec list_test_grid_session_actions(map(), list_test_grid_session_actions_request(), list()) ::
+  @spec list_test_grid_session_actions(
+          AWS.Client.t(),
+          list_test_grid_session_actions_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_test_grid_session_actions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_grid_session_actions_errors()}
   def list_test_grid_session_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTestGridSessionActions", input, options)
   end
@@ -4032,15 +4063,16 @@ defmodule AWS.DeviceFarm do
   Retrieves a list of artifacts created during the session.
   """
   @spec list_test_grid_session_artifacts(
-          map(),
+          AWS.Client.t(),
           list_test_grid_session_artifacts_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_test_grid_session_artifacts_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_grid_session_artifacts_errors()}
   def list_test_grid_session_artifacts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTestGridSessionArtifacts", input, options)
   end
@@ -4048,12 +4080,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Retrieves a list of sessions for a `TestGridProject`.
   """
-  @spec list_test_grid_sessions(map(), list_test_grid_sessions_request(), list()) ::
+  @spec list_test_grid_sessions(AWS.Client.t(), list_test_grid_sessions_request(), Keyword.t()) ::
           {:ok, list_test_grid_sessions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_grid_sessions_errors()}
   def list_test_grid_sessions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTestGridSessions", input, options)
   end
@@ -4061,37 +4094,27 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about tests in a given test suite.
   """
-  @spec list_tests(map(), list_tests_request(), list()) ::
+  @spec list_tests(AWS.Client.t(), list_tests_request(), Keyword.t()) ::
           {:ok, list_tests_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tests_errors()}
   def list_tests(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTests", input, options)
   end
 
   @doc """
   Gets information about unique problems, such as exceptions or crashes.
-
-  Unique problems are defined as a single instance of an error across a run, job,
-  or suite. For example,
-  if a call in your application consistently raises an exception (
-
-  ```
-  OutOfBoundsException in
-  MyActivity.java:386
-  ```
-
-  ), `ListUniqueProblems` returns a single entry instead of many
-  individual entries for that exception.
   """
-  @spec list_unique_problems(map(), list_unique_problems_request(), list()) ::
+  @spec list_unique_problems(AWS.Client.t(), list_unique_problems_request(), Keyword.t()) ::
           {:ok, list_unique_problems_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_unique_problems_errors()}
   def list_unique_problems(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUniqueProblems", input, options)
   end
@@ -4099,12 +4122,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about uploads, given an AWS Device Farm project ARN.
   """
-  @spec list_uploads(map(), list_uploads_request(), list()) ::
+  @spec list_uploads(AWS.Client.t(), list_uploads_request(), Keyword.t()) ::
           {:ok, list_uploads_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_uploads_errors()}
   def list_uploads(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUploads", input, options)
   end
@@ -4113,53 +4137,49 @@ defmodule AWS.DeviceFarm do
   Returns information about all Amazon Virtual Private Cloud (VPC) endpoint
   configurations in the AWS account.
   """
-  @spec list_vpce_configurations(map(), list_vpce_configurations_request(), list()) ::
+  @spec list_vpce_configurations(AWS.Client.t(), list_vpce_configurations_request(), Keyword.t()) ::
           {:ok, list_vpce_configurations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vpce_configurations_errors()}
   def list_vpce_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListVPCEConfigurations", input, options)
   end
 
   @doc """
-  Immediately purchases offerings for an AWS account.
-
-  Offerings renew with the latest total purchased
-  quantity for an offering, unless the renewal was overridden. The API returns a
-  `NotEligible`
-  error if the user is not permitted to invoke the operation. If you must be able
-  to invoke this operation,
-  contact
+  Immediately purchases offerings for an AWS account. Offerings renew with the
+  latest total purchased quantity for an offering, unless the renewal was
+  overridden. The API returns a `NotEligible` error if the user is not permitted
+  to invoke the operation. If you must be able to invoke this operation, contact
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
-  @spec purchase_offering(map(), purchase_offering_request(), list()) ::
+  @spec purchase_offering(AWS.Client.t(), purchase_offering_request(), Keyword.t()) ::
           {:ok, purchase_offering_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, purchase_offering_errors()}
   def purchase_offering(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PurchaseOffering", input, options)
   end
 
   @doc """
   Explicitly sets the quantity of devices to renew for an offering, starting from
-  the
-  `effectiveDate` of the next period.
-
-  The API returns a `NotEligible` error if the
-  user is not permitted to invoke the operation. If you must be able to invoke
-  this operation, contact
+  the `effectiveDate` of the next period. The API returns a `NotEligible` error
+  if the user is not permitted to invoke the operation. If you must be able to
+  invoke this operation, contact
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
-  @spec renew_offering(map(), renew_offering_request(), list()) ::
+  @spec renew_offering(AWS.Client.t(), renew_offering_request(), Keyword.t()) ::
           {:ok, renew_offering_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, renew_offering_errors()}
   def renew_offering(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RenewOffering", input, options)
   end
@@ -4167,32 +4187,31 @@ defmodule AWS.DeviceFarm do
   @doc """
   Schedules a run.
   """
-  @spec schedule_run(map(), schedule_run_request(), list()) ::
+  @spec schedule_run(AWS.Client.t(), schedule_run_request(), Keyword.t()) ::
           {:ok, schedule_run_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, schedule_run_errors()}
   def schedule_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ScheduleRun", input, options)
   end
 
   @doc """
-  Initiates a stop request for the current job.
-
-  AWS Device Farm immediately stops the job on the device
-  where tests have not started. You are not billed for this device. On the device
-  where tests have started,
-  setup suite and teardown suite tests run to completion on the device. You are
-  billed for setup, teardown,
-  and any tests that were in progress or already completed.
+  Initiates a stop request for the current job. AWS Device Farm immediately stops
+  the job on the device where tests have not started. You are not billed for
+  this device. On the device where tests have started, setup suite and teardown
+  suite tests run to completion on the device. You are billed for setup,
+  teardown, and any tests that were in progress or already completed.
   """
-  @spec stop_job(map(), stop_job_request(), list()) ::
+  @spec stop_job(AWS.Client.t(), stop_job_request(), Keyword.t()) ::
           {:ok, stop_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_job_errors()}
   def stop_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopJob", input, options)
   end
@@ -4200,50 +4219,52 @@ defmodule AWS.DeviceFarm do
   @doc """
   Ends a specified remote access session.
   """
-  @spec stop_remote_access_session(map(), stop_remote_access_session_request(), list()) ::
+  @spec stop_remote_access_session(
+          AWS.Client.t(),
+          stop_remote_access_session_request(),
+          Keyword.t()
+        ) ::
           {:ok, stop_remote_access_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_remote_access_session_errors()}
   def stop_remote_access_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopRemoteAccessSession", input, options)
   end
 
   @doc """
-  Initiates a stop request for the current test run.
-
-  AWS Device Farm immediately stops the run on devices
-  where tests have not started. You are not billed for these devices. On devices
-  where tests have started
-  executing, setup suite and teardown suite tests run to completion on those
-  devices. You are billed for
+  Initiates a stop request for the current test run. AWS Device Farm immediately
+  stops the run on devices where tests have not started. You are not billed for
+  these devices. On devices where tests have started executing, setup suite and
+  teardown suite tests run to completion on those devices. You are billed for
   setup, teardown, and any tests that were in progress or already completed.
   """
-  @spec stop_run(map(), stop_run_request(), list()) ::
+  @spec stop_run(AWS.Client.t(), stop_run_request(), Keyword.t()) ::
           {:ok, stop_run_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_run_errors()}
   def stop_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopRun", input, options)
   end
 
   @doc """
-  Associates the specified tags to a resource with the specified `resourceArn`.
-
-  If existing tags
-  on a resource are not specified in the request parameters, they are not changed.
-  When a resource is deleted,
-  the tags associated with that resource are also deleted.
+  Associates the specified tags to a resource with the specified `resourceArn`. If
+  existing tags on a resource are not specified in the request parameters, they
+  are not changed. When a resource is deleted, the tags associated with that
+  resource are also deleted.
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4251,12 +4272,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Deletes the specified tags from a resource.
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4264,30 +4286,29 @@ defmodule AWS.DeviceFarm do
   @doc """
   Updates information about a private device instance.
   """
-  @spec update_device_instance(map(), update_device_instance_request(), list()) ::
+  @spec update_device_instance(AWS.Client.t(), update_device_instance_request(), Keyword.t()) ::
           {:ok, update_device_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_device_instance_errors()}
   def update_device_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDeviceInstance", input, options)
   end
 
   @doc """
   Modifies the name, description, and rules in a device pool given the attributes
-  and
-  the pool ARN.
-
-  Rule updates are all-or-nothing, meaning they can only be updated as a
-  whole (or not at all).
+  and the pool ARN. Rule updates are all-or-nothing, meaning they can only be
+  updated as a whole (or not at all).
   """
-  @spec update_device_pool(map(), update_device_pool_request(), list()) ::
+  @spec update_device_pool(AWS.Client.t(), update_device_pool_request(), Keyword.t()) ::
           {:ok, update_device_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_device_pool_errors()}
   def update_device_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDevicePool", input, options)
   end
@@ -4295,12 +4316,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Updates information about an existing private device instance profile.
   """
-  @spec update_instance_profile(map(), update_instance_profile_request(), list()) ::
+  @spec update_instance_profile(AWS.Client.t(), update_instance_profile_request(), Keyword.t()) ::
           {:ok, update_instance_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_instance_profile_errors()}
   def update_instance_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateInstanceProfile", input, options)
   end
@@ -4308,26 +4330,27 @@ defmodule AWS.DeviceFarm do
   @doc """
   Updates the network profile.
   """
-  @spec update_network_profile(map(), update_network_profile_request(), list()) ::
+  @spec update_network_profile(AWS.Client.t(), update_network_profile_request(), Keyword.t()) ::
           {:ok, update_network_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_network_profile_errors()}
   def update_network_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateNetworkProfile", input, options)
   end
 
   @doc """
-  Modifies the specified project name, given the project ARN and a new
-  name.
+  Modifies the specified project name, given the project ARN and a new name.
   """
-  @spec update_project(map(), update_project_request(), list()) ::
+  @spec update_project(AWS.Client.t(), update_project_request(), Keyword.t()) ::
           {:ok, update_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_errors()}
   def update_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProject", input, options)
   end
@@ -4335,12 +4358,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Change details of a project.
   """
-  @spec update_test_grid_project(map(), update_test_grid_project_request(), list()) ::
+  @spec update_test_grid_project(AWS.Client.t(), update_test_grid_project_request(), Keyword.t()) ::
           {:ok, update_test_grid_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_test_grid_project_errors()}
   def update_test_grid_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTestGridProject", input, options)
   end
@@ -4348,12 +4372,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Updates an uploaded test spec.
   """
-  @spec update_upload(map(), update_upload_request(), list()) ::
+  @spec update_upload(AWS.Client.t(), update_upload_request(), Keyword.t()) ::
           {:ok, update_upload_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_upload_errors()}
   def update_upload(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUpload", input, options)
   end
@@ -4362,12 +4387,17 @@ defmodule AWS.DeviceFarm do
   Updates information about an Amazon Virtual Private Cloud (VPC) endpoint
   configuration.
   """
-  @spec update_vpce_configuration(map(), update_vpce_configuration_request(), list()) ::
+  @spec update_vpce_configuration(
+          AWS.Client.t(),
+          update_vpce_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_vpce_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_vpce_configuration_errors()}
   def update_vpce_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateVPCEConfiguration", input, options)
   end

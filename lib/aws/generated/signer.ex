@@ -4,36 +4,7 @@
 defmodule AWS.Signer do
   @moduledoc """
   AWS Signer is a fully managed code-signing service to help you ensure the trust
-  and
-  integrity of your code.
-
-  Signer supports the following applications:
-
-  With code signing for AWS Lambda, you can sign [AWS Lambda](http://docs.aws.amazon.com/lambda/latest/dg/) deployment packages.
-  Integrated support is provided for [Amazon S3](http://docs.aws.amazon.com/AmazonS3/latest/gsg/), [Amazon CloudWatch](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/), and
-  [AWS CloudTrail](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/). In order
-  to sign code, you create a signing profile and then use Signer to sign Lambda
-  zip
-  files in S3.
-
-  With code signing for IoT, you can sign code for any IoT device that is
-  supported by AWS.
-  IoT code signing is available for [Amazon
-  FreeRTOS](http://docs.aws.amazon.com/freertos/latest/userguide/) and [AWS IoT Device Management](http://docs.aws.amazon.com/iot/latest/developerguide/), and
-  is integrated with [AWS Certificate Manager (ACM)](http://docs.aws.amazon.com/acm/latest/userguide/). In order to sign code,
-  you import a third-party code-signing
-  certificate using ACM, and use that to sign updates in Amazon FreeRTOS and AWS
-  IoT Device Management.
-
-  With Signer and the Notation CLI from the [Notary Project](https://notaryproject.dev/), you can sign container images stored in a
-  container registry such
-  as Amazon Elastic Container Registry (ECR). The signatures are stored in the
-  registry
-  alongside the images, where they are available for verifying image authenticity
-  and
-  integrity.
-
-  For more information about Signer, see the [AWS Signer Developer Guide](https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html).
+  and integrity of your code. Signer supports the following applications:
   """
 
   alias AWS.Client
@@ -1034,8 +1005,20 @@ defmodule AWS.Signer do
 
   @doc """
   Adds cross-account permissions to a signing profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20AddProfilePermission&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_name` (`t:string`) The human-readable name of the signing profile.
+
+  ## Optional parameters:
   """
-  @spec add_profile_permission(map(), String.t(), add_profile_permission_request(), list()) ::
+  @spec add_profile_permission(
+          AWS.Client.t(),
+          String.t(),
+          add_profile_permission_request(),
+          Keyword.t()
+        ) ::
           {:ok, add_profile_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_profile_permission_errors()}
@@ -1044,7 +1027,8 @@ defmodule AWS.Signer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1060,14 +1044,23 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Changes the state of an `ACTIVE` signing profile to `CANCELED`.
+  Changes the state of an `ACTIVE` signing profile to `CANCELED`. A canceled
+  profile is still viewable with the `ListSigningProfiles` operation, but it
+  cannot perform new signing jobs, and is deleted two years after cancelation.
 
-  A canceled profile is still viewable with the `ListSigningProfiles`
-  operation, but it cannot perform new signing jobs, and is deleted two years
-  after
-  cancelation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20CancelSigningProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_name` (`t:string`) The name of the signing profile to be canceled.
+
+  ## Optional parameters:
   """
-  @spec cancel_signing_profile(map(), String.t(), cancel_signing_profile_request(), list()) ::
+  @spec cancel_signing_profile(
+          AWS.Client.t(),
+          String.t(),
+          cancel_signing_profile_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_signing_profile_errors()}
@@ -1076,7 +1069,8 @@ defmodule AWS.Signer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1092,39 +1086,73 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Returns information about a specific code signing job.
+  Returns information about a specific code signing job. You specify the job by
+  using the `jobId` value that is returned by the `StartSigningJob` operation.
 
-  You specify the job by using the
-  `jobId` value that is returned by the `StartSigningJob`
-  operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20DescribeSigningJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The ID of the signing job on input.
+
+  ## Optional parameters:
   """
-  @spec describe_signing_job(map(), String.t(), list()) ::
+  @spec describe_signing_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_signing_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_signing_job_errors()}
   def describe_signing_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/signing-jobs/#{AWS.Util.encode_uri(job_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the revocation status of one or more of the signing profile, signing
-  job,
-  and signing certificate.
+  job, and signing certificate.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20GetRevocationStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:certificate_hashes` (`t:list[com.amazonaws.signer#String]`) A list of
+    composite signed hashes that identify certificates.
+  * `:job_arn` (`t:string`) The ARN of a signing job.
+  * `:platform_id` (`t:string`) The ID of a signing platform.
+  * `:profile_version_arn` (`t:string`) The version of a signing profile.
+  * `:signature_timestamp` (`t:timestamp`) The timestamp of the signature that
+    validates the profile or job.
+
+  ## Optional parameters:
   """
   @spec get_revocation_status(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_revocation_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1139,405 +1167,610 @@ defmodule AWS.Signer do
         options \\ []
       ) do
     url_path = "/revocations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(signature_timestamp) do
-        [{"signatureTimestamp", signature_timestamp} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    query_params =
-      if !is_nil(profile_version_arn) do
-        [{"profileVersionArn", profile_version_arn} | query_params]
-      else
-        query_params
-      end
+    # Required query params
+    query_params = [
+      {"certificateHashes", certificate_hashes},
+      {"jobArn", job_arn},
+      {"platformId", platform_id},
+      {"profileVersionArn", profile_version_arn},
+      {"signatureTimestamp", signature_timestamp}
+    ]
 
-    query_params =
-      if !is_nil(platform_id) do
-        [{"platformId", platform_id} | query_params]
-      else
-        query_params
-      end
+    # Optional query params
 
-    query_params =
-      if !is_nil(job_arn) do
-        [{"jobArn", job_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(certificate_hashes) do
-        [{"certificateHashes", certificate_hashes} | query_params]
-      else
-        query_params
-      end
-
-    meta = metadata() |> Map.put_new(:host_prefix, "verification.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "verification.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information on a specific signing platform.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20GetSigningPlatform&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:platform_id` (`t:string`) The ID of the target signing platform.
+
+  ## Optional parameters:
   """
-  @spec get_signing_platform(map(), String.t(), list()) ::
+  @spec get_signing_platform(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_signing_platform_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_signing_platform_errors()}
   def get_signing_platform(%Client{} = client, platform_id, options \\ []) do
     url_path = "/signing-platforms/#{AWS.Util.encode_uri(platform_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information on a specific signing profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20GetSigningProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_name` (`t:string`) The name of the target signing profile.
+
+  ## Optional parameters:
+  * `:profile_owner` (`t:string`) The AWS account ID of the profile owner.
   """
-  @spec get_signing_profile(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_signing_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_signing_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_signing_profile_errors()}
-  def get_signing_profile(%Client{} = client, profile_name, profile_owner \\ nil, options \\ []) do
+  def get_signing_profile(%Client{} = client, profile_name, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}"
+
+    # Validate optional parameters
+    optional_params = [profile_owner: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(profile_owner) do
-        [{"profileOwner", profile_owner} | query_params]
+      if opt_val = Keyword.get(options, :profile_owner) do
+        [{"profileOwner", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:profile_owner])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the cross-account permissions associated with a signing profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20ListProfilePermissions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_name` (`t:string`) Name of the signing profile containing the
+    cross-account permissions.
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) String for specifying the next set of paginated
+    results.
   """
-  @spec list_profile_permissions(map(), String.t(), String.t() | nil, list()) ::
+  @spec list_profile_permissions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_profile_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profile_permissions_errors()}
-  def list_profile_permissions(%Client{} = client, profile_name, next_token \\ nil, options \\ []) do
+  def list_profile_permissions(%Client{} = client, profile_name, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}/permissions"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists all your signing jobs.
-
-  You can use the `maxResults` parameter to limit the
+  Lists all your signing jobs. You can use the `maxResults` parameter to limit the
   number of signing jobs that are returned in the response. If additional jobs
-  remain to
-  be listed, AWS Signer returns a `nextToken` value. Use this value in
+  remain to be listed, AWS Signer returns a `nextToken` value. Use this value in
   subsequent calls to `ListSigningJobs` to fetch the remaining values. You can
-  continue calling `ListSigningJobs` with your `maxResults`
-  parameter and with new values that Signer returns in the `nextToken`
-  parameter until all of your signing jobs have been returned.
+  continue calling `ListSigningJobs` with your `maxResults` parameter and with
+  new values that Signer returns in the `nextToken` parameter until all of your
+  signing jobs have been returned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20ListSigningJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:is_revoked` (`t:boolean`) Filters results to return only signing jobs with
+    revoked signatures.
+  * `:job_invoker` (`t:string`) Filters results to return only signing jobs
+    initiated by a specified IAM entity.
+  * `:max_results` (`t:integer`) Specifies the maximum number of items to return
+    in the response. Use this parameter when paginating results. If additional
+    items exist beyond the number you specify, the nextToken element is set in
+    the response. Use the nextToken value in a subsequent request to retrieve
+    additional items.
+  * `:next_token` (`t:string`) String for specifying the next set of paginated
+    results to return. After you receive a response with truncated results, use
+    this parameter in a subsequent request. Set it to the value of nextToken
+    from the response that you just received.
+  * `:platform_id` (`t:string`) The ID of microcontroller platform that you
+    specified for the distribution of your code image.
+  * `:requested_by` (`t:string`) The IAM principal that requested the signing job.
+  * `:signature_expires_after` (`t:timestamp`) Filters results to return only
+    signing jobs with signatures expiring after a specified timestamp.
+  * `:signature_expires_before` (`t:timestamp`) Filters results to return only
+    signing jobs with signatures expiring before a specified timestamp.
+  * `:status` (`t:enum["Failed|InProgress|Succeeded"]`) A status value with which
+    to filter your results.
   """
-  @spec list_signing_jobs(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_signing_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_signing_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_signing_jobs_errors()}
-  def list_signing_jobs(
-        %Client{} = client,
-        is_revoked \\ nil,
-        job_invoker \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        platform_id \\ nil,
-        requested_by \\ nil,
-        signature_expires_after \\ nil,
-        signature_expires_before \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_signing_jobs(%Client{} = client, options \\ []) do
     url_path = "/signing-jobs"
+
+    # Validate optional parameters
+    optional_params = [
+      is_revoked: nil,
+      job_invoker: nil,
+      max_results: nil,
+      next_token: nil,
+      platform_id: nil,
+      requested_by: nil,
+      signature_expires_after: nil,
+      signature_expires_before: nil,
+      status: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(signature_expires_before) do
-        [{"signatureExpiresBefore", signature_expires_before} | query_params]
+      if opt_val = Keyword.get(options, :signature_expires_before) do
+        [{"signatureExpiresBefore", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(signature_expires_after) do
-        [{"signatureExpiresAfter", signature_expires_after} | query_params]
+      if opt_val = Keyword.get(options, :signature_expires_after) do
+        [{"signatureExpiresAfter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(requested_by) do
-        [{"requestedBy", requested_by} | query_params]
+      if opt_val = Keyword.get(options, :requested_by) do
+        [{"requestedBy", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(platform_id) do
-        [{"platformId", platform_id} | query_params]
+      if opt_val = Keyword.get(options, :platform_id) do
+        [{"platformId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(job_invoker) do
-        [{"jobInvoker", job_invoker} | query_params]
+      if opt_val = Keyword.get(options, :job_invoker) do
+        [{"jobInvoker", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(is_revoked) do
-        [{"isRevoked", is_revoked} | query_params]
+      if opt_val = Keyword.get(options, :is_revoked) do
+        [{"isRevoked", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :is_revoked,
+        :job_invoker,
+        :max_results,
+        :next_token,
+        :platform_id,
+        :requested_by,
+        :signature_expires_after,
+        :signature_expires_before,
+        :status
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all signing platforms available in AWS Signer that match the request
-  parameters.
+  parameters. If additional jobs remain to be listed, Signer returns a
+  `nextToken` value. Use this value in subsequent calls to `ListSigningJobs` to
+  fetch the remaining values. You can continue calling `ListSigningJobs` with
+  your `maxResults` parameter and with new values that Signer returns in the
+  `nextToken` parameter until all of your signing jobs have been returned.
 
-  If
-  additional jobs remain to be listed, Signer returns a `nextToken` value.
-  Use this value in subsequent calls to `ListSigningJobs` to fetch the
-  remaining values. You can continue calling `ListSigningJobs` with your
-  `maxResults` parameter and with new values that Signer returns in the
-  `nextToken` parameter until all of your signing jobs have been
-  returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20ListSigningPlatforms&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:category` (`t:string`) The category type of a signing platform.
+  * `:max_results` (`t:integer`) The maximum number of results to be returned by
+    this operation.
+  * `:next_token` (`t:string`) Value for specifying the next set of paginated
+    results to return. After you receive a response with truncated results, use
+    this parameter in a subsequent request. Set it to the value of nextToken
+    from the response that you just received.
+  * `:partner` (`t:string`) Any partner entities connected to a signing platform.
+  * `:target` (`t:string`) The validation template that is used by the target
+    signing platform.
   """
-  @spec list_signing_platforms(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_signing_platforms(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_signing_platforms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_signing_platforms_errors()}
-  def list_signing_platforms(
-        %Client{} = client,
-        category \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        partner \\ nil,
-        target \\ nil,
-        options \\ []
-      ) do
+  def list_signing_platforms(%Client{} = client, options \\ []) do
     url_path = "/signing-platforms"
+
+    # Validate optional parameters
+    optional_params = [
+      category: nil,
+      max_results: nil,
+      next_token: nil,
+      partner: nil,
+      target: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(target) do
-        [{"target", target} | query_params]
+      if opt_val = Keyword.get(options, :target) do
+        [{"target", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(partner) do
-        [{"partner", partner} | query_params]
+      if opt_val = Keyword.get(options, :partner) do
+        [{"partner", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(category) do
-        [{"category", category} | query_params]
+      if opt_val = Keyword.get(options, :category) do
+        [{"category", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:category, :max_results, :next_token, :partner, :target])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists all available signing profiles in your AWS account.
+  Lists all available signing profiles in your AWS account. Returns only profiles
+  with an `ACTIVE` status unless the `includeCanceled` request field is set to
+  `true`. If additional jobs remain to be listed, AWS Signer returns a
+  `nextToken` value. Use this value in subsequent calls to `ListSigningJobs` to
+  fetch the remaining values. You can continue calling `ListSigningJobs` with
+  your `maxResults` parameter and with new values that Signer returns in the
+  `nextToken` parameter until all of your signing jobs have been returned.
 
-  Returns only profiles with an
-  `ACTIVE` status unless the `includeCanceled` request field is
-  set to `true`. If additional jobs remain to be listed, AWS Signer returns a
-  `nextToken` value. Use this value in subsequent calls to
-  `ListSigningJobs` to fetch the remaining values. You can continue calling
-  `ListSigningJobs` with your `maxResults` parameter and with
-  new values that Signer returns in the `nextToken` parameter until all of
-  your signing jobs have been returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20ListSigningProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:include_canceled` (`t:boolean`) Designates whether to include profiles with
+    the status of CANCELED.
+  * `:max_results` (`t:integer`) The maximum number of profiles to be returned.
+  * `:next_token` (`t:string`) Value for specifying the next set of paginated
+    results to return. After you receive a response with truncated results, use
+    this parameter in a subsequent request. Set it to the value of nextToken
+    from the response that you just received.
+  * `:platform_id` (`t:string`) Filters results to return only signing jobs
+    initiated for a specified signing platform.
+  * `:statuses` (`t:list[com.amazonaws.signer#SigningProfileStatus]`) Filters
+    results to return only signing jobs with statuses in the specified list.
   """
-  @spec list_signing_profiles(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_signing_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_signing_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_signing_profiles_errors()}
-  def list_signing_profiles(
-        %Client{} = client,
-        include_canceled \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        platform_id \\ nil,
-        statuses \\ nil,
-        options \\ []
-      ) do
+  def list_signing_profiles(%Client{} = client, options \\ []) do
     url_path = "/signing-profiles"
+
+    # Validate optional parameters
+    optional_params = [
+      include_canceled: nil,
+      max_results: nil,
+      next_token: nil,
+      platform_id: nil,
+      statuses: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(statuses) do
-        [{"statuses", statuses} | query_params]
+      if opt_val = Keyword.get(options, :statuses) do
+        [{"statuses", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(platform_id) do
-        [{"platformId", platform_id} | query_params]
+      if opt_val = Keyword.get(options, :platform_id) do
+        [{"platformId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(include_canceled) do
-        [{"includeCanceled", include_canceled} | query_params]
+      if opt_val = Keyword.get(options, :include_canceled) do
+        [{"includeCanceled", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:include_canceled, :max_results, :next_token, :platform_id, :statuses])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of the tags associated with a signing profile resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the signing
+    profile.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Creates a signing profile.
+  Creates a signing profile. A signing profile is a code-signing template that can
+  be used to carry out a pre-defined signing job.
 
-  A signing profile is a code-signing template that can be used to
-  carry out a pre-defined signing job.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20PutSigningProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_name` (`t:string`) The name of the signing profile to be created.
+
+  ## Optional parameters:
   """
-  @spec put_signing_profile(map(), String.t(), put_signing_profile_request(), list()) ::
+  @spec put_signing_profile(
+          AWS.Client.t(),
+          String.t(),
+          put_signing_profile_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_signing_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_signing_profile_errors()}
@@ -1546,20 +1779,33 @@ defmodule AWS.Signer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Removes cross-account permissions from a signing profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20RemoveProfilePermission&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_name` (`t:string`) A human-readable name for the signing profile
+    with permissions to be removed.
+  * `:statement_id` (`t:string`) A unique identifier for the cross-account
+    permissions statement.
+  * `:revision_id` (`t:string`) An identifier for the current revision of the
+    signing profile permissions.
+
+  ## Optional parameters:
   """
   @spec remove_profile_permission(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           remove_profile_permission_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, remove_profile_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1582,7 +1828,8 @@ defmodule AWS.Signer do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1598,12 +1845,17 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Changes the state of a signing job to REVOKED.
+  Changes the state of a signing job to REVOKED. This indicates that the signature
+  is no longer valid.
 
-  This indicates that the signature is no
-  longer valid.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20RevokeSignature&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) ID of the signing job to be revoked.
+
+  ## Optional parameters:
   """
-  @spec revoke_signature(map(), String.t(), revoke_signature_request(), list()) ::
+  @spec revoke_signature(AWS.Client.t(), String.t(), revoke_signature_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_signature_errors()}
@@ -1612,19 +1864,30 @@ defmodule AWS.Signer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Changes the state of a signing profile to REVOKED.
+  Changes the state of a signing profile to REVOKED. This indicates that
+  signatures generated using the signing profile after an effective start date
+  are no longer valid.
 
-  This indicates that signatures
-  generated using the signing profile after an effective start date are no longer
-  valid.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20RevokeSigningProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_name` (`t:string`) The name of the signing profile to be revoked.
+
+  ## Optional parameters:
   """
-  @spec revoke_signing_profile(map(), String.t(), revoke_signing_profile_request(), list()) ::
+  @spec revoke_signing_profile(
+          AWS.Client.t(),
+          String.t(),
+          revoke_signing_profile_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_signing_profile_errors()}
@@ -1633,15 +1896,22 @@ defmodule AWS.Signer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Signs a binary payload and returns a signature envelope.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20SignPayload&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec sign_payload(map(), sign_payload_request(), list()) ::
+  @spec sign_payload(AWS.Client.t(), sign_payload_request(), Keyword.t()) ::
           {:ok, sign_payload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, sign_payload_errors()}
@@ -1650,7 +1920,8 @@ defmodule AWS.Signer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1666,44 +1937,17 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Initiates a signing job to be performed on the code provided.
-
-  Signing jobs are
+  Initiates a signing job to be performed on the code provided. Signing jobs are
   viewable by the `ListSigningJobs` operation for two years after they are
   performed. Note the following requirements:
 
-    *
-  You must create an Amazon S3 source bucket. For more information, see [Creating a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)
-  in the
-  *Amazon S3 Getting Started Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20StartSigningJob&this_doc_guide=API%2520Reference)
 
-    *
-  Your S3 source bucket must be version enabled.
+  ## Parameters:
 
-    *
-  You must create an S3 destination bucket. AWS Signer uses your S3 destination
-  bucket to
-  write your signed code.
-
-    *
-  You specify the name of the source and destination buckets when calling the
-  `StartSigningJob` operation.
-
-    *
-  You must ensure the S3 buckets are from the same Region as the signing profile.
-  Cross-Region signing isn't supported.
-
-    *
-  You must also specify a request token that identifies your request to Signer.
-
-  You can call the `DescribeSigningJob` and the `ListSigningJobs` actions after
-  you call
-  `StartSigningJob`.
-
-  For a Java example that shows how to use this action, see
-  [StartSigningJob](https://docs.aws.amazon.com/signer/latest/developerguide/api-startsigningjob.html).
+  ## Optional parameters:
   """
-  @spec start_signing_job(map(), start_signing_job_request(), list()) ::
+  @spec start_signing_job(AWS.Client.t(), start_signing_job_request(), Keyword.t()) ::
           {:ok, start_signing_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_signing_job_errors()}
@@ -1712,7 +1956,8 @@ defmodule AWS.Signer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1728,16 +1973,20 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Adds one or more tags to a signing profile.
-
-  Tags are labels that you can use to
+  Adds one or more tags to a signing profile. Tags are labels that you can use to
   identify and organize your AWS resources. Each tag consists of a key and an
-  optional
-  value. To specify the signing profile, use its Amazon Resource Name (ARN). To
-  specify
-  the tag, use a key-value pair.
+  optional value. To specify the signing profile, use its Amazon Resource Name
+  (ARN). To specify the tag, use a key-value pair.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the signing
+    profile.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1746,7 +1995,8 @@ defmodule AWS.Signer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1762,12 +2012,20 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Removes one or more tags from a signing profile.
+  Removes one or more tags from a signing profile. To remove the tags, specify a
+  list of tag keys.
 
-  To remove the tags, specify a list of
-  tag keys.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the signing
+    profile.
+  * `:tag_keys` (`t:list[com.amazonaws.signer#TagKey]`) A list of tag keys to be
+    removed from the signing profile.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1781,7 +2039,8 @@ defmodule AWS.Signer do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

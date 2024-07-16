@@ -7058,8 +7058,14 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Creates an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_app(map(), create_app_request(), list()) ::
+  @spec create_app(AWS.Client.t(), create_app_request(), Keyword.t()) ::
           {:ok, create_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_errors()}
@@ -7068,7 +7074,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7086,8 +7093,16 @@ defmodule AWS.Pinpoint do
   @doc """
   Creates a new campaign for an application or updates the settings of an existing
   campaign for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec create_campaign(map(), String.t(), create_campaign_request(), list()) ::
+  @spec create_campaign(AWS.Client.t(), String.t(), create_campaign_request(), Keyword.t()) ::
           {:ok, create_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_campaign_errors()}
@@ -7096,7 +7111,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7113,8 +7129,23 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Creates a message template for messages that are sent through the email channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateEmailTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+
+  ## Optional parameters:
   """
-  @spec create_email_template(map(), String.t(), create_email_template_request(), list()) ::
+  @spec create_email_template(
+          AWS.Client.t(),
+          String.t(),
+          create_email_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_email_template_errors()}
@@ -7123,7 +7154,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7140,8 +7172,16 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Creates an export job for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec create_export_job(map(), String.t(), create_export_job_request(), list()) ::
+  @spec create_export_job(AWS.Client.t(), String.t(), create_export_job_request(), Keyword.t()) ::
           {:ok, create_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_export_job_errors()}
@@ -7150,7 +7190,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7167,8 +7208,16 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Creates an import job for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec create_import_job(map(), String.t(), create_import_job_request(), list()) ::
+  @spec create_import_job(AWS.Client.t(), String.t(), create_import_job_request(), Keyword.t()) ::
           {:ok, create_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_import_job_errors()}
@@ -7177,7 +7226,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7194,8 +7244,23 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Creates a new message template for messages using the in-app message channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateInAppTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+
+  ## Optional parameters:
   """
-  @spec create_in_app_template(map(), String.t(), create_in_app_template_request(), list()) ::
+  @spec create_in_app_template(
+          AWS.Client.t(),
+          String.t(),
+          create_in_app_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_in_app_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_in_app_template_errors()}
@@ -7204,7 +7269,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7221,8 +7287,16 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Creates a journey for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateJourney&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec create_journey(map(), String.t(), create_journey_request(), list()) ::
+  @spec create_journey(AWS.Client.t(), String.t(), create_journey_request(), Keyword.t()) ::
           {:ok, create_journey_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_journey_errors()}
@@ -7231,7 +7305,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7249,8 +7324,23 @@ defmodule AWS.Pinpoint do
   @doc """
   Creates a message template for messages that are sent through a push
   notification channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreatePushTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+
+  ## Optional parameters:
   """
-  @spec create_push_template(map(), String.t(), create_push_template_request(), list()) ::
+  @spec create_push_template(
+          AWS.Client.t(),
+          String.t(),
+          create_push_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_push_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_push_template_errors()}
@@ -7259,7 +7349,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7276,11 +7367,17 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Creates an Amazon Pinpoint configuration for a recommender model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateRecommenderConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec create_recommender_configuration(
-          map(),
+          AWS.Client.t(),
           create_recommender_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_recommender_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7290,7 +7387,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7307,10 +7405,18 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Creates a new segment for an application or updates the configuration,
-  dimension, and other settings for an existing segment that's associated with an
-  application.
+  dimension, and other settings for an existing segment that's associated with
+  an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateSegment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec create_segment(map(), String.t(), create_segment_request(), list()) ::
+  @spec create_segment(AWS.Client.t(), String.t(), create_segment_request(), Keyword.t()) ::
           {:ok, create_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_segment_errors()}
@@ -7319,7 +7425,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7336,8 +7443,23 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Creates a message template for messages that are sent through the SMS channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateSmsTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+
+  ## Optional parameters:
   """
-  @spec create_sms_template(map(), String.t(), create_sms_template_request(), list()) ::
+  @spec create_sms_template(
+          AWS.Client.t(),
+          String.t(),
+          create_sms_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_sms_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sms_template_errors()}
@@ -7346,7 +7468,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7363,8 +7486,23 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Creates a message template for messages that are sent through the voice channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateVoiceTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+
+  ## Optional parameters:
   """
-  @spec create_voice_template(map(), String.t(), create_voice_template_request(), list()) ::
+  @spec create_voice_template(
+          AWS.Client.t(),
+          String.t(),
+          create_voice_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_voice_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_voice_template_errors()}
@@ -7373,7 +7511,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7391,8 +7530,16 @@ defmodule AWS.Pinpoint do
   @doc """
   Disables the ADM channel for an application and deletes any existing settings
   for the channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteAdmChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec delete_adm_channel(map(), String.t(), delete_adm_channel_request(), list()) ::
+  @spec delete_adm_channel(AWS.Client.t(), String.t(), delete_adm_channel_request(), Keyword.t()) ::
           {:ok, delete_adm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_adm_channel_errors()}
@@ -7401,7 +7548,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7419,8 +7567,21 @@ defmodule AWS.Pinpoint do
   @doc """
   Disables the APNs channel for an application and deletes any existing settings
   for the channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteApnsChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec delete_apns_channel(map(), String.t(), delete_apns_channel_request(), list()) ::
+  @spec delete_apns_channel(
+          AWS.Client.t(),
+          String.t(),
+          delete_apns_channel_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_apns_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_apns_channel_errors()}
@@ -7429,7 +7590,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7447,12 +7609,20 @@ defmodule AWS.Pinpoint do
   @doc """
   Disables the APNs sandbox channel for an application and deletes any existing
   settings for the channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteApnsSandboxChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
   @spec delete_apns_sandbox_channel(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_apns_sandbox_channel_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_apns_sandbox_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7462,7 +7632,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7480,8 +7651,21 @@ defmodule AWS.Pinpoint do
   @doc """
   Disables the APNs VoIP channel for an application and deletes any existing
   settings for the channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteApnsVoipChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec delete_apns_voip_channel(map(), String.t(), delete_apns_voip_channel_request(), list()) ::
+  @spec delete_apns_voip_channel(
+          AWS.Client.t(),
+          String.t(),
+          delete_apns_voip_channel_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_apns_voip_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_apns_voip_channel_errors()}
@@ -7490,7 +7674,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7508,12 +7693,20 @@ defmodule AWS.Pinpoint do
   @doc """
   Disables the APNs VoIP sandbox channel for an application and deletes any
   existing settings for the channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteApnsVoipSandboxChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
   @spec delete_apns_voip_sandbox_channel(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_apns_voip_sandbox_channel_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_apns_voip_sandbox_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7523,7 +7716,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7540,8 +7734,16 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Deletes an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec delete_app(map(), String.t(), delete_app_request(), list()) ::
+  @spec delete_app(AWS.Client.t(), String.t(), delete_app_request(), Keyword.t()) ::
           {:ok, delete_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_errors()}
@@ -7550,7 +7752,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7568,8 +7771,21 @@ defmodule AWS.Pinpoint do
   @doc """
   Disables the Baidu channel for an application and deletes any existing settings
   for the channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteBaiduChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec delete_baidu_channel(map(), String.t(), delete_baidu_channel_request(), list()) ::
+  @spec delete_baidu_channel(
+          AWS.Client.t(),
+          String.t(),
+          delete_baidu_channel_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_baidu_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_baidu_channel_errors()}
@@ -7578,7 +7794,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7595,8 +7812,23 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Deletes a campaign from an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:campaign_id` (`t:string`) The unique identifier for the campaign.
+
+  ## Optional parameters:
   """
-  @spec delete_campaign(map(), String.t(), String.t(), delete_campaign_request(), list()) ::
+  @spec delete_campaign(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_campaign_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_campaign_errors()}
@@ -7607,7 +7839,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7625,8 +7858,21 @@ defmodule AWS.Pinpoint do
   @doc """
   Disables the email channel for an application and deletes any existing settings
   for the channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteEmailChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec delete_email_channel(map(), String.t(), delete_email_channel_request(), list()) ::
+  @spec delete_email_channel(
+          AWS.Client.t(),
+          String.t(),
+          delete_email_channel_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_email_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_email_channel_errors()}
@@ -7635,7 +7881,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7653,8 +7900,27 @@ defmodule AWS.Pinpoint do
   @doc """
   Deletes a message template for messages that were sent through the email
   channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteEmailTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+
+  ## Optional parameters:
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
-  @spec delete_email_template(map(), String.t(), delete_email_template_request(), list()) ::
+  @spec delete_email_template(
+          AWS.Client.t(),
+          String.t(),
+          delete_email_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_email_template_errors()}
@@ -7668,7 +7934,13 @@ defmodule AWS.Pinpoint do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:version])
 
     Request.request_rest(
       client,
@@ -7685,8 +7957,24 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Deletes an endpoint from an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:endpoint_id` (`t:string`) The case insensitive unique identifier for the
+    endpoint. The identifier can't contain $, { or }.
+
+  ## Optional parameters:
   """
-  @spec delete_endpoint(map(), String.t(), String.t(), delete_endpoint_request(), list()) ::
+  @spec delete_endpoint(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_endpoint_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_endpoint_errors()}
@@ -7697,7 +7985,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7714,8 +8003,21 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Deletes the event stream for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteEventStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec delete_event_stream(map(), String.t(), delete_event_stream_request(), list()) ::
+  @spec delete_event_stream(
+          AWS.Client.t(),
+          String.t(),
+          delete_event_stream_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_event_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_stream_errors()}
@@ -7724,7 +8026,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7742,8 +8045,16 @@ defmodule AWS.Pinpoint do
   @doc """
   Disables the GCM channel for an application and deletes any existing settings
   for the channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteGcmChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec delete_gcm_channel(map(), String.t(), delete_gcm_channel_request(), list()) ::
+  @spec delete_gcm_channel(AWS.Client.t(), String.t(), delete_gcm_channel_request(), Keyword.t()) ::
           {:ok, delete_gcm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_gcm_channel_errors()}
@@ -7752,7 +8063,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7769,8 +8081,27 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Deletes a message template for messages sent using the in-app message channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteInAppTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+
+  ## Optional parameters:
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
-  @spec delete_in_app_template(map(), String.t(), delete_in_app_template_request(), list()) ::
+  @spec delete_in_app_template(
+          AWS.Client.t(),
+          String.t(),
+          delete_in_app_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_in_app_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_in_app_template_errors()}
@@ -7784,7 +8115,13 @@ defmodule AWS.Pinpoint do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:version])
 
     Request.request_rest(
       client,
@@ -7801,8 +8138,23 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Deletes a journey from an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteJourney&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:journey_id` (`t:string`) The unique identifier for the journey.
+
+  ## Optional parameters:
   """
-  @spec delete_journey(map(), String.t(), String.t(), delete_journey_request(), list()) ::
+  @spec delete_journey(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_journey_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_journey_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_journey_errors()}
@@ -7813,7 +8165,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7831,8 +8184,27 @@ defmodule AWS.Pinpoint do
   @doc """
   Deletes a message template for messages that were sent through a push
   notification channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeletePushTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+
+  ## Optional parameters:
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
-  @spec delete_push_template(map(), String.t(), delete_push_template_request(), list()) ::
+  @spec delete_push_template(
+          AWS.Client.t(),
+          String.t(),
+          delete_push_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_push_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_push_template_errors()}
@@ -7846,7 +8218,13 @@ defmodule AWS.Pinpoint do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:version])
 
     Request.request_rest(
       client,
@@ -7863,12 +8241,21 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Deletes an Amazon Pinpoint configuration for a recommender model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteRecommenderConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:recommender_id` (`t:string`) The unique identifier for the recommender model
+    configuration. This identifier is displayed as the Recommender ID on the
+    Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
   @spec delete_recommender_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_recommender_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_recommender_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7878,7 +8265,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7895,8 +8283,23 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Deletes a segment from an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteSegment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:segment_id` (`t:string`) The unique identifier for the segment.
+
+  ## Optional parameters:
   """
-  @spec delete_segment(map(), String.t(), String.t(), delete_segment_request(), list()) ::
+  @spec delete_segment(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_segment_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_segment_errors()}
@@ -7907,7 +8310,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7925,8 +8329,16 @@ defmodule AWS.Pinpoint do
   @doc """
   Disables the SMS channel for an application and deletes any existing settings
   for the channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteSmsChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec delete_sms_channel(map(), String.t(), delete_sms_channel_request(), list()) ::
+  @spec delete_sms_channel(AWS.Client.t(), String.t(), delete_sms_channel_request(), Keyword.t()) ::
           {:ok, delete_sms_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sms_channel_errors()}
@@ -7935,7 +8347,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -7952,8 +8365,27 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Deletes a message template for messages that were sent through the SMS channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteSmsTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+
+  ## Optional parameters:
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
-  @spec delete_sms_template(map(), String.t(), delete_sms_template_request(), list()) ::
+  @spec delete_sms_template(
+          AWS.Client.t(),
+          String.t(),
+          delete_sms_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_sms_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sms_template_errors()}
@@ -7967,7 +8399,13 @@ defmodule AWS.Pinpoint do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:version])
 
     Request.request_rest(
       client,
@@ -7984,13 +8422,22 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Deletes all the endpoints that are associated with a specific user ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteUserEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:user_id` (`t:string`) The unique identifier for the user.
+
+  ## Optional parameters:
   """
   @spec delete_user_endpoints(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_user_endpoints_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_user_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -8002,7 +8449,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8020,8 +8468,21 @@ defmodule AWS.Pinpoint do
   @doc """
   Disables the voice channel for an application and deletes any existing settings
   for the channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteVoiceChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec delete_voice_channel(map(), String.t(), delete_voice_channel_request(), list()) ::
+  @spec delete_voice_channel(
+          AWS.Client.t(),
+          String.t(),
+          delete_voice_channel_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_voice_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_channel_errors()}
@@ -8030,7 +8491,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -8048,8 +8510,27 @@ defmodule AWS.Pinpoint do
   @doc """
   Deletes a message template for messages that were sent through the voice
   channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteVoiceTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+
+  ## Optional parameters:
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
-  @spec delete_voice_template(map(), String.t(), delete_voice_template_request(), list()) ::
+  @spec delete_voice_template(
+          AWS.Client.t(),
+          String.t(),
+          delete_voice_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_voice_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_template_errors()}
@@ -8063,7 +8544,13 @@ defmodule AWS.Pinpoint do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:version])
 
     Request.request_rest(
       client,
@@ -8081,17 +8568,43 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the status and settings of the ADM channel for an
   application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetAdmChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec get_adm_channel(map(), String.t(), list()) ::
+  @spec get_adm_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_adm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_adm_channel_errors()}
   def get_adm_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/adm"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8099,17 +8612,43 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the status and settings of the APNs channel for an
   application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetApnsChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec get_apns_channel(map(), String.t(), list()) ::
+  @spec get_apns_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_apns_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_apns_channel_errors()}
   def get_apns_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8117,17 +8656,43 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the status and settings of the APNs sandbox channel
   for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetApnsSandboxChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec get_apns_sandbox_channel(map(), String.t(), list()) ::
+  @spec get_apns_sandbox_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_apns_sandbox_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_apns_sandbox_channel_errors()}
   def get_apns_sandbox_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_sandbox"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8135,17 +8700,43 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the status and settings of the APNs VoIP channel for
   an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetApnsVoipChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec get_apns_voip_channel(map(), String.t(), list()) ::
+  @spec get_apns_voip_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_apns_voip_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_apns_voip_channel_errors()}
   def get_apns_voip_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_voip"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8153,34 +8744,86 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the status and settings of the APNs VoIP sandbox
   channel for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetApnsVoipSandboxChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec get_apns_voip_sandbox_channel(map(), String.t(), list()) ::
+  @spec get_apns_voip_sandbox_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_apns_voip_sandbox_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_apns_voip_sandbox_channel_errors()}
   def get_apns_voip_sandbox_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_voip_sandbox"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec get_app(map(), String.t(), list()) ::
+  @spec get_app(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_errors()}
   def get_app(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8188,82 +8831,140 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves (queries) pre-aggregated data for a standard metric that applies to an
   application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetApplicationDateRangeKpi&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:kpi_name` (`t:string`) The name of the metric, also referred to as a key
+    performance indicator (KPI), to retrieve data for. This value describes the
+    associated metric and consists of two or more terms, which are comprised of
+    lowercase alphanumeric characters, separated by a hyphen. Examples are
+    email-open-rate and successful-delivery-rate. For a list of valid values,
+    see the Amazon Pinpoint Developer Guide.
+
+  ## Optional parameters:
+  * `:end_time` (`t:timestamp[date-time]`) The last date and time to retrieve data
+    for, as part of an inclusive date range that filters the query results. This
+    value should be in extended ISO 8601 format and use Coordinated Universal
+    Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
+  * `:next_token` (`t:string`) The string that specifies which page of results to
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:start_time` (`t:timestamp[date-time]`) The first date and time to retrieve
+    data for, as part of an inclusive date range that filters the query results.
+    This value should be in extended ISO 8601 format and use Coordinated
+    Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July
+    19, 2019. This value should also be fewer than 90 days from the current day.
   """
-  @spec get_application_date_range_kpi(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_application_date_range_kpi(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_date_range_kpi_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_date_range_kpi_errors()}
-  def get_application_date_range_kpi(
-        %Client{} = client,
-        application_id,
-        kpi_name,
-        end_time \\ nil,
-        next_token \\ nil,
-        page_size \\ nil,
-        start_time \\ nil,
-        options \\ []
-      ) do
+  def get_application_date_range_kpi(%Client{} = client, application_id, kpi_name, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/kpis/daterange/#{AWS.Util.encode_uri(kpi_name)}"
 
+    # Validate optional parameters
+    optional_params = [end_time: nil, next_token: nil, page_size: nil, start_time: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(start_time) do
-        [{"start-time", start_time} | query_params]
+      if opt_val = Keyword.get(options, :start_time) do
+        [{"start-time", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"page-size", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"page-size", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(end_time) do
-        [{"end-time", end_time} | query_params]
+      if opt_val = Keyword.get(options, :end_time) do
+        [{"end-time", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:end_time, :next_token, :page_size, :start_time])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about the settings for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetApplicationSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec get_application_settings(map(), String.t(), list()) ::
+  @spec get_application_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_settings_errors()}
   def get_application_settings(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8271,31 +8972,64 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about all the applications that are associated with your
   Amazon Pinpoint account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetApps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
-  @spec get_apps(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_apps(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_apps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_apps_errors()}
-  def get_apps(%Client{} = client, page_size \\ nil, token \\ nil, options \\ []) do
+  def get_apps(%Client{} = client, options \\ []) do
     url_path = "/v1/apps"
+
+    # Validate optional parameters
+    optional_params = [page_size: nil, token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(token) do
-        [{"token", token} | query_params]
+      if opt_val = Keyword.get(options, :token) do
+        [{"token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"page-size", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"page-size", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:page_size, :token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8303,17 +9037,43 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the status and settings of the Baidu channel for an
   application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetBaiduChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec get_baidu_channel(map(), String.t(), list()) ::
+  @spec get_baidu_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_baidu_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_baidu_channel_errors()}
   def get_baidu_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/baidu"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8321,8 +9081,17 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the status, configuration, and other settings for a
   campaign.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:campaign_id` (`t:string`) The unique identifier for the campaign.
+
+  ## Optional parameters:
   """
-  @spec get_campaign(map(), String.t(), String.t(), list()) ::
+  @spec get_campaign(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_campaign_errors()}
@@ -8330,57 +9099,95 @@ defmodule AWS.Pinpoint do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/campaigns/#{AWS.Util.encode_uri(campaign_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about all the activities for a campaign.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetCampaignActivities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:campaign_id` (`t:string`) The unique identifier for the campaign.
+
+  ## Optional parameters:
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
-  @spec get_campaign_activities(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_campaign_activities(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_campaign_activities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_campaign_activities_errors()}
-  def get_campaign_activities(
-        %Client{} = client,
-        application_id,
-        campaign_id,
-        page_size \\ nil,
-        token \\ nil,
-        options \\ []
-      ) do
+  def get_campaign_activities(%Client{} = client, application_id, campaign_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/campaigns/#{AWS.Util.encode_uri(campaign_id)}/activities"
 
+    # Validate optional parameters
+    optional_params = [page_size: nil, token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(token) do
-        [{"token", token} | query_params]
+      if opt_val = Keyword.get(options, :token) do
+        [{"token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"page-size", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"page-size", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:page_size, :token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8388,17 +9195,43 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves (queries) pre-aggregated data for a standard metric that applies to a
   campaign.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetCampaignDateRangeKpi&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:campaign_id` (`t:string`) The unique identifier for the campaign.
+  * `:kpi_name` (`t:string`) The name of the metric, also referred to as a key
+    performance indicator (KPI), to retrieve data for. This value describes the
+    associated metric and consists of two or more terms, which are comprised of
+    lowercase alphanumeric characters, separated by a hyphen. Examples are
+    email-open-rate and successful-delivery-rate. For a list of valid values,
+    see the Amazon Pinpoint Developer Guide.
+
+  ## Optional parameters:
+  * `:end_time` (`t:timestamp[date-time]`) The last date and time to retrieve data
+    for, as part of an inclusive date range that filters the query results. This
+    value should be in extended ISO 8601 format and use Coordinated Universal
+    Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
+  * `:next_token` (`t:string`) The string that specifies which page of results to
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:start_time` (`t:timestamp[date-time]`) The first date and time to retrieve
+    data for, as part of an inclusive date range that filters the query results.
+    This value should be in extended ISO 8601 format and use Coordinated
+    Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July
+    19, 2019. This value should also be fewer than 90 days from the current day.
   """
   @spec get_campaign_date_range_kpi(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_campaign_date_range_kpi_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -8408,47 +9241,64 @@ defmodule AWS.Pinpoint do
         application_id,
         campaign_id,
         kpi_name,
-        end_time \\ nil,
-        next_token \\ nil,
-        page_size \\ nil,
-        start_time \\ nil,
         options \\ []
       ) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/campaigns/#{AWS.Util.encode_uri(campaign_id)}/kpis/daterange/#{AWS.Util.encode_uri(kpi_name)}"
 
+    # Validate optional parameters
+    optional_params = [end_time: nil, next_token: nil, page_size: nil, start_time: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(start_time) do
-        [{"start-time", start_time} | query_params]
+      if opt_val = Keyword.get(options, :start_time) do
+        [{"start-time", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"page-size", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"page-size", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(end_time) do
-        [{"end-time", end_time} | query_params]
+      if opt_val = Keyword.get(options, :end_time) do
+        [{"end-time", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:end_time, :next_token, :page_size, :start_time])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8456,8 +9306,19 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the status, configuration, and other settings for a
   specific version of a campaign.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetCampaignVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:campaign_id` (`t:string`) The unique identifier for the campaign.
+  * `:version` (`t:string`) The unique version number (Version property) for the
+    campaign version.
+
+  ## Optional parameters:
   """
-  @spec get_campaign_version(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_campaign_version(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_campaign_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_campaign_version_errors()}
@@ -8471,10 +9332,27 @@ defmodule AWS.Pinpoint do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/campaigns/#{AWS.Util.encode_uri(campaign_id)}/versions/#{AWS.Util.encode_uri(version)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8482,47 +9360,68 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the status, configuration, and other settings for
   all versions of a campaign.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetCampaignVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:campaign_id` (`t:string`) The unique identifier for the campaign.
+
+  ## Optional parameters:
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
-  @spec get_campaign_versions(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_campaign_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_campaign_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_campaign_versions_errors()}
-  def get_campaign_versions(
-        %Client{} = client,
-        application_id,
-        campaign_id,
-        page_size \\ nil,
-        token \\ nil,
-        options \\ []
-      ) do
+  def get_campaign_versions(%Client{} = client, application_id, campaign_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/campaigns/#{AWS.Util.encode_uri(campaign_id)}/versions"
 
+    # Validate optional parameters
+    optional_params = [page_size: nil, token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(token) do
-        [{"token", token} | query_params]
+      if opt_val = Keyword.get(options, :token) do
+        [{"token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"page-size", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"page-size", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:page_size, :token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8530,37 +9429,66 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the status, configuration, and other settings for
   all the campaigns that are associated with an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetCampaigns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
-  @spec get_campaigns(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_campaigns(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_campaigns_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_campaigns_errors()}
-  def get_campaigns(
-        %Client{} = client,
-        application_id,
-        page_size \\ nil,
-        token \\ nil,
-        options \\ []
-      ) do
+  def get_campaigns(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/campaigns"
+
+    # Validate optional parameters
+    optional_params = [page_size: nil, token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(token) do
-        [{"token", token} | query_params]
+      if opt_val = Keyword.get(options, :token) do
+        [{"token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"page-size", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"page-size", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:page_size, :token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8568,17 +9496,43 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the history and status of each channel for an
   application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetChannels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec get_channels(map(), String.t(), list()) ::
+  @spec get_channels(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_channels_errors()}
   def get_channels(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8586,17 +9540,43 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the status and settings of the email channel for an
   application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetEmailChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec get_email_channel(map(), String.t(), list()) ::
+  @spec get_email_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_email_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_email_channel_errors()}
   def get_email_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/email"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8604,24 +9584,60 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves the content and settings of a message template for messages that are
   sent through the email channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetEmailTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+
+  ## Optional parameters:
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
-  @spec get_email_template(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_email_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_email_template_errors()}
-  def get_email_template(%Client{} = client, template_name, version \\ nil, options \\ []) do
+  def get_email_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/email"
+
+    # Validate optional parameters
+    optional_params = [version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(version) do
-        [{"version", version} | query_params]
+      if opt_val = Keyword.get(options, :version) do
+        [{"version", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8629,8 +9645,18 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the settings and attributes of a specific endpoint
   for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:endpoint_id` (`t:string`) The case insensitive unique identifier for the
+    endpoint. The identifier can't contain $, { or }.
+
+  ## Optional parameters:
   """
-  @spec get_endpoint(map(), String.t(), String.t(), list()) ::
+  @spec get_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_endpoint_errors()}
@@ -8638,27 +9664,70 @@ defmodule AWS.Pinpoint do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/endpoints/#{AWS.Util.encode_uri(endpoint_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about the event stream settings for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetEventStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec get_event_stream(map(), String.t(), list()) ::
+  @spec get_event_stream(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_event_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_event_stream_errors()}
   def get_event_stream(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/eventstream"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8666,8 +9735,17 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the status and settings of a specific export job for
   an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:job_id` (`t:string`) The unique identifier for the job.
+
+  ## Optional parameters:
   """
-  @spec get_export_job(map(), String.t(), String.t(), list()) ::
+  @spec get_export_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_export_job_errors()}
@@ -8675,10 +9753,27 @@ defmodule AWS.Pinpoint do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/jobs/export/#{AWS.Util.encode_uri(job_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8686,37 +9781,66 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the status and settings of all the export jobs for
   an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetExportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
-  @spec get_export_jobs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_export_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_export_jobs_errors()}
-  def get_export_jobs(
-        %Client{} = client,
-        application_id,
-        page_size \\ nil,
-        token \\ nil,
-        options \\ []
-      ) do
+  def get_export_jobs(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/jobs/export"
+
+    # Validate optional parameters
+    optional_params = [page_size: nil, token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(token) do
-        [{"token", token} | query_params]
+      if opt_val = Keyword.get(options, :token) do
+        [{"token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"page-size", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"page-size", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:page_size, :token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8724,17 +9848,43 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the status and settings of the GCM channel for an
   application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetGcmChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec get_gcm_channel(map(), String.t(), list()) ::
+  @spec get_gcm_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_gcm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_gcm_channel_errors()}
   def get_gcm_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/gcm"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8742,8 +9892,17 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the status and settings of a specific import job for
   an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:job_id` (`t:string`) The unique identifier for the job.
+
+  ## Optional parameters:
   """
-  @spec get_import_job(map(), String.t(), String.t(), list()) ::
+  @spec get_import_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_import_job_errors()}
@@ -8751,10 +9910,27 @@ defmodule AWS.Pinpoint do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/jobs/import/#{AWS.Util.encode_uri(job_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8762,45 +9938,83 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the status and settings of all the import jobs for
   an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetImportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
-  @spec get_import_jobs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_import_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_import_jobs_errors()}
-  def get_import_jobs(
-        %Client{} = client,
-        application_id,
-        page_size \\ nil,
-        token \\ nil,
-        options \\ []
-      ) do
+  def get_import_jobs(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/jobs/import"
+
+    # Validate optional parameters
+    optional_params = [page_size: nil, token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(token) do
-        [{"token", token} | query_params]
+      if opt_val = Keyword.get(options, :token) do
+        [{"token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"page-size", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"page-size", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:page_size, :token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the in-app messages targeted for the provided endpoint ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetInAppMessages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:endpoint_id` (`t:string`) The unique identifier for the endpoint.
+
+  ## Optional parameters:
   """
-  @spec get_in_app_messages(map(), String.t(), String.t(), list()) ::
+  @spec get_in_app_messages(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_in_app_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_in_app_messages_errors()}
@@ -8808,10 +10022,27 @@ defmodule AWS.Pinpoint do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/endpoints/#{AWS.Util.encode_uri(endpoint_id)}/inappmessages"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8819,24 +10050,60 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves the content and settings of a message template for messages sent
   through the in-app channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetInAppTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+
+  ## Optional parameters:
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
-  @spec get_in_app_template(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_in_app_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_in_app_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_in_app_template_errors()}
-  def get_in_app_template(%Client{} = client, template_name, version \\ nil, options \\ []) do
+  def get_in_app_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/inapp"
+
+    # Validate optional parameters
+    optional_params = [version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(version) do
-        [{"version", version} | query_params]
+      if opt_val = Keyword.get(options, :version) do
+        [{"version", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8844,8 +10111,17 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the status, configuration, and other settings for a
   journey.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetJourney&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:journey_id` (`t:string`) The unique identifier for the journey.
+
+  ## Optional parameters:
   """
-  @spec get_journey(map(), String.t(), String.t(), list()) ::
+  @spec get_journey(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_journey_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_journey_errors()}
@@ -8853,10 +10129,27 @@ defmodule AWS.Pinpoint do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys/#{AWS.Util.encode_uri(journey_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8864,17 +10157,43 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves (queries) pre-aggregated data for a standard engagement metric that
   applies to a journey.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetJourneyDateRangeKpi&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:journey_id` (`t:string`) The unique identifier for the journey.
+  * `:kpi_name` (`t:string`) The name of the metric, also referred to as a key
+    performance indicator (KPI), to retrieve data for. This value describes the
+    associated metric and consists of two or more terms, which are comprised of
+    lowercase alphanumeric characters, separated by a hyphen. Examples are
+    email-open-rate and successful-delivery-rate. For a list of valid values,
+    see the Amazon Pinpoint Developer Guide.
+
+  ## Optional parameters:
+  * `:end_time` (`t:timestamp[date-time]`) The last date and time to retrieve data
+    for, as part of an inclusive date range that filters the query results. This
+    value should be in extended ISO 8601 format and use Coordinated Universal
+    Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
+  * `:next_token` (`t:string`) The string that specifies which page of results to
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:start_time` (`t:timestamp[date-time]`) The first date and time to retrieve
+    data for, as part of an inclusive date range that filters the query results.
+    This value should be in extended ISO 8601 format and use Coordinated
+    Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July
+    19, 2019. This value should also be fewer than 90 days from the current day.
   """
   @spec get_journey_date_range_kpi(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_journey_date_range_kpi_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -8884,47 +10203,64 @@ defmodule AWS.Pinpoint do
         application_id,
         journey_id,
         kpi_name,
-        end_time \\ nil,
-        next_token \\ nil,
-        page_size \\ nil,
-        start_time \\ nil,
         options \\ []
       ) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys/#{AWS.Util.encode_uri(journey_id)}/kpis/daterange/#{AWS.Util.encode_uri(kpi_name)}"
 
+    # Validate optional parameters
+    optional_params = [end_time: nil, next_token: nil, page_size: nil, start_time: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(start_time) do
-        [{"start-time", start_time} | query_params]
+      if opt_val = Keyword.get(options, :start_time) do
+        [{"start-time", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"page-size", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"page-size", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(end_time) do
-        [{"end-time", end_time} | query_params]
+      if opt_val = Keyword.get(options, :end_time) do
+        [{"end-time", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:end_time, :next_token, :page_size, :start_time])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8932,15 +10268,30 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves (queries) pre-aggregated data for a standard execution metric that
   applies to a journey activity.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetJourneyExecutionActivityMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:journey_activity_id` (`t:string`) The unique identifier for the journey
+    activity.
+  * `:journey_id` (`t:string`) The unique identifier for the journey.
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) The string that specifies which page of results to
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   """
   @spec get_journey_execution_activity_metrics(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_journey_execution_activity_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -8950,31 +10301,50 @@ defmodule AWS.Pinpoint do
         application_id,
         journey_activity_id,
         journey_id,
-        next_token \\ nil,
-        page_size \\ nil,
         options \\ []
       ) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys/#{AWS.Util.encode_uri(journey_id)}/activities/#{AWS.Util.encode_uri(journey_activity_id)}/execution-metrics"
 
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"page-size", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"page-size", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -8982,47 +10352,69 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves (queries) pre-aggregated data for a standard execution metric that
   applies to a journey.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetJourneyExecutionMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:journey_id` (`t:string`) The unique identifier for the journey.
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) The string that specifies which page of results to
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   """
-  @spec get_journey_execution_metrics(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_journey_execution_metrics(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_journey_execution_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_journey_execution_metrics_errors()}
-  def get_journey_execution_metrics(
-        %Client{} = client,
-        application_id,
-        journey_id,
-        next_token \\ nil,
-        page_size \\ nil,
-        options \\ []
-      ) do
+  def get_journey_execution_metrics(%Client{} = client, application_id, journey_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys/#{AWS.Util.encode_uri(journey_id)}/execution-metrics"
 
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"page-size", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"page-size", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -9030,16 +10422,32 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves (queries) pre-aggregated data for a standard run execution metric that
   applies to a journey activity.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetJourneyRunExecutionActivityMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:journey_activity_id` (`t:string`) The unique identifier for the journey
+    activity.
+  * `:journey_id` (`t:string`) The unique identifier for the journey.
+  * `:run_id` (`t:string`) The unique identifier for the journey run.
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) The string that specifies which page of results to
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   """
   @spec get_journey_run_execution_activity_metrics(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_journey_run_execution_activity_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -9050,31 +10458,50 @@ defmodule AWS.Pinpoint do
         journey_activity_id,
         journey_id,
         run_id,
-        next_token \\ nil,
-        page_size \\ nil,
         options \\ []
       ) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys/#{AWS.Util.encode_uri(journey_id)}/runs/#{AWS.Util.encode_uri(run_id)}/activities/#{AWS.Util.encode_uri(journey_activity_id)}/execution-metrics"
 
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"page-size", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"page-size", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -9082,15 +10509,29 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves (queries) pre-aggregated data for a standard run execution metric that
   applies to a journey.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetJourneyRunExecutionMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:journey_id` (`t:string`) The unique identifier for the journey.
+  * `:run_id` (`t:string`) The unique identifier for the journey run.
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) The string that specifies which page of results to
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   """
   @spec get_journey_run_execution_metrics(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_journey_run_execution_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -9100,78 +10541,118 @@ defmodule AWS.Pinpoint do
         application_id,
         journey_id,
         run_id,
-        next_token \\ nil,
-        page_size \\ nil,
         options \\ []
       ) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys/#{AWS.Util.encode_uri(journey_id)}/runs/#{AWS.Util.encode_uri(run_id)}/execution-metrics"
 
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"page-size", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"page-size", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Provides information about the runs of a journey.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetJourneyRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:journey_id` (`t:string`) The unique identifier for the journey.
+
+  ## Optional parameters:
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
-  @spec get_journey_runs(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_journey_runs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_journey_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_journey_runs_errors()}
-  def get_journey_runs(
-        %Client{} = client,
-        application_id,
-        journey_id,
-        page_size \\ nil,
-        token \\ nil,
-        options \\ []
-      ) do
+  def get_journey_runs(%Client{} = client, application_id, journey_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys/#{AWS.Util.encode_uri(journey_id)}/runs"
 
+    # Validate optional parameters
+    optional_params = [page_size: nil, token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(token) do
-        [{"token", token} | query_params]
+      if opt_val = Keyword.get(options, :token) do
+        [{"token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"page-size", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"page-size", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:page_size, :token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -9179,24 +10660,60 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves the content and settings of a message template for messages that are
   sent through a push notification channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetPushTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+
+  ## Optional parameters:
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
-  @spec get_push_template(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_push_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_push_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_push_template_errors()}
-  def get_push_template(%Client{} = client, template_name, version \\ nil, options \\ []) do
+  def get_push_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/push"
+
+    # Validate optional parameters
+    optional_params = [version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(version) do
-        [{"version", version} | query_params]
+      if opt_val = Keyword.get(options, :version) do
+        [{"version", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -9204,17 +10721,44 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about an Amazon Pinpoint configuration for a recommender
   model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetRecommenderConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:recommender_id` (`t:string`) The unique identifier for the recommender model
+    configuration. This identifier is displayed as the Recommender ID on the
+    Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec get_recommender_configuration(map(), String.t(), list()) ::
+  @spec get_recommender_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_recommender_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recommender_configuration_errors()}
   def get_recommender_configuration(%Client{} = client, recommender_id, options \\ []) do
     url_path = "/v1/recommenders/#{AWS.Util.encode_uri(recommender_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -9222,36 +10766,64 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about all the recommender model configurations that are
   associated with your Amazon Pinpoint account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetRecommenderConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
-  @spec get_recommender_configurations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_recommender_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_recommender_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recommender_configurations_errors()}
-  def get_recommender_configurations(
-        %Client{} = client,
-        page_size \\ nil,
-        token \\ nil,
-        options \\ []
-      ) do
+  def get_recommender_configurations(%Client{} = client, options \\ []) do
     url_path = "/v1/recommenders"
+
+    # Validate optional parameters
+    optional_params = [page_size: nil, token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(token) do
-        [{"token", token} | query_params]
+      if opt_val = Keyword.get(options, :token) do
+        [{"token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"page-size", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"page-size", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:page_size, :token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -9259,8 +10831,17 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the configuration, dimension, and other settings for
   a specific segment that's associated with an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetSegment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:segment_id` (`t:string`) The unique identifier for the segment.
+
+  ## Optional parameters:
   """
-  @spec get_segment(map(), String.t(), String.t(), list()) ::
+  @spec get_segment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_segment_errors()}
@@ -9268,10 +10849,27 @@ defmodule AWS.Pinpoint do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/segments/#{AWS.Util.encode_uri(segment_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -9279,47 +10877,68 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the status and settings of the export jobs for a
   segment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetSegmentExportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:segment_id` (`t:string`) The unique identifier for the segment.
+
+  ## Optional parameters:
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
-  @spec get_segment_export_jobs(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_segment_export_jobs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_segment_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_segment_export_jobs_errors()}
-  def get_segment_export_jobs(
-        %Client{} = client,
-        application_id,
-        segment_id,
-        page_size \\ nil,
-        token \\ nil,
-        options \\ []
-      ) do
+  def get_segment_export_jobs(%Client{} = client, application_id, segment_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/segments/#{AWS.Util.encode_uri(segment_id)}/jobs/export"
 
+    # Validate optional parameters
+    optional_params = [page_size: nil, token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(token) do
-        [{"token", token} | query_params]
+      if opt_val = Keyword.get(options, :token) do
+        [{"token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"page-size", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"page-size", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:page_size, :token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -9327,47 +10946,68 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the status and settings of the import jobs for a
   segment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetSegmentImportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:segment_id` (`t:string`) The unique identifier for the segment.
+
+  ## Optional parameters:
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
-  @spec get_segment_import_jobs(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_segment_import_jobs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_segment_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_segment_import_jobs_errors()}
-  def get_segment_import_jobs(
-        %Client{} = client,
-        application_id,
-        segment_id,
-        page_size \\ nil,
-        token \\ nil,
-        options \\ []
-      ) do
+  def get_segment_import_jobs(%Client{} = client, application_id, segment_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/segments/#{AWS.Util.encode_uri(segment_id)}/jobs/import"
 
+    # Validate optional parameters
+    optional_params = [page_size: nil, token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(token) do
-        [{"token", token} | query_params]
+      if opt_val = Keyword.get(options, :token) do
+        [{"token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"page-size", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"page-size", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:page_size, :token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -9375,8 +11015,19 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the configuration, dimension, and other settings for
   a specific version of a segment that's associated with an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetSegmentVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:segment_id` (`t:string`) The unique identifier for the segment.
+  * `:version` (`t:string`) The unique version number (Version property) for the
+    campaign version.
+
+  ## Optional parameters:
   """
-  @spec get_segment_version(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_segment_version(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_segment_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_segment_version_errors()}
@@ -9384,10 +11035,27 @@ defmodule AWS.Pinpoint do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/segments/#{AWS.Util.encode_uri(segment_id)}/versions/#{AWS.Util.encode_uri(version)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -9395,47 +11063,68 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the configuration, dimension, and other settings for
   all the versions of a specific segment that's associated with an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetSegmentVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:segment_id` (`t:string`) The unique identifier for the segment.
+
+  ## Optional parameters:
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
-  @spec get_segment_versions(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_segment_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_segment_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_segment_versions_errors()}
-  def get_segment_versions(
-        %Client{} = client,
-        application_id,
-        segment_id,
-        page_size \\ nil,
-        token \\ nil,
-        options \\ []
-      ) do
+  def get_segment_versions(%Client{} = client, application_id, segment_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/segments/#{AWS.Util.encode_uri(segment_id)}/versions"
 
+    # Validate optional parameters
+    optional_params = [page_size: nil, token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(token) do
-        [{"token", token} | query_params]
+      if opt_val = Keyword.get(options, :token) do
+        [{"token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"page-size", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"page-size", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:page_size, :token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -9443,37 +11132,66 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the configuration, dimension, and other settings for
   all the segments that are associated with an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetSegments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
-  @spec get_segments(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_segments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_segments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_segments_errors()}
-  def get_segments(
-        %Client{} = client,
-        application_id,
-        page_size \\ nil,
-        token \\ nil,
-        options \\ []
-      ) do
+  def get_segments(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/segments"
+
+    # Validate optional parameters
+    optional_params = [page_size: nil, token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(token) do
-        [{"token", token} | query_params]
+      if opt_val = Keyword.get(options, :token) do
+        [{"token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"page-size", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"page-size", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:page_size, :token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -9481,17 +11199,43 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the status and settings of the SMS channel for an
   application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetSmsChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec get_sms_channel(map(), String.t(), list()) ::
+  @spec get_sms_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sms_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sms_channel_errors()}
   def get_sms_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/sms"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -9499,24 +11243,60 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves the content and settings of a message template for messages that are
   sent through the SMS channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetSmsTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+
+  ## Optional parameters:
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
-  @spec get_sms_template(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_sms_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sms_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sms_template_errors()}
-  def get_sms_template(%Client{} = client, template_name, version \\ nil, options \\ []) do
+  def get_sms_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/sms"
+
+    # Validate optional parameters
+    optional_params = [version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(version) do
-        [{"version", version} | query_params]
+      if opt_val = Keyword.get(options, :version) do
+        [{"version", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -9524,8 +11304,17 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about all the endpoints that are associated with a
   specific user ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetUserEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:user_id` (`t:string`) The unique identifier for the user.
+
+  ## Optional parameters:
   """
-  @spec get_user_endpoints(map(), String.t(), String.t(), list()) ::
+  @spec get_user_endpoints(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_user_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_endpoints_errors()}
@@ -9533,10 +11322,27 @@ defmodule AWS.Pinpoint do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/users/#{AWS.Util.encode_uri(user_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -9544,17 +11350,43 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the status and settings of the voice channel for an
   application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetVoiceChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec get_voice_channel(map(), String.t(), list()) ::
+  @spec get_voice_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_channel_errors()}
   def get_voice_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/voice"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -9562,24 +11394,60 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves the content and settings of a message template for messages that are
   sent through the voice channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetVoiceTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+
+  ## Optional parameters:
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
-  @spec get_voice_template(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_voice_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_template_errors()}
-  def get_voice_template(%Client{} = client, template_name, version \\ nil, options \\ []) do
+  def get_voice_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/voice"
+
+    # Validate optional parameters
+    optional_params = [version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(version) do
-        [{"version", version} | query_params]
+      if opt_val = Keyword.get(options, :version) do
+        [{"version", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -9587,37 +11455,66 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the status, configuration, and other settings for
   all the journeys that are associated with an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20ListJourneys&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
-  @spec list_journeys(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_journeys(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_journeys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_journeys_errors()}
-  def list_journeys(
-        %Client{} = client,
-        application_id,
-        page_size \\ nil,
-        token \\ nil,
-        options \\ []
-      ) do
+  def list_journeys(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys"
+
+    # Validate optional parameters
+    optional_params = [page_size: nil, token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(token) do
-        [{"token", token} | query_params]
+      if opt_val = Keyword.get(options, :token) do
+        [{"token", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"page-size", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"page-size", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:page_size, :token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -9625,63 +11522,113 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves all the tags (keys and values) that are associated with an
   application, campaign, message template, or segment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about all the versions of a specific message template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20ListTemplateVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+  * `:template_type` (`t:string`) The type of channel that the message template is
+    designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) The string that specifies which page of results to
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   """
-  @spec list_template_versions(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_template_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_template_versions_errors()}
-  def list_template_versions(
-        %Client{} = client,
-        template_name,
-        template_type,
-        next_token \\ nil,
-        page_size \\ nil,
-        options \\ []
-      ) do
+  def list_template_versions(%Client{} = client, template_name, template_type, options \\ []) do
     url_path =
       "/v1/templates/#{AWS.Util.encode_uri(template_name)}/#{AWS.Util.encode_uri(template_type)}/versions"
 
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"page-size", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"page-size", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -9689,67 +11636,100 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about all the message templates that are associated with
   your Amazon Pinpoint account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20ListTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`) The string that specifies which page of results to
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:prefix` (`t:string`) The substring to match in the names of the message
+    templates to include in the results. If you specify this value, Amazon
+    Pinpoint returns only those templates whose names begin with the value that
+    you specify.
+  * `:template_type` (`t:string`) The type of message template to include in the
+    results. Valid values are: EMAIL, PUSH, SMS, and VOICE. To include all types
+    of templates in the results, don't include this parameter in your request.
   """
-  @spec list_templates(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_templates_errors()}
-  def list_templates(
-        %Client{} = client,
-        next_token \\ nil,
-        page_size \\ nil,
-        prefix \\ nil,
-        template_type \\ nil,
-        options \\ []
-      ) do
+  def list_templates(%Client{} = client, options \\ []) do
     url_path = "/v1/templates"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil, prefix: nil, template_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(template_type) do
-        [{"template-type", template_type} | query_params]
+      if opt_val = Keyword.get(options, :template_type) do
+        [{"template-type", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(prefix) do
-        [{"prefix", prefix} | query_params]
+      if opt_val = Keyword.get(options, :prefix) do
+        [{"prefix", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(page_size) do
-        [{"page-size", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"page-size", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size, :prefix, :template_type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a phone number.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20PhoneNumberValidate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec phone_number_validate(map(), phone_number_validate_request(), list()) ::
+  @spec phone_number_validate(AWS.Client.t(), phone_number_validate_request(), Keyword.t()) ::
           {:ok, phone_number_validate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, phone_number_validate_errors()}
@@ -9758,7 +11738,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9776,8 +11757,16 @@ defmodule AWS.Pinpoint do
   @doc """
   Creates a new event stream for an application or updates the settings of an
   existing event stream for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20PutEventStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec put_event_stream(map(), String.t(), put_event_stream_request(), list()) ::
+  @spec put_event_stream(AWS.Client.t(), String.t(), put_event_stream_request(), Keyword.t()) ::
           {:ok, put_event_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_event_stream_errors()}
@@ -9786,7 +11775,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9804,8 +11794,16 @@ defmodule AWS.Pinpoint do
   @doc """
   Creates a new event to record for endpoints, or creates or updates endpoint data
   that existing events are associated with.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20PutEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec put_events(map(), String.t(), put_events_request(), list()) ::
+  @spec put_events(AWS.Client.t(), String.t(), put_events_request(), Keyword.t()) ::
           {:ok, put_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_events_errors()}
@@ -9814,7 +11812,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9831,12 +11830,26 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Removes one or more custom attributes, of the same attribute type, from the
-  application.
+  application. Existing endpoints still have the attributes but Amazon Pinpoint
+  will stop capturing new or changed values for these attributes.
 
-  Existing endpoints still have the attributes but Amazon Pinpoint will stop
-  capturing new or changed values for these attributes.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20RemoveAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:attribute_type` (`t:string`) The type of attribute or attributes to remove.
+    Valid values are:
+
+  ## Optional parameters:
   """
-  @spec remove_attributes(map(), String.t(), String.t(), remove_attributes_request(), list()) ::
+  @spec remove_attributes(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          remove_attributes_request(),
+          Keyword.t()
+        ) ::
           {:ok, remove_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_attributes_errors()}
@@ -9847,15 +11860,24 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates and sends a direct message.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20SendMessages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec send_messages(map(), String.t(), send_messages_request(), list()) ::
+  @spec send_messages(AWS.Client.t(), String.t(), send_messages_request(), Keyword.t()) ::
           {:ok, send_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_messages_errors()}
@@ -9864,7 +11886,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9881,8 +11904,16 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Send an OTP message
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20SendOTPMessage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique ID of your Amazon Pinpoint
+    application.
+
+  ## Optional parameters:
   """
-  @spec send_o_t_p_message(map(), String.t(), send_o_t_p_message_request(), list()) ::
+  @spec send_o_t_p_message(AWS.Client.t(), String.t(), send_o_t_p_message_request(), Keyword.t()) ::
           {:ok, send_o_t_p_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_o_t_p_message_errors()}
@@ -9891,7 +11922,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9908,8 +11940,21 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Creates and sends a message to a list of users.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20SendUsersMessages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec send_users_messages(map(), String.t(), send_users_messages_request(), list()) ::
+  @spec send_users_messages(
+          AWS.Client.t(),
+          String.t(),
+          send_users_messages_request(),
+          Keyword.t()
+        ) ::
           {:ok, send_users_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_users_messages_errors()}
@@ -9918,7 +11963,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9936,8 +11982,15 @@ defmodule AWS.Pinpoint do
   @doc """
   Adds one or more tags (keys and values) to an application, campaign, message
   template, or segment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
@@ -9945,7 +11998,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9963,8 +12017,19 @@ defmodule AWS.Pinpoint do
   @doc """
   Removes one or more tags (keys and values) from an application, campaign,
   message template, or segment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.pinpoint#__string]`) The key of the tag to
+    remove from the resource. To remove multiple tags, append the tagKeys
+    parameter and argument for each additional tag to remove, separated by an
+    ampersand (&).
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
@@ -9977,7 +12042,8 @@ defmodule AWS.Pinpoint do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -9995,8 +12061,16 @@ defmodule AWS.Pinpoint do
   @doc """
   Enables the ADM channel for an application or updates the status and settings of
   the ADM channel for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateAdmChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec update_adm_channel(map(), String.t(), update_adm_channel_request(), list()) ::
+  @spec update_adm_channel(AWS.Client.t(), String.t(), update_adm_channel_request(), Keyword.t()) ::
           {:ok, update_adm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_adm_channel_errors()}
@@ -10005,7 +12079,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -10013,8 +12088,21 @@ defmodule AWS.Pinpoint do
   @doc """
   Enables the APNs channel for an application or updates the status and settings
   of the APNs channel for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateApnsChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec update_apns_channel(map(), String.t(), update_apns_channel_request(), list()) ::
+  @spec update_apns_channel(
+          AWS.Client.t(),
+          String.t(),
+          update_apns_channel_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_apns_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_apns_channel_errors()}
@@ -10023,7 +12111,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -10031,12 +12120,20 @@ defmodule AWS.Pinpoint do
   @doc """
   Enables the APNs sandbox channel for an application or updates the status and
   settings of the APNs sandbox channel for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateApnsSandboxChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
   @spec update_apns_sandbox_channel(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_apns_sandbox_channel_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_apns_sandbox_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -10046,7 +12143,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -10054,8 +12152,21 @@ defmodule AWS.Pinpoint do
   @doc """
   Enables the APNs VoIP channel for an application or updates the status and
   settings of the APNs VoIP channel for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateApnsVoipChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec update_apns_voip_channel(map(), String.t(), update_apns_voip_channel_request(), list()) ::
+  @spec update_apns_voip_channel(
+          AWS.Client.t(),
+          String.t(),
+          update_apns_voip_channel_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_apns_voip_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_apns_voip_channel_errors()}
@@ -10064,7 +12175,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -10072,12 +12184,20 @@ defmodule AWS.Pinpoint do
   @doc """
   Enables the APNs VoIP sandbox channel for an application or updates the status
   and settings of the APNs VoIP sandbox channel for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateApnsVoipSandboxChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
   @spec update_apns_voip_sandbox_channel(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_apns_voip_sandbox_channel_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_apns_voip_sandbox_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -10087,19 +12207,28 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the settings for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateApplicationSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
   @spec update_application_settings(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_application_settings_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_application_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -10109,7 +12238,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -10117,8 +12247,21 @@ defmodule AWS.Pinpoint do
   @doc """
   Enables the Baidu channel for an application or updates the status and settings
   of the Baidu channel for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateBaiduChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec update_baidu_channel(map(), String.t(), update_baidu_channel_request(), list()) ::
+  @spec update_baidu_channel(
+          AWS.Client.t(),
+          String.t(),
+          update_baidu_channel_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_baidu_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_baidu_channel_errors()}
@@ -10127,15 +12270,31 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the configuration and other settings for a campaign.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:campaign_id` (`t:string`) The unique identifier for the campaign.
+
+  ## Optional parameters:
   """
-  @spec update_campaign(map(), String.t(), String.t(), update_campaign_request(), list()) ::
+  @spec update_campaign(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_campaign_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_campaign_errors()}
@@ -10146,7 +12305,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -10154,8 +12314,21 @@ defmodule AWS.Pinpoint do
   @doc """
   Enables the email channel for an application or updates the status and settings
   of the email channel for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateEmailChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec update_email_channel(map(), String.t(), update_email_channel_request(), list()) ::
+  @spec update_email_channel(
+          AWS.Client.t(),
+          String.t(),
+          update_email_channel_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_email_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_email_channel_errors()}
@@ -10164,7 +12337,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -10172,8 +12346,31 @@ defmodule AWS.Pinpoint do
   @doc """
   Updates an existing message template for messages that are sent through the
   email channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateEmailTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+
+  ## Optional parameters:
+  * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a
+    new version of the message template. Valid values are: true, save the
+    updates as a new version; and, false, save the updates to (overwrite) the
+    latest existing version of the template.
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
-  @spec update_email_template(map(), String.t(), update_email_template_request(), list()) ::
+  @spec update_email_template(
+          AWS.Client.t(),
+          String.t(),
+          update_email_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_email_template_errors()}
@@ -10188,20 +12385,41 @@ defmodule AWS.Pinpoint do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:create_new_version, :version])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
   Creates a new endpoint for an application or updates the settings and attributes
-  of an existing endpoint for an application.
+  of an existing endpoint for an application. You can also use this operation to
+  define custom attributes for an endpoint. If an update includes one or more
+  values for a custom attribute, Amazon Pinpoint replaces (overwrites) any
+  existing values with the new values.
 
-  You can also use this operation to define custom attributes for an endpoint. If
-  an update includes one or more values for a custom attribute, Amazon Pinpoint
-  replaces (overwrites) any existing values with the new values.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:endpoint_id` (`t:string`) The case insensitive unique identifier for the
+    endpoint. The identifier can't contain $, { or }.
+
+  ## Optional parameters:
   """
-  @spec update_endpoint(map(), String.t(), String.t(), update_endpoint_request(), list()) ::
+  @spec update_endpoint(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_endpoint_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_endpoint_errors()}
@@ -10212,20 +12430,33 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
   Creates a new batch of endpoints for an application or updates the settings and
-  attributes of a batch of existing endpoints for an application.
+  attributes of a batch of existing endpoints for an application. You can also
+  use this operation to define custom attributes for a batch of endpoints. If an
+  update includes one or more values for a custom attribute, Amazon Pinpoint
+  replaces (overwrites) any existing values with the new values.
 
-  You can also use this operation to define custom attributes for a batch of
-  endpoints. If an update includes one or more values for a custom attribute,
-  Amazon Pinpoint replaces (overwrites) any existing values with the new values.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateEndpointsBatch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec update_endpoints_batch(map(), String.t(), update_endpoints_batch_request(), list()) ::
+  @spec update_endpoints_batch(
+          AWS.Client.t(),
+          String.t(),
+          update_endpoints_batch_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_endpoints_batch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_endpoints_batch_errors()}
@@ -10234,7 +12465,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
@@ -10242,8 +12474,16 @@ defmodule AWS.Pinpoint do
   @doc """
   Enables the GCM channel for an application or updates the status and settings of
   the GCM channel for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateGcmChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec update_gcm_channel(map(), String.t(), update_gcm_channel_request(), list()) ::
+  @spec update_gcm_channel(AWS.Client.t(), String.t(), update_gcm_channel_request(), Keyword.t()) ::
           {:ok, update_gcm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_gcm_channel_errors()}
@@ -10252,7 +12492,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -10260,8 +12501,31 @@ defmodule AWS.Pinpoint do
   @doc """
   Updates an existing message template for messages sent through the in-app
   message channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateInAppTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+
+  ## Optional parameters:
+  * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a
+    new version of the message template. Valid values are: true, save the
+    updates as a new version; and, false, save the updates to (overwrite) the
+    latest existing version of the template.
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
-  @spec update_in_app_template(map(), String.t(), update_in_app_template_request(), list()) ::
+  @spec update_in_app_template(
+          AWS.Client.t(),
+          String.t(),
+          update_in_app_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_in_app_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_in_app_template_errors()}
@@ -10276,15 +12540,36 @@ defmodule AWS.Pinpoint do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:create_new_version, :version])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
   Updates the configuration and other settings for a journey.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateJourney&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:journey_id` (`t:string`) The unique identifier for the journey.
+
+  ## Optional parameters:
   """
-  @spec update_journey(map(), String.t(), String.t(), update_journey_request(), list()) ::
+  @spec update_journey(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_journey_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_journey_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_journey_errors()}
@@ -10295,20 +12580,30 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Cancels (stops) an active journey.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateJourneyState&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:journey_id` (`t:string`) The unique identifier for the journey.
+
+  ## Optional parameters:
   """
   @spec update_journey_state(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_journey_state_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_journey_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -10320,7 +12615,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -10328,8 +12624,31 @@ defmodule AWS.Pinpoint do
   @doc """
   Updates an existing message template for messages that are sent through a push
   notification channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdatePushTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+
+  ## Optional parameters:
+  * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a
+    new version of the message template. Valid values are: true, save the
+    updates as a new version; and, false, save the updates to (overwrite) the
+    latest existing version of the template.
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
-  @spec update_push_template(map(), String.t(), update_push_template_request(), list()) ::
+  @spec update_push_template(
+          AWS.Client.t(),
+          String.t(),
+          update_push_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_push_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_push_template_errors()}
@@ -10344,19 +12663,34 @@ defmodule AWS.Pinpoint do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:create_new_version, :version])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
   Updates an Amazon Pinpoint configuration for a recommender model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateRecommenderConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:recommender_id` (`t:string`) The unique identifier for the recommender model
+    configuration. This identifier is displayed as the Recommender ID on the
+    Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
   @spec update_recommender_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_recommender_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_recommender_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -10366,17 +12700,33 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a new segment for an application or updates the configuration,
-  dimension, and other settings for an existing segment that's associated with an
-  application.
+  dimension, and other settings for an existing segment that's associated with
+  an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateSegment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:segment_id` (`t:string`) The unique identifier for the segment.
+
+  ## Optional parameters:
   """
-  @spec update_segment(map(), String.t(), String.t(), update_segment_request(), list()) ::
+  @spec update_segment(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_segment_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_segment_errors()}
@@ -10387,7 +12737,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -10395,8 +12746,16 @@ defmodule AWS.Pinpoint do
   @doc """
   Enables the SMS channel for an application or updates the status and settings of
   the SMS channel for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateSmsChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec update_sms_channel(map(), String.t(), update_sms_channel_request(), list()) ::
+  @spec update_sms_channel(AWS.Client.t(), String.t(), update_sms_channel_request(), Keyword.t()) ::
           {:ok, update_sms_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sms_channel_errors()}
@@ -10405,7 +12764,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -10413,8 +12773,31 @@ defmodule AWS.Pinpoint do
   @doc """
   Updates an existing message template for messages that are sent through the SMS
   channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateSmsTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+
+  ## Optional parameters:
+  * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a
+    new version of the message template. Valid values are: true, save the
+    updates as a new version; and, false, save the updates to (overwrite) the
+    latest existing version of the template.
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
-  @spec update_sms_template(map(), String.t(), update_sms_template_request(), list()) ::
+  @spec update_sms_template(
+          AWS.Client.t(),
+          String.t(),
+          update_sms_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_sms_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sms_template_errors()}
@@ -10429,20 +12812,38 @@ defmodule AWS.Pinpoint do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:create_new_version, :version])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
   Changes the status of a specific version of a message template to *active*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateTemplateActiveVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+  * `:template_type` (`t:string`) The type of channel that the message template is
+    designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.
+
+  ## Optional parameters:
   """
   @spec update_template_active_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_template_active_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_template_active_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -10460,7 +12861,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -10468,8 +12870,21 @@ defmodule AWS.Pinpoint do
   @doc """
   Enables the voice channel for an application or updates the status and settings
   of the voice channel for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateVoiceChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+
+  ## Optional parameters:
   """
-  @spec update_voice_channel(map(), String.t(), update_voice_channel_request(), list()) ::
+  @spec update_voice_channel(
+          AWS.Client.t(),
+          String.t(),
+          update_voice_channel_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_voice_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_voice_channel_errors()}
@@ -10478,7 +12893,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -10486,8 +12902,31 @@ defmodule AWS.Pinpoint do
   @doc """
   Updates an existing message template for messages that are sent through the
   voice channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateVoiceTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+
+  ## Optional parameters:
+  * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a
+    new version of the message template. Valid values are: true, save the
+    updates as a new version; and, false, save the updates to (overwrite) the
+    latest existing version of the template.
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
-  @spec update_voice_template(map(), String.t(), update_voice_template_request(), list()) ::
+  @spec update_voice_template(
+          AWS.Client.t(),
+          String.t(),
+          update_voice_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_voice_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_voice_template_errors()}
@@ -10502,15 +12941,34 @@ defmodule AWS.Pinpoint do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:create_new_version, :version])
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
   Verify an OTP
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20VerifyOTPMessage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique ID of your Amazon Pinpoint
+    application.
+
+  ## Optional parameters:
   """
-  @spec verify_o_t_p_message(map(), String.t(), verify_o_t_p_message_request(), list()) ::
+  @spec verify_o_t_p_message(
+          AWS.Client.t(),
+          String.t(),
+          verify_o_t_p_message_request(),
+          Keyword.t()
+        ) ::
           {:ok, verify_o_t_p_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, verify_o_t_p_message_errors()}
@@ -10519,7 +12977,8 @@ defmodule AWS.Pinpoint do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

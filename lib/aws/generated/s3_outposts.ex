@@ -311,21 +311,16 @@ defmodule AWS.S3Outposts do
   end
 
   @doc """
-  Creates an endpoint and associates it with the specified Outpost.
+  Creates an endpoint and associates it with the specified Outpost. It can take up
+  to 5 minutes for this action to finish.
 
-  It can take up to 5 minutes for this action to finish.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3outposts%20CreateEndpoint&this_doc_guide=API%2520Reference)
 
-  Related actions include:
+  ## Parameters:
 
-    *
-
-  [DeleteEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html) 
-
-    *
-
-  [ListEndpoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html)
+  ## Optional parameters:
   """
-  @spec create_endpoint(map(), create_endpoint_request(), list()) ::
+  @spec create_endpoint(AWS.Client.t(), create_endpoint_request(), Keyword.t()) ::
           {:ok, create_endpoint_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_endpoint_errors()}
@@ -334,7 +329,8 @@ defmodule AWS.S3Outposts do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -350,21 +346,17 @@ defmodule AWS.S3Outposts do
   end
 
   @doc """
-  Deletes an endpoint.
+  Deletes an endpoint. It can take up to 5 minutes for this action to finish.
 
-  It can take up to 5 minutes for this action to finish.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3outposts%20DeleteEndpoint&this_doc_guide=API%2520Reference)
 
-  Related actions include:
+  ## Parameters:
+  * `:endpoint_id` (`t:string`) The ID of the endpoint.
+  * `:outpost_id` (`t:string`) The ID of the Outposts.
 
-    *
-
-  [CreateEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html) 
-
-    *
-
-  [ListEndpoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html)
+  ## Optional parameters:
   """
-  @spec delete_endpoint(map(), delete_endpoint_request(), list()) ::
+  @spec delete_endpoint(AWS.Client.t(), delete_endpoint_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_endpoint_errors()}
@@ -379,7 +371,8 @@ defmodule AWS.S3Outposts do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -395,138 +388,198 @@ defmodule AWS.S3Outposts do
   end
 
   @doc """
-  Lists endpoints associated with the specified Outpost.
+  Lists endpoints associated with the specified Outpost. Related actions include:
 
-  Related actions include:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3outposts%20ListEndpoints&this_doc_guide=API%2520Reference)
 
-    *
+  ## Parameters:
 
-  [CreateEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html) 
-
-    *
-
-  [DeleteEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html)
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of endpoints that will be
+    returned in the response.
+  * `:next_token` (`t:string`) If a previous response from this operation included
+    a NextToken value, provide that value here to retrieve the next page of
+    results.
   """
-  @spec list_endpoints(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_endpoints_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_endpoints_errors()}
-  def list_endpoints(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_endpoints(%Client{} = client, options \\ []) do
     url_path = "/S3Outposts/ListEndpoints"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the Outposts with S3 on Outposts capacity for your Amazon Web Services
-  account.
+  account. Includes S3 on Outposts that you have access to as the Outposts
+  owner, or as a shared user from Resource Access Manager (RAM).
 
-  Includes S3 on Outposts that you have access to as the Outposts owner, or as a
-  shared user
-  from Resource Access Manager (RAM).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3outposts%20ListOutpostsWithS3&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of Outposts to return. The
+    limit is 100.
+  * `:next_token` (`t:string`) When you can get additional results from the
+    ListOutpostsWithS3 call, a NextToken parameter is returned in the output.
+    You can then pass in a subsequent command to the NextToken parameter to
+    continue listing additional Outposts.
   """
-  @spec list_outposts_with_s3(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_outposts_with_s3(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_outposts_with_s3_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_outposts_with_s3_errors()}
-  def list_outposts_with_s3(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_outposts_with_s3(%Client{} = client, options \\ []) do
     url_path = "/S3Outposts/ListOutpostsWithS3"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all endpoints associated with an Outpost that has been shared by Amazon
-  Web Services Resource Access Manager (RAM).
+  Web Services Resource Access Manager (RAM). Related actions include:
 
-  Related actions include:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3outposts%20ListSharedEndpoints&this_doc_guide=API%2520Reference)
 
-    *
+  ## Parameters:
+  * `:outpost_id` (`t:string`) The ID of the Amazon Web Services Outpost.
 
-  [CreateEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html) 
-
-    *
-
-  [DeleteEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html)
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of endpoints that will be
+    returned in the response.
+  * `:next_token` (`t:string`) If a previous response from this operation included
+    a NextToken value, you can provide that value here to retrieve the next page
+    of results.
   """
-  @spec list_shared_endpoints(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
+  @spec list_shared_endpoints(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_shared_endpoints_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_shared_endpoints_errors()}
-  def list_shared_endpoints(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        outpost_id,
-        options \\ []
-      ) do
+  def list_shared_endpoints(%Client{} = client, outpost_id, options \\ []) do
     url_path = "/S3Outposts/ListSharedEndpoints"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"outpostId", outpost_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(outpost_id) do
-        [{"outpostId", outpost_id} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end

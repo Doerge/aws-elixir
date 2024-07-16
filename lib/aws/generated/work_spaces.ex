@@ -3,31 +3,12 @@
 
 defmodule AWS.WorkSpaces do
   @moduledoc """
-  Amazon WorkSpaces Service
-
-  Amazon WorkSpaces enables you to provision virtual, cloud-based Microsoft
-  Windows
-  or Amazon Linux desktops for your users, known as *WorkSpaces*.
-
-  WorkSpaces eliminates the need to procure and deploy hardware or install complex
-  software. You can quickly add or remove users as your needs change. Users can
-  access their
-  virtual desktops from multiple devices or web browsers.
-
-  This API Reference provides detailed information about the actions, data types,
-  parameters, and errors of the WorkSpaces service. For more information about the
-  supported Amazon Web Services Regions, endpoints, and service quotas of the
-  Amazon WorkSpaces service, see [WorkSpaces endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/wsp.html) in the *Amazon
-  Web Services
-  General Reference*.
-
-  You can also manage your WorkSpaces resources using the WorkSpaces
-  console, Command Line Interface (CLI), and SDKs. For more information about
-  administering WorkSpaces, see the [Amazon WorkSpaces Administration Guide](https://docs.aws.amazon.com/workspaces/latest/adminguide/).
-  For more information about using the Amazon WorkSpaces client application or web
-  browser to access provisioned WorkSpaces, see the [Amazon WorkSpaces User Guide](https://docs.aws.amazon.com/workspaces/latest/userguide/). For more
-  information about using the CLI to manage your WorkSpaces resources,
-  see the [WorkSpaces section of the CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/workspaces/index.html).
+  Amazon WorkSpaces Service Amazon WorkSpaces enables you to provision virtual,
+  cloud-based Microsoft Windows or Amazon Linux desktops for your users, known
+  as *WorkSpaces*. WorkSpaces eliminates the need to procure and deploy hardware
+  or install complex software. You can quickly add or remove users as your needs
+  change. Users can access their virtual desktops from multiple devices or web
+  browsers.
   """
 
   alias AWS.Client
@@ -3876,38 +3857,42 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Accepts the account link invitation.
-
-  There's currently no unlinking capability after you accept the account linking
-  invitation.
   """
-  @spec accept_account_link_invitation(map(), accept_account_link_invitation_request(), list()) ::
+  @spec accept_account_link_invitation(
+          AWS.Client.t(),
+          accept_account_link_invitation_request(),
+          Keyword.t()
+        ) ::
           {:ok, accept_account_link_invitation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_account_link_invitation_errors()}
   def accept_account_link_invitation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptAccountLinkInvitation", input, options)
   end
 
   @doc """
   Associates the specified connection alias with the specified directory to enable
-  cross-Region redirection.
-
-  For more information, see [ Cross-Region Redirection for Amazon
+  cross-Region redirection. For more information, see [ Cross-Region Redirection
+  for Amazon
   WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
-
   Before performing this operation, call [
   DescribeConnectionAliases](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html)
-  to make sure that the current state of the
-  connection alias is `CREATED`.
+  to make sure that the current state of the connection alias is `CREATED`.
   """
-  @spec associate_connection_alias(map(), associate_connection_alias_request(), list()) ::
+  @spec associate_connection_alias(
+          AWS.Client.t(),
+          associate_connection_alias_request(),
+          Keyword.t()
+        ) ::
           {:ok, associate_connection_alias_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_connection_alias_errors()}
   def associate_connection_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateConnectionAlias", input, options)
   end
@@ -3915,12 +3900,13 @@ defmodule AWS.WorkSpaces do
   @doc """
   Associates the specified IP access control group with the specified directory.
   """
-  @spec associate_ip_groups(map(), associate_ip_groups_request(), list()) ::
+  @spec associate_ip_groups(AWS.Client.t(), associate_ip_groups_request(), Keyword.t()) ::
           {:ok, associate_ip_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_ip_groups_errors()}
   def associate_ip_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateIpGroups", input, options)
   end
@@ -3928,59 +3914,50 @@ defmodule AWS.WorkSpaces do
   @doc """
   Associates the specified application to the specified WorkSpace.
   """
-  @spec associate_workspace_application(map(), associate_workspace_application_request(), list()) ::
+  @spec associate_workspace_application(
+          AWS.Client.t(),
+          associate_workspace_application_request(),
+          Keyword.t()
+        ) ::
           {:ok, associate_workspace_application_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_workspace_application_errors()}
   def associate_workspace_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateWorkspaceApplication", input, options)
   end
 
   @doc """
   Adds one or more rules to the specified IP access control group.
-
-  This action gives users permission to access their WorkSpaces from the CIDR
-  address
-  ranges specified in the rules.
   """
-  @spec authorize_ip_rules(map(), authorize_ip_rules_request(), list()) ::
+  @spec authorize_ip_rules(AWS.Client.t(), authorize_ip_rules_request(), Keyword.t()) ::
           {:ok, authorize_ip_rules_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, authorize_ip_rules_errors()}
   def authorize_ip_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AuthorizeIpRules", input, options)
   end
 
   @doc """
-  Copies the specified image from the specified Region to the current Region.
-
-  For more
-  information about copying images, see [ Copy a Custom WorkSpaces Image](https://docs.aws.amazon.com/workspaces/latest/adminguide/copy-custom-image.html).
-
-  In the China (Ningxia) Region, you can copy images only within the same Region.
-
-  In Amazon Web Services GovCloud (US), to copy images to and from other Regions,
-  contact Amazon Web Services Support.
-
-  Before copying a shared image, be sure to verify that it has been shared from
-  the
-  correct Amazon Web Services account. To determine if an image has been shared
-  and to see
-  the ID of the Amazon Web Services account that owns an image, use the
-  [DescribeWorkSpaceImages](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html) and
-  [DescribeWorkspaceImagePermissions](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImagePermissions.html)
-  API operations.
+  Copies the specified image from the specified Region to the current Region. For
+  more information about copying images, see [ Copy a Custom WorkSpaces
+  Image](https://docs.aws.amazon.com/workspaces/latest/adminguide/copy-custom-image.html).
+  In the China (Ningxia) Region, you can copy images only within the same
+  Region. In Amazon Web Services GovCloud (US), to copy images to and from other
+  Regions, contact Amazon Web Services Support.
   """
-  @spec copy_workspace_image(map(), copy_workspace_image_request(), list()) ::
+  @spec copy_workspace_image(AWS.Client.t(), copy_workspace_image_request(), Keyword.t()) ::
           {:ok, copy_workspace_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_workspace_image_errors()}
   def copy_workspace_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyWorkspaceImage", input, options)
   end
@@ -3988,79 +3965,70 @@ defmodule AWS.WorkSpaces do
   @doc """
   Creates the account link invitation.
   """
-  @spec create_account_link_invitation(map(), create_account_link_invitation_request(), list()) ::
+  @spec create_account_link_invitation(
+          AWS.Client.t(),
+          create_account_link_invitation_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_account_link_invitation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_account_link_invitation_errors()}
   def create_account_link_invitation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAccountLinkInvitation", input, options)
   end
 
   @doc """
-  Creates a client-add-in for Amazon Connect within a directory.
-
-  You can create only
-  one Amazon Connect client add-in within a directory.
-
-  This client add-in allows WorkSpaces users to seamlessly connect to Amazon
-  Connect.
+  Creates a client-add-in for Amazon Connect within a directory. You can create
+  only one Amazon Connect client add-in within a directory.
   """
-  @spec create_connect_client_add_in(map(), create_connect_client_add_in_request(), list()) ::
+  @spec create_connect_client_add_in(
+          AWS.Client.t(),
+          create_connect_client_add_in_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_connect_client_add_in_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connect_client_add_in_errors()}
   def create_connect_client_add_in(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConnectClientAddIn", input, options)
   end
 
   @doc """
   Creates the specified connection alias for use with cross-Region redirection.
-
-  For more
-  information, see [ Cross-Region Redirection for Amazon
+  For more information, see [ Cross-Region Redirection for Amazon
   WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
   """
-  @spec create_connection_alias(map(), create_connection_alias_request(), list()) ::
+  @spec create_connection_alias(AWS.Client.t(), create_connection_alias_request(), Keyword.t()) ::
           {:ok, create_connection_alias_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connection_alias_errors()}
   def create_connection_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConnectionAlias", input, options)
   end
 
   @doc """
-  Creates an IP access control group.
-
-  An IP access control group provides you with the ability to control the IP
-  addresses
-  from which users are allowed to access their WorkSpaces. To specify the CIDR
-  address
-  ranges, add rules to your IP access control group and then associate the group
-  with your
-  directory. You can add rules when you create the group or at any time using
-  `AuthorizeIpRules`.
-
-  There is a default IP access control group associated with your directory. If
-  you don't
-  associate an IP access control group with your directory, the default group is
-  used. The
-  default group includes a default rule that allows users to access their
-  WorkSpaces from
-  anywhere. You cannot modify the default IP access control group for your
-  directory.
+  Creates an IP access control group. An IP access control group provides you with
+  the ability to control the IP addresses from which users are allowed to access
+  their WorkSpaces. To specify the CIDR address ranges, add rules to your IP
+  access control group and then associate the group with your directory. You can
+  add rules when you create the group or at any time using `AuthorizeIpRules`.
   """
-  @spec create_ip_group(map(), create_ip_group_request(), list()) ::
+  @spec create_ip_group(AWS.Client.t(), create_ip_group_request(), Keyword.t()) ::
           {:ok, create_ip_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ip_group_errors()}
   def create_ip_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIpGroup", input, options)
   end
@@ -4068,12 +4036,17 @@ defmodule AWS.WorkSpaces do
   @doc """
   Creates a standby WorkSpace in a secondary Region.
   """
-  @spec create_standby_workspaces(map(), create_standby_workspaces_request(), list()) ::
+  @spec create_standby_workspaces(
+          AWS.Client.t(),
+          create_standby_workspaces_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_standby_workspaces_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_standby_workspaces_errors()}
   def create_standby_workspaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStandbyWorkspaces", input, options)
   end
@@ -4081,64 +4054,51 @@ defmodule AWS.WorkSpaces do
   @doc """
   Creates the specified tags for the specified WorkSpaces resource.
   """
-  @spec create_tags(map(), create_tags_request(), list()) ::
+  @spec create_tags(AWS.Client.t(), create_tags_request(), Keyword.t()) ::
           {:ok, create_tags_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_tags_errors()}
   def create_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTags", input, options)
   end
 
   @doc """
-  Creates a new updated WorkSpace image based on the specified source image.
-
-  The new
-  updated WorkSpace image has the latest drivers and other updates required by the
-  Amazon WorkSpaces components.
-
-  To determine which WorkSpace images need to be updated with the latest Amazon
-  WorkSpaces
-  requirements, use [
+  Creates a new updated WorkSpace image based on the specified source image. The
+  new updated WorkSpace image has the latest drivers and other updates required
+  by the Amazon WorkSpaces components. To determine which WorkSpace images need
+  to be updated with the latest Amazon WorkSpaces requirements, use [
   DescribeWorkspaceImages](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html).
-
-    
-  Only Windows 10, Windows Server 2016, and Windows Server 2019 WorkSpace images
-  can be programmatically updated at this time.
-
-    
-  Microsoft Windows updates and other application updates are not included in the
-  update process.
-
-    
-  The source WorkSpace image is not deleted. You can delete the source image
-  after you've verified your new updated image and created a new bundle.
   """
-  @spec create_updated_workspace_image(map(), create_updated_workspace_image_request(), list()) ::
+  @spec create_updated_workspace_image(
+          AWS.Client.t(),
+          create_updated_workspace_image_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_updated_workspace_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_updated_workspace_image_errors()}
   def create_updated_workspace_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUpdatedWorkspaceImage", input, options)
   end
 
   @doc """
-  Creates the specified WorkSpace bundle.
-
-  For more information about creating WorkSpace bundles, see
-  [
-  Create a Custom WorkSpaces Image and
+  Creates the specified WorkSpace bundle. For more information about creating
+  WorkSpace bundles, see [ Create a Custom WorkSpaces Image and
   Bundle](https://docs.aws.amazon.com/workspaces/latest/adminguide/create-custom-bundle.html).
   """
-  @spec create_workspace_bundle(map(), create_workspace_bundle_request(), list()) ::
+  @spec create_workspace_bundle(AWS.Client.t(), create_workspace_bundle_request(), Keyword.t()) ::
           {:ok, create_workspace_bundle_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workspace_bundle_errors()}
   def create_workspace_bundle(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkspaceBundle", input, options)
   end
@@ -4146,40 +4106,28 @@ defmodule AWS.WorkSpaces do
   @doc """
   Creates a new WorkSpace image from an existing WorkSpace.
   """
-  @spec create_workspace_image(map(), create_workspace_image_request(), list()) ::
+  @spec create_workspace_image(AWS.Client.t(), create_workspace_image_request(), Keyword.t()) ::
           {:ok, create_workspace_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workspace_image_errors()}
   def create_workspace_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkspaceImage", input, options)
   end
 
   @doc """
-  Creates one or more WorkSpaces.
-
-  This operation is asynchronous and returns before the WorkSpaces are created.
-
-    
-  The `MANUAL` running mode value is only supported by Amazon WorkSpaces
-  Core. Contact your account team to be allow-listed to use this value. For more
-  information, see [Amazon WorkSpaces Core](http://aws.amazon.com/workspaces/core/).
-
-    
-  You don't need to specify the `PCOIP` protocol for Linux bundles
-  because `WSP` is the default protocol for those bundles.
-
-    
-  User-decoupled WorkSpaces are only supported by Amazon WorkSpaces
-  Core.
+  Creates one or more WorkSpaces. This operation is asynchronous and returns
+  before the WorkSpaces are created.
   """
-  @spec create_workspaces(map(), create_workspaces_request(), list()) ::
+  @spec create_workspaces(AWS.Client.t(), create_workspaces_request(), Keyword.t()) ::
           {:ok, create_workspaces_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workspaces_errors()}
   def create_workspaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkspaces", input, options)
   end
@@ -4187,12 +4135,13 @@ defmodule AWS.WorkSpaces do
   @doc """
   Creates a pool of WorkSpaces.
   """
-  @spec create_workspaces_pool(map(), create_workspaces_pool_request(), list()) ::
+  @spec create_workspaces_pool(AWS.Client.t(), create_workspaces_pool_request(), Keyword.t()) ::
           {:ok, create_workspaces_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workspaces_pool_errors()}
   def create_workspaces_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkspacesPool", input, options)
   end
@@ -4200,36 +4149,34 @@ defmodule AWS.WorkSpaces do
   @doc """
   Deletes the account link invitation.
   """
-  @spec delete_account_link_invitation(map(), delete_account_link_invitation_request(), list()) ::
+  @spec delete_account_link_invitation(
+          AWS.Client.t(),
+          delete_account_link_invitation_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_account_link_invitation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_account_link_invitation_errors()}
   def delete_account_link_invitation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAccountLinkInvitation", input, options)
   end
 
   @doc """
-  Deletes customized client branding.
-
-  Client branding allows you to customize your
-  WorkSpace's client login portal. You can tailor your login portal company logo,
-  the support
-  email address, support link, link to reset password, and a custom message for
-  users trying
-  to sign in.
-
-  After you delete your customized client branding, your login portal reverts to
-  the
-  default client branding.
+  Deletes customized client branding. Client branding allows you to customize your
+  WorkSpace's client login portal. You can tailor your login portal company
+  logo, the support email address, support link, link to reset password, and a
+  custom message for users trying to sign in.
   """
-  @spec delete_client_branding(map(), delete_client_branding_request(), list()) ::
+  @spec delete_client_branding(AWS.Client.t(), delete_client_branding_request(), Keyword.t()) ::
           {:ok, delete_client_branding_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_client_branding_errors()}
   def delete_client_branding(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteClientBranding", input, options)
   end
@@ -4238,58 +4185,52 @@ defmodule AWS.WorkSpaces do
   Deletes a client-add-in for Amazon Connect that is configured within a
   directory.
   """
-  @spec delete_connect_client_add_in(map(), delete_connect_client_add_in_request(), list()) ::
+  @spec delete_connect_client_add_in(
+          AWS.Client.t(),
+          delete_connect_client_add_in_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_connect_client_add_in_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connect_client_add_in_errors()}
   def delete_connect_client_add_in(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConnectClientAddIn", input, options)
   end
 
   @doc """
-  Deletes the specified connection alias.
-
-  For more information, see [
-  Cross-Region Redirection for Amazon
+  Deletes the specified connection alias. For more information, see [ Cross-Region
+  Redirection for Amazon
   WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
-
-  **If you will no longer be using a fully qualified domain name
-  (FQDN) as the registration code for your WorkSpaces users, you must take certain
-  precautions to prevent potential security issues.** For more information,
-  see [ Security Considerations if You Stop Using Cross-Region Redirection](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html#cross-region-redirection-security-considerations).
-
-  To delete a connection alias that has been shared, the shared account must first
-  disassociate the connection alias from any directories it has been associated
-  with. Then
-  you must unshare the connection alias from the account it has been shared with.
-  You can
-  delete a connection alias only after it is no longer shared with any accounts or
-  associated with any directories.
+  **If you will no longer be using a fully qualified domain name (FQDN) as the
+  registration code for your WorkSpaces users, you must take certain precautions
+  to prevent potential security issues.** For more information, see [ Security
+  Considerations if You Stop Using Cross-Region
+  Redirection](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html#cross-region-redirection-security-considerations).
   """
-  @spec delete_connection_alias(map(), delete_connection_alias_request(), list()) ::
+  @spec delete_connection_alias(AWS.Client.t(), delete_connection_alias_request(), Keyword.t()) ::
           {:ok, delete_connection_alias_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connection_alias_errors()}
   def delete_connection_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConnectionAlias", input, options)
   end
 
   @doc """
   Deletes the specified IP access control group.
-
-  You cannot delete an IP access control group that is associated with a
-  directory.
   """
-  @spec delete_ip_group(map(), delete_ip_group_request(), list()) ::
+  @spec delete_ip_group(AWS.Client.t(), delete_ip_group_request(), Keyword.t()) ::
           {:ok, delete_ip_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ip_group_errors()}
   def delete_ip_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIpGroup", input, options)
   end
@@ -4297,48 +4238,45 @@ defmodule AWS.WorkSpaces do
   @doc """
   Deletes the specified tags from the specified WorkSpaces resource.
   """
-  @spec delete_tags(map(), delete_tags_request(), list()) ::
+  @spec delete_tags(AWS.Client.t(), delete_tags_request(), Keyword.t()) ::
           {:ok, delete_tags_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tags_errors()}
   def delete_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTags", input, options)
   end
 
   @doc """
-  Deletes the specified WorkSpace bundle.
-
-  For more information about deleting WorkSpace bundles, see
-  [
-  Delete a Custom WorkSpaces Bundle or
+  Deletes the specified WorkSpace bundle. For more information about deleting
+  WorkSpace bundles, see [ Delete a Custom WorkSpaces Bundle or
   Image](https://docs.aws.amazon.com/workspaces/latest/adminguide/delete_bundle.html).
   """
-  @spec delete_workspace_bundle(map(), delete_workspace_bundle_request(), list()) ::
+  @spec delete_workspace_bundle(AWS.Client.t(), delete_workspace_bundle_request(), Keyword.t()) ::
           {:ok, delete_workspace_bundle_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workspace_bundle_errors()}
   def delete_workspace_bundle(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWorkspaceBundle", input, options)
   end
 
   @doc """
-  Deletes the specified image from your account.
-
-  To delete an image, you must first delete
-  any bundles that are associated with the image and unshare the image if it is
-  shared with
-  other accounts.
+  Deletes the specified image from your account. To delete an image, you must
+  first delete any bundles that are associated with the image and unshare the
+  image if it is shared with other accounts.
   """
-  @spec delete_workspace_image(map(), delete_workspace_image_request(), list()) ::
+  @spec delete_workspace_image(AWS.Client.t(), delete_workspace_image_request(), Keyword.t()) ::
           {:ok, delete_workspace_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workspace_image_errors()}
   def delete_workspace_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWorkspaceImage", input, options)
   end
@@ -4346,75 +4284,72 @@ defmodule AWS.WorkSpaces do
   @doc """
   Deploys associated applications to the specified WorkSpace
   """
-  @spec deploy_workspace_applications(map(), deploy_workspace_applications_request(), list()) ::
+  @spec deploy_workspace_applications(
+          AWS.Client.t(),
+          deploy_workspace_applications_request(),
+          Keyword.t()
+        ) ::
           {:ok, deploy_workspace_applications_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deploy_workspace_applications_errors()}
   def deploy_workspace_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeployWorkspaceApplications", input, options)
   end
 
   @doc """
-  Deregisters the specified directory.
-
-  This operation is asynchronous and returns before
-  the WorkSpace directory is deregistered. If any WorkSpaces are registered to
-  this
-  directory, you must remove them before you can deregister the directory.
-
-  Simple AD and AD Connector are made available to you free of charge to use with
-  WorkSpaces. If there are no WorkSpaces being used with your Simple AD or AD
-  Connector
-  directory for 30 consecutive days, this directory will be automatically
-  deregistered for
-  use with Amazon WorkSpaces, and you will be charged for this directory as per
-  the [Directory Service pricing terms](http://aws.amazon.com/directoryservice/pricing/).
-
-  To delete empty directories, see [ Delete the Directory for Your
-  WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/delete-workspaces-directory.html).
-  If you delete your Simple AD or AD Connector
-  directory, you can always create a new one when you want to start using
-  WorkSpaces
-  again.
+  Deregisters the specified directory. This operation is asynchronous and returns
+  before the WorkSpace directory is deregistered. If any WorkSpaces are
+  registered to this directory, you must remove them before you can deregister
+  the directory.
   """
-  @spec deregister_workspace_directory(map(), deregister_workspace_directory_request(), list()) ::
+  @spec deregister_workspace_directory(
+          AWS.Client.t(),
+          deregister_workspace_directory_request(),
+          Keyword.t()
+        ) ::
           {:ok, deregister_workspace_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_workspace_directory_errors()}
   def deregister_workspace_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterWorkspaceDirectory", input, options)
   end
 
   @doc """
   Retrieves a list that describes the configuration of Bring Your Own License
-  (BYOL) for
-  the specified account.
+  (BYOL) for the specified account.
   """
-  @spec describe_account(map(), describe_account_request(), list()) ::
+  @spec describe_account(AWS.Client.t(), describe_account_request(), Keyword.t()) ::
           {:ok, describe_account_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_errors()}
   def describe_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccount", input, options)
   end
 
   @doc """
   Retrieves a list that describes modifications to the configuration of Bring Your
-  Own
-  License (BYOL) for the specified account.
+  Own License (BYOL) for the specified account.
   """
-  @spec describe_account_modifications(map(), describe_account_modifications_request(), list()) ::
+  @spec describe_account_modifications(
+          AWS.Client.t(),
+          describe_account_modifications_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_account_modifications_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_modifications_errors()}
   def describe_account_modifications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccountModifications", input, options)
   end
@@ -4424,15 +4359,16 @@ defmodule AWS.WorkSpaces do
   resources.
   """
   @spec describe_application_associations(
-          map(),
+          AWS.Client.t(),
           describe_application_associations_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_application_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_application_associations_errors()}
   def describe_application_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplicationAssociations", input, options)
   end
@@ -4441,12 +4377,13 @@ defmodule AWS.WorkSpaces do
   Describes the specified applications by filtering based on their compute types,
   license availability, operating systems, and owners.
   """
-  @spec describe_applications(map(), describe_applications_request(), list()) ::
+  @spec describe_applications(AWS.Client.t(), describe_applications_request(), Keyword.t()) ::
           {:ok, describe_applications_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_applications_errors()}
   def describe_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplications", input, options)
   end
@@ -4454,35 +4391,34 @@ defmodule AWS.WorkSpaces do
   @doc """
   Describes the associations between the applications and the specified bundle.
   """
-  @spec describe_bundle_associations(map(), describe_bundle_associations_request(), list()) ::
+  @spec describe_bundle_associations(
+          AWS.Client.t(),
+          describe_bundle_associations_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_bundle_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_bundle_associations_errors()}
   def describe_bundle_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBundleAssociations", input, options)
   end
 
   @doc """
-  Describes the specified client branding.
-
-  Client branding allows you to customize the log
-  in page of various device types for your users. You can add your company logo,
-  the support
-  email address, support link, link to reset password, and a custom message for
-  users trying
-  to sign in.
-
-  Only device types that have branding information configured will be shown in the
-  response.
+  Describes the specified client branding. Client branding allows you to customize
+  the log in page of various device types for your users. You can add your
+  company logo, the support email address, support link, link to reset password,
+  and a custom message for users trying to sign in.
   """
-  @spec describe_client_branding(map(), describe_client_branding_request(), list()) ::
+  @spec describe_client_branding(AWS.Client.t(), describe_client_branding_request(), Keyword.t()) ::
           {:ok, describe_client_branding_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_client_branding_errors()}
   def describe_client_branding(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClientBranding", input, options)
   end
@@ -4490,12 +4426,17 @@ defmodule AWS.WorkSpaces do
   @doc """
   Retrieves a list that describes one or more specified Amazon WorkSpaces clients.
   """
-  @spec describe_client_properties(map(), describe_client_properties_request(), list()) ::
+  @spec describe_client_properties(
+          AWS.Client.t(),
+          describe_client_properties_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_client_properties_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_client_properties_errors()}
   def describe_client_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClientProperties", input, options)
   end
@@ -4503,52 +4444,58 @@ defmodule AWS.WorkSpaces do
   @doc """
   Retrieves a list of Amazon Connect client add-ins that have been created.
   """
-  @spec describe_connect_client_add_ins(map(), describe_connect_client_add_ins_request(), list()) ::
+  @spec describe_connect_client_add_ins(
+          AWS.Client.t(),
+          describe_connect_client_add_ins_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_connect_client_add_ins_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connect_client_add_ins_errors()}
   def describe_connect_client_add_ins(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConnectClientAddIns", input, options)
   end
 
   @doc """
   Describes the permissions that the owner of a connection alias has granted to
-  another
-  Amazon Web Services account for the specified connection alias.
-
-  For more information, see
-  [ Cross-Region Redirection for Amazon
+  another Amazon Web Services account for the specified connection alias. For
+  more information, see [ Cross-Region Redirection for Amazon
   WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
   """
   @spec describe_connection_alias_permissions(
-          map(),
+          AWS.Client.t(),
           describe_connection_alias_permissions_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_connection_alias_permissions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connection_alias_permissions_errors()}
   def describe_connection_alias_permissions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConnectionAliasPermissions", input, options)
   end
 
   @doc """
   Retrieves a list that describes the connection aliases used for cross-Region
-  redirection.
-
-  For more information, see [ Cross-Region Redirection for Amazon
+  redirection. For more information, see [ Cross-Region Redirection for Amazon
   WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
   """
-  @spec describe_connection_aliases(map(), describe_connection_aliases_request(), list()) ::
+  @spec describe_connection_aliases(
+          AWS.Client.t(),
+          describe_connection_aliases_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_connection_aliases_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connection_aliases_errors()}
   def describe_connection_aliases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConnectionAliases", input, options)
   end
@@ -4556,12 +4503,17 @@ defmodule AWS.WorkSpaces do
   @doc """
   Describes the associations between the applications and the specified image.
   """
-  @spec describe_image_associations(map(), describe_image_associations_request(), list()) ::
+  @spec describe_image_associations(
+          AWS.Client.t(),
+          describe_image_associations_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_image_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_image_associations_errors()}
   def describe_image_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeImageAssociations", input, options)
   end
@@ -4569,12 +4521,13 @@ defmodule AWS.WorkSpaces do
   @doc """
   Describes one or more of your IP access control groups.
   """
-  @spec describe_ip_groups(map(), describe_ip_groups_request(), list()) ::
+  @spec describe_ip_groups(AWS.Client.t(), describe_ip_groups_request(), Keyword.t()) ::
           {:ok, describe_ip_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_ip_groups_errors()}
   def describe_ip_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIpGroups", input, options)
   end
@@ -4582,12 +4535,13 @@ defmodule AWS.WorkSpaces do
   @doc """
   Describes the specified tags for the specified WorkSpaces resource.
   """
-  @spec describe_tags(map(), describe_tags_request(), list()) ::
+  @spec describe_tags(AWS.Client.t(), describe_tags_request(), Keyword.t()) ::
           {:ok, describe_tags_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
   end
@@ -4595,27 +4549,35 @@ defmodule AWS.WorkSpaces do
   @doc """
   Describes the associations betweens applications and the specified WorkSpace.
   """
-  @spec describe_workspace_associations(map(), describe_workspace_associations_request(), list()) ::
+  @spec describe_workspace_associations(
+          AWS.Client.t(),
+          describe_workspace_associations_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_workspace_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspace_associations_errors()}
   def describe_workspace_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkspaceAssociations", input, options)
   end
 
   @doc """
   Retrieves a list that describes the available WorkSpace bundles.
-
-  You can filter the results using either bundle ID or owner, but not both.
   """
-  @spec describe_workspace_bundles(map(), describe_workspace_bundles_request(), list()) ::
+  @spec describe_workspace_bundles(
+          AWS.Client.t(),
+          describe_workspace_bundles_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_workspace_bundles_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspace_bundles_errors()}
   def describe_workspace_bundles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkspaceBundles", input, options)
   end
@@ -4623,12 +4585,17 @@ defmodule AWS.WorkSpaces do
   @doc """
   Describes the available directories that are registered with Amazon WorkSpaces.
   """
-  @spec describe_workspace_directories(map(), describe_workspace_directories_request(), list()) ::
+  @spec describe_workspace_directories(
+          AWS.Client.t(),
+          describe_workspace_directories_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_workspace_directories_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspace_directories_errors()}
   def describe_workspace_directories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkspaceDirectories", input, options)
   end
@@ -4638,32 +4605,35 @@ defmodule AWS.WorkSpaces do
   Web Services accounts for an image.
   """
   @spec describe_workspace_image_permissions(
-          map(),
+          AWS.Client.t(),
           describe_workspace_image_permissions_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_workspace_image_permissions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspace_image_permissions_errors()}
   def describe_workspace_image_permissions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkspaceImagePermissions", input, options)
   end
 
   @doc """
   Retrieves a list that describes one or more specified images, if the image
-  identifiers
-  are provided.
-
-  Otherwise, all images in the account are described.
+  identifiers are provided. Otherwise, all images in the account are described.
   """
-  @spec describe_workspace_images(map(), describe_workspace_images_request(), list()) ::
+  @spec describe_workspace_images(
+          AWS.Client.t(),
+          describe_workspace_images_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_workspace_images_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspace_images_errors()}
   def describe_workspace_images(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkspaceImages", input, options)
   end
@@ -4671,29 +4641,31 @@ defmodule AWS.WorkSpaces do
   @doc """
   Describes the snapshots for the specified WorkSpace.
   """
-  @spec describe_workspace_snapshots(map(), describe_workspace_snapshots_request(), list()) ::
+  @spec describe_workspace_snapshots(
+          AWS.Client.t(),
+          describe_workspace_snapshots_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_workspace_snapshots_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspace_snapshots_errors()}
   def describe_workspace_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkspaceSnapshots", input, options)
   end
 
   @doc """
   Describes the specified WorkSpaces.
-
-  You can filter the results by using the bundle identifier, directory identifier,
-  or
-  owner, but you can specify only one filter at a time.
   """
-  @spec describe_workspaces(map(), describe_workspaces_request(), list()) ::
+  @spec describe_workspaces(AWS.Client.t(), describe_workspaces_request(), Keyword.t()) ::
           {:ok, describe_workspaces_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspaces_errors()}
   def describe_workspaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkspaces", input, options)
   end
@@ -4702,15 +4674,16 @@ defmodule AWS.WorkSpaces do
   Describes the connection status of the specified WorkSpaces.
   """
   @spec describe_workspaces_connection_status(
-          map(),
+          AWS.Client.t(),
           describe_workspaces_connection_status_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_workspaces_connection_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspaces_connection_status_errors()}
   def describe_workspaces_connection_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkspacesConnectionStatus", input, options)
   end
@@ -4719,15 +4692,16 @@ defmodule AWS.WorkSpaces do
   Retrieves a list that describes the streaming sessions for a specified pool.
   """
   @spec describe_workspaces_pool_sessions(
-          map(),
+          AWS.Client.t(),
           describe_workspaces_pool_sessions_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_workspaces_pool_sessions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspaces_pool_sessions_errors()}
   def describe_workspaces_pool_sessions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkspacesPoolSessions", input, options)
   end
@@ -4735,36 +4709,41 @@ defmodule AWS.WorkSpaces do
   @doc """
   Describes the specified WorkSpaces Pools.
   """
-  @spec describe_workspaces_pools(map(), describe_workspaces_pools_request(), list()) ::
+  @spec describe_workspaces_pools(
+          AWS.Client.t(),
+          describe_workspaces_pools_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_workspaces_pools_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspaces_pools_errors()}
   def describe_workspaces_pools(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkspacesPools", input, options)
   end
 
   @doc """
-  Disassociates a connection alias from a directory.
-
-  Disassociating a connection alias
-  disables cross-Region redirection between two directories in different Regions.
-  For more
-  information, see [ Cross-Region Redirection for Amazon
+  Disassociates a connection alias from a directory. Disassociating a connection
+  alias disables cross-Region redirection between two directories in different
+  Regions. For more information, see [ Cross-Region Redirection for Amazon
   WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
-
   Before performing this operation, call [
   DescribeConnectionAliases](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html)
-  to make sure that the current state of the
-  connection alias is `CREATED`.
+  to make sure that the current state of the connection alias is `CREATED`.
   """
-  @spec disassociate_connection_alias(map(), disassociate_connection_alias_request(), list()) ::
+  @spec disassociate_connection_alias(
+          AWS.Client.t(),
+          disassociate_connection_alias_request(),
+          Keyword.t()
+        ) ::
           {:ok, disassociate_connection_alias_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_connection_alias_errors()}
   def disassociate_connection_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateConnectionAlias", input, options)
   end
@@ -4773,12 +4752,13 @@ defmodule AWS.WorkSpaces do
   Disassociates the specified IP access control group from the specified
   directory.
   """
-  @spec disassociate_ip_groups(map(), disassociate_ip_groups_request(), list()) ::
+  @spec disassociate_ip_groups(AWS.Client.t(), disassociate_ip_groups_request(), Keyword.t()) ::
           {:ok, disassociate_ip_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_ip_groups_errors()}
   def disassociate_ip_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateIpGroups", input, options)
   end
@@ -4787,15 +4767,16 @@ defmodule AWS.WorkSpaces do
   Disassociates the specified application from a WorkSpace.
   """
   @spec disassociate_workspace_application(
-          map(),
+          AWS.Client.t(),
           disassociate_workspace_application_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_workspace_application_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_workspace_application_errors()}
   def disassociate_workspace_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateWorkspaceApplication", input, options)
   end
@@ -4803,74 +4784,50 @@ defmodule AWS.WorkSpaces do
   @doc """
   Retrieves account link information.
   """
-  @spec get_account_link(map(), get_account_link_request(), list()) ::
+  @spec get_account_link(AWS.Client.t(), get_account_link_request(), Keyword.t()) ::
           {:ok, get_account_link_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_link_errors()}
   def get_account_link(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAccountLink", input, options)
   end
 
   @doc """
-  Imports client branding.
-
-  Client branding allows you to customize your WorkSpace's client
-  login portal. You can tailor your login portal company logo, the support email
-  address,
-  support link, link to reset password, and a custom message for users trying to
-  sign
-  in.
-
-  After you import client branding, the default branding experience for the
-  specified
-  platform type is replaced with the imported experience
-
-    
-  You must specify at least one platform type when importing client
-  branding.
-
-    
-  You can import up to 6 MB of data with each request. If your request exceeds
-  this limit, you can import client branding for different platform types using
-  separate requests.
-
-    
-  In each platform type, the `SupportEmail` and
-  `SupportLink` parameters are mutually exclusive. You can specify
-  only one parameter for each platform type, but not both.
-
-    
-  Imported data can take up to a minute to appear in the WorkSpaces
-  client.
+  Imports client branding. Client branding allows you to customize your
+  WorkSpace's client login portal. You can tailor your login portal company
+  logo, the support email address, support link, link to reset password, and a
+  custom message for users trying to sign in. After you import client branding,
+  the default branding experience for the specified platform type is replaced
+  with the imported experience
   """
-  @spec import_client_branding(map(), import_client_branding_request(), list()) ::
+  @spec import_client_branding(AWS.Client.t(), import_client_branding_request(), Keyword.t()) ::
           {:ok, import_client_branding_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_client_branding_errors()}
   def import_client_branding(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportClientBranding", input, options)
   end
 
   @doc """
-  Imports the specified Windows 10 or 11 Bring Your Own License (BYOL)
-  image into Amazon WorkSpaces.
-
-  The image must be an already licensed Amazon EC2 image that is
-  in your Amazon Web Services account, and you must own the image. For more
-  information about
-  creating BYOL images, see [ Bring Your Own Windows Desktop
+  Imports the specified Windows 10 or 11 Bring Your Own License (BYOL) image into
+  Amazon WorkSpaces. The image must be an already licensed Amazon EC2 image that
+  is in your Amazon Web Services account, and you must own the image. For more
+  information about creating BYOL images, see [ Bring Your Own Windows Desktop
   Licenses](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
   """
-  @spec import_workspace_image(map(), import_workspace_image_request(), list()) ::
+  @spec import_workspace_image(AWS.Client.t(), import_workspace_image_request(), Keyword.t()) ::
           {:ok, import_workspace_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_workspace_image_errors()}
   def import_workspace_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportWorkspaceImage", input, options)
   end
@@ -4878,70 +4835,56 @@ defmodule AWS.WorkSpaces do
   @doc """
   Lists all account links.
   """
-  @spec list_account_links(map(), list_account_links_request(), list()) ::
+  @spec list_account_links(AWS.Client.t(), list_account_links_request(), Keyword.t()) ::
           {:ok, list_account_links_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_account_links_errors()}
   def list_account_links(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAccountLinks", input, options)
   end
 
   @doc """
   Retrieves a list of IP address ranges, specified as IPv4 CIDR blocks, that you
-  can use
-  for the network management interface when you enable Bring Your Own License
-  (BYOL).
-
-  This operation can be run only by Amazon Web Services accounts that are enabled
-  for BYOL.
-  If your account isn't enabled for BYOL, you'll receive an
-  `AccessDeniedException` error.
-
-  The management network interface is connected to a secure Amazon WorkSpaces
-  management
-  network. It is used for interactive streaming of the WorkSpace desktop to Amazon
-  WorkSpaces
-  clients, and to allow Amazon WorkSpaces to manage the WorkSpace.
+  can use for the network management interface when you enable Bring Your Own
+  License (BYOL). This operation can be run only by Amazon Web Services accounts
+  that are enabled for BYOL. If your account isn't enabled for BYOL, you'll
+  receive an `AccessDeniedException` error.
   """
   @spec list_available_management_cidr_ranges(
-          map(),
+          AWS.Client.t(),
           list_available_management_cidr_ranges_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_available_management_cidr_ranges_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_available_management_cidr_ranges_errors()}
   def list_available_management_cidr_ranges(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAvailableManagementCidrRanges", input, options)
   end
 
   @doc """
   Migrates a WorkSpace from one operating system or bundle type to another, while
-  retaining the data on the user volume.
-
-  The migration process recreates the WorkSpace by using a new root volume from
-  the target
-  bundle image and the user volume from the last available snapshot of the
-  original
-  WorkSpace. During migration, the original `D:\Users\%USERNAME%` user profile
-  folder is renamed to `D:\Users\%USERNAME%MMddyyTHHmmss%.NotMigrated`. A new
-  `D:\Users\%USERNAME%\` folder is generated by the new OS. Certain files in
-  the old user profile are moved to the new user profile.
-
-  For available migration scenarios, details about what happens during migration,
-  and best
-  practices, see [Migrate a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/migrate-workspaces.html).
+  retaining the data on the user volume. The migration process recreates the
+  WorkSpace by using a new root volume from the target bundle image and the user
+  volume from the last available snapshot of the original WorkSpace. During
+  migration, the original `D:\Users\%USERNAME%` user profile folder is renamed
+  to `D:\Users\%USERNAME%MMddyyTHHmmss%.NotMigrated`. A new
+  `D:\Users\%USERNAME%\` folder is generated by the new OS. Certain files in the
+  old user profile are moved to the new user profile.
   """
-  @spec migrate_workspace(map(), migrate_workspace_request(), list()) ::
+  @spec migrate_workspace(AWS.Client.t(), migrate_workspace_request(), Keyword.t()) ::
           {:ok, migrate_workspace_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, migrate_workspace_errors()}
   def migrate_workspace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "MigrateWorkspace", input, options)
   end
@@ -4950,30 +4893,32 @@ defmodule AWS.WorkSpaces do
   Modifies the configuration of Bring Your Own License (BYOL) for the specified
   account.
   """
-  @spec modify_account(map(), modify_account_request(), list()) ::
+  @spec modify_account(AWS.Client.t(), modify_account_request(), Keyword.t()) ::
           {:ok, modify_account_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_account_errors()}
   def modify_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyAccount", input, options)
   end
 
   @doc """
-  Modifies the properties of the certificate-based authentication you want
-  to use with your WorkSpaces.
+  Modifies the properties of the certificate-based authentication you want to use
+  with your WorkSpaces.
   """
   @spec modify_certificate_based_auth_properties(
-          map(),
+          AWS.Client.t(),
           modify_certificate_based_auth_properties_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, modify_certificate_based_auth_properties_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_certificate_based_auth_properties_errors()}
   def modify_certificate_based_auth_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyCertificateBasedAuthProperties", input, options)
   end
@@ -4981,45 +4926,50 @@ defmodule AWS.WorkSpaces do
   @doc """
   Modifies the properties of the specified Amazon WorkSpaces clients.
   """
-  @spec modify_client_properties(map(), modify_client_properties_request(), list()) ::
+  @spec modify_client_properties(AWS.Client.t(), modify_client_properties_request(), Keyword.t()) ::
           {:ok, modify_client_properties_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_client_properties_errors()}
   def modify_client_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyClientProperties", input, options)
   end
 
   @doc """
   Modifies multiple properties related to SAML 2.0 authentication, including the
-  enablement status,
-  user access URL, and relay state parameter name that are used for configuring
-  federation with an
-  SAML 2.0 identity provider.
+  enablement status, user access URL, and relay state parameter name that are
+  used for configuring federation with an SAML 2.0 identity provider.
   """
-  @spec modify_saml_properties(map(), modify_saml_properties_request(), list()) ::
+  @spec modify_saml_properties(AWS.Client.t(), modify_saml_properties_request(), Keyword.t()) ::
           {:ok, modify_saml_properties_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_saml_properties_errors()}
   def modify_saml_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifySamlProperties", input, options)
   end
 
   @doc """
-  Modifies the self-service WorkSpace management capabilities for your users.
-
-  For more
-  information, see [Enable Self-Service WorkSpace Management Capabilities for Your Users](https://docs.aws.amazon.com/workspaces/latest/adminguide/enable-user-self-service-workspace-management.html).
+  Modifies the self-service WorkSpace management capabilities for your users. For
+  more information, see [Enable Self-Service WorkSpace Management Capabilities
+  for Your
+  Users](https://docs.aws.amazon.com/workspaces/latest/adminguide/enable-user-self-service-workspace-management.html).
   """
-  @spec modify_selfservice_permissions(map(), modify_selfservice_permissions_request(), list()) ::
+  @spec modify_selfservice_permissions(
+          AWS.Client.t(),
+          modify_selfservice_permissions_request(),
+          Keyword.t()
+        ) ::
           {:ok, modify_selfservice_permissions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_selfservice_permissions_errors()}
   def modify_selfservice_permissions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifySelfservicePermissions", input, options)
   end
@@ -5027,34 +4977,37 @@ defmodule AWS.WorkSpaces do
   @doc """
   Modifies the specified streaming properties.
   """
-  @spec modify_streaming_properties(map(), modify_streaming_properties_request(), list()) ::
+  @spec modify_streaming_properties(
+          AWS.Client.t(),
+          modify_streaming_properties_request(),
+          Keyword.t()
+        ) ::
           {:ok, modify_streaming_properties_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_streaming_properties_errors()}
   def modify_streaming_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyStreamingProperties", input, options)
   end
 
   @doc """
   Specifies which devices and operating systems users can use to access their
-  WorkSpaces.
-
-  For more information, see [
-  Control Device
+  WorkSpaces. For more information, see [ Control Device
   Access](https://docs.aws.amazon.com/workspaces/latest/adminguide/update-directory-details.html#control-device-access).
   """
   @spec modify_workspace_access_properties(
-          map(),
+          AWS.Client.t(),
           modify_workspace_access_properties_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, modify_workspace_access_properties_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_workspace_access_properties_errors()}
   def modify_workspace_access_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyWorkspaceAccessProperties", input, options)
   end
@@ -5063,122 +5016,109 @@ defmodule AWS.WorkSpaces do
   Modify the default properties used to create WorkSpaces.
   """
   @spec modify_workspace_creation_properties(
-          map(),
+          AWS.Client.t(),
           modify_workspace_creation_properties_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, modify_workspace_creation_properties_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_workspace_creation_properties_errors()}
   def modify_workspace_creation_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyWorkspaceCreationProperties", input, options)
   end
 
   @doc """
-  Modifies the specified WorkSpace properties.
-
-  For important information about how to
-  modify the size of the root and user volumes, see [ Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html).
-
-  The `MANUAL` running mode value is only supported by Amazon WorkSpaces
-  Core. Contact your account team to be allow-listed to use this value. For more
-  information, see [Amazon WorkSpaces Core](http://aws.amazon.com/workspaces/core/).
+  Modifies the specified WorkSpace properties. For important information about how
+  to modify the size of the root and user volumes, see [ Modify a
+  WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html).
+  The `MANUAL` running mode value is only supported by Amazon WorkSpaces Core.
+  Contact your account team to be allow-listed to use this value. For more
+  information, see [Amazon WorkSpaces
+  Core](http://aws.amazon.com/workspaces/core/).
   """
-  @spec modify_workspace_properties(map(), modify_workspace_properties_request(), list()) ::
+  @spec modify_workspace_properties(
+          AWS.Client.t(),
+          modify_workspace_properties_request(),
+          Keyword.t()
+        ) ::
           {:ok, modify_workspace_properties_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_workspace_properties_errors()}
   def modify_workspace_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyWorkspaceProperties", input, options)
   end
 
   @doc """
   Sets the state of the specified WorkSpace.
-
-  To maintain a WorkSpace without being interrupted, set the WorkSpace state to
-  `ADMIN_MAINTENANCE`. WorkSpaces in this state do not respond to requests to
-  reboot, stop, start, rebuild, or restore. An AutoStop WorkSpace in this state is
-  not
-  stopped. Users cannot log into a WorkSpace in the `ADMIN_MAINTENANCE`
-  state.
   """
-  @spec modify_workspace_state(map(), modify_workspace_state_request(), list()) ::
+  @spec modify_workspace_state(AWS.Client.t(), modify_workspace_state_request(), Keyword.t()) ::
           {:ok, modify_workspace_state_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_workspace_state_errors()}
   def modify_workspace_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyWorkspaceState", input, options)
   end
 
   @doc """
-  Reboots the specified WorkSpaces.
-
-  You cannot reboot a WorkSpace unless its state is `AVAILABLE`,
-  `UNHEALTHY`, or `REBOOTING`. Reboot a WorkSpace in the `REBOOTING`
-  state only if your WorkSpace has been stuck in the `REBOOTING` state for over 20
-  minutes.
-
-  This operation is asynchronous and returns before the WorkSpaces have rebooted.
+  Reboots the specified WorkSpaces. You cannot reboot a WorkSpace unless its state
+  is `AVAILABLE`, `UNHEALTHY`, or `REBOOTING`. Reboot a WorkSpace in the
+  `REBOOTING` state only if your WorkSpace has been stuck in the `REBOOTING`
+  state for over 20 minutes.
   """
-  @spec reboot_workspaces(map(), reboot_workspaces_request(), list()) ::
+  @spec reboot_workspaces(AWS.Client.t(), reboot_workspaces_request(), Keyword.t()) ::
           {:ok, reboot_workspaces_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_workspaces_errors()}
   def reboot_workspaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootWorkspaces", input, options)
   end
 
   @doc """
-  Rebuilds the specified WorkSpace.
-
-  You cannot rebuild a WorkSpace unless its state is `AVAILABLE`,
-  `ERROR`, `UNHEALTHY`, `STOPPED`, or
-  `REBOOTING`.
-
-  Rebuilding a WorkSpace is a potentially destructive action that can result in
-  the loss
-  of data. For more information, see [Rebuild a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/reset-workspace.html).
-
-  This operation is asynchronous and returns before the WorkSpaces have been
-  completely
-  rebuilt.
+  Rebuilds the specified WorkSpace. You cannot rebuild a WorkSpace unless its
+  state is `AVAILABLE`, `ERROR`, `UNHEALTHY`, `STOPPED`, or `REBOOTING`.
   """
-  @spec rebuild_workspaces(map(), rebuild_workspaces_request(), list()) ::
+  @spec rebuild_workspaces(AWS.Client.t(), rebuild_workspaces_request(), Keyword.t()) ::
           {:ok, rebuild_workspaces_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, rebuild_workspaces_errors()}
   def rebuild_workspaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebuildWorkspaces", input, options)
   end
 
   @doc """
-  Registers the specified directory.
-
-  This operation is asynchronous and returns before the
-  WorkSpace directory is registered. If this is the first time you are registering
-  a
-  directory, you will need to create the workspaces_DefaultRole role before you
-  can register
-  a directory. For more information, see [
-  Creating the workspaces_DefaultRole
+  Registers the specified directory. This operation is asynchronous and returns
+  before the WorkSpace directory is registered. If this is the first time you
+  are registering a directory, you will need to create the
+  workspaces_DefaultRole role before you can register a directory. For more
+  information, see [ Creating the workspaces_DefaultRole
   Role](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role).
   """
-  @spec register_workspace_directory(map(), register_workspace_directory_request(), list()) ::
+  @spec register_workspace_directory(
+          AWS.Client.t(),
+          register_workspace_directory_request(),
+          Keyword.t()
+        ) ::
           {:ok, register_workspace_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_workspace_directory_errors()}
   def register_workspace_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterWorkspaceDirectory", input, options)
   end
@@ -5186,35 +5126,33 @@ defmodule AWS.WorkSpaces do
   @doc """
   Rejects the account link invitation.
   """
-  @spec reject_account_link_invitation(map(), reject_account_link_invitation_request(), list()) ::
+  @spec reject_account_link_invitation(
+          AWS.Client.t(),
+          reject_account_link_invitation_request(),
+          Keyword.t()
+        ) ::
           {:ok, reject_account_link_invitation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_account_link_invitation_errors()}
   def reject_account_link_invitation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RejectAccountLinkInvitation", input, options)
   end
 
   @doc """
-  Restores the specified WorkSpace to its last known healthy state.
-
-  You cannot restore a WorkSpace unless its state is ` AVAILABLE`,
-  `ERROR`, `UNHEALTHY`, or `STOPPED`.
-
-  Restoring a WorkSpace is a potentially destructive action that can result in the
-  loss of
-  data. For more information, see [Restore a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/restore-workspace.html).
-
-  This operation is asynchronous and returns before the WorkSpace is completely
-  restored.
+  Restores the specified WorkSpace to its last known healthy state. You cannot
+  restore a WorkSpace unless its state is ` AVAILABLE`, `ERROR`, `UNHEALTHY`, or
+  `STOPPED`.
   """
-  @spec restore_workspace(map(), restore_workspace_request(), list()) ::
+  @spec restore_workspace(AWS.Client.t(), restore_workspace_request(), Keyword.t()) ::
           {:ok, restore_workspace_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_workspace_errors()}
   def restore_workspace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreWorkspace", input, options)
   end
@@ -5222,122 +5160,83 @@ defmodule AWS.WorkSpaces do
   @doc """
   Removes one or more rules from the specified IP access control group.
   """
-  @spec revoke_ip_rules(map(), revoke_ip_rules_request(), list()) ::
+  @spec revoke_ip_rules(AWS.Client.t(), revoke_ip_rules_request(), Keyword.t()) ::
           {:ok, revoke_ip_rules_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_ip_rules_errors()}
   def revoke_ip_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RevokeIpRules", input, options)
   end
 
   @doc """
   Starts the specified WorkSpaces.
-
-  You cannot start a WorkSpace unless it has a running mode of `AutoStop` and a
-  state of `STOPPED`.
   """
-  @spec start_workspaces(map(), start_workspaces_request(), list()) ::
+  @spec start_workspaces(AWS.Client.t(), start_workspaces_request(), Keyword.t()) ::
           {:ok, start_workspaces_result(), any()}
           | {:error, {:unexpected_response, any()}}
   def start_workspaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartWorkspaces", input, options)
   end
 
   @doc """
   Starts the specified pool.
-
-  You cannot start a pool unless it has a running mode of
-  `AutoStop` and a state of `STOPPED`.
   """
-  @spec start_workspaces_pool(map(), start_workspaces_pool_request(), list()) ::
+  @spec start_workspaces_pool(AWS.Client.t(), start_workspaces_pool_request(), Keyword.t()) ::
           {:ok, start_workspaces_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_workspaces_pool_errors()}
   def start_workspaces_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartWorkspacesPool", input, options)
   end
 
   @doc """
   Stops the specified WorkSpaces.
-
-  You cannot stop a WorkSpace unless it has a running mode of `AutoStop` and a
-  state of `AVAILABLE`, `IMPAIRED`, `UNHEALTHY`, or
-  `ERROR`.
   """
-  @spec stop_workspaces(map(), stop_workspaces_request(), list()) ::
+  @spec stop_workspaces(AWS.Client.t(), stop_workspaces_request(), Keyword.t()) ::
           {:ok, stop_workspaces_result(), any()}
           | {:error, {:unexpected_response, any()}}
   def stop_workspaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopWorkspaces", input, options)
   end
 
   @doc """
   Stops the specified pool.
-
-  You cannot stop a WorkSpace pool unless it has a running mode of `AutoStop`
-  and a state of `AVAILABLE`, `IMPAIRED`, `UNHEALTHY`, or `ERROR`.
   """
-  @spec stop_workspaces_pool(map(), stop_workspaces_pool_request(), list()) ::
+  @spec stop_workspaces_pool(AWS.Client.t(), stop_workspaces_pool_request(), Keyword.t()) ::
           {:ok, stop_workspaces_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_workspaces_pool_errors()}
   def stop_workspaces_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopWorkspacesPool", input, options)
   end
 
   @doc """
-  Terminates the specified WorkSpaces.
-
-  Terminating a WorkSpace is a permanent action and cannot be undone. The user's
-  data
-  is destroyed. If you need to archive any user data, contact Amazon Web Services
-  Support before
-  terminating the WorkSpace.
-
-  You can terminate a WorkSpace that is in any state except `SUSPENDED`.
-
-  This operation is asynchronous and returns before the WorkSpaces have been
-  completely
-  terminated. After a WorkSpace is terminated, the `TERMINATED` state is returned
-  only briefly before the WorkSpace directory metadata is cleaned up, so this
-  state is rarely
-  returned. To confirm that a WorkSpace is terminated, check for the WorkSpace ID
-  by using
-  [
-  DescribeWorkSpaces](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html).
-  If the WorkSpace ID isn't returned, then the WorkSpace has
-  been successfully terminated.
-
-  Simple AD and AD Connector are made available to you free of charge to use with
-  WorkSpaces. If there are no WorkSpaces being used with your Simple AD or AD
-  Connector
-  directory for 30 consecutive days, this directory will be automatically
-  deregistered for
-  use with Amazon WorkSpaces, and you will be charged for this directory as per
-  the [Directory Service pricing terms](http://aws.amazon.com/directoryservice/pricing/).
-
-  To delete empty directories, see [ Delete the Directory for Your
-  WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/delete-workspaces-directory.html).
-  If you delete your Simple AD or AD Connector
-  directory, you can always create a new one when you want to start using
-  WorkSpaces
-  again.
+  Terminates the specified WorkSpaces. Terminating a WorkSpace is a permanent
+  action and cannot be undone. The user's data is destroyed. If you need to
+  archive any user data, contact Amazon Web Services Support before terminating
+  the WorkSpace.
   """
-  @spec terminate_workspaces(map(), terminate_workspaces_request(), list()) ::
+  @spec terminate_workspaces(AWS.Client.t(), terminate_workspaces_request(), Keyword.t()) ::
           {:ok, terminate_workspaces_result(), any()}
           | {:error, {:unexpected_response, any()}}
   def terminate_workspaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TerminateWorkspaces", input, options)
   end
@@ -5345,12 +5244,17 @@ defmodule AWS.WorkSpaces do
   @doc """
   Terminates the specified pool.
   """
-  @spec terminate_workspaces_pool(map(), terminate_workspaces_pool_request(), list()) ::
+  @spec terminate_workspaces_pool(
+          AWS.Client.t(),
+          terminate_workspaces_pool_request(),
+          Keyword.t()
+        ) ::
           {:ok, terminate_workspaces_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, terminate_workspaces_pool_errors()}
   def terminate_workspaces_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TerminateWorkspacesPool", input, options)
   end
@@ -5359,158 +5263,121 @@ defmodule AWS.WorkSpaces do
   Terminates the pool session.
   """
   @spec terminate_workspaces_pool_session(
-          map(),
+          AWS.Client.t(),
           terminate_workspaces_pool_session_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, terminate_workspaces_pool_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, terminate_workspaces_pool_session_errors()}
   def terminate_workspaces_pool_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TerminateWorkspacesPoolSession", input, options)
   end
 
   @doc """
-  Updates a Amazon Connect client add-in.
-
-  Use this action to update the name and
+  Updates a Amazon Connect client add-in. Use this action to update the name and
   endpoint URL of a Amazon Connect client add-in.
   """
-  @spec update_connect_client_add_in(map(), update_connect_client_add_in_request(), list()) ::
+  @spec update_connect_client_add_in(
+          AWS.Client.t(),
+          update_connect_client_add_in_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_connect_client_add_in_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connect_client_add_in_errors()}
   def update_connect_client_add_in(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateConnectClientAddIn", input, options)
   end
 
   @doc """
   Shares or unshares a connection alias with one account by specifying whether
-  that
-  account has permission to associate the connection alias with a directory.
-
-  If the
-  association permission is granted, the connection alias is shared with that
-  account. If the
-  association permission is revoked, the connection alias is unshared with the
-  account. For
-  more information, see [ Cross-Region Redirection for Amazon
+  that account has permission to associate the connection alias with a
+  directory. If the association permission is granted, the connection alias is
+  shared with that account. If the association permission is revoked, the
+  connection alias is unshared with the account. For more information, see [
+  Cross-Region Redirection for Amazon
   WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
-
-    
   Before performing this operation, call [
   DescribeConnectionAliases](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html)
-  to make sure that the current state of the
-  connection alias is `CREATED`.
-
-    
-  To delete a connection alias that has been shared, the shared account must
-  first disassociate the connection alias from any directories it has been
-  associated with. Then you must unshare the connection alias from the account it
-  has been shared with. You can delete a connection alias only after it is no
-  longer
+  to make sure that the current state of the connection alias is `CREATED`. To
+  delete a connection alias that has been shared, the shared account must first
+  disassociate the connection alias from any directories it has been associated
+  with. Then you must unshare the connection alias from the account it has been
+  shared with. You can delete a connection alias only after it is no longer
   shared with any accounts or associated with any directories.
   """
   @spec update_connection_alias_permission(
-          map(),
+          AWS.Client.t(),
           update_connection_alias_permission_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_connection_alias_permission_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connection_alias_permission_errors()}
   def update_connection_alias_permission(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateConnectionAliasPermission", input, options)
   end
 
   @doc """
   Replaces the current rules of the specified IP access control group with the
-  specified
-  rules.
+  specified rules.
   """
-  @spec update_rules_of_ip_group(map(), update_rules_of_ip_group_request(), list()) ::
+  @spec update_rules_of_ip_group(AWS.Client.t(), update_rules_of_ip_group_request(), Keyword.t()) ::
           {:ok, update_rules_of_ip_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rules_of_ip_group_errors()}
   def update_rules_of_ip_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRulesOfIpGroup", input, options)
   end
 
   @doc """
-  Updates a WorkSpace bundle with a new image.
-
-  For more information about updating WorkSpace bundles, see
-  [
-  Update a Custom WorkSpaces
+  Updates a WorkSpace bundle with a new image. For more information about updating
+  WorkSpace bundles, see [ Update a Custom WorkSpaces
   Bundle](https://docs.aws.amazon.com/workspaces/latest/adminguide/update-custom-bundle.html).
-
-  Existing WorkSpaces aren't automatically updated when you update the bundle that
-  they're
-  based on. To update existing WorkSpaces that are based on a bundle that you've
-  updated, you
-  must either rebuild the WorkSpaces or delete and recreate them.
   """
-  @spec update_workspace_bundle(map(), update_workspace_bundle_request(), list()) ::
+  @spec update_workspace_bundle(AWS.Client.t(), update_workspace_bundle_request(), Keyword.t()) ::
           {:ok, update_workspace_bundle_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workspace_bundle_errors()}
   def update_workspace_bundle(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWorkspaceBundle", input, options)
   end
 
   @doc """
   Shares or unshares an image with one account in the same Amazon Web Services
-  Region by
-  specifying whether that account has permission to copy the image.
-
-  If the copy image
-  permission is granted, the image is shared with that account. If the copy image
-  permission
-  is revoked, the image is unshared with the account.
-
-  After an image has been shared, the recipient account can copy the image to
-  other
-  Regions as needed.
-
-  In the China (Ningxia) Region, you can copy images only within the same Region.
-
-  In Amazon Web Services GovCloud (US), to copy images to and from other Regions,
-  contact Amazon Web Services Support.
-
-  For more information about sharing images, see [ Share or Unshare a Custom WorkSpaces
-  Image](https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html).
-
-    
-  To delete an image that has been shared, you must unshare the image before you
-  delete it.
-
-    
-  Sharing Bring Your Own License (BYOL) images across Amazon Web Services accounts
-  isn't supported at this time in Amazon Web Services GovCloud (US). To share BYOL
-  images
-  across accounts in Amazon Web Services GovCloud (US), contact Amazon Web
-  Services Support.
+  Region by specifying whether that account has permission to copy the image. If
+  the copy image permission is granted, the image is shared with that account.
+  If the copy image permission is revoked, the image is unshared with the
+  account. After an image has been shared, the recipient account can copy the
+  image to other Regions as needed.
   """
   @spec update_workspace_image_permission(
-          map(),
+          AWS.Client.t(),
           update_workspace_image_permission_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_workspace_image_permission_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workspace_image_permission_errors()}
   def update_workspace_image_permission(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWorkspaceImagePermission", input, options)
   end
@@ -5518,12 +5385,13 @@ defmodule AWS.WorkSpaces do
   @doc """
   Updates the specified pool.
   """
-  @spec update_workspaces_pool(map(), update_workspaces_pool_request(), list()) ::
+  @spec update_workspaces_pool(AWS.Client.t(), update_workspaces_pool_request(), Keyword.t()) ::
           {:ok, update_workspaces_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workspaces_pool_errors()}
   def update_workspaces_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWorkspacesPool", input, options)
   end

@@ -4,8 +4,8 @@
 defmodule AWS.LookoutEquipment do
   @moduledoc """
   Amazon Lookout for Equipment is a machine learning service that uses advanced
-  analytics to identify
-  anomalies in machines from sensor data for use in predictive maintenance.
+  analytics to identify anomalies in machines from sensor data for use in
+  predictive maintenance.
   """
 
   alias AWS.Client
@@ -2284,43 +2284,42 @@ defmodule AWS.LookoutEquipment do
   end
 
   @doc """
-  Creates a container for a collection of data being ingested for analysis.
-
-  The dataset
-  contains the metadata describing where the data is and what the data actually
-  looks like.
-  For example, it contains the location of the data source, the data schema, and
-  other
-  information. A dataset also contains any tags associated with the ingested data.
+  Creates a container for a collection of data being ingested for analysis. The
+  dataset contains the metadata describing where the data is and what the data
+  actually looks like. For example, it contains the location of the data source,
+  the data schema, and other information. A dataset also contains any tags
+  associated with the ingested data.
   """
-  @spec create_dataset(map(), create_dataset_request(), list()) ::
+  @spec create_dataset(AWS.Client.t(), create_dataset_request(), Keyword.t()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_errors()}
   def create_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataset", input, options)
   end
 
   @doc """
-  Creates a scheduled inference.
-
-  Scheduling an inference is setting up a continuous
-  real-time inference plan to analyze new measurement data. When setting up the
-  schedule, you
-  provide an S3 bucket location for the input data, assign it a delimiter between
-  separate
-  entries in the data, set an offset delay if desired, and set the frequency of
-  inferencing.
-  You must also provide an S3 bucket location for the output data.
+  Creates a scheduled inference. Scheduling an inference is setting up a
+  continuous real-time inference plan to analyze new measurement data. When
+  setting up the schedule, you provide an S3 bucket location for the input data,
+  assign it a delimiter between separate entries in the data, set an offset
+  delay if desired, and set the frequency of inferencing. You must also provide
+  an S3 bucket location for the output data.
   """
-  @spec create_inference_scheduler(map(), create_inference_scheduler_request(), list()) ::
+  @spec create_inference_scheduler(
+          AWS.Client.t(),
+          create_inference_scheduler_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_inference_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_inference_scheduler_errors()}
   def create_inference_scheduler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInferenceScheduler", input, options)
   end
@@ -2328,12 +2327,13 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Creates a label for an event.
   """
-  @spec create_label(map(), create_label_request(), list()) ::
+  @spec create_label(AWS.Client.t(), create_label_request(), Keyword.t()) ::
           {:ok, create_label_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_label_errors()}
   def create_label(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLabel", input, options)
   end
@@ -2341,41 +2341,32 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Creates a group of labels.
   """
-  @spec create_label_group(map(), create_label_group_request(), list()) ::
+  @spec create_label_group(AWS.Client.t(), create_label_group_request(), Keyword.t()) ::
           {:ok, create_label_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_label_group_errors()}
   def create_label_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLabelGroup", input, options)
   end
 
   @doc """
-  Creates a machine learning model for data inference.
-
-  A machine-learning (ML) model is a mathematical model that finds patterns in
-  your data.
-  In Amazon Lookout for Equipment, the model learns the patterns of normal
-  behavior and detects abnormal
-  behavior that could be potential equipment failure (or maintenance events). The
-  models are
-  made by analyzing normal data and abnormalities in machine behavior that have
-  already
-  occurred.
-
-  Your model is trained using a portion of the data from your dataset and uses
-  that data
-  to learn patterns of normal behavior and abnormal patterns that lead to
-  equipment failure.
-  Another portion of the data is used to evaluate the model's accuracy.
+  Creates a machine learning model for data inference. A machine-learning (ML)
+  model is a mathematical model that finds patterns in your data. In Amazon
+  Lookout for Equipment, the model learns the patterns of normal behavior and
+  detects abnormal behavior that could be potential equipment failure (or
+  maintenance events). The models are made by analyzing normal data and
+  abnormalities in machine behavior that have already occurred.
   """
-  @spec create_model(map(), create_model_request(), list()) ::
+  @spec create_model(AWS.Client.t(), create_model_request(), Keyword.t()) ::
           {:ok, create_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_errors()}
   def create_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModel", input, options)
   end
@@ -2383,50 +2374,55 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Creates a retraining scheduler on the specified model.
   """
-  @spec create_retraining_scheduler(map(), create_retraining_scheduler_request(), list()) ::
+  @spec create_retraining_scheduler(
+          AWS.Client.t(),
+          create_retraining_scheduler_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_retraining_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_retraining_scheduler_errors()}
   def create_retraining_scheduler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRetrainingScheduler", input, options)
   end
 
   @doc """
-  Deletes a dataset and associated artifacts.
-
-  The operation will check to see if any
-  inference scheduler or data ingestion job is currently using the dataset, and if
-  there
-  isn't, the dataset, its metadata, and any associated data stored in S3 will be
-  deleted.
-  This does not affect any models that used this dataset for training and
-  evaluation, but
-  does prevent it from being used in the future.
+  Deletes a dataset and associated artifacts. The operation will check to see if
+  any inference scheduler or data ingestion job is currently using the dataset,
+  and if there isn't, the dataset, its metadata, and any associated data stored
+  in S3 will be deleted. This does not affect any models that used this dataset
+  for training and evaluation, but does prevent it from being used in the
+  future.
   """
-  @spec delete_dataset(map(), delete_dataset_request(), list()) ::
+  @spec delete_dataset(AWS.Client.t(), delete_dataset_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dataset_errors()}
   def delete_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDataset", input, options)
   end
 
   @doc """
-  Deletes an inference scheduler that has been set up.
-
-  Prior inference results will not be
-  deleted.
+  Deletes an inference scheduler that has been set up. Prior inference results
+  will not be deleted.
   """
-  @spec delete_inference_scheduler(map(), delete_inference_scheduler_request(), list()) ::
+  @spec delete_inference_scheduler(
+          AWS.Client.t(),
+          delete_inference_scheduler_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_inference_scheduler_errors()}
   def delete_inference_scheduler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInferenceScheduler", input, options)
   end
@@ -2434,12 +2430,13 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Deletes a label.
   """
-  @spec delete_label(map(), delete_label_request(), list()) ::
+  @spec delete_label(AWS.Client.t(), delete_label_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_label_errors()}
   def delete_label(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLabel", input, options)
   end
@@ -2447,29 +2444,29 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Deletes a group of labels.
   """
-  @spec delete_label_group(map(), delete_label_group_request(), list()) ::
+  @spec delete_label_group(AWS.Client.t(), delete_label_group_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_label_group_errors()}
   def delete_label_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLabelGroup", input, options)
   end
 
   @doc """
   Deletes a machine learning model currently available for Amazon Lookout for
-  Equipment.
-
-  This will prevent it
-  from being used with an inference scheduler, even one that is already set up.
+  Equipment. This will prevent it from being used with an inference scheduler,
+  even one that is already set up.
   """
-  @spec delete_model(map(), delete_model_request(), list()) ::
+  @spec delete_model(AWS.Client.t(), delete_model_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_model_errors()}
   def delete_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModel", input, options)
   end
@@ -2477,73 +2474,85 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Deletes the resource policy attached to the resource.
   """
-  @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
+  @spec delete_resource_policy(AWS.Client.t(), delete_resource_policy_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
 
   @doc """
-  Deletes a retraining scheduler from a model.
-
-  The retraining scheduler must be in the
-  `STOPPED` status.
+  Deletes a retraining scheduler from a model. The retraining scheduler must be in
+  the `STOPPED` status.
   """
-  @spec delete_retraining_scheduler(map(), delete_retraining_scheduler_request(), list()) ::
+  @spec delete_retraining_scheduler(
+          AWS.Client.t(),
+          delete_retraining_scheduler_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_retraining_scheduler_errors()}
   def delete_retraining_scheduler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRetrainingScheduler", input, options)
   end
 
   @doc """
   Provides information on a specific data ingestion job such as creation time,
-  dataset
-  ARN, and status.
+  dataset ARN, and status.
   """
-  @spec describe_data_ingestion_job(map(), describe_data_ingestion_job_request(), list()) ::
+  @spec describe_data_ingestion_job(
+          AWS.Client.t(),
+          describe_data_ingestion_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_data_ingestion_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_ingestion_job_errors()}
   def describe_data_ingestion_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataIngestionJob", input, options)
   end
 
   @doc """
   Provides a JSON description of the data in each time series dataset, including
-  names,
-  column names, and data types.
+  names, column names, and data types.
   """
-  @spec describe_dataset(map(), describe_dataset_request(), list()) ::
+  @spec describe_dataset(AWS.Client.t(), describe_dataset_request(), Keyword.t()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dataset_errors()}
   def describe_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataset", input, options)
   end
 
   @doc """
   Specifies information about the inference scheduler being used, including name,
-  model,
-  status, and associated metadata
+  model, status, and associated metadata
   """
-  @spec describe_inference_scheduler(map(), describe_inference_scheduler_request(), list()) ::
+  @spec describe_inference_scheduler(
+          AWS.Client.t(),
+          describe_inference_scheduler_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_inference_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_inference_scheduler_errors()}
   def describe_inference_scheduler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInferenceScheduler", input, options)
   end
@@ -2551,12 +2560,13 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Returns the name of the label.
   """
-  @spec describe_label(map(), describe_label_request(), list()) ::
+  @spec describe_label(AWS.Client.t(), describe_label_request(), Keyword.t()) ::
           {:ok, describe_label_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_label_errors()}
   def describe_label(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLabel", input, options)
   end
@@ -2564,29 +2574,29 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Returns information about the label group.
   """
-  @spec describe_label_group(map(), describe_label_group_request(), list()) ::
+  @spec describe_label_group(AWS.Client.t(), describe_label_group_request(), Keyword.t()) ::
           {:ok, describe_label_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_label_group_errors()}
   def describe_label_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLabelGroup", input, options)
   end
 
   @doc """
   Provides a JSON containing the overall information about a specific machine
-  learning
-  model, including model name and ARN, dataset, training and evaluation
-  information, status,
-  and so on.
+  learning model, including model name and ARN, dataset, training and evaluation
+  information, status, and so on.
   """
-  @spec describe_model(map(), describe_model_request(), list()) ::
+  @spec describe_model(AWS.Client.t(), describe_model_request(), Keyword.t()) ::
           {:ok, describe_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_model_errors()}
   def describe_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModel", input, options)
   end
@@ -2594,12 +2604,13 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Retrieves information about a specific machine learning model version.
   """
-  @spec describe_model_version(map(), describe_model_version_request(), list()) ::
+  @spec describe_model_version(AWS.Client.t(), describe_model_version_request(), Keyword.t()) ::
           {:ok, describe_model_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_model_version_errors()}
   def describe_model_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelVersion", input, options)
   end
@@ -2607,27 +2618,32 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Provides the details of a resource policy attached to a resource.
   """
-  @spec describe_resource_policy(map(), describe_resource_policy_request(), list()) ::
+  @spec describe_resource_policy(AWS.Client.t(), describe_resource_policy_request(), Keyword.t()) ::
           {:ok, describe_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_resource_policy_errors()}
   def describe_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeResourcePolicy", input, options)
   end
 
   @doc """
   Provides a description of the retraining scheduler, including information such
-  as the
-  model name and retraining parameters.
+  as the model name and retraining parameters.
   """
-  @spec describe_retraining_scheduler(map(), describe_retraining_scheduler_request(), list()) ::
+  @spec describe_retraining_scheduler(
+          AWS.Client.t(),
+          describe_retraining_scheduler_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_retraining_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_retraining_scheduler_errors()}
   def describe_retraining_scheduler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRetrainingScheduler", input, options)
   end
@@ -2635,12 +2651,13 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Imports a dataset.
   """
-  @spec import_dataset(map(), import_dataset_request(), list()) ::
+  @spec import_dataset(AWS.Client.t(), import_dataset_request(), Keyword.t()) ::
           {:ok, import_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_dataset_errors()}
   def import_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportDataset", input, options)
   end
@@ -2648,27 +2665,28 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Imports a model that has been trained successfully.
   """
-  @spec import_model_version(map(), import_model_version_request(), list()) ::
+  @spec import_model_version(AWS.Client.t(), import_model_version_request(), Keyword.t()) ::
           {:ok, import_model_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_model_version_errors()}
   def import_model_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportModelVersion", input, options)
   end
 
   @doc """
   Provides a list of all data ingestion jobs, including dataset name and ARN, S3
-  location
-  of the input data, status, and so on.
+  location of the input data, status, and so on.
   """
-  @spec list_data_ingestion_jobs(map(), list_data_ingestion_jobs_request(), list()) ::
+  @spec list_data_ingestion_jobs(AWS.Client.t(), list_data_ingestion_jobs_request(), Keyword.t()) ::
           {:ok, list_data_ingestion_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_ingestion_jobs_errors()}
   def list_data_ingestion_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataIngestionJobs", input, options)
   end
@@ -2677,12 +2695,13 @@ defmodule AWS.LookoutEquipment do
   Lists all datasets currently available in your account, filtering on the dataset
   name.
   """
-  @spec list_datasets(map(), list_datasets_request(), list()) ::
+  @spec list_datasets(AWS.Client.t(), list_datasets_request(), Keyword.t()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_datasets_errors()}
   def list_datasets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDatasets", input, options)
   end
@@ -2691,27 +2710,32 @@ defmodule AWS.LookoutEquipment do
   Lists all inference events that have been found for the specified inference
   scheduler.
   """
-  @spec list_inference_events(map(), list_inference_events_request(), list()) ::
+  @spec list_inference_events(AWS.Client.t(), list_inference_events_request(), Keyword.t()) ::
           {:ok, list_inference_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_inference_events_errors()}
   def list_inference_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInferenceEvents", input, options)
   end
 
   @doc """
   Lists all inference executions that have been performed by the specified
-  inference
-  scheduler.
+  inference scheduler.
   """
-  @spec list_inference_executions(map(), list_inference_executions_request(), list()) ::
+  @spec list_inference_executions(
+          AWS.Client.t(),
+          list_inference_executions_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_inference_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_inference_executions_errors()}
   def list_inference_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInferenceExecutions", input, options)
   end
@@ -2720,12 +2744,17 @@ defmodule AWS.LookoutEquipment do
   Retrieves a list of all inference schedulers currently available for your
   account.
   """
-  @spec list_inference_schedulers(map(), list_inference_schedulers_request(), list()) ::
+  @spec list_inference_schedulers(
+          AWS.Client.t(),
+          list_inference_schedulers_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_inference_schedulers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_inference_schedulers_errors()}
   def list_inference_schedulers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInferenceSchedulers", input, options)
   end
@@ -2733,12 +2762,13 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Returns a list of the label groups.
   """
-  @spec list_label_groups(map(), list_label_groups_request(), list()) ::
+  @spec list_label_groups(AWS.Client.t(), list_label_groups_request(), Keyword.t()) ::
           {:ok, list_label_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_label_groups_errors()}
   def list_label_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLabelGroups", input, options)
   end
@@ -2746,77 +2776,79 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Provides a list of labels.
   """
-  @spec list_labels(map(), list_labels_request(), list()) ::
+  @spec list_labels(AWS.Client.t(), list_labels_request(), Keyword.t()) ::
           {:ok, list_labels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_labels_errors()}
   def list_labels(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLabels", input, options)
   end
 
   @doc """
   Generates a list of all model versions for a given model, including the model
-  version,
-  model version ARN, and status.
-
-  To list a subset of versions, use the
+  version, model version ARN, and status. To list a subset of versions, use the
   `MaxModelVersion` and `MinModelVersion` fields.
   """
-  @spec list_model_versions(map(), list_model_versions_request(), list()) ::
+  @spec list_model_versions(AWS.Client.t(), list_model_versions_request(), Keyword.t()) ::
           {:ok, list_model_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_model_versions_errors()}
   def list_model_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelVersions", input, options)
   end
 
   @doc """
   Generates a list of all models in the account, including model name and ARN,
-  dataset,
-  and status.
+  dataset, and status.
   """
-  @spec list_models(map(), list_models_request(), list()) ::
+  @spec list_models(AWS.Client.t(), list_models_request(), Keyword.t()) ::
           {:ok, list_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_models_errors()}
   def list_models(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModels", input, options)
   end
 
   @doc """
   Lists all retraining schedulers in your account, filtering by model name prefix
-  and
-  status.
+  and status.
   """
-  @spec list_retraining_schedulers(map(), list_retraining_schedulers_request(), list()) ::
+  @spec list_retraining_schedulers(
+          AWS.Client.t(),
+          list_retraining_schedulers_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_retraining_schedulers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_retraining_schedulers_errors()}
   def list_retraining_schedulers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRetrainingSchedulers", input, options)
   end
 
   @doc """
   Lists statistics about the data collected for each of the sensors that have been
-  successfully ingested in the particular dataset.
-
-  Can also be used to retreive Sensor
-  Statistics for a previous ingestion job.
+  successfully ingested in the particular dataset. Can also be used to retreive
+  Sensor Statistics for a previous ingestion job.
   """
-  @spec list_sensor_statistics(map(), list_sensor_statistics_request(), list()) ::
+  @spec list_sensor_statistics(AWS.Client.t(), list_sensor_statistics_request(), Keyword.t()) ::
           {:ok, list_sensor_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sensor_statistics_errors()}
   def list_sensor_statistics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSensorStatistics", input, options)
   end
@@ -2824,12 +2856,13 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Lists all the tags for a specified resource, including key and value.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2837,27 +2870,28 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Creates a resource control policy for a given resource.
   """
-  @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
+  @spec put_resource_policy(AWS.Client.t(), put_resource_policy_request(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
 
   @doc """
-  Starts a data ingestion job.
-
-  Amazon Lookout for Equipment returns the job status.
+  Starts a data ingestion job. Amazon Lookout for Equipment returns the job
+  status.
   """
-  @spec start_data_ingestion_job(map(), start_data_ingestion_job_request(), list()) ::
+  @spec start_data_ingestion_job(AWS.Client.t(), start_data_ingestion_job_request(), Keyword.t()) ::
           {:ok, start_data_ingestion_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_data_ingestion_job_errors()}
   def start_data_ingestion_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDataIngestionJob", input, options)
   end
@@ -2865,12 +2899,17 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Starts an inference scheduler.
   """
-  @spec start_inference_scheduler(map(), start_inference_scheduler_request(), list()) ::
+  @spec start_inference_scheduler(
+          AWS.Client.t(),
+          start_inference_scheduler_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_inference_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_inference_scheduler_errors()}
   def start_inference_scheduler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartInferenceScheduler", input, options)
   end
@@ -2878,12 +2917,17 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Starts a retraining scheduler.
   """
-  @spec start_retraining_scheduler(map(), start_retraining_scheduler_request(), list()) ::
+  @spec start_retraining_scheduler(
+          AWS.Client.t(),
+          start_retraining_scheduler_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_retraining_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_retraining_scheduler_errors()}
   def start_retraining_scheduler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartRetrainingScheduler", input, options)
   end
@@ -2891,12 +2935,13 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Stops an inference scheduler.
   """
-  @spec stop_inference_scheduler(map(), stop_inference_scheduler_request(), list()) ::
+  @spec stop_inference_scheduler(AWS.Client.t(), stop_inference_scheduler_request(), Keyword.t()) ::
           {:ok, stop_inference_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_inference_scheduler_errors()}
   def stop_inference_scheduler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopInferenceScheduler", input, options)
   end
@@ -2904,49 +2949,50 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Stops a retraining scheduler.
   """
-  @spec stop_retraining_scheduler(map(), stop_retraining_scheduler_request(), list()) ::
+  @spec stop_retraining_scheduler(
+          AWS.Client.t(),
+          stop_retraining_scheduler_request(),
+          Keyword.t()
+        ) ::
           {:ok, stop_retraining_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_retraining_scheduler_errors()}
   def stop_retraining_scheduler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopRetrainingScheduler", input, options)
   end
 
   @doc """
-  Associates a given tag to a resource in your account.
-
-  A tag is a key-value pair which
-  can be added to an Amazon Lookout for Equipment resource as metadata. Tags can
-  be used for organizing your
-  resources as well as helping you to search and filter by tag. Multiple tags can
-  be added to
-  a resource, either when you create it, or later. Up to 50 tags can be associated
-  with each
+  Associates a given tag to a resource in your account. A tag is a key-value pair
+  which can be added to an Amazon Lookout for Equipment resource as metadata.
+  Tags can be used for organizing your resources as well as helping you to
+  search and filter by tag. Multiple tags can be added to a resource, either
+  when you create it, or later. Up to 50 tags can be associated with each
   resource.
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
-  Removes a specific tag from a given resource.
-
-  The tag is specified by its key.
+  Removes a specific tag from a given resource. The tag is specified by its key.
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2954,12 +3000,17 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Sets the active model version for a given machine learning model.
   """
-  @spec update_active_model_version(map(), update_active_model_version_request(), list()) ::
+  @spec update_active_model_version(
+          AWS.Client.t(),
+          update_active_model_version_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_active_model_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_active_model_version_errors()}
   def update_active_model_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateActiveModelVersion", input, options)
   end
@@ -2967,12 +3018,17 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Updates an inference scheduler.
   """
-  @spec update_inference_scheduler(map(), update_inference_scheduler_request(), list()) ::
+  @spec update_inference_scheduler(
+          AWS.Client.t(),
+          update_inference_scheduler_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_inference_scheduler_errors()}
   def update_inference_scheduler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateInferenceScheduler", input, options)
   end
@@ -2980,12 +3036,13 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Updates the label group.
   """
-  @spec update_label_group(map(), update_label_group_request(), list()) ::
+  @spec update_label_group(AWS.Client.t(), update_label_group_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_label_group_errors()}
   def update_label_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLabelGroup", input, options)
   end
@@ -2993,12 +3050,13 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Updates a model in the account.
   """
-  @spec update_model(map(), update_model_request(), list()) ::
+  @spec update_model(AWS.Client.t(), update_model_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_model_errors()}
   def update_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateModel", input, options)
   end
@@ -3006,12 +3064,17 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Updates a retraining scheduler.
   """
-  @spec update_retraining_scheduler(map(), update_retraining_scheduler_request(), list()) ::
+  @spec update_retraining_scheduler(
+          AWS.Client.t(),
+          update_retraining_scheduler_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_retraining_scheduler_errors()}
   def update_retraining_scheduler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRetrainingScheduler", input, options)
   end

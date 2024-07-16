@@ -3,10 +3,9 @@
 
 defmodule AWS.Omics do
   @moduledoc """
-  This is the *AWS HealthOmics API Reference*.
-
-  For an introduction to the service, see [What is AWS HealthOmics?](https://docs.aws.amazon.com/omics/latest/dev/) in the
-  *AWS HealthOmics User Guide*.
+  This is the *AWS HealthOmics API Reference*. For an introduction to the service,
+  see [What is AWS HealthOmics?](https://docs.aws.amazon.com/omics/latest/dev/)
+  in the *AWS HealthOmics User Guide*.
   """
 
   alias AWS.Client
@@ -3932,13 +3931,22 @@ defmodule AWS.Omics do
 
   @doc """
   Stops a multipart upload.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20AbortMultipartReadSetUpload&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The sequence store ID for the store involved
+    in the multipart upload.
+  * `:upload_id` (`t:string`) The ID for the multipart upload.
+
+  ## Optional parameters:
   """
   @spec abort_multipart_read_set_upload(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           abort_multipart_read_set_upload_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, abort_multipart_read_set_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3956,7 +3964,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
     Request.request_rest(
       client,
@@ -3973,8 +3982,15 @@ defmodule AWS.Omics do
 
   @doc """
   Accept a resource share request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20AcceptShare&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:share_id` (`t:`) The ID of the resource share.
+
+  ## Optional parameters:
   """
-  @spec accept_share(map(), String.t(), accept_share_request(), list()) ::
+  @spec accept_share(AWS.Client.t(), String.t(), accept_share_request(), Keyword.t()) ::
           {:ok, accept_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_share_errors()}
@@ -3983,7 +3999,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
 
     Request.request_rest(
       client,
@@ -4000,8 +4017,20 @@ defmodule AWS.Omics do
 
   @doc """
   Deletes one or more read sets.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20BatchDeleteReadSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The read sets' sequence store ID.
+
+  ## Optional parameters:
   """
-  @spec batch_delete_read_set(map(), String.t(), batch_delete_read_set_request(), list()) ::
+  @spec batch_delete_read_set(
+          AWS.Client.t(),
+          String.t(),
+          batch_delete_read_set_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_delete_read_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_read_set_errors()}
@@ -4010,7 +4039,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
     Request.request_rest(
       client,
@@ -4027,12 +4057,19 @@ defmodule AWS.Omics do
 
   @doc """
   Cancels an annotation import job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CancelAnnotationImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The job's ID.
+
+  ## Optional parameters:
   """
   @spec cancel_annotation_import_job(
-          map(),
+          AWS.Client.t(),
           String.t(),
           cancel_annotation_import_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, cancel_annotation_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4042,7 +4079,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
 
     Request.request_rest(
       client,
@@ -4059,8 +4097,15 @@ defmodule AWS.Omics do
 
   @doc """
   Cancels a run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CancelRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The run's ID.
+
+  ## Optional parameters:
   """
-  @spec cancel_run(map(), String.t(), cancel_run_request(), list()) ::
+  @spec cancel_run(AWS.Client.t(), String.t(), cancel_run_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_run_errors()}
@@ -4069,7 +4114,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "workflows-")
 
     Request.request_rest(
       client,
@@ -4086,8 +4132,20 @@ defmodule AWS.Omics do
 
   @doc """
   Cancels a variant import job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CancelVariantImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The job's ID.
+
+  ## Optional parameters:
   """
-  @spec cancel_variant_import_job(map(), String.t(), cancel_variant_import_request(), list()) ::
+  @spec cancel_variant_import_job(
+          AWS.Client.t(),
+          String.t(),
+          cancel_variant_import_request(),
+          Keyword.t()
+        ) ::
           {:ok, cancel_variant_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_variant_import_job_errors()}
@@ -4096,7 +4154,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
 
     Request.request_rest(
       client,
@@ -4113,13 +4172,22 @@ defmodule AWS.Omics do
 
   @doc """
   Concludes a multipart upload once you have uploaded all the components.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CompleteMultipartReadSetUpload&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The sequence store ID for the store involved
+    in the multipart upload.
+  * `:upload_id` (`t:string`) The ID for the multipart upload.
+
+  ## Optional parameters:
   """
   @spec complete_multipart_read_set_upload(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           complete_multipart_read_set_upload_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, complete_multipart_read_set_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4137,7 +4205,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "storage-")
 
     Request.request_rest(
       client,
@@ -4154,8 +4223,14 @@ defmodule AWS.Omics do
 
   @doc """
   Creates an annotation store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateAnnotationStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_annotation_store(map(), create_annotation_store_request(), list()) ::
+  @spec create_annotation_store(AWS.Client.t(), create_annotation_store_request(), Keyword.t()) ::
           {:ok, create_annotation_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_annotation_store_errors()}
@@ -4164,7 +4239,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
 
     Request.request_rest(
       client,
@@ -4180,14 +4256,21 @@ defmodule AWS.Omics do
   end
 
   @doc """
-
   Creates a new version of an annotation store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateAnnotationStoreVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of an annotation store version from which
+    versions are being created.
+
+  ## Optional parameters:
   """
   @spec create_annotation_store_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_annotation_store_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_annotation_store_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4197,7 +4280,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
 
     Request.request_rest(
       client,
@@ -4214,12 +4298,20 @@ defmodule AWS.Omics do
 
   @doc """
   Begins a multipart read set upload.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateMultipartReadSetUpload&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The sequence store ID for the store that is
+    the destination of the multipart uploads.
+
+  ## Optional parameters:
   """
   @spec create_multipart_read_set_upload(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_multipart_read_set_upload_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_multipart_read_set_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4234,7 +4326,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
     Request.request_rest(
       client,
@@ -4251,8 +4344,14 @@ defmodule AWS.Omics do
 
   @doc """
   Creates a reference store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateReferenceStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_reference_store(map(), create_reference_store_request(), list()) ::
+  @spec create_reference_store(AWS.Client.t(), create_reference_store_request(), Keyword.t()) ::
           {:ok, create_reference_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_reference_store_errors()}
@@ -4261,7 +4360,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
     Request.request_rest(
       client,
@@ -4278,8 +4378,14 @@ defmodule AWS.Omics do
 
   @doc """
   Creates a run group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateRunGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_run_group(map(), create_run_group_request(), list()) ::
+  @spec create_run_group(AWS.Client.t(), create_run_group_request(), Keyword.t()) ::
           {:ok, create_run_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_run_group_errors()}
@@ -4288,7 +4394,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "workflows-")
 
     Request.request_rest(
       client,
@@ -4305,8 +4412,14 @@ defmodule AWS.Omics do
 
   @doc """
   Creates a sequence store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateSequenceStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_sequence_store(map(), create_sequence_store_request(), list()) ::
+  @spec create_sequence_store(AWS.Client.t(), create_sequence_store_request(), Keyword.t()) ::
           {:ok, create_sequence_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sequence_store_errors()}
@@ -4315,7 +4428,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
     Request.request_rest(
       client,
@@ -4331,24 +4445,18 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Creates a cross-account shared resource.
+  Creates a cross-account shared resource. The resource owner makes an offer to
+  share the resource with the principal subscriber (an AWS user with a different
+  account than the resource owner). The following resources support
+  cross-account sharing:
 
-  The resource owner makes an offer to share the resource
-  with the principal subscriber (an AWS user with a different account than the
-  resource owner).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateShare&this_doc_guide=API%2520Reference)
 
-  The following resources support cross-account sharing:
+  ## Parameters:
 
-    *
-  Healthomics variant stores
-
-    *
-  Healthomics annotation stores
-
-    *
-  Private workflows
+  ## Optional parameters:
   """
-  @spec create_share(map(), create_share_request(), list()) ::
+  @spec create_share(AWS.Client.t(), create_share_request(), Keyword.t()) ::
           {:ok, create_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_share_errors()}
@@ -4357,7 +4465,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
 
     Request.request_rest(
       client,
@@ -4374,8 +4483,14 @@ defmodule AWS.Omics do
 
   @doc """
   Creates a variant store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateVariantStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_variant_store(map(), create_variant_store_request(), list()) ::
+  @spec create_variant_store(AWS.Client.t(), create_variant_store_request(), Keyword.t()) ::
           {:ok, create_variant_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_variant_store_errors()}
@@ -4384,7 +4499,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
 
     Request.request_rest(
       client,
@@ -4401,8 +4517,14 @@ defmodule AWS.Omics do
 
   @doc """
   Creates a workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_workflow(map(), create_workflow_request(), list()) ::
+  @spec create_workflow(AWS.Client.t(), create_workflow_request(), Keyword.t()) ::
           {:ok, create_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workflow_errors()}
@@ -4411,7 +4533,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "workflows-")
 
     Request.request_rest(
       client,
@@ -4428,8 +4551,21 @@ defmodule AWS.Omics do
 
   @doc """
   Deletes an annotation store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteAnnotationStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:`) The store's name.
+
+  ## Optional parameters:
+  * `:force` (`t:`) Whether to force deletion.
   """
-  @spec delete_annotation_store(map(), String.t(), delete_annotation_store_request(), list()) ::
+  @spec delete_annotation_store(
+          AWS.Client.t(),
+          String.t(),
+          delete_annotation_store_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_annotation_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_annotation_store_errors()}
@@ -4443,7 +4579,13 @@ defmodule AWS.Omics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:force])
 
     Request.request_rest(
       client,
@@ -4459,14 +4601,23 @@ defmodule AWS.Omics do
   end
 
   @doc """
-
   Deletes one or multiple versions of an annotation store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteAnnotationStoreVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:`) The name of the annotation store from which versions are being
+    deleted.
+
+  ## Optional parameters:
+  * `:force` (`t:`) Forces the deletion of an annotation store version when
+    imports are in-progress..
   """
   @spec delete_annotation_store_versions(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_annotation_store_versions_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_annotation_store_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4481,7 +4632,13 @@ defmodule AWS.Omics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:force])
 
     Request.request_rest(
       client,
@@ -4498,8 +4655,22 @@ defmodule AWS.Omics do
 
   @doc """
   Deletes a genome reference.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteReference&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The reference's ID.
+  * `:reference_store_id` (`t:string`) The reference's store ID.
+
+  ## Optional parameters:
   """
-  @spec delete_reference(map(), String.t(), String.t(), delete_reference_request(), list()) ::
+  @spec delete_reference(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_reference_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_reference_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_reference_errors()}
@@ -4510,7 +4681,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
     Request.request_rest(
       client,
@@ -4527,8 +4699,20 @@ defmodule AWS.Omics do
 
   @doc """
   Deletes a genome reference store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteReferenceStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The store's ID.
+
+  ## Optional parameters:
   """
-  @spec delete_reference_store(map(), String.t(), delete_reference_store_request(), list()) ::
+  @spec delete_reference_store(
+          AWS.Client.t(),
+          String.t(),
+          delete_reference_store_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_reference_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_reference_store_errors()}
@@ -4537,7 +4721,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
     Request.request_rest(
       client,
@@ -4554,8 +4739,15 @@ defmodule AWS.Omics do
 
   @doc """
   Deletes a workflow run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The run's ID.
+
+  ## Optional parameters:
   """
-  @spec delete_run(map(), String.t(), delete_run_request(), list()) ::
+  @spec delete_run(AWS.Client.t(), String.t(), delete_run_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_run_errors()}
@@ -4564,7 +4756,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "workflows-")
 
     Request.request_rest(
       client,
@@ -4581,8 +4774,15 @@ defmodule AWS.Omics do
 
   @doc """
   Deletes a workflow run group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteRunGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The run group's ID.
+
+  ## Optional parameters:
   """
-  @spec delete_run_group(map(), String.t(), delete_run_group_request(), list()) ::
+  @spec delete_run_group(AWS.Client.t(), String.t(), delete_run_group_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_run_group_errors()}
@@ -4591,7 +4791,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "workflows-")
 
     Request.request_rest(
       client,
@@ -4608,8 +4809,20 @@ defmodule AWS.Omics do
 
   @doc """
   Deletes a sequence store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteSequenceStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The sequence store's ID.
+
+  ## Optional parameters:
   """
-  @spec delete_sequence_store(map(), String.t(), delete_sequence_store_request(), list()) ::
+  @spec delete_sequence_store(
+          AWS.Client.t(),
+          String.t(),
+          delete_sequence_store_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_sequence_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sequence_store_errors()}
@@ -4618,7 +4831,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
     Request.request_rest(
       client,
@@ -4634,13 +4848,18 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Deletes a resource share.
+  Deletes a resource share. If you are the resource owner, the subscriber will no
+  longer have access to the shared resource. If you are the subscriber, this
+  operation deletes your access to the share.
 
-  If you are the resource owner, the subscriber will no longer have
-  access to the shared resource. If you are the subscriber, this operation deletes
-  your access to the share.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteShare&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:share_id` (`t:`) The ID for the resource share to be deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_share(map(), String.t(), delete_share_request(), list()) ::
+  @spec delete_share(AWS.Client.t(), String.t(), delete_share_request(), Keyword.t()) ::
           {:ok, delete_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_share_errors()}
@@ -4649,7 +4868,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
 
     Request.request_rest(
       client,
@@ -4666,8 +4886,21 @@ defmodule AWS.Omics do
 
   @doc """
   Deletes a variant store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteVariantStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:`) The store's name.
+
+  ## Optional parameters:
+  * `:force` (`t:`) Whether to force deletion.
   """
-  @spec delete_variant_store(map(), String.t(), delete_variant_store_request(), list()) ::
+  @spec delete_variant_store(
+          AWS.Client.t(),
+          String.t(),
+          delete_variant_store_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_variant_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_variant_store_errors()}
@@ -4681,7 +4914,13 @@ defmodule AWS.Omics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:force])
 
     Request.request_rest(
       client,
@@ -4698,8 +4937,15 @@ defmodule AWS.Omics do
 
   @doc """
   Deletes a workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The workflow's ID.
+
+  ## Optional parameters:
   """
-  @spec delete_workflow(map(), String.t(), delete_workflow_request(), list()) ::
+  @spec delete_workflow(AWS.Client.t(), String.t(), delete_workflow_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workflow_errors()}
@@ -4708,7 +4954,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "workflows-")
 
     Request.request_rest(
       client,
@@ -4725,43 +4972,102 @@ defmodule AWS.Omics do
 
   @doc """
   Gets information about an annotation import job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetAnnotationImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The job's ID.
+
+  ## Optional parameters:
   """
-  @spec get_annotation_import_job(map(), String.t(), list()) ::
+  @spec get_annotation_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_annotation_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_annotation_import_job_errors()}
   def get_annotation_import_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/import/annotation/#{AWS.Util.encode_uri(job_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about an annotation store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetAnnotationStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:`) The store's name.
+
+  ## Optional parameters:
   """
-  @spec get_annotation_store(map(), String.t(), list()) ::
+  @spec get_annotation_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_annotation_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_annotation_store_errors()}
   def get_annotation_store(%Client{} = client, name, options \\ []) do
     url_path = "/annotationStore/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Retrieves the metadata for an annotation store version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetAnnotationStoreVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:`) The name given to an annotation store version to distinguish it
+    from others.
+  * `:version_name` (`t:`) The name given to an annotation store version to
+    distinguish it from others.
+
+  ## Optional parameters:
   """
-  @spec get_annotation_store_version(map(), String.t(), String.t(), list()) ::
+  @spec get_annotation_store_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_annotation_store_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_annotation_store_version_errors()}
@@ -4769,58 +5075,100 @@ defmodule AWS.Omics do
     url_path =
       "/annotationStore/#{AWS.Util.encode_uri(name)}/version/#{AWS.Util.encode_uri(version_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a file from a read set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReadSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The read set's ID.
+  * `:sequence_store_id` (`t:string`) The read set's sequence store ID.
+  * `:part_number` (`t:`) The part number to retrieve.
+
+  ## Optional parameters:
+  * `:file` (`t:string`) The file to retrieve.
   """
-  @spec get_read_set(map(), String.t(), String.t(), String.t() | nil, String.t(), list()) ::
+  @spec get_read_set(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_read_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_read_set_errors()}
-  def get_read_set(
-        %Client{} = client,
-        id,
-        sequence_store_id,
-        file \\ nil,
-        part_number,
-        options \\ []
-      ) do
+  def get_read_set(%Client{} = client, id, sequence_store_id, part_number, options \\ []) do
     url_path =
       "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/readset/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
+    optional_params = [file: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"partNumber", part_number}]
+
+    # Optional query params
     query_params =
-      if !is_nil(part_number) do
-        [{"partNumber", part_number} | query_params]
+      if opt_val = Keyword.get(options, :file) do
+        [{"file", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(file) do
-        [{"file", file} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "storage-")
 
-    meta = metadata() |> Map.put_new(:host_prefix, "storage-")
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:file])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a read set activation job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReadSetActivationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The job's ID.
+  * `:sequence_store_id` (`t:string`) The job's sequence store ID.
+
+  ## Optional parameters:
   """
-  @spec get_read_set_activation_job(map(), String.t(), String.t(), list()) ::
+  @spec get_read_set_activation_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_read_set_activation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_read_set_activation_job_errors()}
@@ -4828,18 +5176,43 @@ defmodule AWS.Omics do
     url_path =
       "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/activationjob/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a read set export job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReadSetExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The job's ID.
+  * `:sequence_store_id` (`t:string`) The job's sequence store ID.
+
+  ## Optional parameters:
   """
-  @spec get_read_set_export_job(map(), String.t(), String.t(), list()) ::
+  @spec get_read_set_export_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_read_set_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_read_set_export_job_errors()}
@@ -4847,18 +5220,43 @@ defmodule AWS.Omics do
     url_path =
       "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/exportjob/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a read set import job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReadSetImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The job's ID.
+  * `:sequence_store_id` (`t:string`) The job's sequence store ID.
+
+  ## Optional parameters:
   """
-  @spec get_read_set_import_job(map(), String.t(), String.t(), list()) ::
+  @spec get_read_set_import_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_read_set_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_read_set_import_job_errors()}
@@ -4866,18 +5264,43 @@ defmodule AWS.Omics do
     url_path =
       "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/importjob/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets details about a read set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReadSetMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The read set's ID.
+  * `:sequence_store_id` (`t:string`) The read set's sequence store ID.
+
+  ## Optional parameters:
   """
-  @spec get_read_set_metadata(map(), String.t(), String.t(), list()) ::
+  @spec get_read_set_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_read_set_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_read_set_metadata_errors()}
@@ -4885,75 +5308,107 @@ defmodule AWS.Omics do
     url_path =
       "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/readset/#{AWS.Util.encode_uri(id)}/metadata"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a reference file.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReference&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The reference's ID.
+  * `:reference_store_id` (`t:string`) The reference's store ID.
+  * `:part_number` (`t:`) The part number to retrieve.
+
+  ## Optional parameters:
+  * `:file` (`t:string`) The file to retrieve.
+  * `:range` (`t:string`) The range to retrieve.
   """
-  @spec get_reference(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_reference(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_reference_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_reference_errors()}
-  def get_reference(
-        %Client{} = client,
-        id,
-        reference_store_id,
-        file \\ nil,
-        part_number,
-        range \\ nil,
-        options \\ []
-      ) do
+  def get_reference(%Client{} = client, id, reference_store_id, part_number, options \\ []) do
     url_path =
       "/referencestore/#{AWS.Util.encode_uri(reference_store_id)}/reference/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
+    optional_params = [file: nil, range: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
+    # Optional headers
     headers =
-      if !is_nil(range) do
-        [{"Range", range} | headers]
+      if opt_val = Keyword.get(options, :range) do
+        [{"Range", opt_val} | headers]
       else
         headers
       end
 
-    query_params = []
+    # Required query params
+    query_params = [{"partNumber", part_number}]
 
+    # Optional query params
     query_params =
-      if !is_nil(part_number) do
-        [{"partNumber", part_number} | query_params]
+      if opt_val = Keyword.get(options, :file) do
+        [{"file", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(file) do
-        [{"file", file} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "storage-")
 
-    meta = metadata() |> Map.put_new(:host_prefix, "storage-")
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:file, :range])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a reference import job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReferenceImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The job's ID.
+  * `:reference_store_id` (`t:string`) The job's reference store ID.
+
+  ## Optional parameters:
   """
-  @spec get_reference_import_job(map(), String.t(), String.t(), list()) ::
+  @spec get_reference_import_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_reference_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_reference_import_job_errors()}
@@ -4961,18 +5416,43 @@ defmodule AWS.Omics do
     url_path =
       "/referencestore/#{AWS.Util.encode_uri(reference_store_id)}/importjob/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a genome reference's metadata.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReferenceMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The reference's ID.
+  * `:reference_store_id` (`t:string`) The reference's reference store ID.
+
+  ## Optional parameters:
   """
-  @spec get_reference_metadata(map(), String.t(), String.t(), list()) ::
+  @spec get_reference_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_reference_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_reference_metadata_errors()}
@@ -4980,27 +5460,69 @@ defmodule AWS.Omics do
     url_path =
       "/referencestore/#{AWS.Util.encode_uri(reference_store_id)}/reference/#{AWS.Util.encode_uri(id)}/metadata"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a reference store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReferenceStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The store's ID.
+
+  ## Optional parameters:
   """
-  @spec get_reference_store(map(), String.t(), list()) ::
+  @spec get_reference_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_reference_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_reference_store_errors()}
   def get_reference_store(%Client{} = client, id, options \\ []) do
     url_path = "/referencestore/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5008,127 +5530,306 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a workflow run.
 
-  If a workflow is shared with you, you cannot export information about the run.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The run's ID.
+
+  ## Optional parameters:
+  * `:export` (`t:list[com.amazonaws.omics#RunExport]`) The run's export format.
   """
-  @spec get_run(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_run(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_run_errors()}
-  def get_run(%Client{} = client, id, export \\ nil, options \\ []) do
+  def get_run(%Client{} = client, id, options \\ []) do
     url_path = "/run/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = [export: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(export) do
-        [{"export", export} | query_params]
+      if opt_val = Keyword.get(options, :export) do
+        [{"export", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:export])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a workflow run group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetRunGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The group's ID.
+
+  ## Optional parameters:
   """
-  @spec get_run_group(map(), String.t(), list()) ::
+  @spec get_run_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_run_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_run_group_errors()}
   def get_run_group(%Client{} = client, id, options \\ []) do
     url_path = "/runGroup/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "workflows-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a workflow run task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetRunTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The workflow run ID.
+  * `:task_id` (`t:string`) The task's ID.
+
+  ## Optional parameters:
   """
-  @spec get_run_task(map(), String.t(), String.t(), list()) ::
+  @spec get_run_task(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_run_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_run_task_errors()}
   def get_run_task(%Client{} = client, id, task_id, options \\ []) do
     url_path = "/run/#{AWS.Util.encode_uri(id)}/task/#{AWS.Util.encode_uri(task_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "workflows-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a sequence store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetSequenceStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The store's ID.
+
+  ## Optional parameters:
   """
-  @spec get_sequence_store(map(), String.t(), list()) ::
+  @spec get_sequence_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sequence_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sequence_store_errors()}
   def get_sequence_store(%Client{} = client, id, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the metadata for the specified resource share.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetShare&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:share_id` (`t:`) The ID of the share.
+
+  ## Optional parameters:
   """
-  @spec get_share(map(), String.t(), list()) ::
+  @spec get_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_share_errors()}
   def get_share(%Client{} = client, share_id, options \\ []) do
     url_path = "/share/#{AWS.Util.encode_uri(share_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a variant import job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetVariantImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The job's ID.
+
+  ## Optional parameters:
   """
-  @spec get_variant_import_job(map(), String.t(), list()) ::
+  @spec get_variant_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_variant_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_variant_import_job_errors()}
   def get_variant_import_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/import/variant/#{AWS.Util.encode_uri(job_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a variant store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetVariantStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:`) The store's name.
+
+  ## Optional parameters:
   """
-  @spec get_variant_store(map(), String.t(), list()) ::
+  @spec get_variant_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_variant_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_variant_store_errors()}
   def get_variant_store(%Client{} = client, name, options \\ []) do
     url_path = "/variantStore/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5136,61 +5837,92 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a workflow.
 
-  If a workflow is shared with you, you cannot export the workflow.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The workflow's ID.
+
+  ## Optional parameters:
+  * `:export` (`t:list[com.amazonaws.omics#WorkflowExport]`) The export format for
+    the workflow.
+  * `:type` (`t:string`) The workflow's type.
+  * `:workflow_owner_id` (`t:string`) The ID of the workflow owner.
   """
-  @spec get_workflow(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_errors()}
-  def get_workflow(
-        %Client{} = client,
-        id,
-        export \\ nil,
-        type \\ nil,
-        workflow_owner_id \\ nil,
-        options \\ []
-      ) do
+  def get_workflow(%Client{} = client, id, options \\ []) do
     url_path = "/workflow/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = [export: nil, type: nil, workflow_owner_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(workflow_owner_id) do
-        [{"workflowOwnerId", workflow_owner_id} | query_params]
+      if opt_val = Keyword.get(options, :workflow_owner_id) do
+        [{"workflowOwnerId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
+      if opt_val = Keyword.get(options, :type) do
+        [{"type", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(export) do
-        [{"export", export} | query_params]
+      if opt_val = Keyword.get(options, :export) do
+        [{"export", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:export, :type, :workflow_owner_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of annotation import jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListAnnotationImportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of jobs to return in one page of
+    results.
+  * `:next_token` (`t:`) Specifies the pagination token from a previous request to
+    retrieve the next page of results.
   """
-  @spec list_annotation_import_jobs(map(), list_annotation_import_jobs_request(), list()) ::
+  @spec list_annotation_import_jobs(
+          AWS.Client.t(),
+          list_annotation_import_jobs_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_annotation_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_annotation_import_jobs_errors()}
@@ -5205,7 +5937,13 @@ defmodule AWS.Omics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -5221,14 +5959,24 @@ defmodule AWS.Omics do
   end
 
   @doc """
-
   Lists the versions of an annotation store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListAnnotationStoreVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:`) The name of an annotation store.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of annotation store versions to
+    return in one page of results.
+  * `:next_token` (`t:`) Specifies the pagination token from a previous request to
+    retrieve the next page of results.
   """
   @spec list_annotation_store_versions(
-          map(),
+          AWS.Client.t(),
           String.t(),
           list_annotation_store_versions_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_annotation_store_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5244,7 +5992,13 @@ defmodule AWS.Omics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -5261,8 +6015,18 @@ defmodule AWS.Omics do
 
   @doc """
   Retrieves a list of annotation stores.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListAnnotationStores&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of stores to return in one page of
+    results.
+  * `:next_token` (`t:`) Specify the pagination token from a previous request to
+    retrieve the next page of results.
   """
-  @spec list_annotation_stores(map(), list_annotation_stores_request(), list()) ::
+  @spec list_annotation_stores(AWS.Client.t(), list_annotation_stores_request(), Keyword.t()) ::
           {:ok, list_annotation_stores_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_annotation_stores_errors()}
@@ -5277,7 +6041,13 @@ defmodule AWS.Omics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -5293,16 +6063,27 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Lists multipart read set uploads and for in progress uploads.
+  Lists multipart read set uploads and for in progress uploads. Once the upload is
+  completed, a read set is created and the upload will no longer be returned in
+  the response.
 
-  Once the upload is completed, a read set is created and the upload will no
-  longer be returned in the response.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListMultipartReadSetUploads&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The Sequence Store ID used for the multipart
+    uploads.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of multipart uploads returned in a
+    page.
+  * `:next_token` (`t:string`) Next token returned in the response of a previous
+    ListMultipartReadSetUploads call. Used to get the next page of results.
   """
   @spec list_multipart_read_set_uploads(
-          map(),
+          AWS.Client.t(),
           String.t(),
           list_multipart_read_set_uploads_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_multipart_read_set_uploads_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5318,7 +6099,13 @@ defmodule AWS.Omics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -5335,12 +6122,23 @@ defmodule AWS.Omics do
 
   @doc """
   Retrieves a list of read set activation jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReadSetActivationJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The read set's sequence store ID.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of read set activation jobs to return
+    in one page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
   @spec list_read_set_activation_jobs(
-          map(),
+          AWS.Client.t(),
           String.t(),
           list_read_set_activation_jobs_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_read_set_activation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5356,7 +6154,13 @@ defmodule AWS.Omics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -5373,8 +6177,24 @@ defmodule AWS.Omics do
 
   @doc """
   Retrieves a list of read set export jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReadSetExportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The jobs' sequence store ID.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of jobs to return in one page of
+    results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
-  @spec list_read_set_export_jobs(map(), String.t(), list_read_set_export_jobs_request(), list()) ::
+  @spec list_read_set_export_jobs(
+          AWS.Client.t(),
+          String.t(),
+          list_read_set_export_jobs_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_read_set_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_read_set_export_jobs_errors()}
@@ -5389,7 +6209,13 @@ defmodule AWS.Omics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -5406,8 +6232,24 @@ defmodule AWS.Omics do
 
   @doc """
   Retrieves a list of read set import jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReadSetImportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The jobs' sequence store ID.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of jobs to return in one page of
+    results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
-  @spec list_read_set_import_jobs(map(), String.t(), list_read_set_import_jobs_request(), list()) ::
+  @spec list_read_set_import_jobs(
+          AWS.Client.t(),
+          String.t(),
+          list_read_set_import_jobs_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_read_set_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_read_set_import_jobs_errors()}
@@ -5422,7 +6264,13 @@ defmodule AWS.Omics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -5440,13 +6288,26 @@ defmodule AWS.Omics do
   @doc """
   This operation will list all parts in a requested multipart upload for a
   sequence store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReadSetUploadParts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The Sequence Store ID used for the multipart
+    uploads.
+  * `:upload_id` (`t:string`) The ID for the initiated multipart upload.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of read set upload parts returned in
+    a page.
+  * `:next_token` (`t:string`) Next token returned in the response of a previous
+    ListReadSetUploadPartsRequest call. Used to get the next page of results.
   """
   @spec list_read_set_upload_parts(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           list_read_set_upload_parts_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_read_set_upload_parts_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5470,7 +6331,13 @@ defmodule AWS.Omics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -5487,8 +6354,19 @@ defmodule AWS.Omics do
 
   @doc """
   Retrieves a list of read sets.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReadSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The jobs' sequence store ID.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of read sets to return in one page of
+    results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
-  @spec list_read_sets(map(), String.t(), list_read_sets_request(), list()) ::
+  @spec list_read_sets(AWS.Client.t(), String.t(), list_read_sets_request(), Keyword.t()) ::
           {:ok, list_read_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_read_sets_errors()}
@@ -5503,7 +6381,13 @@ defmodule AWS.Omics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -5520,12 +6404,23 @@ defmodule AWS.Omics do
 
   @doc """
   Retrieves a list of reference import jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReferenceImportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:reference_store_id` (`t:string`) The job's reference store ID.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of jobs to return in one page of
+    results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
   @spec list_reference_import_jobs(
-          map(),
+          AWS.Client.t(),
           String.t(),
           list_reference_import_jobs_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_reference_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5541,7 +6436,13 @@ defmodule AWS.Omics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -5558,8 +6459,18 @@ defmodule AWS.Omics do
 
   @doc """
   Retrieves a list of reference stores.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReferenceStores&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of stores to return in one page of
+    results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
-  @spec list_reference_stores(map(), list_reference_stores_request(), list()) ::
+  @spec list_reference_stores(AWS.Client.t(), list_reference_stores_request(), Keyword.t()) ::
           {:ok, list_reference_stores_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_reference_stores_errors()}
@@ -5574,7 +6485,13 @@ defmodule AWS.Omics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -5591,8 +6508,19 @@ defmodule AWS.Omics do
 
   @doc """
   Retrieves a list of references.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReferences&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:reference_store_id` (`t:string`) The references' reference store ID.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of references to return in one page
+    of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
-  @spec list_references(map(), String.t(), list_references_request(), list()) ::
+  @spec list_references(AWS.Client.t(), String.t(), list_references_request(), Keyword.t()) ::
           {:ok, list_references_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_references_errors()}
@@ -5607,7 +6535,13 @@ defmodule AWS.Omics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -5624,172 +6558,254 @@ defmodule AWS.Omics do
 
   @doc """
   Retrieves a list of run groups.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListRunGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of run groups to return in one page
+    of results.
+  * `:name` (`t:string`) The run groups' name.
+  * `:starting_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
-  @spec list_run_groups(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_run_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_run_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_run_groups_errors()}
-  def list_run_groups(
-        %Client{} = client,
-        max_results \\ nil,
-        name \\ nil,
-        starting_token \\ nil,
-        options \\ []
-      ) do
+  def list_run_groups(%Client{} = client, options \\ []) do
     url_path = "/runGroup"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, name: nil, starting_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(starting_token) do
-        [{"startingToken", starting_token} | query_params]
+      if opt_val = Keyword.get(options, :starting_token) do
+        [{"startingToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
+      if opt_val = Keyword.get(options, :name) do
+        [{"name", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :name, :starting_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of tasks for a run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListRunTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The run's ID.
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of run tasks to return in one page of
+    results.
+  * `:starting_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
+  * `:status` (`t:string`) Filter the list by status.
   """
-  @spec list_run_tasks(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_run_tasks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_run_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_run_tasks_errors()}
-  def list_run_tasks(
-        %Client{} = client,
-        id,
-        max_results \\ nil,
-        starting_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_run_tasks(%Client{} = client, id, options \\ []) do
     url_path = "/run/#{AWS.Util.encode_uri(id)}/task"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, starting_token: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(starting_token) do
-        [{"startingToken", starting_token} | query_params]
+      if opt_val = Keyword.get(options, :starting_token) do
+        [{"startingToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :starting_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of runs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of runs to return in one page of
+    results.
+  * `:name` (`t:string`) Filter the list by run name.
+  * `:run_group_id` (`t:string`) Filter the list by run group ID.
+  * `:starting_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
+  * `:status` (`t:string`) The status of a run.
   """
-  @spec list_runs(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_runs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_runs_errors()}
-  def list_runs(
-        %Client{} = client,
-        max_results \\ nil,
-        name \\ nil,
-        run_group_id \\ nil,
-        starting_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_runs(%Client{} = client, options \\ []) do
     url_path = "/run"
+
+    # Validate optional parameters
+    optional_params = [
+      max_results: nil,
+      name: nil,
+      run_group_id: nil,
+      starting_token: nil,
+      status: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(starting_token) do
-        [{"startingToken", starting_token} | query_params]
+      if opt_val = Keyword.get(options, :starting_token) do
+        [{"startingToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(run_group_id) do
-        [{"runGroupId", run_group_id} | query_params]
+      if opt_val = Keyword.get(options, :run_group_id) do
+        [{"runGroupId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
+      if opt_val = Keyword.get(options, :name) do
+        [{"name", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :name, :run_group_id, :starting_token, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of sequence stores.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListSequenceStores&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of stores to return in one page of
+    results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
-  @spec list_sequence_stores(map(), list_sequence_stores_request(), list()) ::
+  @spec list_sequence_stores(AWS.Client.t(), list_sequence_stores_request(), Keyword.t()) ::
           {:ok, list_sequence_stores_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sequence_stores_errors()}
@@ -5804,7 +6820,13 @@ defmodule AWS.Omics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -5820,12 +6842,20 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Retrieves the resource shares associated with an account.
+  Retrieves the resource shares associated with an account. Use the filter
+  parameter to retrieve a specific subset of the shares.
 
-  Use the filter parameter to
-  retrieve a specific subset of the shares.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListShares&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of shares to return in one page of
+    results.
+  * `:next_token` (`t:`) Next token returned in the response of a previous
+    ListReadSetUploadPartsRequest call. Used to get the next page of results.
   """
-  @spec list_shares(map(), list_shares_request(), list()) ::
+  @spec list_shares(AWS.Client.t(), list_shares_request(), Keyword.t()) ::
           {:ok, list_shares_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_shares_errors()}
@@ -5840,7 +6870,13 @@ defmodule AWS.Omics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -5857,25 +6893,60 @@ defmodule AWS.Omics do
 
   @doc """
   Retrieves a list of tags for a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource's ARN.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "tags-")
+    # Optional query params
+
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "tags-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of variant import jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListVariantImportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of import jobs to return in one page
+    of results.
+  * `:next_token` (`t:`) Specify the pagination token from a previous request to
+    retrieve the next page of results.
   """
-  @spec list_variant_import_jobs(map(), list_variant_import_jobs_request(), list()) ::
+  @spec list_variant_import_jobs(AWS.Client.t(), list_variant_import_jobs_request(), Keyword.t()) ::
           {:ok, list_variant_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_variant_import_jobs_errors()}
@@ -5890,7 +6961,13 @@ defmodule AWS.Omics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -5907,8 +6984,18 @@ defmodule AWS.Omics do
 
   @doc """
   Retrieves a list of variant stores.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListVariantStores&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of stores to return in one page of
+    results.
+  * `:next_token` (`t:`) Specify the pagination token from a previous request to
+    retrieve the next page of results.
   """
-  @spec list_variant_stores(map(), list_variant_stores_request(), list()) ::
+  @spec list_variant_stores(AWS.Client.t(), list_variant_stores_request(), Keyword.t()) ::
           {:ok, list_variant_stores_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_variant_stores_errors()}
@@ -5923,7 +7010,13 @@ defmodule AWS.Omics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(
       client,
@@ -5940,67 +7033,97 @@ defmodule AWS.Omics do
 
   @doc """
   Retrieves a list of workflows.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListWorkflows&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:`) The maximum number of workflows to return in one page of
+    results.
+  * `:name` (`t:string`) Filter the list by workflow name.
+  * `:starting_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
+  * `:type` (`t:string`) Filter the list by workflow type.
   """
-  @spec list_workflows(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_workflows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workflows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflows_errors()}
-  def list_workflows(
-        %Client{} = client,
-        max_results \\ nil,
-        name \\ nil,
-        starting_token \\ nil,
-        type \\ nil,
-        options \\ []
-      ) do
+  def list_workflows(%Client{} = client, options \\ []) do
     url_path = "/workflow"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, name: nil, starting_token: nil, type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
+      if opt_val = Keyword.get(options, :type) do
+        [{"type", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(starting_token) do
-        [{"startingToken", starting_token} | query_params]
+      if opt_val = Keyword.get(options, :starting_token) do
+        [{"startingToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
+      if opt_val = Keyword.get(options, :name) do
+        [{"name", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :name, :starting_token, :type])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Starts an annotation import job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartAnnotationImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_annotation_import_job(map(), start_annotation_import_request(), list()) ::
+  @spec start_annotation_import_job(
+          AWS.Client.t(),
+          start_annotation_import_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_annotation_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_annotation_import_job_errors()}
@@ -6009,7 +7132,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
 
     Request.request_rest(
       client,
@@ -6025,16 +7149,21 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Activates an archived read set.
+  Activates an archived read set. To reduce storage charges, Amazon Omics archives
+  unused read sets after 30 days.
 
-  To reduce storage charges, Amazon Omics archives unused read
-  sets after 30 days.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartReadSetActivationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The read set's sequence store ID.
+
+  ## Optional parameters:
   """
   @spec start_read_set_activation_job(
-          map(),
+          AWS.Client.t(),
           String.t(),
           start_read_set_activation_job_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_read_set_activation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6044,7 +7173,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
     Request.request_rest(
       client,
@@ -6061,8 +7191,20 @@ defmodule AWS.Omics do
 
   @doc """
   Exports a read set to Amazon S3.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartReadSetExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The read set's sequence store ID.
+
+  ## Optional parameters:
   """
-  @spec start_read_set_export_job(map(), String.t(), start_read_set_export_job_request(), list()) ::
+  @spec start_read_set_export_job(
+          AWS.Client.t(),
+          String.t(),
+          start_read_set_export_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_read_set_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_read_set_export_job_errors()}
@@ -6071,7 +7213,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
     Request.request_rest(
       client,
@@ -6088,8 +7231,20 @@ defmodule AWS.Omics do
 
   @doc """
   Starts a read set import job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartReadSetImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The read set's sequence store ID.
+
+  ## Optional parameters:
   """
-  @spec start_read_set_import_job(map(), String.t(), start_read_set_import_job_request(), list()) ::
+  @spec start_read_set_import_job(
+          AWS.Client.t(),
+          String.t(),
+          start_read_set_import_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_read_set_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_read_set_import_job_errors()}
@@ -6098,7 +7253,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
     Request.request_rest(
       client,
@@ -6115,12 +7271,19 @@ defmodule AWS.Omics do
 
   @doc """
   Starts a reference import job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartReferenceImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:reference_store_id` (`t:string`) The job's reference store ID.
+
+  ## Optional parameters:
   """
   @spec start_reference_import_job(
-          map(),
+          AWS.Client.t(),
           String.t(),
           start_reference_import_job_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_reference_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6130,7 +7293,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
     Request.request_rest(
       client,
@@ -6146,27 +7310,17 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Starts a workflow run.
+  Starts a workflow run. To duplicate a run, specify the run's ID and a role ARN.
+  The remaining parameters are copied from the previous run. StartRun will not
+  support re-run for a workflow that is shared with you.
 
-  To duplicate a run, specify the run's ID and a role ARN. The
-  remaining parameters are copied from the previous run.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartRun&this_doc_guide=API%2520Reference)
 
-  StartRun will not support re-run for a workflow that is shared with you.
+  ## Parameters:
 
-  The total number of runs in your account is subject to a quota per Region. To
-  avoid
-  needing to delete runs manually, you can set the retention mode to `REMOVE`.
-  Runs with this setting are deleted automatically when the run quoata is
-  exceeded.
-
-  By default, the run uses STATIC storage. For STATIC storage, set the
-  `storageCapacity` field.
-  You can set the storage type to DYNAMIC. You do not set `storageCapacity`,
-  because HealthOmics dynamically scales the storage up or down as required.
-  For more information about static and dynamic storage, see [Running workflows](https://docs.aws.amazon.com/omics/latest/dev/Using-workflows.html)
-  in the *AWS HealthOmics User Guide*.
+  ## Optional parameters:
   """
-  @spec start_run(map(), start_run_request(), list()) ::
+  @spec start_run(AWS.Client.t(), start_run_request(), Keyword.t()) ::
           {:ok, start_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_run_errors()}
@@ -6175,7 +7329,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "workflows-")
 
     Request.request_rest(
       client,
@@ -6192,8 +7347,14 @@ defmodule AWS.Omics do
 
   @doc """
   Starts a variant import job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartVariantImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_variant_import_job(map(), start_variant_import_request(), list()) ::
+  @spec start_variant_import_job(AWS.Client.t(), start_variant_import_request(), Keyword.t()) ::
           {:ok, start_variant_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_variant_import_job_errors()}
@@ -6202,7 +7363,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
 
     Request.request_rest(
       client,
@@ -6219,8 +7381,15 @@ defmodule AWS.Omics do
 
   @doc """
   Tags a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource's ARN.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -6229,7 +7398,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "tags-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "tags-")
 
     Request.request_rest(
       client,
@@ -6246,8 +7416,16 @@ defmodule AWS.Omics do
 
   @doc """
   Removes tags from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource's ARN.
+  * `:tag_keys` (`t:list[com.amazonaws.omics#TagKey]`) Keys of tags to remove.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -6261,7 +7439,8 @@ defmodule AWS.Omics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "tags-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "tags-")
 
     Request.request_rest(
       client,
@@ -6278,8 +7457,20 @@ defmodule AWS.Omics do
 
   @doc """
   Updates an annotation store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20UpdateAnnotationStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:`) A name for the store.
+
+  ## Optional parameters:
   """
-  @spec update_annotation_store(map(), String.t(), update_annotation_store_request(), list()) ::
+  @spec update_annotation_store(
+          AWS.Client.t(),
+          String.t(),
+          update_annotation_store_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_annotation_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_annotation_store_errors()}
@@ -6288,7 +7479,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
 
     Request.request_rest(
       client,
@@ -6304,15 +7496,22 @@ defmodule AWS.Omics do
   end
 
   @doc """
-
   Updates the description of an annotation store version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20UpdateAnnotationStoreVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:`) The name of an annotation store.
+  * `:version_name` (`t:`) The name of an annotation store version.
+
+  ## Optional parameters:
   """
   @spec update_annotation_store_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_annotation_store_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_annotation_store_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6330,7 +7529,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
 
     Request.request_rest(
       client,
@@ -6347,8 +7547,15 @@ defmodule AWS.Omics do
 
   @doc """
   Updates a run group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20UpdateRunGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The group's ID.
+
+  ## Optional parameters:
   """
-  @spec update_run_group(map(), String.t(), update_run_group_request(), list()) ::
+  @spec update_run_group(AWS.Client.t(), String.t(), update_run_group_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_run_group_errors()}
@@ -6357,7 +7564,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "workflows-")
 
     Request.request_rest(
       client,
@@ -6374,8 +7582,20 @@ defmodule AWS.Omics do
 
   @doc """
   Updates a variant store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20UpdateVariantStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:`) A name for the store.
+
+  ## Optional parameters:
   """
-  @spec update_variant_store(map(), String.t(), update_variant_store_request(), list()) ::
+  @spec update_variant_store(
+          AWS.Client.t(),
+          String.t(),
+          update_variant_store_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_variant_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_variant_store_errors()}
@@ -6384,7 +7604,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "analytics-")
 
     Request.request_rest(
       client,
@@ -6401,8 +7622,15 @@ defmodule AWS.Omics do
 
   @doc """
   Updates a workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20UpdateWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The workflow's ID.
+
+  ## Optional parameters:
   """
-  @spec update_workflow(map(), String.t(), update_workflow_request(), list()) ::
+  @spec update_workflow(AWS.Client.t(), String.t(), update_workflow_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workflow_errors()}
@@ -6411,7 +7639,8 @@ defmodule AWS.Omics do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "workflows-")
 
     Request.request_rest(
       client,
@@ -6427,17 +7656,27 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  This operation uploads a specific part of a read set.
+  This operation uploads a specific part of a read set. If you upload a new part
+  using a previously used part number, the previously uploaded part will be
+  overwritten.
 
-  If you upload a new part using a previously used part number,
-  the previously uploaded part will be overwritten.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20UploadReadSetPart&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The Sequence Store ID used for the multipart
+    upload.
+  * `:upload_id` (`t:string`) The ID for the initiated multipart upload.
+  * `:part_number` (`t:`) The number of the part being uploaded.
+  * `:part_source` (`t:string`) The source file for an upload part.
+
+  ## Optional parameters:
   """
   @spec upload_read_set_part(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           upload_read_set_part_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, upload_read_set_part_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6455,7 +7694,8 @@ defmodule AWS.Omics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "storage-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "storage-")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

@@ -4,72 +4,9 @@
 defmodule AWS.IVSRealTime do
   @moduledoc """
   The Amazon Interactive Video Service (IVS) real-time API is REST compatible,
-  using a standard HTTP
-  API and an AWS EventBridge event stream for responses.
-
-  JSON is used for both requests and responses,
-  including errors.
-
-  ## Key Concepts
-
-    *
-
-  **Stage** — A virtual space where participants can exchange video in real time.
-
-    *
-
-  **Participant token** — A token that authenticates a participant when they join
-  a stage.
-
-    *
-
-  **Participant object** — Represents participants (people) in the stage and
-  contains information about them. When a token is created, it includes a
-  participant ID;
-  when a participant uses that token to join a stage, the participant is
-  associated with
-  that participant ID. There is a 1:1 mapping between participant tokens and
-  participants.
-
-  For server-side composition:
-
-    *
-
-  **Composition process** — Composites participants
-  of a stage into a single video and forwards it to a set of outputs (e.g., IVS
-  channels).
-  Composition endpoints support this process.
-
-    *
-
-  **Composition** — Controls the look of the outputs,
-  including how participants are positioned in the video.
-
-  For more information about your IVS live stream, also see [Getting Started with Amazon IVS Real-Time
-  Streaming](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started.html).
-
-  ## Tagging
-
-  A *tag* is a metadata label that you assign to an AWS resource. A tag
-  comprises a *key* and a *value*, both set by you. For
-  example, you might set a tag as `topic:nature` to label a particular video
-  category. See [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) for
-  more information, including restrictions that apply to
-  tags and "Tag naming limits and requirements"; Amazon IVS stages has no
-  service-specific
-  constraints beyond what is documented there.
-
-  Tags can help you identify and organize your AWS resources. For example, you can
-  use the
-  same tag for different resources to indicate that they are related. You can also
-  use tags to
-  manage access (see [Access Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html)).
-
-  The Amazon IVS real-time API has these tag-related endpoints: `TagResource`,
-  `UntagResource`, and
-  `ListTagsForResource`. The following resource supports tagging: Stage.
-
-  At most 50 tags can be applied to a resource.
+  using a standard HTTP API and an AWS EventBridge event stream for responses.
+  JSON is used for both requests and responses, including errors. **Key
+  Concepts**
   """
 
   alias AWS.Client
@@ -1521,8 +1458,18 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Creates an EncoderConfiguration object.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20CreateEncoderConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_encoder_configuration(map(), create_encoder_configuration_request(), list()) ::
+  @spec create_encoder_configuration(
+          AWS.Client.t(),
+          create_encoder_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_encoder_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_encoder_configuration_errors()}
@@ -1531,7 +1478,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1547,16 +1495,17 @@ defmodule AWS.IVSRealTime do
   end
 
   @doc """
-  Creates an additional token for a specified stage.
+  Creates an additional token for a specified stage. This can be done after stage
+  creation or when tokens expire. Tokens always are scoped to the stage for
+  which they are created.
 
-  This can be done after stage creation
-  or when tokens expire. Tokens always are scoped to the stage for which they are
-  created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20CreateParticipantToken&this_doc_guide=API%2520Reference)
 
-  Encryption keys are owned by Amazon IVS and never used directly by your
-  application.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_participant_token(map(), create_participant_token_request(), list()) ::
+  @spec create_participant_token(AWS.Client.t(), create_participant_token_request(), Keyword.t()) ::
           {:ok, create_participant_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_participant_token_errors()}
@@ -1565,7 +1514,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1582,8 +1532,14 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Creates a new stage (and optionally participant tokens).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20CreateStage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_stage(map(), create_stage_request(), list()) ::
+  @spec create_stage(AWS.Client.t(), create_stage_request(), Keyword.t()) ::
           {:ok, create_stage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_stage_errors()}
@@ -1592,7 +1548,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1608,14 +1565,22 @@ defmodule AWS.IVSRealTime do
   end
 
   @doc """
-  Creates a new storage configuration, used to enable recording to Amazon S3.
+  Creates a new storage configuration, used to enable recording to Amazon S3. When
+  a StorageConfiguration is created, IVS will modify the S3 bucketPolicy of the
+  provided bucket. This will ensure that IVS has sufficient permissions to write
+  content to the provided bucket.
 
-  When a StorageConfiguration is created, IVS will modify the S3 bucketPolicy of
-  the provided bucket.
-  This will ensure that IVS has sufficient permissions to write content to the
-  provided bucket.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20CreateStorageConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_storage_configuration(map(), create_storage_configuration_request(), list()) ::
+  @spec create_storage_configuration(
+          AWS.Client.t(),
+          create_storage_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_storage_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_storage_configuration_errors()}
@@ -1624,7 +1589,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1640,12 +1606,20 @@ defmodule AWS.IVSRealTime do
   end
 
   @doc """
-  Deletes an EncoderConfiguration resource.
+  Deletes an EncoderConfiguration resource. Ensures that no Compositions are using
+  this template; otherwise, returns an error.
 
-  Ensures that no Compositions are using this
-  template; otherwise, returns an error.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20DeleteEncoderConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_encoder_configuration(map(), delete_encoder_configuration_request(), list()) ::
+  @spec delete_encoder_configuration(
+          AWS.Client.t(),
+          delete_encoder_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_encoder_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_encoder_configuration_errors()}
@@ -1654,7 +1628,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1670,12 +1645,17 @@ defmodule AWS.IVSRealTime do
   end
 
   @doc """
-  Deletes the specified public key used to sign stage participant tokens.
+  Deletes the specified public key used to sign stage participant tokens. This
+  invalidates future participant tokens generated using the key pair’s private
+  key.
 
-  This invalidates future participant tokens generated using the key pair’s
-  private key.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20DeletePublicKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_public_key(map(), delete_public_key_request(), list()) ::
+  @spec delete_public_key(AWS.Client.t(), delete_public_key_request(), Keyword.t()) ::
           {:ok, delete_public_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_public_key_errors()}
@@ -1684,7 +1664,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1701,8 +1682,14 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Shuts down and deletes the specified stage (disconnecting all participants).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20DeleteStage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_stage(map(), delete_stage_request(), list()) ::
+  @spec delete_stage(AWS.Client.t(), delete_stage_request(), Keyword.t()) ::
           {:ok, delete_stage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_stage_errors()}
@@ -1711,7 +1698,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1729,13 +1717,17 @@ defmodule AWS.IVSRealTime do
   @doc """
   Deletes the storage configuration for the specified ARN.
 
-  If you try to delete a storage configuration that is used by a Composition, you
-  will get an error (409 ConflictException).
-  To avoid this, for all Compositions that reference the storage configuration,
-  first use `StopComposition` and wait for it to complete,
-  then use DeleteStorageConfiguration.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20DeleteStorageConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_storage_configuration(map(), delete_storage_configuration_request(), list()) ::
+  @spec delete_storage_configuration(
+          AWS.Client.t(),
+          delete_storage_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_storage_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_storage_configuration_errors()}
@@ -1744,7 +1736,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1761,10 +1754,15 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Disconnects a specified participant and revokes the participant permanently from
-  a
-  specified stage.
+  a specified stage.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20DisconnectParticipant&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec disconnect_participant(map(), disconnect_participant_request(), list()) ::
+  @spec disconnect_participant(AWS.Client.t(), disconnect_participant_request(), Keyword.t()) ::
           {:ok, disconnect_participant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disconnect_participant_errors()}
@@ -1773,7 +1771,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1790,8 +1789,14 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Get information about the specified Composition resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20GetComposition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_composition(map(), get_composition_request(), list()) ::
+  @spec get_composition(AWS.Client.t(), get_composition_request(), Keyword.t()) ::
           {:ok, get_composition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_composition_errors()}
@@ -1800,7 +1805,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1817,8 +1823,18 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Gets information about the specified EncoderConfiguration resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20GetEncoderConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_encoder_configuration(map(), get_encoder_configuration_request(), list()) ::
+  @spec get_encoder_configuration(
+          AWS.Client.t(),
+          get_encoder_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_encoder_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_encoder_configuration_errors()}
@@ -1827,7 +1843,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1844,8 +1861,14 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Gets information about the specified participant token.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20GetParticipant&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_participant(map(), get_participant_request(), list()) ::
+  @spec get_participant(AWS.Client.t(), get_participant_request(), Keyword.t()) ::
           {:ok, get_participant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_participant_errors()}
@@ -1854,7 +1877,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1871,8 +1895,14 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Gets information for the specified public key.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20GetPublicKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_public_key(map(), get_public_key_request(), list()) ::
+  @spec get_public_key(AWS.Client.t(), get_public_key_request(), Keyword.t()) ::
           {:ok, get_public_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_public_key_errors()}
@@ -1881,7 +1911,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1898,8 +1929,14 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Gets information for the specified stage.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20GetStage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_stage(map(), get_stage_request(), list()) ::
+  @spec get_stage(AWS.Client.t(), get_stage_request(), Keyword.t()) ::
           {:ok, get_stage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_stage_errors()}
@@ -1908,7 +1945,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1925,8 +1963,14 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Gets information for the specified stage session.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20GetStageSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_stage_session(map(), get_stage_session_request(), list()) ::
+  @spec get_stage_session(AWS.Client.t(), get_stage_session_request(), Keyword.t()) ::
           {:ok, get_stage_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_stage_session_errors()}
@@ -1935,7 +1979,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1952,8 +1997,18 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Gets the storage configuration for the specified ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20GetStorageConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_storage_configuration(map(), get_storage_configuration_request(), list()) ::
+  @spec get_storage_configuration(
+          AWS.Client.t(),
+          get_storage_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_storage_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_storage_configuration_errors()}
@@ -1962,7 +2017,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1979,8 +2035,14 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Import a public key to be used for signing stage participant tokens.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ImportPublicKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec import_public_key(map(), import_public_key_request(), list()) ::
+  @spec import_public_key(AWS.Client.t(), import_public_key_request(), Keyword.t()) ::
           {:ok, import_public_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_public_key_errors()}
@@ -1989,7 +2051,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2006,10 +2069,15 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Gets summary information about all Compositions in your account, in the AWS
-  region
-  where the API request is processed.
+  region where the API request is processed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListCompositions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_compositions(map(), list_compositions_request(), list()) ::
+  @spec list_compositions(AWS.Client.t(), list_compositions_request(), Keyword.t()) ::
           {:ok, list_compositions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_compositions_errors()}
@@ -2018,7 +2086,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2035,10 +2104,19 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Gets summary information about all EncoderConfigurations in your account, in the
-  AWS
-  region where the API request is processed.
+  AWS region where the API request is processed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListEncoderConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_encoder_configurations(map(), list_encoder_configurations_request(), list()) ::
+  @spec list_encoder_configurations(
+          AWS.Client.t(),
+          list_encoder_configurations_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_encoder_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_encoder_configurations_errors()}
@@ -2047,7 +2125,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2065,8 +2144,14 @@ defmodule AWS.IVSRealTime do
   @doc """
   Lists events for a specified participant that occurred during a specified stage
   session.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListParticipantEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_participant_events(map(), list_participant_events_request(), list()) ::
+  @spec list_participant_events(AWS.Client.t(), list_participant_events_request(), Keyword.t()) ::
           {:ok, list_participant_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_participant_events_errors()}
@@ -2075,7 +2160,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2092,8 +2178,14 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Lists all participants in a specified stage session.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListParticipants&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_participants(map(), list_participants_request(), list()) ::
+  @spec list_participants(AWS.Client.t(), list_participants_request(), Keyword.t()) ::
           {:ok, list_participants_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_participants_errors()}
@@ -2102,7 +2194,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2120,8 +2213,14 @@ defmodule AWS.IVSRealTime do
   @doc """
   Gets summary information about all public keys in your account, in the AWS
   region where the API request is processed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListPublicKeys&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_public_keys(map(), list_public_keys_request(), list()) ::
+  @spec list_public_keys(AWS.Client.t(), list_public_keys_request(), Keyword.t()) ::
           {:ok, list_public_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_public_keys_errors()}
@@ -2130,7 +2229,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2147,8 +2247,14 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Gets all sessions for a specified stage.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListStageSessions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_stage_sessions(map(), list_stage_sessions_request(), list()) ::
+  @spec list_stage_sessions(AWS.Client.t(), list_stage_sessions_request(), Keyword.t()) ::
           {:ok, list_stage_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_stage_sessions_errors()}
@@ -2157,7 +2263,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2174,10 +2281,15 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Gets summary information about all stages in your account, in the AWS region
-  where the
-  API request is processed.
+  where the API request is processed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListStages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_stages(map(), list_stages_request(), list()) ::
+  @spec list_stages(AWS.Client.t(), list_stages_request(), Keyword.t()) ::
           {:ok, list_stages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_stages_errors()}
@@ -2186,7 +2298,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2202,10 +2315,20 @@ defmodule AWS.IVSRealTime do
   end
 
   @doc """
-  Gets summary information about all storage configurations in your account,
-  in the AWS region where the API request is processed.
+  Gets summary information about all storage configurations in your account, in
+  the AWS region where the API request is processed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListStorageConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_storage_configurations(map(), list_storage_configurations_request(), list()) ::
+  @spec list_storage_configurations(
+          AWS.Client.t(),
+          list_storage_configurations_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_storage_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_storage_configurations_errors()}
@@ -2214,7 +2337,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2231,47 +2355,59 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Gets information about AWS tags for the specified ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource to be retrieved. The ARN
+    must be URL-encoded.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Starts a Composition from a stage based on the configuration provided in the
-  request.
+  request. A Composition is an ephemeral resource that exists after this
+  endpoint returns successfully. Composition stops and the resource is deleted:
 
-  A Composition is an ephemeral resource that exists after this endpoint returns
-  successfully. Composition stops and the resource is deleted:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20StartComposition&this_doc_guide=API%2520Reference)
 
-    *
-  When `StopComposition` is called.
+  ## Parameters:
 
-    *
-  After a 1-minute timeout, when all participants are disconnected from the
-  stage.
-
-    *
-  After a 1-minute timeout, if there are no participants in the stage when
-  StartComposition is called.
-
-    *
-  When broadcasting to the IVS channel fails and all retries are exhausted.
-
-    *
-  When broadcasting is disconnected and all attempts to reconnect are
-  exhausted.
+  ## Optional parameters:
   """
-  @spec start_composition(map(), start_composition_request(), list()) ::
+  @spec start_composition(AWS.Client.t(), start_composition_request(), Keyword.t()) ::
           {:ok, start_composition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_composition_errors()}
@@ -2280,7 +2416,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2296,12 +2433,16 @@ defmodule AWS.IVSRealTime do
   end
 
   @doc """
-  Stops and deletes a Composition resource.
+  Stops and deletes a Composition resource. Any broadcast from the Composition
+  resource is stopped.
 
-  Any broadcast from the Composition resource
-  is stopped.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20StopComposition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec stop_composition(map(), stop_composition_request(), list()) ::
+  @spec stop_composition(AWS.Client.t(), stop_composition_request(), Keyword.t()) ::
           {:ok, stop_composition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_composition_errors()}
@@ -2310,7 +2451,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2327,8 +2469,16 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Adds or updates tags for the AWS resource with the specified ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource to be tagged. The ARN
+    must be URL-encoded.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2337,7 +2487,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2354,8 +2505,21 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Removes tags from the resource with the specified ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource to be untagged. The ARN
+    must be URL-encoded.
+  * `:tag_keys` (`t:list[com.amazonaws.ivsrealtime#TagKey]`) Array of tags to be
+    removed. Array of maps, each of the form string:string (key:value). See
+    Tagging AWS Resources for details, including restrictions that apply to tags
+    and "Tag naming limits and requirements"; Amazon IVS has no constraints
+    beyond what is documented there.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2369,7 +2533,8 @@ defmodule AWS.IVSRealTime do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2386,8 +2551,14 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Updates a stage’s configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20UpdateStage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_stage(map(), update_stage_request(), list()) ::
+  @spec update_stage(AWS.Client.t(), update_stage_request(), Keyword.t()) ::
           {:ok, update_stage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_stage_errors()}
@@ -2396,7 +2567,8 @@ defmodule AWS.IVSRealTime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

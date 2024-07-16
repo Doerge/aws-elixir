@@ -4,115 +4,11 @@
 defmodule AWS.SecurityHub do
   @moduledoc """
   Security Hub provides you with a comprehensive view of your security state in
-  Amazon Web Services and helps
-  you assess your Amazon Web Services environment against security industry
-  standards and best practices.
-
-  Security Hub collects security data across Amazon Web Services accounts, Amazon
-  Web Services, and
+  Amazon Web Services and helps you assess your Amazon Web Services environment
+  against security industry standards and best practices. Security Hub collects
+  security data across Amazon Web Services accounts, Amazon Web Services, and
   supported third-party products and helps you analyze your security trends and
-  identify the highest priority security
-  issues.
-
-  To help you manage the security state of your organization, Security Hub
-  supports multiple security standards.
-  These include the Amazon Web Services Foundational Security Best Practices
-  (FSBP) standard developed by Amazon Web Services,
-  and external compliance frameworks such as the Center for Internet Security
-  (CIS), the Payment Card Industry Data
-  Security Standard (PCI DSS), and the National Institute of Standards and
-  Technology (NIST). Each standard includes
-  several security controls, each of which represents a security best practice.
-  Security Hub runs checks against
-  security controls and generates control findings to help you assess your
-  compliance against security best practices.
-
-  In addition to generating control findings, Security Hub also receives findings
-  from other Amazon Web Services,
-  such as Amazon GuardDuty and Amazon Inspector, and
-  supported third-party products. This gives you a single pane of glass into a
-  variety of security-related issues. You
-  can also send Security Hub findings to other Amazon Web Services and supported
-  third-party products.
-
-  Security Hub offers automation features that help you triage and remediate
-  security issues. For example,
-  you can use automation rules to automatically update critical findings when a
-  security check fails. You can also leverage the integration with
-  Amazon EventBridge to trigger automatic responses to specific findings.
-
-  This guide, the *Security Hub API Reference*, provides
-  information about the Security Hub API. This includes supported resources, HTTP
-  methods, parameters,
-  and schemas. If you're new to Security Hub, you might find it helpful to also
-  review the [
-  *Security Hub User Guide*
-  ](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html).
-  The
-  user guide explains key concepts and provides procedures
-  that demonstrate how to use Security Hub features. It also provides information
-  about topics such as
-  integrating Security Hub with other Amazon Web Services.
-
-  In addition to interacting with Security Hub by making calls to the Security Hub
-  API, you can
-  use a current version of an Amazon Web Services command line tool or SDK. Amazon
-  Web Services provides tools
-  and SDKs that consist of libraries and sample code for various languages and
-  platforms, such as PowerShell,
-  Java, Go, Python, C++, and .NET. These tools and SDKs provide convenient,
-  programmatic access to
-  Security Hub and other Amazon Web Services . They also handle tasks such as
-  signing requests,
-  managing errors, and retrying requests automatically. For information about
-  installing and using the Amazon Web Services tools
-  and SDKs, see [Tools to Build on Amazon Web Services](http://aws.amazon.com/developer/tools/).
-
-  With the exception of operations that are related to central configuration,
-  Security Hub API requests are executed only in
-  the Amazon Web Services Region that is currently active or in the specific
-  Amazon Web Services Region that you specify in your request. Any configuration
-  or settings change
-  that results from the operation is applied only to that Region. To make the same
-  change in
-  other Regions, call the same API operation in each Region in which you want to
-  apply the change. When you use central configuration,
-  API requests for enabling Security Hub, standards, and controls are executed in
-  the home Region and all linked Regions. For a list of
-  central configuration operations, see the [Central configuration terms and
-  concepts](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html#central-configuration-concepts)
-  section of the *Security Hub User Guide*.
-
-  The following throttling limits apply to Security Hub API operations.
-
-    *
-
-  `BatchEnableStandards` - `RateLimit` of 1 request per
-  second. `BurstLimit` of 1 request per second.
-
-    *
-
-  `GetFindings` - `RateLimit` of 3 requests per second.
-  `BurstLimit` of 6 requests per second.
-
-    *
-
-  `BatchImportFindings` - `RateLimit` of 10 requests per second.
-  `BurstLimit` of 30 requests per second.
-
-    *
-
-  `BatchUpdateFindings` - `RateLimit` of 10 requests per second.
-  `BurstLimit` of 30 requests per second.
-
-    *
-
-  `UpdateStandardsControl` - `RateLimit` of 1 request per
-  second. `BurstLimit` of 5 requests per second.
-
-    *
-  All other operations - `RateLimit` of 10 requests per second.
-  `BurstLimit` of 30 requests per second.
+  identify the highest priority security issues.
   """
 
   alias AWS.Client
@@ -12586,17 +12482,20 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Accepts the invitation to be a member account and be monitored by the Security
-  Hub administrator
-  account that the invitation was sent from.
+  Hub administrator account that the invitation was sent from. This operation is
+  only used by member accounts that are not added through Organizations.
 
-  This operation is only used by member accounts that are not added through
-  Organizations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20AcceptAdministratorInvitation&this_doc_guide=API%2520Reference)
 
-  When the member account accepts the invitation, permission is granted to the
-  administrator
-  account to view findings generated in the member account.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec accept_administrator_invitation(map(), accept_administrator_invitation_request(), list()) ::
+  @spec accept_administrator_invitation(
+          AWS.Client.t(),
+          accept_administrator_invitation_request(),
+          Keyword.t()
+        ) ::
           {:ok, accept_administrator_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_administrator_invitation_errors()}
@@ -12605,7 +12504,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12621,29 +12521,21 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  This method is deprecated.
-
-  Instead, use `AcceptAdministratorInvitation`.
-
-  The Security Hub console continues to use `AcceptInvitation`. It will eventually
+  This method is deprecated. Instead, use `AcceptAdministratorInvitation`. The
+  Security Hub console continues to use `AcceptInvitation`. It will eventually
   change to use `AcceptAdministratorInvitation`. Any IAM policies that
   specifically control access to this function must continue to use
-  `AcceptInvitation`. You should also add `AcceptAdministratorInvitation` to your
-  policies to ensure that the correct permissions are in place after the console
-  begins to use `AcceptAdministratorInvitation`.
+  `AcceptInvitation`. You should also add `AcceptAdministratorInvitation` to
+  your policies to ensure that the correct permissions are in place after the
+  console begins to use `AcceptAdministratorInvitation`.
 
-  Accepts the invitation to be a member account and be monitored by the Security
-  Hub administrator
-  account that the invitation was sent from.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20AcceptInvitation&this_doc_guide=API%2520Reference)
 
-  This operation is only used by member accounts that are not added through
-  Organizations.
+  ## Parameters:
 
-  When the member account accepts the invitation, permission is granted to the
-  administrator
-  account to view findings generated in the member account.
+  ## Optional parameters:
   """
-  @spec accept_invitation(map(), accept_invitation_request(), list()) ::
+  @spec accept_invitation(AWS.Client.t(), accept_invitation_request(), Keyword.t()) ::
           {:ok, accept_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_invitation_errors()}
@@ -12652,7 +12544,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12668,10 +12561,19 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   Deletes one or more automation rules.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchDeleteAutomationRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_delete_automation_rules(map(), batch_delete_automation_rules_request(), list()) ::
+  @spec batch_delete_automation_rules(
+          AWS.Client.t(),
+          batch_delete_automation_rules_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_delete_automation_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_automation_rules_errors()}
@@ -12680,7 +12582,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12696,14 +12599,15 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Disables the standards specified by the provided
-  `StandardsSubscriptionArns`.
+  Disables the standards specified by the provided `StandardsSubscriptionArns`.
 
-  For more information, see [Security Standards](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html)
-  section of the *Security Hub User
-  Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchDisableStandards&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_disable_standards(map(), batch_disable_standards_request(), list()) ::
+  @spec batch_disable_standards(AWS.Client.t(), batch_disable_standards_request(), Keyword.t()) ::
           {:ok, batch_disable_standards_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_disable_standards_errors()}
@@ -12712,7 +12616,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12728,16 +12633,16 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Enables the standards specified by the provided `StandardsArn`.
+  Enables the standards specified by the provided `StandardsArn`. To obtain the
+  ARN for a standard, use the `DescribeStandards` operation.
 
-  To obtain the
-  ARN for a standard, use the `DescribeStandards`
-  operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchEnableStandards&this_doc_guide=API%2520Reference)
 
-  For more information, see the [Security Standards](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html)
-  section of the *Security Hub User Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_enable_standards(map(), batch_enable_standards_request(), list()) ::
+  @spec batch_enable_standards(AWS.Client.t(), batch_enable_standards_request(), Keyword.t()) ::
           {:ok, batch_enable_standards_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_enable_standards_errors()}
@@ -12746,7 +12651,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12762,12 +12668,20 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   Retrieves a list of details for automation rules based on rule Amazon Resource
-  Names
-  (ARNs).
+  Names (ARNs).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchGetAutomationRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_get_automation_rules(map(), batch_get_automation_rules_request(), list()) ::
+  @spec batch_get_automation_rules(
+          AWS.Client.t(),
+          batch_get_automation_rules_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_get_automation_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_automation_rules_errors()}
@@ -12776,7 +12690,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12792,18 +12707,21 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   Returns associations between an Security Hub configuration and a batch of target
-  accounts, organizational units, or the root.
-
-  Only the Security Hub delegated administrator can invoke this operation from the
-  home Region. A configuration
+  accounts, organizational units, or the root. Only the Security Hub delegated
+  administrator can invoke this operation from the home Region. A configuration
   can refer to a configuration policy or to a self-managed configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchGetConfigurationPolicyAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec batch_get_configuration_policy_associations(
-          map(),
+          AWS.Client.t(),
           batch_get_configuration_policy_associations_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_get_configuration_policy_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -12813,7 +12731,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12829,11 +12748,20 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   Provides details about a batch of security controls for the current Amazon Web
   Services account and Amazon Web Services Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchGetSecurityControls&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_get_security_controls(map(), batch_get_security_controls_request(), list()) ::
+  @spec batch_get_security_controls(
+          AWS.Client.t(),
+          batch_get_security_controls_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_get_security_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_security_controls_errors()}
@@ -12842,7 +12770,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12858,14 +12787,19 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   For a batch of security controls and standards, identifies whether each control
   is currently enabled or disabled in a standard.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchGetStandardsControlAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec batch_get_standards_control_associations(
-          map(),
+          AWS.Client.t(),
           batch_get_standards_control_associations_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_get_standards_control_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -12875,7 +12809,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12892,81 +12827,16 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Imports security findings generated by a finding provider into Security Hub.
-
   This action is requested by the finding provider to import its findings into
-  Security Hub.
+  Security Hub. `BatchImportFindings` must be called by one of the following:
 
-  `BatchImportFindings` must be called by one of the following:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchImportFindings&this_doc_guide=API%2520Reference)
 
-    *
-  The Amazon Web Services account that is associated with a finding if you are
-  using
-  the [default product ARN](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-custom-providers.html#securityhub-custom-providers-bfi-reqs)
-  or are a partner sending findings from within a customer's Amazon Web Services
-  account.
-  In these cases, the identifier of the account that you are calling
-  `BatchImportFindings`
-  from needs to be the same as the `AwsAccountId` attribute for the finding.
+  ## Parameters:
 
-    *
-  An Amazon Web Services account that Security Hub has allow-listed for an
-  official partner
-  integration. In this case, you can call `BatchImportFindings` from the
-  allow-listed
-  account and send findings from different customer accounts in the same batch.
-
-  The maximum allowed size for a finding is 240 Kb. An error is returned for any
-  finding
-  larger than 240 Kb.
-
-  After a finding is created, `BatchImportFindings` cannot be used to update
-  the following finding fields and objects, which Security Hub customers use to
-  manage their
-  investigation workflow.
-
-    *
-
-  `Note`
-
-    *
-
-  `UserDefinedFields`
-
-    *
-
-  `VerificationState`
-
-    *
-
-  `Workflow`
-
-  Finding providers also should not use `BatchImportFindings` to update the
-  following attributes.
-
-    *
-
-  `Confidence`
-
-    *
-
-  `Criticality`
-
-    *
-
-  `RelatedFindings`
-
-    *
-
-  `Severity`
-
-    *
-
-  `Types`
-
-  Instead, finding providers use `FindingProviderFields` to provide values for
-  these attributes.
+  ## Optional parameters:
   """
-  @spec batch_import_findings(map(), batch_import_findings_request(), list()) ::
+  @spec batch_import_findings(AWS.Client.t(), batch_import_findings_request(), Keyword.t()) ::
           {:ok, batch_import_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_import_findings_errors()}
@@ -12975,7 +12845,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -12991,11 +12862,20 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   Updates one or more automation rules based on rule Amazon Resource Names (ARNs)
   and input parameters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchUpdateAutomationRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_update_automation_rules(map(), batch_update_automation_rules_request(), list()) ::
+  @spec batch_update_automation_rules(
+          AWS.Client.t(),
+          batch_update_automation_rules_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_update_automation_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_automation_rules_errors()}
@@ -13004,7 +12884,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13021,65 +12902,18 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Used by Security Hub customers to update information about their investigation
-  into a finding.
+  into a finding. Requested by administrator accounts or member accounts.
+  Administrator accounts can update findings for their account and their member
+  accounts. Member accounts can update findings for their account. Updates from
+  `BatchUpdateFindings` do not affect the value of `UpdatedAt` for a finding.
 
-  Requested by administrator accounts or member accounts. Administrator accounts
-  can update findings for
-  their account and their member accounts. Member accounts can update findings for
-  their
-  account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchUpdateFindings&this_doc_guide=API%2520Reference)
 
-  Updates from `BatchUpdateFindings` do not affect the value of
-  `UpdatedAt` for a finding.
+  ## Parameters:
 
-  Administrator and member accounts can use `BatchUpdateFindings` to update the
-  following finding fields and objects.
-
-    *
-
-  `Confidence`
-
-    *
-
-  `Criticality`
-
-    *
-
-  `Note`
-
-    *
-
-  `RelatedFindings`
-
-    *
-
-  `Severity`
-
-    *
-
-  `Types`
-
-    *
-
-  `UserDefinedFields`
-
-    *
-
-  `VerificationState`
-
-    *
-
-  `Workflow`
-
-  You can configure IAM policies to restrict access to fields and field values.
-  For
-  example, you might not want member accounts to be able to suppress findings or
-  change the
-  finding severity. See [Configuring access to BatchUpdateFindings](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access)
-  in the
-  *Security Hub User Guide*.
+  ## Optional parameters:
   """
-  @spec batch_update_findings(map(), batch_update_findings_request(), list()) ::
+  @spec batch_update_findings(AWS.Client.t(), batch_update_findings_request(), Keyword.t()) ::
           {:ok, batch_update_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_findings_errors()}
@@ -13088,7 +12922,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13104,14 +12939,19 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   For a batch of security controls and standards, this operation updates the
   enablement status of a control in a standard.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchUpdateStandardsControlAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec batch_update_standards_control_associations(
-          map(),
+          AWS.Client.t(),
           batch_update_standards_control_associations_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, batch_update_standards_control_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13121,7 +12961,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13139,11 +12980,13 @@ defmodule AWS.SecurityHub do
   @doc """
   Creates a custom action target in Security Hub.
 
-  You can use custom actions on findings and insights in Security Hub to trigger
-  target actions
-  in Amazon CloudWatch Events.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateActionTarget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_action_target(map(), create_action_target_request(), list()) ::
+  @spec create_action_target(AWS.Client.t(), create_action_target_request(), Keyword.t()) ::
           {:ok, create_action_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_action_target_errors()}
@@ -13152,7 +12995,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13168,10 +13012,15 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   Creates an automation rule based on input parameters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateAutomationRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_automation_rule(map(), create_automation_rule_request(), list()) ::
+  @spec create_automation_rule(AWS.Client.t(), create_automation_rule_request(), Keyword.t()) ::
           {:ok, create_automation_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_automation_rule_errors()}
@@ -13180,7 +13029,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13196,13 +13046,20 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Creates a configuration policy with the defined configuration. Only the Security
+  Hub delegated administrator can invoke this operation from the home Region.
 
-  Creates a configuration policy with the defined configuration.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateConfigurationPolicy&this_doc_guide=API%2520Reference)
 
-  Only the Security Hub delegated administrator
-  can invoke this operation from the home Region.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_configuration_policy(map(), create_configuration_policy_request(), list()) ::
+  @spec create_configuration_policy(
+          AWS.Client.t(),
+          create_configuration_policy_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_configuration_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_policy_errors()}
@@ -13211,7 +13068,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13227,14 +13085,19 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Used to enable finding aggregation.
+  Used to enable finding aggregation. Must be called from the aggregation Region.
 
-  Must be called from the aggregation Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateFindingAggregator&this_doc_guide=API%2520Reference)
 
-  For more details about cross-Region replication, see [Configuring finding aggregation](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html)
-  in the *Security Hub User Guide*.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_finding_aggregator(map(), create_finding_aggregator_request(), list()) ::
+  @spec create_finding_aggregator(
+          AWS.Client.t(),
+          create_finding_aggregator_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_finding_aggregator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_finding_aggregator_errors()}
@@ -13243,7 +13106,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13259,15 +13123,17 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Creates a custom insight in Security Hub.
+  Creates a custom insight in Security Hub. An insight is a consolidation of
+  findings that relate to a security issue that requires attention or
+  remediation.
 
-  An insight is a consolidation of findings that relate
-  to a security issue that requires attention or remediation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateInsight&this_doc_guide=API%2520Reference)
 
-  To group the related findings in the insight, use the
-  `GroupByAttribute`.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_insight(map(), create_insight_request(), list()) ::
+  @spec create_insight(AWS.Client.t(), create_insight_request(), Keyword.t()) ::
           {:ok, create_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_insight_errors()}
@@ -13276,7 +13142,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13293,59 +13160,18 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Creates a member association in Security Hub between the specified accounts and
-  the account
-  used to make the request, which is the administrator account.
+  the account used to make the request, which is the administrator account. If
+  you are integrated with Organizations, then the administrator account is
+  designated by the organization management account. `CreateMembers` is always
+  used to add accounts that are not organization members.
 
-  If you are integrated with
-  Organizations, then the administrator account is designated by the organization
-  management account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateMembers&this_doc_guide=API%2520Reference)
 
-  `CreateMembers` is always used to add accounts that are not organization
-  members.
+  ## Parameters:
 
-  For accounts that are managed using Organizations, `CreateMembers` is only used
-  in the following cases:
-
-    *
-  Security Hub is not configured to automatically add new organization accounts.
-
-    *
-  The account was disassociated or deleted in Security Hub.
-
-  This action can only be used by an account that has Security Hub enabled. To
-  enable Security Hub, you
-  can use the `EnableSecurityHub` operation.
-
-  For accounts that are not organization members, you create the account
-  association and
-  then send an invitation to the member account. To send the invitation, you use
-  the
-  `InviteMembers` operation. If the account owner accepts
-  the invitation, the account becomes a member account in Security Hub.
-
-  Accounts that are managed using Organizations do not receive an invitation. They
-  automatically become a member account in Security Hub.
-
-    *
-  If the organization account does not have Security Hub enabled, then Security
-  Hub and the default standards are automatically enabled. Note that Security Hub
-  cannot be enabled automatically for the organization management account. The
-  organization management account must enable Security Hub before the
-  administrator account enables it as a member account.
-
-    *
-  For organization accounts that already have Security Hub enabled, Security Hub
-  does not make any other changes to those accounts. It does not change their
-  enabled standards or controls.
-
-  A permissions policy is added that permits the administrator account to view the
-  findings
-  generated in the member account.
-
-  To remove the association between the administrator and member accounts, use the
-  `DisassociateFromMasterAccount` or `DisassociateMembers` operation.
+  ## Optional parameters:
   """
-  @spec create_members(map(), create_members_request(), list()) ::
+  @spec create_members(AWS.Client.t(), create_members_request(), Keyword.t()) ::
           {:ok, create_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_members_errors()}
@@ -13354,7 +13180,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13370,16 +13197,16 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Declines invitations to become a member account.
+  Declines invitations to become a member account. A prospective member account
+  uses this operation to decline an invitation to become a member.
 
-  A prospective member account uses this operation to decline an invitation to
-  become a member.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeclineInvitations&this_doc_guide=API%2520Reference)
 
-  This operation is only called by member accounts that aren't part of an
-  organization.
-  Organization accounts don't receive invitations.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec decline_invitations(map(), decline_invitations_request(), list()) ::
+  @spec decline_invitations(AWS.Client.t(), decline_invitations_request(), Keyword.t()) ::
           {:ok, decline_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, decline_invitations_errors()}
@@ -13388,7 +13215,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13406,11 +13234,20 @@ defmodule AWS.SecurityHub do
   @doc """
   Deletes a custom action target from Security Hub.
 
-  Deleting a custom action target does not affect any findings or insights that
-  were
-  already sent to Amazon CloudWatch Events using the custom action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeleteActionTarget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:action_target_arn` (`t:string`) The Amazon Resource Name (ARN) of the custom
+    action target to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_action_target(map(), String.t(), delete_action_target_request(), list()) ::
+  @spec delete_action_target(
+          AWS.Client.t(),
+          String.t(),
+          delete_action_target_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_action_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_action_target_errors()}
@@ -13419,7 +13256,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13435,20 +13273,25 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
-  Deletes a configuration policy.
-
-  Only the Security Hub delegated administrator can invoke this operation
-  from the home Region. For the deletion to succeed, you must first disassociate a
-  configuration policy from target accounts,
+  Deletes a configuration policy. Only the Security Hub delegated administrator
+  can invoke this operation from the home Region. For the deletion to succeed,
+  you must first disassociate a configuration policy from target accounts,
   organizational units, or the root by invoking the
   `StartConfigurationPolicyDisassociation` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeleteConfigurationPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The Amazon Resource Name (ARN) or universally
+    unique identifier (UUID) of the configuration policy.
+
+  ## Optional parameters:
   """
   @spec delete_configuration_policy(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_configuration_policy_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_configuration_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13458,7 +13301,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13474,15 +13318,23 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Deletes a finding aggregator.
+  Deletes a finding aggregator. When you delete the finding aggregator, you stop
+  finding aggregation.
 
-  When you delete the finding aggregator, you stop finding aggregation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeleteFindingAggregator&this_doc_guide=API%2520Reference)
 
-  When you stop finding aggregation, findings that were already aggregated to the
-  aggregation Region are still visible from the aggregation Region. New findings
-  and finding updates are not aggregated.
+  ## Parameters:
+  * `:finding_aggregator_arn` (`t:string`) The ARN of the finding aggregator to
+    delete. To obtain the ARN, use ListFindingAggregators.
+
+  ## Optional parameters:
   """
-  @spec delete_finding_aggregator(map(), String.t(), delete_finding_aggregator_request(), list()) ::
+  @spec delete_finding_aggregator(
+          AWS.Client.t(),
+          String.t(),
+          delete_finding_aggregator_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_finding_aggregator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_finding_aggregator_errors()}
@@ -13493,7 +13345,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13510,8 +13363,15 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Deletes the insight specified by the `InsightArn`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeleteInsight&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:insight_arn` (`t:string`) The ARN of the insight to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_insight(map(), String.t(), delete_insight_request(), list()) ::
+  @spec delete_insight(AWS.Client.t(), String.t(), delete_insight_request(), Keyword.t()) ::
           {:ok, delete_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_insight_errors()}
@@ -13520,7 +13380,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13537,16 +13398,16 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Deletes invitations received by the Amazon Web Services account to become a
-  member account.
+  member account. A Security Hub administrator account can use this operation to
+  delete invitations sent to one or more member accounts.
 
-  A Security Hub administrator account can use this operation to delete
-  invitations sent to one or more member accounts.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeleteInvitations&this_doc_guide=API%2520Reference)
 
-  This operation is only used to delete invitations that are sent to member
-  accounts that aren't part of an organization.
-  Organization accounts don't receive invitations.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_invitations(map(), delete_invitations_request(), list()) ::
+  @spec delete_invitations(AWS.Client.t(), delete_invitations_request(), Keyword.t()) ::
           {:ok, delete_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_invitations_errors()}
@@ -13555,7 +13416,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13573,11 +13435,13 @@ defmodule AWS.SecurityHub do
   @doc """
   Deletes the specified member accounts from Security Hub.
 
-  You can invoke this API only to delete accounts that became members through
-  invitation. You can't invoke this
-  API to delete accounts that belong to an Organizations organization.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeleteMembers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_members(map(), delete_members_request(), list()) ::
+  @spec delete_members(AWS.Client.t(), delete_members_request(), Keyword.t()) ::
           {:ok, delete_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_members_errors()}
@@ -13586,7 +13450,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13603,8 +13468,14 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Returns a list of the custom action targets in Security Hub in your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DescribeActionTargets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_action_targets(map(), describe_action_targets_request(), list()) ::
+  @spec describe_action_targets(AWS.Client.t(), describe_action_targets_request(), Keyword.t()) ::
           {:ok, describe_action_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_action_targets_errors()}
@@ -13613,7 +13484,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13629,99 +13501,170 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Returns details about the Hub resource in your account, including the
-  `HubArn` and the time when you enabled Security Hub.
+  Returns details about the Hub resource in your account, including the `HubArn`
+  and the time when you enabled Security Hub.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DescribeHub&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:hub_arn` (`t:string`) The ARN of the Hub resource to retrieve.
   """
-  @spec describe_hub(map(), String.t() | nil, list()) ::
+  @spec describe_hub(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_hub_errors()}
-  def describe_hub(%Client{} = client, hub_arn \\ nil, options \\ []) do
+  def describe_hub(%Client{} = client, options \\ []) do
     url_path = "/accounts"
+
+    # Validate optional parameters
+    optional_params = [hub_arn: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(hub_arn) do
-        [{"HubArn", hub_arn} | query_params]
+      if opt_val = Keyword.get(options, :hub_arn) do
+        [{"HubArn", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:hub_arn])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about the way your organization is configured in Security
-  Hub.
+  Hub. Only the Security Hub administrator account can invoke this operation.
 
-  Only the
-  Security Hub administrator account can invoke this operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DescribeOrganizationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_organization_configuration(map(), list()) ::
+  @spec describe_organization_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_organization_configuration_errors()}
   def describe_organization_configuration(%Client{} = client, options \\ []) do
     url_path = "/organization/configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns information about product integrations in Security Hub.
-
-  You can optionally provide an integration ARN. If you provide an integration
-  ARN, then
+  Returns information about product integrations in Security Hub. You can
+  optionally provide an integration ARN. If you provide an integration ARN, then
   the results only include that integration.
 
-  If you do not provide an integration ARN, then the results include all of the
-  available
-  product integrations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DescribeProducts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token that is required for pagination. On your
+    first call to the DescribeProducts operation, set the value of this
+    parameter to NULL.
+  * `:product_arn` (`t:string`) The ARN of the integration to return.
   """
-  @spec describe_products(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec describe_products(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_products_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_products_errors()}
-  def describe_products(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        product_arn \\ nil,
-        options \\ []
-      ) do
+  def describe_products(%Client{} = client, options \\ []) do
     url_path = "/products"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, product_arn: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(product_arn) do
-        [{"ProductArn", product_arn} | query_params]
+      if opt_val = Keyword.get(options, :product_arn) do
+        [{"ProductArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :product_arn])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -13729,33 +13672,62 @@ defmodule AWS.SecurityHub do
   @doc """
   Returns a list of the available standards in Security Hub.
 
-  For each standard, the results include the standard ARN, the name, and a
-  description.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DescribeStandards&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of standards to return.
+  * `:next_token` (`t:string`) The token that is required for pagination. On your
+    first call to the DescribeStandards operation, set the value of this
+    parameter to NULL.
   """
-  @spec describe_standards(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec describe_standards(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_standards_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_standards_errors()}
-  def describe_standards(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def describe_standards(%Client{} = client, options \\ []) do
     url_path = "/standards"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -13763,57 +13735,90 @@ defmodule AWS.SecurityHub do
   @doc """
   Returns a list of security standards controls.
 
-  For each control, the results include information about whether it is currently
-  enabled,
-  the severity, and a link to remediation information.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DescribeStandardsControls&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:standards_subscription_arn` (`t:string`) The ARN of a resource that
+    represents your subscription to a supported standard. To get the
+    subscription ARNs of the standards you have enabled, use the
+    GetEnabledStandards operation.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of security standard controls
+    to return.
+  * `:next_token` (`t:string`) The token that is required for pagination. On your
+    first call to the DescribeStandardsControls operation, set the value of this
+    parameter to NULL.
   """
-  @spec describe_standards_controls(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec describe_standards_controls(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_standards_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_standards_controls_errors()}
-  def describe_standards_controls(
-        %Client{} = client,
-        standards_subscription_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def describe_standards_controls(%Client{} = client, standards_subscription_arn, options \\ []) do
     url_path =
       "/standards/controls/#{AWS.Util.encode_multi_segment_uri(standards_subscription_arn)}"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Disables the integration of the specified product with Security Hub.
+  Disables the integration of the specified product with Security Hub. After the
+  integration is disabled, findings from that product are no longer sent to
+  Security Hub.
 
-  After the integration is
-  disabled, findings from that product are no longer sent to Security Hub.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DisableImportFindingsForProduct&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:product_subscription_arn` (`t:string`) The ARN of the integrated product to
+    disable the integration for.
+
+  ## Optional parameters:
   """
   @spec disable_import_findings_for_product(
-          map(),
+          AWS.Client.t(),
           String.t(),
           disable_import_findings_for_product_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disable_import_findings_for_product_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13830,7 +13835,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13846,15 +13852,19 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Disables a Security Hub administrator account.
+  Disables a Security Hub administrator account. Can only be called by the
+  organization management account.
 
-  Can only be called by the organization
-  management account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DisableOrganizationAdminAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec disable_organization_admin_account(
-          map(),
+          AWS.Client.t(),
           disable_organization_admin_account_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disable_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13864,7 +13874,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13881,27 +13892,17 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Disables Security Hub in your account only in the current Amazon Web Services
-  Region.
+  Region. To disable Security Hub in all Regions, you must submit one request
+  per Region where you have enabled Security Hub. You can't disable Security Hub
+  in an account that is currently the Security Hub administrator.
 
-  To disable Security Hub in all
-  Regions, you must submit one request per Region where you have enabled Security
-  Hub.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DisableSecurityHub&this_doc_guide=API%2520Reference)
 
-  You can't disable Security Hub in an account that is currently the Security Hub
-  administrator.
+  ## Parameters:
 
-  When you disable Security Hub, your existing findings and insights and any
-  Security Hub configuration
-  settings are deleted after 90 days and cannot be recovered. Any standards that
-  were enabled
-  are disabled, and your administrator and member account associations are
-  removed.
-
-  If you want to save your existing findings, you must export them before you
-  disable
-  Security Hub.
+  ## Optional parameters:
   """
-  @spec disable_security_hub(map(), disable_security_hub_request(), list()) ::
+  @spec disable_security_hub(AWS.Client.t(), disable_security_hub_request(), Keyword.t()) ::
           {:ok, disable_security_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_security_hub_errors()}
@@ -13910,7 +13911,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13927,18 +13929,18 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Disassociates the current Security Hub member account from the associated
-  administrator
-  account.
+  administrator account.
 
-  This operation is only used by accounts that are not part of an organization.
-  For
-  organization accounts, only the administrator account can
-  disassociate a member account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DisassociateFromAdministratorAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec disassociate_from_administrator_account(
-          map(),
+          AWS.Client.t(),
           disassociate_from_administrator_account_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_from_administrator_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13948,7 +13950,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -13964,31 +13967,25 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  This method is deprecated.
-
-  Instead, use `DisassociateFromAdministratorAccount`.
-
+  This method is deprecated. Instead, use `DisassociateFromAdministratorAccount`.
   The Security Hub console continues to use `DisassociateFromMasterAccount`. It
   will eventually change to use `DisassociateFromAdministratorAccount`. Any IAM
-  policies that specifically control access to this function must continue to use
-  `DisassociateFromMasterAccount`. You should also add
+  policies that specifically control access to this function must continue to
+  use `DisassociateFromMasterAccount`. You should also add
   `DisassociateFromAdministratorAccount` to your policies to ensure that the
   correct permissions are in place after the console begins to use
   `DisassociateFromAdministratorAccount`.
 
-  Disassociates the current Security Hub member account from the associated
-  administrator
-  account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DisassociateFromMasterAccount&this_doc_guide=API%2520Reference)
 
-  This operation is only used by accounts that are not part of an organization.
-  For
-  organization accounts, only the administrator account can
-  disassociate a member account.
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec disassociate_from_master_account(
-          map(),
+          AWS.Client.t(),
           disassociate_from_master_account_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_from_master_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13998,7 +13995,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14017,11 +14015,13 @@ defmodule AWS.SecurityHub do
   Disassociates the specified member accounts from the associated administrator
   account.
 
-  Can be used to disassociate both accounts that are managed using Organizations
-  and accounts that
-  were invited manually.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DisassociateMembers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec disassociate_members(map(), disassociate_members_request(), list()) ::
+  @spec disassociate_members(AWS.Client.t(), disassociate_members_request(), Keyword.t()) ::
           {:ok, disassociate_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_members_errors()}
@@ -14030,7 +14030,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14046,19 +14047,19 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Enables the integration of a partner product with Security Hub.
+  Enables the integration of a partner product with Security Hub. Integrated
+  products send findings to Security Hub.
 
-  Integrated products send
-  findings to Security Hub.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20EnableImportFindingsForProduct&this_doc_guide=API%2520Reference)
 
-  When you enable a product integration, a permissions policy that grants
-  permission for
-  the product to send findings to Security Hub is applied.
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec enable_import_findings_for_product(
-          map(),
+          AWS.Client.t(),
           enable_import_findings_for_product_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, enable_import_findings_for_product_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -14068,7 +14069,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14084,15 +14086,19 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Designates the Security Hub administrator account for an organization.
+  Designates the Security Hub administrator account for an organization. Can only
+  be called by the organization management account.
 
-  Can only be called by
-  the organization management account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20EnableOrganizationAdminAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec enable_organization_admin_account(
-          map(),
+          AWS.Client.t(),
           enable_organization_admin_account_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, enable_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -14102,7 +14108,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14119,36 +14126,17 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Enables Security Hub for your account in the current Region or the Region you
-  specify in the
-  request.
+  specify in the request. When you enable Security Hub, you grant to Security
+  Hub the permissions necessary to gather findings from other services that are
+  integrated with Security Hub.
 
-  When you enable Security Hub, you grant to Security Hub the permissions
-  necessary to gather findings
-  from other services that are integrated with Security Hub.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20EnableSecurityHub&this_doc_guide=API%2520Reference)
 
-  When you use the `EnableSecurityHub` operation to enable Security Hub, you also
-  automatically enable the following standards:
+  ## Parameters:
 
-    *
-  Center for Internet Security (CIS) Amazon Web Services Foundations Benchmark
-  v1.2.0
-
-    *
-  Amazon Web Services Foundational Security Best Practices
-
-  Other standards are not automatically enabled.
-
-  To opt out of automatically enabled standards, set
-  `EnableDefaultStandards` to `false`.
-
-  After you enable Security Hub, to enable a standard, use the
-  `BatchEnableStandards` operation. To disable a standard, use the
-  `BatchDisableStandards` operation.
-
-  To learn more, see the [setup information](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html)
-  in the *Security Hub User Guide*.
+  ## Optional parameters:
   """
-  @spec enable_security_hub(map(), enable_security_hub_request(), list()) ::
+  @spec enable_security_hub(AWS.Client.t(), enable_security_hub_request(), Keyword.t()) ::
           {:ok, enable_security_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_security_hub_errors()}
@@ -14157,7 +14145,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14176,59 +14165,104 @@ defmodule AWS.SecurityHub do
   Provides the details for the Security Hub administrator account for the current
   member account.
 
-  Can be used by both member accounts that are managed using Organizations and
-  accounts that were
-  invited manually.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetAdministratorAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_administrator_account(map(), list()) ::
+  @spec get_administrator_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_administrator_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_administrator_account_errors()}
   def get_administrator_account(%Client{} = client, options \\ []) do
     url_path = "/administrator"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+  Provides information about a configuration policy. Only the Security Hub
+  delegated administrator can invoke this operation from the home Region.
 
-  Provides information about a configuration policy.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetConfigurationPolicy&this_doc_guide=API%2520Reference)
 
-  Only the Security Hub delegated administrator can invoke
-  this operation from the home Region.
+  ## Parameters:
+  * `:identifier` (`t:string`) The Amazon Resource Name (ARN) or universally
+    unique identifier (UUID) of the configuration policy.
+
+  ## Optional parameters:
   """
-  @spec get_configuration_policy(map(), String.t(), list()) ::
+  @spec get_configuration_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configuration_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_policy_errors()}
   def get_configuration_policy(%Client{} = client, identifier, options \\ []) do
     url_path = "/configurationPolicy/get/#{AWS.Util.encode_uri(identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Returns the association between a configuration and a target account,
-  organizational unit, or the root.
+  organizational unit, or the root. The configuration can be a configuration
+  policy or self-managed behavior. Only the Security Hub delegated administrator
+  can invoke this operation from the home Region.
 
-  The
-  configuration can be a configuration policy or self-managed behavior. Only the
-  Security Hub delegated administrator can
-  invoke this operation from the home Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetConfigurationPolicyAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec get_configuration_policy_association(
-          map(),
+          AWS.Client.t(),
           get_configuration_policy_association_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_configuration_policy_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -14238,7 +14272,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14255,8 +14290,14 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Returns a list of the standards that are currently enabled.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetEnabledStandards&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_enabled_standards(map(), get_enabled_standards_request(), list()) ::
+  @spec get_enabled_standards(AWS.Client.t(), get_enabled_standards_request(), Keyword.t()) ::
           {:ok, get_enabled_standards_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_enabled_standards_errors()}
@@ -14265,7 +14306,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14282,8 +14324,16 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Returns the current finding aggregation configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetFindingAggregator&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:finding_aggregator_arn` (`t:string`) The ARN of the finding aggregator to
+    return details for. To obtain the ARN, use ListFindingAggregators.
+
+  ## Optional parameters:
   """
-  @spec get_finding_aggregator(map(), String.t(), list()) ::
+  @spec get_finding_aggregator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_finding_aggregator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_finding_aggregator_errors()}
@@ -14291,22 +14341,43 @@ defmodule AWS.SecurityHub do
     url_path =
       "/findingAggregator/get/#{AWS.Util.encode_multi_segment_uri(finding_aggregator_arn)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+  Returns history for a Security Hub finding in the last 90 days. The history
+  includes changes made to any fields in the Amazon Web Services Security
+  Finding Format (ASFF).
 
-  Returns history for a Security Hub finding in the last 90 days.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetFindingHistory&this_doc_guide=API%2520Reference)
 
-  The history includes changes made to any fields in
-  the Amazon Web Services Security Finding Format (ASFF).
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_finding_history(map(), get_finding_history_request(), list()) ::
+  @spec get_finding_history(AWS.Client.t(), get_finding_history_request(), Keyword.t()) ::
           {:ok, get_finding_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_finding_history_errors()}
@@ -14315,7 +14386,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14333,11 +14405,13 @@ defmodule AWS.SecurityHub do
   @doc """
   Returns a list of findings that match the specified criteria.
 
-  If finding aggregation is enabled, then when you call `GetFindings` from the
-  aggregation Region, the results include all of the matching findings from both
-  the aggregation Region and the linked Regions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_findings(map(), get_findings_request(), list()) ::
+  @spec get_findings(AWS.Client.t(), get_findings_request(), Keyword.t()) ::
           {:ok, get_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_findings_errors()}
@@ -14346,7 +14420,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14363,25 +14438,57 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Lists the results of the Security Hub insight specified by the insight ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetInsightResults&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:insight_arn` (`t:string`) The ARN of the insight for which to return
+    results.
+
+  ## Optional parameters:
   """
-  @spec get_insight_results(map(), String.t(), list()) ::
+  @spec get_insight_results(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_insight_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insight_results_errors()}
   def get_insight_results(%Client{} = client, insight_arn, options \\ []) do
     url_path = "/insights/results/#{AWS.Util.encode_multi_segment_uri(insight_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists and describes insights for the specified insight ARNs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetInsights&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_insights(map(), get_insights_request(), list()) ::
+  @spec get_insights(AWS.Client.t(), get_insights_request(), Keyword.t()) ::
           {:ok, get_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insights_errors()}
@@ -14390,7 +14497,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14407,69 +14515,106 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Returns the count of all Security Hub membership invitations that were sent to
-  the
-  current member account, not including the currently accepted invitation.
+  the current member account, not including the currently accepted invitation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetInvitationsCount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_invitations_count(map(), list()) ::
+  @spec get_invitations_count(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_invitations_count_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_invitations_count_errors()}
   def get_invitations_count(%Client{} = client, options \\ []) do
     url_path = "/invitations/count"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  This method is deprecated.
-
-  Instead, use `GetAdministratorAccount`.
-
-  The Security Hub console continues to use `GetMasterAccount`. It will eventually
-  change to use `GetAdministratorAccount`. Any IAM policies that specifically
-  control access to this function must continue to use `GetMasterAccount`. You
-  should also add `GetAdministratorAccount` to your policies to ensure that the
-  correct permissions are in place after the console begins to use
+  This method is deprecated. Instead, use `GetAdministratorAccount`. The Security
+  Hub console continues to use `GetMasterAccount`. It will eventually change to
+  use `GetAdministratorAccount`. Any IAM policies that specifically control
+  access to this function must continue to use `GetMasterAccount`. You should
+  also add `GetAdministratorAccount` to your policies to ensure that the correct
+  permissions are in place after the console begins to use
   `GetAdministratorAccount`.
 
-  Provides the details for the Security Hub administrator account for the current
-  member account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetMasterAccount&this_doc_guide=API%2520Reference)
 
-  Can be used by both member accounts that are managed using Organizations and
-  accounts that were
-  invited manually.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_master_account(map(), list()) ::
+  @spec get_master_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_master_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_master_account_errors()}
   def get_master_account(%Client{} = client, options \\ []) do
     url_path = "/master"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the details for the Security Hub member accounts for the specified
-  account IDs.
+  account IDs. An administrator account can be either the delegated Security Hub
+  administrator account for an organization or an administrator account that
+  enabled Security Hub manually.
 
-  An administrator account can be either the delegated Security Hub administrator
-  account for an
-  organization or an administrator account that enabled Security Hub manually.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetMembers&this_doc_guide=API%2520Reference)
 
-  The results include both member accounts that are managed using Organizations
-  and accounts that
-  were invited manually.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_members(map(), get_members_request(), list()) ::
+  @spec get_members(AWS.Client.t(), get_members_request(), Keyword.t()) ::
           {:ok, get_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_members_errors()}
@@ -14478,7 +14623,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14494,51 +14640,63 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Retrieves the definition of a security control. The definition includes the
+  control title, description, Region availability, parameter definitions, and
+  other details.
 
-  Retrieves the definition of a security control.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetSecurityControlDefinition&this_doc_guide=API%2520Reference)
 
-  The definition includes the control title, description, Region availability,
-  parameter definitions, and other details.
+  ## Parameters:
+  * `:security_control_id` (`t:string`) The ID of the security control to retrieve
+    the definition for. This field doesn’t accept an Amazon Resource Name (ARN).
+
+  ## Optional parameters:
   """
-  @spec get_security_control_definition(map(), String.t(), list()) ::
+  @spec get_security_control_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_security_control_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_security_control_definition_errors()}
   def get_security_control_definition(%Client{} = client, security_control_id, options \\ []) do
     url_path = "/securityControl/definition"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(security_control_id) do
-        [{"SecurityControlId", security_control_id} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"SecurityControlId", security_control_id}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Invites other Amazon Web Services accounts to become member accounts for the
-  Security Hub administrator account that
-  the invitation is sent from.
+  Security Hub administrator account that the invitation is sent from. This
+  operation is only used to invite accounts that do not belong to an
+  organization. Organization accounts do not receive invitations.
 
-  This operation is only used to invite accounts that do not belong to an
-  organization.
-  Organization accounts do not receive invitations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20InviteMembers&this_doc_guide=API%2520Reference)
 
-  Before you can use this action to invite a member, you must first use the
-  `CreateMembers` action to create the member account in Security Hub.
+  ## Parameters:
 
-  When the account owner enables Security Hub and accepts the invitation to become
-  a member
-  account, the administrator account can view the findings generated from the
-  member account.
+  ## Optional parameters:
   """
-  @spec invite_members(map(), invite_members_request(), list()) ::
+  @spec invite_members(AWS.Client.t(), invite_members_request(), Keyword.t()) ::
           {:ok, invite_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invite_members_errors()}
@@ -14547,7 +14705,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14563,96 +14722,160 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   A list of automation rules and their metadata for the calling account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListAutomationRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of rules to return in the
+    response. This currently ranges from 1 to 100.
+  * `:next_token` (`t:string`) A token to specify where to start paginating the
+    response. This is the NextToken from a previously truncated response. On
+    your first call to the ListAutomationRules API, set the value of this
+    parameter to NULL.
   """
-  @spec list_automation_rules(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_automation_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_automation_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_automation_rules_errors()}
-  def list_automation_rules(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_automation_rules(%Client{} = client, options \\ []) do
     url_path = "/automationrules/list"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Lists the configuration policies that the Security Hub delegated administrator
-  has created for your
-  organization.
+  has created for your organization. Only the delegated administrator can invoke
+  this operation from the home Region.
 
-  Only the delegated administrator can invoke this operation from the home Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListConfigurationPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results that's returned by
+    ListConfigurationPolicies in each page of the response. When this parameter
+    is used, ListConfigurationPolicies returns the specified number of results
+    in a single page and a NextToken response element. You can see the remaining
+    results of the initial request by sending another ListConfigurationPolicies
+    request with the returned NextToken value. A valid range for MaxResults is
+    between 1 and 100.
+  * `:next_token` (`t:string`) The NextToken value that's returned from a previous
+    paginated ListConfigurationPolicies request where MaxResults was used but
+    the results exceeded the value of that parameter. Pagination continues from
+    the MaxResults was used but the results exceeded the value of that
+    parameter. Pagination continues from the end of the previous response that
+    returned the NextToken value. This value is null when there are no more
+    results to return.
   """
-  @spec list_configuration_policies(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_configuration_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configuration_policies_errors()}
-  def list_configuration_policies(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_configuration_policies(%Client{} = client, options \\ []) do
     url_path = "/configurationPolicy/list"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Provides information about the associations for your configuration policies and
-  self-managed behavior.
+  self-managed behavior. Only the Security Hub delegated administrator can
+  invoke this operation from the home Region.
 
-  Only the
-  Security Hub delegated administrator can invoke this operation from the home
-  Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListConfigurationPolicyAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec list_configuration_policy_associations(
-          map(),
+          AWS.Client.t(),
           list_configuration_policy_associations_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_configuration_policy_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -14662,7 +14885,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -14679,77 +14903,129 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Lists all findings-generating solutions (products) that you are subscribed to
-  receive
-  findings from in Security Hub.
+  receive findings from in Security Hub.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListEnabledProductsForImport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to return in the
+    response.
+  * `:next_token` (`t:string`) The token that is required for pagination. On your
+    first call to the ListEnabledProductsForImport operation, set the value of
+    this parameter to NULL.
   """
-  @spec list_enabled_products_for_import(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_enabled_products_for_import(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_enabled_products_for_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_enabled_products_for_import_errors()}
-  def list_enabled_products_for_import(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_enabled_products_for_import(%Client{} = client, options \\ []) do
     url_path = "/productSubscriptions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   If finding aggregation is enabled, then `ListFindingAggregators` returns the ARN
-  of the finding aggregator.
+  of the finding aggregator. You can run this operation from any Region.
 
-  You can run this operation from any Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListFindingAggregators&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return. This
+    operation currently only returns a single result.
+  * `:next_token` (`t:string`) The token returned with the previous set of
+    results. Identifies the next set of results to return.
   """
-  @spec list_finding_aggregators(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_finding_aggregators(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_finding_aggregators_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_finding_aggregators_errors()}
-  def list_finding_aggregators(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_finding_aggregators(%Client{} = client, options \\ []) do
     url_path = "/findingAggregator/list"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -14758,261 +15034,415 @@ defmodule AWS.SecurityHub do
   Lists all Security Hub membership invitations that were sent to the current
   Amazon Web Services account.
 
-  This operation is only used by accounts that are managed by invitation.
-  Accounts that are managed using the integration with Organizations do not
-  receive invitations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListInvitations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to return in the
+    response.
+  * `:next_token` (`t:string`) The token that is required for pagination. On your
+    first call to the ListInvitations operation, set the value of this parameter
+    to NULL.
   """
-  @spec list_invitations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_invitations_errors()}
-  def list_invitations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_invitations(%Client{} = client, options \\ []) do
     url_path = "/invitations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists details about all member accounts for the current Security Hub
-  administrator
-  account.
+  administrator account.
 
-  The results include both member accounts that belong to an organization and
-  member
-  accounts that were invited manually.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListMembers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to return in the
+    response.
+  * `:next_token` (`t:string`) The token that is required for pagination. On your
+    first call to the ListMembers operation, set the value of this parameter to
+    NULL.
+  * `:only_associated` (`t:boolean`) Specifies which member accounts to include in
+    the response based on their relationship status with the administrator
+    account. The default value is TRUE.
   """
-  @spec list_members(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_members_errors()}
-  def list_members(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        only_associated \\ nil,
-        options \\ []
-      ) do
+  def list_members(%Client{} = client, options \\ []) do
     url_path = "/members"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, only_associated: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(only_associated) do
-        [{"OnlyAssociated", only_associated} | query_params]
+      if opt_val = Keyword.get(options, :only_associated) do
+        [{"OnlyAssociated", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :only_associated])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the Security Hub administrator accounts.
+  Lists the Security Hub administrator accounts. Can only be called by the
+  organization management account.
 
-  Can only be called by the organization
-  management account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListOrganizationAdminAccounts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of items to return in the
+    response.
+  * `:next_token` (`t:string`) The token that is required for pagination. On your
+    first call to the ListOrganizationAdminAccounts operation, set the value of
+    this parameter to NULL. For subsequent calls to the operation, to continue
+    listing data, set the value of this parameter to the value returned from the
+    previous response.
   """
-  @spec list_organization_admin_accounts(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_organization_admin_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_organization_admin_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_organization_admin_accounts_errors()}
-  def list_organization_admin_accounts(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_organization_admin_accounts(%Client{} = client, options \\ []) do
     url_path = "/organization/admin"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Lists all of the security controls that apply to a specified standard.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListSecurityControlDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) An optional parameter that limits the total
+    results of the API response to the specified number. If this parameter isn't
+    provided in the request, the results include the first 25 security controls
+    that apply to the specified standard. The results also include a NextToken
+    parameter that you can use in a subsequent API call to get the next 25
+    controls. This repeats until all controls for the standard are returned.
+  * `:next_token` (`t:string`) Optional pagination parameter.
+  * `:standards_arn` (`t:string`) The Amazon Resource Name (ARN) of the standard
+    that you want to view controls for.
   """
-  @spec list_security_control_definitions(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_security_control_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_security_control_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_security_control_definitions_errors()}
-  def list_security_control_definitions(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        standards_arn \\ nil,
-        options \\ []
-      ) do
+  def list_security_control_definitions(%Client{} = client, options \\ []) do
     url_path = "/securityControls/definitions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, standards_arn: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(standards_arn) do
-        [{"StandardsArn", standards_arn} | query_params]
+      if opt_val = Keyword.get(options, :standards_arn) do
+        [{"StandardsArn", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :standards_arn])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Specifies whether a control is currently enabled or disabled in each enabled
   standard in the calling account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListStandardsControlAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:security_control_id` (`t:string`) The identifier of the control (identified
+    with SecurityControlId, SecurityControlArn, or a mix of both parameters)
+    that you want to determine the enablement status of in each enabled
+    standard.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) An optional parameter that limits the total
+    results of the API response to the specified number. If this parameter isn't
+    provided in the request, the results include the first 25 standard and
+    control associations. The results also include a NextToken parameter that
+    you can use in a subsequent API call to get the next 25 associations. This
+    repeats until all associations for the specified control are returned. The
+    number of results is limited by the number of supported Security Hub
+    standards that you've enabled in the calling account.
+  * `:next_token` (`t:string`) Optional pagination parameter.
   """
-  @spec list_standards_control_associations(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          list()
-        ) ::
+  @spec list_standards_control_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_standards_control_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_standards_control_associations_errors()}
-  def list_standards_control_associations(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        security_control_id,
-        options \\ []
-      ) do
+  def list_standards_control_associations(%Client{} = client, security_control_id, options \\ []) do
     url_path = "/associations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"SecurityControlId", security_control_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(security_control_id) do
-        [{"SecurityControlId", security_control_id} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of tags associated with a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource to retrieve tags for.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Associates a target account, organizational unit, or the root with a specified
-  configuration.
-
-  The target can be
-  associated with a configuration policy or self-managed behavior. Only the
-  Security Hub delegated administrator can
+  configuration. The target can be associated with a configuration policy or
+  self-managed behavior. Only the Security Hub delegated administrator can
   invoke this operation from the home Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20StartConfigurationPolicyAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec start_configuration_policy_association(
-          map(),
+          AWS.Client.t(),
           start_configuration_policy_association_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_configuration_policy_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -15022,7 +15452,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -15038,23 +15469,24 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   Disassociates a target account, organizational unit, or the root from a
-  specified configuration.
+  specified configuration. When you disassociate a configuration from its
+  target, the target inherits the configuration of the closest parent. If
+  there’s no configuration to inherit, the target retains its settings but
+  becomes a self-managed account. A target can be disassociated from a
+  configuration policy or self-managed behavior. Only the Security Hub delegated
+  administrator can invoke this operation from the home Region.
 
-  When you
-  disassociate a configuration from its target, the target inherits the
-  configuration of the closest parent. If there’s no
-  configuration to inherit, the target retains its settings but becomes a
-  self-managed account. A target can be disassociated from
-  a configuration policy or self-managed behavior. Only the Security Hub delegated
-  administrator can invoke this
-  operation from the home Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20StartConfigurationPolicyDisassociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec start_configuration_policy_disassociation(
-          map(),
+          AWS.Client.t(),
           start_configuration_policy_disassociation_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_configuration_policy_disassociation_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -15064,7 +15496,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -15081,8 +15514,15 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Adds one or more tags to a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource to apply the tags to.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -15091,7 +15531,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -15108,8 +15549,18 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Removes one or more tags from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource to remove the tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.securityhub#TagKey]`) The tag keys
+    associated with the tags to remove from the resource. You can remove up to
+    50 tags at a time.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -15123,7 +15574,8 @@ defmodule AWS.SecurityHub do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -15140,8 +15592,21 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Updates the name and description of a custom action target in Security Hub.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateActionTarget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:action_target_arn` (`t:string`) The ARN of the custom action target to
+    update.
+
+  ## Optional parameters:
   """
-  @spec update_action_target(map(), String.t(), update_action_target_request(), list()) ::
+  @spec update_action_target(
+          AWS.Client.t(),
+          String.t(),
+          update_action_target_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_action_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_action_target_errors()}
@@ -15150,7 +15615,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -15166,17 +15632,22 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Updates a configuration policy. Only the Security Hub delegated administrator
+  can invoke this operation from the home Region.
 
-  Updates a configuration policy.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateConfigurationPolicy&this_doc_guide=API%2520Reference)
 
-  Only the Security Hub delegated
-  administrator can invoke this operation from the home Region.
+  ## Parameters:
+  * `:identifier` (`t:string`) The Amazon Resource Name (ARN) or universally
+    unique identifier (UUID) of the configuration policy.
+
+  ## Optional parameters:
   """
   @spec update_configuration_policy(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_configuration_policy_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_configuration_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -15186,7 +15657,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -15202,15 +15674,21 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Updates the finding aggregation configuration.
+  Updates the finding aggregation configuration. Used to update the Region linking
+  mode and the list of included or excluded Regions. You cannot use
+  `UpdateFindingAggregator` to change the aggregation Region.
 
-  Used to update the Region linking mode and the list of included or excluded
-  Regions. You cannot use `UpdateFindingAggregator` to change the aggregation
-  Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateFindingAggregator&this_doc_guide=API%2520Reference)
 
-  You must run `UpdateFindingAggregator` from the current aggregation Region.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_finding_aggregator(map(), update_finding_aggregator_request(), list()) ::
+  @spec update_finding_aggregator(
+          AWS.Client.t(),
+          update_finding_aggregator_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_finding_aggregator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_finding_aggregator_errors()}
@@ -15219,7 +15697,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -15235,22 +15714,18 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  `UpdateFindings` is a deprecated operation. Instead of `UpdateFindings`, use the
+  `BatchUpdateFindings` operation. Updates the `Note` and `RecordState` of the
+  Security Hub-aggregated findings that the filter attributes specify. Any
+  member account that can view the finding also sees the update to the finding.
 
-  `UpdateFindings` is a deprecated operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateFindings&this_doc_guide=API%2520Reference)
 
-  Instead of `UpdateFindings`, use
-  the `BatchUpdateFindings` operation.
+  ## Parameters:
 
-  Updates the `Note` and `RecordState` of the Security Hub-aggregated
-  findings that the filter attributes specify. Any member account that can view
-  the finding
-  also sees the update to the finding.
-
-  Finding updates made with `UpdateFindings` might not be persisted if the same
-  finding is later updated by the
-  finding provider through the `BatchImportFindings` operation.
+  ## Optional parameters:
   """
-  @spec update_findings(map(), update_findings_request(), list()) ::
+  @spec update_findings(AWS.Client.t(), update_findings_request(), Keyword.t()) ::
           {:ok, update_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_findings_errors()}
@@ -15259,7 +15734,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -15276,8 +15752,15 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Updates the Security Hub insight identified by the specified insight ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateInsight&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:insight_arn` (`t:string`) The ARN of the insight that you want to update.
+
+  ## Optional parameters:
   """
-  @spec update_insight(map(), String.t(), update_insight_request(), list()) ::
+  @spec update_insight(AWS.Client.t(), String.t(), update_insight_request(), Keyword.t()) ::
           {:ok, update_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_insight_errors()}
@@ -15286,7 +15769,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -15302,15 +15786,19 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Updates the configuration of your organization in Security Hub.
-
-  Only the
+  Updates the configuration of your organization in Security Hub. Only the
   Security Hub administrator account can invoke this operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateOrganizationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec update_organization_configuration(
-          map(),
+          AWS.Client.t(),
           update_organization_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -15320,7 +15808,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -15336,10 +15825,15 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   Updates the properties of a security control.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateSecurityControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_security_control(map(), update_security_control_request(), list()) ::
+  @spec update_security_control(AWS.Client.t(), update_security_control_request(), Keyword.t()) ::
           {:ok, update_security_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_security_control_errors()}
@@ -15348,7 +15842,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -15365,11 +15860,17 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Updates configuration options for Security Hub.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateSecurityHubConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec update_security_hub_configuration(
-          map(),
+          AWS.Client.t(),
           update_security_hub_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_security_hub_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -15379,7 +15880,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -15397,8 +15899,21 @@ defmodule AWS.SecurityHub do
   @doc """
   Used to control whether an individual security standard control is enabled or
   disabled.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateStandardsControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:standards_control_arn` (`t:string`) The ARN of the security standard control
+    to enable or disable.
+
+  ## Optional parameters:
   """
-  @spec update_standards_control(map(), String.t(), update_standards_control_request(), list()) ::
+  @spec update_standards_control(
+          AWS.Client.t(),
+          String.t(),
+          update_standards_control_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_standards_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_standards_control_errors()}
@@ -15407,7 +15922,8 @@ defmodule AWS.SecurityHub do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

@@ -4,22 +4,9 @@
 defmodule AWS.SSMIncidents do
   @moduledoc """
   Systems Manager Incident Manager is an incident management console designed to
-  help users
-  mitigate and recover from incidents affecting their Amazon Web Services-hosted
-  applications.
-
-  An
-  incident is any unplanned interruption or reduction in quality of services.
-
-  Incident Manager increases incident resolution by notifying responders of
-  impact,
-  highlighting relevant troubleshooting data, and providing collaboration tools to
-  get services
-  back up and running. To achieve the primary goal of reducing the
-  time-to-resolution of
-  critical incidents, Incident Manager automates response plans and enables
-  responder
-  team escalation.
+  help users mitigate and recover from incidents affecting their Amazon Web
+  Services-hosted applications. An incident is any unplanned interruption or
+  reduction in quality of services.
   """
 
   alias AWS.Client
@@ -1468,15 +1455,22 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Retrieves details about all specified findings for an incident, including
-  descriptive details about each finding.
-
-  A finding
-  represents a recent application environment change made by an CodeDeploy
-  deployment or an CloudFormation stack creation or update that can be
-  investigated as a
+  descriptive details about each finding. A finding represents a recent
+  application environment change made by an CodeDeploy deployment or an
+  CloudFormation stack creation or update that can be investigated as a
   potential cause of the incident.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20BatchGetIncidentFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_get_incident_findings(map(), batch_get_incident_findings_input(), list()) ::
+  @spec batch_get_incident_findings(
+          AWS.Client.t(),
+          batch_get_incident_findings_input(),
+          Keyword.t()
+        ) ::
           {:ok, batch_get_incident_findings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_incident_findings_errors()}
@@ -1485,7 +1479,8 @@ defmodule AWS.SSMIncidents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1502,10 +1497,15 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   A replication set replicates and encrypts your data to the provided Regions with
-  the
-  provided KMS key.
+  the provided KMS key.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20CreateReplicationSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_replication_set(map(), create_replication_set_input(), list()) ::
+  @spec create_replication_set(AWS.Client.t(), create_replication_set_input(), Keyword.t()) ::
           {:ok, create_replication_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_replication_set_errors()}
@@ -1514,7 +1514,8 @@ defmodule AWS.SSMIncidents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1530,14 +1531,17 @@ defmodule AWS.SSMIncidents do
   end
 
   @doc """
-  Creates a response plan that automates the initial response to incidents.
+  Creates a response plan that automates the initial response to incidents. A
+  response plan engages contacts, starts chat channel collaboration, and
+  initiates runbooks at the beginning of an incident.
 
-  A response plan
-  engages contacts, starts chat channel collaboration, and initiates runbooks at
-  the beginning
-  of an incident.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20CreateResponsePlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_response_plan(map(), create_response_plan_input(), list()) ::
+  @spec create_response_plan(AWS.Client.t(), create_response_plan_input(), Keyword.t()) ::
           {:ok, create_response_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_response_plan_errors()}
@@ -1546,7 +1550,8 @@ defmodule AWS.SSMIncidents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1563,15 +1568,17 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Creates a custom timeline event on the incident details page of an incident
-  record.
+  record. Incident Manager automatically creates timeline events that mark key
+  moments during an incident. You can create custom timeline events to mark
+  important events that Incident Manager can detect automatically.
 
-  Incident Manager automatically creates timeline events that mark key moments
-  during an incident.
-  You can create custom timeline events to mark important events that Incident
-  Manager can detect
-  automatically.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20CreateTimelineEvent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_timeline_event(map(), create_timeline_event_input(), list()) ::
+  @spec create_timeline_event(AWS.Client.t(), create_timeline_event_input(), Keyword.t()) ::
           {:ok, create_timeline_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_timeline_event_errors()}
@@ -1580,7 +1587,8 @@ defmodule AWS.SSMIncidents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1597,8 +1605,14 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Delete an incident record from Incident Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20DeleteIncidentRecord&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_incident_record(map(), delete_incident_record_input(), list()) ::
+  @spec delete_incident_record(AWS.Client.t(), delete_incident_record_input(), Keyword.t()) ::
           {:ok, delete_incident_record_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_incident_record_errors()}
@@ -1607,7 +1621,8 @@ defmodule AWS.SSMIncidents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1623,12 +1638,18 @@ defmodule AWS.SSMIncidents do
   end
 
   @doc """
-  Deletes all Regions in your replication set.
+  Deletes all Regions in your replication set. Deleting the replication set
+  deletes all Incident Manager data.
 
-  Deleting the replication set deletes all
-  Incident Manager data.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20DeleteReplicationSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the replication set
+    you're deleting.
+
+  ## Optional parameters:
   """
-  @spec delete_replication_set(map(), delete_replication_set_input(), list()) ::
+  @spec delete_replication_set(AWS.Client.t(), delete_replication_set_input(), Keyword.t()) ::
           {:ok, delete_replication_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replication_set_errors()}
@@ -1642,7 +1663,8 @@ defmodule AWS.SSMIncidents do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1659,10 +1681,15 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Deletes the resource policy that Resource Access Manager uses to share your
-  Incident Manager
-  resource.
+  Incident Manager resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_resource_policy(map(), delete_resource_policy_input(), list()) ::
+  @spec delete_resource_policy(AWS.Client.t(), delete_resource_policy_input(), Keyword.t()) ::
           {:ok, delete_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
@@ -1671,7 +1698,8 @@ defmodule AWS.SSMIncidents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1687,13 +1715,17 @@ defmodule AWS.SSMIncidents do
   end
 
   @doc """
-  Deletes the specified response plan.
+  Deletes the specified response plan. Deleting a response plan stops all linked
+  CloudWatch alarms and EventBridge events from creating an incident with this
+  response plan.
 
-  Deleting a response plan stops all linked CloudWatch alarms and EventBridge
-  events from creating an incident with this response
-  plan.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20DeleteResponsePlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_response_plan(map(), delete_response_plan_input(), list()) ::
+  @spec delete_response_plan(AWS.Client.t(), delete_response_plan_input(), Keyword.t()) ::
           {:ok, delete_response_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_response_plan_errors()}
@@ -1702,7 +1734,8 @@ defmodule AWS.SSMIncidents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1719,8 +1752,14 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Deletes a timeline event from an incident.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20DeleteTimelineEvent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_timeline_event(map(), delete_timeline_event_input(), list()) ::
+  @spec delete_timeline_event(AWS.Client.t(), delete_timeline_event_input(), Keyword.t()) ::
           {:ok, delete_timeline_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_timeline_event_errors()}
@@ -1729,7 +1768,8 @@ defmodule AWS.SSMIncidents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1746,56 +1786,101 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Returns the details for the specified incident record.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20GetIncidentRecord&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the incident record.
+
+  ## Optional parameters:
   """
-  @spec get_incident_record(map(), String.t(), list()) ::
+  @spec get_incident_record(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_incident_record_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_incident_record_errors()}
   def get_incident_record(%Client{} = client, arn, options \\ []) do
     url_path = "/getIncidentRecord"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(arn) do
-        [{"arn", arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"arn", arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve your Incident Manager replication set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20GetReplicationSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the replication set you
+    want to retrieve.
+
+  ## Optional parameters:
   """
-  @spec get_replication_set(map(), String.t(), list()) ::
+  @spec get_replication_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_replication_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_replication_set_errors()}
   def get_replication_set(%Client{} = client, arn, options \\ []) do
     url_path = "/getReplicationSet"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(arn) do
-        [{"arn", arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"arn", arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the resource policies attached to the specified response plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20GetResourcePolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the response
+    plan with the attached resource policy.
+
+  ## Optional parameters:
   """
-  @spec get_resource_policies(map(), get_resource_policies_input(), list()) ::
+  @spec get_resource_policies(AWS.Client.t(), get_resource_policies_input(), Keyword.t()) ::
           {:ok, get_resource_policies_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policies_errors()}
@@ -1809,7 +1894,8 @@ defmodule AWS.SSMIncidents do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1826,69 +1912,105 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Retrieves the details of the specified response plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20GetResponsePlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the response plan.
+
+  ## Optional parameters:
   """
-  @spec get_response_plan(map(), String.t(), list()) ::
+  @spec get_response_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_response_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_response_plan_errors()}
   def get_response_plan(%Client{} = client, arn, options \\ []) do
     url_path = "/getResponsePlan"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(arn) do
-        [{"arn", arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"arn", arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a timeline event based on its ID and incident record.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20GetTimelineEvent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:event_id` (`t:string`) The ID of the event. You can get an event's ID when
+    you create it, or by using ListTimelineEvents.
+  * `:incident_record_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    incident that includes the timeline event.
+
+  ## Optional parameters:
   """
-  @spec get_timeline_event(map(), String.t(), String.t(), list()) ::
+  @spec get_timeline_event(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_timeline_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_timeline_event_errors()}
   def get_timeline_event(%Client{} = client, event_id, incident_record_arn, options \\ []) do
     url_path = "/getTimelineEvent"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(incident_record_arn) do
-        [{"incidentRecordArn", incident_record_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    query_params =
-      if !is_nil(event_id) do
-        [{"eventId", event_id} | query_params]
-      else
-        query_params
-      end
+    # Required query params
+    query_params = [{"eventId", event_id}, {"incidentRecordArn", incident_record_arn}]
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of the IDs of findings, plus their last modified times, that
-  have been
-  identified for a specified incident.
+  have been identified for a specified incident. A finding represents a recent
+  application environment change made by an CloudFormation stack creation or
+  update or an CodeDeploy deployment that can be investigated as a potential
+  cause of the incident.
 
-  A finding represents a recent application environment
-  change made by an CloudFormation stack creation or update or an CodeDeploy
-  deployment that can be investigated as a potential cause of the incident.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20ListIncidentFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_incident_findings(map(), list_incident_findings_input(), list()) ::
+  @spec list_incident_findings(AWS.Client.t(), list_incident_findings_input(), Keyword.t()) ::
           {:ok, list_incident_findings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_incident_findings_errors()}
@@ -1897,7 +2019,8 @@ defmodule AWS.SSMIncidents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1913,12 +2036,16 @@ defmodule AWS.SSMIncidents do
   end
 
   @doc """
-  Lists all incident records in your account.
+  Lists all incident records in your account. Use this command to retrieve the
+  Amazon Resource Name (ARN) of the incident record you want to update.
 
-  Use this command to retrieve the Amazon
-  Resource Name (ARN) of the incident record you want to update.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20ListIncidentRecords&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_incident_records(map(), list_incident_records_input(), list()) ::
+  @spec list_incident_records(AWS.Client.t(), list_incident_records_input(), Keyword.t()) ::
           {:ok, list_incident_records_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_incident_records_errors()}
@@ -1927,7 +2054,8 @@ defmodule AWS.SSMIncidents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1944,8 +2072,14 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   List all related items for an incident record.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20ListRelatedItems&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_related_items(map(), list_related_items_input(), list()) ::
+  @spec list_related_items(AWS.Client.t(), list_related_items_input(), Keyword.t()) ::
           {:ok, list_related_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_related_items_errors()}
@@ -1954,7 +2088,8 @@ defmodule AWS.SSMIncidents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1971,8 +2106,14 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Lists details about the replication set configured in your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20ListReplicationSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_replication_sets(map(), list_replication_sets_input(), list()) ::
+  @spec list_replication_sets(AWS.Client.t(), list_replication_sets_input(), Keyword.t()) ::
           {:ok, list_replication_sets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_replication_sets_errors()}
@@ -1981,7 +2122,8 @@ defmodule AWS.SSMIncidents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1998,8 +2140,14 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Lists all response plans in your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20ListResponsePlans&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_response_plans(map(), list_response_plans_input(), list()) ::
+  @spec list_response_plans(AWS.Client.t(), list_response_plans_input(), Keyword.t()) ::
           {:ok, list_response_plans_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_response_plans_errors()}
@@ -2008,7 +2156,8 @@ defmodule AWS.SSMIncidents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2025,25 +2174,57 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Lists the tags that are attached to the specified response plan or incident.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the response plan or
+    incident.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists timeline events for the specified incident record.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20ListTimelineEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_timeline_events(map(), list_timeline_events_input(), list()) ::
+  @spec list_timeline_events(AWS.Client.t(), list_timeline_events_input(), Keyword.t()) ::
           {:ok, list_timeline_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_timeline_events_errors()}
@@ -2052,7 +2233,8 @@ defmodule AWS.SSMIncidents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2068,14 +2250,19 @@ defmodule AWS.SSMIncidents do
   end
 
   @doc """
-  Adds a resource policy to the specified response plan.
-
-  The resource policy is used to
-  share the response plan using Resource Access Manager (RAM). For more
-  information about cross-account sharing, see [Cross-Region and cross-account incident
+  Adds a resource policy to the specified response plan. The resource policy is
+  used to share the response plan using Resource Access Manager (RAM). For more
+  information about cross-account sharing, see [Cross-Region and cross-account
+  incident
   management](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-cross-account-cross-region.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20PutResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_resource_policy(map(), put_resource_policy_input(), list()) ::
+  @spec put_resource_policy(AWS.Client.t(), put_resource_policy_input(), Keyword.t()) ::
           {:ok, put_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
@@ -2084,7 +2271,8 @@ defmodule AWS.SSMIncidents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2102,8 +2290,14 @@ defmodule AWS.SSMIncidents do
   @doc """
   Used to start an incident from CloudWatch alarms, EventBridge events, or
   manually.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20StartIncident&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_incident(map(), start_incident_input(), list()) ::
+  @spec start_incident(AWS.Client.t(), start_incident_input(), Keyword.t()) ::
           {:ok, start_incident_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_incident_errors()}
@@ -2112,7 +2306,8 @@ defmodule AWS.SSMIncidents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2129,8 +2324,16 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Adds a tag to a response plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the response plan
+    you're adding the tags to.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2139,7 +2342,8 @@ defmodule AWS.SSMIncidents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2156,8 +2360,18 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Removes a tag from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the response plan
+    you're removing a tag from.
+  * `:tag_keys` (`t:list[com.amazonaws.ssmincidents#TagKey]`) The name of the tag
+    to remove from the response plan.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2171,7 +2385,8 @@ defmodule AWS.SSMIncidents do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2188,10 +2403,19 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Update deletion protection to either allow or deny deletion of the final Region
-  in a
-  replication set.
+  in a replication set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20UpdateDeletionProtection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_deletion_protection(map(), update_deletion_protection_input(), list()) ::
+  @spec update_deletion_protection(
+          AWS.Client.t(),
+          update_deletion_protection_input(),
+          Keyword.t()
+        ) ::
           {:ok, update_deletion_protection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_deletion_protection_errors()}
@@ -2200,7 +2424,8 @@ defmodule AWS.SSMIncidents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2216,14 +2441,18 @@ defmodule AWS.SSMIncidents do
   end
 
   @doc """
-  Update the details of an incident record.
+  Update the details of an incident record. You can use this operation to update
+  an incident record from the defined chat channel. For more information about
+  using actions in chat channels, see [Interacting through
+  chat](https://docs.aws.amazon.com/incident-manager/latest/userguide/chat.html#chat-interact).
 
-  You can use this operation to update an incident
-  record from the defined chat channel. For more information about using actions
-  in chat
-  channels, see [Interacting through chat](https://docs.aws.amazon.com/incident-manager/latest/userguide/chat.html#chat-interact).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20UpdateIncidentRecord&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_incident_record(map(), update_incident_record_input(), list()) ::
+  @spec update_incident_record(AWS.Client.t(), update_incident_record_input(), Keyword.t()) ::
           {:ok, update_incident_record_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_incident_record_errors()}
@@ -2232,7 +2461,8 @@ defmodule AWS.SSMIncidents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2249,8 +2479,14 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Add or remove related items from the related items tab of an incident record.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20UpdateRelatedItems&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_related_items(map(), update_related_items_input(), list()) ::
+  @spec update_related_items(AWS.Client.t(), update_related_items_input(), Keyword.t()) ::
           {:ok, update_related_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_related_items_errors()}
@@ -2259,7 +2495,8 @@ defmodule AWS.SSMIncidents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2276,8 +2513,14 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Add or delete Regions from your replication set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20UpdateReplicationSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_replication_set(map(), update_replication_set_input(), list()) ::
+  @spec update_replication_set(AWS.Client.t(), update_replication_set_input(), Keyword.t()) ::
           {:ok, update_replication_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_replication_set_errors()}
@@ -2286,7 +2529,8 @@ defmodule AWS.SSMIncidents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2303,8 +2547,14 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Updates the specified response plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20UpdateResponsePlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_response_plan(map(), update_response_plan_input(), list()) ::
+  @spec update_response_plan(AWS.Client.t(), update_response_plan_input(), Keyword.t()) ::
           {:ok, update_response_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_response_plan_errors()}
@@ -2313,7 +2563,8 @@ defmodule AWS.SSMIncidents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2329,11 +2580,15 @@ defmodule AWS.SSMIncidents do
   end
 
   @doc """
-  Updates a timeline event.
+  Updates a timeline event. You can update events of type `Custom Event`.
 
-  You can update events of type `Custom Event`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20UpdateTimelineEvent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_timeline_event(map(), update_timeline_event_input(), list()) ::
+  @spec update_timeline_event(AWS.Client.t(), update_timeline_event_input(), Keyword.t()) ::
           {:ok, update_timeline_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_timeline_event_errors()}
@@ -2342,7 +2597,8 @@ defmodule AWS.SSMIncidents do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

@@ -3,15 +3,7 @@
 
 defmodule AWS.Panorama do
   @moduledoc """
-  AWS Panorama
-
-  ## Overview
-
-  This is the *AWS Panorama API Reference*.
-
-  For an introduction to the service, see [What is AWS Panorama?](https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html)
-  in the
-  *AWS Panorama Developer Guide*.
+  AWS Panorama **Overview**
   """
 
   alias AWS.Client
@@ -1711,8 +1703,18 @@ defmodule AWS.Panorama do
 
   @doc """
   Creates an application instance and deploys it to a device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20CreateApplicationInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_application_instance(map(), create_application_instance_request(), list()) ::
+  @spec create_application_instance(
+          AWS.Client.t(),
+          create_application_instance_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_application_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_instance_errors()}
@@ -1721,7 +1723,8 @@ defmodule AWS.Panorama do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1737,11 +1740,16 @@ defmodule AWS.Panorama do
   end
 
   @doc """
-  Creates a job to run on a device.
+  Creates a job to run on a device. A job can update a device's software or reboot
+  it.
 
-  A job can update a device's software or reboot it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20CreateJobForDevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_job_for_devices(map(), create_job_for_devices_request(), list()) ::
+  @spec create_job_for_devices(AWS.Client.t(), create_job_for_devices_request(), Keyword.t()) ::
           {:ok, create_job_for_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_for_devices_errors()}
@@ -1750,7 +1758,8 @@ defmodule AWS.Panorama do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1767,8 +1776,18 @@ defmodule AWS.Panorama do
 
   @doc """
   Creates a camera stream node.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20CreateNodeFromTemplateJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_node_from_template_job(map(), create_node_from_template_job_request(), list()) ::
+  @spec create_node_from_template_job(
+          AWS.Client.t(),
+          create_node_from_template_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_node_from_template_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_node_from_template_job_errors()}
@@ -1777,7 +1796,8 @@ defmodule AWS.Panorama do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1794,8 +1814,14 @@ defmodule AWS.Panorama do
 
   @doc """
   Creates a package and storage location in an Amazon S3 access point.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20CreatePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_package(map(), create_package_request(), list()) ::
+  @spec create_package(AWS.Client.t(), create_package_request(), Keyword.t()) ::
           {:ok, create_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_package_errors()}
@@ -1804,7 +1830,8 @@ defmodule AWS.Panorama do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1821,8 +1848,18 @@ defmodule AWS.Panorama do
 
   @doc """
   Imports a node package.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20CreatePackageImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_package_import_job(map(), create_package_import_job_request(), list()) ::
+  @spec create_package_import_job(
+          AWS.Client.t(),
+          create_package_import_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_package_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_package_import_job_errors()}
@@ -1831,7 +1868,8 @@ defmodule AWS.Panorama do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1848,8 +1886,15 @@ defmodule AWS.Panorama do
 
   @doc """
   Deletes a device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DeleteDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_id` (`t:string`) The device's ID.
+
+  ## Optional parameters:
   """
-  @spec delete_device(map(), String.t(), delete_device_request(), list()) ::
+  @spec delete_device(AWS.Client.t(), String.t(), delete_device_request(), Keyword.t()) ::
           {:ok, delete_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_device_errors()}
@@ -1858,7 +1903,8 @@ defmodule AWS.Panorama do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1876,11 +1922,16 @@ defmodule AWS.Panorama do
   @doc """
   Deletes a package.
 
-  To delete a package, you need permission to call `s3:DeleteObject` in addition
-  to permissions for
-  the AWS Panorama API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DeletePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_id` (`t:string`) The package's ID.
+
+  ## Optional parameters:
+  * `:force_delete` (`t:boolean`) Delete the package even if it has artifacts
+    stored in its access point. Deletes the package's artifacts from Amazon S3.
   """
-  @spec delete_package(map(), String.t(), delete_package_request(), list()) ::
+  @spec delete_package(AWS.Client.t(), String.t(), delete_package_request(), Keyword.t()) ::
           {:ok, delete_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_package_errors()}
@@ -1894,7 +1945,13 @@ defmodule AWS.Panorama do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:force_delete])
 
     Request.request_rest(
       client,
@@ -1911,14 +1968,26 @@ defmodule AWS.Panorama do
 
   @doc """
   Deregisters a package version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DeregisterPackageVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_id` (`t:string`) A package ID.
+  * `:package_version` (`t:string`) A package version.
+  * `:patch_version` (`t:string`) A patch version.
+
+  ## Optional parameters:
+  * `:owner_account` (`t:string`) An owner account.
+  * `:updated_latest_patch_version` (`t:string`) If the version was marked latest,
+    the new version to maker as latest.
   """
   @spec deregister_package_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           deregister_package_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, deregister_package_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1943,7 +2012,13 @@ defmodule AWS.Panorama do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:owner_account, :updated_latest_patch_version])
 
     Request.request_rest(
       client,
@@ -1960,25 +2035,57 @@ defmodule AWS.Panorama do
 
   @doc """
   Returns information about an application instance on a device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribeApplicationInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_instance_id` (`t:string`) The application instance's ID.
+
+  ## Optional parameters:
   """
-  @spec describe_application_instance(map(), String.t(), list()) ::
+  @spec describe_application_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_application_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_application_instance_errors()}
   def describe_application_instance(%Client{} = client, application_instance_id, options \\ []) do
     url_path = "/application-instances/#{AWS.Util.encode_uri(application_instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about an application instance's configuration manifest.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribeApplicationInstanceDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_instance_id` (`t:string`) The application instance's ID.
+
+  ## Optional parameters:
   """
-  @spec describe_application_instance_details(map(), String.t(), list()) ::
+  @spec describe_application_instance_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_application_instance_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_application_instance_details_errors()}
@@ -1988,657 +2095,1127 @@ defmodule AWS.Panorama do
         options \\ []
       ) do
     url_path = "/application-instances/#{AWS.Util.encode_uri(application_instance_id)}/details"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribeDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_id` (`t:string`) The device's ID.
+
+  ## Optional parameters:
   """
-  @spec describe_device(map(), String.t(), list()) ::
+  @spec describe_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_device_errors()}
   def describe_device(%Client{} = client, device_id, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a device job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribeDeviceJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The job's ID.
+
+  ## Optional parameters:
   """
-  @spec describe_device_job(map(), String.t(), list()) ::
+  @spec describe_device_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_device_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_device_job_errors()}
   def describe_device_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a node.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribeNode&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:node_id` (`t:string`) The node's ID.
+
+  ## Optional parameters:
+  * `:owner_account` (`t:string`) The account ID of the node's owner.
   """
-  @spec describe_node(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_node(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_node_errors()}
-  def describe_node(%Client{} = client, node_id, owner_account \\ nil, options \\ []) do
+  def describe_node(%Client{} = client, node_id, options \\ []) do
     url_path = "/nodes/#{AWS.Util.encode_uri(node_id)}"
+
+    # Validate optional parameters
+    optional_params = [owner_account: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(owner_account) do
-        [{"OwnerAccount", owner_account} | query_params]
+      if opt_val = Keyword.get(options, :owner_account) do
+        [{"OwnerAccount", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:owner_account])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a job to create a camera stream node.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribeNodeFromTemplateJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The job's ID.
+
+  ## Optional parameters:
   """
-  @spec describe_node_from_template_job(map(), String.t(), list()) ::
+  @spec describe_node_from_template_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_node_from_template_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_node_from_template_job_errors()}
   def describe_node_from_template_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/packages/template-job/#{AWS.Util.encode_uri(job_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a package.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_id` (`t:string`) The package's ID.
+
+  ## Optional parameters:
   """
-  @spec describe_package(map(), String.t(), list()) ::
+  @spec describe_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_package_errors()}
   def describe_package(%Client{} = client, package_id, options \\ []) do
     url_path = "/packages/metadata/#{AWS.Util.encode_uri(package_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a package import job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribePackageImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The job's ID.
+
+  ## Optional parameters:
   """
-  @spec describe_package_import_job(map(), String.t(), list()) ::
+  @spec describe_package_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_package_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_package_import_job_errors()}
   def describe_package_import_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/packages/import-jobs/#{AWS.Util.encode_uri(job_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a package version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribePackageVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_id` (`t:string`) The version's ID.
+  * `:package_version` (`t:string`) The version's version.
+
+  ## Optional parameters:
+  * `:owner_account` (`t:string`) The version's owner account.
+  * `:patch_version` (`t:string`) The version's patch version.
   """
-  @spec describe_package_version(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec describe_package_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_package_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_package_version_errors()}
-  def describe_package_version(
-        %Client{} = client,
-        package_id,
-        package_version,
-        owner_account \\ nil,
-        patch_version \\ nil,
-        options \\ []
-      ) do
+  def describe_package_version(%Client{} = client, package_id, package_version, options \\ []) do
     url_path =
       "/packages/metadata/#{AWS.Util.encode_uri(package_id)}/versions/#{AWS.Util.encode_uri(package_version)}"
 
+    # Validate optional parameters
+    optional_params = [owner_account: nil, patch_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(patch_version) do
-        [{"PatchVersion", patch_version} | query_params]
+      if opt_val = Keyword.get(options, :patch_version) do
+        [{"PatchVersion", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(owner_account) do
-        [{"OwnerAccount", owner_account} | query_params]
+      if opt_val = Keyword.get(options, :owner_account) do
+        [{"OwnerAccount", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:owner_account, :patch_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of application instance dependencies.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListApplicationInstanceDependencies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_instance_id` (`t:string`) The application instance's ID.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of application instance
+    dependencies to return in one page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
-  @spec list_application_instance_dependencies(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_application_instance_dependencies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_instance_dependencies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_instance_dependencies_errors()}
   def list_application_instance_dependencies(
         %Client{} = client,
         application_instance_id,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/application-instances/#{AWS.Util.encode_uri(application_instance_id)}/package-dependencies"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of application node instances.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListApplicationInstanceNodeInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_instance_id` (`t:string`) The node instances' application
+    instance ID.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of node instances to return in
+    one page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
-  @spec list_application_instance_node_instances(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_application_instance_node_instances(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_instance_node_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_instance_node_instances_errors()}
   def list_application_instance_node_instances(
         %Client{} = client,
         application_instance_id,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/application-instances/#{AWS.Util.encode_uri(application_instance_id)}/node-instances"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of application instances.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListApplicationInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:device_id` (`t:string`) The application instances' device ID.
+  * `:max_results` (`t:integer`) The maximum number of application instances to
+    return in one page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
+  * `:status_filter` (`t:string`) Only include instances with a specific status.
   """
-  @spec list_application_instances(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_application_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_application_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_instances_errors()}
-  def list_application_instances(
-        %Client{} = client,
-        device_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        status_filter \\ nil,
-        options \\ []
-      ) do
+  def list_application_instances(%Client{} = client, options \\ []) do
     url_path = "/application-instances"
+
+    # Validate optional parameters
+    optional_params = [device_id: nil, max_results: nil, next_token: nil, status_filter: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status_filter) do
-        [{"statusFilter", status_filter} | query_params]
+      if opt_val = Keyword.get(options, :status_filter) do
+        [{"statusFilter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(device_id) do
-        [{"deviceId", device_id} | query_params]
+      if opt_val = Keyword.get(options, :device_id) do
+        [{"deviceId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:device_id, :max_results, :next_token, :status_filter])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of devices.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListDevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:device_aggregated_status_filter` (`t:string`) Filter based on a device's
+    status.
+  * `:max_results` (`t:integer`) The maximum number of devices to return in one
+    page of results.
+  * `:name_filter` (`t:string`) Filter based on device's name. Prefixes supported.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
+  * `:sort_by` (`t:string`) The target column to be sorted on. Default column sort
+    is CREATED_TIME.
+  * `:sort_order` (`t:string`) The sorting order for the returned list. SortOrder
+    is DESCENDING by default based on CREATED_TIME. Otherwise, SortOrder is
+    ASCENDING.
   """
-  @spec list_devices(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_devices_errors()}
-  def list_devices(
-        %Client{} = client,
-        device_aggregated_status_filter \\ nil,
-        max_results \\ nil,
-        name_filter \\ nil,
-        next_token \\ nil,
-        sort_by \\ nil,
-        sort_order \\ nil,
-        options \\ []
-      ) do
+  def list_devices(%Client{} = client, options \\ []) do
     url_path = "/devices"
+
+    # Validate optional parameters
+    optional_params = [
+      device_aggregated_status_filter: nil,
+      max_results: nil,
+      name_filter: nil,
+      next_token: nil,
+      sort_by: nil,
+      sort_order: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(sort_order) do
-        [{"SortOrder", sort_order} | query_params]
+      if opt_val = Keyword.get(options, :sort_order) do
+        [{"SortOrder", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(sort_by) do
-        [{"SortBy", sort_by} | query_params]
+      if opt_val = Keyword.get(options, :sort_by) do
+        [{"SortBy", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name_filter) do
-        [{"NameFilter", name_filter} | query_params]
+      if opt_val = Keyword.get(options, :name_filter) do
+        [{"NameFilter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(device_aggregated_status_filter) do
-        [{"DeviceAggregatedStatusFilter", device_aggregated_status_filter} | query_params]
+      if opt_val = Keyword.get(options, :device_aggregated_status_filter) do
+        [{"DeviceAggregatedStatusFilter", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :device_aggregated_status_filter,
+        :max_results,
+        :name_filter,
+        :next_token,
+        :sort_by,
+        :sort_order
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListDevicesJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:device_id` (`t:string`) Filter results by the job's target device ID.
+  * `:max_results` (`t:integer`) The maximum number of device jobs to return in
+    one page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
-  @spec list_devices_jobs(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_devices_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_devices_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_devices_jobs_errors()}
-  def list_devices_jobs(
-        %Client{} = client,
-        device_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_devices_jobs(%Client{} = client, options \\ []) do
     url_path = "/jobs"
+
+    # Validate optional parameters
+    optional_params = [device_id: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(device_id) do
-        [{"DeviceId", device_id} | query_params]
+      if opt_val = Keyword.get(options, :device_id) do
+        [{"DeviceId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:device_id, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of camera stream node jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListNodeFromTemplateJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of node from template jobs to
+    return in one page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
-  @spec list_node_from_template_jobs(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_node_from_template_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_node_from_template_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_node_from_template_jobs_errors()}
-  def list_node_from_template_jobs(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_node_from_template_jobs(%Client{} = client, options \\ []) do
     url_path = "/packages/template-job"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of nodes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListNodes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:category` (`t:string`) Search for nodes by category.
+  * `:max_results` (`t:integer`) The maximum number of nodes to return in one page
+    of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
+  * `:owner_account` (`t:string`) Search for nodes by the account ID of the nodes'
+    owner.
+  * `:package_name` (`t:string`) Search for nodes by name.
+  * `:package_version` (`t:string`) Search for nodes by version.
+  * `:patch_version` (`t:string`) Search for nodes by patch version.
   """
-  @spec list_nodes(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_nodes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_nodes_errors()}
-  def list_nodes(
-        %Client{} = client,
-        category \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        owner_account \\ nil,
-        package_name \\ nil,
-        package_version \\ nil,
-        patch_version \\ nil,
-        options \\ []
-      ) do
+  def list_nodes(%Client{} = client, options \\ []) do
     url_path = "/nodes"
+
+    # Validate optional parameters
+    optional_params = [
+      category: nil,
+      max_results: nil,
+      next_token: nil,
+      owner_account: nil,
+      package_name: nil,
+      package_version: nil,
+      patch_version: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(patch_version) do
-        [{"patchVersion", patch_version} | query_params]
+      if opt_val = Keyword.get(options, :patch_version) do
+        [{"patchVersion", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(package_version) do
-        [{"packageVersion", package_version} | query_params]
+      if opt_val = Keyword.get(options, :package_version) do
+        [{"packageVersion", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(package_name) do
-        [{"packageName", package_name} | query_params]
+      if opt_val = Keyword.get(options, :package_name) do
+        [{"packageName", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(owner_account) do
-        [{"ownerAccount", owner_account} | query_params]
+      if opt_val = Keyword.get(options, :owner_account) do
+        [{"ownerAccount", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(category) do
-        [{"category", category} | query_params]
+      if opt_val = Keyword.get(options, :category) do
+        [{"category", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :category,
+        :max_results,
+        :next_token,
+        :owner_account,
+        :package_name,
+        :package_version,
+        :patch_version
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of package import jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListPackageImportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of package import jobs to
+    return in one page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
-  @spec list_package_import_jobs(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_package_import_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_package_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_package_import_jobs_errors()}
-  def list_package_import_jobs(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_package_import_jobs(%Client{} = client, options \\ []) do
     url_path = "/packages/import-jobs"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of packages.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListPackages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of packages to return in one
+    page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
-  @spec list_packages(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_packages_errors()}
-  def list_packages(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_packages(%Client{} = client, options \\ []) do
     url_path = "/packages"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of tags for a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource's ARN.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Creates a device and returns a configuration archive.
+  Creates a device and returns a configuration archive. The configuration archive
+  is a ZIP file that contains a provisioning certificate that is valid for 5
+  minutes. Name the configuration archive `certificates-omni_*device-name*.zip`
+  and transfer it to the device within 5 minutes. Use the included USB storage
+  device and connect it to the USB 3.0 port next to the HDMI output.
 
-  The configuration archive is a ZIP file that contains a
-  provisioning certificate that is valid for 5 minutes. Name the configuration
-  archive
-  `certificates-omni_*device-name*.zip` and transfer it to the device within 5
-  minutes. Use the included USB storage device and connect it to the USB 3.0 port
-  next to the HDMI output.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ProvisionDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec provision_device(map(), provision_device_request(), list()) ::
+  @spec provision_device(AWS.Client.t(), provision_device_request(), Keyword.t()) ::
           {:ok, provision_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, provision_device_errors()}
@@ -2647,7 +3224,8 @@ defmodule AWS.Panorama do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2664,14 +3242,23 @@ defmodule AWS.Panorama do
 
   @doc """
   Registers a package version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20RegisterPackageVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_id` (`t:string`) A package ID.
+  * `:package_version` (`t:string`) A package version.
+  * `:patch_version` (`t:string`) A patch version.
+
+  ## Optional parameters:
   """
   @spec register_package_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           register_package_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, register_package_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2690,19 +3277,27 @@ defmodule AWS.Panorama do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Removes an application instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20RemoveApplicationInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_instance_id` (`t:string`) An application instance ID.
+
+  ## Optional parameters:
   """
   @spec remove_application_instance(
-          map(),
+          AWS.Client.t(),
           String.t(),
           remove_application_instance_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, remove_application_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2717,7 +3312,8 @@ defmodule AWS.Panorama do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2734,12 +3330,19 @@ defmodule AWS.Panorama do
 
   @doc """
   Signal camera nodes to stop or resume.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20SignalApplicationInstanceNodeInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_instance_id` (`t:string`) An application instance ID.
+
+  ## Optional parameters:
   """
   @spec signal_application_instance_node_instances(
-          map(),
+          AWS.Client.t(),
           String.t(),
           signal_application_instance_node_instances_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, signal_application_instance_node_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2756,15 +3359,23 @@ defmodule AWS.Panorama do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Tags a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource's ARN.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2773,7 +3384,8 @@ defmodule AWS.Panorama do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2790,8 +3402,16 @@ defmodule AWS.Panorama do
 
   @doc """
   Removes tags from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource's ARN.
+  * `:tag_keys` (`t:list[com.amazonaws.panorama#TagKey]`) Tag keys to remove.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2805,7 +3425,8 @@ defmodule AWS.Panorama do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2822,8 +3443,20 @@ defmodule AWS.Panorama do
 
   @doc """
   Updates a device's metadata.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20UpdateDeviceMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_id` (`t:string`) The device's ID.
+
+  ## Optional parameters:
   """
-  @spec update_device_metadata(map(), String.t(), update_device_metadata_request(), list()) ::
+  @spec update_device_metadata(
+          AWS.Client.t(),
+          String.t(),
+          update_device_metadata_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_device_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_device_metadata_errors()}
@@ -2832,7 +3465,8 @@ defmodule AWS.Panorama do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

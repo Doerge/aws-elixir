@@ -3,18 +3,13 @@
 
 defmodule AWS.DAX do
   @moduledoc """
-  DAX is a managed caching service engineered for Amazon DynamoDB.
-
-  DAX
+  DAX is a managed caching service engineered for Amazon DynamoDB. DAX
   dramatically speeds up database reads by caching frequently-accessed data from
-  DynamoDB, so
-  applications can access that data with sub-millisecond latency. You can create a
-  DAX
-  cluster easily, using the AWS Management Console. With a few simple
-  modifications to
-  your code, your application can begin taking advantage of the DAX cluster and
-  realize
-  significant improvements in read performance.
+  DynamoDB, so applications can access that data with sub-millisecond latency.
+  You can create a DAX cluster easily, using the AWS Management Console. With a
+  few simple modifications to your code, your application can begin taking
+  advantage of the DAX cluster and realize significant improvements in read
+  performance.
   """
 
   alias AWS.Client
@@ -1233,32 +1228,31 @@ defmodule AWS.DAX do
   end
 
   @doc """
-  Creates a DAX cluster.
-
-  All nodes in the cluster run the same DAX caching software.
+  Creates a DAX cluster. All nodes in the cluster run the same DAX caching
+  software.
   """
-  @spec create_cluster(map(), create_cluster_request(), list()) ::
+  @spec create_cluster(AWS.Client.t(), create_cluster_request(), Keyword.t()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
   end
 
   @doc """
-  Creates a new parameter group.
-
-  A parameter group is a collection of parameters that
-  you apply to all of the nodes in a DAX cluster.
+  Creates a new parameter group. A parameter group is a collection of parameters
+  that you apply to all of the nodes in a DAX cluster.
   """
-  @spec create_parameter_group(map(), create_parameter_group_request(), list()) ::
+  @spec create_parameter_group(AWS.Client.t(), create_parameter_group_request(), Keyword.t()) ::
           {:ok, create_parameter_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_parameter_group_errors()}
   def create_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateParameterGroup", input, options)
   end
@@ -1266,79 +1260,77 @@ defmodule AWS.DAX do
   @doc """
   Creates a new subnet group.
   """
-  @spec create_subnet_group(map(), create_subnet_group_request(), list()) ::
+  @spec create_subnet_group(AWS.Client.t(), create_subnet_group_request(), Keyword.t()) ::
           {:ok, create_subnet_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_subnet_group_errors()}
   def create_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSubnetGroup", input, options)
   end
 
   @doc """
   Removes one or more nodes from a DAX cluster.
-
-  You cannot use `DecreaseReplicationFactor` to remove the last node in a DAX
-  cluster. If you need to do this, use `DeleteCluster` instead.
   """
-  @spec decrease_replication_factor(map(), decrease_replication_factor_request(), list()) ::
+  @spec decrease_replication_factor(
+          AWS.Client.t(),
+          decrease_replication_factor_request(),
+          Keyword.t()
+        ) ::
           {:ok, decrease_replication_factor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, decrease_replication_factor_errors()}
   def decrease_replication_factor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DecreaseReplicationFactor", input, options)
   end
 
   @doc """
-  Deletes a previously provisioned DAX cluster.
-
-  *DeleteCluster* deletes all associated nodes, node endpoints
-  and the DAX cluster itself. When you receive a successful response from this
-  action,
-  DAX immediately begins deleting the cluster; you cannot cancel or revert this
-  action.
+  Deletes a previously provisioned DAX cluster. *DeleteCluster* deletes all
+  associated nodes, node endpoints and the DAX cluster itself. When you receive
+  a successful response from this action, DAX immediately begins deleting the
+  cluster; you cannot cancel or revert this action.
   """
-  @spec delete_cluster(map(), delete_cluster_request(), list()) ::
+  @spec delete_cluster(AWS.Client.t(), delete_cluster_request(), Keyword.t()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCluster", input, options)
   end
 
   @doc """
-  Deletes the specified parameter group.
-
-  You cannot delete a parameter group if it is
-  associated with any DAX clusters.
+  Deletes the specified parameter group. You cannot delete a parameter group if it
+  is associated with any DAX clusters.
   """
-  @spec delete_parameter_group(map(), delete_parameter_group_request(), list()) ::
+  @spec delete_parameter_group(AWS.Client.t(), delete_parameter_group_request(), Keyword.t()) ::
           {:ok, delete_parameter_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_parameter_group_errors()}
   def delete_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteParameterGroup", input, options)
   end
 
   @doc """
   Deletes a subnet group.
-
-  You cannot delete a subnet group if it is associated with any DAX
-  clusters.
   """
-  @spec delete_subnet_group(map(), delete_subnet_group_request(), list()) ::
+  @spec delete_subnet_group(AWS.Client.t(), delete_subnet_group_request(), Keyword.t()) ::
           {:ok, delete_subnet_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_subnet_group_errors()}
   def delete_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSubnetGroup", input, options)
   end
@@ -1346,80 +1338,70 @@ defmodule AWS.DAX do
   @doc """
   Returns information about all provisioned DAX clusters if no cluster identifier
   is specified, or about a specific DAX cluster if a cluster identifier is
-  supplied.
-
-  If the cluster is in the CREATING state, only cluster level information will be
-  displayed until all of the nodes are successfully provisioned.
-
-  If the cluster is in the DELETING state, only cluster level information will be
-  displayed.
-
-  If nodes are currently being added to the DAX cluster, node endpoint information
-  and creation time for the additional nodes will not be displayed until they are
-  completely provisioned. When the DAX cluster state is *available*,
-  the cluster is ready for use.
-
-  If nodes are currently being removed from the DAX cluster, no endpoint
-  information for the removed nodes is displayed.
+  supplied. If the cluster is in the CREATING state, only cluster level
+  information will be displayed until all of the nodes are successfully
+  provisioned.
   """
-  @spec describe_clusters(map(), describe_clusters_request(), list()) ::
+  @spec describe_clusters(AWS.Client.t(), describe_clusters_request(), Keyword.t()) ::
           {:ok, describe_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_clusters_errors()}
   def describe_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusters", input, options)
   end
 
   @doc """
-  Returns the default system parameter information for the DAX caching
-  software.
+  Returns the default system parameter information for the DAX caching software.
   """
-  @spec describe_default_parameters(map(), describe_default_parameters_request(), list()) ::
+  @spec describe_default_parameters(
+          AWS.Client.t(),
+          describe_default_parameters_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_default_parameters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_default_parameters_errors()}
   def describe_default_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDefaultParameters", input, options)
   end
 
   @doc """
-  Returns events related to DAX clusters and parameter groups.
-
-  You can obtain
-  events specific to a particular DAX cluster or parameter group by providing the
-  name
-  as a parameter.
-
-  By default, only the events occurring within the last 24 hours are returned;
-  however,
-  you can retrieve up to 14 days' worth of events if necessary.
+  Returns events related to DAX clusters and parameter groups. You can obtain
+  events specific to a particular DAX cluster or parameter group by providing
+  the name as a parameter.
   """
-  @spec describe_events(map(), describe_events_request(), list()) ::
+  @spec describe_events(AWS.Client.t(), describe_events_request(), Keyword.t()) ::
           {:ok, describe_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_events_errors()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
 
   @doc """
-  Returns a list of parameter group descriptions.
-
-  If a parameter group name is
+  Returns a list of parameter group descriptions. If a parameter group name is
   specified, the list will contain only the descriptions for that group.
   """
-  @spec describe_parameter_groups(map(), describe_parameter_groups_request(), list()) ::
+  @spec describe_parameter_groups(
+          AWS.Client.t(),
+          describe_parameter_groups_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_parameter_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_parameter_groups_errors()}
   def describe_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeParameterGroups", input, options)
   end
@@ -1427,28 +1409,28 @@ defmodule AWS.DAX do
   @doc """
   Returns the detailed parameter list for a particular parameter group.
   """
-  @spec describe_parameters(map(), describe_parameters_request(), list()) ::
+  @spec describe_parameters(AWS.Client.t(), describe_parameters_request(), Keyword.t()) ::
           {:ok, describe_parameters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_parameters_errors()}
   def describe_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeParameters", input, options)
   end
 
   @doc """
-  Returns a list of subnet group descriptions.
-
-  If a subnet group name is specified,
-  the list will contain only the description of that group.
+  Returns a list of subnet group descriptions. If a subnet group name is
+  specified, the list will contain only the description of that group.
   """
-  @spec describe_subnet_groups(map(), describe_subnet_groups_request(), list()) ::
+  @spec describe_subnet_groups(AWS.Client.t(), describe_subnet_groups_request(), Keyword.t()) ::
           {:ok, describe_subnet_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_subnet_groups_errors()}
   def describe_subnet_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSubnetGroups", input, options)
   end
@@ -1456,114 +1438,108 @@ defmodule AWS.DAX do
   @doc """
   Adds one or more nodes to a DAX cluster.
   """
-  @spec increase_replication_factor(map(), increase_replication_factor_request(), list()) ::
+  @spec increase_replication_factor(
+          AWS.Client.t(),
+          increase_replication_factor_request(),
+          Keyword.t()
+        ) ::
           {:ok, increase_replication_factor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, increase_replication_factor_errors()}
   def increase_replication_factor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "IncreaseReplicationFactor", input, options)
   end
 
   @doc """
-  List all of the tags for a DAX cluster.
-
-  You can call `ListTags` up to
-  10 times per second, per account.
+  List all of the tags for a DAX cluster. You can call `ListTags` up to 10 times
+  per second, per account.
   """
-  @spec list_tags(map(), list_tags_request(), list()) ::
+  @spec list_tags(AWS.Client.t(), list_tags_request(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTags", input, options)
   end
 
   @doc """
-  Reboots a single node of a DAX cluster.
-
-  The reboot action takes place
-  as soon as possible. During the
-  reboot, the node status is set to REBOOTING.
-
-  `RebootNode` restarts the DAX engine process and does not remove the contents of
-  the cache.
+  Reboots a single node of a DAX cluster. The reboot action takes place as soon as
+  possible. During the reboot, the node status is set to REBOOTING.
   """
-  @spec reboot_node(map(), reboot_node_request(), list()) ::
+  @spec reboot_node(AWS.Client.t(), reboot_node_request(), Keyword.t()) ::
           {:ok, reboot_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_node_errors()}
   def reboot_node(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootNode", input, options)
   end
 
   @doc """
-  Associates a set of tags with a DAX resource.
-
-  You can call `TagResource` up to 5 times per second, per
-  account.
+  Associates a set of tags with a DAX resource. You can call `TagResource` up to 5
+  times per second, per account.
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
-  Removes the association of tags from a DAX resource.
-
-  You can call
+  Removes the association of tags from a DAX resource. You can call
   `UntagResource` up to 5 times per second, per account.
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
-  Modifies the settings for a DAX cluster.
-
-  You can use this action to change one or
-  more cluster configuration parameters by specifying the parameters and the new
-  values.
+  Modifies the settings for a DAX cluster. You can use this action to change one
+  or more cluster configuration parameters by specifying the parameters and the
+  new values.
   """
-  @spec update_cluster(map(), update_cluster_request(), list()) ::
+  @spec update_cluster(AWS.Client.t(), update_cluster_request(), Keyword.t()) ::
           {:ok, update_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCluster", input, options)
   end
 
   @doc """
-  Modifies the parameters of a parameter group.
-
-  You can modify up to 20
-  parameters in a single request by submitting a list parameter name and value
-  pairs.
+  Modifies the parameters of a parameter group. You can modify up to 20 parameters
+  in a single request by submitting a list parameter name and value pairs.
   """
-  @spec update_parameter_group(map(), update_parameter_group_request(), list()) ::
+  @spec update_parameter_group(AWS.Client.t(), update_parameter_group_request(), Keyword.t()) ::
           {:ok, update_parameter_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_parameter_group_errors()}
   def update_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateParameterGroup", input, options)
   end
@@ -1571,12 +1547,13 @@ defmodule AWS.DAX do
   @doc """
   Modifies an existing subnet group.
   """
-  @spec update_subnet_group(map(), update_subnet_group_request(), list()) ::
+  @spec update_subnet_group(AWS.Client.t(), update_subnet_group_request(), Keyword.t()) ::
           {:ok, update_subnet_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_subnet_group_errors()}
   def update_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSubnetGroup", input, options)
   end

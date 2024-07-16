@@ -732,32 +732,31 @@ defmodule AWS.LexRuntimeV2 do
   end
 
   @doc """
-  Removes session information for a specified bot, alias, and user ID.
+  Removes session information for a specified bot, alias, and user ID. You can use
+  this operation to restart a conversation with a bot. When you remove a
+  session, the entire history of the session is removed so that you can start
+  again.
 
-  You can use this operation to restart a conversation with a bot.
-  When you remove a session, the entire history of the session is removed
-  so that you can start again.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexruntimev2%20DeleteSession&this_doc_guide=API%2520Reference)
 
-  You don't need to delete a session. Sessions have a time limit and
-  will expire. Set the session time limit when you create the bot. The
-  default is 5 minutes, but you can specify anything between 1 minute and
-  24 hours.
+  ## Parameters:
+  * `:bot_alias_id` (`t:string`) The alias identifier in use for the bot that
+    contains the session data.
+  * `:bot_id` (`t:string`) The identifier of the bot that contains the session
+    data.
+  * `:locale_id` (`t:string`) The locale where the session is in use.
+  * `:session_id` (`t:string`) The identifier of the session to delete.
 
-  If you specify a bot or alias ID that doesn't exist, you receive a
-  `BadRequestException.`
-
-  If the locale doesn't exist in the bot, or if the locale hasn't been
-  enables for the alias, you receive a
-  `BadRequestException`.
+  ## Optional parameters:
   """
   @spec delete_session(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_session_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -777,7 +776,8 @@ defmodule AWS.LexRuntimeV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -793,19 +793,23 @@ defmodule AWS.LexRuntimeV2 do
   end
 
   @doc """
-  Returns session information for a specified bot, alias, and
-  user.
+  Returns session information for a specified bot, alias, and user. For example,
+  you can use this operation to retrieve session information for a user that has
+  left a long-running session in use.
 
-  For example, you can use this operation to retrieve session
-  information for a user that has left a long-running session in
-  use.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexruntimev2%20GetSession&this_doc_guide=API%2520Reference)
 
-  If the bot, alias, or session identifier doesn't exist, Amazon Lex V2
-  returns a `BadRequestException`. If the locale doesn't exist
-  or is not enabled for the alias, you receive a
-  `BadRequestException`.
+  ## Parameters:
+  * `:bot_alias_id` (`t:string`) The alias identifier in use for the bot that
+    contains the session data.
+  * `:bot_id` (`t:string`) The identifier of the bot that contains the session
+    data.
+  * `:locale_id` (`t:string`) The locale where the session is in use.
+  * `:session_id` (`t:string`) The identifier of the session to return.
+
+  ## Optional parameters:
   """
-  @spec get_session(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_session(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_session_errors()}
@@ -813,29 +817,59 @@ defmodule AWS.LexRuntimeV2 do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botAliases/#{AWS.Util.encode_uri(bot_alias_id)}/botLocales/#{AWS.Util.encode_uri(locale_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Creates a new session or modifies an existing session with an Amazon Lex V2
-  bot.
+  Creates a new session or modifies an existing session with an Amazon Lex V2 bot.
+  Use this operation to enable your application to set the state of the bot.
 
-  Use this operation to enable your application to set the state of
-  the bot.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexruntimev2%20PutSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bot_alias_id` (`t:string`) The alias identifier of the bot that receives the
+    session data.
+  * `:bot_id` (`t:string`) The identifier of the bot that receives the session
+    data.
+  * `:locale_id` (`t:string`) The locale where the session is in use.
+  * `:session_id` (`t:string`) The identifier of the session that receives the
+    session data.
+
+  ## Optional parameters:
+  * `:response_content_type` (`t:string`) The message that Amazon Lex V2 returns
+    in the response can be either text or speech depending on the value of this
+    parameter.
   """
   @spec put_session(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
           put_session_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -851,6 +885,14 @@ defmodule AWS.LexRuntimeV2 do
       ) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botAliases/#{AWS.Util.encode_uri(bot_alias_id)}/botLocales/#{AWS.Util.encode_uri(locale_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
+
+    optional_params = [response_content_type: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -873,7 +915,13 @@ defmodule AWS.LexRuntimeV2 do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:response_content_type])
 
     Request.request_rest(
       client,
@@ -889,51 +937,32 @@ defmodule AWS.LexRuntimeV2 do
   end
 
   @doc """
-  Sends user input to Amazon Lex V2.
-
-  Client applications use this API to send
+  Sends user input to Amazon Lex V2. Client applications use this API to send
   requests to Amazon Lex V2 at runtime. Amazon Lex V2 then interprets the user
-  input
-  using the machine learning model that it build for the bot.
+  input using the machine learning model that it build for the bot. In response,
+  Amazon Lex V2 returns the next message to convey to the user and an optional
+  response card to display.
 
-  In response, Amazon Lex V2 returns the next message to convey to the user
-  and an optional response card to display.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexruntimev2%20RecognizeText&this_doc_guide=API%2520Reference)
 
-  If the optional post-fulfillment response is specified, the messages
-  are returned as follows. For more information, see
-  [PostFulfillmentStatusSpecification](https://docs.aws.amazon.com/lexv2/latest/dg/API_PostFulfillmentStatusSpecification.html). 
-    *
+  ## Parameters:
+  * `:bot_alias_id` (`t:string`) The alias identifier in use for the bot that
+    processes the request.
+  * `:bot_id` (`t:string`) The identifier of the bot that processes the request.
+  * `:locale_id` (`t:string`) The locale where the session is in use.
+  * `:session_id` (`t:string`) The identifier of the user session that is having
+    the conversation.
 
-  **Success message** - Returned if
-  the Lambda function completes successfully and the intent state is
-  fulfilled or ready fulfillment if the message is present.
-
-    *
-
-  **Failed message** - The failed
-  message is returned if the Lambda function throws an exception or
-  if the Lambda function returns a failed intent state without a
-  message.
-
-    *
-
-  **Timeout message** - If you
-  don't configure a timeout message and a timeout, and the Lambda
-  function doesn't return within 30 seconds, the timeout message is
-  returned. If you configure a timeout, the timeout message is
-  returned when the period times out.
-
-  For more information, see [Completion
-  message](https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete.html).
+  ## Optional parameters:
   """
   @spec recognize_text(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
           recognize_text_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, recognize_text_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -953,7 +982,8 @@ defmodule AWS.LexRuntimeV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -969,81 +999,44 @@ defmodule AWS.LexRuntimeV2 do
   end
 
   @doc """
-  Sends user input to Amazon Lex V2.
+  Sends user input to Amazon Lex V2. You can send text or speech. Clients use this
+  API to send text and audio requests to Amazon Lex V2 at runtime. Amazon Lex V2
+  interprets the user input using the machine learning model built for the bot.
+  The following request fields must be compressed with gzip and then base64
+  encoded before you send them to Amazon Lex V2.
 
-  You can send text or speech. Clients use
-  this API to send text and audio requests to Amazon Lex V2 at runtime. Amazon Lex
-  V2
-  interprets the user input using the machine learning model built for
-  the bot.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexruntimev2%20RecognizeUtterance&this_doc_guide=API%2520Reference)
 
-  The following request fields must be compressed with gzip and then
-  base64 encoded before you send them to Amazon Lex V2.
+  ## Parameters:
+  * `:bot_alias_id` (`t:string`) The alias identifier in use for the bot that
+    should receive the request.
+  * `:bot_id` (`t:string`) The identifier of the bot that should receive the
+    request.
+  * `:locale_id` (`t:string`) The locale where the session is in use.
+  * `:session_id` (`t:string`) The identifier of the session in use.
+  * `:request_content_type` (`t:string`) Indicates the format for audio input or
+    that the content is text. The header must start with one of the following
+    prefixes:
 
-    *
-  requestAttributes
-
-    *
-  sessionState
-
-  The following response fields are compressed using gzip and then
-  base64 encoded by Amazon Lex V2. Before you can use these fields, you must
-  decode and decompress them.
-
-    *
-  inputTranscript
-
-    *
-  interpretations
-
-    *
-  messages
-
-    *
-  requestAttributes
-
-    *
-  sessionState
-
-  The example contains a Java application that compresses and encodes
-  a Java object to send to Amazon Lex V2, and a second that decodes and
-  decompresses a response from Amazon Lex V2.
-
-  If the optional post-fulfillment response is specified, the messages
-  are returned as follows. For more information, see
-  [PostFulfillmentStatusSpecification](https://docs.aws.amazon.com/lexv2/latest/dg/API_PostFulfillmentStatusSpecification.html). 
-    *
-
-  **Success message** - Returned if
-  the Lambda function completes successfully and the intent state is
-  fulfilled or ready fulfillment if the message is present.
-
-    *
-
-  **Failed message** - The failed
-  message is returned if the Lambda function throws an exception or
-  if the Lambda function returns a failed intent state without a
-  message.
-
-    *
-
-  **Timeout message** - If you
-  don't configure a timeout message and a timeout, and the Lambda
-  function doesn't return within 30 seconds, the timeout message is
-  returned. If you configure a timeout, the timeout message is
-  returned when the period times out.
-
-  For more information, see [Completion
-  message](https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete.html).
+  ## Optional parameters:
+  * `:request_attributes` (`t:string`) Request-specific information passed between
+    the client application and Amazon Lex V2
+  * `:response_content_type` (`t:string`) The message that Amazon Lex V2 returns
+    in the response can be either text or speech based on the
+    responseContentType value.
+  * `:session_state` (`t:string`) Sets the state of the session with the user. You
+    can use this to set the current intent, attributes, context, and dialog
+    action. Use the dialog action to determine the next step that Amazon Lex V2
+    should use in the conversation with the user.
   """
   @spec recognize_utterance(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
           recognize_utterance_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, recognize_utterance_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1059,6 +1052,19 @@ defmodule AWS.LexRuntimeV2 do
       ) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botAliases/#{AWS.Util.encode_uri(bot_alias_id)}/botLocales/#{AWS.Util.encode_uri(locale_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/utterance"
+
+    optional_params = [
+      request_attributes: nil,
+      request_content_type: nil,
+      response_content_type: nil,
+      session_state: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -1088,7 +1094,13 @@ defmodule AWS.LexRuntimeV2 do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:request_attributes, :response_content_type, :session_state])
 
     Request.request_rest(
       client,
@@ -1104,83 +1116,37 @@ defmodule AWS.LexRuntimeV2 do
   end
 
   @doc """
-  Starts an HTTP/2 bidirectional event stream that enables you to send
-  audio, text, or DTMF input in real time.
-
-  After your application starts
-  a conversation, users send input to Amazon Lex V2 as a stream of events. Amazon
-  Lex V2
-  processes the incoming events and responds with streaming text or audio
-  events.
-
-  Audio input must be in the following format:
-
-  ```
-  audio/lpcm
-  sample-rate=8000 sample-size-bits=16 channel-count=1;
-  is-big-endian=false
-  ```
-
+  Starts an HTTP/2 bidirectional event stream that enables you to send audio,
+  text, or DTMF input in real time. After your application starts a
+  conversation, users send input to Amazon Lex V2 as a stream of events. Amazon
+  Lex V2 processes the incoming events and responds with streaming text or audio
+  events. Audio input must be in the following format: ``` audio/lpcm
+  sample-rate=8000 sample-size-bits=16 channel-count=1; is-big-endian=false ```
   .
 
-  If the optional post-fulfillment response is specified, the messages
-  are returned as follows. For more information, see
-  [PostFulfillmentStatusSpecification](https://docs.aws.amazon.com/lexv2/latest/dg/API_PostFulfillmentStatusSpecification.html). 
-    *
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexruntimev2%20StartConversation&this_doc_guide=API%2520Reference)
 
-  **Success message** - Returned if
-  the Lambda function completes successfully and the intent state is
-  fulfilled or ready fulfillment if the message is present.
+  ## Parameters:
+  * `:bot_alias_id` (`t:string`) The alias identifier in use for the bot that
+    processes the request.
+  * `:bot_id` (`t:string`) The identifier of the bot to process the request.
+  * `:locale_id` (`t:string`) The locale where the session is in use.
+  * `:session_id` (`t:string`) The identifier of the user session that is having
+    the conversation.
 
-    *
-
-  **Failed message** - The failed
-  message is returned if the Lambda function throws an exception or
-  if the Lambda function returns a failed intent state without a
-  message.
-
-    *
-
-  **Timeout message** - If you
-  don't configure a timeout message and a timeout, and the Lambda
-  function doesn't return within 30 seconds, the timeout message is
-  returned. If you configure a timeout, the timeout message is
-  returned when the period times out.
-
-  For more information, see [Completion
-  message](https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete.html).
-
-  If the optional update message is configured, it is played at the
-  specified frequency while the Lambda function is running and the update
-  message state is active. If the fulfillment update message is not
-  active, the Lambda function runs with a 30 second timeout.
-
-  For more information, see [Update message
-  ](https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-update.html)
-
-  The `StartConversation` operation is supported only in
-  the following SDKs:
-
-    *
-
-  [AWS SDK for C++](https://docs.aws.amazon.com/goto/SdkForCpp/runtime.lex.v2-2020-08-07/StartConversation)
-
-    *
-
-  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/runtime.lex.v2-2020-08-07/StartConversation)
-
-    *
-
-  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/runtime.lex.v2-2020-08-07/StartConversation)
+  ## Optional parameters:
+  * `:conversation_mode` (`t:enum["AUDIO|TEXT"]`) The conversation type that you
+    are using the Amazon Lex V2. If the conversation mode is AUDIO you can send
+    both audio and DTMF information. If the mode is TEXT you can only send text.
   """
   @spec start_conversation(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
           start_conversation_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_conversation_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1197,6 +1163,14 @@ defmodule AWS.LexRuntimeV2 do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botAliases/#{AWS.Util.encode_uri(bot_alias_id)}/botLocales/#{AWS.Util.encode_uri(locale_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/conversation"
 
+    optional_params = [conversation_mode: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"conversationMode", "x-amz-lex-conversation-mode"}
@@ -1205,7 +1179,13 @@ defmodule AWS.LexRuntimeV2 do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:conversation_mode])
 
     Request.request_rest(
       client,

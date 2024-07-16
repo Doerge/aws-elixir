@@ -3,28 +3,11 @@
 
 defmodule AWS.ApplicationInsights do
   @moduledoc """
-  Amazon CloudWatch Application Insights
-
-  Amazon CloudWatch Application Insights is a service that helps you detect common
-  problems with your applications.
-
-  It enables you to pinpoint the source of issues in your
-  applications (built with technologies such as Microsoft IIS, .NET, and Microsoft
-  SQL
-  Server), by providing key insights into detected problems.
-
-  After you onboard your application, CloudWatch Application Insights identifies,
-  recommends, and sets up metrics and logs. It continuously analyzes and
-  correlates your
-  metrics and logs for unusual behavior to surface actionable problems with your
-  application.
-  For example, if your application is slow and unresponsive and leading to HTTP
-  500 errors in
-  your Application Load Balancer (ALB), Application Insights informs you that a
-  memory
-  pressure problem with your SQL Server database is occurring. It bases this
-  analysis on
-  impactful metrics and log errors.
+  Amazon CloudWatch Application Insights Amazon CloudWatch Application Insights is
+  a service that helps you detect common problems with your applications. It
+  enables you to pinpoint the source of issues in your applications (built with
+  technologies such as Microsoft IIS, .NET, and Microsoft SQL Server), by
+  providing key insights into detected problems.
   """
 
   alias AWS.Client
@@ -1284,16 +1267,15 @@ defmodule AWS.ApplicationInsights do
   end
 
   @doc """
-  Adds a workload to a component.
-
-  Each component can have at most five workloads.
+  Adds a workload to a component. Each component can have at most five workloads.
   """
-  @spec add_workload(map(), add_workload_request(), list()) ::
+  @spec add_workload(AWS.Client.t(), add_workload_request(), Keyword.t()) ::
           {:ok, add_workload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_workload_errors()}
   def add_workload(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddWorkload", input, options)
   end
@@ -1301,12 +1283,13 @@ defmodule AWS.ApplicationInsights do
   @doc """
   Adds an application that is created from a resource group.
   """
-  @spec create_application(map(), create_application_request(), list()) ::
+  @spec create_application(AWS.Client.t(), create_application_request(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApplication", input, options)
   end
@@ -1314,12 +1297,13 @@ defmodule AWS.ApplicationInsights do
   @doc """
   Creates a custom component by grouping similar standalone instances to monitor.
   """
-  @spec create_component(map(), create_component_request(), list()) ::
+  @spec create_component(AWS.Client.t(), create_component_request(), Keyword.t()) ::
           {:ok, create_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_component_errors()}
   def create_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateComponent", input, options)
   end
@@ -1327,46 +1311,44 @@ defmodule AWS.ApplicationInsights do
   @doc """
   Adds an log pattern to a `LogPatternSet`.
   """
-  @spec create_log_pattern(map(), create_log_pattern_request(), list()) ::
+  @spec create_log_pattern(AWS.Client.t(), create_log_pattern_request(), Keyword.t()) ::
           {:ok, create_log_pattern_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_log_pattern_errors()}
   def create_log_pattern(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLogPattern", input, options)
   end
 
   @doc """
-  Removes the specified application from monitoring.
-
-  Does not delete the
+  Removes the specified application from monitoring. Does not delete the
   application.
   """
-  @spec delete_application(map(), delete_application_request(), list()) ::
+  @spec delete_application(AWS.Client.t(), delete_application_request(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplication", input, options)
   end
 
   @doc """
-  Ungroups a custom component.
-
-  When you ungroup custom components, all applicable monitors
-  that are set up for the component are removed and the instances revert to their
-  standalone
-  status.
+  Ungroups a custom component. When you ungroup custom components, all applicable
+  monitors that are set up for the component are removed and the instances
+  revert to their standalone status.
   """
-  @spec delete_component(map(), delete_component_request(), list()) ::
+  @spec delete_component(AWS.Client.t(), delete_component_request(), Keyword.t()) ::
           {:ok, delete_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_component_errors()}
   def delete_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteComponent", input, options)
   end
@@ -1374,12 +1356,13 @@ defmodule AWS.ApplicationInsights do
   @doc """
   Removes the specified log pattern from a `LogPatternSet`.
   """
-  @spec delete_log_pattern(map(), delete_log_pattern_request(), list()) ::
+  @spec delete_log_pattern(AWS.Client.t(), delete_log_pattern_request(), Keyword.t()) ::
           {:ok, delete_log_pattern_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_log_pattern_errors()}
   def delete_log_pattern(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLogPattern", input, options)
   end
@@ -1387,12 +1370,13 @@ defmodule AWS.ApplicationInsights do
   @doc """
   Describes the application.
   """
-  @spec describe_application(map(), describe_application_request(), list()) ::
+  @spec describe_application(AWS.Client.t(), describe_application_request(), Keyword.t()) ::
           {:ok, describe_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_application_errors()}
   def describe_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplication", input, options)
   end
@@ -1401,12 +1385,13 @@ defmodule AWS.ApplicationInsights do
   Describes a component and lists the resources that are grouped together in a
   component.
   """
-  @spec describe_component(map(), describe_component_request(), list()) ::
+  @spec describe_component(AWS.Client.t(), describe_component_request(), Keyword.t()) ::
           {:ok, describe_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_component_errors()}
   def describe_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeComponent", input, options)
   end
@@ -1415,15 +1400,16 @@ defmodule AWS.ApplicationInsights do
   Describes the monitoring configuration of the component.
   """
   @spec describe_component_configuration(
-          map(),
+          AWS.Client.t(),
           describe_component_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_component_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_component_configuration_errors()}
   def describe_component_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeComponentConfiguration", input, options)
   end
@@ -1432,15 +1418,16 @@ defmodule AWS.ApplicationInsights do
   Describes the recommended monitoring configuration of the component.
   """
   @spec describe_component_configuration_recommendation(
-          map(),
+          AWS.Client.t(),
           describe_component_configuration_recommendation_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, describe_component_configuration_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_component_configuration_recommendation_errors()}
   def describe_component_configuration_recommendation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -1454,12 +1441,13 @@ defmodule AWS.ApplicationInsights do
   @doc """
   Describe a specific log pattern from a `LogPatternSet`.
   """
-  @spec describe_log_pattern(map(), describe_log_pattern_request(), list()) ::
+  @spec describe_log_pattern(AWS.Client.t(), describe_log_pattern_request(), Keyword.t()) ::
           {:ok, describe_log_pattern_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_log_pattern_errors()}
   def describe_log_pattern(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLogPattern", input, options)
   end
@@ -1467,12 +1455,13 @@ defmodule AWS.ApplicationInsights do
   @doc """
   Describes an anomaly or error with the application.
   """
-  @spec describe_observation(map(), describe_observation_request(), list()) ::
+  @spec describe_observation(AWS.Client.t(), describe_observation_request(), Keyword.t()) ::
           {:ok, describe_observation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_observation_errors()}
   def describe_observation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeObservation", input, options)
   end
@@ -1480,12 +1469,13 @@ defmodule AWS.ApplicationInsights do
   @doc """
   Describes an application problem.
   """
-  @spec describe_problem(map(), describe_problem_request(), list()) ::
+  @spec describe_problem(AWS.Client.t(), describe_problem_request(), Keyword.t()) ::
           {:ok, describe_problem_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_problem_errors()}
   def describe_problem(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProblem", input, options)
   end
@@ -1493,12 +1483,17 @@ defmodule AWS.ApplicationInsights do
   @doc """
   Describes the anomalies or errors associated with the problem.
   """
-  @spec describe_problem_observations(map(), describe_problem_observations_request(), list()) ::
+  @spec describe_problem_observations(
+          AWS.Client.t(),
+          describe_problem_observations_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_problem_observations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_problem_observations_errors()}
   def describe_problem_observations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProblemObservations", input, options)
   end
@@ -1506,12 +1501,13 @@ defmodule AWS.ApplicationInsights do
   @doc """
   Describes a workload and its configuration.
   """
-  @spec describe_workload(map(), describe_workload_request(), list()) ::
+  @spec describe_workload(AWS.Client.t(), describe_workload_request(), Keyword.t()) ::
           {:ok, describe_workload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workload_errors()}
   def describe_workload(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkload", input, options)
   end
@@ -1519,12 +1515,13 @@ defmodule AWS.ApplicationInsights do
   @doc """
   Lists the IDs of the applications that you are monitoring.
   """
-  @spec list_applications(map(), list_applications_request(), list()) ::
+  @spec list_applications(AWS.Client.t(), list_applications_request(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApplications", input, options)
   end
@@ -1532,39 +1529,32 @@ defmodule AWS.ApplicationInsights do
   @doc """
   Lists the auto-grouped, standalone, and custom components of the application.
   """
-  @spec list_components(map(), list_components_request(), list()) ::
+  @spec list_components(AWS.Client.t(), list_components_request(), Keyword.t()) ::
           {:ok, list_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_components_errors()}
   def list_components(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListComponents", input, options)
   end
 
   @doc """
   Lists the INFO, WARN, and ERROR events for periodic configuration updates
-  performed by
-  Application Insights.
-
-  Examples of events represented are:
-
-    *
-  INFO: creating a new alarm or updating an alarm threshold.
-
-    *
-  WARN: alarm not created due to insufficient data points used to predict
-  thresholds.
-
-    *
-  ERROR: alarm not created due to permission errors or exceeding quotas.
+  performed by Application Insights. Examples of events represented are:
   """
-  @spec list_configuration_history(map(), list_configuration_history_request(), list()) ::
+  @spec list_configuration_history(
+          AWS.Client.t(),
+          list_configuration_history_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_configuration_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configuration_history_errors()}
   def list_configuration_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListConfigurationHistory", input, options)
   end
@@ -1572,12 +1562,13 @@ defmodule AWS.ApplicationInsights do
   @doc """
   Lists the log pattern sets in the specific application.
   """
-  @spec list_log_pattern_sets(map(), list_log_pattern_sets_request(), list()) ::
+  @spec list_log_pattern_sets(AWS.Client.t(), list_log_pattern_sets_request(), Keyword.t()) ::
           {:ok, list_log_pattern_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_log_pattern_sets_errors()}
   def list_log_pattern_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLogPatternSets", input, options)
   end
@@ -1585,12 +1576,13 @@ defmodule AWS.ApplicationInsights do
   @doc """
   Lists the log patterns in the specific log `LogPatternSet`.
   """
-  @spec list_log_patterns(map(), list_log_patterns_request(), list()) ::
+  @spec list_log_patterns(AWS.Client.t(), list_log_patterns_request(), Keyword.t()) ::
           {:ok, list_log_patterns_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_log_patterns_errors()}
   def list_log_patterns(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLogPatterns", input, options)
   end
@@ -1598,34 +1590,32 @@ defmodule AWS.ApplicationInsights do
   @doc """
   Lists the problems with your application.
   """
-  @spec list_problems(map(), list_problems_request(), list()) ::
+  @spec list_problems(AWS.Client.t(), list_problems_request(), Keyword.t()) ::
           {:ok, list_problems_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_problems_errors()}
   def list_problems(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProblems", input, options)
   end
 
   @doc """
   Retrieve a list of the tags (keys and values) that are associated with a
-  specified
-  application.
-
-  A *tag* is a label that you optionally define and associate
-  with an application. Each tag consists of a required *tag key* and an
-  optional associated *tag value*. A tag key is a general label that acts
-  as a category for more specific tag values. A tag value acts as a descriptor
-  within a tag
-  key.
+  specified application. A *tag* is a label that you optionally define and
+  associate with an application. Each tag consists of a required *tag key* and
+  an optional associated *tag value*. A tag key is a general label that acts as
+  a category for more specific tag values. A tag value acts as a descriptor
+  within a tag key.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1633,12 +1623,13 @@ defmodule AWS.ApplicationInsights do
   @doc """
   Lists the workloads that are configured on a given component.
   """
-  @spec list_workloads(map(), list_workloads_request(), list()) ::
+  @spec list_workloads(AWS.Client.t(), list_workloads_request(), Keyword.t()) ::
           {:ok, list_workloads_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workloads_errors()}
   def list_workloads(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkloads", input, options)
   end
@@ -1646,37 +1637,30 @@ defmodule AWS.ApplicationInsights do
   @doc """
   Remove workload from a component.
   """
-  @spec remove_workload(map(), remove_workload_request(), list()) ::
+  @spec remove_workload(AWS.Client.t(), remove_workload_request(), Keyword.t()) ::
           {:ok, remove_workload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_workload_errors()}
   def remove_workload(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveWorkload", input, options)
   end
 
   @doc """
-  Add one or more tags (keys and values) to a specified application.
-
-  A
-  *tag* is a label that you optionally define and associate with an
-  application. Tags can help you categorize and manage application in different
-  ways, such as
-  by purpose, owner, environment, or other criteria.
-
-  Each tag consists of a required *tag key* and an associated
-  *tag value*, both of which you define. A tag key is a general label
-  that acts as a category for more specific tag values. A tag value acts as a
-  descriptor
-  within a tag key.
+  Add one or more tags (keys and values) to a specified application. A *tag* is a
+  label that you optionally define and associate with an application. Tags can
+  help you categorize and manage application in different ways, such as by
+  purpose, owner, environment, or other criteria.
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1684,12 +1668,13 @@ defmodule AWS.ApplicationInsights do
   @doc """
   Remove one or more tags (keys and values) from a specified application.
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1697,12 +1682,13 @@ defmodule AWS.ApplicationInsights do
   @doc """
   Updates the application.
   """
-  @spec update_application(map(), update_application_request(), list()) ::
+  @spec update_application(AWS.Client.t(), update_application_request(), Keyword.t()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApplication", input, options)
   end
@@ -1711,30 +1697,33 @@ defmodule AWS.ApplicationInsights do
   Updates the custom component name and/or the list of resources that make up the
   component.
   """
-  @spec update_component(map(), update_component_request(), list()) ::
+  @spec update_component(AWS.Client.t(), update_component_request(), Keyword.t()) ::
           {:ok, update_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_component_errors()}
   def update_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateComponent", input, options)
   end
 
   @doc """
-  Updates the monitoring configurations for the component.
-
-  The configuration input
-  parameter is an escaped JSON of the configuration and should match the schema of
-  what is
-  returned by `DescribeComponentConfigurationRecommendation`.
+  Updates the monitoring configurations for the component. The configuration input
+  parameter is an escaped JSON of the configuration and should match the schema
+  of what is returned by `DescribeComponentConfigurationRecommendation`.
   """
-  @spec update_component_configuration(map(), update_component_configuration_request(), list()) ::
+  @spec update_component_configuration(
+          AWS.Client.t(),
+          update_component_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_component_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_component_configuration_errors()}
   def update_component_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateComponentConfiguration", input, options)
   end
@@ -1742,41 +1731,41 @@ defmodule AWS.ApplicationInsights do
   @doc """
   Adds a log pattern to a `LogPatternSet`.
   """
-  @spec update_log_pattern(map(), update_log_pattern_request(), list()) ::
+  @spec update_log_pattern(AWS.Client.t(), update_log_pattern_request(), Keyword.t()) ::
           {:ok, update_log_pattern_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_log_pattern_errors()}
   def update_log_pattern(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLogPattern", input, options)
   end
 
   @doc """
-  Updates the visibility of the problem or specifies the problem as
-  `RESOLVED`.
+  Updates the visibility of the problem or specifies the problem as `RESOLVED`.
   """
-  @spec update_problem(map(), update_problem_request(), list()) ::
+  @spec update_problem(AWS.Client.t(), update_problem_request(), Keyword.t()) ::
           {:ok, update_problem_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_problem_errors()}
   def update_problem(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProblem", input, options)
   end
 
   @doc """
-  Adds a workload to a component.
-
-  Each component can have at most five workloads.
+  Adds a workload to a component. Each component can have at most five workloads.
   """
-  @spec update_workload(map(), update_workload_request(), list()) ::
+  @spec update_workload(AWS.Client.t(), update_workload_request(), Keyword.t()) ::
           {:ok, update_workload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workload_errors()}
   def update_workload(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWorkload", input, options)
   end

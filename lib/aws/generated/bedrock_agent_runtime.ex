@@ -1488,8 +1488,24 @@ defmodule AWS.BedrockAgentRuntime do
 
   @doc """
   Deletes memory from the specified memory identifier.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagentruntime%20DeleteAgentMemory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_alias_id` (`t:string`) The unique identifier of an alias of an agent.
+  * `:agent_id` (`t:string`) The unique identifier of the agent to which the alias
+    belongs.
+
+  ## Optional parameters:
+  * `:memory_id` (`t:string`) The unique identifier of the memory.
   """
-  @spec delete_agent_memory(map(), String.t(), String.t(), delete_agent_memory_request(), list()) ::
+  @spec delete_agent_memory(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_agent_memory_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_agent_memory_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_agent_memory_errors()}
@@ -1505,7 +1521,13 @@ defmodule AWS.BedrockAgentRuntime do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:memory_id])
 
     Request.request_rest(
       client,
@@ -1522,16 +1544,33 @@ defmodule AWS.BedrockAgentRuntime do
 
   @doc """
   Gets the sessions stored in the memory of the agent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagentruntime%20GetAgentMemory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_alias_id` (`t:string`) The unique identifier of an alias of an agent.
+  * `:agent_id` (`t:string`) The unique identifier of the agent to which the alias
+    belongs.
+  * `:memory_id` (`t:string`) The unique identifier of the memory.
+  * `:memory_type` (`t:enum["SESSION_SUMMARY"]`) The type of memory.
+
+  ## Optional parameters:
+  * `:max_items` (`t:integer`) The maximum number of items to return in the
+    response. If the total number of results is greater than this value, use the
+    token returned in the response in the nextToken field when making another
+    request to return the next batch of results.
+  * `:next_token` (`t:string`) If the total number of results is greater than the
+    maxItems value provided in the request, enter the token returned in the
+    nextToken field in the response in this field to return the next batch of
+    results.
   """
   @spec get_agent_memory(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
-          String.t() | nil,
           String.t(),
           String.t(),
-          String.t() | nil,
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_agent_memory_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1540,94 +1579,79 @@ defmodule AWS.BedrockAgentRuntime do
         %Client{} = client,
         agent_alias_id,
         agent_id,
-        max_items \\ nil,
         memory_id,
         memory_type,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentAliases/#{AWS.Util.encode_uri(agent_alias_id)}/memories"
 
+    # Validate optional parameters
+    optional_params = [max_items: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"memoryId", memory_id}, {"memoryType", memory_type}]
+
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(memory_type) do
-        [{"memoryType", memory_type} | query_params]
+      if opt_val = Keyword.get(options, :max_items) do
+        [{"maxItems", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(memory_id) do
-        [{"memoryId", memory_id} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    query_params =
-      if !is_nil(max_items) do
-        [{"maxItems", max_items} | query_params]
-      else
-        query_params
-      end
-
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_items, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   The CLI doesn't support streaming operations in Amazon Bedrock, including
-  `InvokeAgent`.
+  `InvokeAgent`. Sends a prompt for the agent to process and respond to. Note
+  the following fields for the request:
 
-  Sends a prompt for the agent to process and respond to. Note the following
-  fields for the request:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagentruntime%20InvokeAgent&this_doc_guide=API%2520Reference)
 
-    *
-  To continue the same conversation with an agent, use the same `sessionId` value
-  in the request.
+  ## Parameters:
+  * `:agent_alias_id` (`t:string`) The alias of the agent to use.
+  * `:agent_id` (`t:string`) The unique identifier of the agent to use.
+  * `:session_id` (`t:string`) The unique identifier of the session. Use the same
+    value across requests to continue the same conversation.
 
-    *
-  To activate trace enablement, turn `enableTrace` to `true`. Trace enablement
-  helps you follow the agent's reasoning process that led it to the information it
-  processed, the actions it took, and the final result it yielded. For more
-  information, see [Trace enablement](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events).
-
-    *
-  End a conversation by setting `endSession` to `true`.
-
-    *
-  In the `sessionState` object, you can include attributes for the session or
-  prompt or, if you configured an action group to return control, results from
-  invocation of the action group.
-
-  The response is returned in the `bytes` field of the `chunk` object.
-
-    *
-  The `attribution` object contains citations for parts of the response.
-
-    *
-  If you set `enableTrace` to `true` in the request, you can trace the agent's
-  steps and reasoning process that led it to the response.
-
-    *
-  If the action predicted was configured to return control, the response returns
-  parameters for the action, elicited from the user, in the `returnControl` field.
-
-    *
-  Errors are also surfaced in the response.
+  ## Optional parameters:
   """
-  @spec invoke_agent(map(), String.t(), String.t(), String.t(), invoke_agent_request(), list()) ::
+  @spec invoke_agent(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          invoke_agent_request(),
+          Keyword.t()
+        ) ::
           {:ok, invoke_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invoke_agent_errors()}
@@ -1649,7 +1673,8 @@ defmodule AWS.BedrockAgentRuntime do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1666,13 +1691,20 @@ defmodule AWS.BedrockAgentRuntime do
 
   @doc """
   Invokes an alias of a flow to run the inputs that you specify and return the
-  output of each node as a stream.
-
-  If there's an error, the error is returned. For more information, see [Test a flow in Amazon
+  output of each node as a stream. If there's an error, the error is returned.
+  For more information, see [Test a flow in Amazon
   Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-test.html)
   in the Amazon Bedrock User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagentruntime%20InvokeFlow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_alias_identifier` (`t:string`) The unique identifier of the flow alias.
+  * `:flow_identifier` (`t:string`) The unique identifier of the flow.
+
+  ## Optional parameters:
   """
-  @spec invoke_flow(map(), String.t(), String.t(), invoke_flow_request(), list()) ::
+  @spec invoke_flow(AWS.Client.t(), String.t(), String.t(), invoke_flow_request(), Keyword.t()) ::
           {:ok, invoke_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invoke_flow_errors()}
@@ -1689,7 +1721,8 @@ defmodule AWS.BedrockAgentRuntime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1706,8 +1739,16 @@ defmodule AWS.BedrockAgentRuntime do
 
   @doc """
   Queries a knowledge base and retrieves information from it.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagentruntime%20Retrieve&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    to query.
+
+  ## Optional parameters:
   """
-  @spec retrieve(map(), String.t(), retrieve_request(), list()) ::
+  @spec retrieve(AWS.Client.t(), String.t(), retrieve_request(), Keyword.t()) ::
           {:ok, retrieve_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retrieve_errors()}
@@ -1716,7 +1757,8 @@ defmodule AWS.BedrockAgentRuntime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1733,10 +1775,15 @@ defmodule AWS.BedrockAgentRuntime do
 
   @doc """
   Queries a knowledge base and generates responses based on the retrieved results.
-
   The response only cites sources that are relevant to the query.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagentruntime%20RetrieveAndGenerate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec retrieve_and_generate(map(), retrieve_and_generate_request(), list()) ::
+  @spec retrieve_and_generate(AWS.Client.t(), retrieve_and_generate_request(), Keyword.t()) ::
           {:ok, retrieve_and_generate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retrieve_and_generate_errors()}
@@ -1745,7 +1792,8 @@ defmodule AWS.BedrockAgentRuntime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

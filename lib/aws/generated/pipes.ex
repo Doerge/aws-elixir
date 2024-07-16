@@ -3,17 +3,12 @@
 
 defmodule AWS.Pipes do
   @moduledoc """
-  Amazon EventBridge Pipes connects event sources to targets.
-
-  Pipes reduces the need
-  for specialized knowledge and integration code when developing event driven
-  architectures.
-  This helps ensures consistency across your company’s applications. With Pipes,
-  the target
-  can be any available EventBridge target. To set up a pipe, you select the event
-  source, add optional event filtering, define optional enrichment, and select the
-  target for
-  the event data.
+  Amazon EventBridge Pipes connects event sources to targets. Pipes reduces the
+  need for specialized knowledge and integration code when developing event
+  driven architectures. This helps ensures consistency across your company’s
+  applications. With Pipes, the target can be any available EventBridge target.
+  To set up a pipe, you select the event source, add optional event filtering,
+  define optional enrichment, and select the target for the event data.
   """
 
   alias AWS.Client
@@ -1389,12 +1384,17 @@ defmodule AWS.Pipes do
   end
 
   @doc """
-  Create a pipe.
+  Create a pipe. Amazon EventBridge Pipes connect event sources to targets and
+  reduces the need for specialized knowledge and integration code.
 
-  Amazon EventBridge Pipes connect event sources to targets and reduces
-  the need for specialized knowledge and integration code.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pipes%20CreatePipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the pipe.
+
+  ## Optional parameters:
   """
-  @spec create_pipe(map(), String.t(), create_pipe_request(), list()) ::
+  @spec create_pipe(AWS.Client.t(), String.t(), create_pipe_request(), Keyword.t()) ::
           {:ok, create_pipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pipe_errors()}
@@ -1403,7 +1403,8 @@ defmodule AWS.Pipes do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1419,12 +1420,19 @@ defmodule AWS.Pipes do
   end
 
   @doc """
-  Delete an existing pipe.
-
-  For more information about pipes, see [Amazon EventBridge Pipes](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html)
+  Delete an existing pipe. For more information about pipes, see [Amazon
+  EventBridge
+  Pipes](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html)
   in the Amazon EventBridge User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pipes%20DeletePipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the pipe.
+
+  ## Optional parameters:
   """
-  @spec delete_pipe(map(), String.t(), delete_pipe_request(), list()) ::
+  @spec delete_pipe(AWS.Client.t(), String.t(), delete_pipe_request(), Keyword.t()) ::
           {:ok, delete_pipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pipe_errors()}
@@ -1433,7 +1441,8 @@ defmodule AWS.Pipes do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1449,135 +1458,231 @@ defmodule AWS.Pipes do
   end
 
   @doc """
-  Get the information about an existing pipe.
-
-  For more information about pipes, see [Amazon EventBridge Pipes](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html)
+  Get the information about an existing pipe. For more information about pipes,
+  see [Amazon EventBridge
+  Pipes](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html)
   in the Amazon EventBridge User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pipes%20DescribePipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the pipe.
+
+  ## Optional parameters:
   """
-  @spec describe_pipe(map(), String.t(), list()) ::
+  @spec describe_pipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_pipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_pipe_errors()}
   def describe_pipe(%Client{} = client, name, options \\ []) do
     url_path = "/v1/pipes/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Get the pipes associated with this account.
-
-  For more information about pipes, see [Amazon EventBridge Pipes](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html)
+  Get the pipes associated with this account. For more information about pipes,
+  see [Amazon EventBridge
+  Pipes](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html)
   in the Amazon EventBridge User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pipes%20ListPipes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:current_state` (`t:string`) The state the pipe is in.
+  * `:desired_state` (`t:string`) The state the pipe should be in.
+  * `:limit` (`t:integer`) The maximum number of pipes to include in the response.
+  * `:name_prefix` (`t:string`) A value that will return a subset of the pipes
+    associated with this account. For example, "NamePrefix": "ABC" will return
+    all endpoints with "ABC" in the name.
+  * `:next_token` (`t:string`) If nextToken is returned, there are more results
+    available. The value of nextToken is a unique pagination token for each
+    page. Make the call again using the returned token to retrieve the next
+    page. Keep all other arguments unchanged. Each pagination token expires
+    after 24 hours. Using an expired pagination token will return an HTTP 400
+    InvalidToken error.
+  * `:source_prefix` (`t:string`) The prefix matching the pipe source.
+  * `:target_prefix` (`t:string`) The prefix matching the pipe target.
   """
-  @spec list_pipes(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_pipes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pipes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pipes_errors()}
-  def list_pipes(
-        %Client{} = client,
-        current_state \\ nil,
-        desired_state \\ nil,
-        limit \\ nil,
-        name_prefix \\ nil,
-        next_token \\ nil,
-        source_prefix \\ nil,
-        target_prefix \\ nil,
-        options \\ []
-      ) do
+  def list_pipes(%Client{} = client, options \\ []) do
     url_path = "/v1/pipes"
+
+    # Validate optional parameters
+    optional_params = [
+      current_state: nil,
+      desired_state: nil,
+      limit: nil,
+      name_prefix: nil,
+      next_token: nil,
+      source_prefix: nil,
+      target_prefix: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(target_prefix) do
-        [{"TargetPrefix", target_prefix} | query_params]
+      if opt_val = Keyword.get(options, :target_prefix) do
+        [{"TargetPrefix", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(source_prefix) do
-        [{"SourcePrefix", source_prefix} | query_params]
+      if opt_val = Keyword.get(options, :source_prefix) do
+        [{"SourcePrefix", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name_prefix) do
-        [{"NamePrefix", name_prefix} | query_params]
+      if opt_val = Keyword.get(options, :name_prefix) do
+        [{"NamePrefix", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"Limit", limit} | query_params]
+      if opt_val = Keyword.get(options, :limit) do
+        [{"Limit", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(desired_state) do
-        [{"DesiredState", desired_state} | query_params]
+      if opt_val = Keyword.get(options, :desired_state) do
+        [{"DesiredState", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(current_state) do
-        [{"CurrentState", current_state} | query_params]
+      if opt_val = Keyword.get(options, :current_state) do
+        [{"CurrentState", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :current_state,
+        :desired_state,
+        :limit,
+        :name_prefix,
+        :next_token,
+        :source_prefix,
+        :target_prefix
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Displays the tags associated with a pipe.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pipes%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the pipe for which you want to view
+    tags.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Start an existing pipe.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pipes%20StartPipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the pipe.
+
+  ## Optional parameters:
   """
-  @spec start_pipe(map(), String.t(), start_pipe_request(), list()) ::
+  @spec start_pipe(AWS.Client.t(), String.t(), start_pipe_request(), Keyword.t()) ::
           {:ok, start_pipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_pipe_errors()}
@@ -1586,7 +1691,8 @@ defmodule AWS.Pipes do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1603,8 +1709,15 @@ defmodule AWS.Pipes do
 
   @doc """
   Stop an existing pipe.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pipes%20StopPipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the pipe.
+
+  ## Optional parameters:
   """
-  @spec stop_pipe(map(), String.t(), stop_pipe_request(), list()) ::
+  @spec stop_pipe(AWS.Client.t(), String.t(), stop_pipe_request(), Keyword.t()) ::
           {:ok, stop_pipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_pipe_errors()}
@@ -1613,7 +1726,8 @@ defmodule AWS.Pipes do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1629,28 +1743,20 @@ defmodule AWS.Pipes do
   end
 
   @doc """
-  Assigns one or more tags (key-value pairs) to the specified pipe.
+  Assigns one or more tags (key-value pairs) to the specified pipe. Tags can help
+  you organize and categorize your resources. You can also use them to scope
+  user permissions by granting a user permission to access or change only
+  resources with certain tag values. Tags don't have any semantic meaning to
+  Amazon Web Services and are interpreted strictly as strings of characters.
 
-  Tags can help you
-  organize and categorize your resources. You can also use them to scope user
-  permissions by
-  granting a user permission to access or change only resources with certain tag
-  values.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pipes%20TagResource&this_doc_guide=API%2520Reference)
 
-  Tags don't have any semantic meaning to Amazon Web Services and are interpreted
-  strictly
-  as strings of characters.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the pipe.
 
-  You can use the `TagResource` action with a pipe that already has tags. If
-  you specify a new tag key, this tag is appended to the list of tags associated
-  with the
-  pipe. If you specify a tag key that is already associated with the pipe, the new
-  tag value
-  that you specify replaces the previous value for that tag.
-
-  You can associate as many as 50 tags with a pipe.
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1659,7 +1765,8 @@ defmodule AWS.Pipes do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1676,8 +1783,17 @@ defmodule AWS.Pipes do
 
   @doc """
   Removes one or more tags from the specified pipes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pipes%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the pipe.
+  * `:tag_keys` (`t:list[com.amazonaws.pipes#TagKey]`) The list of tag keys to
+    remove from the pipe.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1691,7 +1807,8 @@ defmodule AWS.Pipes do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1707,28 +1824,25 @@ defmodule AWS.Pipes do
   end
 
   @doc """
-  Update an existing pipe.
+  Update an existing pipe. When you call `UpdatePipe`, EventBridge only the
+  updates fields you have specified in the request; the rest remain unchanged.
+  The exception to this is if you modify any Amazon Web Services-service
+  specific fields in the `SourceParameters`, `EnrichmentParameters`, or
+  `TargetParameters` objects. For example, `DynamoDBStreamParameters` or
+  `EventBridgeEventBusParameters`. EventBridge updates the fields in these
+  objects atomically as one and overrides existing values. This is by design,
+  and means that if you don't specify an optional field in one of these
+  `Parameters` objects, EventBridge sets that field to its system-default value
+  during the update.
 
-  When you call `UpdatePipe`, EventBridge only the
-  updates fields you have specified in the request; the rest remain unchanged. The
-  exception
-  to this is if you modify any Amazon Web Services-service specific fields in the
-  `SourceParameters`, `EnrichmentParameters`, or
-  `TargetParameters` objects. For example,
-  `DynamoDBStreamParameters` or `EventBridgeEventBusParameters`.
-  EventBridge updates the fields in these objects atomically as one and overrides
-  existing
-  values. This is by design, and means that if you don't specify an optional field
-  in one of
-  these `Parameters` objects, EventBridge sets that field to its system-default
-  value during the update.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pipes%20UpdatePipe&this_doc_guide=API%2520Reference)
 
-  For more information about pipes, see [
-  Amazon EventBridge
-  Pipes](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html)
-  in the Amazon EventBridge User Guide.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the pipe.
+
+  ## Optional parameters:
   """
-  @spec update_pipe(map(), String.t(), update_pipe_request(), list()) ::
+  @spec update_pipe(AWS.Client.t(), String.t(), update_pipe_request(), Keyword.t()) ::
           {:ok, update_pipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pipe_errors()}
@@ -1737,7 +1851,8 @@ defmodule AWS.Pipes do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

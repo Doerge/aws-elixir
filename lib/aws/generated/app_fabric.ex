@@ -4,20 +4,17 @@
 defmodule AWS.AppFabric do
   @moduledoc """
   Amazon Web Services AppFabric quickly connects software as a service (SaaS)
-  applications across your
-  organization.
-
-  This allows IT and security teams to easily manage and secure applications
-  using a standard schema, and employees can complete everyday tasks faster using
-  generative
-  artificial intelligence (AI). You can use these APIs to complete AppFabric
-  tasks, such as
-  setting up audit log ingestions or viewing user access. For more information
-  about AppFabric,
-  including the required permissions to use the service, see the [Amazon Web Services AppFabric Administration
+  applications across your organization. This allows IT and security teams to
+  easily manage and secure applications using a standard schema, and employees
+  can complete everyday tasks faster using generative artificial intelligence
+  (AI). You can use these APIs to complete AppFabric tasks, such as setting up
+  audit log ingestions or viewing user access. For more information about
+  AppFabric, including the required permissions to use the service, see the
+  [Amazon Web Services AppFabric Administration
   Guide](https://docs.aws.amazon.com/appfabric/latest/adminguide/). For more
   information about using the Command Line Interface (CLI) to manage your
-  AppFabric resources, see the [AppFabric section of the CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/appfabric/index.html).
+  AppFabric resources, see the [AppFabric section of the CLI
+  Reference](https://docs.aws.amazon.com/cli/latest/reference/appfabric/index.html).
   """
 
   alias AWS.Client
@@ -1167,10 +1164,17 @@ defmodule AWS.AppFabric do
   @doc """
   Gets user access details in a batch request.
 
-  This action polls data from the tasks that are kicked off by the
-  `StartUserAccessTasks` action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20BatchGetUserAccessTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_get_user_access_tasks(map(), batch_get_user_access_tasks_request(), list()) ::
+  @spec batch_get_user_access_tasks(
+          AWS.Client.t(),
+          batch_get_user_access_tasks_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_get_user_access_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_user_access_tasks_errors()}
@@ -1179,7 +1183,8 @@ defmodule AWS.AppFabric do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1196,15 +1201,26 @@ defmodule AWS.AppFabric do
 
   @doc """
   Establishes a connection between Amazon Web Services AppFabric and an
-  application, which allows AppFabric to
-  call the APIs of the application.
+  application, which allows AppFabric to call the APIs of the application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20ConnectAppAuthorization&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_authorization_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the app authorization to use for the
+    request.
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the app bundle that contains the app
+    authorization to use for the request.
+
+  ## Optional parameters:
   """
   @spec connect_app_authorization(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           connect_app_authorization_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, connect_app_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1222,7 +1238,8 @@ defmodule AWS.AppFabric do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1239,10 +1256,22 @@ defmodule AWS.AppFabric do
 
   @doc """
   Creates an app authorization within an app bundle, which allows AppFabric to
-  connect to an
-  application.
+  connect to an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20CreateAppAuthorization&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the app bundle to use for the request.
+
+  ## Optional parameters:
   """
-  @spec create_app_authorization(map(), String.t(), create_app_authorization_request(), list()) ::
+  @spec create_app_authorization(
+          AWS.Client.t(),
+          String.t(),
+          create_app_authorization_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_app_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_authorization_errors()}
@@ -1251,7 +1280,8 @@ defmodule AWS.AppFabric do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1268,8 +1298,14 @@ defmodule AWS.AppFabric do
 
   @doc """
   Creates an app bundle to collect data from an application using AppFabric.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20CreateAppBundle&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_app_bundle(map(), create_app_bundle_request(), list()) ::
+  @spec create_app_bundle(AWS.Client.t(), create_app_bundle_request(), Keyword.t()) ::
           {:ok, create_app_bundle_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_bundle_errors()}
@@ -1278,7 +1314,8 @@ defmodule AWS.AppFabric do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1295,8 +1332,16 @@ defmodule AWS.AppFabric do
 
   @doc """
   Creates a data ingestion for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20CreateIngestion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the app bundle to use for the request.
+
+  ## Optional parameters:
   """
-  @spec create_ingestion(map(), String.t(), create_ingestion_request(), list()) ::
+  @spec create_ingestion(AWS.Client.t(), String.t(), create_ingestion_request(), Keyword.t()) ::
           {:ok, create_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ingestion_errors()}
@@ -1305,7 +1350,8 @@ defmodule AWS.AppFabric do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1322,15 +1368,24 @@ defmodule AWS.AppFabric do
 
   @doc """
   Creates an ingestion destination, which specifies how an application's ingested
-  data is
-  processed by Amazon Web Services AppFabric and where it's delivered.
+  data is processed by Amazon Web Services AppFabric and where it's delivered.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20CreateIngestionDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the app bundle to use for the request.
+  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the ingestion to use for the request.
+
+  ## Optional parameters:
   """
   @spec create_ingestion_destination(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           create_ingestion_destination_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_ingestion_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1348,7 +1403,8 @@ defmodule AWS.AppFabric do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1364,17 +1420,26 @@ defmodule AWS.AppFabric do
   end
 
   @doc """
-  Deletes an app authorization.
+  Deletes an app authorization. You must delete the associated ingestion before
+  you can delete an app authorization.
 
-  You must delete the associated ingestion before you can
-  delete an app authorization.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20DeleteAppAuthorization&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_authorization_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the app authorization to use for the
+    request.
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the app bundle to use for the request.
+
+  ## Optional parameters:
   """
   @spec delete_app_authorization(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           delete_app_authorization_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_app_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1392,7 +1457,8 @@ defmodule AWS.AppFabric do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1408,12 +1474,18 @@ defmodule AWS.AppFabric do
   end
 
   @doc """
-  Deletes an app bundle.
+  Deletes an app bundle. You must delete all associated app authorizations before
+  you can delete an app bundle.
 
-  You must delete all associated app authorizations before you can
-  delete an app bundle.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20DeleteAppBundle&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_bundle_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the app bundle that needs to be deleted.
+
+  ## Optional parameters:
   """
-  @spec delete_app_bundle(map(), String.t(), delete_app_bundle_request(), list()) ::
+  @spec delete_app_bundle(AWS.Client.t(), String.t(), delete_app_bundle_request(), Keyword.t()) ::
           {:ok, delete_app_bundle_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_bundle_errors()}
@@ -1422,7 +1494,8 @@ defmodule AWS.AppFabric do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1438,12 +1511,26 @@ defmodule AWS.AppFabric do
   end
 
   @doc """
-  Deletes an ingestion.
+  Deletes an ingestion. You must stop (disable) the ingestion and you must delete
+  all associated ingestion destinations before you can delete an app ingestion.
 
-  You must stop (disable) the ingestion and you must delete all
-  associated ingestion destinations before you can delete an app ingestion.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20DeleteIngestion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the app bundle to use for the request.
+  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the ingestion to use for the request.
+
+  ## Optional parameters:
   """
-  @spec delete_ingestion(map(), String.t(), String.t(), delete_ingestion_request(), list()) ::
+  @spec delete_ingestion(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_ingestion_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ingestion_errors()}
@@ -1460,7 +1547,8 @@ defmodule AWS.AppFabric do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1478,22 +1566,26 @@ defmodule AWS.AppFabric do
   @doc """
   Deletes an ingestion destination.
 
-  This deletes the association between an ingestion and it's destination. It
-  doesn't
-  delete previously ingested data or the storage destination, such as the Amazon
-  S3
-  bucket where the data is delivered. If the ingestion destination is deleted
-  while the
-  associated ingestion is enabled, the ingestion will fail and is eventually
-  disabled.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20DeleteIngestionDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the app bundle to use for the request.
+  * `:ingestion_destination_identifier` (`t:string`) The Amazon Resource Name
+    (ARN) or Universal Unique Identifier (UUID) of the ingestion destination to
+    use for the request.
+  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the ingestion to use for the request.
+
+  ## Optional parameters:
   """
   @spec delete_ingestion_destination(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           delete_ingestion_destination_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_ingestion_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1512,7 +1604,8 @@ defmodule AWS.AppFabric do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1529,8 +1622,19 @@ defmodule AWS.AppFabric do
 
   @doc """
   Returns information about an app authorization.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20GetAppAuthorization&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_authorization_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the app authorization to use for the
+    request.
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the app bundle to use for the request.
+
+  ## Optional parameters:
   """
-  @spec get_app_authorization(map(), String.t(), String.t(), list()) ::
+  @spec get_app_authorization(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_app_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_authorization_errors()}
@@ -1543,35 +1647,88 @@ defmodule AWS.AppFabric do
     url_path =
       "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/appauthorizations/#{AWS.Util.encode_uri(app_authorization_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about an app bundle.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20GetAppBundle&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the app bundle to use for the request.
+
+  ## Optional parameters:
   """
-  @spec get_app_bundle(map(), String.t(), list()) ::
+  @spec get_app_bundle(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_app_bundle_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_bundle_errors()}
   def get_app_bundle(%Client{} = client, app_bundle_identifier, options \\ []) do
     url_path = "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about an ingestion.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20GetIngestion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the app bundle to use for the request.
+  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the ingestion to use for the request.
+
+  ## Optional parameters:
   """
-  @spec get_ingestion(map(), String.t(), String.t(), list()) ::
+  @spec get_ingestion(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ingestion_errors()}
@@ -1584,18 +1741,48 @@ defmodule AWS.AppFabric do
     url_path =
       "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/ingestions/#{AWS.Util.encode_uri(ingestion_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about an ingestion destination.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20GetIngestionDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the app bundle to use for the request.
+  * `:ingestion_destination_identifier` (`t:string`) The Amazon Resource Name
+    (ARN) or Universal Unique Identifier (UUID) of the ingestion destination to
+    use for the request.
+  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the ingestion to use for the request.
+
+  ## Optional parameters:
   """
-  @spec get_ingestion_destination(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_ingestion_destination(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_ingestion_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ingestion_destination_errors()}
@@ -1609,93 +1796,189 @@ defmodule AWS.AppFabric do
     url_path =
       "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/ingestions/#{AWS.Util.encode_uri(ingestion_identifier)}/ingestiondestinations/#{AWS.Util.encode_uri(ingestion_destination_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all app authorizations configured for an app bundle.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20ListAppAuthorizations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the app bundle to use for the request.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results that are returned
+    per call. You can use nextToken to obtain further pages of results.
+  * `:next_token` (`t:string`) If nextToken is returned, there are more results
+    available. The value of nextToken is a unique pagination token for each
+    page. Make the call again using the returned token to retrieve the next
+    page. Keep all other arguments unchanged. Each pagination token expires
+    after 24 hours. Using an expired pagination token will return an HTTP 400
+    InvalidToken error.
   """
-  @spec list_app_authorizations(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_app_authorizations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_authorizations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_authorizations_errors()}
-  def list_app_authorizations(
-        %Client{} = client,
-        app_bundle_identifier,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_app_authorizations(%Client{} = client, app_bundle_identifier, options \\ []) do
     url_path = "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/appauthorizations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of app bundles.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20ListAppBundles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results that are returned
+    per call. You can use nextToken to obtain further pages of results.
+  * `:next_token` (`t:string`) If nextToken is returned, there are more results
+    available. The value of nextToken is a unique pagination token for each
+    page. Make the call again using the returned token to retrieve the next
+    page. Keep all other arguments unchanged. Each pagination token expires
+    after 24 hours. Using an expired pagination token will return an HTTP 400
+    InvalidToken error.
   """
-  @spec list_app_bundles(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_app_bundles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_bundles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_bundles_errors()}
-  def list_app_bundles(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_app_bundles(%Client{} = client, options \\ []) do
     url_path = "/appbundles"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all ingestion destinations configured for an ingestion.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20ListIngestionDestinations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the app bundle to use for the request.
+  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the ingestion to use for the request.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results that are returned
+    per call. You can use nextToken to obtain further pages of results.
+  * `:next_token` (`t:`) If nextToken is returned, there are more results
+    available. The value of nextToken is a unique pagination token for each
+    page. Make the call again using the returned token to retrieve the next
+    page. Keep all other arguments unchanged. Each pagination token expires
+    after 24 hours. Using an expired pagination token will return an HTTP 400
+    InvalidToken error.
   """
-  @spec list_ingestion_destinations(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_ingestion_destinations(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_ingestion_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ingestion_destinations_errors()}
@@ -1703,93 +1986,186 @@ defmodule AWS.AppFabric do
         %Client{} = client,
         app_bundle_identifier,
         ingestion_identifier,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/ingestions/#{AWS.Util.encode_uri(ingestion_identifier)}/ingestiondestinations"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all ingestions configured for an app bundle.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20ListIngestions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the app bundle to use for the request.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results that are returned
+    per call. You can use nextToken to obtain further pages of results.
+  * `:next_token` (`t:`) If nextToken is returned, there are more results
+    available. The value of nextToken is a unique pagination token for each
+    page. Make the call again using the returned token to retrieve the next
+    page. Keep all other arguments unchanged. Each pagination token expires
+    after 24 hours. Using an expired pagination token will return an HTTP 400
+    InvalidToken error.
   """
-  @spec list_ingestions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_ingestions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_ingestions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ingestions_errors()}
-  def list_ingestions(
-        %Client{} = client,
-        app_bundle_identifier,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_ingestions(%Client{} = client, app_bundle_identifier, options \\ []) do
     url_path = "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/ingestions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of tags for a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    for which you want to retrieve tags.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Starts (enables) an ingestion, which collects data from an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20StartIngestion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the app bundle to use for the request.
+  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the ingestion to use for the request.
+
+  ## Optional parameters:
   """
-  @spec start_ingestion(map(), String.t(), String.t(), start_ingestion_request(), list()) ::
+  @spec start_ingestion(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          start_ingestion_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_ingestion_errors()}
@@ -1806,7 +2182,8 @@ defmodule AWS.AppFabric do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1824,10 +2201,13 @@ defmodule AWS.AppFabric do
   @doc """
   Starts the tasks to search user access status for a specific email address.
 
-  The tasks are stopped when the user access status data is found. The tasks are
-  terminated when the API calls to the application time out.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20StartUserAccessTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_user_access_tasks(map(), start_user_access_tasks_request(), list()) ::
+  @spec start_user_access_tasks(AWS.Client.t(), start_user_access_tasks_request(), Keyword.t()) ::
           {:ok, start_user_access_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_user_access_tasks_errors()}
@@ -1836,7 +2216,8 @@ defmodule AWS.AppFabric do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1853,8 +2234,24 @@ defmodule AWS.AppFabric do
 
   @doc """
   Stops (disables) an ingestion.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20StopIngestion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the app bundle to use for the request.
+  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the ingestion to use for the request.
+
+  ## Optional parameters:
   """
-  @spec stop_ingestion(map(), String.t(), String.t(), stop_ingestion_request(), list()) ::
+  @spec stop_ingestion(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          stop_ingestion_request(),
+          Keyword.t()
+        ) ::
           {:ok, stop_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_ingestion_errors()}
@@ -1871,7 +2268,8 @@ defmodule AWS.AppFabric do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1888,8 +2286,16 @@ defmodule AWS.AppFabric do
 
   @doc """
   Assigns one or more tags (key-value pairs) to the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    that you want to tag.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1898,7 +2304,8 @@ defmodule AWS.AppFabric do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1915,8 +2322,19 @@ defmodule AWS.AppFabric do
 
   @doc """
   Removes a tag or tags from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    that you want to untag.
+  * `:tag_keys` (`t:list[com.amazonaws.appfabric#TagKey]`) The keys of the
+    key-value pairs for the tag or tags you want to remove from the specified
+    resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1930,7 +2348,8 @@ defmodule AWS.AppFabric do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1947,18 +2366,25 @@ defmodule AWS.AppFabric do
 
   @doc """
   Updates an app authorization within an app bundle, which allows AppFabric to
-  connect to an
-  application.
+  connect to an application.
 
-  If the app authorization was in a `connected` state, updating the app
-  authorization will set it back to a `PendingConnect` state.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20UpdateAppAuthorization&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_authorization_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the app authorization to use for the
+    request.
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the app bundle to use for the request.
+
+  ## Optional parameters:
   """
   @spec update_app_authorization(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           update_app_authorization_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_app_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1976,7 +2402,8 @@ defmodule AWS.AppFabric do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1993,16 +2420,28 @@ defmodule AWS.AppFabric do
 
   @doc """
   Updates an ingestion destination, which specifies how an application's ingested
-  data is
-  processed by Amazon Web Services AppFabric and where it's delivered.
+  data is processed by Amazon Web Services AppFabric and where it's delivered.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appfabric%20UpdateIngestionDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the app bundle to use for the request.
+  * `:ingestion_destination_identifier` (`t:string`) The Amazon Resource Name
+    (ARN) or Universal Unique Identifier (UUID) of the ingestion destination to
+    use for the request.
+  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    Universal Unique Identifier (UUID) of the ingestion to use for the request.
+
+  ## Optional parameters:
   """
   @spec update_ingestion_destination(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           update_ingestion_destination_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_ingestion_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2021,7 +2460,8 @@ defmodule AWS.AppFabric do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

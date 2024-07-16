@@ -4,16 +4,7 @@
 defmodule AWS.AppIntegrations do
   @moduledoc """
   The Amazon AppIntegrations service enables you to configure and reuse
-  connections to external
-  applications.
-
-  For information about how you can use external applications with Amazon Connect,
-  see
-  [Set up pre-built integrations](https://docs.aws.amazon.com/connect/latest/adminguide/crm.html)
-  and [Deliver information to agents using Amazon Connect
-  Wisdom](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-wisdom.html)
-  in the *Amazon Connect Administrator
-  Guide*.
+  connections to external applications.
   """
 
   alias AWS.Client
@@ -950,9 +941,13 @@ defmodule AWS.AppIntegrations do
   @doc """
   This API is in preview release and subject to change.
 
-  Creates and persists an Application resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20CreateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_application(map(), create_application_request(), list()) ::
+  @spec create_application(AWS.Client.t(), create_application_request(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
@@ -961,7 +956,8 @@ defmodule AWS.AppIntegrations do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -979,13 +975,13 @@ defmodule AWS.AppIntegrations do
   @doc """
   Creates and persists a DataIntegration resource.
 
-  You cannot create a DataIntegration association for a DataIntegration that has
-  been
-  previously associated. Use a different DataIntegration, or recreate the
-  DataIntegration
-  using the `CreateDataIntegration` API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20CreateDataIntegration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_data_integration(map(), create_data_integration_request(), list()) ::
+  @spec create_data_integration(AWS.Client.t(), create_data_integration_request(), Keyword.t()) ::
           {:ok, create_data_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_integration_errors()}
@@ -994,7 +990,8 @@ defmodule AWS.AppIntegrations do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1011,16 +1008,18 @@ defmodule AWS.AppIntegrations do
 
   @doc """
   Creates an EventIntegration, given a specified name, description, and a
-  reference to an
-  Amazon EventBridge bus in your account and a partner event source that pushes
-  events to
-  that bus.
+  reference to an Amazon EventBridge bus in your account and a partner event
+  source that pushes events to that bus. No objects are created in the your
+  account, only metadata that is persisted on the EventIntegration control
+  plane.
 
-  No objects are created in the your account, only metadata that is persisted on
-  the
-  EventIntegration control plane.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20CreateEventIntegration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_event_integration(map(), create_event_integration_request(), list()) ::
+  @spec create_event_integration(AWS.Client.t(), create_event_integration_request(), Keyword.t()) ::
           {:ok, create_event_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_event_integration_errors()}
@@ -1029,7 +1028,8 @@ defmodule AWS.AppIntegrations do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1045,11 +1045,17 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
-  Deletes the Application.
+  Deletes the Application. Only Applications that don't have any Application
+  Associations can be deleted.
 
-  Only Applications that don't have any Application Associations can be deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20DeleteApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Application.
+
+  ## Optional parameters:
   """
-  @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
+  @spec delete_application(AWS.Client.t(), String.t(), delete_application_request(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
@@ -1058,7 +1064,8 @@ defmodule AWS.AppIntegrations do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1074,20 +1081,24 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
-  Deletes the DataIntegration.
-
-  Only DataIntegrations that don't have any
+  Deletes the DataIntegration. Only DataIntegrations that don't have any
   DataIntegrationAssociations can be deleted. Deleting a DataIntegration also
-  deletes the
-  underlying Amazon AppFlow flow and service linked role.
+  deletes the underlying Amazon AppFlow flow and service linked role.
 
-  You cannot create a DataIntegration association for a DataIntegration that has
-  been previously associated.
-  Use a different DataIntegration, or recreate the DataIntegration using the
-  [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
-  API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20DeleteDataIntegration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_integration_identifier` (`t:string`) A unique identifier for the
+    DataIntegration.
+
+  ## Optional parameters:
   """
-  @spec delete_data_integration(map(), String.t(), delete_data_integration_request(), list()) ::
+  @spec delete_data_integration(
+          AWS.Client.t(),
+          String.t(),
+          delete_data_integration_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_data_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_integration_errors()}
@@ -1101,7 +1112,8 @@ defmodule AWS.AppIntegrations do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1117,12 +1129,22 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
-  Deletes the specified existing event integration.
+  Deletes the specified existing event integration. If the event integration is
+  associated with clients, the request is rejected.
 
-  If the event integration is associated
-  with clients, the request is rejected.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20DeleteEventIntegration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the event integration.
+
+  ## Optional parameters:
   """
-  @spec delete_event_integration(map(), String.t(), delete_event_integration_request(), list()) ::
+  @spec delete_event_integration(
+          AWS.Client.t(),
+          String.t(),
+          delete_event_integration_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_event_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_integration_errors()}
@@ -1131,7 +1153,8 @@ defmodule AWS.AppIntegrations do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1149,18 +1172,41 @@ defmodule AWS.AppIntegrations do
   @doc """
   This API is in preview release and subject to change.
 
-  Get an Application resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20GetApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Application.
+
+  ## Optional parameters:
   """
-  @spec get_application(map(), String.t(), list()) ::
+  @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_errors()}
   def get_application(%Client{} = client, arn, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1168,82 +1214,147 @@ defmodule AWS.AppIntegrations do
   @doc """
   Returns information about the DataIntegration.
 
-  You cannot create a DataIntegration association for a DataIntegration that has
-  been previously associated.
-  Use a different DataIntegration, or recreate the DataIntegration using the
-  [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
-  API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20GetDataIntegration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) A unique identifier.
+
+  ## Optional parameters:
   """
-  @spec get_data_integration(map(), String.t(), list()) ::
+  @spec get_data_integration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_integration_errors()}
   def get_data_integration(%Client{} = client, identifier, options \\ []) do
     url_path = "/dataIntegrations/#{AWS.Util.encode_uri(identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about the event integration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20GetEventIntegration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the event integration.
+
+  ## Optional parameters:
   """
-  @spec get_event_integration(map(), String.t(), list()) ::
+  @spec get_event_integration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_event_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_event_integration_errors()}
   def get_event_integration(%Client{} = client, name, options \\ []) do
     url_path = "/eventIntegrations/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a paginated list of application associations for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListApplicationAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) A unique identifier for the Application.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_application_associations(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_application_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_associations_errors()}
-  def list_application_associations(
-        %Client{} = client,
-        application_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_application_associations(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/associations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1251,32 +1362,62 @@ defmodule AWS.AppIntegrations do
   @doc """
   This API is in preview release and subject to change.
 
-  Lists applications in the account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_applications(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
-  def list_applications(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_applications(%Client{} = client, options \\ []) do
     url_path = "/applications"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1284,50 +1425,69 @@ defmodule AWS.AppIntegrations do
   @doc """
   Returns a paginated list of DataIntegration associations in the account.
 
-  You cannot create a DataIntegration association for a DataIntegration that has
-  been previously associated.
-  Use a different DataIntegration, or recreate the DataIntegration using the
-  [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
-  API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListDataIntegrationAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_integration_identifier` (`t:string`) A unique identifier for the
+    DataIntegration.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_data_integration_associations(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_data_integration_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_integration_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_integration_associations_errors()}
   def list_data_integration_associations(
         %Client{} = client,
         data_integration_identifier,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/dataIntegrations/#{AWS.Util.encode_uri(data_integration_identifier)}/associations"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1335,145 +1495,250 @@ defmodule AWS.AppIntegrations do
   @doc """
   Returns a paginated list of DataIntegrations in the account.
 
-  You cannot create a DataIntegration association for a DataIntegration that has
-  been previously associated.
-  Use a different DataIntegration, or recreate the DataIntegration using the
-  [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
-  API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListDataIntegrations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_data_integrations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_data_integrations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_data_integrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_integrations_errors()}
-  def list_data_integrations(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_data_integrations(%Client{} = client, options \\ []) do
     url_path = "/dataIntegrations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a paginated list of event integration associations in the account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListEventIntegrationAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:event_integration_name` (`t:string`) The name of the event integration.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_event_integration_associations(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_event_integration_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_event_integration_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_integration_associations_errors()}
   def list_event_integration_associations(
         %Client{} = client,
         event_integration_name,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path = "/eventIntegrations/#{AWS.Util.encode_uri(event_integration_name)}/associations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a paginated list of event integrations in the account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListEventIntegrations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
-  @spec list_event_integrations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_event_integrations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_event_integrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_integrations_errors()}
-  def list_event_integrations(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_event_integrations(%Client{} = client, options \\ []) do
     url_path = "/eventIntegrations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the tags for the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Adds the specified tags to the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1482,7 +1747,8 @@ defmodule AWS.AppIntegrations do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1499,8 +1765,16 @@ defmodule AWS.AppIntegrations do
 
   @doc """
   Removes the specified tags from the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.appintegrations#TagKey]`) The tag keys.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1514,7 +1788,8 @@ defmodule AWS.AppIntegrations do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1532,9 +1807,14 @@ defmodule AWS.AppIntegrations do
   @doc """
   This API is in preview release and subject to change.
 
-  Updates and persists an Application resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20UpdateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Application.
+
+  ## Optional parameters:
   """
-  @spec update_application(map(), String.t(), update_application_request(), list()) ::
+  @spec update_application(AWS.Client.t(), String.t(), update_application_request(), Keyword.t()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
@@ -1543,7 +1823,8 @@ defmodule AWS.AppIntegrations do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1561,13 +1842,19 @@ defmodule AWS.AppIntegrations do
   @doc """
   Updates the description of a DataIntegration.
 
-  You cannot create a DataIntegration association for a DataIntegration that has
-  been previously associated.
-  Use a different DataIntegration, or recreate the DataIntegration using the
-  [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
-  API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20UpdateDataIntegration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) A unique identifier for the DataIntegration.
+
+  ## Optional parameters:
   """
-  @spec update_data_integration(map(), String.t(), update_data_integration_request(), list()) ::
+  @spec update_data_integration(
+          AWS.Client.t(),
+          String.t(),
+          update_data_integration_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_data_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_integration_errors()}
@@ -1576,7 +1863,8 @@ defmodule AWS.AppIntegrations do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1593,8 +1881,20 @@ defmodule AWS.AppIntegrations do
 
   @doc """
   Updates the description of an event integration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20UpdateEventIntegration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the event integration.
+
+  ## Optional parameters:
   """
-  @spec update_event_integration(map(), String.t(), update_event_integration_request(), list()) ::
+  @spec update_event_integration(
+          AWS.Client.t(),
+          String.t(),
+          update_event_integration_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_event_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_event_integration_errors()}
@@ -1603,7 +1903,8 @@ defmodule AWS.AppIntegrations do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

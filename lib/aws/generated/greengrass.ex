@@ -5,12 +5,10 @@ defmodule AWS.Greengrass do
   @moduledoc """
   AWS IoT Greengrass seamlessly extends AWS onto physical devices so they can act
   locally on the data they generate, while still using the cloud for management,
-  analytics, and durable storage.
-
-  AWS IoT Greengrass ensures your devices can respond quickly to local events and
-  operate with intermittent connectivity. AWS IoT Greengrass minimizes the cost of
-  transmitting data to the cloud by allowing you to author AWS Lambda functions
-  that execute locally.
+  analytics, and durable storage. AWS IoT Greengrass ensures your devices can
+  respond quickly to local events and operate with intermittent connectivity.
+  AWS IoT Greengrass minimizes the cost of transmitting data to the cloud by
+  allowing you to author AWS Lambda functions that execute locally.
   """
 
   alias AWS.Client
@@ -2984,13 +2982,23 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Associates a role with a group.
+  Associates a role with a group. Your Greengrass core will use the role to access
+  AWS cloud services. The role's permissions should allow Greengrass core Lambda
+  functions to perform actions against the cloud.
 
-  Your Greengrass core will use the role to access AWS cloud services. The role's
-  permissions should allow Greengrass core Lambda functions to perform actions
-  against the cloud.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20AssociateRoleToGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec associate_role_to_group(map(), String.t(), associate_role_to_group_request(), list()) ::
+  @spec associate_role_to_group(
+          AWS.Client.t(),
+          String.t(),
+          associate_role_to_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, associate_role_to_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_role_to_group_errors()}
@@ -2999,23 +3007,28 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Associates a role with your account.
+  Associates a role with your account. AWS IoT Greengrass will use the role to
+  access your Lambda functions and AWS IoT resources. This is necessary for
+  deployments to succeed. The role must have at least minimum permissions in the
+  policy ''AWSGreengrassResourceAccessRolePolicy''.
 
-  AWS IoT Greengrass will use the role to access your Lambda functions and AWS IoT
-  resources. This is necessary for deployments to succeed. The role must have at
-  least minimum permissions in the policy
-  ''AWSGreengrassResourceAccessRolePolicy''.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20AssociateServiceRoleToAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec associate_service_role_to_account(
-          map(),
+          AWS.Client.t(),
           associate_service_role_to_account_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, associate_service_role_to_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3025,23 +3038,42 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Creates a connector definition.
+  Creates a connector definition. You may provide the initial version of the
+  connector definition now or use ''CreateConnectorDefinitionVersion'' at a
+  later time.
 
-  You may provide the initial version of the connector definition now or use
-  ''CreateConnectorDefinitionVersion'' at a later time.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateConnectorDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:amzn_client_token` (`t:string`)
   """
-  @spec create_connector_definition(map(), create_connector_definition_request(), list()) ::
+  @spec create_connector_definition(
+          AWS.Client.t(),
+          create_connector_definition_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_connector_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connector_definition_errors()}
   def create_connector_definition(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/definition/connectors"
+
+    optional_params = [amzn_client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -3051,7 +3083,13 @@ defmodule AWS.Greengrass do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:amzn_client_token])
 
     Request.request_rest(
       client,
@@ -3068,12 +3106,20 @@ defmodule AWS.Greengrass do
 
   @doc """
   Creates a version of a connector definition which has already been defined.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateConnectorDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connector_definition_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_connector_definition_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_connector_definition_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_connector_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3087,6 +3133,14 @@ defmodule AWS.Greengrass do
     url_path =
       "/greengrass/definition/connectors/#{AWS.Util.encode_uri(connector_definition_id)}/versions"
 
+    optional_params = [amzn_client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"AmznClientToken", "X-Amzn-Client-Token"}
@@ -3095,7 +3149,13 @@ defmodule AWS.Greengrass do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:amzn_client_token])
 
     Request.request_rest(
       client,
@@ -3111,19 +3171,32 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a core definition.
+  Creates a core definition. You may provide the initial version of the core
+  definition now or use ''CreateCoreDefinitionVersion'' at a later time.
+  Greengrass groups must each contain exactly one Greengrass core.
 
-  You may provide the initial version of the core definition now or use
-  ''CreateCoreDefinitionVersion'' at a later time. Greengrass groups must each
-  contain exactly one Greengrass core.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateCoreDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:amzn_client_token` (`t:string`)
   """
-  @spec create_core_definition(map(), create_core_definition_request(), list()) ::
+  @spec create_core_definition(AWS.Client.t(), create_core_definition_request(), Keyword.t()) ::
           {:ok, create_core_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_core_definition_errors()}
   def create_core_definition(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/definition/cores"
 
+    optional_params = [amzn_client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"AmznClientToken", "X-Amzn-Client-Token"}
@@ -3132,7 +3205,13 @@ defmodule AWS.Greengrass do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:amzn_client_token])
 
     Request.request_rest(
       client,
@@ -3148,15 +3227,22 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a version of a core definition that has already been defined.
+  Creates a version of a core definition that has already been defined. Greengrass
+  groups must each contain exactly one Greengrass core.
 
-  Greengrass groups must each contain exactly one Greengrass core.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateCoreDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_definition_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_core_definition_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_core_definition_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_core_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3164,6 +3250,14 @@ defmodule AWS.Greengrass do
   def create_core_definition_version(%Client{} = client, core_definition_id, input, options \\ []) do
     url_path = "/greengrass/definition/cores/#{AWS.Util.encode_uri(core_definition_id)}/versions"
 
+    optional_params = [amzn_client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"AmznClientToken", "X-Amzn-Client-Token"}
@@ -3172,7 +3266,13 @@ defmodule AWS.Greengrass do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:amzn_client_token])
 
     Request.request_rest(
       client,
@@ -3188,18 +3288,32 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a deployment.
+  Creates a deployment. ''CreateDeployment'' requests are idempotent with respect
+  to the ''X-Amzn-Client-Token'' token and the request parameters.
 
-  ''CreateDeployment'' requests are idempotent with respect to the
-  ''X-Amzn-Client-Token'' token and the request parameters.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:amzn_client_token` (`t:string`)
   """
-  @spec create_deployment(map(), String.t(), create_deployment_request(), list()) ::
+  @spec create_deployment(AWS.Client.t(), String.t(), create_deployment_request(), Keyword.t()) ::
           {:ok, create_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deployment_errors()}
   def create_deployment(%Client{} = client, group_id, input, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/deployments"
 
+    optional_params = [amzn_client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"AmznClientToken", "X-Amzn-Client-Token"}
@@ -3208,7 +3322,13 @@ defmodule AWS.Greengrass do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:amzn_client_token])
 
     Request.request_rest(
       client,
@@ -3224,17 +3344,30 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a device definition.
+  Creates a device definition. You may provide the initial version of the device
+  definition now or use ''CreateDeviceDefinitionVersion'' at a later time.
 
-  You may provide the initial version of the device definition now or use
-  ''CreateDeviceDefinitionVersion'' at a later time.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateDeviceDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:amzn_client_token` (`t:string`)
   """
-  @spec create_device_definition(map(), create_device_definition_request(), list()) ::
+  @spec create_device_definition(AWS.Client.t(), create_device_definition_request(), Keyword.t()) ::
           {:ok, create_device_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_device_definition_errors()}
   def create_device_definition(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/definition/devices"
+
+    optional_params = [amzn_client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -3244,7 +3377,13 @@ defmodule AWS.Greengrass do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:amzn_client_token])
 
     Request.request_rest(
       client,
@@ -3261,12 +3400,20 @@ defmodule AWS.Greengrass do
 
   @doc """
   Creates a version of a device definition that has already been defined.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateDeviceDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_definition_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_device_definition_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_device_definition_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_device_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3280,6 +3427,14 @@ defmodule AWS.Greengrass do
     url_path =
       "/greengrass/definition/devices/#{AWS.Util.encode_uri(device_definition_id)}/versions"
 
+    optional_params = [amzn_client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"AmznClientToken", "X-Amzn-Client-Token"}
@@ -3288,7 +3443,13 @@ defmodule AWS.Greengrass do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:amzn_client_token])
 
     Request.request_rest(
       client,
@@ -3305,18 +3466,35 @@ defmodule AWS.Greengrass do
 
   @doc """
   Creates a Lambda function definition which contains a list of Lambda functions
-  and their configurations to be used in a group.
+  and their configurations to be used in a group. You can create an initial
+  version of the definition by providing a list of Lambda functions and their
+  configurations now, or use ''CreateFunctionDefinitionVersion'' later.
 
-  You can create an initial version of the definition by providing a list of
-  Lambda functions and their configurations now, or use
-  ''CreateFunctionDefinitionVersion'' later.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateFunctionDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:amzn_client_token` (`t:string`)
   """
-  @spec create_function_definition(map(), create_function_definition_request(), list()) ::
+  @spec create_function_definition(
+          AWS.Client.t(),
+          create_function_definition_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_function_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_function_definition_errors()}
   def create_function_definition(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/definition/functions"
+
+    optional_params = [amzn_client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -3326,7 +3504,13 @@ defmodule AWS.Greengrass do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:amzn_client_token])
 
     Request.request_rest(
       client,
@@ -3343,12 +3527,20 @@ defmodule AWS.Greengrass do
 
   @doc """
   Creates a version of a Lambda function definition that has already been defined.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateFunctionDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_definition_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_function_definition_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_function_definition_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_function_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3362,6 +3554,14 @@ defmodule AWS.Greengrass do
     url_path =
       "/greengrass/definition/functions/#{AWS.Util.encode_uri(function_definition_id)}/versions"
 
+    optional_params = [amzn_client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"AmznClientToken", "X-Amzn-Client-Token"}
@@ -3370,7 +3570,13 @@ defmodule AWS.Greengrass do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:amzn_client_token])
 
     Request.request_rest(
       client,
@@ -3386,20 +3592,34 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a group.
-
-  You may provide the initial version of the group or use ''CreateGroupVersion''
-  at a later time. Tip: You can use the ''gg_group_setup'' package
+  Creates a group. You may provide the initial version of the group or use
+  ''CreateGroupVersion'' at a later time. Tip: You can use the
+  ''gg_group_setup'' package
   (https://github.com/awslabs/aws-greengrass-group-setup) as a library or
   command-line application to create and deploy Greengrass groups.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:amzn_client_token` (`t:string`)
   """
-  @spec create_group(map(), create_group_request(), list()) ::
+  @spec create_group(AWS.Client.t(), create_group_request(), Keyword.t()) ::
           {:ok, create_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_errors()}
   def create_group(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/groups"
 
+    optional_params = [amzn_client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"AmznClientToken", "X-Amzn-Client-Token"}
@@ -3408,7 +3628,13 @@ defmodule AWS.Greengrass do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:amzn_client_token])
 
     Request.request_rest(
       client,
@@ -3424,15 +3650,22 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a CA for the group.
+  Creates a CA for the group. If a CA already exists, it will rotate the existing
+  CA.
 
-  If a CA already exists, it will rotate the existing CA.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateGroupCertificateAuthority&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_group_certificate_authority(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_group_certificate_authority_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_group_certificate_authority_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3440,6 +3673,14 @@ defmodule AWS.Greengrass do
   def create_group_certificate_authority(%Client{} = client, group_id, input, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/certificateauthorities"
 
+    optional_params = [amzn_client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"AmznClientToken", "X-Amzn-Client-Token"}
@@ -3448,7 +3689,13 @@ defmodule AWS.Greengrass do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:amzn_client_token])
 
     Request.request_rest(
       client,
@@ -3465,13 +3712,34 @@ defmodule AWS.Greengrass do
 
   @doc """
   Creates a version of a group which has already been defined.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateGroupVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:amzn_client_token` (`t:string`)
   """
-  @spec create_group_version(map(), String.t(), create_group_version_request(), list()) ::
+  @spec create_group_version(
+          AWS.Client.t(),
+          String.t(),
+          create_group_version_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_group_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_version_errors()}
   def create_group_version(%Client{} = client, group_id, input, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/versions"
+
+    optional_params = [amzn_client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -3481,7 +3749,13 @@ defmodule AWS.Greengrass do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:amzn_client_token])
 
     Request.request_rest(
       client,
@@ -3497,17 +3771,30 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a logger definition.
+  Creates a logger definition. You may provide the initial version of the logger
+  definition now or use ''CreateLoggerDefinitionVersion'' at a later time.
 
-  You may provide the initial version of the logger definition now or use
-  ''CreateLoggerDefinitionVersion'' at a later time.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateLoggerDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:amzn_client_token` (`t:string`)
   """
-  @spec create_logger_definition(map(), create_logger_definition_request(), list()) ::
+  @spec create_logger_definition(AWS.Client.t(), create_logger_definition_request(), Keyword.t()) ::
           {:ok, create_logger_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_logger_definition_errors()}
   def create_logger_definition(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/definition/loggers"
+
+    optional_params = [amzn_client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -3517,7 +3804,13 @@ defmodule AWS.Greengrass do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:amzn_client_token])
 
     Request.request_rest(
       client,
@@ -3534,12 +3827,20 @@ defmodule AWS.Greengrass do
 
   @doc """
   Creates a version of a logger definition that has already been defined.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateLoggerDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:logger_definition_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_logger_definition_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_logger_definition_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_logger_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3553,6 +3854,14 @@ defmodule AWS.Greengrass do
     url_path =
       "/greengrass/definition/loggers/#{AWS.Util.encode_uri(logger_definition_id)}/versions"
 
+    optional_params = [amzn_client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"AmznClientToken", "X-Amzn-Client-Token"}
@@ -3561,7 +3870,13 @@ defmodule AWS.Greengrass do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:amzn_client_token])
 
     Request.request_rest(
       client,
@@ -3578,17 +3893,34 @@ defmodule AWS.Greengrass do
 
   @doc """
   Creates a resource definition which contains a list of resources to be used in a
-  group.
+  group. You can create an initial version of the definition by providing a list
+  of resources now, or use ''CreateResourceDefinitionVersion'' later.
 
-  You can create an initial version of the definition by providing a list of
-  resources now, or use ''CreateResourceDefinitionVersion'' later.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateResourceDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:amzn_client_token` (`t:string`)
   """
-  @spec create_resource_definition(map(), create_resource_definition_request(), list()) ::
+  @spec create_resource_definition(
+          AWS.Client.t(),
+          create_resource_definition_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_resource_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_resource_definition_errors()}
   def create_resource_definition(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/definition/resources"
+
+    optional_params = [amzn_client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -3598,7 +3930,13 @@ defmodule AWS.Greengrass do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:amzn_client_token])
 
     Request.request_rest(
       client,
@@ -3615,12 +3953,20 @@ defmodule AWS.Greengrass do
 
   @doc """
   Creates a version of a resource definition that has already been defined.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateResourceDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_definition_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_resource_definition_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_resource_definition_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_resource_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3634,6 +3980,14 @@ defmodule AWS.Greengrass do
     url_path =
       "/greengrass/definition/resources/#{AWS.Util.encode_uri(resource_definition_id)}/versions"
 
+    optional_params = [amzn_client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"AmznClientToken", "X-Amzn-Client-Token"}
@@ -3642,7 +3996,13 @@ defmodule AWS.Greengrass do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:amzn_client_token])
 
     Request.request_rest(
       client,
@@ -3660,17 +4020,34 @@ defmodule AWS.Greengrass do
   @doc """
   Creates a software update for a core or group of cores (specified as an IoT
   thing group.) Use this to update the OTA Agent as well as the Greengrass core
-  software.
+  software. It makes use of the IoT Jobs feature which provides additional
+  commands to manage a Greengrass core software update job.
 
-  It makes use of the IoT Jobs feature which provides additional commands to
-  manage a Greengrass core software update job.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateSoftwareUpdateJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:amzn_client_token` (`t:string`)
   """
-  @spec create_software_update_job(map(), create_software_update_job_request(), list()) ::
+  @spec create_software_update_job(
+          AWS.Client.t(),
+          create_software_update_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_software_update_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_software_update_job_errors()}
   def create_software_update_job(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/updates"
+
+    optional_params = [amzn_client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -3680,7 +4057,13 @@ defmodule AWS.Greengrass do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:amzn_client_token])
 
     Request.request_rest(
       client,
@@ -3696,17 +4079,35 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a subscription definition.
+  Creates a subscription definition. You may provide the initial version of the
+  subscription definition now or use ''CreateSubscriptionDefinitionVersion'' at
+  a later time.
 
-  You may provide the initial version of the subscription definition now or use
-  ''CreateSubscriptionDefinitionVersion'' at a later time.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateSubscriptionDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:amzn_client_token` (`t:string`)
   """
-  @spec create_subscription_definition(map(), create_subscription_definition_request(), list()) ::
+  @spec create_subscription_definition(
+          AWS.Client.t(),
+          create_subscription_definition_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_subscription_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_subscription_definition_errors()}
   def create_subscription_definition(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/definition/subscriptions"
+
+    optional_params = [amzn_client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
 
     {headers, input} =
       [
@@ -3716,7 +4117,13 @@ defmodule AWS.Greengrass do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:amzn_client_token])
 
     Request.request_rest(
       client,
@@ -3733,12 +4140,20 @@ defmodule AWS.Greengrass do
 
   @doc """
   Creates a version of a subscription definition which has already been defined.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateSubscriptionDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:subscription_definition_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_subscription_definition_version(
-          map(),
+          AWS.Client.t(),
           String.t(),
           create_subscription_definition_version_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_subscription_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3752,6 +4167,14 @@ defmodule AWS.Greengrass do
     url_path =
       "/greengrass/definition/subscriptions/#{AWS.Util.encode_uri(subscription_definition_id)}/versions"
 
+    optional_params = [amzn_client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"AmznClientToken", "X-Amzn-Client-Token"}
@@ -3760,7 +4183,13 @@ defmodule AWS.Greengrass do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:amzn_client_token])
 
     Request.request_rest(
       client,
@@ -3777,12 +4206,19 @@ defmodule AWS.Greengrass do
 
   @doc """
   Deletes a connector definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteConnectorDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connector_definition_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec delete_connector_definition(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_connector_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_connector_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3797,7 +4233,8 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3814,8 +4251,20 @@ defmodule AWS.Greengrass do
 
   @doc """
   Deletes a core definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteCoreDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_definition_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_core_definition(map(), String.t(), delete_core_definition_request(), list()) ::
+  @spec delete_core_definition(
+          AWS.Client.t(),
+          String.t(),
+          delete_core_definition_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_core_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_core_definition_errors()}
@@ -3824,7 +4273,8 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3841,8 +4291,20 @@ defmodule AWS.Greengrass do
 
   @doc """
   Deletes a device definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteDeviceDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_definition_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_device_definition(map(), String.t(), delete_device_definition_request(), list()) ::
+  @spec delete_device_definition(
+          AWS.Client.t(),
+          String.t(),
+          delete_device_definition_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_device_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_device_definition_errors()}
@@ -3851,7 +4313,8 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3868,12 +4331,19 @@ defmodule AWS.Greengrass do
 
   @doc """
   Deletes a Lambda function definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteFunctionDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_definition_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec delete_function_definition(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_function_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_function_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3883,7 +4353,8 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3900,8 +4371,15 @@ defmodule AWS.Greengrass do
 
   @doc """
   Deletes a group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_group(map(), String.t(), delete_group_request(), list()) ::
+  @spec delete_group(AWS.Client.t(), String.t(), delete_group_request(), Keyword.t()) ::
           {:ok, delete_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_group_errors()}
@@ -3910,7 +4388,8 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3927,8 +4406,20 @@ defmodule AWS.Greengrass do
 
   @doc """
   Deletes a logger definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteLoggerDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:logger_definition_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_logger_definition(map(), String.t(), delete_logger_definition_request(), list()) ::
+  @spec delete_logger_definition(
+          AWS.Client.t(),
+          String.t(),
+          delete_logger_definition_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_logger_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_logger_definition_errors()}
@@ -3937,7 +4428,8 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3954,12 +4446,19 @@ defmodule AWS.Greengrass do
 
   @doc """
   Deletes a resource definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteResourceDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_definition_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec delete_resource_definition(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_resource_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_resource_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -3969,7 +4468,8 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -3986,12 +4486,19 @@ defmodule AWS.Greengrass do
 
   @doc """
   Deletes a subscription definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteSubscriptionDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:subscription_definition_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec delete_subscription_definition(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_subscription_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_subscription_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4008,7 +4515,8 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4025,12 +4533,19 @@ defmodule AWS.Greengrass do
 
   @doc """
   Disassociates the role from a group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DisassociateRoleFromGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec disassociate_role_from_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           disassociate_role_from_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_role_from_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4040,7 +4555,8 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4056,14 +4572,19 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Disassociates the service role from your account.
+  Disassociates the service role from your account. Without a service role,
+  deployments will not work.
 
-  Without a service role, deployments will not work.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DisassociateServiceRoleFromAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
   @spec disassociate_service_role_from_account(
-          map(),
+          AWS.Client.t(),
           disassociate_service_role_from_account_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, disassociate_service_role_from_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -4073,7 +4594,8 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4090,80 +4612,188 @@ defmodule AWS.Greengrass do
 
   @doc """
   Retrieves the role associated with a particular group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetAssociatedRole&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_associated_role(map(), String.t(), list()) ::
+  @spec get_associated_role(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_associated_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_associated_role_errors()}
   def get_associated_role(%Client{} = client, group_id, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/role"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the status of a bulk deployment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetBulkDeploymentStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bulk_deployment_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_bulk_deployment_status(map(), String.t(), list()) ::
+  @spec get_bulk_deployment_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bulk_deployment_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bulk_deployment_status_errors()}
   def get_bulk_deployment_status(%Client{} = client, bulk_deployment_id, options \\ []) do
     url_path = "/greengrass/bulk/deployments/#{AWS.Util.encode_uri(bulk_deployment_id)}/status"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the connectivity information for a core.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetConnectivityInfo&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_name` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_connectivity_info(map(), String.t(), list()) ::
+  @spec get_connectivity_info(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connectivity_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connectivity_info_errors()}
   def get_connectivity_info(%Client{} = client, thing_name, options \\ []) do
     url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/connectivityInfo"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a connector definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetConnectorDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connector_definition_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_connector_definition(map(), String.t(), list()) ::
+  @spec get_connector_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connector_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connector_definition_errors()}
   def get_connector_definition(%Client{} = client, connector_definition_id, options \\ []) do
     url_path = "/greengrass/definition/connectors/#{AWS.Util.encode_uri(connector_definition_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a connector definition version, including the
-  connectors that the version contains.
+  connectors that the version contains. Connectors are prebuilt modules that
+  interact with local infrastructure, device protocols, AWS, and other cloud
+  services.
 
-  Connectors are prebuilt modules that interact with local infrastructure, device
-  protocols, AWS, and other cloud services.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetConnectorDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connector_definition_id` (`t:string`)
+  * `:connector_definition_version_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`)
   """
-  @spec get_connector_definition_version(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_connector_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_connector_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connector_definition_version_errors()}
@@ -4171,48 +4801,101 @@ defmodule AWS.Greengrass do
         %Client{} = client,
         connector_definition_id,
         connector_definition_version_id,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/greengrass/definition/connectors/#{AWS.Util.encode_uri(connector_definition_id)}/versions/#{AWS.Util.encode_uri(connector_definition_version_id)}"
 
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a core definition version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetCoreDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_definition_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_core_definition(map(), String.t(), list()) ::
+  @spec get_core_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_core_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_core_definition_errors()}
   def get_core_definition(%Client{} = client, core_definition_id, options \\ []) do
     url_path = "/greengrass/definition/cores/#{AWS.Util.encode_uri(core_definition_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a core definition version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetCoreDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_definition_id` (`t:string`)
+  * `:core_definition_version_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_core_definition_version(map(), String.t(), String.t(), list()) ::
+  @spec get_core_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_core_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_core_definition_version_errors()}
@@ -4225,18 +4908,43 @@ defmodule AWS.Greengrass do
     url_path =
       "/greengrass/definition/cores/#{AWS.Util.encode_uri(core_definition_id)}/versions/#{AWS.Util.encode_uri(core_definition_version_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the status of a deployment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetDeploymentStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:deployment_id` (`t:string`)
+  * `:group_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_deployment_status(map(), String.t(), String.t(), list()) ::
+  @spec get_deployment_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_deployment_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_status_errors()}
@@ -4244,35 +4952,86 @@ defmodule AWS.Greengrass do
     url_path =
       "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/deployments/#{AWS.Util.encode_uri(deployment_id)}/status"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a device definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetDeviceDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_definition_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_device_definition(map(), String.t(), list()) ::
+  @spec get_device_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_definition_errors()}
   def get_device_definition(%Client{} = client, device_definition_id, options \\ []) do
     url_path = "/greengrass/definition/devices/#{AWS.Util.encode_uri(device_definition_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a device definition version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetDeviceDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_definition_id` (`t:string`)
+  * `:device_definition_version_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`)
   """
-  @spec get_device_definition_version(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_device_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_definition_version_errors()}
@@ -4280,23 +5039,43 @@ defmodule AWS.Greengrass do
         %Client{} = client,
         device_definition_id,
         device_definition_version_id,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/greengrass/definition/devices/#{AWS.Util.encode_uri(device_definition_id)}/versions/#{AWS.Util.encode_uri(device_definition_version_id)}"
 
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4304,17 +5083,42 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves information about a Lambda function definition, including its creation
   time and latest version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetFunctionDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_definition_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_function_definition(map(), String.t(), list()) ::
+  @spec get_function_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_function_definition_errors()}
   def get_function_definition(%Client{} = client, function_definition_id, options \\ []) do
     url_path = "/greengrass/definition/functions/#{AWS.Util.encode_uri(function_definition_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4322,8 +5126,17 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves information about a Lambda function definition version, including
   which Lambda functions are included in the version and their configurations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetFunctionDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_definition_id` (`t:string`)
+  * `:function_definition_version_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`)
   """
-  @spec get_function_definition_version(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_function_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_function_definition_version_errors()}
@@ -4331,50 +5144,101 @@ defmodule AWS.Greengrass do
         %Client{} = client,
         function_definition_id,
         function_definition_version_id,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/greengrass/definition/functions/#{AWS.Util.encode_uri(function_definition_id)}/versions/#{AWS.Util.encode_uri(function_definition_version_id)}"
 
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_group(map(), String.t(), list()) ::
+  @spec get_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_errors()}
   def get_group(%Client{} = client, group_id, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retreives the CA associated with a group.
+  Retreives the CA associated with a group. Returns the public key of the CA.
 
-  Returns the public key of the CA.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetGroupCertificateAuthority&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:certificate_authority_id` (`t:string`)
+  * `:group_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_group_certificate_authority(map(), String.t(), String.t(), list()) ::
+  @spec get_group_certificate_authority(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_group_certificate_authority_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_certificate_authority_errors()}
@@ -4387,18 +5251,42 @@ defmodule AWS.Greengrass do
     url_path =
       "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/certificateauthorities/#{AWS.Util.encode_uri(certificate_authority_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the current configuration for the CA used by the group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetGroupCertificateConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_group_certificate_configuration(map(), String.t(), list()) ::
+  @spec get_group_certificate_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_group_certificate_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_certificate_configuration_errors()}
@@ -4406,18 +5294,43 @@ defmodule AWS.Greengrass do
     url_path =
       "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/certificateauthorities/configuration/expiry"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a group version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetGroupVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
+  * `:group_version_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_group_version(map(), String.t(), String.t(), list()) ::
+  @spec get_group_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_group_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_version_errors()}
@@ -4425,35 +5338,86 @@ defmodule AWS.Greengrass do
     url_path =
       "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/versions/#{AWS.Util.encode_uri(group_version_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a logger definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetLoggerDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:logger_definition_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_logger_definition(map(), String.t(), list()) ::
+  @spec get_logger_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_logger_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_logger_definition_errors()}
   def get_logger_definition(%Client{} = client, logger_definition_id, options \\ []) do
     url_path = "/greengrass/definition/loggers/#{AWS.Util.encode_uri(logger_definition_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a logger definition version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetLoggerDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:logger_definition_id` (`t:string`)
+  * `:logger_definition_version_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`)
   """
-  @spec get_logger_definition_version(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_logger_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_logger_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_logger_definition_version_errors()}
@@ -4461,23 +5425,43 @@ defmodule AWS.Greengrass do
         %Client{} = client,
         logger_definition_id,
         logger_definition_version_id,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/greengrass/definition/loggers/#{AWS.Util.encode_uri(logger_definition_id)}/versions/#{AWS.Util.encode_uri(logger_definition_version_id)}"
 
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4485,17 +5469,42 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves information about a resource definition, including its creation time
   and latest version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetResourceDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_definition_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_resource_definition(map(), String.t(), list()) ::
+  @spec get_resource_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_definition_errors()}
   def get_resource_definition(%Client{} = client, resource_definition_id, options \\ []) do
     url_path = "/greengrass/definition/resources/#{AWS.Util.encode_uri(resource_definition_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4503,8 +5512,16 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves information about a resource definition version, including which
   resources are included in the version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetResourceDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_definition_id` (`t:string`)
+  * `:resource_definition_version_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_resource_definition_version(map(), String.t(), String.t(), list()) ::
+  @spec get_resource_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_definition_version_errors()}
@@ -4517,35 +5534,83 @@ defmodule AWS.Greengrass do
     url_path =
       "/greengrass/definition/resources/#{AWS.Util.encode_uri(resource_definition_id)}/versions/#{AWS.Util.encode_uri(resource_definition_version_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the service role that is attached to your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetServiceRoleForAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_service_role_for_account(map(), list()) ::
+  @spec get_service_role_for_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_service_role_for_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_role_for_account_errors()}
   def get_service_role_for_account(%Client{} = client, options \\ []) do
     url_path = "/greengrass/servicerole"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a subscription definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetSubscriptionDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:subscription_definition_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_subscription_definition(map(), String.t(), list()) ::
+  @spec get_subscription_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_subscription_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_subscription_definition_errors()}
@@ -4553,24 +5618,44 @@ defmodule AWS.Greengrass do
     url_path =
       "/greengrass/definition/subscriptions/#{AWS.Util.encode_uri(subscription_definition_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a subscription definition version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetSubscriptionDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:subscription_definition_id` (`t:string`)
+  * `:subscription_definition_version_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:next_token` (`t:string`)
   """
-  @spec get_subscription_definition_version(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_subscription_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_subscription_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_subscription_definition_version_errors()}
@@ -4578,40 +5663,85 @@ defmodule AWS.Greengrass do
         %Client{} = client,
         subscription_definition_id,
         subscription_definition_version_id,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/greengrass/definition/subscriptions/#{AWS.Util.encode_uri(subscription_definition_id)}/versions/#{AWS.Util.encode_uri(subscription_definition_version_id)}"
 
+    # Validate optional parameters
+    optional_params = [next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get the runtime configuration of a thing.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetThingRuntimeConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_name` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_thing_runtime_configuration(map(), String.t(), list()) ::
+  @spec get_thing_runtime_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_thing_runtime_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_thing_runtime_configuration_errors()}
   def get_thing_runtime_configuration(%Client{} = client, thing_name, options \\ []) do
     url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/runtimeconfig"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4619,795 +5749,1293 @@ defmodule AWS.Greengrass do
   @doc """
   Gets a paginated list of the deployments that have been started in a bulk
   deployment operation, and their current deployment status.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListBulkDeploymentDetailedReports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bulk_deployment_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_bulk_deployment_detailed_reports(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_bulk_deployment_detailed_reports(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_bulk_deployment_detailed_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bulk_deployment_detailed_reports_errors()}
-  def list_bulk_deployment_detailed_reports(
-        %Client{} = client,
-        bulk_deployment_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_bulk_deployment_detailed_reports(%Client{} = client, bulk_deployment_id, options \\ []) do
     url_path =
       "/greengrass/bulk/deployments/#{AWS.Util.encode_uri(bulk_deployment_id)}/detailed-reports"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of bulk deployments.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListBulkDeployments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_bulk_deployments(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_bulk_deployments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_bulk_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bulk_deployments_errors()}
-  def list_bulk_deployments(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_bulk_deployments(%Client{} = client, options \\ []) do
     url_path = "/greengrass/bulk/deployments"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the versions of a connector definition, which are containers for
-  connectors.
+  connectors. Connectors run on the Greengrass core and contain built-in
+  integration with local infrastructure, device protocols, AWS, and other cloud
+  services.
 
-  Connectors run on the Greengrass core and contain built-in integration with
-  local infrastructure, device protocols, AWS, and other cloud services.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListConnectorDefinitionVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connector_definition_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_connector_definition_versions(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_connector_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_connector_definition_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_connector_definition_versions_errors()}
   def list_connector_definition_versions(
         %Client{} = client,
         connector_definition_id,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/greengrass/definition/connectors/#{AWS.Util.encode_uri(connector_definition_id)}/versions"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of connector definitions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListConnectorDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_connector_definitions(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_connector_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connector_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_connector_definitions(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_connector_definitions(%Client{} = client, options \\ []) do
     url_path = "/greengrass/definition/connectors"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the versions of a core definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListCoreDefinitionVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_definition_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_core_definition_versions(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_core_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_core_definition_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_core_definition_versions_errors()}
-  def list_core_definition_versions(
-        %Client{} = client,
-        core_definition_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_core_definition_versions(%Client{} = client, core_definition_id, options \\ []) do
     url_path = "/greengrass/definition/cores/#{AWS.Util.encode_uri(core_definition_id)}/versions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of core definitions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListCoreDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_core_definitions(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_core_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_core_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_core_definitions(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_core_definitions(%Client{} = client, options \\ []) do
     url_path = "/greengrass/definition/cores"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a history of deployments for the group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListDeployments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_deployments(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_deployments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployments_errors()}
-  def list_deployments(
-        %Client{} = client,
-        group_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_deployments(%Client{} = client, group_id, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/deployments"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the versions of a device definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListDeviceDefinitionVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_definition_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_device_definition_versions(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_device_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_device_definition_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_device_definition_versions_errors()}
-  def list_device_definition_versions(
-        %Client{} = client,
-        device_definition_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_device_definition_versions(%Client{} = client, device_definition_id, options \\ []) do
     url_path =
       "/greengrass/definition/devices/#{AWS.Util.encode_uri(device_definition_id)}/versions"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of device definitions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListDeviceDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_device_definitions(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_device_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_device_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_device_definitions(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_device_definitions(%Client{} = client, options \\ []) do
     url_path = "/greengrass/definition/devices"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the versions of a Lambda function definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListFunctionDefinitionVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_definition_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_function_definition_versions(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_function_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_function_definition_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_function_definition_versions_errors()}
-  def list_function_definition_versions(
-        %Client{} = client,
-        function_definition_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_function_definition_versions(%Client{} = client, function_definition_id, options \\ []) do
     url_path =
       "/greengrass/definition/functions/#{AWS.Util.encode_uri(function_definition_id)}/versions"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of Lambda function definitions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListFunctionDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_function_definitions(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_function_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_function_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_function_definitions(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_function_definitions(%Client{} = client, options \\ []) do
     url_path = "/greengrass/definition/functions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the current CAs for a group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListGroupCertificateAuthorities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec list_group_certificate_authorities(map(), String.t(), list()) ::
+  @spec list_group_certificate_authorities(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_group_certificate_authorities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_group_certificate_authorities_errors()}
   def list_group_certificate_authorities(%Client{} = client, group_id, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/certificateauthorities"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the versions of a group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListGroupVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_group_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_group_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_group_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_group_versions_errors()}
-  def list_group_versions(
-        %Client{} = client,
-        group_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_group_versions(%Client{} = client, group_id, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/versions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of groups.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_groups(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_groups(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_groups(%Client{} = client, options \\ []) do
     url_path = "/greengrass/groups"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the versions of a logger definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListLoggerDefinitionVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:logger_definition_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_logger_definition_versions(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_logger_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_logger_definition_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_logger_definition_versions_errors()}
-  def list_logger_definition_versions(
-        %Client{} = client,
-        logger_definition_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_logger_definition_versions(%Client{} = client, logger_definition_id, options \\ []) do
     url_path =
       "/greengrass/definition/loggers/#{AWS.Util.encode_uri(logger_definition_id)}/versions"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of logger definitions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListLoggerDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_logger_definitions(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_logger_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_logger_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_logger_definitions(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_logger_definitions(%Client{} = client, options \\ []) do
     url_path = "/greengrass/definition/loggers"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the versions of a resource definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListResourceDefinitionVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_definition_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_resource_definition_versions(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_resource_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_resource_definition_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_definition_versions_errors()}
-  def list_resource_definition_versions(
-        %Client{} = client,
-        resource_definition_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_resource_definition_versions(%Client{} = client, resource_definition_id, options \\ []) do
     url_path =
       "/greengrass/definition/resources/#{AWS.Util.encode_uri(resource_definition_id)}/versions"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of resource definitions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListResourceDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_resource_definitions(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_resource_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resource_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_resource_definitions(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_resource_definitions(%Client{} = client, options \\ []) do
     url_path = "/greengrass/definition/resources"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the versions of a subscription definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListSubscriptionDefinitionVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:subscription_definition_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_subscription_definition_versions(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_subscription_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_subscription_definition_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_subscription_definition_versions_errors()}
   def list_subscription_definition_versions(
         %Client{} = client,
         subscription_definition_id,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/greengrass/definition/subscriptions/#{AWS.Util.encode_uri(subscription_definition_id)}/versions"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of subscription definitions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListSubscriptionDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
-  @spec list_subscription_definitions(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_subscription_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_subscription_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_subscription_definitions(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_subscription_definitions(%Client{} = client, options \\ []) do
     url_path = "/greengrass/definition/subscriptions"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of resource tags for a resource arn.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Resets a group's deployments.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ResetDeployments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
+
+  ## Optional parameters:
+  * `:amzn_client_token` (`t:string`)
   """
-  @spec reset_deployments(map(), String.t(), reset_deployments_request(), list()) ::
+  @spec reset_deployments(AWS.Client.t(), String.t(), reset_deployments_request(), Keyword.t()) ::
           {:ok, reset_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_deployments_errors()}
   def reset_deployments(%Client{} = client, group_id, input, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/deployments/$reset"
 
+    optional_params = [amzn_client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"AmznClientToken", "X-Amzn-Client-Token"}
@@ -5416,7 +7044,13 @@ defmodule AWS.Greengrass do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:amzn_client_token])
 
     Request.request_rest(
       client,
@@ -5432,21 +7066,35 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Deploys multiple groups in one operation.
+  Deploys multiple groups in one operation. This action starts the bulk deployment
+  of a specified set of group versions. Each group version deployment will be
+  triggered with an adaptive rate that has a fixed upper limit. We recommend
+  that you include an ''X-Amzn-Client-Token'' token in every
+  ''StartBulkDeployment'' request. These requests are idempotent with respect to
+  the token and the request parameters.
 
-  This action starts the bulk deployment of a specified set of group versions.
-  Each group version deployment will be triggered with an adaptive rate that has a
-  fixed upper limit. We recommend that you include an ''X-Amzn-Client-Token''
-  token in every ''StartBulkDeployment'' request. These requests are idempotent
-  with respect to the token and the request parameters.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20StartBulkDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:amzn_client_token` (`t:string`)
   """
-  @spec start_bulk_deployment(map(), start_bulk_deployment_request(), list()) ::
+  @spec start_bulk_deployment(AWS.Client.t(), start_bulk_deployment_request(), Keyword.t()) ::
           {:ok, start_bulk_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_bulk_deployment_errors()}
   def start_bulk_deployment(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/bulk/deployments"
 
+    optional_params = [amzn_client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
     {headers, input} =
       [
         {"AmznClientToken", "X-Amzn-Client-Token"}
@@ -5455,7 +7103,13 @@ defmodule AWS.Greengrass do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:amzn_client_token])
 
     Request.request_rest(
       client,
@@ -5471,14 +7125,24 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Stops the execution of a bulk deployment.
+  Stops the execution of a bulk deployment. This action returns a status of
+  ''Stopping'' until the deployment is stopped. You cannot start a new bulk
+  deployment while a previous deployment is in the ''Stopping'' state. This
+  action doesn't rollback completed deployments or cancel pending deployments.
 
-  This action returns a status of ''Stopping'' until the deployment is stopped.
-  You cannot start a new bulk deployment while a previous deployment is in the
-  ''Stopping'' state. This action doesn't rollback completed deployments or cancel
-  pending deployments.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20StopBulkDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bulk_deployment_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec stop_bulk_deployment(map(), String.t(), stop_bulk_deployment_request(), list()) ::
+  @spec stop_bulk_deployment(
+          AWS.Client.t(),
+          String.t(),
+          stop_bulk_deployment_request(),
+          Keyword.t()
+        ) ::
           {:ok, stop_bulk_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_bulk_deployment_errors()}
@@ -5487,19 +7151,26 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Adds tags to a Greengrass resource.
+  Adds tags to a Greengrass resource. Valid resources are 'Group',
+  'ConnectorDefinition', 'CoreDefinition', 'DeviceDefinition',
+  'FunctionDefinition', 'LoggerDefinition', 'SubscriptionDefinition',
+  'ResourceDefinition', and 'BulkDeployment'.
 
-  Valid resources are 'Group', 'ConnectorDefinition', 'CoreDefinition',
-  'DeviceDefinition', 'FunctionDefinition', 'LoggerDefinition',
-  'SubscriptionDefinition', 'ResourceDefinition', and 'BulkDeployment'.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -5508,7 +7179,8 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5525,8 +7197,16 @@ defmodule AWS.Greengrass do
 
   @doc """
   Remove resource tags from a Greengrass Resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
+  * `:tag_keys` (`t:list[com.amazonaws.greengrass#__string]`)
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -5540,7 +7220,8 @@ defmodule AWS.Greengrass do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -5556,12 +7237,23 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Updates the connectivity information for the core.
+  Updates the connectivity information for the core. Any devices that belong to
+  the group which has this core will receive this information in order to find
+  the location of the core and connect to it.
 
-  Any devices that belong to the group which has this core will receive this
-  information in order to find the location of the core and connect to it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateConnectivityInfo&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_name` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_connectivity_info(map(), String.t(), update_connectivity_info_request(), list()) ::
+  @spec update_connectivity_info(
+          AWS.Client.t(),
+          String.t(),
+          update_connectivity_info_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_connectivity_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connectivity_info_errors()}
@@ -5570,19 +7262,27 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a connector definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateConnectorDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connector_definition_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec update_connector_definition(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_connector_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_connector_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5597,15 +7297,28 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a core definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateCoreDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_definition_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_core_definition(map(), String.t(), update_core_definition_request(), list()) ::
+  @spec update_core_definition(
+          AWS.Client.t(),
+          String.t(),
+          update_core_definition_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_core_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_core_definition_errors()}
@@ -5614,15 +7327,28 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a device definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateDeviceDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_definition_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_device_definition(map(), String.t(), update_device_definition_request(), list()) ::
+  @spec update_device_definition(
+          AWS.Client.t(),
+          String.t(),
+          update_device_definition_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_device_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_device_definition_errors()}
@@ -5631,19 +7357,27 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a Lambda function definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateFunctionDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_definition_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec update_function_definition(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_function_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_function_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5653,15 +7387,23 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_group(map(), String.t(), update_group_request(), list()) ::
+  @spec update_group(AWS.Client.t(), String.t(), update_group_request(), Keyword.t()) ::
           {:ok, update_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_group_errors()}
@@ -5670,19 +7412,27 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the Certificate expiry time for a group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateGroupCertificateConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec update_group_certificate_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_group_certificate_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_group_certificate_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5694,15 +7444,28 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a logger definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateLoggerDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:logger_definition_id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_logger_definition(map(), String.t(), update_logger_definition_request(), list()) ::
+  @spec update_logger_definition(
+          AWS.Client.t(),
+          String.t(),
+          update_logger_definition_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_logger_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_logger_definition_errors()}
@@ -5711,19 +7474,27 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a resource definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateResourceDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_definition_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec update_resource_definition(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_resource_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_resource_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5733,19 +7504,27 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a subscription definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateSubscriptionDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:subscription_definition_id` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec update_subscription_definition(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_subscription_definition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_subscription_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5762,19 +7541,27 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the runtime configuration of a thing.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateThingRuntimeConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_name` (`t:string`)
+
+  ## Optional parameters:
   """
   @spec update_thing_runtime_configuration(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_thing_runtime_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_thing_runtime_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5784,7 +7571,8 @@ defmodule AWS.Greengrass do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

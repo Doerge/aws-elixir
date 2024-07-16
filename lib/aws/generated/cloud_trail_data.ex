@@ -4,17 +4,13 @@
 defmodule AWS.CloudTrailData do
   @moduledoc """
   The CloudTrail Data Service lets you ingest events into CloudTrail from any
-  source in your
-  hybrid environments, such as in-house or SaaS applications hosted on-premises or
-  in the cloud,
-  virtual machines, or containers.
-
-  You can store, access, analyze, troubleshoot and take action on
-  this data without maintaining multiple log aggregators and reporting tools.
-  After you run
+  source in your hybrid environments, such as in-house or SaaS applications
+  hosted on-premises or in the cloud, virtual machines, or containers. You can
+  store, access, analyze, troubleshoot and take action on this data without
+  maintaining multiple log aggregators and reporting tools. After you run
   `PutAuditEvents` to ingest your application activity into CloudTrail, you can
-  use CloudTrail Lake to search, query, and analyze the data that is logged
-  from your applications.
+  use CloudTrail Lake to search, query, and analyze the data that is logged from
+  your applications.
   """
 
   alias AWS.Client
@@ -174,15 +170,22 @@ defmodule AWS.CloudTrailData do
   end
 
   @doc """
-  Ingests your application events into CloudTrail Lake.
+  Ingests your application events into CloudTrail Lake. A required parameter,
+  `auditEvents`, accepts the JSON records (also called *payload*) of events that
+  you want CloudTrail to ingest. You can add up to 100 of these events (or up to
+  1 MB) per `PutAuditEvents` request.
 
-  A required parameter,
-  `auditEvents`, accepts the JSON records (also called
-  *payload*) of events that you want CloudTrail to ingest. You
-  can add up to 100 of these events (or up to 1 MB) per `PutAuditEvents`
-  request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtraildata%20PutAuditEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN or ID (the ARN suffix) of a channel.
+
+  ## Optional parameters:
+  * `:external_id` (`t:string`) A unique identifier that is conditionally required
+    when the channel's resource policy includes an external ID. This value can
+    be any string, such as a passphrase or account number.
   """
-  @spec put_audit_events(map(), put_audit_events_request(), list()) ::
+  @spec put_audit_events(AWS.Client.t(), put_audit_events_request(), Keyword.t()) ::
           {:ok, put_audit_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_audit_events_errors()}
@@ -197,7 +200,13 @@ defmodule AWS.CloudTrailData do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:external_id])
 
     Request.request_rest(
       client,

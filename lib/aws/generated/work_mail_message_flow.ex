@@ -4,10 +4,7 @@
 defmodule AWS.WorkMailMessageFlow do
   @moduledoc """
   The WorkMail Message Flow API provides access to email messages as they are
-  being
-  sent and received by
-  a
-  WorkMail organization.
+  being sent and received by a WorkMail organization.
   """
 
   alias AWS.Client
@@ -147,17 +144,42 @@ defmodule AWS.WorkMailMessageFlow do
 
   @doc """
   Retrieves the raw content of an in-transit email message, in MIME format.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workmailmessageflow%20GetRawMessageContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:message_id` (`t:string`) The identifier of the email message to retrieve.
+
+  ## Optional parameters:
   """
-  @spec get_raw_message_content(map(), String.t(), list()) ::
+  @spec get_raw_message_content(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_raw_message_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_raw_message_content_errors()}
   def get_raw_message_content(%Client{} = client, message_id, options \\ []) do
     url_path = "/messages/#{AWS.Util.encode_uri(message_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -165,25 +187,19 @@ defmodule AWS.WorkMailMessageFlow do
   @doc """
   Updates the raw content of an in-transit email message, in MIME format.
 
-  This example describes how to update in-transit email message. For more
-  information and examples for using this API, see
-  [
-  Updating message content with AWS
-  Lambda](https://docs.aws.amazon.com/workmail/latest/adminguide/update-with-lambda.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workmailmessageflow%20PutRawMessageContent&this_doc_guide=API%2520Reference)
 
-  Updates to an in-transit message only appear when you call
-  `PutRawMessageContent` from an AWS Lambda function
-  configured with a synchronous [
-  Run
-  Lambda](https://docs.aws.amazon.com/workmail/latest/adminguide/lambda.html#synchronous-rules)
-  rule. If you call `PutRawMessageContent` on a delivered or sent message, the
-  message remains unchanged,
-  even though
-  [GetRawMessageContent](https://docs.aws.amazon.com/workmail/latest/APIReference/API_messageflow_GetRawMessageContent.html)
-  returns an updated
-  message.
+  ## Parameters:
+  * `:message_id` (`t:string`) The identifier of the email message being updated.
+
+  ## Optional parameters:
   """
-  @spec put_raw_message_content(map(), String.t(), put_raw_message_content_request(), list()) ::
+  @spec put_raw_message_content(
+          AWS.Client.t(),
+          String.t(),
+          put_raw_message_content_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_raw_message_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_raw_message_content_errors()}
@@ -192,7 +208,8 @@ defmodule AWS.WorkMailMessageFlow do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

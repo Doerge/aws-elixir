@@ -4,85 +4,9 @@
 defmodule AWS.Codestarnotifications do
   @moduledoc """
   This AWS CodeStar Notifications API Reference provides descriptions and usage
-  examples of the
-  operations and data types for the AWS CodeStar Notifications API.
-
-  You can use the AWS CodeStar Notifications API
-  to work with the following objects:
-
-  Notification rules, by calling the following:
-
-    *
-
-  `CreateNotificationRule`, which creates a notification rule for a
-  resource in your account.
-
-    *
-
-  `DeleteNotificationRule`, which deletes a notification rule.
-
-    *
-
-  `DescribeNotificationRule`, which provides information about a notification
-  rule.
-
-    *
-
-  `ListNotificationRules`, which lists the notification rules associated with
-  your account.
-
-    *
-
-  `UpdateNotificationRule`, which changes the name, events, or targets associated
-  with a
-  notification rule.
-
-    *
-
-  `Subscribe`, which subscribes a target to a notification rule.
-
-    *
-
-  `Unsubscribe`, which removes a target from a notification rule.
-
-  Targets, by calling the following:
-
-    *
-
-  `DeleteTarget`, which removes a notification rule target from a
-  notification rule.
-
-    *
-
-  `ListTargets`, which lists the targets associated with a
-  notification rule.
-
-  Events, by calling the following:
-
-    *
-
-  `ListEventTypes`, which lists the event types you can include in
-  a notification rule.
-
-  Tags, by calling the following:
-
-    *
-
-  `ListTagsForResource`, which lists the tags already associated
-  with a notification rule in your account.
-
-    *
-
-  `TagResource`, which associates a tag you provide with a
-  notification rule in your account.
-
-    *
-
-  `UntagResource`, which removes a tag from a notification rule in
-  your account.
-
-  For information about how to use AWS CodeStar Notifications, see the [Amazon Web Services Developer Tools Console User
-  Guide](https://docs.aws.amazon.com/dtconsole/latest/userguide/what-is-dtconsole.html).
+  examples of the operations and data types for the AWS CodeStar Notifications
+  API. You can use the AWS CodeStar Notifications API to work with the following
+  objects: Notification rules, by calling the following:
   """
 
   alias AWS.Client
@@ -643,14 +567,17 @@ defmodule AWS.Codestarnotifications do
   end
 
   @doc """
-  Creates a notification rule for a resource.
+  Creates a notification rule for a resource. The rule specifies the events you
+  want notifications about and the targets (such as Chatbot topics or Chatbot
+  clients configured for Slack) where you want to receive them.
 
-  The rule specifies the events you want
-  notifications about and the targets (such as Chatbot topics or Chatbot clients
-  configured for Slack) where you want to receive
-  them.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20CreateNotificationRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_notification_rule(map(), create_notification_rule_request(), list()) ::
+  @spec create_notification_rule(AWS.Client.t(), create_notification_rule_request(), Keyword.t()) ::
           {:ok, create_notification_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_notification_rule_errors()}
@@ -659,7 +586,8 @@ defmodule AWS.Codestarnotifications do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -676,8 +604,14 @@ defmodule AWS.Codestarnotifications do
 
   @doc """
   Deletes a notification rule for a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20DeleteNotificationRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_notification_rule(map(), delete_notification_rule_request(), list()) ::
+  @spec delete_notification_rule(AWS.Client.t(), delete_notification_rule_request(), Keyword.t()) ::
           {:ok, delete_notification_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_notification_rule_errors()}
@@ -686,7 +620,8 @@ defmodule AWS.Codestarnotifications do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -703,8 +638,14 @@ defmodule AWS.Codestarnotifications do
 
   @doc """
   Deletes a specified target for notifications.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20DeleteTarget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_target(map(), delete_target_request(), list()) ::
+  @spec delete_target(AWS.Client.t(), delete_target_request(), Keyword.t()) ::
           {:ok, delete_target_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_target_errors()}
@@ -713,7 +654,8 @@ defmodule AWS.Codestarnotifications do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -730,8 +672,18 @@ defmodule AWS.Codestarnotifications do
 
   @doc """
   Returns information about a specified notification rule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20DescribeNotificationRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_notification_rule(map(), describe_notification_rule_request(), list()) ::
+  @spec describe_notification_rule(
+          AWS.Client.t(),
+          describe_notification_rule_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_notification_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_notification_rule_errors()}
@@ -740,7 +692,8 @@ defmodule AWS.Codestarnotifications do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -758,8 +711,14 @@ defmodule AWS.Codestarnotifications do
   @doc """
   Returns information about the event types available for configuring
   notifications.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20ListEventTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_event_types(map(), list_event_types_request(), list()) ::
+  @spec list_event_types(AWS.Client.t(), list_event_types_request(), Keyword.t()) ::
           {:ok, list_event_types_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_types_errors()}
@@ -768,7 +727,8 @@ defmodule AWS.Codestarnotifications do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -785,8 +745,14 @@ defmodule AWS.Codestarnotifications do
 
   @doc """
   Returns a list of the notification rules for an Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20ListNotificationRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_notification_rules(map(), list_notification_rules_request(), list()) ::
+  @spec list_notification_rules(AWS.Client.t(), list_notification_rules_request(), Keyword.t()) ::
           {:ok, list_notification_rules_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_notification_rules_errors()}
@@ -795,7 +761,8 @@ defmodule AWS.Codestarnotifications do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -812,8 +779,14 @@ defmodule AWS.Codestarnotifications do
 
   @doc """
   Returns a list of the tags associated with a notification rule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
@@ -822,7 +795,8 @@ defmodule AWS.Codestarnotifications do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -840,8 +814,14 @@ defmodule AWS.Codestarnotifications do
   @doc """
   Returns a list of the notification rule targets for an Amazon Web Services
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20ListTargets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_targets(map(), list_targets_request(), list()) ::
+  @spec list_targets(AWS.Client.t(), list_targets_request(), Keyword.t()) ::
           {:ok, list_targets_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_targets_errors()}
@@ -850,7 +830,8 @@ defmodule AWS.Codestarnotifications do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -867,12 +848,16 @@ defmodule AWS.Codestarnotifications do
 
   @doc """
   Creates an association between a notification rule and an Chatbot topic or
-  Chatbot client so that the
-  associated target can receive notifications when the events described in the
-  rule are
-  triggered.
+  Chatbot client so that the associated target can receive notifications when
+  the events described in the rule are triggered.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20Subscribe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec subscribe(map(), subscribe_request(), list()) ::
+  @spec subscribe(AWS.Client.t(), subscribe_request(), Keyword.t()) ::
           {:ok, subscribe_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, subscribe_errors()}
@@ -881,7 +866,8 @@ defmodule AWS.Codestarnotifications do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -898,8 +884,14 @@ defmodule AWS.Codestarnotifications do
 
   @doc """
   Associates a set of provided tags with a notification rule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -908,7 +900,8 @@ defmodule AWS.Codestarnotifications do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -925,11 +918,16 @@ defmodule AWS.Codestarnotifications do
 
   @doc """
   Removes an association between a notification rule and an Chatbot topic so that
-  subscribers to that topic stop receiving notifications when the events described
-  in the
-  rule are triggered.
+  subscribers to that topic stop receiving notifications when the events
+  described in the rule are triggered.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20Unsubscribe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec unsubscribe(map(), unsubscribe_request(), list()) ::
+  @spec unsubscribe(AWS.Client.t(), unsubscribe_request(), Keyword.t()) ::
           {:ok, unsubscribe_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unsubscribe_errors()}
@@ -938,7 +936,8 @@ defmodule AWS.Codestarnotifications do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -956,8 +955,18 @@ defmodule AWS.Codestarnotifications do
   @doc """
   Removes the association between one or more provided tags and a notification
   rule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the notification rule
+    from which to remove the tags.
+  * `:tag_keys` (`t:list[com.amazonaws.codestarnotifications#TagKey]`) The key
+    names of the tags to remove.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -971,7 +980,8 @@ defmodule AWS.Codestarnotifications do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -987,16 +997,17 @@ defmodule AWS.Codestarnotifications do
   end
 
   @doc """
-  Updates a notification rule for a resource.
+  Updates a notification rule for a resource. You can change the events that
+  trigger the notification rule, the status of the rule, and the targets that
+  receive the notifications.
 
-  You can change the events that trigger the
-  notification rule, the status of the rule, and the targets that receive the
-  notifications.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20UpdateNotificationRule&this_doc_guide=API%2520Reference)
 
-  To add or remove tags for a notification rule, you must use `TagResource` and
-  `UntagResource`.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec update_notification_rule(map(), update_notification_rule_request(), list()) ::
+  @spec update_notification_rule(AWS.Client.t(), update_notification_rule_request(), Keyword.t()) ::
           {:ok, update_notification_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_notification_rule_errors()}
@@ -1005,7 +1016,8 @@ defmodule AWS.Codestarnotifications do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

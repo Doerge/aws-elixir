@@ -4008,8 +4008,14 @@ defmodule AWS.MediaConvert do
   @doc """
   Associates an AWS Certificate Manager (ACM) Amazon Resource Name (ARN) with AWS
   Elemental MediaConvert.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20AssociateCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec associate_certificate(map(), associate_certificate_request(), list()) ::
+  @spec associate_certificate(AWS.Client.t(), associate_certificate_request(), Keyword.t()) ::
           {:ok, associate_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_certificate_errors()}
@@ -4018,7 +4024,8 @@ defmodule AWS.MediaConvert do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4034,11 +4041,17 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Permanently cancel a job.
+  Permanently cancel a job. Once you have canceled a job, you can't start it
+  again.
 
-  Once you have canceled a job, you can't start it again.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20CancelJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec cancel_job(map(), String.t(), cancel_job_request(), list()) ::
+  @spec cancel_job(AWS.Client.t(), String.t(), cancel_job_request(), Keyword.t()) ::
           {:ok, cancel_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_job_errors()}
@@ -4047,7 +4060,8 @@ defmodule AWS.MediaConvert do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4063,12 +4077,17 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Create a new transcoding job.
-
-  For information about jobs and job settings, see the User Guide at
+  Create a new transcoding job. For information about jobs and job settings, see
+  the User Guide at
   http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20CreateJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_job(map(), create_job_request(), list()) ::
+  @spec create_job(AWS.Client.t(), create_job_request(), Keyword.t()) ::
           {:ok, create_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_errors()}
@@ -4077,7 +4096,8 @@ defmodule AWS.MediaConvert do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4093,12 +4113,16 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Create a new job template.
+  Create a new job template. For information about job templates see the User
+  Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
 
-  For information about job templates see the User Guide at
-  http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20CreateJobTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_job_template(map(), create_job_template_request(), list()) ::
+  @spec create_job_template(AWS.Client.t(), create_job_template_request(), Keyword.t()) ::
           {:ok, create_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_template_errors()}
@@ -4107,7 +4131,8 @@ defmodule AWS.MediaConvert do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4123,12 +4148,16 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Create a new preset.
-
-  For information about job templates see the User Guide at
+  Create a new preset. For information about job templates see the User Guide at
   http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20CreatePreset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_preset(map(), create_preset_request(), list()) ::
+  @spec create_preset(AWS.Client.t(), create_preset_request(), Keyword.t()) ::
           {:ok, create_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_preset_errors()}
@@ -4137,7 +4166,8 @@ defmodule AWS.MediaConvert do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4153,12 +4183,17 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Create a new transcoding queue.
-
-  For information about queues, see Working With Queues in the User Guide at
+  Create a new transcoding queue. For information about queues, see Working With
+  Queues in the User Guide at
   https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20CreateQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_queue(map(), create_queue_request(), list()) ::
+  @spec create_queue(AWS.Client.t(), create_queue_request(), Keyword.t()) ::
           {:ok, create_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_queue_errors()}
@@ -4167,7 +4202,8 @@ defmodule AWS.MediaConvert do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4184,8 +4220,20 @@ defmodule AWS.MediaConvert do
 
   @doc """
   Permanently delete a job template you have created.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20DeleteJobTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_job_template(map(), String.t(), delete_job_template_request(), list()) ::
+  @spec delete_job_template(
+          AWS.Client.t(),
+          String.t(),
+          delete_job_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_job_template_errors()}
@@ -4194,7 +4242,8 @@ defmodule AWS.MediaConvert do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4211,8 +4260,14 @@ defmodule AWS.MediaConvert do
 
   @doc """
   Permanently delete a policy that you created.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20DeletePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec delete_policy(map(), delete_policy_request(), list()) ::
+  @spec delete_policy(AWS.Client.t(), delete_policy_request(), Keyword.t()) ::
           {:ok, delete_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_policy_errors()}
@@ -4221,7 +4276,8 @@ defmodule AWS.MediaConvert do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4238,8 +4294,15 @@ defmodule AWS.MediaConvert do
 
   @doc """
   Permanently delete a preset you have created.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20DeletePreset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_preset(map(), String.t(), delete_preset_request(), list()) ::
+  @spec delete_preset(AWS.Client.t(), String.t(), delete_preset_request(), Keyword.t()) ::
           {:ok, delete_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_preset_errors()}
@@ -4248,7 +4311,8 @@ defmodule AWS.MediaConvert do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4265,8 +4329,15 @@ defmodule AWS.MediaConvert do
 
   @doc """
   Permanently delete a queue you have created.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20DeleteQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec delete_queue(map(), String.t(), delete_queue_request(), list()) ::
+  @spec delete_queue(AWS.Client.t(), String.t(), delete_queue_request(), Keyword.t()) ::
           {:ok, delete_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_queue_errors()}
@@ -4275,7 +4346,8 @@ defmodule AWS.MediaConvert do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4292,12 +4364,17 @@ defmodule AWS.MediaConvert do
 
   @doc """
   Send a request with an empty body to the regional API endpoint to get your
-  account API endpoint.
+  account API endpoint. Note that DescribeEndpoints is no longer required. We
+  recommend that you send your requests directly to the regional endpoint
+  instead.
 
-  Note that DescribeEndpoints is no longer required. We recommend that you send
-  your requests directly to the regional endpoint instead.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20DescribeEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_endpoints(map(), describe_endpoints_request(), list()) ::
+  @spec describe_endpoints(AWS.Client.t(), describe_endpoints_request(), Keyword.t()) ::
           {:ok, describe_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_endpoints_errors()}
@@ -4306,7 +4383,8 @@ defmodule AWS.MediaConvert do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4325,8 +4403,20 @@ defmodule AWS.MediaConvert do
   Removes an association between the Amazon Resource Name (ARN) of an AWS
   Certificate Manager (ACM) certificate and an AWS Elemental MediaConvert
   resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20DisassociateCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec disassociate_certificate(map(), String.t(), disassociate_certificate_request(), list()) ::
+  @spec disassociate_certificate(
+          AWS.Client.t(),
+          String.t(),
+          disassociate_certificate_request(),
+          Keyword.t()
+        ) ::
           {:ok, disassociate_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_certificate_errors()}
@@ -4335,7 +4425,8 @@ defmodule AWS.MediaConvert do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4352,389 +4443,607 @@ defmodule AWS.MediaConvert do
 
   @doc """
   Retrieve the JSON for a specific transcoding job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20GetJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_job(map(), String.t(), list()) ::
+  @spec get_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_errors()}
   def get_job(%Client{} = client, id, options \\ []) do
     url_path = "/2017-08-29/jobs/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve the JSON for a specific job template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20GetJobTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_job_template(map(), String.t(), list()) ::
+  @spec get_job_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_template_errors()}
   def get_job_template(%Client{} = client, name, options \\ []) do
     url_path = "/2017-08-29/jobTemplates/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve the JSON for your policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20GetPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_policy(map(), list()) ::
+  @spec get_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_policy_errors()}
   def get_policy(%Client{} = client, options \\ []) do
     url_path = "/2017-08-29/policy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve the JSON for a specific preset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20GetPreset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_preset(map(), String.t(), list()) ::
+  @spec get_preset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_preset_errors()}
   def get_preset(%Client{} = client, name, options \\ []) do
     url_path = "/2017-08-29/presets/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve the JSON for a specific queue.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20GetQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec get_queue(map(), String.t(), list()) ::
+  @spec get_queue(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_queue_errors()}
   def get_queue(%Client{} = client, name, options \\ []) do
     url_path = "/2017-08-29/queues/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieve a JSON array of up to twenty of your job templates.
+  Retrieve a JSON array of up to twenty of your job templates. This will return
+  the templates themselves, not just a list of them. To retrieve the next twenty
+  templates, use the nextToken string returned with the array
 
-  This will return the templates themselves, not just a list of them. To retrieve
-  the next twenty templates, use the nextToken string returned with the array
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20ListJobTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:category` (`t:string`)
+  * `:list_by` (`t:enum["CREATION_DATE|NAME|SYSTEM"]`)
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:order` (`t:enum["ASCENDING|DESCENDING"]`)
   """
-  @spec list_job_templates(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_job_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_job_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_job_templates_errors()}
-  def list_job_templates(
-        %Client{} = client,
-        category \\ nil,
-        list_by \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        order \\ nil,
-        options \\ []
-      ) do
+  def list_job_templates(%Client{} = client, options \\ []) do
     url_path = "/2017-08-29/jobTemplates"
+
+    # Validate optional parameters
+    optional_params = [category: nil, list_by: nil, max_results: nil, next_token: nil, order: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(order) do
-        [{"order", order} | query_params]
+      if opt_val = Keyword.get(options, :order) do
+        [{"order", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(list_by) do
-        [{"listBy", list_by} | query_params]
+      if opt_val = Keyword.get(options, :list_by) do
+        [{"listBy", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(category) do
-        [{"category", category} | query_params]
+      if opt_val = Keyword.get(options, :category) do
+        [{"category", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:category, :list_by, :max_results, :next_token, :order])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieve a JSON array of up to twenty of your most recently created jobs.
+  Retrieve a JSON array of up to twenty of your most recently created jobs. This
+  array includes in-process, completed, and errored jobs. This will return the
+  jobs themselves, not just a list of the jobs. To retrieve the twenty next most
+  recent jobs, use the nextToken string returned with the array.
 
-  This array includes in-process, completed, and errored jobs. This will return
-  the jobs themselves, not just a list of the jobs. To retrieve the twenty next
-  most recent jobs, use the nextToken string returned with the array.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20ListJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:order` (`t:enum["ASCENDING|DESCENDING"]`)
+  * `:queue` (`t:string`)
+  * `:status` (`t:enum["CANCELED|COMPLETE|ERROR|PROGRESSING|SUBMITTED"]`)
   """
-  @spec list_jobs(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_errors()}
-  def list_jobs(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        order \\ nil,
-        queue \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def list_jobs(%Client{} = client, options \\ []) do
     url_path = "/2017-08-29/jobs"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, order: nil, queue: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(queue) do
-        [{"queue", queue} | query_params]
+      if opt_val = Keyword.get(options, :queue) do
+        [{"queue", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(order) do
-        [{"order", order} | query_params]
+      if opt_val = Keyword.get(options, :order) do
+        [{"order", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :order, :queue, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieve a JSON array of up to twenty of your presets.
+  Retrieve a JSON array of up to twenty of your presets. This will return the
+  presets themselves, not just a list of them. To retrieve the next twenty
+  presets, use the nextToken string returned with the array.
 
-  This will return the presets themselves, not just a list of them. To retrieve
-  the next twenty presets, use the nextToken string returned with the array.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20ListPresets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:category` (`t:string`)
+  * `:list_by` (`t:enum["CREATION_DATE|NAME|SYSTEM"]`)
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:order` (`t:enum["ASCENDING|DESCENDING"]`)
   """
-  @spec list_presets(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_presets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_presets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_presets_errors()}
-  def list_presets(
-        %Client{} = client,
-        category \\ nil,
-        list_by \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        order \\ nil,
-        options \\ []
-      ) do
+  def list_presets(%Client{} = client, options \\ []) do
     url_path = "/2017-08-29/presets"
+
+    # Validate optional parameters
+    optional_params = [category: nil, list_by: nil, max_results: nil, next_token: nil, order: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(order) do
-        [{"order", order} | query_params]
+      if opt_val = Keyword.get(options, :order) do
+        [{"order", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(list_by) do
-        [{"listBy", list_by} | query_params]
+      if opt_val = Keyword.get(options, :list_by) do
+        [{"listBy", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(category) do
-        [{"category", category} | query_params]
+      if opt_val = Keyword.get(options, :category) do
+        [{"category", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:category, :list_by, :max_results, :next_token, :order])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieve a JSON array of up to twenty of your queues.
+  Retrieve a JSON array of up to twenty of your queues. This will return the
+  queues themselves, not just a list of them. To retrieve the next twenty
+  queues, use the nextToken string returned with the array.
 
-  This will return the queues themselves, not just a list of them. To retrieve the
-  next twenty queues, use the nextToken string returned with the array.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20ListQueues&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:list_by` (`t:enum["CREATION_DATE|NAME"]`)
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:order` (`t:enum["ASCENDING|DESCENDING"]`)
   """
-  @spec list_queues(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_queues(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_queues_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_queues_errors()}
-  def list_queues(
-        %Client{} = client,
-        list_by \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        order \\ nil,
-        options \\ []
-      ) do
+  def list_queues(%Client{} = client, options \\ []) do
     url_path = "/2017-08-29/queues"
+
+    # Validate optional parameters
+    optional_params = [list_by: nil, max_results: nil, next_token: nil, order: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(order) do
-        [{"order", order} | query_params]
+      if opt_val = Keyword.get(options, :order) do
+        [{"order", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(list_by) do
-        [{"listBy", list_by} | query_params]
+      if opt_val = Keyword.get(options, :list_by) do
+        [{"listBy", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:list_by, :max_results, :next_token, :order])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve the tags for a MediaConvert resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, arn, options \\ []) do
     url_path = "/2017-08-29/tags/#{AWS.Util.encode_uri(arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Create or change your policy.
+  Create or change your policy. For more information about policies, see the user
+  guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
 
-  For more information about policies, see the user guide at
-  http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20PutPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_policy(map(), put_policy_request(), list()) ::
+  @spec put_policy(AWS.Client.t(), put_policy_request(), Keyword.t()) ::
           {:ok, put_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_policy_errors()}
@@ -4743,100 +5052,127 @@ defmodule AWS.MediaConvert do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Retrieve a JSON array that includes job details for up to twenty of your most
-  recent jobs.
+  recent jobs. Optionally filter results further according to input file, queue,
+  or status. To retrieve the twenty next most recent jobs, use the nextToken
+  string returned with the array.
 
-  Optionally filter results further according to input file, queue, or status. To
-  retrieve the twenty next most recent jobs, use the nextToken string returned
-  with the array.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20SearchJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:input_file` (`t:string`)
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:order` (`t:enum["ASCENDING|DESCENDING"]`)
+  * `:queue` (`t:string`)
+  * `:status` (`t:enum["CANCELED|COMPLETE|ERROR|PROGRESSING|SUBMITTED"]`)
   """
-  @spec search_jobs(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec search_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_jobs_errors()}
-  def search_jobs(
-        %Client{} = client,
-        input_file \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        order \\ nil,
-        queue \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  def search_jobs(%Client{} = client, options \\ []) do
     url_path = "/2017-08-29/search"
+
+    # Validate optional parameters
+    optional_params = [
+      input_file: nil,
+      max_results: nil,
+      next_token: nil,
+      order: nil,
+      queue: nil,
+      status: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(queue) do
-        [{"queue", queue} | query_params]
+      if opt_val = Keyword.get(options, :queue) do
+        [{"queue", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(order) do
-        [{"order", order} | query_params]
+      if opt_val = Keyword.get(options, :order) do
+        [{"order", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(input_file) do
-        [{"inputFile", input_file} | query_params]
+      if opt_val = Keyword.get(options, :input_file) do
+        [{"inputFile", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:input_file, :max_results, :next_token, :order, :queue, :status])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Add tags to a MediaConvert queue, preset, or job template.
-
-  For information about tagging, see the User Guide at
+  Add tags to a MediaConvert queue, preset, or job template. For information about
+  tagging, see the User Guide at
   https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -4845,7 +5181,8 @@ defmodule AWS.MediaConvert do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -4861,12 +5198,18 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Remove tags from a MediaConvert queue, preset, or job template.
-
-  For information about tagging, see the User Guide at
+  Remove tags from a MediaConvert queue, preset, or job template. For information
+  about tagging, see the User Guide at
   https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -4875,15 +5218,28 @@ defmodule AWS.MediaConvert do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Modify one of your existing job templates.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20UpdateJobTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_job_template(map(), String.t(), update_job_template_request(), list()) ::
+  @spec update_job_template(
+          AWS.Client.t(),
+          String.t(),
+          update_job_template_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_job_template_errors()}
@@ -4892,15 +5248,23 @@ defmodule AWS.MediaConvert do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Modify one of your existing presets.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20UpdatePreset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_preset(map(), String.t(), update_preset_request(), list()) ::
+  @spec update_preset(AWS.Client.t(), String.t(), update_preset_request(), Keyword.t()) ::
           {:ok, update_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_preset_errors()}
@@ -4909,15 +5273,23 @@ defmodule AWS.MediaConvert do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Modify one of your existing queues.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20UpdateQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`)
+
+  ## Optional parameters:
   """
-  @spec update_queue(map(), String.t(), update_queue_request(), list()) ::
+  @spec update_queue(AWS.Client.t(), String.t(), update_queue_request(), Keyword.t()) ::
           {:ok, update_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_queue_errors()}
@@ -4926,7 +5298,8 @@ defmodule AWS.MediaConvert do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

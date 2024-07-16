@@ -4,15 +4,10 @@
 defmodule AWS.MigrationHubOrchestrator do
   @moduledoc """
   This API reference provides descriptions, syntax, and other details about each
-  of the
-  actions and data types for AWS Migration Hub Orchestrator.
-
-  The topic for each action shows the API
-  request parameters and responses. Alternatively, you can use one of the AWS SDKs
-  to
-  access an API that is tailored to the programming language or platform that
-  you're
-  using.
+  of the actions and data types for AWS Migration Hub Orchestrator. The topic
+  for each action shows the API request parameters and responses. Alternatively,
+  you can use one of the AWS SDKs to access an API that is tailored to the
+  programming language or platform that you're using.
   """
 
   alias AWS.Client
@@ -1377,8 +1372,14 @@ defmodule AWS.MigrationHubOrchestrator do
 
   @doc """
   Creates a migration workflow template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20CreateTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_template(map(), create_template_request(), list()) ::
+  @spec create_template(AWS.Client.t(), create_template_request(), Keyword.t()) ::
           {:ok, create_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_template_errors()}
@@ -1387,7 +1388,8 @@ defmodule AWS.MigrationHubOrchestrator do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1404,8 +1406,14 @@ defmodule AWS.MigrationHubOrchestrator do
 
   @doc """
   Create a workflow to orchestrate your migrations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20CreateWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_workflow(map(), create_migration_workflow_request(), list()) ::
+  @spec create_workflow(AWS.Client.t(), create_migration_workflow_request(), Keyword.t()) ::
           {:ok, create_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workflow_errors()}
@@ -1414,7 +1422,8 @@ defmodule AWS.MigrationHubOrchestrator do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1431,8 +1440,14 @@ defmodule AWS.MigrationHubOrchestrator do
 
   @doc """
   Create a step in the migration workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20CreateWorkflowStep&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_workflow_step(map(), create_workflow_step_request(), list()) ::
+  @spec create_workflow_step(AWS.Client.t(), create_workflow_step_request(), Keyword.t()) ::
           {:ok, create_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workflow_step_errors()}
@@ -1441,7 +1456,8 @@ defmodule AWS.MigrationHubOrchestrator do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1458,8 +1474,18 @@ defmodule AWS.MigrationHubOrchestrator do
 
   @doc """
   Create a step group in a migration workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20CreateWorkflowStepGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_workflow_step_group(map(), create_workflow_step_group_request(), list()) ::
+  @spec create_workflow_step_group(
+          AWS.Client.t(),
+          create_workflow_step_group_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_workflow_step_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workflow_step_group_errors()}
@@ -1468,7 +1494,8 @@ defmodule AWS.MigrationHubOrchestrator do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1485,8 +1512,16 @@ defmodule AWS.MigrationHubOrchestrator do
 
   @doc """
   Deletes a migration workflow template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20DeleteTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the request to delete a migration workflow
+    template.
+
+  ## Optional parameters:
   """
-  @spec delete_template(map(), String.t(), delete_template_request(), list()) ::
+  @spec delete_template(AWS.Client.t(), String.t(), delete_template_request(), Keyword.t()) ::
           {:ok, delete_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_template_errors()}
@@ -1495,7 +1530,8 @@ defmodule AWS.MigrationHubOrchestrator do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1511,12 +1547,22 @@ defmodule AWS.MigrationHubOrchestrator do
   end
 
   @doc """
-  Delete a migration workflow.
+  Delete a migration workflow. You must pause a running workflow in Migration Hub
+  Orchestrator console to delete it.
 
-  You must pause a running workflow in Migration Hub Orchestrator console to
-  delete it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20DeleteWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the migration workflow you want to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_workflow(map(), String.t(), delete_migration_workflow_request(), list()) ::
+  @spec delete_workflow(
+          AWS.Client.t(),
+          String.t(),
+          delete_migration_workflow_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workflow_errors()}
@@ -1525,7 +1571,8 @@ defmodule AWS.MigrationHubOrchestrator do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1541,12 +1588,25 @@ defmodule AWS.MigrationHubOrchestrator do
   end
 
   @doc """
-  Delete a step in a migration workflow.
-
-  Pause the workflow to delete a running
+  Delete a step in a migration workflow. Pause the workflow to delete a running
   step.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20DeleteWorkflowStep&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the step you want to delete.
+  * `:step_group_id` (`t:string`) The ID of the step group that contains the step
+    you want to delete.
+  * `:workflow_id` (`t:string`) The ID of the migration workflow.
+
+  ## Optional parameters:
   """
-  @spec delete_workflow_step(map(), String.t(), delete_workflow_step_request(), list()) ::
+  @spec delete_workflow_step(
+          AWS.Client.t(),
+          String.t(),
+          delete_workflow_step_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workflow_step_errors()}
@@ -1561,7 +1621,8 @@ defmodule AWS.MigrationHubOrchestrator do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1578,12 +1639,20 @@ defmodule AWS.MigrationHubOrchestrator do
 
   @doc """
   Delete a step group in a migration workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20DeleteWorkflowStepGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the step group you want to delete.
+  * `:workflow_id` (`t:string`) The ID of the migration workflow.
+
+  ## Optional parameters:
   """
   @spec delete_workflow_step_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           delete_workflow_step_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_workflow_step_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -1598,7 +1667,8 @@ defmodule AWS.MigrationHubOrchestrator do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1615,56 +1685,102 @@ defmodule AWS.MigrationHubOrchestrator do
 
   @doc """
   Get the template you want to use for creating a migration workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20GetTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the template.
+
+  ## Optional parameters:
   """
-  @spec get_template(map(), String.t(), list()) ::
+  @spec get_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_migration_workflow_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_template_errors()}
   def get_template(%Client{} = client, id, options \\ []) do
     url_path = "/migrationworkflowtemplate/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get a specific step in a template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20GetTemplateStep&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the step.
+  * `:step_group_id` (`t:string`) The ID of the step group.
+  * `:template_id` (`t:string`) The ID of the template.
+
+  ## Optional parameters:
   """
-  @spec get_template_step(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_template_step(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_template_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_template_step_errors()}
   def get_template_step(%Client{} = client, id, step_group_id, template_id, options \\ []) do
     url_path = "/templatestep/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(template_id) do
-        [{"templateId", template_id} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    query_params =
-      if !is_nil(step_group_id) do
-        [{"stepGroupId", step_group_id} | query_params]
-      else
-        query_params
-      end
+    # Required query params
+    query_params = [{"stepGroupId", step_group_id}, {"templateId", template_id}]
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get a step group in a template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20GetTemplateStepGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the step group.
+  * `:template_id` (`t:string`) The ID of the template.
+
+  ## Optional parameters:
   """
-  @spec get_template_step_group(map(), String.t(), String.t(), list()) ::
+  @spec get_template_step_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_template_step_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_template_step_group_errors()}
@@ -1672,226 +1788,387 @@ defmodule AWS.MigrationHubOrchestrator do
     url_path =
       "/templates/#{AWS.Util.encode_uri(template_id)}/stepgroups/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get migration workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20GetWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the migration workflow.
+
+  ## Optional parameters:
   """
-  @spec get_workflow(map(), String.t(), list()) ::
+  @spec get_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_errors()}
   def get_workflow(%Client{} = client, id, options \\ []) do
     url_path = "/migrationworkflow/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get a step in the migration workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20GetWorkflowStep&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the step.
+  * `:step_group_id` (`t:string`) The ID of the step group.
+  * `:workflow_id` (`t:string`) The ID of the migration workflow.
+
+  ## Optional parameters:
   """
-  @spec get_workflow_step(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_workflow_step(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_step_errors()}
   def get_workflow_step(%Client{} = client, id, step_group_id, workflow_id, options \\ []) do
     url_path = "/workflowstep/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(workflow_id) do
-        [{"workflowId", workflow_id} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    query_params =
-      if !is_nil(step_group_id) do
-        [{"stepGroupId", step_group_id} | query_params]
-      else
-        query_params
-      end
+    # Required query params
+    query_params = [{"stepGroupId", step_group_id}, {"workflowId", workflow_id}]
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get the step group of a migration workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20GetWorkflowStepGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the step group.
+  * `:workflow_id` (`t:string`) The ID of the migration workflow.
+
+  ## Optional parameters:
   """
-  @spec get_workflow_step_group(map(), String.t(), String.t(), list()) ::
+  @spec get_workflow_step_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_step_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_step_group_errors()}
   def get_workflow_step_group(%Client{} = client, id, workflow_id, options \\ []) do
     url_path = "/workflowstepgroup/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(workflow_id) do
-        [{"workflowId", workflow_id} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"workflowId", workflow_id}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List AWS Migration Hub Orchestrator plugins.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListPlugins&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of plugins that can be
+    returned.
+  * `:next_token` (`t:string`) The pagination token.
   """
-  @spec list_plugins(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_plugins(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_plugins_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_plugins_errors()}
-  def list_plugins(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_plugins(%Client{} = client, options \\ []) do
     url_path = "/plugins"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List the tags added to a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List the step groups in a template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListTemplateStepGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_id` (`t:string`) The ID of the template.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results that can be
+    returned.
+  * `:next_token` (`t:string`) The pagination token.
   """
-  @spec list_template_step_groups(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_template_step_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_step_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_template_step_groups_errors()}
-  def list_template_step_groups(
-        %Client{} = client,
-        template_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_template_step_groups(%Client{} = client, template_id, options \\ []) do
     url_path = "/templatestepgroups/#{AWS.Util.encode_uri(template_id)}"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List the steps in a template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListTemplateSteps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:step_group_id` (`t:string`) The ID of the step group.
+  * `:template_id` (`t:string`) The ID of the template.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results that can be
+    returned.
+  * `:next_token` (`t:string`) The pagination token.
   """
-  @spec list_template_steps(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t(),
-          list()
-        ) ::
+  @spec list_template_steps(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_template_steps_errors()}
-  def list_template_steps(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        step_group_id,
-        template_id,
-        options \\ []
-      ) do
+  def list_template_steps(%Client{} = client, step_group_id, template_id, options \\ []) do
     url_path = "/templatesteps"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"stepGroupId", step_group_id}, {"templateId", template_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(template_id) do
-        [{"templateId", template_id} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(step_group_id) do
-        [{"stepGroupId", step_group_id} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1899,220 +2176,329 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   List the templates available in Migration Hub Orchestrator to create a migration
   workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results that can be
+    returned.
+  * `:name` (`t:string`) The name of the template.
+  * `:next_token` (`t:string`) The pagination token.
   """
-  @spec list_templates(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_migration_workflow_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_templates_errors()}
-  def list_templates(
-        %Client{} = client,
-        max_results \\ nil,
-        name \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_templates(%Client{} = client, options \\ []) do
     url_path = "/migrationworkflowtemplates"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, name: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
+      if opt_val = Keyword.get(options, :name) do
+        [{"name", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :name, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List the step groups in a migration workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListWorkflowStepGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workflow_id` (`t:string`) The ID of the migration workflow.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results that can be
+    returned.
+  * `:next_token` (`t:string`) The pagination token.
   """
-  @spec list_workflow_step_groups(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
+  @spec list_workflow_step_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_workflow_step_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflow_step_groups_errors()}
-  def list_workflow_step_groups(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        workflow_id,
-        options \\ []
-      ) do
+  def list_workflow_step_groups(%Client{} = client, workflow_id, options \\ []) do
     url_path = "/workflowstepgroups"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"workflowId", workflow_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(workflow_id) do
-        [{"workflowId", workflow_id} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List the steps in a workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListWorkflowSteps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:step_group_id` (`t:string`) The ID of the step group.
+  * `:workflow_id` (`t:string`) The ID of the migration workflow.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results that can be
+    returned.
+  * `:next_token` (`t:string`) The pagination token.
   """
-  @spec list_workflow_steps(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_workflow_steps(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_workflow_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflow_steps_errors()}
-  def list_workflow_steps(
-        %Client{} = client,
-        step_group_id,
-        workflow_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_workflow_steps(%Client{} = client, step_group_id, workflow_id, options \\ []) do
     url_path =
       "/workflow/#{AWS.Util.encode_uri(workflow_id)}/workflowstepgroups/#{AWS.Util.encode_uri(step_group_id)}/workflowsteps"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List the migration workflows.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListWorkflows&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:ads_application_configuration_name` (`t:string`) The name of the application
+    configured in Application Discovery Service.
+  * `:max_results` (`t:integer`) The maximum number of results that can be
+    returned.
+  * `:name` (`t:`) The name of the migration workflow.
+  * `:next_token` (`t:string`) The pagination token.
+  * `:status` (`t:string`) The status of the migration workflow.
+  * `:template_id` (`t:string`) The ID of the template.
   """
-  @spec list_workflows(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_workflows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_migration_workflows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflows_errors()}
-  def list_workflows(
-        %Client{} = client,
-        ads_application_configuration_name \\ nil,
-        max_results \\ nil,
-        name \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        template_id \\ nil,
-        options \\ []
-      ) do
+  def list_workflows(%Client{} = client, options \\ []) do
     url_path = "/migrationworkflows"
+
+    # Validate optional parameters
+    optional_params = [
+      ads_application_configuration_name: nil,
+      max_results: nil,
+      name: nil,
+      next_token: nil,
+      status: nil,
+      template_id: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(template_id) do
-        [{"templateId", template_id} | query_params]
+      if opt_val = Keyword.get(options, :template_id) do
+        [{"templateId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
+      if opt_val = Keyword.get(options, :name) do
+        [{"name", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(ads_application_configuration_name) do
-        [{"adsApplicationConfigurationName", ads_application_configuration_name} | query_params]
+      if opt_val = Keyword.get(options, :ads_application_configuration_name) do
+        [{"adsApplicationConfigurationName", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([
+        :ads_application_configuration_name,
+        :max_results,
+        :name,
+        :next_token,
+        :status,
+        :template_id
+      ])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retry a failed step in a migration workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20RetryWorkflowStep&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the step.
+  * `:step_group_id` (`t:string`) The ID of the step group.
+  * `:workflow_id` (`t:string`) The ID of the migration workflow.
+
+  ## Optional parameters:
   """
-  @spec retry_workflow_step(map(), String.t(), retry_workflow_step_request(), list()) ::
+  @spec retry_workflow_step(
+          AWS.Client.t(),
+          String.t(),
+          retry_workflow_step_request(),
+          Keyword.t()
+        ) ::
           {:ok, retry_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retry_workflow_step_errors()}
@@ -2127,7 +2513,8 @@ defmodule AWS.MigrationHubOrchestrator do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2144,8 +2531,20 @@ defmodule AWS.MigrationHubOrchestrator do
 
   @doc """
   Start a migration workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20StartWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the migration workflow.
+
+  ## Optional parameters:
   """
-  @spec start_workflow(map(), String.t(), start_migration_workflow_request(), list()) ::
+  @spec start_workflow(
+          AWS.Client.t(),
+          String.t(),
+          start_migration_workflow_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_workflow_errors()}
@@ -2154,7 +2553,8 @@ defmodule AWS.MigrationHubOrchestrator do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2171,8 +2571,15 @@ defmodule AWS.MigrationHubOrchestrator do
 
   @doc """
   Stop an ongoing migration workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20StopWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the migration workflow.
+
+  ## Optional parameters:
   """
-  @spec stop_workflow(map(), String.t(), stop_migration_workflow_request(), list()) ::
+  @spec stop_workflow(AWS.Client.t(), String.t(), stop_migration_workflow_request(), Keyword.t()) ::
           {:ok, stop_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_workflow_errors()}
@@ -2181,7 +2588,8 @@ defmodule AWS.MigrationHubOrchestrator do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2198,8 +2606,16 @@ defmodule AWS.MigrationHubOrchestrator do
 
   @doc """
   Tag a resource by specifying its Amazon Resource Name (ARN).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
+    which you want to add tags.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2208,7 +2624,8 @@ defmodule AWS.MigrationHubOrchestrator do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2225,8 +2642,18 @@ defmodule AWS.MigrationHubOrchestrator do
 
   @doc """
   Deletes the tags for a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    from which you want to remove tags.
+  * `:tag_keys` (`t:list[com.amazonaws.migrationhuborchestrator#TagKey]`) One or
+    more tag keys. Specify only the tag keys, not the tag values.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2240,7 +2667,8 @@ defmodule AWS.MigrationHubOrchestrator do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2257,8 +2685,16 @@ defmodule AWS.MigrationHubOrchestrator do
 
   @doc """
   Updates a migration workflow template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20UpdateTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the request to update a migration workflow
+    template.
+
+  ## Optional parameters:
   """
-  @spec update_template(map(), String.t(), update_template_request(), list()) ::
+  @spec update_template(AWS.Client.t(), String.t(), update_template_request(), Keyword.t()) ::
           {:ok, update_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_template_errors()}
@@ -2267,7 +2703,8 @@ defmodule AWS.MigrationHubOrchestrator do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2284,8 +2721,20 @@ defmodule AWS.MigrationHubOrchestrator do
 
   @doc """
   Update a migration workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20UpdateWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the migration workflow.
+
+  ## Optional parameters:
   """
-  @spec update_workflow(map(), String.t(), update_migration_workflow_request(), list()) ::
+  @spec update_workflow(
+          AWS.Client.t(),
+          String.t(),
+          update_migration_workflow_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workflow_errors()}
@@ -2294,7 +2743,8 @@ defmodule AWS.MigrationHubOrchestrator do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2311,8 +2761,20 @@ defmodule AWS.MigrationHubOrchestrator do
 
   @doc """
   Update a step in a migration workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20UpdateWorkflowStep&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the step.
+
+  ## Optional parameters:
   """
-  @spec update_workflow_step(map(), String.t(), update_workflow_step_request(), list()) ::
+  @spec update_workflow_step(
+          AWS.Client.t(),
+          String.t(),
+          update_workflow_step_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workflow_step_errors()}
@@ -2321,7 +2783,8 @@ defmodule AWS.MigrationHubOrchestrator do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2338,12 +2801,20 @@ defmodule AWS.MigrationHubOrchestrator do
 
   @doc """
   Update the step group in a migration workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20UpdateWorkflowStepGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the step group.
+  * `:workflow_id` (`t:string`) The ID of the migration workflow.
+
+  ## Optional parameters:
   """
   @spec update_workflow_step_group(
-          map(),
+          AWS.Client.t(),
           String.t(),
           update_workflow_step_group_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_workflow_step_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2358,7 +2829,8 @@ defmodule AWS.MigrationHubOrchestrator do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

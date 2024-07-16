@@ -4,29 +4,18 @@
 defmodule AWS.RolesAnywhere do
   @moduledoc """
   Identity and Access Management Roles Anywhere provides a secure way for your
-  workloads such as
-  servers, containers, and applications that run outside of Amazon Web Services to
-  obtain
-  temporary Amazon Web Services credentials.
-
-  Your workloads can use the same IAM policies and roles you have for native
-  Amazon Web Services applications to access Amazon Web Services resources. Using
-  IAM Roles Anywhere eliminates the need to
-  manage long-term credentials for workloads running outside of Amazon Web
-  Services.
-
-  To use IAM Roles Anywhere, your workloads must use X.509 certificates
-  issued by their certificate authority (CA). You register the CA with IAM
-  Roles Anywhere as a trust anchor to establish trust between your public key
-  infrastructure
-  (PKI) and IAM Roles Anywhere. If you don't manage your own PKI system, you
-  can use Private Certificate Authority to create a CA and then use that to
-  establish trust with
+  workloads such as servers, containers, and applications that run outside of
+  Amazon Web Services to obtain temporary Amazon Web Services credentials. Your
+  workloads can use the same IAM policies and roles you have for native Amazon
+  Web Services applications to access Amazon Web Services resources. Using IAM
+  Roles Anywhere eliminates the need to manage long-term credentials for
+  workloads running outside of Amazon Web Services. To use IAM Roles Anywhere,
+  your workloads must use X.509 certificates issued by their certificate
+  authority (CA). You register the CA with IAM Roles Anywhere as a trust anchor
+  to establish trust between your public key infrastructure (PKI) and IAM Roles
+  Anywhere. If you don't manage your own PKI system, you can use Private
+  Certificate Authority to create a CA and then use that to establish trust with
   IAM Roles Anywhere.
-
-  This guide describes the IAM Roles Anywhere operations that you can call
-  programmatically. For more information about IAM Roles Anywhere, see the
-  [IAM Roles Anywhere User Guide](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html).
   """
 
   alias AWS.Client
@@ -764,14 +753,16 @@ defmodule AWS.RolesAnywhere do
 
   @doc """
   Creates a *profile*, a list of the roles that Roles Anywhere service is trusted
-  to assume.
+  to assume. You use profiles to intersect permissions with IAM managed
+  policies.
 
-  You use profiles to intersect permissions with IAM managed policies.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20CreateProfile&this_doc_guide=API%2520Reference)
 
-  ## Required permissions: 
-  `rolesanywhere:CreateProfile`.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_profile(map(), create_profile_request(), list()) ::
+  @spec create_profile(AWS.Client.t(), create_profile_request(), Keyword.t()) ::
           {:ok, profile_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_profile_errors()}
@@ -780,7 +771,8 @@ defmodule AWS.RolesAnywhere do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -796,18 +788,20 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Creates a trust anchor to establish trust between IAM Roles Anywhere and
-  your certificate authority (CA).
+  Creates a trust anchor to establish trust between IAM Roles Anywhere and your
+  certificate authority (CA). You can define a trust anchor as a reference to an
+  Private Certificate Authority (Private CA) or by uploading a CA certificate.
+  Your Amazon Web Services workloads can authenticate with the trust anchor
+  using certificates issued by the CA in exchange for temporary Amazon Web
+  Services credentials.
 
-  You can define a trust anchor as a reference to an Private Certificate Authority
-  (Private CA) or by uploading a CA certificate. Your Amazon Web Services
-  workloads can authenticate with the trust anchor using certificates issued by
-  the CA in exchange for temporary Amazon Web Services credentials.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20CreateTrustAnchor&this_doc_guide=API%2520Reference)
 
-  ## Required permissions: 
-  `rolesanywhere:CreateTrustAnchor`.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_trust_anchor(map(), create_trust_anchor_request(), list()) ::
+  @spec create_trust_anchor(AWS.Client.t(), create_trust_anchor_request(), Keyword.t()) ::
           {:ok, trust_anchor_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_trust_anchor_errors()}
@@ -816,7 +810,8 @@ defmodule AWS.RolesAnywhere do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -833,8 +828,24 @@ defmodule AWS.RolesAnywhere do
 
   @doc """
   Delete an entry from the attribute mapping rules enforced by a given profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20DeleteAttributeMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_id` (`t:string`) The unique identifier of the profile.
+  * `:certificate_field` (`t:string`) Fields (x509Subject, x509Issuer and x509SAN)
+    within X.509 certificates.
+
+  ## Optional parameters:
+  * `:specifiers` (`t:list[smithy.api#String]`) A list of specifiers of a
+    certificate field; for example, CN, OU, UID from a Subject.
   """
-  @spec delete_attribute_mapping(map(), String.t(), delete_attribute_mapping_request(), list()) ::
+  @spec delete_attribute_mapping(
+          AWS.Client.t(),
+          String.t(),
+          delete_attribute_mapping_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_attribute_mapping_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_attribute_mapping_errors()}
@@ -849,7 +860,13 @@ defmodule AWS.RolesAnywhere do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:specifiers])
 
     Request.request_rest(
       client,
@@ -867,10 +884,15 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Deletes a certificate revocation list (CRL).
 
-  ## Required permissions: 
-  `rolesanywhere:DeleteCrl`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20DeleteCrl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:crl_id` (`t:string`) The unique identifier of the certificate revocation
+    list (CRL).
+
+  ## Optional parameters:
   """
-  @spec delete_crl(map(), String.t(), scalar_crl_request(), list()) ::
+  @spec delete_crl(AWS.Client.t(), String.t(), scalar_crl_request(), Keyword.t()) ::
           {:ok, crl_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_crl_errors()}
@@ -879,7 +901,8 @@ defmodule AWS.RolesAnywhere do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -897,10 +920,14 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Deletes a profile.
 
-  ## Required permissions: 
-  `rolesanywhere:DeleteProfile`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20DeleteProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_id` (`t:string`) The unique identifier of the profile.
+
+  ## Optional parameters:
   """
-  @spec delete_profile(map(), String.t(), scalar_profile_request(), list()) ::
+  @spec delete_profile(AWS.Client.t(), String.t(), scalar_profile_request(), Keyword.t()) ::
           {:ok, profile_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_profile_errors()}
@@ -909,7 +936,8 @@ defmodule AWS.RolesAnywhere do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -927,10 +955,19 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Deletes a trust anchor.
 
-  ## Required permissions: 
-  `rolesanywhere:DeleteTrustAnchor`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20DeleteTrustAnchor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:trust_anchor_id` (`t:string`) The unique identifier of the trust anchor.
+
+  ## Optional parameters:
   """
-  @spec delete_trust_anchor(map(), String.t(), scalar_trust_anchor_request(), list()) ::
+  @spec delete_trust_anchor(
+          AWS.Client.t(),
+          String.t(),
+          scalar_trust_anchor_request(),
+          Keyword.t()
+        ) ::
           {:ok, trust_anchor_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_trust_anchor_errors()}
@@ -939,7 +976,8 @@ defmodule AWS.RolesAnywhere do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -957,10 +995,15 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Disables a certificate revocation list (CRL).
 
-  ## Required permissions: 
-  `rolesanywhere:DisableCrl`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20DisableCrl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:crl_id` (`t:string`) The unique identifier of the certificate revocation
+    list (CRL).
+
+  ## Optional parameters:
   """
-  @spec disable_crl(map(), String.t(), scalar_crl_request(), list()) ::
+  @spec disable_crl(AWS.Client.t(), String.t(), scalar_crl_request(), Keyword.t()) ::
           {:ok, crl_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_crl_errors()}
@@ -969,7 +1012,8 @@ defmodule AWS.RolesAnywhere do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -985,14 +1029,17 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Disables a profile.
+  Disables a profile. When disabled, temporary credential requests with this
+  profile fail.
 
-  When disabled, temporary credential requests with this profile fail.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20DisableProfile&this_doc_guide=API%2520Reference)
 
-  ## Required permissions: 
-  `rolesanywhere:DisableProfile`.
+  ## Parameters:
+  * `:profile_id` (`t:string`) The unique identifier of the profile.
+
+  ## Optional parameters:
   """
-  @spec disable_profile(map(), String.t(), scalar_profile_request(), list()) ::
+  @spec disable_profile(AWS.Client.t(), String.t(), scalar_profile_request(), Keyword.t()) ::
           {:ok, profile_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_profile_errors()}
@@ -1001,7 +1048,8 @@ defmodule AWS.RolesAnywhere do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1017,15 +1065,22 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Disables a trust anchor.
+  Disables a trust anchor. When disabled, temporary credential requests specifying
+  this trust anchor are unauthorized.
 
-  When disabled, temporary credential requests specifying this trust anchor are
-  unauthorized.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20DisableTrustAnchor&this_doc_guide=API%2520Reference)
 
-  ## Required permissions: 
-  `rolesanywhere:DisableTrustAnchor`.
+  ## Parameters:
+  * `:trust_anchor_id` (`t:string`) The unique identifier of the trust anchor.
+
+  ## Optional parameters:
   """
-  @spec disable_trust_anchor(map(), String.t(), scalar_trust_anchor_request(), list()) ::
+  @spec disable_trust_anchor(
+          AWS.Client.t(),
+          String.t(),
+          scalar_trust_anchor_request(),
+          Keyword.t()
+        ) ::
           {:ok, trust_anchor_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_trust_anchor_errors()}
@@ -1034,7 +1089,8 @@ defmodule AWS.RolesAnywhere do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1050,15 +1106,18 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Enables a certificate revocation list (CRL).
+  Enables a certificate revocation list (CRL). When enabled, certificates stored
+  in the CRL are unauthorized to receive session credentials.
 
-  When enabled, certificates stored in the CRL are unauthorized to receive session
-  credentials.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20EnableCrl&this_doc_guide=API%2520Reference)
 
-  ## Required permissions: 
-  `rolesanywhere:EnableCrl`.
+  ## Parameters:
+  * `:crl_id` (`t:string`) The unique identifier of the certificate revocation
+    list (CRL).
+
+  ## Optional parameters:
   """
-  @spec enable_crl(map(), String.t(), scalar_crl_request(), list()) ::
+  @spec enable_crl(AWS.Client.t(), String.t(), scalar_crl_request(), Keyword.t()) ::
           {:ok, crl_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_crl_errors()}
@@ -1067,7 +1126,8 @@ defmodule AWS.RolesAnywhere do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1085,10 +1145,14 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Enables temporary credential requests for a profile.
 
-  ## Required permissions: 
-  `rolesanywhere:EnableProfile`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20EnableProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_id` (`t:string`) The unique identifier of the profile.
+
+  ## Optional parameters:
   """
-  @spec enable_profile(map(), String.t(), scalar_profile_request(), list()) ::
+  @spec enable_profile(AWS.Client.t(), String.t(), scalar_profile_request(), Keyword.t()) ::
           {:ok, profile_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_profile_errors()}
@@ -1097,7 +1161,8 @@ defmodule AWS.RolesAnywhere do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1113,15 +1178,22 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Enables a trust anchor.
+  Enables a trust anchor. When enabled, certificates in the trust anchor chain are
+  authorized for trust validation.
 
-  When enabled, certificates in the trust anchor chain are authorized for trust
-  validation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20EnableTrustAnchor&this_doc_guide=API%2520Reference)
 
-  ## Required permissions: 
-  `rolesanywhere:EnableTrustAnchor`.
+  ## Parameters:
+  * `:trust_anchor_id` (`t:string`) The unique identifier of the trust anchor.
+
+  ## Optional parameters:
   """
-  @spec enable_trust_anchor(map(), String.t(), scalar_trust_anchor_request(), list()) ::
+  @spec enable_trust_anchor(
+          AWS.Client.t(),
+          String.t(),
+          scalar_trust_anchor_request(),
+          Keyword.t()
+        ) ::
           {:ok, trust_anchor_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_trust_anchor_errors()}
@@ -1130,7 +1202,8 @@ defmodule AWS.RolesAnywhere do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1148,19 +1221,42 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Gets a certificate revocation list (CRL).
 
-  ## Required permissions: 
-  `rolesanywhere:GetCrl`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20GetCrl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:crl_id` (`t:string`) The unique identifier of the certificate revocation
+    list (CRL).
+
+  ## Optional parameters:
   """
-  @spec get_crl(map(), String.t(), list()) ::
+  @spec get_crl(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, crl_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_crl_errors()}
   def get_crl(%Client{} = client, crl_id, options \\ []) do
     url_path = "/crl/#{AWS.Util.encode_uri(crl_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1168,45 +1264,86 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Gets a profile.
 
-  ## Required permissions: 
-  `rolesanywhere:GetProfile`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20GetProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_id` (`t:string`) The unique identifier of the profile.
+
+  ## Optional parameters:
   """
-  @spec get_profile(map(), String.t(), list()) ::
+  @spec get_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, profile_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_profile_errors()}
   def get_profile(%Client{} = client, profile_id, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets a *subject*, which associates a certificate identity with
-  authentication attempts.
-
-  The subject stores auditing information such as the status
-  of the last authentication attempt, the certificate data used in the attempt,
-  and the
+  Gets a *subject*, which associates a certificate identity with authentication
+  attempts. The subject stores auditing information such as the status of the
+  last authentication attempt, the certificate data used in the attempt, and the
   last time the associated identity attempted authentication.
 
-  ## Required permissions: 
-  `rolesanywhere:GetSubject`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20GetSubject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:subject_id` (`t:string`) The unique identifier of the subject.
+
+  ## Optional parameters:
   """
-  @spec get_subject(map(), String.t(), list()) ::
+  @spec get_subject(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, subject_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_subject_errors()}
   def get_subject(%Client{} = client, subject_id, options \\ []) do
     url_path = "/subject/#{AWS.Util.encode_uri(subject_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1214,36 +1351,58 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Gets a trust anchor.
 
-  ## Required permissions: 
-  `rolesanywhere:GetTrustAnchor`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20GetTrustAnchor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:trust_anchor_id` (`t:string`) The unique identifier of the trust anchor.
+
+  ## Optional parameters:
   """
-  @spec get_trust_anchor(map(), String.t(), list()) ::
+  @spec get_trust_anchor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, trust_anchor_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_trust_anchor_errors()}
   def get_trust_anchor(%Client{} = client, trust_anchor_id, options \\ []) do
     url_path = "/trustanchor/#{AWS.Util.encode_uri(trust_anchor_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Imports the certificate revocation list (CRL).
-
-  A CRL is a list of certificates that have
-  been revoked by the issuing certificate Authority (CA).In order to be properly
-  imported, a CRL must be in PEM
-  format. IAM Roles Anywhere
+  Imports the certificate revocation list (CRL). A CRL is a list of certificates
+  that have been revoked by the issuing certificate Authority (CA).In order to
+  be properly imported, a CRL must be in PEM format. IAM Roles Anywhere
   validates against the CRL before issuing credentials.
 
-  ## Required permissions: 
-  `rolesanywhere:ImportCrl`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20ImportCrl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec import_crl(map(), import_crl_request(), list()) ::
+  @spec import_crl(AWS.Client.t(), import_crl_request(), Keyword.t()) ::
           {:ok, crl_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_crl_errors()}
@@ -1252,7 +1411,8 @@ defmodule AWS.RolesAnywhere do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1271,33 +1431,62 @@ defmodule AWS.RolesAnywhere do
   Lists all certificate revocation lists (CRL) in the authenticated account and
   Amazon Web Services Region.
 
-  ## Required permissions: 
-  `rolesanywhere:ListCrls`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20ListCrls&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:`) A token that indicates where the output should continue
+    from, if a previous request did not show all results. To get the next
+    results, make the request again with this value.
+  * `:page_size` (`t:`) The number of resources in the paginated list.
   """
-  @spec list_crls(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_crls(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_crls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_crls_errors()}
-  def list_crls(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
+  def list_crls(%Client{} = client, options \\ []) do
     url_path = "/crls"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"pageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1305,33 +1494,62 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Lists all profiles in the authenticated account and Amazon Web Services Region.
 
-  ## Required permissions: 
-  `rolesanywhere:ListProfiles`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20ListProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:`) A token that indicates where the output should continue
+    from, if a previous request did not show all results. To get the next
+    results, make the request again with this value.
+  * `:page_size` (`t:`) The number of resources in the paginated list.
   """
-  @spec list_profiles(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profiles_errors()}
-  def list_profiles(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
+  def list_profiles(%Client{} = client, options \\ []) do
     url_path = "/profiles"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"pageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1339,33 +1557,62 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Lists the subjects in the authenticated account and Amazon Web Services Region.
 
-  ## Required permissions: 
-  `rolesanywhere:ListSubjects`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20ListSubjects&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:`) A token that indicates where the output should continue
+    from, if a previous request did not show all results. To get the next
+    results, make the request again with this value.
+  * `:page_size` (`t:`) The number of resources in the paginated list.
   """
-  @spec list_subjects(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_subjects(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_subjects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_subjects_errors()}
-  def list_subjects(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
+  def list_subjects(%Client{} = client, options \\ []) do
     url_path = "/subjects"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"pageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1373,26 +1620,41 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Lists the tags attached to the resource.
 
-  ## Required permissions: 
-  `rolesanywhere:ListTagsForResource`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/ListTagsForResource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(resource_arn) do
-        [{"resourceArn", resource_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"resourceArn", resource_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1401,45 +1663,84 @@ defmodule AWS.RolesAnywhere do
   Lists the trust anchors in the authenticated account and Amazon Web Services
   Region.
 
-  ## Required permissions: 
-  `rolesanywhere:ListTrustAnchors`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20ListTrustAnchors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:next_token` (`t:`) A token that indicates where the output should continue
+    from, if a previous request did not show all results. To get the next
+    results, make the request again with this value.
+  * `:page_size` (`t:`) The number of resources in the paginated list.
   """
-  @spec list_trust_anchors(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_trust_anchors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_trust_anchors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_trust_anchors_errors()}
-  def list_trust_anchors(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
+  def list_trust_anchors(%Client{} = client, options \\ []) do
     url_path = "/trustanchors"
+
+    # Validate optional parameters
+    optional_params = [next_token: nil, page_size: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if opt_val = Keyword.get(options, :page_size) do
+        [{"pageSize", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:next_token, :page_size])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Put an entry in the attribute mapping rules that will be enforced by a given
-  profile.
+  profile. A mapping specifies a certificate field and one or more specifiers
+  that have contextual meanings.
 
-  A mapping specifies a certificate field and one or more specifiers that have
-  contextual meanings.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20PutAttributeMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_id` (`t:string`) The unique identifier of the profile.
+
+  ## Optional parameters:
   """
-  @spec put_attribute_mapping(map(), String.t(), put_attribute_mapping_request(), list()) ::
+  @spec put_attribute_mapping(
+          AWS.Client.t(),
+          String.t(),
+          put_attribute_mapping_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_attribute_mapping_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_attribute_mapping_errors()}
@@ -1448,22 +1749,28 @@ defmodule AWS.RolesAnywhere do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Attaches a list of *notification settings* to a trust anchor.
+  Attaches a list of *notification settings* to a trust anchor. A notification
+  setting includes information such as event name, threshold, status of the
+  notification setting, and the channel to notify.
 
-  A notification setting includes information such as event name, threshold,
-  status of
-  the notification setting, and the channel to notify.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20PutNotificationSettings&this_doc_guide=API%2520Reference)
 
-  ## Required permissions: 
-  `rolesanywhere:PutNotificationSettings`.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_notification_settings(map(), put_notification_settings_request(), list()) ::
+  @spec put_notification_settings(
+          AWS.Client.t(),
+          put_notification_settings_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_notification_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_notification_settings_errors()}
@@ -1472,7 +1779,8 @@ defmodule AWS.RolesAnywhere do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1490,10 +1798,17 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Resets the *custom notification setting* to IAM Roles Anywhere default setting.
 
-  ## Required permissions: 
-  `rolesanywhere:ResetNotificationSettings`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20ResetNotificationSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec reset_notification_settings(map(), reset_notification_settings_request(), list()) ::
+  @spec reset_notification_settings(
+          AWS.Client.t(),
+          reset_notification_settings_request(),
+          Keyword.t()
+        ) ::
           {:ok, reset_notification_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_notification_settings_errors()}
@@ -1502,7 +1817,8 @@ defmodule AWS.RolesAnywhere do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1520,10 +1836,13 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Attaches tags to a resource.
 
-  ## Required permissions: 
-  `rolesanywhere:TagResource`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1532,7 +1851,8 @@ defmodule AWS.RolesAnywhere do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1550,10 +1870,13 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Removes tags from the resource.
 
-  ## Required permissions: 
-  `rolesanywhere:UntagResource`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1562,7 +1885,8 @@ defmodule AWS.RolesAnywhere do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1578,16 +1902,19 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Updates the certificate revocation list (CRL).
+  Updates the certificate revocation list (CRL). A CRL is a list of certificates
+  that have been revoked by the issuing certificate authority (CA). IAM Roles
+  Anywhere validates against the CRL before issuing credentials.
 
-  A CRL is a list of certificates that have
-  been revoked by the issuing certificate authority (CA). IAM Roles Anywhere
-  validates against the CRL before issuing credentials.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20UpdateCrl&this_doc_guide=API%2520Reference)
 
-  ## Required permissions: 
-  `rolesanywhere:UpdateCrl`.
+  ## Parameters:
+  * `:crl_id` (`t:string`) The unique identifier of the certificate revocation
+    list (CRL).
+
+  ## Optional parameters:
   """
-  @spec update_crl(map(), String.t(), update_crl_request(), list()) ::
+  @spec update_crl(AWS.Client.t(), String.t(), update_crl_request(), Keyword.t()) ::
           {:ok, crl_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_crl_errors()}
@@ -1596,7 +1923,8 @@ defmodule AWS.RolesAnywhere do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1612,16 +1940,18 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Updates a *profile*, a list of the roles that IAM
-  Roles Anywhere service is trusted to assume.
+  Updates a *profile*, a list of the roles that IAM Roles Anywhere service is
+  trusted to assume. You use profiles to intersect permissions with IAM managed
+  policies.
 
-  You use profiles to intersect permissions with
-  IAM managed policies.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20UpdateProfile&this_doc_guide=API%2520Reference)
 
-  ## Required permissions: 
-  `rolesanywhere:UpdateProfile`.
+  ## Parameters:
+  * `:profile_id` (`t:string`) The unique identifier of the profile.
+
+  ## Optional parameters:
   """
-  @spec update_profile(map(), String.t(), update_profile_request(), list()) ::
+  @spec update_profile(AWS.Client.t(), String.t(), update_profile_request(), Keyword.t()) ::
           {:ok, profile_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_profile_errors()}
@@ -1630,7 +1960,8 @@ defmodule AWS.RolesAnywhere do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1646,23 +1977,26 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Updates a trust anchor.
+  Updates a trust anchor. You establish trust between IAM Roles Anywhere and your
+  certificate authority (CA) by configuring a trust anchor. You can define a
+  trust anchor as a reference to an Private Certificate Authority (Private CA)
+  or by uploading a CA certificate. Your Amazon Web Services workloads can
+  authenticate with the trust anchor using certificates issued by the CA in
+  exchange for temporary Amazon Web Services credentials.
 
-  You establish trust between IAM Roles Anywhere
-  and your certificate authority (CA) by configuring a trust anchor. You can
-  define a trust
-  anchor as a reference to an Private Certificate Authority (Private CA) or by
-  uploading a
-  CA certificate. Your Amazon Web Services workloads can authenticate with the
-  trust anchor
-  using certificates issued by the CA in exchange for temporary Amazon Web
-  Services
-  credentials.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20UpdateTrustAnchor&this_doc_guide=API%2520Reference)
 
-  ## Required permissions: 
-  `rolesanywhere:UpdateTrustAnchor`.
+  ## Parameters:
+  * `:trust_anchor_id` (`t:string`) The unique identifier of the trust anchor.
+
+  ## Optional parameters:
   """
-  @spec update_trust_anchor(map(), String.t(), update_trust_anchor_request(), list()) ::
+  @spec update_trust_anchor(
+          AWS.Client.t(),
+          String.t(),
+          update_trust_anchor_request(),
+          Keyword.t()
+        ) ::
           {:ok, trust_anchor_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_trust_anchor_errors()}
@@ -1671,7 +2005,8 @@ defmodule AWS.RolesAnywhere do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

@@ -4,8 +4,6 @@
 defmodule AWS.Glue do
   @moduledoc """
   Glue
-
-  Defines the public endpoint for the Glue service.
   """
 
   alias AWS.Client
@@ -12129,12 +12127,13 @@ defmodule AWS.Glue do
   @doc """
   Creates one or more partitions in a batch operation.
   """
-  @spec batch_create_partition(map(), batch_create_partition_request(), list()) ::
+  @spec batch_create_partition(AWS.Client.t(), batch_create_partition_request(), Keyword.t()) ::
           {:ok, batch_create_partition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_create_partition_errors()}
   def batch_create_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchCreatePartition", input, options)
   end
@@ -12142,12 +12141,13 @@ defmodule AWS.Glue do
   @doc """
   Deletes a list of connection definitions from the Data Catalog.
   """
-  @spec batch_delete_connection(map(), batch_delete_connection_request(), list()) ::
+  @spec batch_delete_connection(AWS.Client.t(), batch_delete_connection_request(), Keyword.t()) ::
           {:ok, batch_delete_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_connection_errors()}
   def batch_delete_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteConnection", input, options)
   end
@@ -12155,37 +12155,27 @@ defmodule AWS.Glue do
   @doc """
   Deletes one or more partitions in a batch operation.
   """
-  @spec batch_delete_partition(map(), batch_delete_partition_request(), list()) ::
+  @spec batch_delete_partition(AWS.Client.t(), batch_delete_partition_request(), Keyword.t()) ::
           {:ok, batch_delete_partition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_partition_errors()}
   def batch_delete_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeletePartition", input, options)
   end
 
   @doc """
   Deletes multiple tables at once.
-
-  After completing this operation, you no longer have access to the table versions
-  and
-  partitions that belong to the deleted table. Glue deletes these "orphaned"
-  resources
-  asynchronously in a timely manner, at the discretion of the service.
-
-  To ensure the immediate deletion of all related resources, before calling
-  `BatchDeleteTable`, use `DeleteTableVersion` or
-  `BatchDeleteTableVersion`, and `DeletePartition` or
-  `BatchDeletePartition`, to delete any resources that belong to the
-  table.
   """
-  @spec batch_delete_table(map(), batch_delete_table_request(), list()) ::
+  @spec batch_delete_table(AWS.Client.t(), batch_delete_table_request(), Keyword.t()) ::
           {:ok, batch_delete_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_table_errors()}
   def batch_delete_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteTable", input, options)
   end
@@ -12193,12 +12183,17 @@ defmodule AWS.Glue do
   @doc """
   Deletes a specified batch of versions of a table.
   """
-  @spec batch_delete_table_version(map(), batch_delete_table_version_request(), list()) ::
+  @spec batch_delete_table_version(
+          AWS.Client.t(),
+          batch_delete_table_version_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_delete_table_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_table_version_errors()}
   def batch_delete_table_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteTableVersion", input, options)
   end
@@ -12206,29 +12201,30 @@ defmodule AWS.Glue do
   @doc """
   Retrieves information about a list of blueprints.
   """
-  @spec batch_get_blueprints(map(), batch_get_blueprints_request(), list()) ::
+  @spec batch_get_blueprints(AWS.Client.t(), batch_get_blueprints_request(), Keyword.t()) ::
           {:ok, batch_get_blueprints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_blueprints_errors()}
   def batch_get_blueprints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetBlueprints", input, options)
   end
 
   @doc """
-  Returns a list of resource metadata for a given list of crawler names.
-
-  After calling the `ListCrawlers` operation, you can call this operation to
-  access the data to which you have been granted permissions. This operation
-  supports all IAM permissions, including permission conditions that uses tags.
+  Returns a list of resource metadata for a given list of crawler names. After
+  calling the `ListCrawlers` operation, you can call this operation to access
+  the data to which you have been granted permissions. This operation supports
+  all IAM permissions, including permission conditions that uses tags.
   """
-  @spec batch_get_crawlers(map(), batch_get_crawlers_request(), list()) ::
+  @spec batch_get_crawlers(AWS.Client.t(), batch_get_crawlers_request(), Keyword.t()) ::
           {:ok, batch_get_crawlers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_crawlers_errors()}
   def batch_get_crawlers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetCrawlers", input, options)
   end
@@ -12236,12 +12232,17 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the details for the custom patterns specified by a list of names.
   """
-  @spec batch_get_custom_entity_types(map(), batch_get_custom_entity_types_request(), list()) ::
+  @spec batch_get_custom_entity_types(
+          AWS.Client.t(),
+          batch_get_custom_entity_types_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_get_custom_entity_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_custom_entity_types_errors()}
   def batch_get_custom_entity_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetCustomEntityTypes", input, options)
   end
@@ -12249,50 +12250,52 @@ defmodule AWS.Glue do
   @doc """
   Retrieves a list of data quality results for the specified result IDs.
   """
-  @spec batch_get_data_quality_result(map(), batch_get_data_quality_result_request(), list()) ::
+  @spec batch_get_data_quality_result(
+          AWS.Client.t(),
+          batch_get_data_quality_result_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_get_data_quality_result_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_data_quality_result_errors()}
   def batch_get_data_quality_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetDataQualityResult", input, options)
   end
 
   @doc """
   Returns a list of resource metadata for a given list of development endpoint
-  names.
-
-  After
-  calling the `ListDevEndpoints` operation, you can call this operation to access
-  the
-  data to which you have been granted permissions. This operation supports all IAM
-  permissions,
-  including permission conditions that uses tags.
+  names. After calling the `ListDevEndpoints` operation, you can call this
+  operation to access the data to which you have been granted permissions. This
+  operation supports all IAM permissions, including permission conditions that
+  uses tags.
   """
-  @spec batch_get_dev_endpoints(map(), batch_get_dev_endpoints_request(), list()) ::
+  @spec batch_get_dev_endpoints(AWS.Client.t(), batch_get_dev_endpoints_request(), Keyword.t()) ::
           {:ok, batch_get_dev_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_dev_endpoints_errors()}
   def batch_get_dev_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetDevEndpoints", input, options)
   end
 
   @doc """
-  Returns a list of resource metadata for a given list of job names.
-
-  After calling the `ListJobs` operation, you can call this operation to access
-  the data to which you have been granted permissions. This operation supports all
-  IAM permissions, including permission conditions that uses tags.
+  Returns a list of resource metadata for a given list of job names. After calling
+  the `ListJobs` operation, you can call this operation to access the data to
+  which you have been granted permissions. This operation supports all IAM
+  permissions, including permission conditions that uses tags.
   """
-  @spec batch_get_jobs(map(), batch_get_jobs_request(), list()) ::
+  @spec batch_get_jobs(AWS.Client.t(), batch_get_jobs_request(), Keyword.t()) ::
           {:ok, batch_get_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_jobs_errors()}
   def batch_get_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetJobs", input, options)
   end
@@ -12300,12 +12303,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves partitions in a batch request.
   """
-  @spec batch_get_partition(map(), batch_get_partition_request(), list()) ::
+  @spec batch_get_partition(AWS.Client.t(), batch_get_partition_request(), Keyword.t()) ::
           {:ok, batch_get_partition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_partition_errors()}
   def batch_get_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetPartition", input, options)
   end
@@ -12313,46 +12317,51 @@ defmodule AWS.Glue do
   @doc """
   Returns the configuration for the specified table optimizers.
   """
-  @spec batch_get_table_optimizer(map(), batch_get_table_optimizer_request(), list()) ::
+  @spec batch_get_table_optimizer(
+          AWS.Client.t(),
+          batch_get_table_optimizer_request(),
+          Keyword.t()
+        ) ::
           {:ok, batch_get_table_optimizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_table_optimizer_errors()}
   def batch_get_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetTableOptimizer", input, options)
   end
 
   @doc """
-  Returns a list of resource metadata for a given list of trigger names.
-
-  After calling the `ListTriggers` operation, you can call this operation to
-  access the data to which you have been granted permissions. This operation
-  supports all IAM permissions, including permission conditions that uses tags.
+  Returns a list of resource metadata for a given list of trigger names. After
+  calling the `ListTriggers` operation, you can call this operation to access
+  the data to which you have been granted permissions. This operation supports
+  all IAM permissions, including permission conditions that uses tags.
   """
-  @spec batch_get_triggers(map(), batch_get_triggers_request(), list()) ::
+  @spec batch_get_triggers(AWS.Client.t(), batch_get_triggers_request(), Keyword.t()) ::
           {:ok, batch_get_triggers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_triggers_errors()}
   def batch_get_triggers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetTriggers", input, options)
   end
 
   @doc """
-  Returns a list of resource metadata for a given list of workflow names.
-
-  After calling the `ListWorkflows` operation, you can call this operation to
-  access the data to which you have been granted permissions. This operation
-  supports all IAM permissions, including permission conditions that uses tags.
+  Returns a list of resource metadata for a given list of workflow names. After
+  calling the `ListWorkflows` operation, you can call this operation to access
+  the data to which you have been granted permissions. This operation supports
+  all IAM permissions, including permission conditions that uses tags.
   """
-  @spec batch_get_workflows(map(), batch_get_workflows_request(), list()) ::
+  @spec batch_get_workflows(AWS.Client.t(), batch_get_workflows_request(), Keyword.t()) ::
           {:ok, batch_get_workflows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_workflows_errors()}
   def batch_get_workflows(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetWorkflows", input, options)
   end
@@ -12360,12 +12369,13 @@ defmodule AWS.Glue do
   @doc """
   Stops one or more job runs for a specified job definition.
   """
-  @spec batch_stop_job_run(map(), batch_stop_job_run_request(), list()) ::
+  @spec batch_stop_job_run(AWS.Client.t(), batch_stop_job_run_request(), Keyword.t()) ::
           {:ok, batch_stop_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_stop_job_run_errors()}
   def batch_stop_job_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchStopJobRun", input, options)
   end
@@ -12373,12 +12383,13 @@ defmodule AWS.Glue do
   @doc """
   Updates one or more partitions in a batch operation.
   """
-  @spec batch_update_partition(map(), batch_update_partition_request(), list()) ::
+  @spec batch_update_partition(AWS.Client.t(), batch_update_partition_request(), Keyword.t()) ::
           {:ok, batch_update_partition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_partition_errors()}
   def batch_update_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchUpdatePartition", input, options)
   end
@@ -12387,15 +12398,16 @@ defmodule AWS.Glue do
   Cancels the specified recommendation run that was being used to generate rules.
   """
   @spec cancel_data_quality_rule_recommendation_run(
-          map(),
+          AWS.Client.t(),
           cancel_data_quality_rule_recommendation_run_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, cancel_data_quality_rule_recommendation_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_data_quality_rule_recommendation_run_errors()}
   def cancel_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelDataQualityRuleRecommendationRun", input, options)
   end
@@ -12404,33 +12416,34 @@ defmodule AWS.Glue do
   Cancels a run where a ruleset is being evaluated against a data source.
   """
   @spec cancel_data_quality_ruleset_evaluation_run(
-          map(),
+          AWS.Client.t(),
           cancel_data_quality_ruleset_evaluation_run_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, cancel_data_quality_ruleset_evaluation_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_data_quality_ruleset_evaluation_run_errors()}
   def cancel_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelDataQualityRulesetEvaluationRun", input, options)
   end
 
   @doc """
-  Cancels (stops) a task run.
-
-  Machine learning task runs are asynchronous tasks that Glue runs on your behalf
-  as part of various machine learning workflows. You can cancel a
-  machine learning task run at any time by calling `CancelMLTaskRun` with a task
-  run's parent transform's `TransformID` and the task run's `TaskRunId`.
+  Cancels (stops) a task run. Machine learning task runs are asynchronous tasks
+  that Glue runs on your behalf as part of various machine learning workflows.
+  You can cancel a machine learning task run at any time by calling
+  `CancelMLTaskRun` with a task run's parent transform's `TransformID` and the
+  task run's `TaskRunId`.
   """
-  @spec cancel_ml_task_run(map(), cancel_ml_task_run_request(), list()) ::
+  @spec cancel_ml_task_run(AWS.Client.t(), cancel_ml_task_run_request(), Keyword.t()) ::
           {:ok, cancel_ml_task_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_ml_task_run_errors()}
   def cancel_ml_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelMLTaskRun", input, options)
   end
@@ -12438,29 +12451,33 @@ defmodule AWS.Glue do
   @doc """
   Cancels the statement.
   """
-  @spec cancel_statement(map(), cancel_statement_request(), list()) ::
+  @spec cancel_statement(AWS.Client.t(), cancel_statement_request(), Keyword.t()) ::
           {:ok, cancel_statement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_statement_errors()}
   def cancel_statement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelStatement", input, options)
   end
 
   @doc """
-  Validates the supplied schema.
-
-  This call has no side effects, it simply validates using the supplied schema
-  using `DataFormat` as the format. Since it does not take a schema set name, no
-  compatibility checks are performed.
+  Validates the supplied schema. This call has no side effects, it simply
+  validates using the supplied schema using `DataFormat` as the format. Since it
+  does not take a schema set name, no compatibility checks are performed.
   """
-  @spec check_schema_version_validity(map(), check_schema_version_validity_input(), list()) ::
+  @spec check_schema_version_validity(
+          AWS.Client.t(),
+          check_schema_version_validity_input(),
+          Keyword.t()
+        ) ::
           {:ok, check_schema_version_validity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, check_schema_version_validity_errors()}
   def check_schema_version_validity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CheckSchemaVersionValidity", input, options)
   end
@@ -12468,62 +12485,59 @@ defmodule AWS.Glue do
   @doc """
   Registers a blueprint with Glue.
   """
-  @spec create_blueprint(map(), create_blueprint_request(), list()) ::
+  @spec create_blueprint(AWS.Client.t(), create_blueprint_request(), Keyword.t()) ::
           {:ok, create_blueprint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_blueprint_errors()}
   def create_blueprint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBlueprint", input, options)
   end
 
   @doc """
-  Creates a classifier in the user's account.
-
-  This can be a `GrokClassifier`, an
-  `XMLClassifier`, a `JsonClassifier`, or a `CsvClassifier`,
-  depending on which field of the request is present.
+  Creates a classifier in the user's account. This can be a `GrokClassifier`, an
+  `XMLClassifier`, a `JsonClassifier`, or a `CsvClassifier`, depending on which
+  field of the request is present.
   """
-  @spec create_classifier(map(), create_classifier_request(), list()) ::
+  @spec create_classifier(AWS.Client.t(), create_classifier_request(), Keyword.t()) ::
           {:ok, create_classifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_classifier_errors()}
   def create_classifier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateClassifier", input, options)
   end
 
   @doc """
   Creates a connection definition in the Data Catalog.
-
-  Connections used for creating federated resources require the IAM
-  `glue:PassConnection` permission.
   """
-  @spec create_connection(map(), create_connection_request(), list()) ::
+  @spec create_connection(AWS.Client.t(), create_connection_request(), Keyword.t()) ::
           {:ok, create_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connection_errors()}
   def create_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConnection", input, options)
   end
 
   @doc """
   Creates a new crawler with specified targets, role, configuration, and optional
-  schedule.
-
-  At least one crawl target must be specified, in the `s3Targets` field, the
-  `jdbcTargets` field, or the `DynamoDBTargets` field.
+  schedule. At least one crawl target must be specified, in the `s3Targets`
+  field, the `jdbcTargets` field, or the `DynamoDBTargets` field.
   """
-  @spec create_crawler(map(), create_crawler_request(), list()) ::
+  @spec create_crawler(AWS.Client.t(), create_crawler_request(), Keyword.t()) ::
           {:ok, create_crawler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_crawler_errors()}
   def create_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCrawler", input, options)
   end
@@ -12531,17 +12545,18 @@ defmodule AWS.Glue do
   @doc """
   Creates a custom pattern that is used to detect sensitive data across the
   columns and rows of your structured data.
-
-  Each custom pattern you create specifies a regular expression and an optional
-  list of context words. If no context words are passed only a regular expression
-  is checked.
   """
-  @spec create_custom_entity_type(map(), create_custom_entity_type_request(), list()) ::
+  @spec create_custom_entity_type(
+          AWS.Client.t(),
+          create_custom_entity_type_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_custom_entity_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_custom_entity_type_errors()}
   def create_custom_entity_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCustomEntityType", input, options)
   end
@@ -12549,16 +12564,18 @@ defmodule AWS.Glue do
   @doc """
   Creates a data quality ruleset with DQDL rules applied to a specified Glue
   table.
-
-  You create the ruleset using the Data Quality Definition Language (DQDL). For
-  more information, see the Glue developer guide.
   """
-  @spec create_data_quality_ruleset(map(), create_data_quality_ruleset_request(), list()) ::
+  @spec create_data_quality_ruleset(
+          AWS.Client.t(),
+          create_data_quality_ruleset_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_data_quality_ruleset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_quality_ruleset_errors()}
   def create_data_quality_ruleset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataQualityRuleset", input, options)
   end
@@ -12566,12 +12583,13 @@ defmodule AWS.Glue do
   @doc """
   Creates a new database in a Data Catalog.
   """
-  @spec create_database(map(), create_database_request(), list()) ::
+  @spec create_database(AWS.Client.t(), create_database_request(), Keyword.t()) ::
           {:ok, create_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_database_errors()}
   def create_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDatabase", input, options)
   end
@@ -12579,12 +12597,13 @@ defmodule AWS.Glue do
   @doc """
   Creates a new development endpoint.
   """
-  @spec create_dev_endpoint(map(), create_dev_endpoint_request(), list()) ::
+  @spec create_dev_endpoint(AWS.Client.t(), create_dev_endpoint_request(), Keyword.t()) ::
           {:ok, create_dev_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dev_endpoint_errors()}
   def create_dev_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDevEndpoint", input, options)
   end
@@ -12592,43 +12611,32 @@ defmodule AWS.Glue do
   @doc """
   Creates a new job definition.
   """
-  @spec create_job(map(), create_job_request(), list()) ::
+  @spec create_job(AWS.Client.t(), create_job_request(), Keyword.t()) ::
           {:ok, create_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_errors()}
   def create_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateJob", input, options)
   end
 
   @doc """
-  Creates an Glue machine learning transform.
-
-  This operation creates the transform and
-  all the necessary parameters to train it.
-
-  Call this operation as the first step in the process of using a machine learning
-  transform
-  (such as the `FindMatches` transform) for deduplicating data. You can provide an
-  optional `Description`, in addition to the parameters that you want to use for
-  your
+  Creates an Glue machine learning transform. This operation creates the transform
+  and all the necessary parameters to train it. Call this operation as the first
+  step in the process of using a machine learning transform (such as the
+  `FindMatches` transform) for deduplicating data. You can provide an optional
+  `Description`, in addition to the parameters that you want to use for your
   algorithm.
-
-  You must also specify certain parameters for the tasks that Glue runs on your
-  behalf as part of learning from your data and creating a high-quality machine
-  learning
-  transform. These parameters include `Role`, and optionally,
-  `AllocatedCapacity`, `Timeout`, and `MaxRetries`. For more
-  information, see
-  [Jobs](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html).
   """
-  @spec create_ml_transform(map(), create_ml_transform_request(), list()) ::
+  @spec create_ml_transform(AWS.Client.t(), create_ml_transform_request(), Keyword.t()) ::
           {:ok, create_ml_transform_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ml_transform_errors()}
   def create_ml_transform(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMLTransform", input, options)
   end
@@ -12636,12 +12644,13 @@ defmodule AWS.Glue do
   @doc """
   Creates a new partition.
   """
-  @spec create_partition(map(), create_partition_request(), list()) ::
+  @spec create_partition(AWS.Client.t(), create_partition_request(), Keyword.t()) ::
           {:ok, create_partition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_partition_errors()}
   def create_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePartition", input, options)
   end
@@ -12649,12 +12658,13 @@ defmodule AWS.Glue do
   @doc """
   Creates a specified partition index in an existing table.
   """
-  @spec create_partition_index(map(), create_partition_index_request(), list()) ::
+  @spec create_partition_index(AWS.Client.t(), create_partition_index_request(), Keyword.t()) ::
           {:ok, create_partition_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_partition_index_errors()}
   def create_partition_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePartitionIndex", input, options)
   end
@@ -12662,38 +12672,33 @@ defmodule AWS.Glue do
   @doc """
   Creates a new registry which may be used to hold a collection of schemas.
   """
-  @spec create_registry(map(), create_registry_input(), list()) ::
+  @spec create_registry(AWS.Client.t(), create_registry_input(), Keyword.t()) ::
           {:ok, create_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_registry_errors()}
   def create_registry(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRegistry", input, options)
   end
 
   @doc """
-  Creates a new schema set and registers the schema definition.
-
-  Returns an error if the schema set already exists without actually registering
-  the version.
-
+  Creates a new schema set and registers the schema definition. Returns an error
+  if the schema set already exists without actually registering the version.
   When the schema set is created, a version checkpoint will be set to the first
-  version. Compatibility mode "DISABLED" restricts any additional schema versions
-  from being added after the first schema version. For all other compatibility
-  modes, validation of compatibility settings will be applied only from the second
-  version onwards when the `RegisterSchemaVersion` API is used.
-
-  When this API is called without a `RegistryId`, this will create an entry for a
-  "default-registry" in the registry database tables, if it is not already
-  present.
+  version. Compatibility mode "DISABLED" restricts any additional schema
+  versions from being added after the first schema version. For all other
+  compatibility modes, validation of compatibility settings will be applied only
+  from the second version onwards when the `RegisterSchemaVersion` API is used.
   """
-  @spec create_schema(map(), create_schema_input(), list()) ::
+  @spec create_schema(AWS.Client.t(), create_schema_input(), Keyword.t()) ::
           {:ok, create_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_schema_errors()}
   def create_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSchema", input, options)
   end
@@ -12701,30 +12706,36 @@ defmodule AWS.Glue do
   @doc """
   Transforms a directed acyclic graph (DAG) into code.
   """
-  @spec create_script(map(), create_script_request(), list()) ::
+  @spec create_script(AWS.Client.t(), create_script_request(), Keyword.t()) ::
           {:ok, create_script_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_script_errors()}
   def create_script(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateScript", input, options)
   end
 
   @doc """
-  Creates a new security configuration.
-
-  A security configuration is a set of security properties that can be used by
-  Glue. You can use a security configuration to encrypt data at rest. For
-  information about using security configurations in Glue, see [Encrypting Data Written by Crawlers, Jobs, and Development
+  Creates a new security configuration. A security configuration is a set of
+  security properties that can be used by Glue. You can use a security
+  configuration to encrypt data at rest. For information about using security
+  configurations in Glue, see [Encrypting Data Written by Crawlers, Jobs, and
+  Development
   Endpoints](https://docs.aws.amazon.com/glue/latest/dg/encryption-security-configuration.html).
   """
-  @spec create_security_configuration(map(), create_security_configuration_request(), list()) ::
+  @spec create_security_configuration(
+          AWS.Client.t(),
+          create_security_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_security_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_security_configuration_errors()}
   def create_security_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSecurityConfiguration", input, options)
   end
@@ -12732,12 +12743,13 @@ defmodule AWS.Glue do
   @doc """
   Creates a new session.
   """
-  @spec create_session(map(), create_session_request(), list()) ::
+  @spec create_session(AWS.Client.t(), create_session_request(), Keyword.t()) ::
           {:ok, create_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_session_errors()}
   def create_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSession", input, options)
   end
@@ -12745,27 +12757,28 @@ defmodule AWS.Glue do
   @doc """
   Creates a new table definition in the Data Catalog.
   """
-  @spec create_table(map(), create_table_request(), list()) ::
+  @spec create_table(AWS.Client.t(), create_table_request(), Keyword.t()) ::
           {:ok, create_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_table_errors()}
   def create_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTable", input, options)
   end
 
   @doc """
-  Creates a new table optimizer for a specific function.
-
-  `compaction` is the only currently supported optimizer type.
+  Creates a new table optimizer for a specific function. `compaction` is the only
+  currently supported optimizer type.
   """
-  @spec create_table_optimizer(map(), create_table_optimizer_request(), list()) ::
+  @spec create_table_optimizer(AWS.Client.t(), create_table_optimizer_request(), Keyword.t()) ::
           {:ok, create_table_optimizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_table_optimizer_errors()}
   def create_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTableOptimizer", input, options)
   end
@@ -12773,12 +12786,13 @@ defmodule AWS.Glue do
   @doc """
   Creates a new trigger.
   """
-  @spec create_trigger(map(), create_trigger_request(), list()) ::
+  @spec create_trigger(AWS.Client.t(), create_trigger_request(), Keyword.t()) ::
           {:ok, create_trigger_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_trigger_errors()}
   def create_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrigger", input, options)
   end
@@ -12786,12 +12800,13 @@ defmodule AWS.Glue do
   @doc """
   Creates an Glue usage profile.
   """
-  @spec create_usage_profile(map(), create_usage_profile_request(), list()) ::
+  @spec create_usage_profile(AWS.Client.t(), create_usage_profile_request(), Keyword.t()) ::
           {:ok, create_usage_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_usage_profile_errors()}
   def create_usage_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUsageProfile", input, options)
   end
@@ -12799,12 +12814,17 @@ defmodule AWS.Glue do
   @doc """
   Creates a new function definition in the Data Catalog.
   """
-  @spec create_user_defined_function(map(), create_user_defined_function_request(), list()) ::
+  @spec create_user_defined_function(
+          AWS.Client.t(),
+          create_user_defined_function_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_user_defined_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_defined_function_errors()}
   def create_user_defined_function(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUserDefinedFunction", input, options)
   end
@@ -12812,12 +12832,13 @@ defmodule AWS.Glue do
   @doc """
   Creates a new workflow.
   """
-  @spec create_workflow(map(), create_workflow_request(), list()) ::
+  @spec create_workflow(AWS.Client.t(), create_workflow_request(), Keyword.t()) ::
           {:ok, create_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workflow_errors()}
   def create_workflow(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkflow", input, options)
   end
@@ -12825,12 +12846,13 @@ defmodule AWS.Glue do
   @doc """
   Deletes an existing blueprint.
   """
-  @spec delete_blueprint(map(), delete_blueprint_request(), list()) ::
+  @spec delete_blueprint(AWS.Client.t(), delete_blueprint_request(), Keyword.t()) ::
           {:ok, delete_blueprint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_blueprint_errors()}
   def delete_blueprint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBlueprint", input, options)
   end
@@ -12838,52 +12860,49 @@ defmodule AWS.Glue do
   @doc """
   Removes a classifier from the Data Catalog.
   """
-  @spec delete_classifier(map(), delete_classifier_request(), list()) ::
+  @spec delete_classifier(AWS.Client.t(), delete_classifier_request(), Keyword.t()) ::
           {:ok, delete_classifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_classifier_errors()}
   def delete_classifier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteClassifier", input, options)
   end
 
   @doc """
   Delete the partition column statistics of a column.
-
-  The Identity and Access Management (IAM) permission required for this operation
-  is `DeletePartition`.
   """
   @spec delete_column_statistics_for_partition(
-          map(),
+          AWS.Client.t(),
           delete_column_statistics_for_partition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_column_statistics_for_partition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_column_statistics_for_partition_errors()}
   def delete_column_statistics_for_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteColumnStatisticsForPartition", input, options)
   end
 
   @doc """
   Retrieves table statistics of columns.
-
-  The Identity and Access Management (IAM) permission required for this operation
-  is `DeleteTable`.
   """
   @spec delete_column_statistics_for_table(
-          map(),
+          AWS.Client.t(),
           delete_column_statistics_for_table_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_column_statistics_for_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_column_statistics_for_table_errors()}
   def delete_column_statistics_for_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteColumnStatisticsForTable", input, options)
   end
@@ -12891,27 +12910,28 @@ defmodule AWS.Glue do
   @doc """
   Deletes a connection from the Data Catalog.
   """
-  @spec delete_connection(map(), delete_connection_request(), list()) ::
+  @spec delete_connection(AWS.Client.t(), delete_connection_request(), Keyword.t()) ::
           {:ok, delete_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connection_errors()}
   def delete_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConnection", input, options)
   end
 
   @doc """
   Removes a specified crawler from the Glue Data Catalog, unless the crawler state
-  is
-  `RUNNING`.
+  is `RUNNING`.
   """
-  @spec delete_crawler(map(), delete_crawler_request(), list()) ::
+  @spec delete_crawler(AWS.Client.t(), delete_crawler_request(), Keyword.t()) ::
           {:ok, delete_crawler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_crawler_errors()}
   def delete_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCrawler", input, options)
   end
@@ -12919,12 +12939,17 @@ defmodule AWS.Glue do
   @doc """
   Deletes a custom pattern by specifying its name.
   """
-  @spec delete_custom_entity_type(map(), delete_custom_entity_type_request(), list()) ::
+  @spec delete_custom_entity_type(
+          AWS.Client.t(),
+          delete_custom_entity_type_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_custom_entity_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_entity_type_errors()}
   def delete_custom_entity_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCustomEntityType", input, options)
   end
@@ -12932,40 +12957,31 @@ defmodule AWS.Glue do
   @doc """
   Deletes a data quality ruleset.
   """
-  @spec delete_data_quality_ruleset(map(), delete_data_quality_ruleset_request(), list()) ::
+  @spec delete_data_quality_ruleset(
+          AWS.Client.t(),
+          delete_data_quality_ruleset_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_data_quality_ruleset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_quality_ruleset_errors()}
   def delete_data_quality_ruleset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDataQualityRuleset", input, options)
   end
 
   @doc """
   Removes a specified database from a Data Catalog.
-
-  After completing this operation, you no longer have access to the tables (and
-  all table
-  versions and partitions that might belong to the tables) and the user-defined
-  functions in
-  the deleted database. Glue deletes these "orphaned" resources asynchronously in
-  a timely
-  manner, at the discretion of the service.
-
-  To ensure the immediate deletion of all related resources, before calling
-  `DeleteDatabase`, use `DeleteTableVersion` or
-  `BatchDeleteTableVersion`, `DeletePartition` or
-  `BatchDeletePartition`, `DeleteUserDefinedFunction`, and
-  `DeleteTable` or `BatchDeleteTable`, to delete any resources that
-  belong to the database.
   """
-  @spec delete_database(map(), delete_database_request(), list()) ::
+  @spec delete_database(AWS.Client.t(), delete_database_request(), Keyword.t()) ::
           {:ok, delete_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_database_errors()}
   def delete_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDatabase", input, options)
   end
@@ -12973,50 +12989,47 @@ defmodule AWS.Glue do
   @doc """
   Deletes a specified development endpoint.
   """
-  @spec delete_dev_endpoint(map(), delete_dev_endpoint_request(), list()) ::
+  @spec delete_dev_endpoint(AWS.Client.t(), delete_dev_endpoint_request(), Keyword.t()) ::
           {:ok, delete_dev_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dev_endpoint_errors()}
   def delete_dev_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDevEndpoint", input, options)
   end
 
   @doc """
-  Deletes a specified job definition.
-
-  If the job definition
-  is not found, no exception is thrown.
+  Deletes a specified job definition. If the job definition is not found, no
+  exception is thrown.
   """
-  @spec delete_job(map(), delete_job_request(), list()) ::
+  @spec delete_job(AWS.Client.t(), delete_job_request(), Keyword.t()) ::
           {:ok, delete_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_job_errors()}
   def delete_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteJob", input, options)
   end
 
   @doc """
-  Deletes an Glue machine learning transform.
-
-  Machine learning transforms are a special
-  type of transform that use machine learning to learn the details of the
-  transformation to be
-  performed by learning from examples provided by humans. These transformations
-  are then saved
-  by Glue. If you no longer need a transform, you can delete it by calling
-  `DeleteMLTransforms`. However, any Glue jobs that still reference the deleted
-  transform will no longer succeed.
+  Deletes an Glue machine learning transform. Machine learning transforms are a
+  special type of transform that use machine learning to learn the details of
+  the transformation to be performed by learning from examples provided by
+  humans. These transformations are then saved by Glue. If you no longer need a
+  transform, you can delete it by calling `DeleteMLTransforms`. However, any
+  Glue jobs that still reference the deleted transform will no longer succeed.
   """
-  @spec delete_ml_transform(map(), delete_ml_transform_request(), list()) ::
+  @spec delete_ml_transform(AWS.Client.t(), delete_ml_transform_request(), Keyword.t()) ::
           {:ok, delete_ml_transform_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ml_transform_errors()}
   def delete_ml_transform(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMLTransform", input, options)
   end
@@ -13024,12 +13037,13 @@ defmodule AWS.Glue do
   @doc """
   Deletes a specified partition.
   """
-  @spec delete_partition(map(), delete_partition_request(), list()) ::
+  @spec delete_partition(AWS.Client.t(), delete_partition_request(), Keyword.t()) ::
           {:ok, delete_partition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_partition_errors()}
   def delete_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePartition", input, options)
   end
@@ -13037,30 +13051,31 @@ defmodule AWS.Glue do
   @doc """
   Deletes a specified partition index from an existing table.
   """
-  @spec delete_partition_index(map(), delete_partition_index_request(), list()) ::
+  @spec delete_partition_index(AWS.Client.t(), delete_partition_index_request(), Keyword.t()) ::
           {:ok, delete_partition_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_partition_index_errors()}
   def delete_partition_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePartitionIndex", input, options)
   end
 
   @doc """
-  Delete the entire registry including schema and all of its versions.
-
-  To get the status of the delete operation, you can call the `GetRegistry` API
-  after the asynchronous call. Deleting a registry will deactivate all online
-  operations for the registry such as the `UpdateRegistry`, `CreateSchema`,
-  `UpdateSchema`, and `RegisterSchemaVersion` APIs.
+  Delete the entire registry including schema and all of its versions. To get the
+  status of the delete operation, you can call the `GetRegistry` API after the
+  asynchronous call. Deleting a registry will deactivate all online operations
+  for the registry such as the `UpdateRegistry`, `CreateSchema`, `UpdateSchema`,
+  and `RegisterSchemaVersion` APIs.
   """
-  @spec delete_registry(map(), delete_registry_input(), list()) ::
+  @spec delete_registry(AWS.Client.t(), delete_registry_input(), Keyword.t()) ::
           {:ok, delete_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_registry_errors()}
   def delete_registry(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRegistry", input, options)
   end
@@ -13068,62 +13083,52 @@ defmodule AWS.Glue do
   @doc """
   Deletes a specified policy.
   """
-  @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
+  @spec delete_resource_policy(AWS.Client.t(), delete_resource_policy_request(), Keyword.t()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
 
   @doc """
   Deletes the entire schema set, including the schema set and all of its versions.
-
   To get the status of the delete operation, you can call `GetSchema` API after
-  the asynchronous call. Deleting a registry will deactivate all online operations
-  for the schema, such as the `GetSchemaByDefinition`, and `RegisterSchemaVersion`
-  APIs.
+  the asynchronous call. Deleting a registry will deactivate all online
+  operations for the schema, such as the `GetSchemaByDefinition`, and
+  `RegisterSchemaVersion` APIs.
   """
-  @spec delete_schema(map(), delete_schema_input(), list()) ::
+  @spec delete_schema(AWS.Client.t(), delete_schema_input(), Keyword.t()) ::
           {:ok, delete_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_schema_errors()}
   def delete_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSchema", input, options)
   end
 
   @doc """
-  Remove versions from the specified schema.
-
-  A version number or range may be supplied. If the compatibility mode forbids
-  deleting of a version that is necessary, such as BACKWARDS_FULL, an error is
-  returned. Calling the `GetSchemaVersions` API after this call will list the
-  status of the deleted versions.
-
-  When the range of version numbers contain check pointed version, the API will
-  return a 409 conflict and will not proceed with the deletion. You have to remove
-  the checkpoint first using the `DeleteSchemaCheckpoint` API before using this
-  API.
-
-  You cannot use the `DeleteSchemaVersions` API to delete the first schema version
-  in the schema set. The first schema version can only be deleted by the
-  `DeleteSchema` API. This operation will also delete the attached
-  `SchemaVersionMetadata` under the schema versions. Hard deletes will be enforced
-  on the database.
-
-  If the compatibility mode forbids deleting of a version that is necessary, such
-  as BACKWARDS_FULL, an error is returned.
+  Remove versions from the specified schema. A version number or range may be
+  supplied. If the compatibility mode forbids deleting of a version that is
+  necessary, such as BACKWARDS_FULL, an error is returned. Calling the
+  `GetSchemaVersions` API after this call will list the status of the deleted
+  versions. When the range of version numbers contain check pointed version, the
+  API will return a 409 conflict and will not proceed with the deletion. You
+  have to remove the checkpoint first using the `DeleteSchemaCheckpoint` API
+  before using this API.
   """
-  @spec delete_schema_versions(map(), delete_schema_versions_input(), list()) ::
+  @spec delete_schema_versions(AWS.Client.t(), delete_schema_versions_input(), Keyword.t()) ::
           {:ok, delete_schema_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_schema_versions_errors()}
   def delete_schema_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSchemaVersions", input, options)
   end
@@ -13131,12 +13136,17 @@ defmodule AWS.Glue do
   @doc """
   Deletes a specified security configuration.
   """
-  @spec delete_security_configuration(map(), delete_security_configuration_request(), list()) ::
+  @spec delete_security_configuration(
+          AWS.Client.t(),
+          delete_security_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_security_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_security_configuration_errors()}
   def delete_security_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSecurityConfiguration", input, options)
   end
@@ -13144,52 +13154,42 @@ defmodule AWS.Glue do
   @doc """
   Deletes the session.
   """
-  @spec delete_session(map(), delete_session_request(), list()) ::
+  @spec delete_session(AWS.Client.t(), delete_session_request(), Keyword.t()) ::
           {:ok, delete_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_session_errors()}
   def delete_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSession", input, options)
   end
 
   @doc """
   Removes a table definition from the Data Catalog.
-
-  After completing this operation, you no longer have access to the table versions
-  and
-  partitions that belong to the deleted table. Glue deletes these "orphaned"
-  resources
-  asynchronously in a timely manner, at the discretion of the service.
-
-  To ensure the immediate deletion of all related resources, before calling
-  `DeleteTable`, use `DeleteTableVersion` or
-  `BatchDeleteTableVersion`, and `DeletePartition` or
-  `BatchDeletePartition`, to delete any resources that belong to the
-  table.
   """
-  @spec delete_table(map(), delete_table_request(), list()) ::
+  @spec delete_table(AWS.Client.t(), delete_table_request(), Keyword.t()) ::
           {:ok, delete_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_table_errors()}
   def delete_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTable", input, options)
   end
 
   @doc """
-  Deletes an optimizer and all associated metadata for a table.
-
-  The optimization will no longer be performed on the table.
+  Deletes an optimizer and all associated metadata for a table. The optimization
+  will no longer be performed on the table.
   """
-  @spec delete_table_optimizer(map(), delete_table_optimizer_request(), list()) ::
+  @spec delete_table_optimizer(AWS.Client.t(), delete_table_optimizer_request(), Keyword.t()) ::
           {:ok, delete_table_optimizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_table_optimizer_errors()}
   def delete_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTableOptimizer", input, options)
   end
@@ -13197,28 +13197,28 @@ defmodule AWS.Glue do
   @doc """
   Deletes a specified version of a table.
   """
-  @spec delete_table_version(map(), delete_table_version_request(), list()) ::
+  @spec delete_table_version(AWS.Client.t(), delete_table_version_request(), Keyword.t()) ::
           {:ok, delete_table_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_table_version_errors()}
   def delete_table_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTableVersion", input, options)
   end
 
   @doc """
-  Deletes a specified trigger.
-
-  If the trigger is not found, no
-  exception is thrown.
+  Deletes a specified trigger. If the trigger is not found, no exception is
+  thrown.
   """
-  @spec delete_trigger(map(), delete_trigger_request(), list()) ::
+  @spec delete_trigger(AWS.Client.t(), delete_trigger_request(), Keyword.t()) ::
           {:ok, delete_trigger_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_trigger_errors()}
   def delete_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTrigger", input, options)
   end
@@ -13226,12 +13226,13 @@ defmodule AWS.Glue do
   @doc """
   Deletes the Glue specified usage profile.
   """
-  @spec delete_usage_profile(map(), delete_usage_profile_request(), list()) ::
+  @spec delete_usage_profile(AWS.Client.t(), delete_usage_profile_request(), Keyword.t()) ::
           {:ok, delete_usage_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_usage_profile_errors()}
   def delete_usage_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUsageProfile", input, options)
   end
@@ -13239,12 +13240,17 @@ defmodule AWS.Glue do
   @doc """
   Deletes an existing function definition from the Data Catalog.
   """
-  @spec delete_user_defined_function(map(), delete_user_defined_function_request(), list()) ::
+  @spec delete_user_defined_function(
+          AWS.Client.t(),
+          delete_user_defined_function_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_user_defined_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_defined_function_errors()}
   def delete_user_defined_function(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUserDefinedFunction", input, options)
   end
@@ -13252,12 +13258,13 @@ defmodule AWS.Glue do
   @doc """
   Deletes a workflow.
   """
-  @spec delete_workflow(map(), delete_workflow_request(), list()) ::
+  @spec delete_workflow(AWS.Client.t(), delete_workflow_request(), Keyword.t()) ::
           {:ok, delete_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workflow_errors()}
   def delete_workflow(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWorkflow", input, options)
   end
@@ -13265,12 +13272,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the details of a blueprint.
   """
-  @spec get_blueprint(map(), get_blueprint_request(), list()) ::
+  @spec get_blueprint(AWS.Client.t(), get_blueprint_request(), Keyword.t()) ::
           {:ok, get_blueprint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_blueprint_errors()}
   def get_blueprint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBlueprint", input, options)
   end
@@ -13278,12 +13286,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the details of a blueprint run.
   """
-  @spec get_blueprint_run(map(), get_blueprint_run_request(), list()) ::
+  @spec get_blueprint_run(AWS.Client.t(), get_blueprint_run_request(), Keyword.t()) ::
           {:ok, get_blueprint_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_blueprint_run_errors()}
   def get_blueprint_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBlueprintRun", input, options)
   end
@@ -13291,12 +13300,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the details of blueprint runs for a specified blueprint.
   """
-  @spec get_blueprint_runs(map(), get_blueprint_runs_request(), list()) ::
+  @spec get_blueprint_runs(AWS.Client.t(), get_blueprint_runs_request(), Keyword.t()) ::
           {:ok, get_blueprint_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_blueprint_runs_errors()}
   def get_blueprint_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBlueprintRuns", input, options)
   end
@@ -13304,12 +13314,17 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the status of a migration operation.
   """
-  @spec get_catalog_import_status(map(), get_catalog_import_status_request(), list()) ::
+  @spec get_catalog_import_status(
+          AWS.Client.t(),
+          get_catalog_import_status_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_catalog_import_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_catalog_import_status_errors()}
   def get_catalog_import_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCatalogImportStatus", input, options)
   end
@@ -13317,12 +13332,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieve a classifier by name.
   """
-  @spec get_classifier(map(), get_classifier_request(), list()) ::
+  @spec get_classifier(AWS.Client.t(), get_classifier_request(), Keyword.t()) ::
           {:ok, get_classifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_classifier_errors()}
   def get_classifier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetClassifier", input, options)
   end
@@ -13330,48 +13346,49 @@ defmodule AWS.Glue do
   @doc """
   Lists all classifier objects in the Data Catalog.
   """
-  @spec get_classifiers(map(), get_classifiers_request(), list()) ::
+  @spec get_classifiers(AWS.Client.t(), get_classifiers_request(), Keyword.t()) ::
           {:ok, get_classifiers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_classifiers_errors()}
   def get_classifiers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetClassifiers", input, options)
   end
 
   @doc """
   Retrieves partition statistics of columns.
-
-  The Identity and Access Management (IAM) permission required for this operation
-  is `GetPartition`.
   """
   @spec get_column_statistics_for_partition(
-          map(),
+          AWS.Client.t(),
           get_column_statistics_for_partition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_column_statistics_for_partition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_column_statistics_for_partition_errors()}
   def get_column_statistics_for_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsForPartition", input, options)
   end
 
   @doc """
   Retrieves table statistics of columns.
-
-  The Identity and Access Management (IAM) permission required for this operation
-  is `GetTable`.
   """
-  @spec get_column_statistics_for_table(map(), get_column_statistics_for_table_request(), list()) ::
+  @spec get_column_statistics_for_table(
+          AWS.Client.t(),
+          get_column_statistics_for_table_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_column_statistics_for_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_column_statistics_for_table_errors()}
   def get_column_statistics_for_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsForTable", input, options)
   end
@@ -13379,12 +13396,17 @@ defmodule AWS.Glue do
   @doc """
   Get the associated metadata/information for a task run, given a task run ID.
   """
-  @spec get_column_statistics_task_run(map(), get_column_statistics_task_run_request(), list()) ::
+  @spec get_column_statistics_task_run(
+          AWS.Client.t(),
+          get_column_statistics_task_run_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_column_statistics_task_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_column_statistics_task_run_errors()}
   def get_column_statistics_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsTaskRun", input, options)
   end
@@ -13392,12 +13414,17 @@ defmodule AWS.Glue do
   @doc """
   Retrieves information about all runs associated with the specified table.
   """
-  @spec get_column_statistics_task_runs(map(), get_column_statistics_task_runs_request(), list()) ::
+  @spec get_column_statistics_task_runs(
+          AWS.Client.t(),
+          get_column_statistics_task_runs_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_column_statistics_task_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_column_statistics_task_runs_errors()}
   def get_column_statistics_task_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsTaskRuns", input, options)
   end
@@ -13405,12 +13432,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves a connection definition from the Data Catalog.
   """
-  @spec get_connection(map(), get_connection_request(), list()) ::
+  @spec get_connection(AWS.Client.t(), get_connection_request(), Keyword.t()) ::
           {:ok, get_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connection_errors()}
   def get_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetConnection", input, options)
   end
@@ -13418,12 +13446,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves a list of connection definitions from the Data Catalog.
   """
-  @spec get_connections(map(), get_connections_request(), list()) ::
+  @spec get_connections(AWS.Client.t(), get_connections_request(), Keyword.t()) ::
           {:ok, get_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connections_errors()}
   def get_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetConnections", input, options)
   end
@@ -13431,12 +13460,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves metadata for a specified crawler.
   """
-  @spec get_crawler(map(), get_crawler_request(), list()) ::
+  @spec get_crawler(AWS.Client.t(), get_crawler_request(), Keyword.t()) ::
           {:ok, get_crawler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_crawler_errors()}
   def get_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCrawler", input, options)
   end
@@ -13444,26 +13474,27 @@ defmodule AWS.Glue do
   @doc """
   Retrieves metrics about specified crawlers.
   """
-  @spec get_crawler_metrics(map(), get_crawler_metrics_request(), list()) ::
+  @spec get_crawler_metrics(AWS.Client.t(), get_crawler_metrics_request(), Keyword.t()) ::
           {:ok, get_crawler_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_crawler_metrics_errors()}
   def get_crawler_metrics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCrawlerMetrics", input, options)
   end
 
   @doc """
-  Retrieves metadata for all crawlers defined in the customer
-  account.
+  Retrieves metadata for all crawlers defined in the customer account.
   """
-  @spec get_crawlers(map(), get_crawlers_request(), list()) ::
+  @spec get_crawlers(AWS.Client.t(), get_crawlers_request(), Keyword.t()) ::
           {:ok, get_crawlers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_crawlers_errors()}
   def get_crawlers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCrawlers", input, options)
   end
@@ -13471,12 +13502,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the details of a custom pattern by specifying its name.
   """
-  @spec get_custom_entity_type(map(), get_custom_entity_type_request(), list()) ::
+  @spec get_custom_entity_type(AWS.Client.t(), get_custom_entity_type_request(), Keyword.t()) ::
           {:ok, get_custom_entity_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_custom_entity_type_errors()}
   def get_custom_entity_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCustomEntityType", input, options)
   end
@@ -13485,15 +13517,16 @@ defmodule AWS.Glue do
   Retrieves the security configuration for a specified catalog.
   """
   @spec get_data_catalog_encryption_settings(
-          map(),
+          AWS.Client.t(),
           get_data_catalog_encryption_settings_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_data_catalog_encryption_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_catalog_encryption_settings_errors()}
   def get_data_catalog_encryption_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataCatalogEncryptionSettings", input, options)
   end
@@ -13501,12 +13534,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the result of a data quality rule evaluation.
   """
-  @spec get_data_quality_result(map(), get_data_quality_result_request(), list()) ::
+  @spec get_data_quality_result(AWS.Client.t(), get_data_quality_result_request(), Keyword.t()) ::
           {:ok, get_data_quality_result_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_quality_result_errors()}
   def get_data_quality_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataQualityResult", input, options)
   end
@@ -13515,15 +13549,16 @@ defmodule AWS.Glue do
   Gets the specified recommendation run that was used to generate rules.
   """
   @spec get_data_quality_rule_recommendation_run(
-          map(),
+          AWS.Client.t(),
           get_data_quality_rule_recommendation_run_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_data_quality_rule_recommendation_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_quality_rule_recommendation_run_errors()}
   def get_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataQualityRuleRecommendationRun", input, options)
   end
@@ -13531,12 +13566,13 @@ defmodule AWS.Glue do
   @doc """
   Returns an existing ruleset by identifier or name.
   """
-  @spec get_data_quality_ruleset(map(), get_data_quality_ruleset_request(), list()) ::
+  @spec get_data_quality_ruleset(AWS.Client.t(), get_data_quality_ruleset_request(), Keyword.t()) ::
           {:ok, get_data_quality_ruleset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_quality_ruleset_errors()}
   def get_data_quality_ruleset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataQualityRuleset", input, options)
   end
@@ -13545,15 +13581,16 @@ defmodule AWS.Glue do
   Retrieves a specific run where a ruleset is evaluated against a data source.
   """
   @spec get_data_quality_ruleset_evaluation_run(
-          map(),
+          AWS.Client.t(),
           get_data_quality_ruleset_evaluation_run_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_data_quality_ruleset_evaluation_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_quality_ruleset_evaluation_run_errors()}
   def get_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataQualityRulesetEvaluationRun", input, options)
   end
@@ -13561,12 +13598,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the definition of a specified database.
   """
-  @spec get_database(map(), get_database_request(), list()) ::
+  @spec get_database(AWS.Client.t(), get_database_request(), Keyword.t()) ::
           {:ok, get_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_database_errors()}
   def get_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDatabase", input, options)
   end
@@ -13574,12 +13612,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves all databases defined in a given Data Catalog.
   """
-  @spec get_databases(map(), get_databases_request(), list()) ::
+  @spec get_databases(AWS.Client.t(), get_databases_request(), Keyword.t()) ::
           {:ok, get_databases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_databases_errors()}
   def get_databases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDatabases", input, options)
   end
@@ -13587,50 +13626,41 @@ defmodule AWS.Glue do
   @doc """
   Transforms a Python script into a directed acyclic graph (DAG).
   """
-  @spec get_dataflow_graph(map(), get_dataflow_graph_request(), list()) ::
+  @spec get_dataflow_graph(AWS.Client.t(), get_dataflow_graph_request(), Keyword.t()) ::
           {:ok, get_dataflow_graph_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dataflow_graph_errors()}
   def get_dataflow_graph(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataflowGraph", input, options)
   end
 
   @doc """
   Retrieves information about a specified development endpoint.
-
-  When you create a development endpoint in a virtual private cloud (VPC), Glue
-  returns only
-  a private IP address, and the public IP address field is not populated. When you
-  create a
-  non-VPC development endpoint, Glue returns only a public IP address.
   """
-  @spec get_dev_endpoint(map(), get_dev_endpoint_request(), list()) ::
+  @spec get_dev_endpoint(AWS.Client.t(), get_dev_endpoint_request(), Keyword.t()) ::
           {:ok, get_dev_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dev_endpoint_errors()}
   def get_dev_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDevEndpoint", input, options)
   end
 
   @doc """
   Retrieves all the development endpoints in this Amazon Web Services account.
-
-  When you create a development endpoint in a virtual private cloud (VPC), Glue
-  returns only a private IP address
-  and the public IP address field is not populated. When you create a non-VPC
-  development
-  endpoint, Glue returns only a public IP address.
   """
-  @spec get_dev_endpoints(map(), get_dev_endpoints_request(), list()) ::
+  @spec get_dev_endpoints(AWS.Client.t(), get_dev_endpoints_request(), Keyword.t()) ::
           {:ok, get_dev_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dev_endpoints_errors()}
   def get_dev_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDevEndpoints", input, options)
   end
@@ -13638,54 +13668,43 @@ defmodule AWS.Glue do
   @doc """
   Retrieves an existing job definition.
   """
-  @spec get_job(map(), get_job_request(), list()) ::
+  @spec get_job(AWS.Client.t(), get_job_request(), Keyword.t()) ::
           {:ok, get_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_errors()}
   def get_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJob", input, options)
   end
 
   @doc """
-  Returns information on a job bookmark entry.
-
-  For more information about enabling and using job bookmarks, see:
-
-    *
-
-  [Tracking processed data using job bookmarks](https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html)
-
-    *
-
-  [Job parameters used by Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html)
-
-    *
-
-  [Job structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job)
+  Returns information on a job bookmark entry. For more information about enabling
+  and using job bookmarks, see:
   """
-  @spec get_job_bookmark(map(), get_job_bookmark_request(), list()) ::
+  @spec get_job_bookmark(AWS.Client.t(), get_job_bookmark_request(), Keyword.t()) ::
           {:ok, get_job_bookmark_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_bookmark_errors()}
   def get_job_bookmark(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJobBookmark", input, options)
   end
 
   @doc """
-  Retrieves the metadata for a given job run.
-
-  Job run history is accessible for 90 days for your workflow and job run.
+  Retrieves the metadata for a given job run. Job run history is accessible for 90
+  days for your workflow and job run.
   """
-  @spec get_job_run(map(), get_job_run_request(), list()) ::
+  @spec get_job_run(AWS.Client.t(), get_job_run_request(), Keyword.t()) ::
           {:ok, get_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_run_errors()}
   def get_job_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJobRun", input, options)
   end
@@ -13693,12 +13712,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves metadata for all runs of a given job definition.
   """
-  @spec get_job_runs(map(), get_job_runs_request(), list()) ::
+  @spec get_job_runs(AWS.Client.t(), get_job_runs_request(), Keyword.t()) ::
           {:ok, get_job_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_runs_errors()}
   def get_job_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJobRuns", input, options)
   end
@@ -13706,12 +13726,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves all current job definitions.
   """
-  @spec get_jobs(map(), get_jobs_request(), list()) ::
+  @spec get_jobs(AWS.Client.t(), get_jobs_request(), Keyword.t()) ::
           {:ok, get_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_jobs_errors()}
   def get_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJobs", input, options)
   end
@@ -13719,99 +13740,86 @@ defmodule AWS.Glue do
   @doc """
   Creates mappings.
   """
-  @spec get_mapping(map(), get_mapping_request(), list()) ::
+  @spec get_mapping(AWS.Client.t(), get_mapping_request(), Keyword.t()) ::
           {:ok, get_mapping_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_mapping_errors()}
   def get_mapping(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMapping", input, options)
   end
 
   @doc """
-  Gets details for a specific task run on a machine learning transform.
-
-  Machine learning
-  task runs are asynchronous tasks that Glue runs on your behalf as part of
-  various machine
-  learning workflows. You can check the stats of any task run by calling
-  `GetMLTaskRun` with the `TaskRunID` and its parent transform's
-  `TransformID`.
+  Gets details for a specific task run on a machine learning transform. Machine
+  learning task runs are asynchronous tasks that Glue runs on your behalf as
+  part of various machine learning workflows. You can check the stats of any
+  task run by calling `GetMLTaskRun` with the `TaskRunID` and its parent
+  transform's `TransformID`.
   """
-  @spec get_ml_task_run(map(), get_ml_task_run_request(), list()) ::
+  @spec get_ml_task_run(AWS.Client.t(), get_ml_task_run_request(), Keyword.t()) ::
           {:ok, get_ml_task_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ml_task_run_errors()}
   def get_ml_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMLTaskRun", input, options)
   end
 
   @doc """
-  Gets a list of runs for a machine learning transform.
-
-  Machine learning task runs are
-  asynchronous tasks that Glue runs on your behalf as part of various machine
-  learning
-  workflows. You can get a sortable, filterable list of machine learning task runs
-  by calling
-  `GetMLTaskRuns` with their parent transform's `TransformID` and other
-  optional parameters as documented in this section.
-
-  This operation returns a list of historic runs and must be paginated.
+  Gets a list of runs for a machine learning transform. Machine learning task runs
+  are asynchronous tasks that Glue runs on your behalf as part of various
+  machine learning workflows. You can get a sortable, filterable list of machine
+  learning task runs by calling `GetMLTaskRuns` with their parent transform's
+  `TransformID` and other optional parameters as documented in this section.
   """
-  @spec get_ml_task_runs(map(), get_ml_task_runs_request(), list()) ::
+  @spec get_ml_task_runs(AWS.Client.t(), get_ml_task_runs_request(), Keyword.t()) ::
           {:ok, get_ml_task_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ml_task_runs_errors()}
   def get_ml_task_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMLTaskRuns", input, options)
   end
 
   @doc """
   Gets an Glue machine learning transform artifact and all its corresponding
-  metadata.
-
-  Machine learning transforms are a special type of transform that use machine
-  learning to learn
-  the details of the transformation to be performed by learning from examples
-  provided by
-  humans. These transformations are then saved by Glue. You can retrieve their
-  metadata by
-  calling `GetMLTransform`.
+  metadata. Machine learning transforms are a special type of transform that use
+  machine learning to learn the details of the transformation to be performed by
+  learning from examples provided by humans. These transformations are then
+  saved by Glue. You can retrieve their metadata by calling `GetMLTransform`.
   """
-  @spec get_ml_transform(map(), get_ml_transform_request(), list()) ::
+  @spec get_ml_transform(AWS.Client.t(), get_ml_transform_request(), Keyword.t()) ::
           {:ok, get_ml_transform_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ml_transform_errors()}
   def get_ml_transform(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMLTransform", input, options)
   end
 
   @doc """
   Gets a sortable, filterable list of existing Glue machine learning transforms.
-
-  Machine
-  learning transforms are a special type of transform that use machine learning to
-  learn the
-  details of the transformation to be performed by learning from examples provided
-  by humans.
-  These transformations are then saved by Glue, and you can retrieve their
-  metadata by
-  calling `GetMLTransforms`.
+  Machine learning transforms are a special type of transform that use machine
+  learning to learn the details of the transformation to be performed by
+  learning from examples provided by humans. These transformations are then
+  saved by Glue, and you can retrieve their metadata by calling
+  `GetMLTransforms`.
   """
-  @spec get_ml_transforms(map(), get_ml_transforms_request(), list()) ::
+  @spec get_ml_transforms(AWS.Client.t(), get_ml_transforms_request(), Keyword.t()) ::
           {:ok, get_ml_transforms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ml_transforms_errors()}
   def get_ml_transforms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMLTransforms", input, options)
   end
@@ -13819,12 +13827,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves information about a specified partition.
   """
-  @spec get_partition(map(), get_partition_request(), list()) ::
+  @spec get_partition(AWS.Client.t(), get_partition_request(), Keyword.t()) ::
           {:ok, get_partition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_partition_errors()}
   def get_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPartition", input, options)
   end
@@ -13832,12 +13841,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the partition indexes associated with a table.
   """
-  @spec get_partition_indexes(map(), get_partition_indexes_request(), list()) ::
+  @spec get_partition_indexes(AWS.Client.t(), get_partition_indexes_request(), Keyword.t()) ::
           {:ok, get_partition_indexes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_partition_indexes_errors()}
   def get_partition_indexes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPartitionIndexes", input, options)
   end
@@ -13845,12 +13855,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves information about the partitions in a table.
   """
-  @spec get_partitions(map(), get_partitions_request(), list()) ::
+  @spec get_partitions(AWS.Client.t(), get_partitions_request(), Keyword.t()) ::
           {:ok, get_partitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_partitions_errors()}
   def get_partitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPartitions", input, options)
   end
@@ -13858,12 +13869,13 @@ defmodule AWS.Glue do
   @doc """
   Gets code to perform a specified mapping.
   """
-  @spec get_plan(map(), get_plan_request(), list()) ::
+  @spec get_plan(AWS.Client.t(), get_plan_request(), Keyword.t()) ::
           {:ok, get_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_plan_errors()}
   def get_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPlan", input, options)
   end
@@ -13871,34 +13883,29 @@ defmodule AWS.Glue do
   @doc """
   Describes the specified registry in detail.
   """
-  @spec get_registry(map(), get_registry_input(), list()) ::
+  @spec get_registry(AWS.Client.t(), get_registry_input(), Keyword.t()) ::
           {:ok, get_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_registry_errors()}
   def get_registry(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRegistry", input, options)
   end
 
   @doc """
   Retrieves the resource policies set on individual resources by Resource Access
-  Manager
-  during cross-account permission grants.
-
-  Also retrieves the Data Catalog resource
-  policy.
-
-  If you enabled metadata encryption in Data Catalog settings, and you do not have
-  permission on the KMS key, the operation can't return the Data Catalog resource
-  policy.
+  Manager during cross-account permission grants. Also retrieves the Data
+  Catalog resource policy.
   """
-  @spec get_resource_policies(map(), get_resource_policies_request(), list()) ::
+  @spec get_resource_policies(AWS.Client.t(), get_resource_policies_request(), Keyword.t()) ::
           {:ok, get_resource_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policies_errors()}
   def get_resource_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcePolicies", input, options)
   end
@@ -13906,12 +13913,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves a specified resource policy.
   """
-  @spec get_resource_policy(map(), get_resource_policy_request(), list()) ::
+  @spec get_resource_policy(AWS.Client.t(), get_resource_policy_request(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -13919,47 +13927,48 @@ defmodule AWS.Glue do
   @doc """
   Describes the specified schema in detail.
   """
-  @spec get_schema(map(), get_schema_input(), list()) ::
+  @spec get_schema(AWS.Client.t(), get_schema_input(), Keyword.t()) ::
           {:ok, get_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_schema_errors()}
   def get_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSchema", input, options)
   end
 
   @doc """
-  Retrieves a schema by the `SchemaDefinition`.
-
-  The schema definition is sent to the Schema Registry, canonicalized, and hashed.
-  If the hash is matched within the scope of the `SchemaName` or ARN (or the
-  default registry, if none is supplied), that schema’s metadata is returned.
-  Otherwise, a 404 or NotFound error is returned. Schema versions in `Deleted`
-  statuses will not be included in the results.
+  Retrieves a schema by the `SchemaDefinition`. The schema definition is sent to
+  the Schema Registry, canonicalized, and hashed. If the hash is matched within
+  the scope of the `SchemaName` or ARN (or the default registry, if none is
+  supplied), that schema’s metadata is returned. Otherwise, a 404 or NotFound
+  error is returned. Schema versions in `Deleted` statuses will not be included
+  in the results.
   """
-  @spec get_schema_by_definition(map(), get_schema_by_definition_input(), list()) ::
+  @spec get_schema_by_definition(AWS.Client.t(), get_schema_by_definition_input(), Keyword.t()) ::
           {:ok, get_schema_by_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_schema_by_definition_errors()}
   def get_schema_by_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSchemaByDefinition", input, options)
   end
 
   @doc """
   Get the specified schema by its unique ID assigned when a version of the schema
-  is created or registered.
-
-  Schema versions in Deleted status will not be included in the results.
+  is created or registered. Schema versions in Deleted status will not be
+  included in the results.
   """
-  @spec get_schema_version(map(), get_schema_version_input(), list()) ::
+  @spec get_schema_version(AWS.Client.t(), get_schema_version_input(), Keyword.t()) ::
           {:ok, get_schema_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_schema_version_errors()}
   def get_schema_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSchemaVersion", input, options)
   end
@@ -13967,16 +13976,14 @@ defmodule AWS.Glue do
   @doc """
   Fetches the schema version difference in the specified difference type between
   two stored schema versions in the Schema Registry.
-
-  This API allows you to compare two schema versions between two schema
-  definitions under the same schema.
   """
-  @spec get_schema_versions_diff(map(), get_schema_versions_diff_input(), list()) ::
+  @spec get_schema_versions_diff(AWS.Client.t(), get_schema_versions_diff_input(), Keyword.t()) ::
           {:ok, get_schema_versions_diff_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_schema_versions_diff_errors()}
   def get_schema_versions_diff(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSchemaVersionsDiff", input, options)
   end
@@ -13984,12 +13991,17 @@ defmodule AWS.Glue do
   @doc """
   Retrieves a specified security configuration.
   """
-  @spec get_security_configuration(map(), get_security_configuration_request(), list()) ::
+  @spec get_security_configuration(
+          AWS.Client.t(),
+          get_security_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_security_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_security_configuration_errors()}
   def get_security_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSecurityConfiguration", input, options)
   end
@@ -13997,12 +14009,17 @@ defmodule AWS.Glue do
   @doc """
   Retrieves a list of all security configurations.
   """
-  @spec get_security_configurations(map(), get_security_configurations_request(), list()) ::
+  @spec get_security_configurations(
+          AWS.Client.t(),
+          get_security_configurations_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_security_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_security_configurations_errors()}
   def get_security_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSecurityConfigurations", input, options)
   end
@@ -14010,12 +14027,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the session.
   """
-  @spec get_session(map(), get_session_request(), list()) ::
+  @spec get_session(AWS.Client.t(), get_session_request(), Keyword.t()) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_session_errors()}
   def get_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSession", input, options)
   end
@@ -14023,26 +14041,27 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the statement.
   """
-  @spec get_statement(map(), get_statement_request(), list()) ::
+  @spec get_statement(AWS.Client.t(), get_statement_request(), Keyword.t()) ::
           {:ok, get_statement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_statement_errors()}
   def get_statement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetStatement", input, options)
   end
 
   @doc """
-  Retrieves the `Table` definition in a Data Catalog for
-  a specified table.
+  Retrieves the `Table` definition in a Data Catalog for a specified table.
   """
-  @spec get_table(map(), get_table_request(), list()) ::
+  @spec get_table(AWS.Client.t(), get_table_request(), Keyword.t()) ::
           {:ok, get_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_table_errors()}
   def get_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTable", input, options)
   end
@@ -14050,12 +14069,13 @@ defmodule AWS.Glue do
   @doc """
   Returns the configuration of all optimizers associated with a specified table.
   """
-  @spec get_table_optimizer(map(), get_table_optimizer_request(), list()) ::
+  @spec get_table_optimizer(AWS.Client.t(), get_table_optimizer_request(), Keyword.t()) ::
           {:ok, get_table_optimizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_table_optimizer_errors()}
   def get_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTableOptimizer", input, options)
   end
@@ -14063,40 +14083,42 @@ defmodule AWS.Glue do
   @doc """
   Retrieves a specified version of a table.
   """
-  @spec get_table_version(map(), get_table_version_request(), list()) ::
+  @spec get_table_version(AWS.Client.t(), get_table_version_request(), Keyword.t()) ::
           {:ok, get_table_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_table_version_errors()}
   def get_table_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTableVersion", input, options)
   end
 
   @doc """
-  Retrieves a list of strings that identify available versions of
-  a specified table.
+  Retrieves a list of strings that identify available versions of a specified
+  table.
   """
-  @spec get_table_versions(map(), get_table_versions_request(), list()) ::
+  @spec get_table_versions(AWS.Client.t(), get_table_versions_request(), Keyword.t()) ::
           {:ok, get_table_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_table_versions_errors()}
   def get_table_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTableVersions", input, options)
   end
 
   @doc """
-  Retrieves the definitions of some or all of the tables in a given
-  `Database`.
+  Retrieves the definitions of some or all of the tables in a given `Database`.
   """
-  @spec get_tables(map(), get_tables_request(), list()) ::
+  @spec get_tables(AWS.Client.t(), get_tables_request(), Keyword.t()) ::
           {:ok, get_tables_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_tables_errors()}
   def get_tables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTables", input, options)
   end
@@ -14104,12 +14126,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves a list of tags associated with a resource.
   """
-  @spec get_tags(map(), get_tags_request(), list()) ::
+  @spec get_tags(AWS.Client.t(), get_tags_request(), Keyword.t()) ::
           {:ok, get_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_tags_errors()}
   def get_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTags", input, options)
   end
@@ -14117,12 +14140,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the definition of a trigger.
   """
-  @spec get_trigger(map(), get_trigger_request(), list()) ::
+  @spec get_trigger(AWS.Client.t(), get_trigger_request(), Keyword.t()) ::
           {:ok, get_trigger_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_trigger_errors()}
   def get_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTrigger", input, options)
   end
@@ -14130,12 +14154,13 @@ defmodule AWS.Glue do
   @doc """
   Gets all the triggers associated with a job.
   """
-  @spec get_triggers(map(), get_triggers_request(), list()) ::
+  @spec get_triggers(AWS.Client.t(), get_triggers_request(), Keyword.t()) ::
           {:ok, get_triggers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_triggers_errors()}
   def get_triggers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTriggers", input, options)
   end
@@ -14143,20 +14168,18 @@ defmodule AWS.Glue do
   @doc """
   Retrieves partition metadata from the Data Catalog that contains unfiltered
   metadata.
-
-  For IAM authorization, the public IAM action associated with this API is
-  `glue:GetPartition`.
   """
   @spec get_unfiltered_partition_metadata(
-          map(),
+          AWS.Client.t(),
           get_unfiltered_partition_metadata_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_unfiltered_partition_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_unfiltered_partition_metadata_errors()}
   def get_unfiltered_partition_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUnfilteredPartitionMetadata", input, options)
   end
@@ -14164,20 +14187,18 @@ defmodule AWS.Glue do
   @doc """
   Retrieves partition metadata from the Data Catalog that contains unfiltered
   metadata.
-
-  For IAM authorization, the public IAM action associated with this API is
-  `glue:GetPartitions`.
   """
   @spec get_unfiltered_partitions_metadata(
-          map(),
+          AWS.Client.t(),
           get_unfiltered_partitions_metadata_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, get_unfiltered_partitions_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_unfiltered_partitions_metadata_errors()}
   def get_unfiltered_partitions_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUnfilteredPartitionsMetadata", input, options)
   end
@@ -14185,16 +14206,18 @@ defmodule AWS.Glue do
   @doc """
   Allows a third-party analytical engine to retrieve unfiltered table metadata
   from the Data Catalog.
-
-  For IAM authorization, the public IAM action associated with this API is
-  `glue:GetTable`.
   """
-  @spec get_unfiltered_table_metadata(map(), get_unfiltered_table_metadata_request(), list()) ::
+  @spec get_unfiltered_table_metadata(
+          AWS.Client.t(),
+          get_unfiltered_table_metadata_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_unfiltered_table_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_unfiltered_table_metadata_errors()}
   def get_unfiltered_table_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUnfilteredTableMetadata", input, options)
   end
@@ -14202,12 +14225,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves information about the specified Glue usage profile.
   """
-  @spec get_usage_profile(map(), get_usage_profile_request(), list()) ::
+  @spec get_usage_profile(AWS.Client.t(), get_usage_profile_request(), Keyword.t()) ::
           {:ok, get_usage_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_usage_profile_errors()}
   def get_usage_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUsageProfile", input, options)
   end
@@ -14215,12 +14239,17 @@ defmodule AWS.Glue do
   @doc """
   Retrieves a specified function definition from the Data Catalog.
   """
-  @spec get_user_defined_function(map(), get_user_defined_function_request(), list()) ::
+  @spec get_user_defined_function(
+          AWS.Client.t(),
+          get_user_defined_function_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_user_defined_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_defined_function_errors()}
   def get_user_defined_function(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUserDefinedFunction", input, options)
   end
@@ -14228,12 +14257,17 @@ defmodule AWS.Glue do
   @doc """
   Retrieves multiple function definitions from the Data Catalog.
   """
-  @spec get_user_defined_functions(map(), get_user_defined_functions_request(), list()) ::
+  @spec get_user_defined_functions(
+          AWS.Client.t(),
+          get_user_defined_functions_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_user_defined_functions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_defined_functions_errors()}
   def get_user_defined_functions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUserDefinedFunctions", input, options)
   end
@@ -14241,27 +14275,28 @@ defmodule AWS.Glue do
   @doc """
   Retrieves resource metadata for a workflow.
   """
-  @spec get_workflow(map(), get_workflow_request(), list()) ::
+  @spec get_workflow(AWS.Client.t(), get_workflow_request(), Keyword.t()) ::
           {:ok, get_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_errors()}
   def get_workflow(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWorkflow", input, options)
   end
 
   @doc """
-  Retrieves the metadata for a given workflow run.
-
-  Job run history is accessible for 90 days for your workflow and job run.
+  Retrieves the metadata for a given workflow run. Job run history is accessible
+  for 90 days for your workflow and job run.
   """
-  @spec get_workflow_run(map(), get_workflow_run_request(), list()) ::
+  @spec get_workflow_run(AWS.Client.t(), get_workflow_run_request(), Keyword.t()) ::
           {:ok, get_workflow_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_run_errors()}
   def get_workflow_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWorkflowRun", input, options)
   end
@@ -14269,12 +14304,17 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the workflow run properties which were set during the run.
   """
-  @spec get_workflow_run_properties(map(), get_workflow_run_properties_request(), list()) ::
+  @spec get_workflow_run_properties(
+          AWS.Client.t(),
+          get_workflow_run_properties_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_workflow_run_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_run_properties_errors()}
   def get_workflow_run_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWorkflowRunProperties", input, options)
   end
@@ -14282,12 +14322,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves metadata for all runs of a given workflow.
   """
-  @spec get_workflow_runs(map(), get_workflow_runs_request(), list()) ::
+  @spec get_workflow_runs(AWS.Client.t(), get_workflow_runs_request(), Keyword.t()) ::
           {:ok, get_workflow_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_runs_errors()}
   def get_workflow_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWorkflowRuns", input, options)
   end
@@ -14295,12 +14336,13 @@ defmodule AWS.Glue do
   @doc """
   Imports an existing Amazon Athena Data Catalog to Glue.
   """
-  @spec import_catalog_to_glue(map(), import_catalog_to_glue_request(), list()) ::
+  @spec import_catalog_to_glue(AWS.Client.t(), import_catalog_to_glue_request(), Keyword.t()) ::
           {:ok, import_catalog_to_glue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_catalog_to_glue_errors()}
   def import_catalog_to_glue(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportCatalogToGlue", input, options)
   end
@@ -14308,12 +14350,13 @@ defmodule AWS.Glue do
   @doc """
   Lists all the blueprint names in an account.
   """
-  @spec list_blueprints(map(), list_blueprints_request(), list()) ::
+  @spec list_blueprints(AWS.Client.t(), list_blueprints_request(), Keyword.t()) ::
           {:ok, list_blueprints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_blueprints_errors()}
   def list_blueprints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBlueprints", input, options)
   end
@@ -14322,70 +14365,49 @@ defmodule AWS.Glue do
   List all task runs for a particular account.
   """
   @spec list_column_statistics_task_runs(
-          map(),
+          AWS.Client.t(),
           list_column_statistics_task_runs_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_column_statistics_task_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_column_statistics_task_runs_errors()}
   def list_column_statistics_task_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListColumnStatisticsTaskRuns", input, options)
   end
 
   @doc """
   Retrieves the names of all crawler resources in this Amazon Web Services
-  account, or the
-  resources with the specified tag.
-
-  This operation allows you to see which
-  resources are available in your account, and their names.
-
-  This operation takes the optional `Tags` field, which you can use as a filter on
-  the response so that tagged resources can be retrieved as a group. If you choose
-  to use tags
-  filtering, only resources with the tag are retrieved.
+  account, or the resources with the specified tag. This operation allows you to
+  see which resources are available in your account, and their names.
   """
-  @spec list_crawlers(map(), list_crawlers_request(), list()) ::
+  @spec list_crawlers(AWS.Client.t(), list_crawlers_request(), Keyword.t()) ::
           {:ok, list_crawlers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_crawlers_errors()}
   def list_crawlers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCrawlers", input, options)
   end
 
   @doc """
-  Returns all the crawls of a specified crawler.
-
-  Returns only the crawls that have occurred since the launch date of the crawler
-  history feature, and only retains up to 12 months of crawls. Older crawls will
-  not be returned.
-
-  You may use this API to:
-
-    *
-  Retrive all the crawls of a specified crawler.
-
-    *
-  Retrieve all the crawls of a specified crawler within a limited count.
-
-    *
-  Retrieve all the crawls of a specified crawler in a specific time range.
-
-    *
-  Retrieve all the crawls of a specified crawler with a particular state, crawl
-  ID, or DPU hour value.
+  Returns all the crawls of a specified crawler. Returns only the crawls that have
+  occurred since the launch date of the crawler history feature, and only
+  retains up to 12 months of crawls. Older crawls will not be returned. You may
+  use this API to:
   """
-  @spec list_crawls(map(), list_crawls_request(), list()) ::
+  @spec list_crawls(AWS.Client.t(), list_crawls_request(), Keyword.t()) ::
           {:ok, list_crawls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_crawls_errors()}
   def list_crawls(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCrawls", input, options)
   end
@@ -14393,12 +14415,13 @@ defmodule AWS.Glue do
   @doc """
   Lists all the custom patterns that have been created.
   """
-  @spec list_custom_entity_types(map(), list_custom_entity_types_request(), list()) ::
+  @spec list_custom_entity_types(AWS.Client.t(), list_custom_entity_types_request(), Keyword.t()) ::
           {:ok, list_custom_entity_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_entity_types_errors()}
   def list_custom_entity_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCustomEntityTypes", input, options)
   end
@@ -14406,12 +14429,17 @@ defmodule AWS.Glue do
   @doc """
   Returns all data quality execution results for your account.
   """
-  @spec list_data_quality_results(map(), list_data_quality_results_request(), list()) ::
+  @spec list_data_quality_results(
+          AWS.Client.t(),
+          list_data_quality_results_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_data_quality_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_quality_results_errors()}
   def list_data_quality_results(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataQualityResults", input, options)
   end
@@ -14420,15 +14448,16 @@ defmodule AWS.Glue do
   Lists the recommendation runs meeting the filter criteria.
   """
   @spec list_data_quality_rule_recommendation_runs(
-          map(),
+          AWS.Client.t(),
           list_data_quality_rule_recommendation_runs_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_data_quality_rule_recommendation_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_quality_rule_recommendation_runs_errors()}
   def list_data_quality_rule_recommendation_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataQualityRuleRecommendationRuns", input, options)
   end
@@ -14438,15 +14467,16 @@ defmodule AWS.Glue do
   against a data source.
   """
   @spec list_data_quality_ruleset_evaluation_runs(
-          map(),
+          AWS.Client.t(),
           list_data_quality_ruleset_evaluation_runs_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_data_quality_ruleset_evaluation_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_quality_ruleset_evaluation_runs_errors()}
   def list_data_quality_ruleset_evaluation_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataQualityRulesetEvaluationRuns", input, options)
   end
@@ -14454,130 +14484,117 @@ defmodule AWS.Glue do
   @doc """
   Returns a paginated list of rulesets for the specified list of Glue tables.
   """
-  @spec list_data_quality_rulesets(map(), list_data_quality_rulesets_request(), list()) ::
+  @spec list_data_quality_rulesets(
+          AWS.Client.t(),
+          list_data_quality_rulesets_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_data_quality_rulesets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_quality_rulesets_errors()}
   def list_data_quality_rulesets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataQualityRulesets", input, options)
   end
 
   @doc """
   Retrieves the names of all `DevEndpoint` resources in this Amazon Web Services
-  account, or the
-  resources with the specified tag.
-
-  This operation allows you to see which resources are
-  available in your account, and their names.
-
-  This operation takes the optional `Tags` field, which you can use as a filter on
-  the response so that tagged resources can be retrieved as a group. If you choose
-  to use tags
-  filtering, only resources with the tag are retrieved.
+  account, or the resources with the specified tag. This operation allows you to
+  see which resources are available in your account, and their names.
   """
-  @spec list_dev_endpoints(map(), list_dev_endpoints_request(), list()) ::
+  @spec list_dev_endpoints(AWS.Client.t(), list_dev_endpoints_request(), Keyword.t()) ::
           {:ok, list_dev_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dev_endpoints_errors()}
   def list_dev_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDevEndpoints", input, options)
   end
 
   @doc """
   Retrieves the names of all job resources in this Amazon Web Services account, or
-  the resources with the specified tag.
-
-  This operation allows you to see which resources are available in your account,
-  and their names.
-
-  This operation takes the optional `Tags` field, which you can use as a filter on
-  the response so that tagged resources can be retrieved as a group. If you choose
-  to use tags
-  filtering, only resources with the tag are retrieved.
+  the resources with the specified tag. This operation allows you to see which
+  resources are available in your account, and their names.
   """
-  @spec list_jobs(map(), list_jobs_request(), list()) ::
+  @spec list_jobs(AWS.Client.t(), list_jobs_request(), Keyword.t()) ::
           {:ok, list_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_errors()}
   def list_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListJobs", input, options)
   end
 
   @doc """
   Retrieves a sortable, filterable list of existing Glue machine learning
-  transforms in this Amazon Web Services account,
-  or the resources with the specified tag.
-
-  This operation takes the optional `Tags` field, which you can use as
-  a filter of the responses so that tagged resources can be retrieved as a group.
-  If you choose to use tag
-  filtering, only resources with the tags are retrieved.
+  transforms in this Amazon Web Services account, or the resources with the
+  specified tag. This operation takes the optional `Tags` field, which you can
+  use as a filter of the responses so that tagged resources can be retrieved as
+  a group. If you choose to use tag filtering, only resources with the tags are
+  retrieved.
   """
-  @spec list_ml_transforms(map(), list_ml_transforms_request(), list()) ::
+  @spec list_ml_transforms(AWS.Client.t(), list_ml_transforms_request(), Keyword.t()) ::
           {:ok, list_ml_transforms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ml_transforms_errors()}
   def list_ml_transforms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMLTransforms", input, options)
   end
 
   @doc """
   Returns a list of registries that you have created, with minimal registry
-  information.
-
-  Registries in the `Deleting` status will not be included in the results. Empty
-  results will be returned if there are no registries available.
+  information. Registries in the `Deleting` status will not be included in the
+  results. Empty results will be returned if there are no registries available.
   """
-  @spec list_registries(map(), list_registries_input(), list()) ::
+  @spec list_registries(AWS.Client.t(), list_registries_input(), Keyword.t()) ::
           {:ok, list_registries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_registries_errors()}
   def list_registries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRegistries", input, options)
   end
 
   @doc """
   Returns a list of schema versions that you have created, with minimal
-  information.
-
-  Schema versions in Deleted status will not be included in the results. Empty
-  results will be returned if there are no schema versions available.
+  information. Schema versions in Deleted status will not be included in the
+  results. Empty results will be returned if there are no schema versions
+  available.
   """
-  @spec list_schema_versions(map(), list_schema_versions_input(), list()) ::
+  @spec list_schema_versions(AWS.Client.t(), list_schema_versions_input(), Keyword.t()) ::
           {:ok, list_schema_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schema_versions_errors()}
   def list_schema_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSchemaVersions", input, options)
   end
 
   @doc """
-  Returns a list of schemas with minimal details.
-
-  Schemas in Deleting status will not be included in the results. Empty results
-  will be returned if there are no schemas available.
-
-  When the `RegistryId` is not provided, all the schemas across registries will be
-  part of the API response.
+  Returns a list of schemas with minimal details. Schemas in Deleting status will
+  not be included in the results. Empty results will be returned if there are no
+  schemas available.
   """
-  @spec list_schemas(map(), list_schemas_input(), list()) ::
+  @spec list_schemas(AWS.Client.t(), list_schemas_input(), Keyword.t()) ::
           {:ok, list_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schemas_errors()}
   def list_schemas(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSchemas", input, options)
   end
@@ -14585,12 +14602,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieve a list of sessions.
   """
-  @spec list_sessions(map(), list_sessions_request(), list()) ::
+  @spec list_sessions(AWS.Client.t(), list_sessions_request(), Keyword.t()) ::
           {:ok, list_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sessions_errors()}
   def list_sessions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSessions", input, options)
   end
@@ -14598,12 +14616,13 @@ defmodule AWS.Glue do
   @doc """
   Lists statements for the session.
   """
-  @spec list_statements(map(), list_statements_request(), list()) ::
+  @spec list_statements(AWS.Client.t(), list_statements_request(), Keyword.t()) ::
           {:ok, list_statements_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_statements_errors()}
   def list_statements(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStatements", input, options)
   end
@@ -14611,34 +14630,33 @@ defmodule AWS.Glue do
   @doc """
   Lists the history of previous optimizer runs for a specific table.
   """
-  @spec list_table_optimizer_runs(map(), list_table_optimizer_runs_request(), list()) ::
+  @spec list_table_optimizer_runs(
+          AWS.Client.t(),
+          list_table_optimizer_runs_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_table_optimizer_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_table_optimizer_runs_errors()}
   def list_table_optimizer_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTableOptimizerRuns", input, options)
   end
 
   @doc """
   Retrieves the names of all trigger resources in this Amazon Web Services
-  account, or the resources with the specified tag.
-
-  This operation allows you to see which resources are available in your account,
-  and their names.
-
-  This operation takes the optional `Tags` field, which you can use as a filter on
-  the response so that tagged resources can be retrieved as a group. If you choose
-  to use tags
-  filtering, only resources with the tag are retrieved.
+  account, or the resources with the specified tag. This operation allows you to
+  see which resources are available in your account, and their names.
   """
-  @spec list_triggers(map(), list_triggers_request(), list()) ::
+  @spec list_triggers(AWS.Client.t(), list_triggers_request(), Keyword.t()) ::
           {:ok, list_triggers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_triggers_errors()}
   def list_triggers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTriggers", input, options)
   end
@@ -14646,12 +14664,13 @@ defmodule AWS.Glue do
   @doc """
   List all the Glue usage profiles.
   """
-  @spec list_usage_profiles(map(), list_usage_profiles_request(), list()) ::
+  @spec list_usage_profiles(AWS.Client.t(), list_usage_profiles_request(), Keyword.t()) ::
           {:ok, list_usage_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_usage_profiles_errors()}
   def list_usage_profiles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUsageProfiles", input, options)
   end
@@ -14659,32 +14678,33 @@ defmodule AWS.Glue do
   @doc """
   Lists names of workflows created in the account.
   """
-  @spec list_workflows(map(), list_workflows_request(), list()) ::
+  @spec list_workflows(AWS.Client.t(), list_workflows_request(), Keyword.t()) ::
           {:ok, list_workflows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflows_errors()}
   def list_workflows(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkflows", input, options)
   end
 
   @doc """
-  Sets the security configuration for a specified catalog.
-
-  After the configuration has been
-  set, the specified encryption is applied to every catalog write thereafter.
+  Sets the security configuration for a specified catalog. After the configuration
+  has been set, the specified encryption is applied to every catalog write
+  thereafter.
   """
   @spec put_data_catalog_encryption_settings(
-          map(),
+          AWS.Client.t(),
           put_data_catalog_encryption_settings_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, put_data_catalog_encryption_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_data_catalog_encryption_settings_errors()}
   def put_data_catalog_encryption_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutDataCatalogEncryptionSettings", input, options)
   end
@@ -14692,44 +14712,53 @@ defmodule AWS.Glue do
   @doc """
   Sets the Data Catalog resource policy for access control.
   """
-  @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
+  @spec put_resource_policy(AWS.Client.t(), put_resource_policy_request(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
 
   @doc """
-  Puts the metadata key value pair for a specified schema version ID.
-
-  A maximum of 10 key value pairs will be allowed per schema version. They can be
-  added over one or more calls.
+  Puts the metadata key value pair for a specified schema version ID. A maximum of
+  10 key value pairs will be allowed per schema version. They can be added over
+  one or more calls.
   """
-  @spec put_schema_version_metadata(map(), put_schema_version_metadata_input(), list()) ::
+  @spec put_schema_version_metadata(
+          AWS.Client.t(),
+          put_schema_version_metadata_input(),
+          Keyword.t()
+        ) ::
           {:ok, put_schema_version_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_schema_version_metadata_errors()}
   def put_schema_version_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutSchemaVersionMetadata", input, options)
   end
 
   @doc """
-  Puts the specified workflow run properties for the given workflow run.
-
-  If a property already exists for the specified run, then it overrides the value
+  Puts the specified workflow run properties for the given workflow run. If a
+  property already exists for the specified run, then it overrides the value
   otherwise adds the property to existing properties.
   """
-  @spec put_workflow_run_properties(map(), put_workflow_run_properties_request(), list()) ::
+  @spec put_workflow_run_properties(
+          AWS.Client.t(),
+          put_workflow_run_properties_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_workflow_run_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_workflow_run_properties_errors()}
   def put_workflow_run_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutWorkflowRunProperties", input, options)
   end
@@ -14737,39 +14766,39 @@ defmodule AWS.Glue do
   @doc """
   Queries for the schema version metadata information.
   """
-  @spec query_schema_version_metadata(map(), query_schema_version_metadata_input(), list()) ::
+  @spec query_schema_version_metadata(
+          AWS.Client.t(),
+          query_schema_version_metadata_input(),
+          Keyword.t()
+        ) ::
           {:ok, query_schema_version_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, query_schema_version_metadata_errors()}
   def query_schema_version_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "QuerySchemaVersionMetadata", input, options)
   end
 
   @doc """
-  Adds a new version to the existing schema.
-
-  Returns an error if new version of schema does not meet the compatibility
-  requirements of the schema set. This API will not create a new schema set and
-  will return a 404 error if the schema set is not already present in the Schema
-  Registry.
-
-  If this is the first schema definition to be registered in the Schema Registry,
-  this API will store the schema version and return immediately. Otherwise, this
-  call has the potential to run longer than other operations due to compatibility
-  modes. You can call the `GetSchemaVersion` API with the `SchemaVersionId` to
-  check compatibility modes.
-
-  If the same schema definition is already stored in Schema Registry as a version,
-  the schema ID of the existing schema is returned to the caller.
+  Adds a new version to the existing schema. Returns an error if new version of
+  schema does not meet the compatibility requirements of the schema set. This
+  API will not create a new schema set and will return a 404 error if the schema
+  set is not already present in the Schema Registry. If this is the first schema
+  definition to be registered in the Schema Registry, this API will store the
+  schema version and return immediately. Otherwise, this call has the potential
+  to run longer than other operations due to compatibility modes. You can call
+  the `GetSchemaVersion` API with the `SchemaVersionId` to check compatibility
+  modes.
   """
-  @spec register_schema_version(map(), register_schema_version_input(), list()) ::
+  @spec register_schema_version(AWS.Client.t(), register_schema_version_input(), Keyword.t()) ::
           {:ok, register_schema_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_schema_version_errors()}
   def register_schema_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterSchemaVersion", input, options)
   end
@@ -14778,56 +14807,48 @@ defmodule AWS.Glue do
   Removes a key value pair from the schema version metadata for the specified
   schema version ID.
   """
-  @spec remove_schema_version_metadata(map(), remove_schema_version_metadata_input(), list()) ::
+  @spec remove_schema_version_metadata(
+          AWS.Client.t(),
+          remove_schema_version_metadata_input(),
+          Keyword.t()
+        ) ::
           {:ok, remove_schema_version_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_schema_version_metadata_errors()}
   def remove_schema_version_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveSchemaVersionMetadata", input, options)
   end
 
   @doc """
-  Resets a bookmark entry.
-
-  For more information about enabling and using job bookmarks, see:
-
-    *
-
-  [Tracking processed data using job bookmarks](https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html)
-
-    *
-
-  [Job parameters used by Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html)
-
-    *
-
-  [Job structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job)
+  Resets a bookmark entry. For more information about enabling and using job
+  bookmarks, see:
   """
-  @spec reset_job_bookmark(map(), reset_job_bookmark_request(), list()) ::
+  @spec reset_job_bookmark(AWS.Client.t(), reset_job_bookmark_request(), Keyword.t()) ::
           {:ok, reset_job_bookmark_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_job_bookmark_errors()}
   def reset_job_bookmark(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetJobBookmark", input, options)
   end
 
   @doc """
   Restarts selected nodes of a previous partially completed workflow run and
-  resumes the workflow run.
-
-  The selected nodes and all nodes that are downstream from the selected nodes are
-  run.
+  resumes the workflow run. The selected nodes and all nodes that are downstream
+  from the selected nodes are run.
   """
-  @spec resume_workflow_run(map(), resume_workflow_run_request(), list()) ::
+  @spec resume_workflow_run(AWS.Client.t(), resume_workflow_run_request(), Keyword.t()) ::
           {:ok, resume_workflow_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resume_workflow_run_errors()}
   def resume_workflow_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResumeWorkflowRun", input, options)
   end
@@ -14835,36 +14856,28 @@ defmodule AWS.Glue do
   @doc """
   Executes the statement.
   """
-  @spec run_statement(map(), run_statement_request(), list()) ::
+  @spec run_statement(AWS.Client.t(), run_statement_request(), Keyword.t()) ::
           {:ok, run_statement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, run_statement_errors()}
   def run_statement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RunStatement", input, options)
   end
 
   @doc """
   Searches a set of tables based on properties in the table metadata as well as on
-  the parent database.
-
-  You can search against text or filter conditions.
-
-  You can only get tables that you have access to based on the security policies
-  defined in Lake Formation. You need at least a read-only access to the table for
-  it to be returned. If you do not have access to all the columns in the table,
-  these columns will not be searched against when returning the list of tables
-  back to you. If you have access to the columns but not the data in the columns,
-  those columns and the associated metadata for those columns will be included in
-  the search.
+  the parent database. You can search against text or filter conditions.
   """
-  @spec search_tables(map(), search_tables_request(), list()) ::
+  @spec search_tables(AWS.Client.t(), search_tables_request(), Keyword.t()) ::
           {:ok, search_tables_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_tables_errors()}
   def search_tables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchTables", input, options)
   end
@@ -14872,12 +14885,13 @@ defmodule AWS.Glue do
   @doc """
   Starts a new run of the specified blueprint.
   """
-  @spec start_blueprint_run(map(), start_blueprint_run_request(), list()) ::
+  @spec start_blueprint_run(AWS.Client.t(), start_blueprint_run_request(), Keyword.t()) ::
           {:ok, start_blueprint_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_blueprint_run_errors()}
   def start_blueprint_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartBlueprintRun", input, options)
   end
@@ -14886,164 +14900,148 @@ defmodule AWS.Glue do
   Starts a column statistics task run, for a specified table and columns.
   """
   @spec start_column_statistics_task_run(
-          map(),
+          AWS.Client.t(),
           start_column_statistics_task_run_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_column_statistics_task_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_column_statistics_task_run_errors()}
   def start_column_statistics_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartColumnStatisticsTaskRun", input, options)
   end
 
   @doc """
-  Starts a crawl using the specified crawler, regardless
-  of what is scheduled.
-
-  If the crawler is already running, returns a
+  Starts a crawl using the specified crawler, regardless of what is scheduled. If
+  the crawler is already running, returns a
   [CrawlerRunningException](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-exceptions.html#aws-glue-api-exceptions-CrawlerRunningException).
   """
-  @spec start_crawler(map(), start_crawler_request(), list()) ::
+  @spec start_crawler(AWS.Client.t(), start_crawler_request(), Keyword.t()) ::
           {:ok, start_crawler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_crawler_errors()}
   def start_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartCrawler", input, options)
   end
 
   @doc """
-  Changes the schedule state of the specified crawler to
-  `SCHEDULED`, unless the crawler is already running or the
-  schedule state is already `SCHEDULED`.
+  Changes the schedule state of the specified crawler to `SCHEDULED`, unless the
+  crawler is already running or the schedule state is already `SCHEDULED`.
   """
-  @spec start_crawler_schedule(map(), start_crawler_schedule_request(), list()) ::
+  @spec start_crawler_schedule(AWS.Client.t(), start_crawler_schedule_request(), Keyword.t()) ::
           {:ok, start_crawler_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_crawler_schedule_errors()}
   def start_crawler_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartCrawlerSchedule", input, options)
   end
 
   @doc """
   Starts a recommendation run that is used to generate rules when you don't know
-  what rules to write.
-
-  Glue Data Quality analyzes the data and comes up with recommendations for a
-  potential ruleset. You can then triage the ruleset and modify the generated
-  ruleset to your liking.
-
-  Recommendation runs are automatically deleted after 90 days.
+  what rules to write. Glue Data Quality analyzes the data and comes up with
+  recommendations for a potential ruleset. You can then triage the ruleset and
+  modify the generated ruleset to your liking.
   """
   @spec start_data_quality_rule_recommendation_run(
-          map(),
+          AWS.Client.t(),
           start_data_quality_rule_recommendation_run_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_data_quality_rule_recommendation_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_data_quality_rule_recommendation_run_errors()}
   def start_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDataQualityRuleRecommendationRun", input, options)
   end
 
   @doc """
   Once you have a ruleset definition (either recommended or your own), you call
-  this operation to evaluate the ruleset against a data source (Glue table).
-
-  The evaluation computes results which you can retrieve with the
+  this operation to evaluate the ruleset against a data source (Glue table). The
+  evaluation computes results which you can retrieve with the
   `GetDataQualityResult` API.
   """
   @spec start_data_quality_ruleset_evaluation_run(
-          map(),
+          AWS.Client.t(),
           start_data_quality_ruleset_evaluation_run_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_data_quality_ruleset_evaluation_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_data_quality_ruleset_evaluation_run_errors()}
   def start_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDataQualityRulesetEvaluationRun", input, options)
   end
 
   @doc """
   Begins an asynchronous task to export all labeled data for a particular
-  transform.
-
-  This
-  task is the only label-related API call that is not part of the typical active
-  learning
-  workflow. You typically use `StartExportLabelsTaskRun` when you want to work
-  with
-  all of your existing labels at the same time, such as when you want to remove or
-  change labels
-  that were previously submitted as truth. This API operation accepts the
+  transform. This task is the only label-related API call that is not part of
+  the typical active learning workflow. You typically use
+  `StartExportLabelsTaskRun` when you want to work with all of your existing
+  labels at the same time, such as when you want to remove or change labels that
+  were previously submitted as truth. This API operation accepts the
   `TransformId` whose labels you want to export and an Amazon Simple Storage
   Service (Amazon S3) path to export the labels to. The operation returns a
   `TaskRunId`. You can check on the status of your task run by calling the
   `GetMLTaskRun` API.
   """
-  @spec start_export_labels_task_run(map(), start_export_labels_task_run_request(), list()) ::
+  @spec start_export_labels_task_run(
+          AWS.Client.t(),
+          start_export_labels_task_run_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_export_labels_task_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_export_labels_task_run_errors()}
   def start_export_labels_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartExportLabelsTaskRun", input, options)
   end
 
   @doc """
   Enables you to provide additional labels (examples of truth) to be used to teach
-  the
-  machine learning transform and improve its quality.
-
-  This API operation is generally used as
-  part of the active learning workflow that starts with the
+  the machine learning transform and improve its quality. This API operation is
+  generally used as part of the active learning workflow that starts with the
   `StartMLLabelingSetGenerationTaskRun` call and that ultimately results in
-  improving the quality of your machine learning transform.
-
-  After the `StartMLLabelingSetGenerationTaskRun` finishes, Glue machine learning
-  will have generated a series of questions for humans to answer. (Answering these
-  questions is
-  often called 'labeling' in the machine learning workflows). In the case of the
-  `FindMatches` transform, these questions are of the form, “What is the correct
-  way to group these rows together into groups composed entirely of matching
-  records?” After the
-  labeling process is finished, users upload their answers/labels with a call to
-  `StartImportLabelsTaskRun`. After `StartImportLabelsTaskRun` finishes,
-  all future runs of the machine learning transform use the new and improved
-  labels and perform
-  a higher-quality transformation.
-
-  By default, `StartMLLabelingSetGenerationTaskRun` continually learns from and
-  combines all labels that you upload unless you set `Replace` to true. If you set
-  `Replace` to true, `StartImportLabelsTaskRun` deletes and forgets all
-  previously uploaded labels and learns only from the exact set that you upload.
-  Replacing
-  labels can be helpful if you realize that you previously uploaded incorrect
-  labels, and you
-  believe that they are having a negative effect on your transform quality.
-
-  You can check on the status of your task run by calling the `GetMLTaskRun`
-  operation.
+  improving the quality of your machine learning transform. After the
+  `StartMLLabelingSetGenerationTaskRun` finishes, Glue machine learning will
+  have generated a series of questions for humans to answer. (Answering these
+  questions is often called 'labeling' in the machine learning workflows). In
+  the case of the `FindMatches` transform, these questions are of the form,
+  “What is the correct way to group these rows together into groups composed
+  entirely of matching records?” After the labeling process is finished, users
+  upload their answers/labels with a call to `StartImportLabelsTaskRun`. After
+  `StartImportLabelsTaskRun` finishes, all future runs of the machine learning
+  transform use the new and improved labels and perform a higher-quality
+  transformation.
   """
-  @spec start_import_labels_task_run(map(), start_import_labels_task_run_request(), list()) ::
+  @spec start_import_labels_task_run(
+          AWS.Client.t(),
+          start_import_labels_task_run_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_import_labels_task_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_import_labels_task_run_errors()}
   def start_import_labels_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartImportLabelsTaskRun", input, options)
   end
@@ -15051,85 +15049,71 @@ defmodule AWS.Glue do
   @doc """
   Starts a job run using a job definition.
   """
-  @spec start_job_run(map(), start_job_run_request(), list()) ::
+  @spec start_job_run(AWS.Client.t(), start_job_run_request(), Keyword.t()) ::
           {:ok, start_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_job_run_errors()}
   def start_job_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartJobRun", input, options)
   end
 
   @doc """
-  Starts a task to estimate the quality of the transform.
-
-  When you provide label sets as examples of truth, Glue machine learning uses
-  some of
-  those examples to learn from them. The rest of the labels are used as a test to
-  estimate
+  Starts a task to estimate the quality of the transform. When you provide label
+  sets as examples of truth, Glue machine learning uses some of those examples
+  to learn from them. The rest of the labels are used as a test to estimate
   quality.
-
-  Returns a unique identifier for the run. You can call `GetMLTaskRun` to get more
-  information about the stats of the `EvaluationTaskRun`.
   """
-  @spec start_ml_evaluation_task_run(map(), start_ml_evaluation_task_run_request(), list()) ::
+  @spec start_ml_evaluation_task_run(
+          AWS.Client.t(),
+          start_ml_evaluation_task_run_request(),
+          Keyword.t()
+        ) ::
           {:ok, start_ml_evaluation_task_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_ml_evaluation_task_run_errors()}
   def start_ml_evaluation_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMLEvaluationTaskRun", input, options)
   end
 
   @doc """
   Starts the active learning workflow for your machine learning transform to
-  improve the
-  transform's quality by generating label sets and adding labels.
-
+  improve the transform's quality by generating label sets and adding labels.
   When the `StartMLLabelingSetGenerationTaskRun` finishes, Glue will have
   generated a "labeling set" or a set of questions for humans to answer.
-
-  In the case of the `FindMatches` transform, these questions are of the form,
-  “What is the correct way to group these rows together into groups composed
-  entirely of
-  matching records?”
-
-  After the labeling process is finished, you can upload your labels with a call
-  to
-  `StartImportLabelsTaskRun`. After `StartImportLabelsTaskRun` finishes,
-  all future runs of the machine learning transform will use the new and improved
-  labels and
-  perform a higher-quality transformation.
   """
   @spec start_ml_labeling_set_generation_task_run(
-          map(),
+          AWS.Client.t(),
           start_ml_labeling_set_generation_task_run_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_ml_labeling_set_generation_task_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_ml_labeling_set_generation_task_run_errors()}
   def start_ml_labeling_set_generation_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMLLabelingSetGenerationTaskRun", input, options)
   end
 
   @doc """
-  Starts an existing trigger.
-
-  See [Triggering Jobs](https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html) for
-  information about how different types of trigger are
-  started.
+  Starts an existing trigger. See [Triggering
+  Jobs](https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html) for
+  information about how different types of trigger are started.
   """
-  @spec start_trigger(map(), start_trigger_request(), list()) ::
+  @spec start_trigger(AWS.Client.t(), start_trigger_request(), Keyword.t()) ::
           {:ok, start_trigger_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_trigger_errors()}
   def start_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartTrigger", input, options)
   end
@@ -15137,12 +15121,13 @@ defmodule AWS.Glue do
   @doc """
   Starts a new run of the specified workflow.
   """
-  @spec start_workflow_run(map(), start_workflow_run_request(), list()) ::
+  @spec start_workflow_run(AWS.Client.t(), start_workflow_run_request(), Keyword.t()) ::
           {:ok, start_workflow_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_workflow_run_errors()}
   def start_workflow_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartWorkflowRun", input, options)
   end
@@ -15150,12 +15135,17 @@ defmodule AWS.Glue do
   @doc """
   Stops a task run for the specified table.
   """
-  @spec stop_column_statistics_task_run(map(), stop_column_statistics_task_run_request(), list()) ::
+  @spec stop_column_statistics_task_run(
+          AWS.Client.t(),
+          stop_column_statistics_task_run_request(),
+          Keyword.t()
+        ) ::
           {:ok, stop_column_statistics_task_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_column_statistics_task_run_errors()}
   def stop_column_statistics_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopColumnStatisticsTaskRun", input, options)
   end
@@ -15163,27 +15153,28 @@ defmodule AWS.Glue do
   @doc """
   If the specified crawler is running, stops the crawl.
   """
-  @spec stop_crawler(map(), stop_crawler_request(), list()) ::
+  @spec stop_crawler(AWS.Client.t(), stop_crawler_request(), Keyword.t()) ::
           {:ok, stop_crawler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_crawler_errors()}
   def stop_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopCrawler", input, options)
   end
 
   @doc """
-  Sets the schedule state of the specified crawler to
-  `NOT_SCHEDULED`, but does not stop the crawler if it is
-  already running.
+  Sets the schedule state of the specified crawler to `NOT_SCHEDULED`, but does
+  not stop the crawler if it is already running.
   """
-  @spec stop_crawler_schedule(map(), stop_crawler_schedule_request(), list()) ::
+  @spec stop_crawler_schedule(AWS.Client.t(), stop_crawler_schedule_request(), Keyword.t()) ::
           {:ok, stop_crawler_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_crawler_schedule_errors()}
   def stop_crawler_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopCrawlerSchedule", input, options)
   end
@@ -15191,12 +15182,13 @@ defmodule AWS.Glue do
   @doc """
   Stops the session.
   """
-  @spec stop_session(map(), stop_session_request(), list()) ::
+  @spec stop_session(AWS.Client.t(), stop_session_request(), Keyword.t()) ::
           {:ok, stop_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_session_errors()}
   def stop_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopSession", input, options)
   end
@@ -15204,12 +15196,13 @@ defmodule AWS.Glue do
   @doc """
   Stops a specified trigger.
   """
-  @spec stop_trigger(map(), stop_trigger_request(), list()) ::
+  @spec stop_trigger(AWS.Client.t(), stop_trigger_request(), Keyword.t()) ::
           {:ok, stop_trigger_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_trigger_errors()}
   def stop_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopTrigger", input, options)
   end
@@ -15217,29 +15210,30 @@ defmodule AWS.Glue do
   @doc """
   Stops the execution of the specified workflow run.
   """
-  @spec stop_workflow_run(map(), stop_workflow_run_request(), list()) ::
+  @spec stop_workflow_run(AWS.Client.t(), stop_workflow_run_request(), Keyword.t()) ::
           {:ok, stop_workflow_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_workflow_run_errors()}
   def stop_workflow_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopWorkflowRun", input, options)
   end
 
   @doc """
-  Adds tags to a resource.
-
-  A tag is a label you can assign to an Amazon Web Services resource.
-  In Glue, you can tag only certain resources. For information about what
-  resources you can tag, see [Amazon Web Services Tags in Glue](https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html).
+  Adds tags to a resource. A tag is a label you can assign to an Amazon Web
+  Services resource. In Glue, you can tag only certain resources. For
+  information about what resources you can tag, see [Amazon Web Services Tags in
+  Glue](https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html).
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -15247,12 +15241,13 @@ defmodule AWS.Glue do
   @doc """
   Removes tags from a resource.
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -15260,67 +15255,64 @@ defmodule AWS.Glue do
   @doc """
   Updates a registered blueprint.
   """
-  @spec update_blueprint(map(), update_blueprint_request(), list()) ::
+  @spec update_blueprint(AWS.Client.t(), update_blueprint_request(), Keyword.t()) ::
           {:ok, update_blueprint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_blueprint_errors()}
   def update_blueprint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateBlueprint", input, options)
   end
 
   @doc """
-  Modifies an existing classifier (a `GrokClassifier`,
-  an `XMLClassifier`, a `JsonClassifier`, or a `CsvClassifier`, depending on
-  which field is present).
+  Modifies an existing classifier (a `GrokClassifier`, an `XMLClassifier`, a
+  `JsonClassifier`, or a `CsvClassifier`, depending on which field is present).
   """
-  @spec update_classifier(map(), update_classifier_request(), list()) ::
+  @spec update_classifier(AWS.Client.t(), update_classifier_request(), Keyword.t()) ::
           {:ok, update_classifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_classifier_errors()}
   def update_classifier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateClassifier", input, options)
   end
 
   @doc """
   Creates or updates partition statistics of columns.
-
-  The Identity and Access Management (IAM) permission required for this operation
-  is `UpdatePartition`.
   """
   @spec update_column_statistics_for_partition(
-          map(),
+          AWS.Client.t(),
           update_column_statistics_for_partition_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_column_statistics_for_partition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_column_statistics_for_partition_errors()}
   def update_column_statistics_for_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateColumnStatisticsForPartition", input, options)
   end
 
   @doc """
   Creates or updates table statistics of columns.
-
-  The Identity and Access Management (IAM) permission required for this operation
-  is `UpdateTable`.
   """
   @spec update_column_statistics_for_table(
-          map(),
+          AWS.Client.t(),
           update_column_statistics_for_table_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_column_statistics_for_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_column_statistics_for_table_errors()}
   def update_column_statistics_for_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateColumnStatisticsForTable", input, options)
   end
@@ -15328,29 +15320,28 @@ defmodule AWS.Glue do
   @doc """
   Updates a connection definition in the Data Catalog.
   """
-  @spec update_connection(map(), update_connection_request(), list()) ::
+  @spec update_connection(AWS.Client.t(), update_connection_request(), Keyword.t()) ::
           {:ok, update_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connection_errors()}
   def update_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateConnection", input, options)
   end
 
   @doc """
-  Updates a crawler.
-
-  If a crawler is
-  running, you must stop it using `StopCrawler` before updating
-  it.
+  Updates a crawler. If a crawler is running, you must stop it using `StopCrawler`
+  before updating it.
   """
-  @spec update_crawler(map(), update_crawler_request(), list()) ::
+  @spec update_crawler(AWS.Client.t(), update_crawler_request(), Keyword.t()) ::
           {:ok, update_crawler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_crawler_errors()}
   def update_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCrawler", input, options)
   end
@@ -15358,12 +15349,13 @@ defmodule AWS.Glue do
   @doc """
   Updates the schedule of a crawler using a `cron` expression.
   """
-  @spec update_crawler_schedule(map(), update_crawler_schedule_request(), list()) ::
+  @spec update_crawler_schedule(AWS.Client.t(), update_crawler_schedule_request(), Keyword.t()) ::
           {:ok, update_crawler_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_crawler_schedule_errors()}
   def update_crawler_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCrawlerSchedule", input, options)
   end
@@ -15371,12 +15363,17 @@ defmodule AWS.Glue do
   @doc """
   Updates the specified data quality ruleset.
   """
-  @spec update_data_quality_ruleset(map(), update_data_quality_ruleset_request(), list()) ::
+  @spec update_data_quality_ruleset(
+          AWS.Client.t(),
+          update_data_quality_ruleset_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_data_quality_ruleset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_quality_ruleset_errors()}
   def update_data_quality_ruleset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDataQualityRuleset", input, options)
   end
@@ -15384,12 +15381,13 @@ defmodule AWS.Glue do
   @doc """
   Updates an existing database definition in a Data Catalog.
   """
-  @spec update_database(map(), update_database_request(), list()) ::
+  @spec update_database(AWS.Client.t(), update_database_request(), Keyword.t()) ::
           {:ok, update_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_database_errors()}
   def update_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDatabase", input, options)
   end
@@ -15397,65 +15395,63 @@ defmodule AWS.Glue do
   @doc """
   Updates a specified development endpoint.
   """
-  @spec update_dev_endpoint(map(), update_dev_endpoint_request(), list()) ::
+  @spec update_dev_endpoint(AWS.Client.t(), update_dev_endpoint_request(), Keyword.t()) ::
           {:ok, update_dev_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dev_endpoint_errors()}
   def update_dev_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDevEndpoint", input, options)
   end
 
   @doc """
-  Updates an existing job definition.
-
-  The previous job definition is completely overwritten by this information.
+  Updates an existing job definition. The previous job definition is completely
+  overwritten by this information.
   """
-  @spec update_job(map(), update_job_request(), list()) ::
+  @spec update_job(AWS.Client.t(), update_job_request(), Keyword.t()) ::
           {:ok, update_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_job_errors()}
   def update_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateJob", input, options)
   end
 
   @doc """
-  Synchronizes a job from the source control repository.
-
-  This operation takes the job artifacts that are located in the remote repository
-  and updates the Glue internal stores with these artifacts.
-
-  This API supports optional parameters which take in the repository information.
+  Synchronizes a job from the source control repository. This operation takes the
+  job artifacts that are located in the remote repository and updates the Glue
+  internal stores with these artifacts.
   """
-  @spec update_job_from_source_control(map(), update_job_from_source_control_request(), list()) ::
+  @spec update_job_from_source_control(
+          AWS.Client.t(),
+          update_job_from_source_control_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_job_from_source_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_job_from_source_control_errors()}
   def update_job_from_source_control(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateJobFromSourceControl", input, options)
   end
 
   @doc """
-  Updates an existing machine learning transform.
-
-  Call this operation to tune the algorithm parameters to achieve better results.
-
-  After calling this operation, you can call the `StartMLEvaluationTaskRun`
-  operation to assess how well your new parameters achieved your goals (such as
-  improving the
-  quality of your machine learning transform, or making it more cost-effective).
+  Updates an existing machine learning transform. Call this operation to tune the
+  algorithm parameters to achieve better results.
   """
-  @spec update_ml_transform(map(), update_ml_transform_request(), list()) ::
+  @spec update_ml_transform(AWS.Client.t(), update_ml_transform_request(), Keyword.t()) ::
           {:ok, update_ml_transform_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ml_transform_errors()}
   def update_ml_transform(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMLTransform", input, options)
   end
@@ -15463,71 +15459,68 @@ defmodule AWS.Glue do
   @doc """
   Updates a partition.
   """
-  @spec update_partition(map(), update_partition_request(), list()) ::
+  @spec update_partition(AWS.Client.t(), update_partition_request(), Keyword.t()) ::
           {:ok, update_partition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_partition_errors()}
   def update_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePartition", input, options)
   end
 
   @doc """
-  Updates an existing registry which is used to hold a collection of schemas.
-
-  The updated properties relate to the registry, and do not modify any of the
+  Updates an existing registry which is used to hold a collection of schemas. The
+  updated properties relate to the registry, and do not modify any of the
   schemas within the registry.
   """
-  @spec update_registry(map(), update_registry_input(), list()) ::
+  @spec update_registry(AWS.Client.t(), update_registry_input(), Keyword.t()) ::
           {:ok, update_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_registry_errors()}
   def update_registry(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRegistry", input, options)
   end
 
   @doc """
   Updates the description, compatibility setting, or version checkpoint for a
-  schema set.
-
-  For updating the compatibility setting, the call will not validate compatibility
-  for the entire set of schema versions with the new compatibility setting. If the
-  value for `Compatibility` is provided, the `VersionNumber` (a checkpoint) is
-  also required. The API will validate the checkpoint version number for
-  consistency.
-
-  If the value for the `VersionNumber` (checkpoint) is provided, `Compatibility`
-  is optional and this can be used to set/reset a checkpoint for the schema.
-
-  This update will happen only if the schema is in the AVAILABLE state.
+  schema set. For updating the compatibility setting, the call will not validate
+  compatibility for the entire set of schema versions with the new compatibility
+  setting. If the value for `Compatibility` is provided, the `VersionNumber` (a
+  checkpoint) is also required. The API will validate the checkpoint version
+  number for consistency.
   """
-  @spec update_schema(map(), update_schema_input(), list()) ::
+  @spec update_schema(AWS.Client.t(), update_schema_input(), Keyword.t()) ::
           {:ok, update_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_schema_errors()}
   def update_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSchema", input, options)
   end
 
   @doc """
-  Synchronizes a job to the source control repository.
-
-  This operation takes the job artifacts from the Glue internal stores and makes a
-  commit to the remote repository that is configured on the job.
-
-  This API supports optional parameters which take in the repository information.
+  Synchronizes a job to the source control repository. This operation takes the
+  job artifacts from the Glue internal stores and makes a commit to the remote
+  repository that is configured on the job.
   """
-  @spec update_source_control_from_job(map(), update_source_control_from_job_request(), list()) ::
+  @spec update_source_control_from_job(
+          AWS.Client.t(),
+          update_source_control_from_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_source_control_from_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_source_control_from_job_errors()}
   def update_source_control_from_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSourceControlFromJob", input, options)
   end
@@ -15535,12 +15528,13 @@ defmodule AWS.Glue do
   @doc """
   Updates a metadata table in the Data Catalog.
   """
-  @spec update_table(map(), update_table_request(), list()) ::
+  @spec update_table(AWS.Client.t(), update_table_request(), Keyword.t()) ::
           {:ok, update_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_table_errors()}
   def update_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTable", input, options)
   end
@@ -15548,12 +15542,13 @@ defmodule AWS.Glue do
   @doc """
   Updates the configuration for an existing table optimizer.
   """
-  @spec update_table_optimizer(map(), update_table_optimizer_request(), list()) ::
+  @spec update_table_optimizer(AWS.Client.t(), update_table_optimizer_request(), Keyword.t()) ::
           {:ok, update_table_optimizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_table_optimizer_errors()}
   def update_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTableOptimizer", input, options)
   end
@@ -15561,12 +15556,13 @@ defmodule AWS.Glue do
   @doc """
   Updates a trigger definition.
   """
-  @spec update_trigger(map(), update_trigger_request(), list()) ::
+  @spec update_trigger(AWS.Client.t(), update_trigger_request(), Keyword.t()) ::
           {:ok, update_trigger_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_trigger_errors()}
   def update_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTrigger", input, options)
   end
@@ -15574,12 +15570,13 @@ defmodule AWS.Glue do
   @doc """
   Update an Glue usage profile.
   """
-  @spec update_usage_profile(map(), update_usage_profile_request(), list()) ::
+  @spec update_usage_profile(AWS.Client.t(), update_usage_profile_request(), Keyword.t()) ::
           {:ok, update_usage_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_usage_profile_errors()}
   def update_usage_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUsageProfile", input, options)
   end
@@ -15587,12 +15584,17 @@ defmodule AWS.Glue do
   @doc """
   Updates an existing function definition in the Data Catalog.
   """
-  @spec update_user_defined_function(map(), update_user_defined_function_request(), list()) ::
+  @spec update_user_defined_function(
+          AWS.Client.t(),
+          update_user_defined_function_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_user_defined_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_defined_function_errors()}
   def update_user_defined_function(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUserDefinedFunction", input, options)
   end
@@ -15600,12 +15602,13 @@ defmodule AWS.Glue do
   @doc """
   Updates an existing workflow.
   """
-  @spec update_workflow(map(), update_workflow_request(), list()) ::
+  @spec update_workflow(AWS.Client.t(), update_workflow_request(), Keyword.t()) ::
           {:ok, update_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workflow_errors()}
   def update_workflow(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWorkflow", input, options)
   end

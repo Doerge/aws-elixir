@@ -4,8 +4,7 @@
 defmodule AWS.Personalize do
   @moduledoc """
   Amazon Personalize is a machine learning service that makes it easy to add
-  individualized
-  recommendations to customers.
+  individualized recommendations to customers.
   """
 
   alias AWS.Client
@@ -3040,937 +3039,405 @@ defmodule AWS.Personalize do
 
   @doc """
   Generates batch recommendations based on a list of items or users stored in
-  Amazon S3
-  and exports the recommendations to an Amazon S3 bucket.
-
-  To generate batch recommendations, specify the ARN of a solution version and an
-  Amazon S3 URI for the input and output data.
-  For user personalization, popular items, and personalized ranking solutions, the
-  batch inference job generates a list of
-  recommended items for each user ID in the input file. For related items
-  solutions, the job generates a list of recommended
-  items for each item ID in the input file.
-
-  For more information, see [Creating a batch inference job
-  ](https://docs.aws.amazon.com/personalize/latest/dg/getting-batch-recommendations.html).
-
-  If you use the Similar-Items recipe, Amazon Personalize can add descriptive
-  themes to batch recommendations.
-  To generate themes, set the job's mode to
-  `THEME_GENERATION` and specify the name of the field that contains item names in
-  the
-  input data.
-
-  For more information about generating themes, see [Batch recommendations with themes from Content Generator
-  ](https://docs.aws.amazon.com/personalize/latest/dg/themed-batch-recommendations.html).
-
-  You can't get batch recommendations with the Trending-Now or Next-Best-Action
-  recipes.
+  Amazon S3 and exports the recommendations to an Amazon S3 bucket. To generate
+  batch recommendations, specify the ARN of a solution version and an Amazon S3
+  URI for the input and output data. For user personalization, popular items,
+  and personalized ranking solutions, the batch inference job generates a list
+  of recommended items for each user ID in the input file. For related items
+  solutions, the job generates a list of recommended items for each item ID in
+  the input file.
   """
-  @spec create_batch_inference_job(map(), create_batch_inference_job_request(), list()) ::
+  @spec create_batch_inference_job(
+          AWS.Client.t(),
+          create_batch_inference_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_batch_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_batch_inference_job_errors()}
   def create_batch_inference_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBatchInferenceJob", input, options)
   end
 
   @doc """
-  Creates a batch segment job.
-
-  The operation can handle up to 50 million records and the
-  input file must be in JSON format. For more information, see
-  [Getting batch recommendations and user segments](https://docs.aws.amazon.com/personalize/latest/dg/recommendations-batch.html).
+  Creates a batch segment job. The operation can handle up to 50 million records
+  and the input file must be in JSON format. For more information, see [Getting
+  batch recommendations and user
+  segments](https://docs.aws.amazon.com/personalize/latest/dg/recommendations-batch.html).
   """
-  @spec create_batch_segment_job(map(), create_batch_segment_job_request(), list()) ::
+  @spec create_batch_segment_job(AWS.Client.t(), create_batch_segment_job_request(), Keyword.t()) ::
           {:ok, create_batch_segment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_batch_segment_job_errors()}
   def create_batch_segment_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBatchSegmentJob", input, options)
   end
 
   @doc """
-
-  You incur campaign costs while it is active.
-
-  To avoid unnecessary costs, make sure to delete the campaign when you are
-  finished. For information about campaign
-  costs, see [Amazon Personalize pricing](https://aws.amazon.com/personalize/pricing/).
-
-  Creates a campaign that deploys a solution version. When a client calls the
-  [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)  and
+  You incur campaign costs while it is active. To avoid unnecessary costs, make
+  sure to delete the campaign when you are finished. For information about
+  campaign costs, see [Amazon Personalize
+  pricing](https://aws.amazon.com/personalize/pricing/). Creates a campaign that
+  deploys a solution version. When a client calls the
+  [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)
+  and
   [GetPersonalizedRanking](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetPersonalizedRanking.html)
-
-  APIs, a campaign is specified in the request.
-
-  ## Minimum Provisioned TPS and Auto-Scaling
-
-  A high `minProvisionedTPS` will increase your cost. We recommend starting with 1
-  for `minProvisionedTPS` (the default). Track
-  your usage using Amazon CloudWatch metrics, and increase the `minProvisionedTPS`
-  as necessary.
-
-  When you create an Amazon Personalize campaign, you can specify the minimum
-  provisioned transactions per second
-  (`minProvisionedTPS`) for the campaign. This is the baseline transaction
-  throughput for the campaign provisioned by
-  Amazon Personalize. It sets the minimum billing charge for the campaign while it
-  is active. A transaction is a single `GetRecommendations` or
-  `GetPersonalizedRanking` request. The default `minProvisionedTPS` is 1.
-
-  If your TPS increases beyond the `minProvisionedTPS`, Amazon Personalize
-  auto-scales the provisioned capacity up
-  and down, but never below `minProvisionedTPS`.
-  There's a short time delay while the capacity is increased
-  that might cause loss of transactions. When your traffic reduces, capacity
-  returns to the `minProvisionedTPS`.
-
-  You are charged for the
-  the minimum provisioned TPS or, if your requests exceed the `minProvisionedTPS`,
-  the actual TPS.
-  The actual TPS is the total number of recommendation requests you make.
-  We recommend starting with a low `minProvisionedTPS`, track
-  your usage using Amazon CloudWatch metrics, and then increase the
-  `minProvisionedTPS` as necessary.
-
-  For more information about campaign costs, see [Amazon Personalize pricing](https://aws.amazon.com/personalize/pricing/).
-
-  ## Status
-
-  A campaign can be in one of the following states:
-
-    *
-  CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-
-    *
-  DELETE PENDING > DELETE IN_PROGRESS
-
-  To get the campaign status, call
-  [DescribeCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html). 
-  Wait until the `status` of the campaign
-  is `ACTIVE` before asking the campaign for recommendations.
-
-  ## Related APIs
-
-    *
-
-  [ListCampaigns](https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html)
-
-    *
-
-  [DescribeCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html) 
-
-    *
-
-  [UpdateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateCampaign.html)
-
-    *
-
-  [DeleteCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteCampaign.html)
+  APIs, a campaign is specified in the request. **Minimum Provisioned TPS and
+  Auto-Scaling** A high `minProvisionedTPS` will increase your cost. We
+  recommend starting with 1 for `minProvisionedTPS` (the default). Track your
+  usage using Amazon CloudWatch metrics, and increase the `minProvisionedTPS` as
+  necessary.
   """
-  @spec create_campaign(map(), create_campaign_request(), list()) ::
+  @spec create_campaign(AWS.Client.t(), create_campaign_request(), Keyword.t()) ::
           {:ok, create_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_campaign_errors()}
   def create_campaign(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCampaign", input, options)
   end
 
   @doc """
-  Creates a batch job that deletes all
-  references to specific users from an Amazon Personalize dataset group in
-  batches.
-
-  You specify the users to delete in a CSV file of userIds in
-  an Amazon S3 bucket. After a job completes, Amazon Personalize no longer trains
-  on the users’ data and no longer considers the users when generating user
-  segments.
-  For more information about creating a data deletion job, see [Deleting users](https://docs.aws.amazon.com/personalize/latest/dg/delete-records.html).
-
-    *
-  Your input file must be a CSV file with a single USER_ID column that lists the
-  users IDs. For more information
-  about preparing the CSV file, see [Preparing your data deletion file and uploading it to Amazon
-  S3](https://docs.aws.amazon.com/personalize/latest/dg/prepare-deletion-input-file.html).
-
-    *
-  To give Amazon Personalize permission to access your input CSV file of userIds,
-  you must specify an IAM service role that has permission to
-  read from the data source. This role
-  needs `GetObject` and `ListBucket` permissions for the bucket and its content.
-  These permissions are the same as importing data. For information on granting
-  access to your Amazon S3
-  bucket, see [Giving Amazon Personalize Access to Amazon S3
-  Resources](https://docs.aws.amazon.com/personalize/latest/dg/granting-personalize-s3-access.html).
-
-  After you create a job, it can take up to a day to delete all references to the
-  users from datasets and models. Until the job completes,
-  Amazon Personalize continues to use the data when training. And if you use a
-  User Segmentation recipe, the users might appear in user segments.
-
-  ## Status
-
-  A data deletion job can have one of the following statuses:
-
-    *
-  PENDING > IN_PROGRESS > COMPLETED -or- FAILED
-
-  To get the status of the data deletion job, call
-  [DescribeDataDeletionJob](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataDeletionJob.html) API operation and specify the Amazon Resource Name
-  (ARN) of the job. If the status is FAILED, the response
-  includes a `failureReason` key, which describes why the job
-  failed.
-
-  ## Related APIs
-
-    *
-
-  [ListDataDeletionJobs](https://docs.aws.amazon.com/personalize/latest/dg/API_ListDataDeletionJobs.html)
-
-    *
-
-  [DescribeDataDeletionJob](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataDeletionJob.html)
+  Creates a batch job that deletes all references to specific users from an Amazon
+  Personalize dataset group in batches. You specify the users to delete in a CSV
+  file of userIds in an Amazon S3 bucket. After a job completes, Amazon
+  Personalize no longer trains on the users’ data and no longer considers the
+  users when generating user segments. For more information about creating a
+  data deletion job, see [Deleting
+  users](https://docs.aws.amazon.com/personalize/latest/dg/delete-records.html).
+  *
   """
-  @spec create_data_deletion_job(map(), create_data_deletion_job_request(), list()) ::
+  @spec create_data_deletion_job(AWS.Client.t(), create_data_deletion_job_request(), Keyword.t()) ::
           {:ok, create_data_deletion_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_deletion_job_errors()}
   def create_data_deletion_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataDeletionJob", input, options)
   end
 
   @doc """
-  Creates an empty dataset and adds it to the specified dataset group.
-
-  Use
-  [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html) to import your training data to a
-  dataset.
-
-  There are 5 types of datasets:
-
-    *
-  Item interactions
-
-    *
-  Items
-
-    *
-  Users
-
-    *
-  Action interactions
-
-    *
-  Actions
-
-  Each dataset type has an associated schema with required field types.
-  Only the `Item interactions` dataset is required in order to train a
-  model (also referred to as creating a solution).
-
-  A dataset can be in one of the following states:
-
-    *
-  CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
-  FAILED
-
-    *
-  DELETE PENDING > DELETE IN_PROGRESS
-
-  To get the status of the dataset, call
-  [DescribeDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html).
-
-  ## Related APIs
-
-    *
-
-  [CreateDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html) 
-
-    *
-
-  [ListDatasets](https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasets.html)
-
-    *
-
-  [DescribeDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html) 
-
-    *
-
-  [DeleteDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDataset.html)
+  Creates an empty dataset and adds it to the specified dataset group. Use
+  [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html)
+  to import your training data to a dataset. There are 5 types of datasets:
   """
-  @spec create_dataset(map(), create_dataset_request(), list()) ::
+  @spec create_dataset(AWS.Client.t(), create_dataset_request(), Keyword.t()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_errors()}
   def create_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataset", input, options)
   end
 
   @doc """
-  Creates a job that exports data from your dataset to an Amazon S3 bucket.
-
-  To allow Amazon Personalize to export the training data, you must specify an
-  service-linked IAM role that gives Amazon Personalize `PutObject`
-  permissions for your Amazon S3 bucket. For information, see [Exporting a dataset](https://docs.aws.amazon.com/personalize/latest/dg/export-data.html) in
-  the Amazon Personalize developer guide.
-
-  ## Status
-
-  A dataset export job can be in one of the following states:
-
-    *
-  CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
-  FAILED
-
-  To get the status of the export job, call
-  [DescribeDatasetExportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetExportJob.html),
-  and specify the Amazon Resource Name
-  (ARN) of the dataset export job. The dataset export is complete when the
-  status shows as ACTIVE. If the status shows as CREATE FAILED, the response
-  includes a `failureReason` key, which describes why the job
-  failed.
+  Creates a job that exports data from your dataset to an Amazon S3 bucket. To
+  allow Amazon Personalize to export the training data, you must specify an
+  service-linked IAM role that gives Amazon Personalize `PutObject` permissions
+  for your Amazon S3 bucket. For information, see [Exporting a
+  dataset](https://docs.aws.amazon.com/personalize/latest/dg/export-data.html)
+  in the Amazon Personalize developer guide. **Status** A dataset export job can
+  be in one of the following states:
   """
-  @spec create_dataset_export_job(map(), create_dataset_export_job_request(), list()) ::
+  @spec create_dataset_export_job(
+          AWS.Client.t(),
+          create_dataset_export_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_dataset_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_export_job_errors()}
   def create_dataset_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDatasetExportJob", input, options)
   end
 
   @doc """
-  Creates an empty dataset group.
-
-  A dataset group is a container for
-  Amazon Personalize resources. A dataset group can contain at most three
-  datasets, one
+  Creates an empty dataset group. A dataset group is a container for Amazon
+  Personalize resources. A dataset group can contain at most three datasets, one
   for each type of dataset:
-
-    *
-  Item interactions
-
-    *
-  Items
-
-    *
-  Users
-
-    *
-  Actions
-
-    *
-  Action interactions
-
-  A dataset group can be a Domain dataset group, where you specify a
-  domain and use pre-configured resources like recommenders, or a
-  Custom dataset group, where you use custom resources, such as a solution
-  with a solution version, that you deploy with a campaign. If you start
-  with a Domain dataset group, you can still add custom resources such as
-  solutions and solution versions trained with recipes for custom use cases
-  and deployed with campaigns.
-
-  A dataset group can be in one of the following states:
-
-    *
-  CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
-  FAILED
-
-    *
-  DELETE PENDING
-
-  To get the status of the dataset group, call
-  [DescribeDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html). If the status shows as CREATE FAILED, the
-  response includes a `failureReason` key, which describes why
-  the creation failed.
-
-  You must wait until the `status` of the dataset group is
-  `ACTIVE` before adding a dataset to the group.
-
-  You can specify an Key Management Service (KMS) key to encrypt the datasets in
-  the group. If you specify a KMS key, you must also include an Identity and
-  Access Management
-  (IAM) role that has permission to access the key.
-
-  ## APIs that require a dataset group ARN in the request
-
-    *
-
-  [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html)
-
-    *
-
-  [CreateEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html) 
-
-    *
-
-  [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html)
-
-  ## Related APIs
-
-    *
-
-  [ListDatasetGroups](https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasetGroups.html) 
-
-    *
-
-  [DescribeDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html)
-
-    *
-
-  [DeleteDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDatasetGroup.html)
   """
-  @spec create_dataset_group(map(), create_dataset_group_request(), list()) ::
+  @spec create_dataset_group(AWS.Client.t(), create_dataset_group_request(), Keyword.t()) ::
           {:ok, create_dataset_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_group_errors()}
   def create_dataset_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDatasetGroup", input, options)
   end
 
   @doc """
-  Creates a job that imports training data from your data source (an
-  Amazon S3 bucket) to an Amazon Personalize dataset.
-
-  To allow Amazon Personalize to import the
-  training data, you must specify an IAM service role that has permission to
-  read from the data source, as Amazon Personalize makes a copy of your data and
-  processes it internally. For information on granting access to your Amazon S3
-  bucket, see [Giving Amazon Personalize Access to Amazon S3
+  Creates a job that imports training data from your data source (an Amazon S3
+  bucket) to an Amazon Personalize dataset. To allow Amazon Personalize to
+  import the training data, you must specify an IAM service role that has
+  permission to read from the data source, as Amazon Personalize makes a copy of
+  your data and processes it internally. For information on granting access to
+  your Amazon S3 bucket, see [Giving Amazon Personalize Access to Amazon S3
   Resources](https://docs.aws.amazon.com/personalize/latest/dg/granting-personalize-s3-access.html).
-
-  If you already created a recommender or deployed a custom solution version with
-  a campaign, how new bulk records
-  influence recommendations depends on the domain use case or recipe that you use.
-  For more information, see [How new data influences real-time
+  If you already created a recommender or deployed a custom solution version
+  with a campaign, how new bulk records influence recommendations depends on the
+  domain use case or recipe that you use. For more information, see [How new
+  data influences real-time
   recommendations](https://docs.aws.amazon.com/personalize/latest/dg/how-new-data-influences-recommendations.html).
-
-  By default, a dataset import job replaces any existing data in the
-  dataset that you imported in bulk. To add new records without replacing
-  existing data, specify INCREMENTAL for the import mode in the
-  CreateDatasetImportJob operation.
-
-  ## Status
-
-  A dataset import job can be in one of the following states:
-
-    *
-  CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
-  FAILED
-
-  To get the status of the import job, call
-  [DescribeDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html), providing the Amazon Resource Name
-  (ARN) of the dataset import job. The dataset import is complete when the
-  status shows as ACTIVE. If the status shows as CREATE FAILED, the response
-  includes a `failureReason` key, which describes why the job
-  failed.
-
-  Importing takes time. You must wait until the status shows as ACTIVE
-  before training a model using the dataset.
-
-  ## Related APIs
-
-    *
-
-  [ListDatasetImportJobs](https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasetImportJobs.html)
-
-    *
-
-  [DescribeDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html)
+  By default, a dataset import job replaces any existing data in the dataset
+  that you imported in bulk. To add new records without replacing existing data,
+  specify INCREMENTAL for the import mode in the CreateDatasetImportJob
+  operation.
   """
-  @spec create_dataset_import_job(map(), create_dataset_import_job_request(), list()) ::
+  @spec create_dataset_import_job(
+          AWS.Client.t(),
+          create_dataset_import_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_dataset_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_import_job_errors()}
   def create_dataset_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDatasetImportJob", input, options)
   end
 
   @doc """
   Creates an event tracker that you use when adding event data to a specified
-  dataset
-  group using the
-  [PutEvents](https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html) API.
-
-  Only one event tracker can be associated with a dataset group. You will get
-  an error if you call `CreateEventTracker` using the same dataset group as an
-  existing event tracker.
-
-  When you create an event tracker, the response includes a tracking ID, which you
-  pass as a parameter when you use the
+  dataset group using the
   [PutEvents](https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html)
-  operation.
-  Amazon Personalize then appends the event data to the Item interactions dataset
-  of the dataset group you specify
-  in your event tracker.
-
-  The event tracker can be in one of the following states:
-
-    *
-  CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-
-    *
-  DELETE PENDING > DELETE IN_PROGRESS
-
-  To get the status of the event tracker, call
-  [DescribeEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html). 
-  The event tracker must be in the ACTIVE state before using the tracking ID.
-
-  ## Related APIs
-
-    *
-
-  [ListEventTrackers](https://docs.aws.amazon.com/personalize/latest/dg/API_ListEventTrackers.html)
-
-    *
-
-  [DescribeEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html) 
-
-    *
-
-  [DeleteEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteEventTracker.html)
+  API. Only one event tracker can be associated with a dataset group. You will
+  get an error if you call `CreateEventTracker` using the same dataset group as
+  an existing event tracker. When you create an event tracker, the response
+  includes a tracking ID, which you pass as a parameter when you use the
+  [PutEvents](https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html)
+  operation. Amazon Personalize then appends the event data to the Item
+  interactions dataset of the dataset group you specify in your event tracker.
   """
-  @spec create_event_tracker(map(), create_event_tracker_request(), list()) ::
+  @spec create_event_tracker(AWS.Client.t(), create_event_tracker_request(), Keyword.t()) ::
           {:ok, create_event_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_event_tracker_errors()}
   def create_event_tracker(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEventTracker", input, options)
   end
 
   @doc """
-  Creates a recommendation filter.
-
-  For more information, see [Filtering recommendations and user segments](https://docs.aws.amazon.com/personalize/latest/dg/filter.html).
+  Creates a recommendation filter. For more information, see [Filtering
+  recommendations and user
+  segments](https://docs.aws.amazon.com/personalize/latest/dg/filter.html).
   """
-  @spec create_filter(map(), create_filter_request(), list()) ::
+  @spec create_filter(AWS.Client.t(), create_filter_request(), Keyword.t()) ::
           {:ok, create_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_filter_errors()}
   def create_filter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFilter", input, options)
   end
 
   @doc """
-  Creates a metric attribution.
-
-  A metric attribution creates reports on the data that you import into Amazon
-  Personalize. Depending on how you imported the data, you can view reports in
-  Amazon CloudWatch or Amazon S3.
-  For more information, see [Measuring impact of recommendations](https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html).
+  Creates a metric attribution. A metric attribution creates reports on the data
+  that you import into Amazon Personalize. Depending on how you imported the
+  data, you can view reports in Amazon CloudWatch or Amazon S3. For more
+  information, see [Measuring impact of
+  recommendations](https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html).
   """
-  @spec create_metric_attribution(map(), create_metric_attribution_request(), list()) ::
+  @spec create_metric_attribution(
+          AWS.Client.t(),
+          create_metric_attribution_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_metric_attribution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_metric_attribution_errors()}
   def create_metric_attribution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMetricAttribution", input, options)
   end
 
   @doc """
   Creates a recommender with the recipe (a Domain dataset group use case) you
-  specify.
-
-  You create recommenders for a Domain dataset group and specify the recommender's
-  Amazon Resource Name (ARN) when you make a
-  [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)  request.
-
-  ## Minimum recommendation requests per second
-
-  A high `minRecommendationRequestsPerSecond` will increase your bill. We
-  recommend starting with 1 for `minRecommendationRequestsPerSecond` (the
-  default). Track
+  specify. You create recommenders for a Domain dataset group and specify the
+  recommender's Amazon Resource Name (ARN) when you make a
+  [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)
+  request. **Minimum recommendation requests per second** A high
+  `minRecommendationRequestsPerSecond` will increase your bill. We recommend
+  starting with 1 for `minRecommendationRequestsPerSecond` (the default). Track
   your usage using Amazon CloudWatch metrics, and increase the
-  `minRecommendationRequestsPerSecond`
-  as necessary.
-
-  When you create a recommender, you can configure the recommender's minimum
-  recommendation requests per second. The minimum recommendation requests per
-  second
-  (`minRecommendationRequestsPerSecond`) specifies the baseline recommendation
-  request throughput provisioned by
-  Amazon Personalize. The default minRecommendationRequestsPerSecond is `1`. A
-  recommendation request is a single `GetRecommendations` operation.
-  Request throughput is measured in requests per second and Amazon Personalize
-  uses your requests per second to derive
-  your requests per hour and the price of your recommender usage.
-
-  If your requests per second increases beyond
-  `minRecommendationRequestsPerSecond`, Amazon Personalize auto-scales the
-  provisioned capacity up and down,
-  but never below `minRecommendationRequestsPerSecond`.
-  There's a short time delay while the capacity is increased that might cause loss
-  of
-  requests.
-
-  Your bill is the greater of either the minimum requests per hour (based on
-  minRecommendationRequestsPerSecond)
-  or the actual number of requests. The actual request throughput used is
-  calculated as the average requests/second within a one-hour window.
-
-  We recommend starting with the default `minRecommendationRequestsPerSecond`,
-  track
-  your usage using Amazon CloudWatch metrics, and then increase the
-  `minRecommendationRequestsPerSecond`
-  as necessary.
-
-  ## Status
-
-  A recommender can be in one of the following states:
-
-    *
-  CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-
-    *
-  STOP PENDING > STOP IN_PROGRESS > INACTIVE > START PENDING > START IN_PROGRESS >
-  ACTIVE
-
-    *
-  DELETE PENDING > DELETE IN_PROGRESS
-
-  To get the recommender status, call
-  [DescribeRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html).
-
-  Wait until the `status` of the recommender
-  is `ACTIVE` before asking the recommender for recommendations.
-
-  ## Related APIs
-
-    *
-
-  [ListRecommenders](https://docs.aws.amazon.com/personalize/latest/dg/API_ListRecommenders.html) 
-
-    *
-
-  [DescribeRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html)
-
-    *
-
-  [UpdateRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateRecommender.html) 
-
-    *
-
-  [DeleteRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteRecommender.html)
+  `minRecommendationRequestsPerSecond` as necessary.
   """
-  @spec create_recommender(map(), create_recommender_request(), list()) ::
+  @spec create_recommender(AWS.Client.t(), create_recommender_request(), Keyword.t()) ::
           {:ok, create_recommender_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_recommender_errors()}
   def create_recommender(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRecommender", input, options)
   end
 
   @doc """
-  Creates an Amazon Personalize schema from the specified schema string.
-
-  The schema you create
-  must be in Avro JSON format.
-
-  Amazon Personalize recognizes three schema variants. Each schema is associated
-  with a dataset
-  type and has a set of required field and keywords. If you are creating a schema
-  for a dataset in a Domain dataset group, you
-  provide the domain of the Domain dataset group.
+  Creates an Amazon Personalize schema from the specified schema string. The
+  schema you create must be in Avro JSON format. Amazon Personalize recognizes
+  three schema variants. Each schema is associated with a dataset type and has a
+  set of required field and keywords. If you are creating a schema for a dataset
+  in a Domain dataset group, you provide the domain of the Domain dataset group.
   You specify a schema when you call
-  [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html). 
-  ## Related APIs
-
-    *
-
-  [ListSchemas](https://docs.aws.amazon.com/personalize/latest/dg/API_ListSchemas.html)
-
-    *
-
-  [DescribeSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSchema.html) 
-
-    *
-
-  [DeleteSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSchema.html)
+  [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
+  **Related APIs**
   """
-  @spec create_schema(map(), create_schema_request(), list()) ::
+  @spec create_schema(AWS.Client.t(), create_schema_request(), Keyword.t()) ::
           {:ok, create_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_schema_errors()}
   def create_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSchema", input, options)
   end
 
   @doc """
-
-  After you create a solution, you can’t change its configuration.
-
-  By default, all new solutions use automatic training. With automatic training,
-  you incur training costs while
-  your solution is active. You can't stop automatic training for a solution. To
-  avoid unnecessary costs, make sure to delete the solution when you are finished.
-  For information about training
-  costs, see [Amazon Personalize pricing](https://aws.amazon.com/personalize/pricing/).
-
+  After you create a solution, you can’t change its configuration. By default, all
+  new solutions use automatic training. With automatic training, you incur
+  training costs while your solution is active. You can't stop automatic
+  training for a solution. To avoid unnecessary costs, make sure to delete the
+  solution when you are finished. For information about training costs, see
+  [Amazon Personalize pricing](https://aws.amazon.com/personalize/pricing/).
   Creates the configuration for training a model (creating a solution version).
-  This configuration
-  includes the recipe to use for model training and optional training
-  configuration, such as columns to use
-  in training and feature transformation parameters. For more information about
-  configuring a solution, see [Creating and configuring a solution](https://docs.aws.amazon.com/personalize/latest/dg/customizing-solution-config.html).
-
+  This configuration includes the recipe to use for model training and optional
+  training configuration, such as columns to use in training and feature
+  transformation parameters. For more information about configuring a solution,
+  see [Creating and configuring a
+  solution](https://docs.aws.amazon.com/personalize/latest/dg/customizing-solution-config.html).
   By default, new solutions use automatic training to create solution versions
-  every 7 days. You can change the training frequency.
-  Automatic solution version creation starts one hour after the solution is
-  ACTIVE. If you manually create a solution version within
-  the hour, the solution skips the first automatic training. For more information,
-  see [Configuring automatic training](https://docs.aws.amazon.com/personalize/latest/dg/solution-config-auto-training.html).
-
-  To turn off automatic training, set `performAutoTraining` to false. If you turn
-  off automatic training, you must manually create a solution version
-  by calling the
-  [CreateSolutionVersion](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html) operation.
-
-  After training starts, you can
-  get the solution version's Amazon Resource Name (ARN) with the
-  [ListSolutionVersions](https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html)
-  API operation.
-  To get its status, use the
-  [DescribeSolutionVersion](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html). 
-  After training completes you can evaluate model accuracy by calling
-  [GetSolutionMetrics](https://docs.aws.amazon.com/personalize/latest/dg/API_GetSolutionMetrics.html).
-  When you are satisfied with the solution version, you
-  deploy it using
-  [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html). The campaign provides recommendations
-  to a client through the
-  [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)
-  API.
-
-  Amazon Personalize doesn't support configuring the `hpoObjective`
-  for solution hyperparameter optimization at this time.
-
-  ## Status
-
-  A solution can be in one of the following states:
-
-    *
-  CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-
-    *
-  DELETE PENDING > DELETE IN_PROGRESS
-
-  To get the status of the solution, call
-  [DescribeSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html). If you use
-  manual training, the status must be ACTIVE before you call
-  `CreateSolutionVersion`.
-
-  ## Related APIs
-
-    *
-
-  [ListSolutions](https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html)
-
-    *
-
-  [CreateSolutionVersion](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html) 
-
-    *
-
-  [DescribeSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html)
-
-    *
-
-  [DeleteSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html) 
-
-    *
-
-  [ListSolutionVersions](https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html)
-
-    *
-
-  [DescribeSolutionVersion](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html)
+  every 7 days. You can change the training frequency. Automatic solution
+  version creation starts one hour after the solution is ACTIVE. If you manually
+  create a solution version within the hour, the solution skips the first
+  automatic training. For more information, see [Configuring automatic
+  training](https://docs.aws.amazon.com/personalize/latest/dg/solution-config-auto-training.html).
+  To turn off automatic training, set `performAutoTraining` to false. If you
+  turn off automatic training, you must manually create a solution version by
+  calling the
+  [CreateSolutionVersion](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html)
+  operation.
   """
-  @spec create_solution(map(), create_solution_request(), list()) ::
+  @spec create_solution(AWS.Client.t(), create_solution_request(), Keyword.t()) ::
           {:ok, create_solution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_solution_errors()}
   def create_solution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSolution", input, options)
   end
 
   @doc """
-  Trains or retrains an active solution in a Custom dataset group.
-
-  A solution is created using the
-  [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html) operation and must be in the ACTIVE state before calling
-  `CreateSolutionVersion`. A new version of the solution is created every time you
-  call this operation.
-
-  ## Status
-
-  A solution version can be in one of the following states:
-
-    *
-  CREATE PENDING
-
-    *
-  CREATE IN_PROGRESS
-
-    *
-  ACTIVE
-
-    *
-  CREATE FAILED
-
-    *
-  CREATE STOPPING
-
-    *
-  CREATE STOPPED
-
-  To get the status of the version, call
-  [DescribeSolutionVersion](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html).
-  Wait
-  until the status shows as ACTIVE before calling `CreateCampaign`.
-
-  If the status shows as CREATE FAILED, the response includes a `failureReason`
-  key, which describes why the job failed.
-
-  ## Related APIs
-
-    *
-
-  [ListSolutionVersions](https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html) 
-
-    *
-
-  [DescribeSolutionVersion](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html)
-
-    *
-
-  [ListSolutions](https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html) 
-
-    *
-
+  Trains or retrains an active solution in a Custom dataset group. A solution is
+  created using the
   [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html)
-
-    *
-
-  [DescribeSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html) 
-
-    *
-
-  [DeleteSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html)
+  operation and must be in the ACTIVE state before calling
+  `CreateSolutionVersion`. A new version of the solution is created every time
+  you call this operation. **Status** A solution version can be in one of the
+  following states:
   """
-  @spec create_solution_version(map(), create_solution_version_request(), list()) ::
+  @spec create_solution_version(AWS.Client.t(), create_solution_version_request(), Keyword.t()) ::
           {:ok, create_solution_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_solution_version_errors()}
   def create_solution_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSolutionVersion", input, options)
   end
 
   @doc """
-  Removes a campaign by deleting the solution deployment.
-
-  The solution that
-  the campaign is based on is not deleted and can be redeployed when needed. A
-  deleted campaign can no
-  longer be specified in a
-  [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)  request.
-  For information on creating campaigns, see
+  Removes a campaign by deleting the solution deployment. The solution that the
+  campaign is based on is not deleted and can be redeployed when needed. A
+  deleted campaign can no longer be specified in a
+  [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)
+  request. For information on creating campaigns, see
   [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html).
   """
-  @spec delete_campaign(map(), delete_campaign_request(), list()) ::
+  @spec delete_campaign(AWS.Client.t(), delete_campaign_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_campaign_errors()}
   def delete_campaign(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCampaign", input, options)
   end
 
   @doc """
-  Deletes a dataset.
-
-  You can't delete a dataset if an associated
-  `DatasetImportJob` or `SolutionVersion` is in the
-  CREATE PENDING or IN PROGRESS state. For more information on datasets, see
+  Deletes a dataset. You can't delete a dataset if an associated
+  `DatasetImportJob` or `SolutionVersion` is in the CREATE PENDING or IN
+  PROGRESS state. For more information on datasets, see
   [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
   """
-  @spec delete_dataset(map(), delete_dataset_request(), list()) ::
+  @spec delete_dataset(AWS.Client.t(), delete_dataset_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dataset_errors()}
   def delete_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDataset", input, options)
   end
 
   @doc """
-  Deletes a dataset group.
-
-  Before you delete a dataset group, you must
-  delete the following:
-
-    *
-  All associated event trackers.
-
-    *
-  All associated solutions.
-
-    *
-  All datasets in the dataset group.
+  Deletes a dataset group. Before you delete a dataset group, you must delete the
+  following:
   """
-  @spec delete_dataset_group(map(), delete_dataset_group_request(), list()) ::
+  @spec delete_dataset_group(AWS.Client.t(), delete_dataset_group_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dataset_group_errors()}
   def delete_dataset_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDatasetGroup", input, options)
   end
 
   @doc """
-  Deletes the event tracker.
-
-  Does not delete the dataset from
-  the dataset group. For more
-  information on event trackers, see
+  Deletes the event tracker. Does not delete the dataset from the dataset group.
+  For more information on event trackers, see
   [CreateEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html).
   """
-  @spec delete_event_tracker(map(), delete_event_tracker_request(), list()) ::
+  @spec delete_event_tracker(AWS.Client.t(), delete_event_tracker_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_tracker_errors()}
   def delete_event_tracker(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEventTracker", input, options)
   end
@@ -3978,12 +3445,13 @@ defmodule AWS.Personalize do
   @doc """
   Deletes a filter.
   """
-  @spec delete_filter(map(), delete_filter_request(), list()) ::
+  @spec delete_filter(AWS.Client.t(), delete_filter_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_filter_errors()}
   def delete_filter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFilter", input, options)
   end
@@ -3991,67 +3459,71 @@ defmodule AWS.Personalize do
   @doc """
   Deletes a metric attribution.
   """
-  @spec delete_metric_attribution(map(), delete_metric_attribution_request(), list()) ::
+  @spec delete_metric_attribution(
+          AWS.Client.t(),
+          delete_metric_attribution_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_metric_attribution_errors()}
   def delete_metric_attribution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMetricAttribution", input, options)
   end
 
   @doc """
-  Deactivates and removes a recommender.
-
-  A deleted recommender can no longer be specified in a
+  Deactivates and removes a recommender. A deleted recommender can no longer be
+  specified in a
   [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)
   request.
   """
-  @spec delete_recommender(map(), delete_recommender_request(), list()) ::
+  @spec delete_recommender(AWS.Client.t(), delete_recommender_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_recommender_errors()}
   def delete_recommender(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRecommender", input, options)
   end
 
   @doc """
-  Deletes a schema.
-
-  Before deleting a schema, you must delete all
-  datasets referencing the schema. For more information on schemas, see
+  Deletes a schema. Before deleting a schema, you must delete all datasets
+  referencing the schema. For more information on schemas, see
   [CreateSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html).
   """
-  @spec delete_schema(map(), delete_schema_request(), list()) ::
+  @spec delete_schema(AWS.Client.t(), delete_schema_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_schema_errors()}
   def delete_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSchema", input, options)
   end
 
   @doc """
-  Deletes all versions of a solution and the `Solution` object itself.
-
-  Before deleting a solution, you must delete all campaigns based on
-  the solution. To determine what campaigns are using the solution, call
-  [ListCampaigns](https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html) and supply the Amazon Resource Name (ARN) of the solution.
-  You can't delete a solution if an associated `SolutionVersion` is in the
-  CREATE PENDING or IN PROGRESS state.
-  For more information on solutions, see
+  Deletes all versions of a solution and the `Solution` object itself. Before
+  deleting a solution, you must delete all campaigns based on the solution. To
+  determine what campaigns are using the solution, call
+  [ListCampaigns](https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html)
+  and supply the Amazon Resource Name (ARN) of the solution. You can't delete a
+  solution if an associated `SolutionVersion` is in the CREATE PENDING or IN
+  PROGRESS state. For more information on solutions, see
   [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html).
   """
-  @spec delete_solution(map(), delete_solution_request(), list()) ::
+  @spec delete_solution(AWS.Client.t(), delete_solution_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_solution_errors()}
   def delete_solution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSolution", input, options)
   end
@@ -4059,73 +3531,68 @@ defmodule AWS.Personalize do
   @doc """
   Describes the given algorithm.
   """
-  @spec describe_algorithm(map(), describe_algorithm_request(), list()) ::
+  @spec describe_algorithm(AWS.Client.t(), describe_algorithm_request(), Keyword.t()) ::
           {:ok, describe_algorithm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_algorithm_errors()}
   def describe_algorithm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAlgorithm", input, options)
   end
 
   @doc """
   Gets the properties of a batch inference job including name, Amazon Resource
-  Name (ARN),
-  status, input and output configurations, and the ARN of the solution version
-  used to generate
-  the recommendations.
+  Name (ARN), status, input and output configurations, and the ARN of the
+  solution version used to generate the recommendations.
   """
-  @spec describe_batch_inference_job(map(), describe_batch_inference_job_request(), list()) ::
+  @spec describe_batch_inference_job(
+          AWS.Client.t(),
+          describe_batch_inference_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_batch_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_batch_inference_job_errors()}
   def describe_batch_inference_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBatchInferenceJob", input, options)
   end
 
   @doc """
   Gets the properties of a batch segment job including name, Amazon Resource Name
-  (ARN),
-  status, input and output configurations, and the ARN of the solution version
-  used to generate
-  segments.
+  (ARN), status, input and output configurations, and the ARN of the solution
+  version used to generate segments.
   """
-  @spec describe_batch_segment_job(map(), describe_batch_segment_job_request(), list()) ::
+  @spec describe_batch_segment_job(
+          AWS.Client.t(),
+          describe_batch_segment_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_batch_segment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_batch_segment_job_errors()}
   def describe_batch_segment_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBatchSegmentJob", input, options)
   end
 
   @doc """
-  Describes the given campaign, including its status.
-
-  A campaign can be in one of the following states:
-
-    *
-  CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-
-    *
-  DELETE PENDING > DELETE IN_PROGRESS
-
-  When the `status` is `CREATE FAILED`, the response includes the
-  `failureReason` key, which describes why.
-
-  For more information on campaigns, see
-  [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html).
+  Describes the given campaign, including its status. A campaign can be in one of
+  the following states:
   """
-  @spec describe_campaign(map(), describe_campaign_request(), list()) ::
+  @spec describe_campaign(AWS.Client.t(), describe_campaign_request(), Keyword.t()) ::
           {:ok, describe_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_campaign_errors()}
   def describe_campaign(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCampaign", input, options)
   end
@@ -4135,28 +3602,32 @@ defmodule AWS.Personalize do
   [CreateDataDeletionJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataDeletionJob.html),
   including the job status.
   """
-  @spec describe_data_deletion_job(map(), describe_data_deletion_job_request(), list()) ::
+  @spec describe_data_deletion_job(
+          AWS.Client.t(),
+          describe_data_deletion_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_data_deletion_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_deletion_job_errors()}
   def describe_data_deletion_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataDeletionJob", input, options)
   end
 
   @doc """
-  Describes the given dataset.
-
-  For more information on datasets, see
+  Describes the given dataset. For more information on datasets, see
   [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
   """
-  @spec describe_dataset(map(), describe_dataset_request(), list()) ::
+  @spec describe_dataset(AWS.Client.t(), describe_dataset_request(), Keyword.t()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dataset_errors()}
   def describe_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataset", input, options)
   end
@@ -4166,29 +3637,32 @@ defmodule AWS.Personalize do
   [CreateDatasetExportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html),
   including the export job status.
   """
-  @spec describe_dataset_export_job(map(), describe_dataset_export_job_request(), list()) ::
+  @spec describe_dataset_export_job(
+          AWS.Client.t(),
+          describe_dataset_export_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_dataset_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dataset_export_job_errors()}
   def describe_dataset_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDatasetExportJob", input, options)
   end
 
   @doc """
-  Describes the given dataset group.
-
-  For more information on dataset
-  groups, see
+  Describes the given dataset group. For more information on dataset groups, see
   [CreateDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html).
   """
-  @spec describe_dataset_group(map(), describe_dataset_group_request(), list()) ::
+  @spec describe_dataset_group(AWS.Client.t(), describe_dataset_group_request(), Keyword.t()) ::
           {:ok, describe_dataset_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dataset_group_errors()}
   def describe_dataset_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDatasetGroup", input, options)
   end
@@ -4198,30 +3672,33 @@ defmodule AWS.Personalize do
   [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html),
   including the import job status.
   """
-  @spec describe_dataset_import_job(map(), describe_dataset_import_job_request(), list()) ::
+  @spec describe_dataset_import_job(
+          AWS.Client.t(),
+          describe_dataset_import_job_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_dataset_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dataset_import_job_errors()}
   def describe_dataset_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDatasetImportJob", input, options)
   end
 
   @doc """
-  Describes an event tracker.
-
-  The response includes the `trackingId` and
-  `status` of the event tracker.
-  For more information on event trackers, see
+  Describes an event tracker. The response includes the `trackingId` and `status`
+  of the event tracker. For more information on event trackers, see
   [CreateEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html).
   """
-  @spec describe_event_tracker(map(), describe_event_tracker_request(), list()) ::
+  @spec describe_event_tracker(AWS.Client.t(), describe_event_tracker_request(), Keyword.t()) ::
           {:ok, describe_event_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_tracker_errors()}
   def describe_event_tracker(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventTracker", input, options)
   end
@@ -4229,12 +3706,17 @@ defmodule AWS.Personalize do
   @doc """
   Describes the given feature transformation.
   """
-  @spec describe_feature_transformation(map(), describe_feature_transformation_request(), list()) ::
+  @spec describe_feature_transformation(
+          AWS.Client.t(),
+          describe_feature_transformation_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_feature_transformation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_feature_transformation_errors()}
   def describe_feature_transformation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFeatureTransformation", input, options)
   end
@@ -4242,12 +3724,13 @@ defmodule AWS.Personalize do
   @doc """
   Describes a filter's properties.
   """
-  @spec describe_filter(map(), describe_filter_request(), list()) ::
+  @spec describe_filter(AWS.Client.t(), describe_filter_request(), Keyword.t()) ::
           {:ok, describe_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_filter_errors()}
   def describe_filter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFilter", input, options)
   end
@@ -4255,129 +3738,96 @@ defmodule AWS.Personalize do
   @doc """
   Describes a metric attribution.
   """
-  @spec describe_metric_attribution(map(), describe_metric_attribution_request(), list()) ::
+  @spec describe_metric_attribution(
+          AWS.Client.t(),
+          describe_metric_attribution_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_metric_attribution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_metric_attribution_errors()}
   def describe_metric_attribution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMetricAttribution", input, options)
   end
 
   @doc """
-  Describes a recipe.
-
-  A recipe contains three items:
-
-    *
-  An algorithm that trains a model.
-
-    *
-  Hyperparameters that govern the training.
-
-    *
-  Feature transformation information for modifying the input data before training.
-
-  Amazon Personalize provides a set of predefined recipes. You specify a recipe
-  when you create a
-  solution with the
-  [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html) API.
-  `CreateSolution` trains a model by using the algorithm
-  in the specified recipe and a training dataset. The solution, when deployed as a
-  campaign,
-  can provide recommendations using the
-  [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)
-  API.
+  Describes a recipe. A recipe contains three items:
   """
-  @spec describe_recipe(map(), describe_recipe_request(), list()) ::
+  @spec describe_recipe(AWS.Client.t(), describe_recipe_request(), Keyword.t()) ::
           {:ok, describe_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_recipe_errors()}
   def describe_recipe(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRecipe", input, options)
   end
 
   @doc """
-  Describes the given recommender, including its status.
-
-  A recommender can be in one of the following states:
-
-    *
-  CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-
-    *
-  STOP PENDING > STOP IN_PROGRESS > INACTIVE > START PENDING > START IN_PROGRESS >
-  ACTIVE
-
-    *
-  DELETE PENDING > DELETE IN_PROGRESS
-
-  When the `status` is `CREATE FAILED`, the response includes the
-  `failureReason` key, which describes why.
-
-  The `modelMetrics` key is null when
-  the recommender is being created or deleted.
-
-  For more information on recommenders, see
-  [CreateRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateRecommender.html).
+  Describes the given recommender, including its status. A recommender can be in
+  one of the following states:
   """
-  @spec describe_recommender(map(), describe_recommender_request(), list()) ::
+  @spec describe_recommender(AWS.Client.t(), describe_recommender_request(), Keyword.t()) ::
           {:ok, describe_recommender_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_recommender_errors()}
   def describe_recommender(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRecommender", input, options)
   end
 
   @doc """
-  Describes a schema.
-
-  For more information on schemas, see
+  Describes a schema. For more information on schemas, see
   [CreateSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html).
   """
-  @spec describe_schema(map(), describe_schema_request(), list()) ::
+  @spec describe_schema(AWS.Client.t(), describe_schema_request(), Keyword.t()) ::
           {:ok, describe_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_schema_errors()}
   def describe_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSchema", input, options)
   end
 
   @doc """
-  Describes a solution.
-
-  For more information on solutions, see
+  Describes a solution. For more information on solutions, see
   [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html).
   """
-  @spec describe_solution(map(), describe_solution_request(), list()) ::
+  @spec describe_solution(AWS.Client.t(), describe_solution_request(), Keyword.t()) ::
           {:ok, describe_solution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_solution_errors()}
   def describe_solution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSolution", input, options)
   end
 
   @doc """
-  Describes a specific version of a solution.
-
-  For more information on solutions, see
+  Describes a specific version of a solution. For more information on solutions,
+  see
   [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html)
   """
-  @spec describe_solution_version(map(), describe_solution_version_request(), list()) ::
+  @spec describe_solution_version(
+          AWS.Client.t(),
+          describe_solution_version_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_solution_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_solution_version_errors()}
   def describe_solution_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSolutionVersion", input, options)
   end
@@ -4385,27 +3835,32 @@ defmodule AWS.Personalize do
   @doc """
   Gets the metrics for the specified solution version.
   """
-  @spec get_solution_metrics(map(), get_solution_metrics_request(), list()) ::
+  @spec get_solution_metrics(AWS.Client.t(), get_solution_metrics_request(), Keyword.t()) ::
           {:ok, get_solution_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_solution_metrics_errors()}
   def get_solution_metrics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSolutionMetrics", input, options)
   end
 
   @doc """
   Gets a list of the batch inference jobs that have been performed off of a
-  solution
-  version.
+  solution version.
   """
-  @spec list_batch_inference_jobs(map(), list_batch_inference_jobs_request(), list()) ::
+  @spec list_batch_inference_jobs(
+          AWS.Client.t(),
+          list_batch_inference_jobs_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_batch_inference_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_batch_inference_jobs_errors()}
   def list_batch_inference_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBatchInferenceJobs", input, options)
   end
@@ -4414,150 +3869,143 @@ defmodule AWS.Personalize do
   Gets a list of the batch segment jobs that have been performed off of a solution
   version that you specify.
   """
-  @spec list_batch_segment_jobs(map(), list_batch_segment_jobs_request(), list()) ::
+  @spec list_batch_segment_jobs(AWS.Client.t(), list_batch_segment_jobs_request(), Keyword.t()) ::
           {:ok, list_batch_segment_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_batch_segment_jobs_errors()}
   def list_batch_segment_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBatchSegmentJobs", input, options)
   end
 
   @doc """
-  Returns a list of campaigns that use the given solution.
-
-  When a solution is not specified, all the campaigns associated with the account
-  are listed.
-  The response provides the properties for each campaign, including the Amazon
-  Resource Name (ARN).
-  For more information on campaigns, see
+  Returns a list of campaigns that use the given solution. When a solution is not
+  specified, all the campaigns associated with the account are listed. The
+  response provides the properties for each campaign, including the Amazon
+  Resource Name (ARN). For more information on campaigns, see
   [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html).
   """
-  @spec list_campaigns(map(), list_campaigns_request(), list()) ::
+  @spec list_campaigns(AWS.Client.t(), list_campaigns_request(), Keyword.t()) ::
           {:ok, list_campaigns_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_campaigns_errors()}
   def list_campaigns(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCampaigns", input, options)
   end
 
   @doc """
   Returns a list of data deletion jobs for a dataset group ordered by creation
-  time,
-  with the most recent first.
-
-  When
-  a dataset group is not specified, all the data deletion jobs associated with
-  the account are listed. The response provides the properties for each
-  job, including the Amazon Resource Name (ARN). For more
-  information on data deletion jobs, see [Deleting users](https://docs.aws.amazon.com/personalize/latest/dg/delete-records.html).
+  time, with the most recent first. When a dataset group is not specified, all
+  the data deletion jobs associated with the account are listed. The response
+  provides the properties for each job, including the Amazon Resource Name
+  (ARN). For more information on data deletion jobs, see [Deleting
+  users](https://docs.aws.amazon.com/personalize/latest/dg/delete-records.html).
   """
-  @spec list_data_deletion_jobs(map(), list_data_deletion_jobs_request(), list()) ::
+  @spec list_data_deletion_jobs(AWS.Client.t(), list_data_deletion_jobs_request(), Keyword.t()) ::
           {:ok, list_data_deletion_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_deletion_jobs_errors()}
   def list_data_deletion_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataDeletionJobs", input, options)
   end
 
   @doc """
-  Returns a list of dataset export jobs that use the given dataset.
-
-  When
-  a dataset is not specified, all the dataset export jobs associated with
-  the account are listed. The response provides the properties for each
-  dataset export job, including the Amazon Resource Name (ARN). For more
-  information on dataset export jobs, see
-  [CreateDatasetExportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html). For more information on datasets, see
+  Returns a list of dataset export jobs that use the given dataset. When a dataset
+  is not specified, all the dataset export jobs associated with the account are
+  listed. The response provides the properties for each dataset export job,
+  including the Amazon Resource Name (ARN). For more information on dataset
+  export jobs, see
+  [CreateDatasetExportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html).
+  For more information on datasets, see
   [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
   """
-  @spec list_dataset_export_jobs(map(), list_dataset_export_jobs_request(), list()) ::
+  @spec list_dataset_export_jobs(AWS.Client.t(), list_dataset_export_jobs_request(), Keyword.t()) ::
           {:ok, list_dataset_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dataset_export_jobs_errors()}
   def list_dataset_export_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDatasetExportJobs", input, options)
   end
 
   @doc """
-  Returns a list of dataset groups.
-
-  The response provides the properties
-  for each dataset group, including the Amazon Resource Name (ARN). For more
-  information on dataset groups, see
+  Returns a list of dataset groups. The response provides the properties for each
+  dataset group, including the Amazon Resource Name (ARN). For more information
+  on dataset groups, see
   [CreateDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html).
   """
-  @spec list_dataset_groups(map(), list_dataset_groups_request(), list()) ::
+  @spec list_dataset_groups(AWS.Client.t(), list_dataset_groups_request(), Keyword.t()) ::
           {:ok, list_dataset_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dataset_groups_errors()}
   def list_dataset_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDatasetGroups", input, options)
   end
 
   @doc """
-  Returns a list of dataset import jobs that use the given dataset.
-
-  When
-  a dataset is not specified, all the dataset import jobs associated with
-  the account are listed. The response provides the properties for each
-  dataset import job, including the Amazon Resource Name (ARN). For more
-  information on dataset import jobs, see
-  [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html). For more information on datasets, see
+  Returns a list of dataset import jobs that use the given dataset. When a dataset
+  is not specified, all the dataset import jobs associated with the account are
+  listed. The response provides the properties for each dataset import job,
+  including the Amazon Resource Name (ARN). For more information on dataset
+  import jobs, see
+  [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html).
+  For more information on datasets, see
   [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
   """
-  @spec list_dataset_import_jobs(map(), list_dataset_import_jobs_request(), list()) ::
+  @spec list_dataset_import_jobs(AWS.Client.t(), list_dataset_import_jobs_request(), Keyword.t()) ::
           {:ok, list_dataset_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dataset_import_jobs_errors()}
   def list_dataset_import_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDatasetImportJobs", input, options)
   end
 
   @doc """
-  Returns the list of datasets contained in the given dataset group.
-
-  The
-  response provides the properties for each dataset, including the Amazon
-  Resource Name (ARN). For more information on datasets, see
+  Returns the list of datasets contained in the given dataset group. The response
+  provides the properties for each dataset, including the Amazon Resource Name
+  (ARN). For more information on datasets, see
   [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
   """
-  @spec list_datasets(map(), list_datasets_request(), list()) ::
+  @spec list_datasets(AWS.Client.t(), list_datasets_request(), Keyword.t()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_datasets_errors()}
   def list_datasets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDatasets", input, options)
   end
 
   @doc """
-  Returns the list of event trackers associated with the account.
-
-  The response provides the properties for each event tracker, including the
-  Amazon Resource
-  Name (ARN) and tracking ID. For more
-  information on event trackers, see
+  Returns the list of event trackers associated with the account. The response
+  provides the properties for each event tracker, including the Amazon Resource
+  Name (ARN) and tracking ID. For more information on event trackers, see
   [CreateEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html).
   """
-  @spec list_event_trackers(map(), list_event_trackers_request(), list()) ::
+  @spec list_event_trackers(AWS.Client.t(), list_event_trackers_request(), Keyword.t()) ::
           {:ok, list_event_trackers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_trackers_errors()}
   def list_event_trackers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEventTrackers", input, options)
   end
@@ -4565,12 +4013,13 @@ defmodule AWS.Personalize do
   @doc """
   Lists all filters that belong to a given dataset group.
   """
-  @spec list_filters(map(), list_filters_request(), list()) ::
+  @spec list_filters(AWS.Client.t(), list_filters_request(), Keyword.t()) ::
           {:ok, list_filters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_filters_errors()}
   def list_filters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFilters", input, options)
   end
@@ -4578,12 +4027,17 @@ defmodule AWS.Personalize do
   @doc """
   Lists the metrics for the metric attribution.
   """
-  @spec list_metric_attribution_metrics(map(), list_metric_attribution_metrics_request(), list()) ::
+  @spec list_metric_attribution_metrics(
+          AWS.Client.t(),
+          list_metric_attribution_metrics_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_metric_attribution_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_metric_attribution_metrics_errors()}
   def list_metric_attribution_metrics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMetricAttributionMetrics", input, options)
   end
@@ -4591,105 +4045,99 @@ defmodule AWS.Personalize do
   @doc """
   Lists metric attributions.
   """
-  @spec list_metric_attributions(map(), list_metric_attributions_request(), list()) ::
+  @spec list_metric_attributions(AWS.Client.t(), list_metric_attributions_request(), Keyword.t()) ::
           {:ok, list_metric_attributions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_metric_attributions_errors()}
   def list_metric_attributions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMetricAttributions", input, options)
   end
 
   @doc """
-  Returns a list of available recipes.
-
-  The response provides the properties
-  for each recipe, including the recipe's Amazon Resource Name (ARN).
+  Returns a list of available recipes. The response provides the properties for
+  each recipe, including the recipe's Amazon Resource Name (ARN).
   """
-  @spec list_recipes(map(), list_recipes_request(), list()) ::
+  @spec list_recipes(AWS.Client.t(), list_recipes_request(), Keyword.t()) ::
           {:ok, list_recipes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recipes_errors()}
   def list_recipes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRecipes", input, options)
   end
 
   @doc """
-  Returns a list of recommenders in a given Domain dataset group.
-
-  When a Domain dataset group is not specified, all the recommenders associated
-  with the account are listed.
-  The response provides the properties for each recommender, including the Amazon
-  Resource Name (ARN).
-  For more information on recommenders, see
+  Returns a list of recommenders in a given Domain dataset group. When a Domain
+  dataset group is not specified, all the recommenders associated with the
+  account are listed. The response provides the properties for each recommender,
+  including the Amazon Resource Name (ARN). For more information on
+  recommenders, see
   [CreateRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateRecommender.html).
   """
-  @spec list_recommenders(map(), list_recommenders_request(), list()) ::
+  @spec list_recommenders(AWS.Client.t(), list_recommenders_request(), Keyword.t()) ::
           {:ok, list_recommenders_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recommenders_errors()}
   def list_recommenders(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRecommenders", input, options)
   end
 
   @doc """
-  Returns the list of schemas associated with the account.
-
-  The response provides the
-  properties for each schema, including the Amazon Resource Name (ARN).
-  For more information on schemas, see
+  Returns the list of schemas associated with the account. The response provides
+  the properties for each schema, including the Amazon Resource Name (ARN). For
+  more information on schemas, see
   [CreateSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html).
   """
-  @spec list_schemas(map(), list_schemas_request(), list()) ::
+  @spec list_schemas(AWS.Client.t(), list_schemas_request(), Keyword.t()) ::
           {:ok, list_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schemas_errors()}
   def list_schemas(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSchemas", input, options)
   end
 
   @doc """
-  Returns a list of solution versions for the given solution.
-
-  When a solution is not
-  specified, all the solution versions associated with the account are listed. The
-  response
-  provides the properties for each solution version, including the Amazon Resource
-  Name (ARN).
+  Returns a list of solution versions for the given solution. When a solution is
+  not specified, all the solution versions associated with the account are
+  listed. The response provides the properties for each solution version,
+  including the Amazon Resource Name (ARN).
   """
-  @spec list_solution_versions(map(), list_solution_versions_request(), list()) ::
+  @spec list_solution_versions(AWS.Client.t(), list_solution_versions_request(), Keyword.t()) ::
           {:ok, list_solution_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_solution_versions_errors()}
   def list_solution_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSolutionVersions", input, options)
   end
 
   @doc """
-  Returns a list of solutions in a given dataset group.
-
-  When a dataset group is not specified, all the solutions associated with the
-  account are listed.
-  The response provides the properties for each solution, including the Amazon
-  Resource Name (ARN).
-  For more information on solutions, see
+  Returns a list of solutions in a given dataset group. When a dataset group is
+  not specified, all the solutions associated with the account are listed. The
+  response provides the properties for each solution, including the Amazon
+  Resource Name (ARN). For more information on solutions, see
   [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html).
   """
-  @spec list_solutions(map(), list_solutions_request(), list()) ::
+  @spec list_solutions(AWS.Client.t(), list_solutions_request(), Keyword.t()) ::
           {:ok, list_solutions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_solutions_errors()}
   def list_solutions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSolutions", input, options)
   end
@@ -4699,74 +4147,64 @@ defmodule AWS.Personalize do
   [tags](https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html)
   attached to a resource.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
-  Starts a recommender that is INACTIVE.
-
-  Starting a recommender does not
-  create any new models, but resumes billing and automatic retraining for the
+  Starts a recommender that is INACTIVE. Starting a recommender does not create
+  any new models, but resumes billing and automatic retraining for the
   recommender.
   """
-  @spec start_recommender(map(), start_recommender_request(), list()) ::
+  @spec start_recommender(AWS.Client.t(), start_recommender_request(), Keyword.t()) ::
           {:ok, start_recommender_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_recommender_errors()}
   def start_recommender(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartRecommender", input, options)
   end
 
   @doc """
-  Stops a recommender that is ACTIVE.
-
-  Stopping a recommender halts billing and automatic retraining for the
-  recommender.
+  Stops a recommender that is ACTIVE. Stopping a recommender halts billing and
+  automatic retraining for the recommender.
   """
-  @spec stop_recommender(map(), stop_recommender_request(), list()) ::
+  @spec stop_recommender(AWS.Client.t(), stop_recommender_request(), Keyword.t()) ::
           {:ok, stop_recommender_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_recommender_errors()}
   def stop_recommender(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopRecommender", input, options)
   end
 
   @doc """
   Stops creating a solution version that is in a state of CREATE_PENDING or CREATE
-  IN_PROGRESS.
-
-  Depending on the current state of the solution version, the solution version
-  state changes as follows:
-
-    *
-  CREATE_PENDING > CREATE_STOPPED
-
-  or
-
-    *
-  CREATE_IN_PROGRESS > CREATE_STOPPING > CREATE_STOPPED
-
-  You are billed for all of the training completed up
-  until you stop the solution version creation. You cannot resume creating a
-  solution version once it has been stopped.
+  IN_PROGRESS. Depending on the current state of the solution version, the
+  solution version state changes as follows:
   """
-  @spec stop_solution_version_creation(map(), stop_solution_version_creation_request(), list()) ::
+  @spec stop_solution_version_creation(
+          AWS.Client.t(),
+          stop_solution_version_creation_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_solution_version_creation_errors()}
   def stop_solution_version_creation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopSolutionVersionCreation", input, options)
   end
@@ -4774,86 +4212,64 @@ defmodule AWS.Personalize do
   @doc """
   Add a list of tags to a resource.
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
-  Removes the specified tags that are attached to a resource.
-
-  For more information, see [Removing tags from Amazon Personalize resources](https://docs.aws.amazon.com/personalize/latest/dg/tags-remove.html).
+  Removes the specified tags that are attached to a resource. For more
+  information, see [Removing tags from Amazon Personalize
+  resources](https://docs.aws.amazon.com/personalize/latest/dg/tags-remove.html).
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
-
   Updates a campaign to deploy a retrained solution version with an existing
-  campaign, change your campaign's `minProvisionedTPS`,
-  or modify your campaign's configuration.
-
-  For example, you can set `enableMetadataWithRecommendations` to true for an
-  existing campaign.
-
-  To update a campaign to start automatically using the latest solution version,
+  campaign, change your campaign's `minProvisionedTPS`, or modify your
+  campaign's configuration. For example, you can set
+  `enableMetadataWithRecommendations` to true for an existing campaign. To
+  update a campaign to start automatically using the latest solution version,
   specify the following:
-
-    *
-  For the `SolutionVersionArn` parameter, specify the Amazon Resource Name (ARN)
-  of your solution in
-  `SolutionArn/$LATEST` format.
-
-    *
-  In the `campaignConfig`, set `syncWithLatestSolutionVersion` to `true`.
-
-  To update a campaign, the campaign status must be ACTIVE or CREATE FAILED.
-  Check the campaign status using the
-  [DescribeCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html) operation.
-
-  You can still get recommendations from a campaign while an update is in
-  progress.
-  The campaign will use the previous solution version and campaign configuration
-  to generate recommendations until the latest campaign update status is `Active`.
-
-  For more information about updating a campaign, including code samples, see
-  [Updating a
-  campaign](https://docs.aws.amazon.com/personalize/latest/dg/update-campaigns.html).
-  For more information about campaigns, see [Creating a campaign](https://docs.aws.amazon.com/personalize/latest/dg/campaigns.html).
   """
-  @spec update_campaign(map(), update_campaign_request(), list()) ::
+  @spec update_campaign(AWS.Client.t(), update_campaign_request(), Keyword.t()) ::
           {:ok, update_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_campaign_errors()}
   def update_campaign(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCampaign", input, options)
   end
 
   @doc """
-  Update a dataset to replace its schema with a new or existing one.
-
-  For more information, see [Replacing a dataset's schema](https://docs.aws.amazon.com/personalize/latest/dg/updating-dataset-schema.html).
+  Update a dataset to replace its schema with a new or existing one. For more
+  information, see [Replacing a dataset's
+  schema](https://docs.aws.amazon.com/personalize/latest/dg/updating-dataset-schema.html).
   """
-  @spec update_dataset(map(), update_dataset_request(), list()) ::
+  @spec update_dataset(AWS.Client.t(), update_dataset_request(), Keyword.t()) ::
           {:ok, update_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dataset_errors()}
   def update_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDataset", input, options)
   end
@@ -4861,35 +4277,39 @@ defmodule AWS.Personalize do
   @doc """
   Updates a metric attribution.
   """
-  @spec update_metric_attribution(map(), update_metric_attribution_request(), list()) ::
+  @spec update_metric_attribution(
+          AWS.Client.t(),
+          update_metric_attribution_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_metric_attribution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_metric_attribution_errors()}
   def update_metric_attribution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMetricAttribution", input, options)
   end
 
   @doc """
-  Updates the recommender to modify the recommender configuration.
-
-  If you update the recommender to modify the columns used in training, Amazon
-  Personalize automatically starts a full retraining of
-  the models backing your recommender. While the update completes, you can still
-  get recommendations from the recommender. The recommender
-  uses the previous configuration until the update completes.
-  To track the status of this update,
-  use the `latestRecommenderUpdate` returned in the
+  Updates the recommender to modify the recommender configuration. If you update
+  the recommender to modify the columns used in training, Amazon Personalize
+  automatically starts a full retraining of the models backing your recommender.
+  While the update completes, you can still get recommendations from the
+  recommender. The recommender uses the previous configuration until the update
+  completes. To track the status of this update, use the
+  `latestRecommenderUpdate` returned in the
   [DescribeRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html)
   operation.
   """
-  @spec update_recommender(map(), update_recommender_request(), list()) ::
+  @spec update_recommender(AWS.Client.t(), update_recommender_request(), Keyword.t()) ::
           {:ok, update_recommender_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_recommender_errors()}
   def update_recommender(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRecommender", input, options)
   end

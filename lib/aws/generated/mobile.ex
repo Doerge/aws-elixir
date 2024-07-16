@@ -3,12 +3,10 @@
 
 defmodule AWS.Mobile do
   @moduledoc """
-
   AWS Mobile Service provides mobile app and website developers with capabilities
   required to configure AWS resources and bootstrap their developer desktop
-  projects
-  with the necessary SDKs, constants, tools and samples to make use of those
-  resources.
+  projects with the necessary SDKs, constants, tools and samples to make use of
+  those resources.
   """
 
   alias AWS.Client
@@ -460,10 +458,21 @@ defmodule AWS.Mobile do
   end
 
   @doc """
-
   Creates an AWS Mobile Hub project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mobile%20CreateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:name` (`t:string`) Name of the project.
+  * `:region` (`t:string`) Default region where project resources should be
+    created.
+  * `:snapshot_id` (`t:string`) Unique identifier for an exported snapshot of
+    project configuration. This snapshot identifier is included in the share URL
+    when a project is exported.
   """
-  @spec create_project(map(), create_project_request(), list()) ::
+  @spec create_project(AWS.Client.t(), create_project_request(), Keyword.t()) ::
           {:ok, create_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_errors()}
@@ -479,7 +488,13 @@ defmodule AWS.Mobile do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:name, :region, :snapshot_id])
 
     Request.request_rest(
       client,
@@ -495,10 +510,16 @@ defmodule AWS.Mobile do
   end
 
   @doc """
-
   Delets a project in AWS Mobile Hub.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mobile%20DeleteProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project_id` (`t:string`) Unique project identifier.
+
+  ## Optional parameters:
   """
-  @spec delete_project(map(), String.t(), delete_project_request(), list()) ::
+  @spec delete_project(AWS.Client.t(), String.t(), delete_project_request(), Keyword.t()) ::
           {:ok, delete_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_errors()}
@@ -507,7 +528,8 @@ defmodule AWS.Mobile do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -523,61 +545,118 @@ defmodule AWS.Mobile do
   end
 
   @doc """
-
   Get the bundle details for the requested bundle id.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mobile%20DescribeBundle&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bundle_id` (`t:string`) Unique bundle identifier.
+
+  ## Optional parameters:
   """
-  @spec describe_bundle(map(), String.t(), list()) ::
+  @spec describe_bundle(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_bundle_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_bundle_errors()}
   def describe_bundle(%Client{} = client, bundle_id, options \\ []) do
     url_path = "/bundles/#{AWS.Util.encode_uri(bundle_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Gets details about a project in AWS Mobile Hub.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mobile%20DescribeProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project_id` (`t:string`) Unique project identifier.
+
+  ## Optional parameters:
+  * `:sync_from_resources` (`t:boolean`) If set to true, causes AWS Mobile Hub to
+    synchronize information from other services, e.g., update state of AWS
+    CloudFormation stacks in the AWS Mobile Hub project.
   """
-  @spec describe_project(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_project_errors()}
-  def describe_project(%Client{} = client, project_id, sync_from_resources \\ nil, options \\ []) do
+  def describe_project(%Client{} = client, project_id, options \\ []) do
     url_path = "/project"
+
+    # Validate optional parameters
+    optional_params = [sync_from_resources: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"projectId", project_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(sync_from_resources) do
-        [{"syncFromResources", sync_from_resources} | query_params]
+      if opt_val = Keyword.get(options, :sync_from_resources) do
+        [{"syncFromResources", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(project_id) do
-        [{"projectId", project_id} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:sync_from_resources])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+  Generates customized software development kit (SDK) and or tool packages used to
+  integrate mobile web or mobile app clients with backend AWS resources.
 
-  Generates customized software development kit (SDK) and or tool packages
-  used to integrate mobile web or mobile app clients with backend AWS resources.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mobile%20ExportBundle&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bundle_id` (`t:string`) Unique bundle identifier.
+
+  ## Optional parameters:
+  * `:platform` (`t:enum["ANDROID|JAVASCRIPT|LINUX|OBJC|OSX|SWIFT|WINDOWS"]`)
+    Developer desktop or target application platform.
+  * `:project_id` (`t:string`) Unique project identifier.
   """
-  @spec export_bundle(map(), String.t(), export_bundle_request(), list()) ::
+  @spec export_bundle(AWS.Client.t(), String.t(), export_bundle_request(), Keyword.t()) ::
           {:ok, export_bundle_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_bundle_errors()}
@@ -592,7 +671,13 @@ defmodule AWS.Mobile do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:platform, :project_id])
 
     Request.request_rest(
       client,
@@ -608,14 +693,18 @@ defmodule AWS.Mobile do
   end
 
   @doc """
-
   Exports project configuration to a snapshot which can be downloaded and shared.
-
   Note that mobile app push credentials are encrypted in exported projects, so
-  they
-  can only be shared successfully within the same AWS account.
+  they can only be shared successfully within the same AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mobile%20ExportProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project_id` (`t:string`) Unique project identifier.
+
+  ## Optional parameters:
   """
-  @spec export_project(map(), String.t(), export_project_request(), list()) ::
+  @spec export_project(AWS.Client.t(), String.t(), export_project_request(), Keyword.t()) ::
           {:ok, export_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_project_errors()}
@@ -624,7 +713,8 @@ defmodule AWS.Mobile do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -640,74 +730,144 @@ defmodule AWS.Mobile do
   end
 
   @doc """
-
   List all available bundles.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mobile%20ListBundles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Maximum number of records to list in a single
+    response.
+  * `:next_token` (`t:string`) Pagination token. Set to null to start listing
+    bundles from start. If non-null pagination token is returned in a result,
+    then pass its value in here in another request to list more bundles.
   """
-  @spec list_bundles(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_bundles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_bundles_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bundles_errors()}
-  def list_bundles(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_bundles(%Client{} = client, options \\ []) do
     url_path = "/bundles"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Lists projects in AWS Mobile Hub.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mobile%20ListProjects&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) Maximum number of records to list in a single
+    response.
+  * `:next_token` (`t:string`) Pagination token. Set to null to start listing
+    projects from start. If non-null pagination token is returned in a result,
+    then pass its value in here in another request to list more projects.
   """
-  @spec list_projects(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_projects(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_projects_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_projects_errors()}
-  def list_projects(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_projects(%Client{} = client, options \\ []) do
     url_path = "/projects"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-
   Update an existing project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mobile%20UpdateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project_id` (`t:string`) Unique project identifier.
+
+  ## Optional parameters:
   """
-  @spec update_project(map(), update_project_request(), list()) ::
+  @spec update_project(AWS.Client.t(), update_project_request(), Keyword.t()) ::
           {:ok, update_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_errors()}
@@ -721,7 +881,8 @@ defmodule AWS.Mobile do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

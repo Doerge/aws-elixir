@@ -1694,8 +1694,14 @@ defmodule AWS.AppTest do
 
   @doc """
   Creates a test case.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20CreateTestCase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_test_case(map(), create_test_case_request(), list()) ::
+  @spec create_test_case(AWS.Client.t(), create_test_case_request(), Keyword.t()) ::
           {:ok, create_test_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_test_case_errors()}
@@ -1704,7 +1710,8 @@ defmodule AWS.AppTest do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1721,8 +1728,18 @@ defmodule AWS.AppTest do
 
   @doc """
   Creates a test configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20CreateTestConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_test_configuration(map(), create_test_configuration_request(), list()) ::
+  @spec create_test_configuration(
+          AWS.Client.t(),
+          create_test_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_test_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_test_configuration_errors()}
@@ -1731,7 +1748,8 @@ defmodule AWS.AppTest do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1748,8 +1766,14 @@ defmodule AWS.AppTest do
 
   @doc """
   Creates a test suite.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20CreateTestSuite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_test_suite(map(), create_test_suite_request(), list()) ::
+  @spec create_test_suite(AWS.Client.t(), create_test_suite_request(), Keyword.t()) ::
           {:ok, create_test_suite_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_test_suite_errors()}
@@ -1758,7 +1782,8 @@ defmodule AWS.AppTest do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1775,8 +1800,15 @@ defmodule AWS.AppTest do
 
   @doc """
   Deletes a test case.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20DeleteTestCase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:test_case_id` (`t:string`) The test case ID of the test case.
+
+  ## Optional parameters:
   """
-  @spec delete_test_case(map(), String.t(), delete_test_case_request(), list()) ::
+  @spec delete_test_case(AWS.Client.t(), String.t(), delete_test_case_request(), Keyword.t()) ::
           {:ok, delete_test_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_test_case_errors()}
@@ -1785,7 +1817,8 @@ defmodule AWS.AppTest do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1802,8 +1835,20 @@ defmodule AWS.AppTest do
 
   @doc """
   Deletes a test configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20DeleteTestConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:test_configuration_id` (`t:string`) The test ID of the test configuration.
+
+  ## Optional parameters:
   """
-  @spec delete_test_configuration(map(), String.t(), delete_test_configuration_request(), list()) ::
+  @spec delete_test_configuration(
+          AWS.Client.t(),
+          String.t(),
+          delete_test_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, delete_test_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_test_configuration_errors()}
@@ -1812,7 +1857,8 @@ defmodule AWS.AppTest do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1829,8 +1875,15 @@ defmodule AWS.AppTest do
 
   @doc """
   Deletes a test run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20DeleteTestRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:test_run_id` (`t:string`) The run ID of the test run.
+
+  ## Optional parameters:
   """
-  @spec delete_test_run(map(), String.t(), delete_test_run_request(), list()) ::
+  @spec delete_test_run(AWS.Client.t(), String.t(), delete_test_run_request(), Keyword.t()) ::
           {:ok, delete_test_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_test_run_errors()}
@@ -1839,7 +1892,8 @@ defmodule AWS.AppTest do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1856,8 +1910,15 @@ defmodule AWS.AppTest do
 
   @doc """
   Deletes a test suite.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20DeleteTestSuite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:test_suite_id` (`t:string`) The test ID of the test suite.
+
+  ## Optional parameters:
   """
-  @spec delete_test_suite(map(), String.t(), delete_test_suite_request(), list()) ::
+  @spec delete_test_suite(AWS.Client.t(), String.t(), delete_test_suite_request(), Keyword.t()) ::
           {:ok, delete_test_suite_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_test_suite_errors()}
@@ -1866,7 +1927,8 @@ defmodule AWS.AppTest do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1883,444 +1945,718 @@ defmodule AWS.AppTest do
 
   @doc """
   Gets a test case.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20GetTestCase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:test_case_id` (`t:string`) The request test ID of the test case.
+
+  ## Optional parameters:
+  * `:test_case_version` (`t:integer`) The test case version of the test case.
   """
-  @spec get_test_case(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_test_case(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_test_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_test_case_errors()}
-  def get_test_case(%Client{} = client, test_case_id, test_case_version \\ nil, options \\ []) do
+  def get_test_case(%Client{} = client, test_case_id, options \\ []) do
     url_path = "/testcases/#{AWS.Util.encode_uri(test_case_id)}"
+
+    # Validate optional parameters
+    optional_params = [test_case_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(test_case_version) do
-        [{"testCaseVersion", test_case_version} | query_params]
+      if opt_val = Keyword.get(options, :test_case_version) do
+        [{"testCaseVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:test_case_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a test configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20GetTestConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:test_configuration_id` (`t:string`) The request test configuration ID.
+
+  ## Optional parameters:
+  * `:test_configuration_version` (`t:integer`) The test configuration version.
   """
-  @spec get_test_configuration(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_test_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_test_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_test_configuration_errors()}
-  def get_test_configuration(
-        %Client{} = client,
-        test_configuration_id,
-        test_configuration_version \\ nil,
-        options \\ []
-      ) do
+  def get_test_configuration(%Client{} = client, test_configuration_id, options \\ []) do
     url_path = "/testconfigurations/#{AWS.Util.encode_uri(test_configuration_id)}"
+
+    # Validate optional parameters
+    optional_params = [test_configuration_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(test_configuration_version) do
-        [{"testConfigurationVersion", test_configuration_version} | query_params]
+      if opt_val = Keyword.get(options, :test_configuration_version) do
+        [{"testConfigurationVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:test_configuration_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a test run step.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20GetTestRunStep&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:step_name` (`t:string`) The step name of the test run step.
+  * `:test_run_id` (`t:string`) The test run ID of the test run step.
+
+  ## Optional parameters:
+  * `:test_case_id` (`t:string`) The test case ID of a test run step.
+  * `:test_suite_id` (`t:string`) The test suite ID of a test run step.
   """
-  @spec get_test_run_step(
-          map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec get_test_run_step(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_test_run_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_test_run_step_errors()}
-  def get_test_run_step(
-        %Client{} = client,
-        step_name,
-        test_run_id,
-        test_case_id \\ nil,
-        test_suite_id \\ nil,
-        options \\ []
-      ) do
+  def get_test_run_step(%Client{} = client, step_name, test_run_id, options \\ []) do
     url_path =
       "/testruns/#{AWS.Util.encode_uri(test_run_id)}/steps/#{AWS.Util.encode_uri(step_name)}"
 
+    # Validate optional parameters
+    optional_params = [test_case_id: nil, test_suite_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(test_suite_id) do
-        [{"testSuiteId", test_suite_id} | query_params]
+      if opt_val = Keyword.get(options, :test_suite_id) do
+        [{"testSuiteId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(test_case_id) do
-        [{"testCaseId", test_case_id} | query_params]
+      if opt_val = Keyword.get(options, :test_case_id) do
+        [{"testCaseId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:test_case_id, :test_suite_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a test suite.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20GetTestSuite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:test_suite_id` (`t:string`) The ID of the test suite.
+
+  ## Optional parameters:
+  * `:test_suite_version` (`t:integer`) The version of the test suite.
   """
-  @spec get_test_suite(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_test_suite(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_test_suite_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_test_suite_errors()}
-  def get_test_suite(%Client{} = client, test_suite_id, test_suite_version \\ nil, options \\ []) do
+  def get_test_suite(%Client{} = client, test_suite_id, options \\ []) do
     url_path = "/testsuites/#{AWS.Util.encode_uri(test_suite_id)}"
+
+    # Validate optional parameters
+    optional_params = [test_suite_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(test_suite_version) do
-        [{"testSuiteVersion", test_suite_version} | query_params]
+      if opt_val = Keyword.get(options, :test_suite_version) do
+        [{"testSuiteVersion", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:test_suite_version])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists tags for a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists test cases.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20ListTestCases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum results of the test case.
+  * `:next_token` (`t:string`) The next token of the test cases.
+  * `:test_case_ids` (`t:list[com.amazonaws.apptest#Identifier]`) The IDs of the
+    test cases.
   """
-  @spec list_test_cases(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_test_cases(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_test_cases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_cases_errors()}
-  def list_test_cases(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        test_case_ids \\ nil,
-        options \\ []
-      ) do
+  def list_test_cases(%Client{} = client, options \\ []) do
     url_path = "/testcases"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, test_case_ids: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(test_case_ids) do
-        [{"testCaseIds", test_case_ids} | query_params]
+      if opt_val = Keyword.get(options, :test_case_ids) do
+        [{"testCaseIds", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :test_case_ids])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists test configurations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20ListTestConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum results of the test configuration.
+  * `:next_token` (`t:string`) The next token for the test configurations.
+  * `:test_configuration_ids` (`t:list[com.amazonaws.apptest#Identifier]`) The
+    configuration IDs of the test configurations.
   """
-  @spec list_test_configurations(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_test_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_test_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_configurations_errors()}
-  def list_test_configurations(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        test_configuration_ids \\ nil,
-        options \\ []
-      ) do
+  def list_test_configurations(%Client{} = client, options \\ []) do
     url_path = "/testconfigurations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, test_configuration_ids: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(test_configuration_ids) do
-        [{"testConfigurationIds", test_configuration_ids} | query_params]
+      if opt_val = Keyword.get(options, :test_configuration_ids) do
+        [{"testConfigurationIds", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :test_configuration_ids])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists test run steps.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20ListTestRunSteps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:test_run_id` (`t:string`) The test run ID of the test run steps.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of test run steps to return in
+    one page of results.
+  * `:next_token` (`t:string`) The token from a previous step to retrieve the next
+    page of results.
+  * `:test_case_id` (`t:string`) The test case ID of the test run steps.
+  * `:test_suite_id` (`t:string`) The test suite ID of the test run steps.
   """
-  @spec list_test_run_steps(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_test_run_steps(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_test_run_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_run_steps_errors()}
-  def list_test_run_steps(
-        %Client{} = client,
-        test_run_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        test_case_id \\ nil,
-        test_suite_id \\ nil,
-        options \\ []
-      ) do
+  def list_test_run_steps(%Client{} = client, test_run_id, options \\ []) do
     url_path = "/testruns/#{AWS.Util.encode_uri(test_run_id)}/steps"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, test_case_id: nil, test_suite_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(test_suite_id) do
-        [{"testSuiteId", test_suite_id} | query_params]
+      if opt_val = Keyword.get(options, :test_suite_id) do
+        [{"testSuiteId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(test_case_id) do
-        [{"testCaseId", test_case_id} | query_params]
+      if opt_val = Keyword.get(options, :test_case_id) do
+        [{"testCaseId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :test_case_id, :test_suite_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists test run test cases.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20ListTestRunTestCases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:test_run_id` (`t:string`) The test run ID of the test cases.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of test run test cases to
+    return in one page of results.
+  * `:next_token` (`t:string`) The token from a previous request to retrieve the
+    next page of results.
   """
-  @spec list_test_run_test_cases(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_test_run_test_cases(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_test_run_test_cases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_run_test_cases_errors()}
-  def list_test_run_test_cases(
-        %Client{} = client,
-        test_run_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_test_run_test_cases(%Client{} = client, test_run_id, options \\ []) do
     url_path = "/testruns/#{AWS.Util.encode_uri(test_run_id)}/testcases"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists test runs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20ListTestRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of test runs to return in one
+    page of results.
+  * `:next_token` (`t:string`) The token from the previous request to retrieve the
+    next page of test run results.
+  * `:test_run_ids` (`t:list[com.amazonaws.apptest#Identifier]`) The test run IDs
+    of the test runs.
+  * `:test_suite_id` (`t:string`) The test suite ID of the test runs.
   """
-  @spec list_test_runs(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_test_runs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_test_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_runs_errors()}
-  def list_test_runs(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        test_run_ids \\ nil,
-        test_suite_id \\ nil,
-        options \\ []
-      ) do
+  def list_test_runs(%Client{} = client, options \\ []) do
     url_path = "/testruns"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, test_run_ids: nil, test_suite_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(test_suite_id) do
-        [{"testSuiteId", test_suite_id} | query_params]
+      if opt_val = Keyword.get(options, :test_suite_id) do
+        [{"testSuiteId", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(test_run_ids) do
-        [{"testrunIds", test_run_ids} | query_params]
+      if opt_val = Keyword.get(options, :test_run_ids) do
+        [{"testrunIds", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :test_run_ids, :test_suite_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists test suites.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20ListTestSuites&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of test suites to return in
+    one page of results.
+  * `:next_token` (`t:string`) The token from a previous request to retrieve the
+    next page of results.
+  * `:test_suite_ids` (`t:list[com.amazonaws.apptest#Identifier]`) The suite ID of
+    the test suites.
   """
-  @spec list_test_suites(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_test_suites(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_test_suites_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_suites_errors()}
-  def list_test_suites(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        test_suite_ids \\ nil,
-        options \\ []
-      ) do
+  def list_test_suites(%Client{} = client, options \\ []) do
     url_path = "/testsuites"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, test_suite_ids: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(test_suite_ids) do
-        [{"testSuiteIds", test_suite_ids} | query_params]
+      if opt_val = Keyword.get(options, :test_suite_ids) do
+        [{"testSuiteIds", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :test_suite_ids])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Starts a test run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20StartTestRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec start_test_run(map(), start_test_run_request(), list()) ::
+  @spec start_test_run(AWS.Client.t(), start_test_run_request(), Keyword.t()) ::
           {:ok, start_test_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_test_run_errors()}
@@ -2329,7 +2665,8 @@ defmodule AWS.AppTest do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2346,8 +2683,16 @@ defmodule AWS.AppTest do
 
   @doc """
   Specifies tags of a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the tag
+    resource.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2356,7 +2701,8 @@ defmodule AWS.AppTest do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2373,8 +2719,17 @@ defmodule AWS.AppTest do
 
   @doc """
   Untags a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.apptest#TagKey]`) The tag keys of the
+    resource.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2388,7 +2743,8 @@ defmodule AWS.AppTest do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2405,8 +2761,15 @@ defmodule AWS.AppTest do
 
   @doc """
   Updates a test case.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20UpdateTestCase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:test_case_id` (`t:string`) The test case ID of the test case.
+
+  ## Optional parameters:
   """
-  @spec update_test_case(map(), String.t(), update_test_case_request(), list()) ::
+  @spec update_test_case(AWS.Client.t(), String.t(), update_test_case_request(), Keyword.t()) ::
           {:ok, update_test_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_test_case_errors()}
@@ -2415,7 +2778,8 @@ defmodule AWS.AppTest do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2432,8 +2796,21 @@ defmodule AWS.AppTest do
 
   @doc """
   Updates a test configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20UpdateTestConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:test_configuration_id` (`t:string`) The test configuration ID of the test
+    configuration.
+
+  ## Optional parameters:
   """
-  @spec update_test_configuration(map(), String.t(), update_test_configuration_request(), list()) ::
+  @spec update_test_configuration(
+          AWS.Client.t(),
+          String.t(),
+          update_test_configuration_request(),
+          Keyword.t()
+        ) ::
           {:ok, update_test_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_test_configuration_errors()}
@@ -2442,7 +2819,8 @@ defmodule AWS.AppTest do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2459,8 +2837,15 @@ defmodule AWS.AppTest do
 
   @doc """
   Updates a test suite.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20UpdateTestSuite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:test_suite_id` (`t:string`) The test suite ID of the test suite.
+
+  ## Optional parameters:
   """
-  @spec update_test_suite(map(), String.t(), update_test_suite_request(), list()) ::
+  @spec update_test_suite(AWS.Client.t(), String.t(), update_test_suite_request(), Keyword.t()) ::
           {:ok, update_test_suite_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_test_suite_errors()}
@@ -2469,7 +2854,8 @@ defmodule AWS.AppTest do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

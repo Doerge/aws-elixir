@@ -4,32 +4,9 @@
 defmodule AWS.CodeGuruReviewer do
   @moduledoc """
   This section provides documentation for the Amazon CodeGuru Reviewer API
-  operations.
-
-  CodeGuru Reviewer is a
-  service that uses program analysis and machine learning to detect potential
-  defects that
-  are difficult for developers to find and recommends fixes in your Java and
-  Python
-  code.
-
-  By proactively detecting and providing recommendations for addressing code
-  defects and
-  implementing best practices, CodeGuru Reviewer improves the overall quality and
-  maintainability of
-  your code base during the code review stage. For more information about CodeGuru
-  Reviewer, see the
-  *
-  [Amazon CodeGuru Reviewer User Guide](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/welcome.html).*
-
-  To improve the security of your CodeGuru Reviewer API calls, you can establish a
-  private connection
-  between your VPC and CodeGuru Reviewer by creating an *interface VPC endpoint*.
-  For
-  more information, see [CodeGuru Reviewer and interface VPC endpoints (Amazon Web Services
-  PrivateLink)](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/vpc-interface-endpoints.html)
-  in the *Amazon CodeGuru Reviewer User
-  Guide*.
+  operations. CodeGuru Reviewer is a service that uses program analysis and
+  machine learning to detect potential defects that are difficult for developers
+  to find and recommends fixes in your Java and Python code.
   """
 
   alias AWS.Client
@@ -912,37 +889,28 @@ defmodule AWS.CodeGuruReviewer do
 
   @doc """
   Use to associate an Amazon Web Services CodeCommit repository or a repository
-  managed by Amazon Web Services
-  CodeStar Connections with Amazon CodeGuru Reviewer.
-
-  When you associate a repository, CodeGuru Reviewer reviews
-  source code changes in the repository's pull requests and provides automatic
+  managed by Amazon Web Services CodeStar Connections with Amazon CodeGuru
+  Reviewer. When you associate a repository, CodeGuru Reviewer reviews source
+  code changes in the repository's pull requests and provides automatic
   recommendations. You can view recommendations using the CodeGuru Reviewer
-  console. For more
-  information, see [Recommendations in Amazon CodeGuru
+  console. For more information, see [Recommendations in Amazon CodeGuru
   Reviewer](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/recommendations.html)
-  in the *Amazon CodeGuru Reviewer User Guide.*
-
-  If you associate a CodeCommit or S3 repository, it must be in the same Amazon
-  Web Services Region and
-  Amazon Web Services account where its CodeGuru Reviewer code reviews are
-  configured.
-
+  in the *Amazon CodeGuru Reviewer User Guide.* If you associate a CodeCommit or
+  S3 repository, it must be in the same Amazon Web Services Region and Amazon
+  Web Services account where its CodeGuru Reviewer code reviews are configured.
   Bitbucket and GitHub Enterprise Server repositories are managed by Amazon Web
-  Services CodeStar
-  Connections to connect to CodeGuru Reviewer. For more information, see
-  [Associate a repository](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-associate-repository.html)
+  Services CodeStar Connections to connect to CodeGuru Reviewer. For more
+  information, see [Associate a
+  repository](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-associate-repository.html)
   in the *Amazon CodeGuru Reviewer User Guide.*
 
-  You cannot use the CodeGuru Reviewer SDK or the Amazon Web Services CLI to
-  associate a GitHub repository with
-  Amazon CodeGuru Reviewer. To associate a GitHub repository, use the console. For
-  more information, see
-  [Getting started with CodeGuru
-  Reviewer](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-with-guru.html)
-  in the *CodeGuru Reviewer User Guide.*
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20AssociateRepository&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec associate_repository(map(), associate_repository_request(), list()) ::
+  @spec associate_repository(AWS.Client.t(), associate_repository_request(), Keyword.t()) ::
           {:ok, associate_repository_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_repository_errors()}
@@ -951,7 +919,8 @@ defmodule AWS.CodeGuruReviewer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -969,14 +938,17 @@ defmodule AWS.CodeGuruReviewer do
   @doc """
   Use to create a code review with a
   [CodeReviewType](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReviewType.html)
-  of
-  `RepositoryAnalysis`.
-
-  This type of code review analyzes all code under a
+  of `RepositoryAnalysis`. This type of code review analyzes all code under a
   specified branch in an associated repository. `PullRequest` code reviews are
   automatically triggered by a pull request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20CreateCodeReview&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_code_review(map(), create_code_review_request(), list()) ::
+  @spec create_code_review(AWS.Client.t(), create_code_review_request(), Keyword.t()) ::
           {:ok, create_code_review_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_code_review_errors()}
@@ -985,7 +957,8 @@ defmodule AWS.CodeGuruReviewer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1002,25 +975,64 @@ defmodule AWS.CodeGuruReviewer do
 
   @doc """
   Returns the metadata associated with the code review along with its status.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20DescribeCodeReview&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:code_review_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    CodeReview object.
+
+  ## Optional parameters:
   """
-  @spec describe_code_review(map(), String.t(), list()) ::
+  @spec describe_code_review(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_code_review_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_code_review_errors()}
   def describe_code_review(%Client{} = client, code_review_arn, options \\ []) do
     url_path = "/codereviews/#{AWS.Util.encode_uri(code_review_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes the customer feedback for a CodeGuru Reviewer recommendation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20DescribeRecommendationFeedback&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:code_review_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    CodeReview object.
+  * `:recommendation_id` (`t:string`) The recommendation ID that can be used to
+    track the provided recommendations and then to collect the feedback.
+
+  ## Optional parameters:
+  * `:user_id` (`t:string`) Optional parameter to describe the feedback for a
+    given user. If this is not supplied, it defaults to the user making the
+    request.
   """
-  @spec describe_recommendation_feedback(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec describe_recommendation_feedback(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_recommendation_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_recommendation_feedback_errors()}
@@ -1028,28 +1040,42 @@ defmodule AWS.CodeGuruReviewer do
         %Client{} = client,
         code_review_arn,
         recommendation_id,
-        user_id \\ nil,
         options \\ []
       ) do
     url_path = "/feedback/#{AWS.Util.encode_uri(code_review_arn)}"
+
+    # Validate optional parameters
+    optional_params = [user_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"RecommendationId", recommendation_id}]
+
+    # Optional query params
     query_params =
-      if !is_nil(user_id) do
-        [{"UserId", user_id} | query_params]
+      if opt_val = Keyword.get(options, :user_id) do
+        [{"UserId", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(recommendation_id) do
-        [{"RecommendationId", recommendation_id} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:user_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1057,27 +1083,67 @@ defmodule AWS.CodeGuruReviewer do
   @doc """
   Returns a
   [RepositoryAssociation](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html)
-  object that contains information about the requested
-  repository association.
+  object that contains information about the requested repository association.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20DescribeRepositoryAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:association_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    RepositoryAssociation object. You can retrieve this ARN by calling
+    ListRepositoryAssociations.
+
+  ## Optional parameters:
   """
-  @spec describe_repository_association(map(), String.t(), list()) ::
+  @spec describe_repository_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_repository_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_repository_association_errors()}
   def describe_repository_association(%Client{} = client, association_arn, options \\ []) do
     url_path = "/associations/#{AWS.Util.encode_uri(association_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Removes the association between Amazon CodeGuru Reviewer and a repository.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20DisassociateRepository&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:association_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    RepositoryAssociation object. You can retrieve this ARN by calling
+    ListRepositoryAssociations.
+
+  ## Optional parameters:
   """
-  @spec disassociate_repository(map(), String.t(), disassociate_repository_request(), list()) ::
+  @spec disassociate_repository(
+          AWS.Client.t(),
+          String.t(),
+          disassociate_repository_request(),
+          Keyword.t()
+        ) ::
           {:ok, disassociate_repository_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_repository_errors()}
@@ -1086,7 +1152,8 @@ defmodule AWS.CodeGuruReviewer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1103,77 +1170,104 @@ defmodule AWS.CodeGuruReviewer do
 
   @doc """
   Lists all the code reviews that the customer has created in the past 90 days.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20ListCodeReviews&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:type` (`t:enum["PULL_REQUEST|REPOSITORY_ANALYSIS"]`) The type of code
+    reviews to list in the response.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results that are returned
+    per call. The default is 100.
+  * `:next_token` (`t:string`) If nextToken is returned, there are more results
+    available. The value of nextToken is a unique pagination token for each
+    page. Make the call again using the returned token to retrieve the next
+    page. Keep all other arguments unchanged.
+  * `:provider_types` (`t:list[com.amazonaws.codegurureviewer#ProviderType]`) List
+    of provider types for filtering that needs to be applied before displaying
+    the result. For example, providerTypes=[GitHub] lists code reviews from
+    GitHub.
+  * `:repository_names` (`t:list[com.amazonaws.codegurureviewer#Name]`) List of
+    repository names for filtering that needs to be applied before displaying
+    the result.
+  * `:states` (`t:list[com.amazonaws.codegurureviewer#JobState]`) List of states
+    for filtering that needs to be applied before displaying the result. For
+    example, states=[Pending] lists code reviews in the Pending state.
   """
-  @spec list_code_reviews(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          list()
-        ) ::
+  @spec list_code_reviews(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_code_reviews_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_code_reviews_errors()}
-  def list_code_reviews(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        provider_types \\ nil,
-        repository_names \\ nil,
-        states \\ nil,
-        type,
-        options \\ []
-      ) do
+  def list_code_reviews(%Client{} = client, type, options \\ []) do
     url_path = "/codereviews"
+
+    # Validate optional parameters
+    optional_params = [
+      max_results: nil,
+      next_token: nil,
+      provider_types: nil,
+      repository_names: nil,
+      states: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
+    # Optional headers
+
+    # Required query params
+    query_params = [{"Type", type}]
+
+    # Optional query params
     query_params =
-      if !is_nil(type) do
-        [{"Type", type} | query_params]
+      if opt_val = Keyword.get(options, :states) do
+        [{"States", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(states) do
-        [{"States", states} | query_params]
+      if opt_val = Keyword.get(options, :repository_names) do
+        [{"RepositoryNames", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(repository_names) do
-        [{"RepositoryNames", repository_names} | query_params]
+      if opt_val = Keyword.get(options, :provider_types) do
+        [{"ProviderTypes", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(provider_types) do
-        [{"ProviderTypes", provider_types} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
-      else
-        query_params
-      end
+    meta =
+      metadata()
 
-    meta = metadata()
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :provider_types, :repository_names, :states])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1181,213 +1275,343 @@ defmodule AWS.CodeGuruReviewer do
   @doc """
   Returns a list of
   [RecommendationFeedbackSummary](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RecommendationFeedbackSummary.html)
-  objects that contain customer recommendation
-  feedback for all CodeGuru Reviewer users.
+  objects that contain customer recommendation feedback for all CodeGuru
+  Reviewer users.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20ListRecommendationFeedback&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:code_review_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    CodeReview object.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results that are returned
+    per call. The default is 100.
+  * `:next_token` (`t:string`) If nextToken is returned, there are more results
+    available. The value of nextToken is a unique pagination token for each
+    page. Make the call again using the returned token to retrieve the next
+    page. Keep all other arguments unchanged.
+  * `:recommendation_ids`
+    (`t:list[com.amazonaws.codegurureviewer#RecommendationId]`) Used to query
+    the recommendation feedback for a given recommendation.
+  * `:user_ids` (`t:list[com.amazonaws.codegurureviewer#UserId]`) An Amazon Web
+    Services user's account ID or Amazon Resource Name (ARN). Use this ID to
+    query the recommendation feedback for a code review from that user.
   """
-  @spec list_recommendation_feedback(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_recommendation_feedback(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recommendation_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recommendation_feedback_errors()}
-  def list_recommendation_feedback(
-        %Client{} = client,
-        code_review_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        recommendation_ids \\ nil,
-        user_ids \\ nil,
-        options \\ []
-      ) do
+  def list_recommendation_feedback(%Client{} = client, code_review_arn, options \\ []) do
     url_path = "/feedback/#{AWS.Util.encode_uri(code_review_arn)}/RecommendationFeedback"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, recommendation_ids: nil, user_ids: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(user_ids) do
-        [{"UserIds", user_ids} | query_params]
+      if opt_val = Keyword.get(options, :user_ids) do
+        [{"UserIds", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(recommendation_ids) do
-        [{"RecommendationIds", recommendation_ids} | query_params]
+      if opt_val = Keyword.get(options, :recommendation_ids) do
+        [{"RecommendationIds", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :recommendation_ids, :user_ids])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the list of all recommendations for a completed code review.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20ListRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:code_review_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    CodeReview object.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results that are returned
+    per call. The default is 100.
+  * `:next_token` (`t:string`) Pagination token.
   """
-  @spec list_recommendations(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_recommendations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recommendations_errors()}
-  def list_recommendations(
-        %Client{} = client,
-        code_review_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  def list_recommendations(%Client{} = client, code_review_arn, options \\ []) do
     url_path = "/codereviews/#{AWS.Util.encode_uri(code_review_arn)}/Recommendations"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of
-  [RepositoryAssociationSummary](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html) objects that contain summary information about a
-  repository association.
-
-  You can filter the returned list by
+  [RepositoryAssociationSummary](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html)
+  objects that contain summary information about a repository association. You
+  can filter the returned list by
   [ProviderType](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-ProviderType),
-  [Name](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Name), [State](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-State),
+  [Name](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Name),
+  [State](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-State),
   and
   [Owner](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Owner).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20ListRepositoryAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of repository association
+    results returned by ListRepositoryAssociations in paginated output. When
+    this parameter is used, ListRepositoryAssociations only returns maxResults
+    results in a single page with a nextToken response element. The remaining
+    results of the initial request can be seen by sending another
+    ListRepositoryAssociations request with the returned nextToken value. This
+    value can be between 1 and 100. If this parameter is not used,
+    ListRepositoryAssociations returns up to 100 results and a nextToken value
+    if applicable.
+  * `:names` (`t:list[com.amazonaws.codegurureviewer#Name]`) List of repository
+    names to use as a filter.
+  * `:next_token` (`t:string`) The nextToken value returned from a previous
+    paginated ListRepositoryAssociations request where maxResults was used and
+    the results exceeded the value of that parameter. Pagination continues from
+    the end of the previous results that returned the nextToken value.
+  * `:owners` (`t:list[com.amazonaws.codegurureviewer#Owner]`) List of owners to
+    use as a filter. For Amazon Web Services CodeCommit, it is the name of the
+    CodeCommit account that was used to associate the repository. For other
+    repository source providers, such as Bitbucket and GitHub Enterprise Server,
+    this is name of the account that was used to associate the repository.
+  * `:provider_types` (`t:list[com.amazonaws.codegurureviewer#ProviderType]`) List
+    of provider types to use as a filter.
+  * `:states`
+    (`t:list[com.amazonaws.codegurureviewer#RepositoryAssociationState]`) List
+    of repository association states to use as a filter.
   """
-  @spec list_repository_associations(
-          map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_repository_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_repository_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_repository_associations_errors()}
-  def list_repository_associations(
-        %Client{} = client,
-        max_results \\ nil,
-        names \\ nil,
-        next_token \\ nil,
-        owners \\ nil,
-        provider_types \\ nil,
-        states \\ nil,
-        options \\ []
-      ) do
+  def list_repository_associations(%Client{} = client, options \\ []) do
     url_path = "/associations"
+
+    # Validate optional parameters
+    optional_params = [
+      max_results: nil,
+      names: nil,
+      next_token: nil,
+      owners: nil,
+      provider_types: nil,
+      states: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(states) do
-        [{"State", states} | query_params]
+      if opt_val = Keyword.get(options, :states) do
+        [{"State", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(provider_types) do
-        [{"ProviderType", provider_types} | query_params]
+      if opt_val = Keyword.get(options, :provider_types) do
+        [{"ProviderType", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(owners) do
-        [{"Owner", owners} | query_params]
+      if opt_val = Keyword.get(options, :owners) do
+        [{"Owner", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"NextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(names) do
-        [{"Name", names} | query_params]
+      if opt_val = Keyword.get(options, :names) do
+        [{"Name", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"MaxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :names, :next_token, :owners, :provider_types, :states])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the list of tags associated with an associated repository resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    RepositoryAssociation object. You can retrieve this ARN by calling
+    ListRepositoryAssociations.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Stores customer feedback for a CodeGuru Reviewer recommendation.
+  Stores customer feedback for a CodeGuru Reviewer recommendation. When this API
+  is called again with different reactions the previous feedback is overwritten.
 
-  When this API is called again with
-  different reactions the previous feedback is overwritten.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20PutRecommendationFeedback&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_recommendation_feedback(map(), put_recommendation_feedback_request(), list()) ::
+  @spec put_recommendation_feedback(
+          AWS.Client.t(),
+          put_recommendation_feedback_request(),
+          Keyword.t()
+        ) ::
           {:ok, put_recommendation_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_recommendation_feedback_errors()}
@@ -1396,15 +1620,25 @@ defmodule AWS.CodeGuruReviewer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Adds one or more tags to an associated repository.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    RepositoryAssociation object. You can retrieve this ARN by calling
+    ListRepositoryAssociations.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -1413,7 +1647,8 @@ defmodule AWS.CodeGuruReviewer do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1430,8 +1665,19 @@ defmodule AWS.CodeGuruReviewer do
 
   @doc """
   Removes a tag from an associated repository.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    RepositoryAssociation object. You can retrieve this ARN by calling
+    ListRepositoryAssociations.
+  * `:tag_keys` (`t:list[com.amazonaws.codegurureviewer#TagKey]`) A list of the
+    keys for each tag you want to remove from an associated repository.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -1445,7 +1691,8 @@ defmodule AWS.CodeGuruReviewer do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

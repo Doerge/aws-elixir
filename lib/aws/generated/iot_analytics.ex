@@ -4,39 +4,16 @@
 defmodule AWS.IoTAnalytics do
   @moduledoc """
   IoT Analytics allows you to collect large amounts of device data, process
-  messages, and store them.
-
-  You can then query the data and run sophisticated analytics on it. IoT Analytics
-  enables advanced
-  data exploration through integration with Jupyter Notebooks and data
-  visualization through integration
-  with Amazon QuickSight.
-
-  Traditional analytics and business intelligence tools are designed to process
-  structured data. IoT data
-  often comes from devices that record noisy processes (such as temperature,
-  motion, or sound). As a result
-  the data from these devices can have significant gaps, corrupted messages, and
-  false readings that must be
-  cleaned up before analysis can occur. Also, IoT data is often only meaningful in
-  the context of other data
+  messages, and store them. You can then query the data and run sophisticated
+  analytics on it. IoT Analytics enables advanced data exploration through
+  integration with Jupyter Notebooks and data visualization through integration
+  with Amazon QuickSight. Traditional analytics and business intelligence tools
+  are designed to process structured data. IoT data often comes from devices
+  that record noisy processes (such as temperature, motion, or sound). As a
+  result the data from these devices can have significant gaps, corrupted
+  messages, and false readings that must be cleaned up before analysis can
+  occur. Also, IoT data is often only meaningful in the context of other data
   from external sources.
-
-  IoT Analytics automates the steps required to analyze data from IoT devices. IoT
-  Analytics
-  filters, transforms, and enriches IoT data before storing it in a time-series
-  data store for analysis. You
-  can set up the service to collect only the data you need from your devices,
-  apply mathematical transforms
-  to process the data, and enrich the data with device-specific metadata such as
-  device type and location
-  before storing it. Then, you can analyze your data by running queries using the
-  built-in SQL query engine,
-  or perform more complex analytics and machine learning inference. IoT Analytics
-  includes pre-built models
-  for common IoT use cases so you can answer questions like which devices are
-  about to fail or which customers
-  are at risk of abandoning their wearable devices.
   """
 
   alias AWS.Client
@@ -2043,8 +2020,14 @@ defmodule AWS.IoTAnalytics do
 
   @doc """
   Sends messages to a channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20BatchPutMessage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_put_message(map(), batch_put_message_request(), list()) ::
+  @spec batch_put_message(AWS.Client.t(), batch_put_message_request(), Keyword.t()) ::
           {:ok, batch_put_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_put_message_errors()}
@@ -2053,7 +2036,8 @@ defmodule AWS.IoTAnalytics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2070,13 +2054,23 @@ defmodule AWS.IoTAnalytics do
 
   @doc """
   Cancels the reprocessing of data through the pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20CancelPipelineReprocessing&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:pipeline_name` (`t:string`) The name of pipeline for which data reprocessing
+    is canceled.
+  * `:reprocessing_id` (`t:string`) The ID of the reprocessing task (returned by
+    StartPipelineReprocessing).
+
+  ## Optional parameters:
   """
   @spec cancel_pipeline_reprocessing(
-          map(),
+          AWS.Client.t(),
           String.t(),
           String.t(),
           cancel_pipeline_reprocessing_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, cancel_pipeline_reprocessing_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2094,7 +2088,8 @@ defmodule AWS.IoTAnalytics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2110,12 +2105,17 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Used to create a channel.
+  Used to create a channel. A channel collects data from an MQTT topic and
+  archives the raw, unprocessed messages before publishing the data to a
+  pipeline.
 
-  A channel collects data from an MQTT topic and archives the raw,
-  unprocessed messages before publishing the data to a pipeline.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20CreateChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_channel(map(), create_channel_request(), list()) ::
+  @spec create_channel(AWS.Client.t(), create_channel_request(), Keyword.t()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_channel_errors()}
@@ -2124,7 +2124,8 @@ defmodule AWS.IoTAnalytics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2140,17 +2141,19 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Used to create a dataset.
-
-  A dataset stores data retrieved from a data store by applying a
-  `queryAction` (a SQL query) or a `containerAction` (executing a
+  Used to create a dataset. A dataset stores data retrieved from a data store by
+  applying a `queryAction` (a SQL query) or a `containerAction` (executing a
   containerized application). This operation creates the skeleton of a dataset.
-  The dataset can
-  be populated manually by calling `CreateDatasetContent` or automatically
-  according
-  to a trigger you specify.
+  The dataset can be populated manually by calling `CreateDatasetContent` or
+  automatically according to a trigger you specify.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20CreateDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_dataset(map(), create_dataset_request(), list()) ::
+  @spec create_dataset(AWS.Client.t(), create_dataset_request(), Keyword.t()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_errors()}
@@ -2159,7 +2162,8 @@ defmodule AWS.IoTAnalytics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2177,8 +2181,20 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Creates the content of a dataset by applying a `queryAction` (a SQL query) or a
   `containerAction` (executing a containerized application).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20CreateDatasetContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dataset_name` (`t:string`) The name of the dataset.
+
+  ## Optional parameters:
   """
-  @spec create_dataset_content(map(), String.t(), create_dataset_content_request(), list()) ::
+  @spec create_dataset_content(
+          AWS.Client.t(),
+          String.t(),
+          create_dataset_content_request(),
+          Keyword.t()
+        ) ::
           {:ok, create_dataset_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_content_errors()}
@@ -2187,7 +2203,8 @@ defmodule AWS.IoTAnalytics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2204,8 +2221,14 @@ defmodule AWS.IoTAnalytics do
 
   @doc """
   Creates a data store, which is a repository for messages.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20CreateDatastore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_datastore(map(), create_datastore_request(), list()) ::
+  @spec create_datastore(AWS.Client.t(), create_datastore_request(), Keyword.t()) ::
           {:ok, create_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_datastore_errors()}
@@ -2214,7 +2237,8 @@ defmodule AWS.IoTAnalytics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2230,16 +2254,18 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Creates a pipeline.
+  Creates a pipeline. A pipeline consumes messages from a channel and allows you
+  to process the messages before storing them in a data store. You must specify
+  both a `channel` and a `datastore` activity and, optionally, as many as 23
+  additional activities in the `pipelineActivities` array.
 
-  A pipeline consumes messages from a channel and allows you to process
-  the messages before storing them in a data store. You must specify both a
-  `channel`
-  and a `datastore` activity and, optionally, as many as 23 additional activities
-  in
-  the `pipelineActivities` array.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20CreatePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec create_pipeline(map(), create_pipeline_request(), list()) ::
+  @spec create_pipeline(AWS.Client.t(), create_pipeline_request(), Keyword.t()) ::
           {:ok, create_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pipeline_errors()}
@@ -2248,7 +2274,8 @@ defmodule AWS.IoTAnalytics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2265,8 +2292,15 @@ defmodule AWS.IoTAnalytics do
 
   @doc """
   Deletes the specified channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DeleteChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_name` (`t:string`) The name of the channel to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_channel(map(), String.t(), delete_channel_request(), list()) ::
+  @spec delete_channel(AWS.Client.t(), String.t(), delete_channel_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_errors()}
@@ -2275,7 +2309,8 @@ defmodule AWS.IoTAnalytics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2293,10 +2328,14 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Deletes the specified dataset.
 
-  You do not have to delete the content of the dataset before you perform this
-  operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DeleteDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dataset_name` (`t:string`) The name of the dataset to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_dataset(map(), String.t(), delete_dataset_request(), list()) ::
+  @spec delete_dataset(AWS.Client.t(), String.t(), delete_dataset_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dataset_errors()}
@@ -2305,7 +2344,8 @@ defmodule AWS.IoTAnalytics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2322,8 +2362,24 @@ defmodule AWS.IoTAnalytics do
 
   @doc """
   Deletes the content of the specified dataset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DeleteDatasetContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dataset_name` (`t:string`) The name of the dataset whose content is deleted.
+
+  ## Optional parameters:
+  * `:version_id` (`t:string`) The version of the dataset whose content is
+    deleted. You can also use the strings "$LATEST" or "$LATEST_SUCCEEDED" to
+    delete the latest or latest successfully completed data set. If not
+    specified, "$LATEST_SUCCEEDED" is the default.
   """
-  @spec delete_dataset_content(map(), String.t(), delete_dataset_content_request(), list()) ::
+  @spec delete_dataset_content(
+          AWS.Client.t(),
+          String.t(),
+          delete_dataset_content_request(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dataset_content_errors()}
@@ -2337,7 +2393,13 @@ defmodule AWS.IoTAnalytics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:version_id])
 
     Request.request_rest(
       client,
@@ -2354,8 +2416,15 @@ defmodule AWS.IoTAnalytics do
 
   @doc """
   Deletes the specified data store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DeleteDatastore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:datastore_name` (`t:string`) The name of the data store to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_datastore(map(), String.t(), delete_datastore_request(), list()) ::
+  @spec delete_datastore(AWS.Client.t(), String.t(), delete_datastore_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_datastore_errors()}
@@ -2364,7 +2433,8 @@ defmodule AWS.IoTAnalytics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2381,8 +2451,15 @@ defmodule AWS.IoTAnalytics do
 
   @doc """
   Deletes the specified pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DeletePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:pipeline_name` (`t:string`) The name of the pipeline to delete.
+
+  ## Optional parameters:
   """
-  @spec delete_pipeline(map(), String.t(), delete_pipeline_request(), list()) ::
+  @spec delete_pipeline(AWS.Client.t(), String.t(), delete_pipeline_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pipeline_errors()}
@@ -2391,7 +2468,8 @@ defmodule AWS.IoTAnalytics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2408,337 +2486,678 @@ defmodule AWS.IoTAnalytics do
 
   @doc """
   Retrieves information about a channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DescribeChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_name` (`t:string`) The name of the channel whose information is
+    retrieved.
+
+  ## Optional parameters:
+  * `:include_statistics` (`t:boolean`) If true, additional statistical
+    information about the channel is included in the response. This feature
+    can't be used with a channel whose S3 storage is customer-managed.
   """
-  @spec describe_channel(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_channel_errors()}
-  def describe_channel(%Client{} = client, channel_name, include_statistics \\ nil, options \\ []) do
+  def describe_channel(%Client{} = client, channel_name, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_name)}"
+
+    # Validate optional parameters
+    optional_params = [include_statistics: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(include_statistics) do
-        [{"includeStatistics", include_statistics} | query_params]
+      if opt_val = Keyword.get(options, :include_statistics) do
+        [{"includeStatistics", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:include_statistics])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a dataset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DescribeDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dataset_name` (`t:string`) The name of the dataset whose information is
+    retrieved.
+
+  ## Optional parameters:
   """
-  @spec describe_dataset(map(), String.t(), list()) ::
+  @spec describe_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dataset_errors()}
   def describe_dataset(%Client{} = client, dataset_name, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a data store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DescribeDatastore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:datastore_name` (`t:string`) The name of the data store
+
+  ## Optional parameters:
+  * `:include_statistics` (`t:boolean`) If true, additional statistical
+    information about the data store is included in the response. This feature
+    can't be used with a data store whose S3 storage is customer-managed.
   """
-  @spec describe_datastore(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_datastore(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_datastore_errors()}
-  def describe_datastore(
-        %Client{} = client,
-        datastore_name,
-        include_statistics \\ nil,
-        options \\ []
-      ) do
+  def describe_datastore(%Client{} = client, datastore_name, options \\ []) do
     url_path = "/datastores/#{AWS.Util.encode_uri(datastore_name)}"
+
+    # Validate optional parameters
+    optional_params = [include_statistics: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(include_statistics) do
-        [{"includeStatistics", include_statistics} | query_params]
+      if opt_val = Keyword.get(options, :include_statistics) do
+        [{"includeStatistics", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:include_statistics])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the current settings of the IoT Analytics logging options.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DescribeLoggingOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec describe_logging_options(map(), list()) ::
+  @spec describe_logging_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_logging_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_logging_options_errors()}
   def describe_logging_options(%Client{} = client, options \\ []) do
     url_path = "/logging"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DescribePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:pipeline_name` (`t:string`) The name of the pipeline whose information is
+    retrieved.
+
+  ## Optional parameters:
   """
-  @spec describe_pipeline(map(), String.t(), list()) ::
+  @spec describe_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_pipeline_errors()}
   def describe_pipeline(%Client{} = client, pipeline_name, options \\ []) do
     url_path = "/pipelines/#{AWS.Util.encode_uri(pipeline_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
-    meta = metadata()
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the contents of a dataset as presigned URIs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20GetDatasetContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dataset_name` (`t:string`) The name of the dataset whose contents are
+    retrieved.
+
+  ## Optional parameters:
+  * `:version_id` (`t:string`) The version of the dataset whose contents are
+    retrieved. You can also use the strings "$LATEST" or "$LATEST_SUCCEEDED" to
+    retrieve the contents of the latest or latest successfully completed
+    dataset. If not specified, "$LATEST_SUCCEEDED" is the default.
   """
-  @spec get_dataset_content(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_dataset_content(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_dataset_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dataset_content_errors()}
-  def get_dataset_content(%Client{} = client, dataset_name, version_id \\ nil, options \\ []) do
+  def get_dataset_content(%Client{} = client, dataset_name, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}/content"
+
+    # Validate optional parameters
+    optional_params = [version_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(version_id) do
-        [{"versionId", version_id} | query_params]
+      if opt_val = Keyword.get(options, :version_id) do
+        [{"versionId", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:version_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of channels.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20ListChannels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
-  @spec list_channels(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_channels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channels_errors()}
-  def list_channels(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_channels(%Client{} = client, options \\ []) do
     url_path = "/channels"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists information about dataset contents that have been created.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20ListDatasetContents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dataset_name` (`t:string`) The name of the dataset whose contents
+    information you want to list.
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
+  * `:next_token` (`t:string`) The token for the next set of results.
+  * `:scheduled_before` (`t:timestamp`) A filter to limit results to those dataset
+    contents whose creation is scheduled before the given time. See the field
+    triggers.schedule in the CreateDataset request. (timestamp)
+  * `:scheduled_on_or_after` (`t:timestamp`) A filter to limit results to those
+    dataset contents whose creation is scheduled on or after the given time. See
+    the field triggers.schedule in the CreateDataset request. (timestamp)
   """
-  @spec list_dataset_contents(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec list_dataset_contents(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_dataset_contents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dataset_contents_errors()}
-  def list_dataset_contents(
-        %Client{} = client,
-        dataset_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        scheduled_before \\ nil,
-        scheduled_on_or_after \\ nil,
-        options \\ []
-      ) do
+  def list_dataset_contents(%Client{} = client, dataset_name, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}/contents"
+
+    # Validate optional parameters
+    optional_params = [
+      max_results: nil,
+      next_token: nil,
+      scheduled_before: nil,
+      scheduled_on_or_after: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(scheduled_on_or_after) do
-        [{"scheduledOnOrAfter", scheduled_on_or_after} | query_params]
+      if opt_val = Keyword.get(options, :scheduled_on_or_after) do
+        [{"scheduledOnOrAfter", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(scheduled_before) do
-        [{"scheduledBefore", scheduled_before} | query_params]
+      if opt_val = Keyword.get(options, :scheduled_before) do
+        [{"scheduledBefore", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token, :scheduled_before, :scheduled_on_or_after])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about datasets.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20ListDatasets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
-  @spec list_datasets(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_datasets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_datasets_errors()}
-  def list_datasets(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_datasets(%Client{} = client, options \\ []) do
     url_path = "/datasets"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of data stores.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20ListDatastores&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
-  @spec list_datastores(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_datastores(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_datastores_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_datastores_errors()}
-  def list_datastores(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_datastores(%Client{} = client, options \\ []) do
     url_path = "/datastores"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of pipelines.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20ListPipelines&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
-  @spec list_pipelines(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pipelines_errors()}
-  def list_pipelines(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_pipelines(%Client{} = client, options \\ []) do
     url_path = "/pipelines"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the tags (metadata) that you have assigned to the resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource whose tags you want to
+    list.
+
+  ## Optional parameters:
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
-    query_params = []
 
-    query_params =
-      if !is_nil(resource_arn) do
-        [{"resourceArn", resource_arn} | query_params]
-      else
-        query_params
-      end
+    # Optional headers
 
-    meta = metadata()
+    # Required query params
+    query_params = [{"resourceArn", resource_arn}]
+
+    # Optional query params
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2746,13 +3165,13 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Sets or updates the IoT Analytics logging options.
 
-  If you update the value of any `loggingOptions` field, it takes up to one
-  minute for the change to take effect. Also, if you change the policy attached to
-  the role you
-  specified in the `roleArn` field (for example, to correct an invalid policy), it
-  takes up to five minutes for that change to take effect.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20PutLoggingOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec put_logging_options(map(), put_logging_options_request(), list()) ::
+  @spec put_logging_options(AWS.Client.t(), put_logging_options_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_logging_options_errors()}
@@ -2761,15 +3180,22 @@ defmodule AWS.IoTAnalytics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Simulates the results of running a pipeline activity on a message payload.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20RunPipelineActivity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec run_pipeline_activity(map(), run_pipeline_activity_request(), list()) ::
+  @spec run_pipeline_activity(AWS.Client.t(), run_pipeline_activity_request(), Keyword.t()) ::
           {:ok, run_pipeline_activity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, run_pipeline_activity_errors()}
@@ -2778,7 +3204,8 @@ defmodule AWS.IoTAnalytics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2795,68 +3222,95 @@ defmodule AWS.IoTAnalytics do
 
   @doc """
   Retrieves a sample of messages from the specified channel ingested during the
-  specified
-  timeframe.
+  specified timeframe. Up to 10 messages can be retrieved.
 
-  Up to 10 messages can be retrieved.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20SampleChannelData&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_name` (`t:string`) The name of the channel whose message samples are
+    retrieved.
+
+  ## Optional parameters:
+  * `:end_time` (`t:timestamp`) The end of the time window from which sample
+    messages are retrieved.
+  * `:max_messages` (`t:integer`) The number of sample messages to be retrieved.
+    The limit is 10. The default is also 10.
+  * `:start_time` (`t:timestamp`) The start of the time window from which sample
+    messages are retrieved.
   """
-  @spec sample_channel_data(
-          map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          list()
-        ) ::
+  @spec sample_channel_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, sample_channel_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, sample_channel_data_errors()}
-  def sample_channel_data(
-        %Client{} = client,
-        channel_name,
-        end_time \\ nil,
-        max_messages \\ nil,
-        start_time \\ nil,
-        options \\ []
-      ) do
+  def sample_channel_data(%Client{} = client, channel_name, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_name)}/sample"
+
+    # Validate optional parameters
+    optional_params = [end_time: nil, max_messages: nil, start_time: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
 
+    # Optional query params
     query_params =
-      if !is_nil(start_time) do
-        [{"startTime", start_time} | query_params]
+      if opt_val = Keyword.get(options, :start_time) do
+        [{"startTime", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_messages) do
-        [{"maxMessages", max_messages} | query_params]
+      if opt_val = Keyword.get(options, :max_messages) do
+        [{"maxMessages", opt_val} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(end_time) do
-        [{"endTime", end_time} | query_params]
+      if opt_val = Keyword.get(options, :end_time) do
+        [{"endTime", opt_val} | query_params]
       else
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:end_time, :max_messages, :start_time])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Starts the reprocessing of raw message data through the pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20StartPipelineReprocessing&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:pipeline_name` (`t:string`) The name of the pipeline on which to start
+    reprocessing.
+
+  ## Optional parameters:
   """
   @spec start_pipeline_reprocessing(
-          map(),
+          AWS.Client.t(),
           String.t(),
           start_pipeline_reprocessing_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, start_pipeline_reprocessing_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -2866,7 +3320,8 @@ defmodule AWS.IoTAnalytics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2882,12 +3337,18 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Adds to or modifies the tags of the given resource.
+  Adds to or modifies the tags of the given resource. Tags are metadata that can
+  be used to manage a resource.
 
-  Tags are metadata that can be used to
-  manage a resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource whose tags you want to
+    modify.
+
+  ## Optional parameters:
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
@@ -2901,7 +3362,8 @@ defmodule AWS.IoTAnalytics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2918,8 +3380,18 @@ defmodule AWS.IoTAnalytics do
 
   @doc """
   Removes the given tags (metadata) from the resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource whose tags you want to
+    remove.
+  * `:tag_keys` (`t:list[com.amazonaws.iotanalytics#TagKey]`) The keys of those
+    tags which you want to remove.
+
+  ## Optional parameters:
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
@@ -2934,7 +3406,8 @@ defmodule AWS.IoTAnalytics do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -2951,8 +3424,15 @@ defmodule AWS.IoTAnalytics do
 
   @doc """
   Used to update the settings of a channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20UpdateChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_name` (`t:string`) The name of the channel to be updated.
+
+  ## Optional parameters:
   """
-  @spec update_channel(map(), String.t(), update_channel_request(), list()) ::
+  @spec update_channel(AWS.Client.t(), String.t(), update_channel_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_channel_errors()}
@@ -2961,15 +3441,23 @@ defmodule AWS.IoTAnalytics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the settings of a dataset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20UpdateDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dataset_name` (`t:string`) The name of the dataset to update.
+
+  ## Optional parameters:
   """
-  @spec update_dataset(map(), String.t(), update_dataset_request(), list()) ::
+  @spec update_dataset(AWS.Client.t(), String.t(), update_dataset_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dataset_errors()}
@@ -2978,15 +3466,23 @@ defmodule AWS.IoTAnalytics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Used to update the settings of a data store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20UpdateDatastore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:datastore_name` (`t:string`) The name of the data store to be updated.
+
+  ## Optional parameters:
   """
-  @spec update_datastore(map(), String.t(), update_datastore_request(), list()) ::
+  @spec update_datastore(AWS.Client.t(), String.t(), update_datastore_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_datastore_errors()}
@@ -2995,19 +3491,25 @@ defmodule AWS.IoTAnalytics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Updates the settings of a pipeline.
+  Updates the settings of a pipeline. You must specify both a `channel` and a
+  `datastore` activity and, optionally, as many as 23 additional activities in
+  the `pipelineActivities` array.
 
-  You must specify both a `channel` and a
-  `datastore` activity and, optionally, as many as 23 additional activities in the
-  `pipelineActivities` array.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20UpdatePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:pipeline_name` (`t:string`) The name of the pipeline to update.
+
+  ## Optional parameters:
   """
-  @spec update_pipeline(map(), String.t(), update_pipeline_request(), list()) ::
+  @spec update_pipeline(AWS.Client.t(), String.t(), update_pipeline_request(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pipeline_errors()}
@@ -3016,7 +3518,8 @@ defmodule AWS.IoTAnalytics do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

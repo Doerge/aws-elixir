@@ -4,15 +4,12 @@
 defmodule AWS.Identitystore do
   @moduledoc """
   The Identity Store service used by IAM Identity Center provides a single place
-  to retrieve all of
-  your identities (users and groups).
-
-  For more information, see the [IAM Identity Center User Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
-
+  to retrieve all of your identities (users and groups). For more information,
+  see the [IAM Identity Center User
+  Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
   This reference guide describes the identity store operations that you can call
-  programmatically and includes detailed information about data types and errors.
-
-  IAM Identity Center uses the `sso` and `identitystore` API namespaces.
+  programmatically and includes detailed information about data types and
+  errors.
   """
 
   alias AWS.Client
@@ -851,28 +848,28 @@ defmodule AWS.Identitystore do
   @doc """
   Creates a group within the specified identity store.
   """
-  @spec create_group(map(), create_group_request(), list()) ::
+  @spec create_group(AWS.Client.t(), create_group_request(), Keyword.t()) ::
           {:ok, create_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_errors()}
   def create_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGroup", input, options)
   end
 
   @doc """
-  Creates a relationship between a member and a group.
-
-  The following identifiers must be specified: `GroupId`, `IdentityStoreId`, and
-  `MemberId`.
+  Creates a relationship between a member and a group. The following identifiers
+  must be specified: `GroupId`, `IdentityStoreId`, and `MemberId`.
   """
-  @spec create_group_membership(map(), create_group_membership_request(), list()) ::
+  @spec create_group_membership(AWS.Client.t(), create_group_membership_request(), Keyword.t()) ::
           {:ok, create_group_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_membership_errors()}
   def create_group_membership(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGroupMembership", input, options)
   end
@@ -880,12 +877,13 @@ defmodule AWS.Identitystore do
   @doc """
   Creates a user within the specified identity store.
   """
-  @spec create_user(map(), create_user_request(), list()) ::
+  @spec create_user(AWS.Client.t(), create_user_request(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUser", input, options)
   end
@@ -893,12 +891,13 @@ defmodule AWS.Identitystore do
   @doc """
   Delete a group within an identity store given `GroupId`.
   """
-  @spec delete_group(map(), delete_group_request(), list()) ::
+  @spec delete_group(AWS.Client.t(), delete_group_request(), Keyword.t()) ::
           {:ok, delete_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_group_errors()}
   def delete_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGroup", input, options)
   end
@@ -906,12 +905,13 @@ defmodule AWS.Identitystore do
   @doc """
   Delete a membership within a group given `MembershipId`.
   """
-  @spec delete_group_membership(map(), delete_group_membership_request(), list()) ::
+  @spec delete_group_membership(AWS.Client.t(), delete_group_membership_request(), Keyword.t()) ::
           {:ok, delete_group_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_group_membership_errors()}
   def delete_group_membership(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGroupMembership", input, options)
   end
@@ -919,32 +919,27 @@ defmodule AWS.Identitystore do
   @doc """
   Deletes a user within an identity store given `UserId`.
   """
-  @spec delete_user(map(), delete_user_request(), list()) ::
+  @spec delete_user(AWS.Client.t(), delete_user_request(), Keyword.t()) ::
           {:ok, delete_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUser", input, options)
   end
 
   @doc """
-  Retrieves the group metadata and attributes from `GroupId` in an identity
-  store.
-
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
+  Retrieves the group metadata and attributes from `GroupId` in an identity store.
   """
-  @spec describe_group(map(), describe_group_request(), list()) ::
+  @spec describe_group(AWS.Client.t(), describe_group_request(), Keyword.t()) ::
           {:ok, describe_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_group_errors()}
   def describe_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGroup", input, options)
   end
@@ -952,19 +947,18 @@ defmodule AWS.Identitystore do
   @doc """
   Retrieves membership metadata and attributes from `MembershipId` in an identity
   store.
-
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
   """
-  @spec describe_group_membership(map(), describe_group_membership_request(), list()) ::
+  @spec describe_group_membership(
+          AWS.Client.t(),
+          describe_group_membership_request(),
+          Keyword.t()
+        ) ::
           {:ok, describe_group_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_group_membership_errors()}
   def describe_group_membership(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGroupMembership", input, options)
   end
@@ -972,76 +966,56 @@ defmodule AWS.Identitystore do
   @doc """
   Retrieves the user metadata and attributes from the `UserId` in an identity
   store.
-
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
   """
-  @spec describe_user(map(), describe_user_request(), list()) ::
+  @spec describe_user(AWS.Client.t(), describe_user_request(), Keyword.t()) ::
           {:ok, describe_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_errors()}
   def describe_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUser", input, options)
   end
 
   @doc """
   Retrieves `GroupId` in an identity store.
-
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
   """
-  @spec get_group_id(map(), get_group_id_request(), list()) ::
+  @spec get_group_id(AWS.Client.t(), get_group_id_request(), Keyword.t()) ::
           {:ok, get_group_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_id_errors()}
   def get_group_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetGroupId", input, options)
   end
 
   @doc """
   Retrieves the `MembershipId` in an identity store.
-
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
   """
-  @spec get_group_membership_id(map(), get_group_membership_id_request(), list()) ::
+  @spec get_group_membership_id(AWS.Client.t(), get_group_membership_id_request(), Keyword.t()) ::
           {:ok, get_group_membership_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_membership_id_errors()}
   def get_group_membership_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetGroupMembershipId", input, options)
   end
 
   @doc """
   Retrieves the `UserId` in an identity store.
-
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
   """
-  @spec get_user_id(map(), get_user_id_request(), list()) ::
+  @spec get_user_id(AWS.Client.t(), get_user_id_request(), Keyword.t()) ::
           {:ok, get_user_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_id_errors()}
   def get_user_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUserId", input, options)
   end
@@ -1049,19 +1023,14 @@ defmodule AWS.Identitystore do
   @doc """
   Checks the user's membership in all requested groups and returns if the member
   exists in all queried groups.
-
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
   """
-  @spec is_member_in_groups(map(), is_member_in_groups_request(), list()) ::
+  @spec is_member_in_groups(AWS.Client.t(), is_member_in_groups_request(), Keyword.t()) ::
           {:ok, is_member_in_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, is_member_in_groups_errors()}
   def is_member_in_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "IsMemberInGroups", input, options)
   end
@@ -1069,19 +1038,14 @@ defmodule AWS.Identitystore do
   @doc """
   For the specified group in the specified identity store, returns the list of all
   `GroupMembership` objects and returns results in paginated form.
-
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
   """
-  @spec list_group_memberships(map(), list_group_memberships_request(), list()) ::
+  @spec list_group_memberships(AWS.Client.t(), list_group_memberships_request(), Keyword.t()) ::
           {:ok, list_group_memberships_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_group_memberships_errors()}
   def list_group_memberships(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGroupMemberships", input, options)
   end
@@ -1089,69 +1053,50 @@ defmodule AWS.Identitystore do
   @doc """
   For the specified member in the specified identity store, returns the list of
   all `GroupMembership` objects and returns results in paginated form.
-
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
   """
   @spec list_group_memberships_for_member(
-          map(),
+          AWS.Client.t(),
           list_group_memberships_for_member_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_group_memberships_for_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_group_memberships_for_member_errors()}
   def list_group_memberships_for_member(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGroupMembershipsForMember", input, options)
   end
 
   @doc """
-  Lists all groups in the identity store.
-
-  Returns a paginated list of complete `Group` objects.
-  Filtering for a `Group` by the `DisplayName` attribute is deprecated. Instead,
-  use the `GetGroupId` API action.
-
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
+  Lists all groups in the identity store. Returns a paginated list of complete
+  `Group` objects. Filtering for a `Group` by the `DisplayName` attribute is
+  deprecated. Instead, use the `GetGroupId` API action.
   """
-  @spec list_groups(map(), list_groups_request(), list()) ::
+  @spec list_groups(AWS.Client.t(), list_groups_request(), Keyword.t()) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_groups_errors()}
   def list_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGroups", input, options)
   end
 
   @doc """
-  Lists all users in the identity store.
-
-  Returns a paginated list of complete `User` objects.
-  Filtering for a `User` by the `UserName` attribute is deprecated. Instead, use
-  the `GetUserId` API action.
-
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
+  Lists all users in the identity store. Returns a paginated list of complete
+  `User` objects. Filtering for a `User` by the `UserName` attribute is
+  deprecated. Instead, use the `GetUserId` API action.
   """
-  @spec list_users(map(), list_users_request(), list()) ::
+  @spec list_users(AWS.Client.t(), list_users_request(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_users_errors()}
   def list_users(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUsers", input, options)
   end
@@ -1160,12 +1105,13 @@ defmodule AWS.Identitystore do
   For the specified group in the specified identity store, updates the group
   metadata and attributes.
   """
-  @spec update_group(map(), update_group_request(), list()) ::
+  @spec update_group(AWS.Client.t(), update_group_request(), Keyword.t()) ::
           {:ok, update_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_group_errors()}
   def update_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGroup", input, options)
   end
@@ -1174,12 +1120,13 @@ defmodule AWS.Identitystore do
   For the specified user in the specified identity store, updates the user
   metadata and attributes.
   """
-  @spec update_user(map(), update_user_request(), list()) ::
+  @spec update_user(AWS.Client.t(), update_user_request(), Keyword.t()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUser", input, options)
   end

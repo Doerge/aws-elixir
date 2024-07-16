@@ -3,22 +3,15 @@
 
 defmodule AWS.RedshiftServerless do
   @moduledoc """
-  This is an interface reference for Amazon Redshift Serverless.
-
-  It contains documentation for one of the programming or command line interfaces
-  you can use to manage Amazon Redshift Serverless.
-
-  Amazon Redshift Serverless automatically provisions data warehouse capacity and
-  intelligently scales the
+  This is an interface reference for Amazon Redshift Serverless. It contains
+  documentation for one of the programming or command line interfaces you can
+  use to manage Amazon Redshift Serverless. Amazon Redshift Serverless
+  automatically provisions data warehouse capacity and intelligently scales the
   underlying resources based on workload demands. Amazon Redshift Serverless
-  adjusts capacity in seconds to deliver consistently high
-  performance and simplified operations for even the most demanding and volatile
-  workloads. Amazon Redshift Serverless lets you
-  focus on using your data to acquire new insights for your business and
-  customers.
-
-  To learn more about Amazon Redshift Serverless,
-  see [What is Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-whatis.html).
+  adjusts capacity in seconds to deliver consistently high performance and
+  simplified operations for even the most demanding and volatile workloads.
+  Amazon Redshift Serverless lets you focus on using your data to acquire new
+  insights for your business and customers.
   """
 
   alias AWS.Client
@@ -2173,21 +2166,21 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
-  Converts a recovery point to a snapshot.
-
-  For more information about recovery points and snapshots,
-  see [Working with snapshots and recovery points](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html).
+  Converts a recovery point to a snapshot. For more information about recovery
+  points and snapshots, see [Working with snapshots and recovery
+  points](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html).
   """
   @spec convert_recovery_point_to_snapshot(
-          map(),
+          AWS.Client.t(),
           convert_recovery_point_to_snapshot_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, convert_recovery_point_to_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, convert_recovery_point_to_snapshot_errors()}
   def convert_recovery_point_to_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConvertRecoveryPointToSnapshot", input, options)
   end
@@ -2196,15 +2189,16 @@ defmodule AWS.RedshiftServerless do
   Creates a custom domain association for Amazon Redshift Serverless.
   """
   @spec create_custom_domain_association(
-          map(),
+          AWS.Client.t(),
           create_custom_domain_association_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_custom_domain_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_custom_domain_association_errors()}
   def create_custom_domain_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCustomDomainAssociation", input, options)
   end
@@ -2212,12 +2206,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Creates an Amazon Redshift Serverless managed VPC endpoint.
   """
-  @spec create_endpoint_access(map(), create_endpoint_access_request(), list()) ::
+  @spec create_endpoint_access(AWS.Client.t(), create_endpoint_access_request(), Keyword.t()) ::
           {:ok, create_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_endpoint_access_errors()}
   def create_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEndpointAccess", input, options)
   end
@@ -2225,47 +2220,45 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Creates a namespace in Amazon Redshift Serverless.
   """
-  @spec create_namespace(map(), create_namespace_request(), list()) ::
+  @spec create_namespace(AWS.Client.t(), create_namespace_request(), Keyword.t()) ::
           {:ok, create_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_namespace_errors()}
   def create_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateNamespace", input, options)
   end
 
   @doc """
-  Creates a scheduled action.
-
-  A scheduled action contains a schedule and an Amazon Redshift API action.
-  For example, you can create a schedule of when to run the `CreateSnapshot` API
-  operation.
+  Creates a scheduled action. A scheduled action contains a schedule and an Amazon
+  Redshift API action. For example, you can create a schedule of when to run the
+  `CreateSnapshot` API operation.
   """
-  @spec create_scheduled_action(map(), create_scheduled_action_request(), list()) ::
+  @spec create_scheduled_action(AWS.Client.t(), create_scheduled_action_request(), Keyword.t()) ::
           {:ok, create_scheduled_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_scheduled_action_errors()}
   def create_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateScheduledAction", input, options)
   end
 
   @doc """
-  Creates a snapshot of all databases in a namespace.
-
-  For more information about snapshots, see
-  [
-  Working with snapshots and recovery
+  Creates a snapshot of all databases in a namespace. For more information about
+  snapshots, see [ Working with snapshots and recovery
   points](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html).
   """
-  @spec create_snapshot(map(), create_snapshot_request(), list()) ::
+  @spec create_snapshot(AWS.Client.t(), create_snapshot_request(), Keyword.t()) ::
           {:ok, create_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
@@ -2275,30 +2268,31 @@ defmodule AWS.RedshiftServerless do
   Amazon Web Services Region.
   """
   @spec create_snapshot_copy_configuration(
-          map(),
+          AWS.Client.t(),
           create_snapshot_copy_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, create_snapshot_copy_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_snapshot_copy_configuration_errors()}
   def create_snapshot_copy_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSnapshotCopyConfiguration", input, options)
   end
 
   @doc """
-  Creates a usage limit for a specified Amazon Redshift Serverless usage type.
-
-  The usage limit is identified by the returned usage limit identifier.
+  Creates a usage limit for a specified Amazon Redshift Serverless usage type. The
+  usage limit is identified by the returned usage limit identifier.
   """
-  @spec create_usage_limit(map(), create_usage_limit_request(), list()) ::
+  @spec create_usage_limit(AWS.Client.t(), create_usage_limit_request(), Keyword.t()) ::
           {:ok, create_usage_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_usage_limit_errors()}
   def create_usage_limit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUsageLimit", input, options)
   end
@@ -2306,12 +2300,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Creates an workgroup in Amazon Redshift Serverless.
   """
-  @spec create_workgroup(map(), create_workgroup_request(), list()) ::
+  @spec create_workgroup(AWS.Client.t(), create_workgroup_request(), Keyword.t()) ::
           {:ok, create_workgroup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workgroup_errors()}
   def create_workgroup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkgroup", input, options)
   end
@@ -2320,15 +2315,16 @@ defmodule AWS.RedshiftServerless do
   Deletes a custom domain association for Amazon Redshift Serverless.
   """
   @spec delete_custom_domain_association(
-          map(),
+          AWS.Client.t(),
           delete_custom_domain_association_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_custom_domain_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_domain_association_errors()}
   def delete_custom_domain_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCustomDomainAssociation", input, options)
   end
@@ -2336,28 +2332,29 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Deletes an Amazon Redshift Serverless managed VPC endpoint.
   """
-  @spec delete_endpoint_access(map(), delete_endpoint_access_request(), list()) ::
+  @spec delete_endpoint_access(AWS.Client.t(), delete_endpoint_access_request(), Keyword.t()) ::
           {:ok, delete_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_endpoint_access_errors()}
   def delete_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEndpointAccess", input, options)
   end
 
   @doc """
-  Deletes a namespace from Amazon Redshift Serverless.
-
-  Before you delete the namespace, you can create a final snapshot that has all of
-  the data within the namespace.
+  Deletes a namespace from Amazon Redshift Serverless. Before you delete the
+  namespace, you can create a final snapshot that has all of the data within the
+  namespace.
   """
-  @spec delete_namespace(map(), delete_namespace_request(), list()) ::
+  @spec delete_namespace(AWS.Client.t(), delete_namespace_request(), Keyword.t()) ::
           {:ok, delete_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_namespace_errors()}
   def delete_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNamespace", input, options)
   end
@@ -2365,12 +2362,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Deletes the specified resource policy.
   """
-  @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
+  @spec delete_resource_policy(AWS.Client.t(), delete_resource_policy_request(), Keyword.t()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -2378,12 +2376,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Deletes a scheduled action.
   """
-  @spec delete_scheduled_action(map(), delete_scheduled_action_request(), list()) ::
+  @spec delete_scheduled_action(AWS.Client.t(), delete_scheduled_action_request(), Keyword.t()) ::
           {:ok, delete_scheduled_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_scheduled_action_errors()}
   def delete_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteScheduledAction", input, options)
   end
@@ -2391,12 +2390,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Deletes a snapshot from Amazon Redshift Serverless.
   """
-  @spec delete_snapshot(map(), delete_snapshot_request(), list()) ::
+  @spec delete_snapshot(AWS.Client.t(), delete_snapshot_request(), Keyword.t()) ::
           {:ok, delete_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_snapshot_errors()}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSnapshot", input, options)
   end
@@ -2405,15 +2405,16 @@ defmodule AWS.RedshiftServerless do
   Deletes a snapshot copy configuration
   """
   @spec delete_snapshot_copy_configuration(
-          map(),
+          AWS.Client.t(),
           delete_snapshot_copy_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, delete_snapshot_copy_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_snapshot_copy_configuration_errors()}
   def delete_snapshot_copy_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSnapshotCopyConfiguration", input, options)
   end
@@ -2421,12 +2422,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Deletes a usage limit from Amazon Redshift Serverless.
   """
-  @spec delete_usage_limit(map(), delete_usage_limit_request(), list()) ::
+  @spec delete_usage_limit(AWS.Client.t(), delete_usage_limit_request(), Keyword.t()) ::
           {:ok, delete_usage_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_usage_limit_errors()}
   def delete_usage_limit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUsageLimit", input, options)
   end
@@ -2434,37 +2436,30 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Deletes a workgroup.
   """
-  @spec delete_workgroup(map(), delete_workgroup_request(), list()) ::
+  @spec delete_workgroup(AWS.Client.t(), delete_workgroup_request(), Keyword.t()) ::
           {:ok, delete_workgroup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workgroup_errors()}
   def delete_workgroup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWorkgroup", input, options)
   end
 
   @doc """
-  Returns a database user name and temporary password with
-  temporary authorization to log in to Amazon Redshift Serverless.
-
-  By default, the temporary credentials expire in 900 seconds.
-  You can optionally specify a duration between 900 seconds (15 minutes) and 3600
-  seconds (60 minutes).
-
-  The Identity and Access Management (IAM) user or role that runs
-  GetCredentials must have an IAM policy attached that allows access to all
-  necessary actions and resources.
-
-  If the `DbName` parameter is specified, the IAM policy must
-  allow access to the resource dbname for the specified database name.
+  Returns a database user name and temporary password with temporary authorization
+  to log in to Amazon Redshift Serverless. By default, the temporary credentials
+  expire in 900 seconds. You can optionally specify a duration between 900
+  seconds (15 minutes) and 3600 seconds (60 minutes).
   """
-  @spec get_credentials(map(), get_credentials_request(), list()) ::
+  @spec get_credentials(AWS.Client.t(), get_credentials_request(), Keyword.t()) ::
           {:ok, get_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_credentials_errors()}
   def get_credentials(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCredentials", input, options)
   end
@@ -2472,12 +2467,17 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Gets information about a specific custom domain association.
   """
-  @spec get_custom_domain_association(map(), get_custom_domain_association_request(), list()) ::
+  @spec get_custom_domain_association(
+          AWS.Client.t(),
+          get_custom_domain_association_request(),
+          Keyword.t()
+        ) ::
           {:ok, get_custom_domain_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_custom_domain_association_errors()}
   def get_custom_domain_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCustomDomainAssociation", input, options)
   end
@@ -2485,12 +2485,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Returns information, such as the name, about a VPC endpoint.
   """
-  @spec get_endpoint_access(map(), get_endpoint_access_request(), list()) ::
+  @spec get_endpoint_access(AWS.Client.t(), get_endpoint_access_request(), Keyword.t()) ::
           {:ok, get_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_endpoint_access_errors()}
   def get_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEndpointAccess", input, options)
   end
@@ -2498,12 +2499,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Returns information about a namespace in Amazon Redshift Serverless.
   """
-  @spec get_namespace(map(), get_namespace_request(), list()) ::
+  @spec get_namespace(AWS.Client.t(), get_namespace_request(), Keyword.t()) ::
           {:ok, get_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_namespace_errors()}
   def get_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetNamespace", input, options)
   end
@@ -2511,12 +2513,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Returns information about a recovery point.
   """
-  @spec get_recovery_point(map(), get_recovery_point_request(), list()) ::
+  @spec get_recovery_point(AWS.Client.t(), get_recovery_point_request(), Keyword.t()) ::
           {:ok, get_recovery_point_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recovery_point_errors()}
   def get_recovery_point(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRecoveryPoint", input, options)
   end
@@ -2524,12 +2527,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Returns a resource policy.
   """
-  @spec get_resource_policy(map(), get_resource_policy_request(), list()) ::
+  @spec get_resource_policy(AWS.Client.t(), get_resource_policy_request(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -2537,12 +2541,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Returns information about a scheduled action.
   """
-  @spec get_scheduled_action(map(), get_scheduled_action_request(), list()) ::
+  @spec get_scheduled_action(AWS.Client.t(), get_scheduled_action_request(), Keyword.t()) ::
           {:ok, get_scheduled_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_scheduled_action_errors()}
   def get_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetScheduledAction", input, options)
   end
@@ -2550,12 +2555,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Returns information about a specific snapshot.
   """
-  @spec get_snapshot(map(), get_snapshot_request(), list()) ::
+  @spec get_snapshot(AWS.Client.t(), get_snapshot_request(), Keyword.t()) ::
           {:ok, get_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_snapshot_errors()}
   def get_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSnapshot", input, options)
   end
@@ -2563,12 +2569,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Returns information about a `TableRestoreStatus` object.
   """
-  @spec get_table_restore_status(map(), get_table_restore_status_request(), list()) ::
+  @spec get_table_restore_status(AWS.Client.t(), get_table_restore_status_request(), Keyword.t()) ::
           {:ok, get_table_restore_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_table_restore_status_errors()}
   def get_table_restore_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTableRestoreStatus", input, options)
   end
@@ -2576,12 +2583,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Returns information about a usage limit.
   """
-  @spec get_usage_limit(map(), get_usage_limit_request(), list()) ::
+  @spec get_usage_limit(AWS.Client.t(), get_usage_limit_request(), Keyword.t()) ::
           {:ok, get_usage_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_usage_limit_errors()}
   def get_usage_limit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUsageLimit", input, options)
   end
@@ -2589,12 +2597,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Returns information about a specific workgroup.
   """
-  @spec get_workgroup(map(), get_workgroup_request(), list()) ::
+  @spec get_workgroup(AWS.Client.t(), get_workgroup_request(), Keyword.t()) ::
           {:ok, get_workgroup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workgroup_errors()}
   def get_workgroup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWorkgroup", input, options)
   end
@@ -2602,12 +2611,17 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Lists custom domain associations for Amazon Redshift Serverless.
   """
-  @spec list_custom_domain_associations(map(), list_custom_domain_associations_request(), list()) ::
+  @spec list_custom_domain_associations(
+          AWS.Client.t(),
+          list_custom_domain_associations_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_custom_domain_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_domain_associations_errors()}
   def list_custom_domain_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCustomDomainAssociations", input, options)
   end
@@ -2615,12 +2629,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Returns an array of `EndpointAccess` objects and relevant information.
   """
-  @spec list_endpoint_access(map(), list_endpoint_access_request(), list()) ::
+  @spec list_endpoint_access(AWS.Client.t(), list_endpoint_access_request(), Keyword.t()) ::
           {:ok, list_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_endpoint_access_errors()}
   def list_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEndpointAccess", input, options)
   end
@@ -2628,12 +2643,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Returns information about a list of specified namespaces.
   """
-  @spec list_namespaces(map(), list_namespaces_request(), list()) ::
+  @spec list_namespaces(AWS.Client.t(), list_namespaces_request(), Keyword.t()) ::
           {:ok, list_namespaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_namespaces_errors()}
   def list_namespaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListNamespaces", input, options)
   end
@@ -2641,27 +2657,28 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Returns an array of recovery points.
   """
-  @spec list_recovery_points(map(), list_recovery_points_request(), list()) ::
+  @spec list_recovery_points(AWS.Client.t(), list_recovery_points_request(), Keyword.t()) ::
           {:ok, list_recovery_points_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recovery_points_errors()}
   def list_recovery_points(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRecoveryPoints", input, options)
   end
 
   @doc """
-  Returns a list of scheduled actions.
-
-  You can use the flags to filter the list of returned scheduled actions.
+  Returns a list of scheduled actions. You can use the flags to filter the list of
+  returned scheduled actions.
   """
-  @spec list_scheduled_actions(map(), list_scheduled_actions_request(), list()) ::
+  @spec list_scheduled_actions(AWS.Client.t(), list_scheduled_actions_request(), Keyword.t()) ::
           {:ok, list_scheduled_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_scheduled_actions_errors()}
   def list_scheduled_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListScheduledActions", input, options)
   end
@@ -2670,15 +2687,16 @@ defmodule AWS.RedshiftServerless do
   Returns a list of snapshot copy configurations.
   """
   @spec list_snapshot_copy_configurations(
-          map(),
+          AWS.Client.t(),
           list_snapshot_copy_configurations_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, list_snapshot_copy_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_snapshot_copy_configurations_errors()}
   def list_snapshot_copy_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSnapshotCopyConfigurations", input, options)
   end
@@ -2686,12 +2704,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Returns a list of snapshots.
   """
-  @spec list_snapshots(map(), list_snapshots_request(), list()) ::
+  @spec list_snapshots(AWS.Client.t(), list_snapshots_request(), Keyword.t()) ::
           {:ok, list_snapshots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_snapshots_errors()}
   def list_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSnapshots", input, options)
   end
@@ -2699,12 +2718,17 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Returns information about an array of `TableRestoreStatus` objects.
   """
-  @spec list_table_restore_status(map(), list_table_restore_status_request(), list()) ::
+  @spec list_table_restore_status(
+          AWS.Client.t(),
+          list_table_restore_status_request(),
+          Keyword.t()
+        ) ::
           {:ok, list_table_restore_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_table_restore_status_errors()}
   def list_table_restore_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTableRestoreStatus", input, options)
   end
@@ -2712,12 +2736,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Lists the tags assigned to a resource.
   """
-  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2725,12 +2750,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Lists all usage limits within Amazon Redshift Serverless.
   """
-  @spec list_usage_limits(map(), list_usage_limits_request(), list()) ::
+  @spec list_usage_limits(AWS.Client.t(), list_usage_limits_request(), Keyword.t()) ::
           {:ok, list_usage_limits_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_usage_limits_errors()}
   def list_usage_limits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUsageLimits", input, options)
   end
@@ -2738,28 +2764,28 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Returns information about a list of specified workgroups.
   """
-  @spec list_workgroups(map(), list_workgroups_request(), list()) ::
+  @spec list_workgroups(AWS.Client.t(), list_workgroups_request(), Keyword.t()) ::
           {:ok, list_workgroups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workgroups_errors()}
   def list_workgroups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkgroups", input, options)
   end
 
   @doc """
-  Creates or updates a resource policy.
-
-  Currently, you can use policies to share snapshots across Amazon Web Services
-  accounts.
+  Creates or updates a resource policy. Currently, you can use policies to share
+  snapshots across Amazon Web Services accounts.
   """
-  @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
+  @spec put_resource_policy(AWS.Client.t(), put_resource_policy_request(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -2767,12 +2793,17 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Restore the data from a recovery point.
   """
-  @spec restore_from_recovery_point(map(), restore_from_recovery_point_request(), list()) ::
+  @spec restore_from_recovery_point(
+          AWS.Client.t(),
+          restore_from_recovery_point_request(),
+          Keyword.t()
+        ) ::
           {:ok, restore_from_recovery_point_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_from_recovery_point_errors()}
   def restore_from_recovery_point(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreFromRecoveryPoint", input, options)
   end
@@ -2780,48 +2811,53 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Restores a namespace from a snapshot.
   """
-  @spec restore_from_snapshot(map(), restore_from_snapshot_request(), list()) ::
+  @spec restore_from_snapshot(AWS.Client.t(), restore_from_snapshot_request(), Keyword.t()) ::
           {:ok, restore_from_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_from_snapshot_errors()}
   def restore_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreFromSnapshot", input, options)
   end
 
   @doc """
   Restores a table from a recovery point to your Amazon Redshift Serverless
-  instance.
-
-  You can't use this operation to restore tables with interleaved sort keys.
+  instance. You can't use this operation to restore tables with interleaved sort
+  keys.
   """
   @spec restore_table_from_recovery_point(
-          map(),
+          AWS.Client.t(),
           restore_table_from_recovery_point_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, restore_table_from_recovery_point_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_table_from_recovery_point_errors()}
   def restore_table_from_recovery_point(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreTableFromRecoveryPoint", input, options)
   end
 
   @doc """
   Restores a table from a snapshot to your Amazon Redshift Serverless instance.
-
-  You can't use this operation to
-  restore tables with [interleaved sort keys](https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved).
+  You can't use this operation to restore tables with [interleaved sort
+  keys](https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved).
   """
-  @spec restore_table_from_snapshot(map(), restore_table_from_snapshot_request(), list()) ::
+  @spec restore_table_from_snapshot(
+          AWS.Client.t(),
+          restore_table_from_snapshot_request(),
+          Keyword.t()
+        ) ::
           {:ok, restore_table_from_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_table_from_snapshot_errors()}
   def restore_table_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreTableFromSnapshot", input, options)
   end
@@ -2829,12 +2865,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Assigns one or more tags to a resource.
   """
-  @spec tag_resource(map(), tag_resource_request(), list()) ::
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2842,12 +2879,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Removes a tag or set of tags from a resource.
   """
-  @spec untag_resource(map(), untag_resource_request(), list()) ::
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2857,15 +2895,16 @@ defmodule AWS.RedshiftServerless do
   domain.
   """
   @spec update_custom_domain_association(
-          map(),
+          AWS.Client.t(),
           update_custom_domain_association_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_custom_domain_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_custom_domain_association_errors()}
   def update_custom_domain_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCustomDomainAssociation", input, options)
   end
@@ -2873,31 +2912,30 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Updates an Amazon Redshift Serverless managed endpoint.
   """
-  @spec update_endpoint_access(map(), update_endpoint_access_request(), list()) ::
+  @spec update_endpoint_access(AWS.Client.t(), update_endpoint_access_request(), Keyword.t()) ::
           {:ok, update_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_endpoint_access_errors()}
   def update_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEndpointAccess", input, options)
   end
 
   @doc """
-  Updates a namespace with the specified settings.
-
-  Unless required, you can't update multiple parameters in one request. For
-  example,
-  you must specify both `adminUsername` and `adminUserPassword` to update either
-  field, but you can't update both `kmsKeyId`
-  and `logExports` in a single request.
+  Updates a namespace with the specified settings. Unless required, you can't
+  update multiple parameters in one request. For example, you must specify both
+  `adminUsername` and `adminUserPassword` to update either field, but you can't
+  update both `kmsKeyId` and `logExports` in a single request.
   """
-  @spec update_namespace(map(), update_namespace_request(), list()) ::
+  @spec update_namespace(AWS.Client.t(), update_namespace_request(), Keyword.t()) ::
           {:ok, update_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_namespace_errors()}
   def update_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateNamespace", input, options)
   end
@@ -2905,12 +2943,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Updates a scheduled action.
   """
-  @spec update_scheduled_action(map(), update_scheduled_action_request(), list()) ::
+  @spec update_scheduled_action(AWS.Client.t(), update_scheduled_action_request(), Keyword.t()) ::
           {:ok, update_scheduled_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_scheduled_action_errors()}
   def update_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateScheduledAction", input, options)
   end
@@ -2918,12 +2957,13 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Updates a snapshot.
   """
-  @spec update_snapshot(map(), update_snapshot_request(), list()) ::
+  @spec update_snapshot(AWS.Client.t(), update_snapshot_request(), Keyword.t()) ::
           {:ok, update_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_snapshot_errors()}
   def update_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSnapshot", input, options)
   end
@@ -2932,47 +2972,47 @@ defmodule AWS.RedshiftServerless do
   Updates a snapshot copy configuration.
   """
   @spec update_snapshot_copy_configuration(
-          map(),
+          AWS.Client.t(),
           update_snapshot_copy_configuration_request(),
-          list()
+          Keyword.t()
         ) ::
           {:ok, update_snapshot_copy_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_snapshot_copy_configuration_errors()}
   def update_snapshot_copy_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSnapshotCopyConfiguration", input, options)
   end
 
   @doc """
-  Update a usage limit in Amazon Redshift Serverless.
-
-  You can't update the usage type or period of a usage limit.
+  Update a usage limit in Amazon Redshift Serverless. You can't update the usage
+  type or period of a usage limit.
   """
-  @spec update_usage_limit(map(), update_usage_limit_request(), list()) ::
+  @spec update_usage_limit(AWS.Client.t(), update_usage_limit_request(), Keyword.t()) ::
           {:ok, update_usage_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_usage_limit_errors()}
   def update_usage_limit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUsageLimit", input, options)
   end
 
   @doc """
-  Updates a workgroup with the specified configuration settings.
-
-  You can't update multiple parameters in one request. For example,
-  you can update `baseCapacity` or `port` in a single request, but you can't
-  update both in the same request.
+  Updates a workgroup with the specified configuration settings. You can't update
+  multiple parameters in one request. For example, you can update `baseCapacity`
+  or `port` in a single request, but you can't update both in the same request.
   """
-  @spec update_workgroup(map(), update_workgroup_request(), list()) ::
+  @spec update_workgroup(AWS.Client.t(), update_workgroup_request(), Keyword.t()) ::
           {:ok, update_workgroup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workgroup_errors()}
   def update_workgroup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWorkgroup", input, options)
   end

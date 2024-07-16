@@ -4,22 +4,9 @@
 defmodule AWS.FreeTier do
   @moduledoc """
   You can use the Amazon Web Services Free Tier API to query programmatically your
-  Free Tier usage data.
-
-  Free Tier tracks your monthly usage data for all free tier offers that are
-  associated with your
-  Amazon Web Services account. You can use the Free Tier API to filter and show
-  only the data that you want.
-
-  Service endpoint
-
-  The Free Tier API provides the following endpoint:
-
-    *
-  https://freetier.us-east-1.api.aws
-
-  For more information, see [Using the Amazon Web Services Free Tier](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-free-tier.html)
-  in the *Billing User Guide*.
+  Free Tier usage data. Free Tier tracks your monthly usage data for all free
+  tier offers that are associated with your Amazon Web Services account. You can
+  use the Free Tier API to filter and show only the data that you want.
   """
 
   alias AWS.Client
@@ -152,12 +139,13 @@ defmodule AWS.FreeTier do
   @doc """
   Returns a list of all Free Tier usage objects that match your filters.
   """
-  @spec get_free_tier_usage(map(), get_free_tier_usage_request(), list()) ::
+  @spec get_free_tier_usage(AWS.Client.t(), get_free_tier_usage_request(), Keyword.t()) ::
           {:ok, get_free_tier_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_free_tier_usage_errors()}
   def get_free_tier_usage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetFreeTierUsage", input, options)
   end

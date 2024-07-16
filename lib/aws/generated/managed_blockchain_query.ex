@@ -4,18 +4,13 @@
 defmodule AWS.ManagedBlockchainQuery do
   @moduledoc """
   Amazon Managed Blockchain (AMB) Query provides you with convenient access to
-  multi-blockchain network data, which makes
-  it easier for you to extract contextual data related to blockchain activity.
-
-  You can use AMB Query to
-  read data from public blockchain networks, such as Bitcoin Mainnet and Ethereum
-  Mainnet. You can
-  also get information such as the current and historical balances of addresses,
-  or you can get a
-  list of blockchain transactions for a given time period. Additionally, you can
-  get details of a
-  given transaction, such as transaction events, which you can further analyze or
-  use in business
+  multi-blockchain network data, which makes it easier for you to extract
+  contextual data related to blockchain activity. You can use AMB Query to read
+  data from public blockchain networks, such as Bitcoin Mainnet and Ethereum
+  Mainnet. You can also get information such as the current and historical
+  balances of addresses, or you can get a list of blockchain transactions for a
+  given time period. Additionally, you can get details of a given transaction,
+  such as transaction events, which you can further analyze or use in business
   logic for your applications.
   """
 
@@ -746,10 +741,13 @@ defmodule AWS.ManagedBlockchainQuery do
   Gets the token balance for a batch of tokens by using the `BatchGetTokenBalance`
   action for every token in the request.
 
-  Only the native tokens BTC and ETH, and the ERC-20,
-  ERC-721, and ERC 1155 token standards are supported.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20BatchGetTokenBalance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec batch_get_token_balance(map(), batch_get_token_balance_input(), list()) ::
+  @spec batch_get_token_balance(AWS.Client.t(), batch_get_token_balance_input(), Keyword.t()) ::
           {:ok, batch_get_token_balance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_token_balance_errors()}
@@ -758,7 +756,8 @@ defmodule AWS.ManagedBlockchainQuery do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -776,15 +775,13 @@ defmodule AWS.ManagedBlockchainQuery do
   @doc """
   Gets the information about a specific contract deployed on the blockchain.
 
-    
-  The Bitcoin blockchain networks do not support this
-  operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20GetAssetContract&this_doc_guide=API%2520Reference)
 
-    
-  Metadata is currently only available for some `ERC-20` contracts.
-  Metadata will be available for additional contracts in the future.
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_asset_contract(map(), get_asset_contract_input(), list()) ::
+  @spec get_asset_contract(AWS.Client.t(), get_asset_contract_input(), Keyword.t()) ::
           {:ok, get_asset_contract_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_asset_contract_errors()}
@@ -793,7 +790,8 @@ defmodule AWS.ManagedBlockchainQuery do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -812,10 +810,13 @@ defmodule AWS.ManagedBlockchainQuery do
   Gets the balance of a specific token, including native tokens, for a given
   address (wallet or contract) on the blockchain.
 
-  Only the native tokens BTC and ETH, and the ERC-20,
-  ERC-721, and ERC 1155 token standards are supported.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20GetTokenBalance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_token_balance(map(), get_token_balance_input(), list()) ::
+  @spec get_token_balance(AWS.Client.t(), get_token_balance_input(), Keyword.t()) ::
           {:ok, get_token_balance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_token_balance_errors()}
@@ -824,7 +825,8 @@ defmodule AWS.ManagedBlockchainQuery do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -842,11 +844,13 @@ defmodule AWS.ManagedBlockchainQuery do
   @doc """
   Gets the details of a transaction.
 
-  This action will return transaction details for all transactions
-  that are *confirmed* on the blockchain, even if they have not reached
-  [finality](https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20GetTransaction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec get_transaction(map(), get_transaction_input(), list()) ::
+  @spec get_transaction(AWS.Client.t(), get_transaction_input(), Keyword.t()) ::
           {:ok, get_transaction_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_transaction_errors()}
@@ -855,7 +859,8 @@ defmodule AWS.ManagedBlockchainQuery do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -871,13 +876,16 @@ defmodule AWS.ManagedBlockchainQuery do
   end
 
   @doc """
-  Lists all the contracts for a given contract type deployed by an address
-  (either a contract address or a wallet address).
+  Lists all the contracts for a given contract type deployed by an address (either
+  a contract address or a wallet address).
 
-  The Bitcoin blockchain networks do not support this
-  operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20ListAssetContracts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_asset_contracts(map(), list_asset_contracts_input(), list()) ::
+  @spec list_asset_contracts(AWS.Client.t(), list_asset_contracts_input(), Keyword.t()) ::
           {:ok, list_asset_contracts_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_contracts_errors()}
@@ -886,7 +894,8 @@ defmodule AWS.ManagedBlockchainQuery do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -904,9 +913,17 @@ defmodule AWS.ManagedBlockchainQuery do
   @doc """
   Lists all the transaction events for an address on the blockchain.
 
-  This operation is only supported on the Bitcoin networks.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20ListFilteredTransactionEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_filtered_transaction_events(map(), list_filtered_transaction_events_input(), list()) ::
+  @spec list_filtered_transaction_events(
+          AWS.Client.t(),
+          list_filtered_transaction_events_input(),
+          Keyword.t()
+        ) ::
           {:ok, list_filtered_transaction_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_filtered_transaction_events_errors()}
@@ -915,7 +932,8 @@ defmodule AWS.ManagedBlockchainQuery do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -933,20 +951,13 @@ defmodule AWS.ManagedBlockchainQuery do
   @doc """
   This action returns the following for a given blockchain network:
 
-    *
-  Lists all token balances owned by an address (either a contract
-  address or a wallet address).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20ListTokenBalances&this_doc_guide=API%2520Reference)
 
-    *
-  Lists all token balances for all tokens created by a contract.
+  ## Parameters:
 
-    *
-  Lists all token balances for a given token.
-
-  You must always specify the network property of
-  the `tokenFilter` when using this operation.
+  ## Optional parameters:
   """
-  @spec list_token_balances(map(), list_token_balances_input(), list()) ::
+  @spec list_token_balances(AWS.Client.t(), list_token_balances_input(), Keyword.t()) ::
           {:ok, list_token_balances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_token_balances_errors()}
@@ -955,7 +966,8 @@ defmodule AWS.ManagedBlockchainQuery do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -973,11 +985,13 @@ defmodule AWS.ManagedBlockchainQuery do
   @doc """
   Lists all the transaction events for a transaction
 
-  This action will return transaction details for all transactions
-  that are *confirmed* on the blockchain, even if they have not reached
-  [finality](https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20ListTransactionEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_transaction_events(map(), list_transaction_events_input(), list()) ::
+  @spec list_transaction_events(AWS.Client.t(), list_transaction_events_input(), Keyword.t()) ::
           {:ok, list_transaction_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_transaction_events_errors()}
@@ -986,7 +1000,8 @@ defmodule AWS.ManagedBlockchainQuery do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1003,8 +1018,14 @@ defmodule AWS.ManagedBlockchainQuery do
 
   @doc """
   Lists all the transaction events for a transaction.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20ListTransactions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
   """
-  @spec list_transactions(map(), list_transactions_input(), list()) ::
+  @spec list_transactions(AWS.Client.t(), list_transactions_input(), Keyword.t()) ::
           {:ok, list_transactions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_transactions_errors()}
@@ -1013,7 +1034,8 @@ defmodule AWS.ManagedBlockchainQuery do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

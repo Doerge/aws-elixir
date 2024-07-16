@@ -4,86 +4,18 @@
 defmodule AWS.VerifiedPermissions do
   @moduledoc """
   Amazon Verified Permissions is a permissions management service from Amazon Web
-  Services.
-
-  You can use Verified Permissions to manage
-  permissions for your application, and authorize user access based on those
-  permissions.
-  Using Verified Permissions, application developers can grant access based on
-  information about the
-  users, resources, and requested actions. You can also evaluate additional
-  information
-  like group membership, attributes of the resources, and session context, such as
-  time of
-  request and IP addresses. Verified Permissions manages these permissions by
-  letting you create and
-  store authorization policies for your applications, such as consumer-facing web
-  sites
-  and enterprise business systems.
-
-  Verified Permissions uses Cedar as the policy language to express your
-  permission requirements.
-  Cedar supports both role-based access control (RBAC) and attribute-based access
-  control (ABAC) authorization models.
-
-  For more information about configuring, administering, and using Amazon Verified
-  Permissions in your
-  applications, see the [Amazon Verified Permissions User Guide](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/).
-
-  For more information about the Cedar policy language, see the [Cedar Policy Language Guide](https://docs.cedarpolicy.com/).
-
-  When you write Cedar policies that reference principals, resources and actions,
-  you can define the unique identifiers used for each of those elements. We
-  strongly
-  recommend that you follow these best practices:
-
-    
-
-  ## Use values like universally unique identifiers
-  (UUIDs) for all principal and resource identifiers.
-
-  For example, if user `jane` leaves the company, and you later
-  let someone else use the name `jane`, then that new user
-  automatically gets access to everything granted by policies that still
-  reference `User::"jane"`. Cedar can’t distinguish between the
-  new user and the old. This applies to both principal and resource
-  identifiers. Always use identifiers that are guaranteed unique and never
-  reused to ensure that you don’t unintentionally grant access because of the
-  presence of an old identifier in a policy.
-
-  Where you use a UUID for an entity, we recommend that you follow it with
-  the // comment specifier and the ‘friendly’ name of your entity. This helps
-  to make your policies easier to understand. For example: principal ==
-  User::"a1b2c3d4-e5f6-a1b2-c3d4-EXAMPLE11111", // alice
-
-    
-
-  **Do not include personally identifying, confidential,
-  or sensitive information as part of the unique identifier for your
-  principals or resources.** These identifiers are included in
-  log entries shared in CloudTrail trails.
-
-  Several operations return structures that appear similar, but have different
-  purposes.
-  As new functionality is added to the product, the structure used in a parameter
-  of one
-  operation might need to change in a way that wouldn't make sense for the same
-  parameter
-  in a different operation. To help you understand the purpose of each, the
-  following
-  naming convention is used for the structures:
-
-    *
-  Parameter type structures that end in `Detail` are used in
-  `Get` operations.
-
-    *
-  Parameter type structures that end in `Item` are used in
-  `List` operations.
-
-    *
-  Parameter type structures that use neither suffix are used in the mutating
-  (create and update) operations.
+  Services. You can use Verified Permissions to manage permissions for your
+  application, and authorize user access based on those permissions. Using
+  Verified Permissions, application developers can grant access based on
+  information about the users, resources, and requested actions. You can also
+  evaluate additional information like group membership, attributes of the
+  resources, and session context, such as time of request and IP addresses.
+  Verified Permissions manages these permissions by letting you create and store
+  authorization policies for your applications, such as consumer-facing web
+  sites and enterprise business systems. Verified Permissions uses Cedar as the
+  policy language to express your permission requirements. Cedar supports both
+  role-based access control (RBAC) and attribute-based access control (ABAC)
+  authorization models.
   """
 
   alias AWS.Client
@@ -1603,307 +1535,188 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Makes a series of decisions about multiple authorization requests for one
-  principal or
-  resource.
-
-  Each request contains the equivalent content of an `IsAuthorized`
-  request: principal, action, resource, and context. Either the `principal` or
-  the `resource` parameter must be identical across all requests. For example,
-  Verified Permissions won't evaluate a pair of requests where `bob` views
-  `photo1` and `alice` views `photo2`. Authorization
-  of `bob` to view `photo1` and `photo2`, or
-  `bob` and `alice` to view `photo1`, are valid
-  batches.
-
-  The request is evaluated against all policies in the specified policy store that
-  match the
-  entities that you declare. The result of the decisions is a series of `Allow`
-  or `Deny` responses, along with the IDs of the policies that produced each
-  decision.
-
-  The `entities` of a `BatchIsAuthorized` API request can contain
-  up to 100 principals and up to 100 resources. The `requests` of a
-  `BatchIsAuthorized` API request can contain up to 30 requests.
-
-  The `BatchIsAuthorized` operation doesn't have its own IAM
-  permission. To authorize this operation for Amazon Web Services principals,
-  include the permission
-  `verifiedpermissions:IsAuthorized` in their IAM policies.
+  principal or resource. Each request contains the equivalent content of an
+  `IsAuthorized` request: principal, action, resource, and context. Either the
+  `principal` or the `resource` parameter must be identical across all requests.
+  For example, Verified Permissions won't evaluate a pair of requests where
+  `bob` views `photo1` and `alice` views `photo2`. Authorization of `bob` to
+  view `photo1` and `photo2`, or `bob` and `alice` to view `photo1`, are valid
+  batches. The request is evaluated against all policies in the specified policy
+  store that match the entities that you declare. The result of the decisions is
+  a series of `Allow` or `Deny` responses, along with the IDs of the policies
+  that produced each decision.
   """
-  @spec batch_is_authorized(map(), batch_is_authorized_input(), list()) ::
+  @spec batch_is_authorized(AWS.Client.t(), batch_is_authorized_input(), Keyword.t()) ::
           {:ok, batch_is_authorized_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_is_authorized_errors()}
   def batch_is_authorized(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchIsAuthorized", input, options)
   end
 
   @doc """
   Makes a series of decisions about multiple authorization requests for one token.
-
-  The
-  principal in this request comes from an external identity source in the form of
-  an identity or
-  access token, formatted as a [JSON web token (JWT)](https://wikipedia.org/wiki/JSON_Web_Token). The information in
-  the parameters can also define
-  additional context that Verified Permissions can include in the evaluations.
-
-  The request is evaluated against all policies in the specified policy store that
-  match the
-  entities that you provide in the entities declaration and in the token. The
-  result of
-  the decisions is a series of `Allow` or `Deny` responses, along
-  with the IDs of the policies that produced each decision.
-
-  The `entities` of a `BatchIsAuthorizedWithToken` API request can
-  contain up to 100 resources and up to 99 user groups. The `requests` of a
-  `BatchIsAuthorizedWithToken` API request can contain up to 30
-  requests.
-
-  The `BatchIsAuthorizedWithToken` operation doesn't have its own
-  IAM permission. To authorize this operation for Amazon Web Services principals,
-  include the
-  permission `verifiedpermissions:IsAuthorizedWithToken` in their IAM
-  policies.
+  The principal in this request comes from an external identity source in the
+  form of an identity or access token, formatted as a [JSON web token
+  (JWT)](https://wikipedia.org/wiki/JSON_Web_Token). The information in the
+  parameters can also define additional context that Verified Permissions can
+  include in the evaluations. The request is evaluated against all policies in
+  the specified policy store that match the entities that you provide in the
+  entities declaration and in the token. The result of the decisions is a series
+  of `Allow` or `Deny` responses, along with the IDs of the policies that
+  produced each decision.
   """
-  @spec batch_is_authorized_with_token(map(), batch_is_authorized_with_token_input(), list()) ::
+  @spec batch_is_authorized_with_token(
+          AWS.Client.t(),
+          batch_is_authorized_with_token_input(),
+          Keyword.t()
+        ) ::
           {:ok, batch_is_authorized_with_token_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_is_authorized_with_token_errors()}
   def batch_is_authorized_with_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchIsAuthorizedWithToken", input, options)
   end
 
   @doc """
   Adds an identity source to a policy store–an Amazon Cognito user pool or OpenID
-  Connect
-  (OIDC) identity provider (IdP).
-
-  After you create an identity source, you can use the identities provided by the
-  IdP as proxies
-  for the principal in authorization queries that use the
-  [IsAuthorizedWithToken](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html) or
+  Connect (OIDC) identity provider (IdP). After you create an identity source,
+  you can use the identities provided by the IdP as proxies for the principal in
+  authorization queries that use the
+  [IsAuthorizedWithToken](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html)
+  or
   [BatchIsAuthorizedWithToken](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorizedWithToken.html)
-  API operations. These identities take the form
-  of tokens that contain claims about the user, such as IDs, attributes and group
-  memberships. Identity sources provide identity (ID) tokens and access tokens.
-  Verified Permissions
-  derives information about your user and session from token claims. Access tokens
-  provide
-  action `context` to your policies, and ID tokens provide principal
-  `Attributes`.
-
-  Tokens from an identity source user continue to be usable until they expire.
-  Token revocation and resource deletion have no effect on the validity of a token
-  in your policy store
-
-  To reference a user from this identity source in your Cedar policies, refer to
-  the
-  following syntax examples.
-
-    
-  Amazon Cognito user pool:
-
-  ```
-  Namespace::[Entity type]::[User pool ID]|[user principal attribute]
-  ```
-
-  , for example
-  `MyCorp::User::us-east-1_EXAMPLE|a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`.
-
-    
-  OpenID Connect (OIDC) provider:
-
-  ```
-  Namespace::[Entity type]::[principalIdClaim]|[user principal attribute] ```
-
-  , for example
-  `MyCorp::User::MyOIDCProvider|a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`.
-
-  Verified Permissions is *
-  [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency)
-  *. It can take a few seconds for a new or changed element to propagate through
-  the service and be visible in the results of other Verified Permissions
-  operations.
+  API operations. These identities take the form of tokens that contain claims
+  about the user, such as IDs, attributes and group memberships. Identity
+  sources provide identity (ID) tokens and access tokens. Verified Permissions
+  derives information about your user and session from token claims. Access
+  tokens provide action `context` to your policies, and ID tokens provide
+  principal `Attributes`. Tokens from an identity source user continue to be
+  usable until they expire. Token revocation and resource deletion have no
+  effect on the validity of a token in your policy store
   """
-  @spec create_identity_source(map(), create_identity_source_input(), list()) ::
+  @spec create_identity_source(AWS.Client.t(), create_identity_source_input(), Keyword.t()) ::
           {:ok, create_identity_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_identity_source_errors()}
   def create_identity_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIdentitySource", input, options)
   end
 
   @doc """
-  Creates a Cedar policy and saves it in the specified policy store.
-
-  You can create either a
-  static policy or a policy linked to a policy template.
-
-    *
-  To create a static policy, provide the Cedar policy text in the
-  `StaticPolicy` section of the
-  `PolicyDefinition`.
-
-    *
-  To create a policy that is dynamically linked to a policy template, specify the
-  policy template ID
-  and the principal and resource to associate with this policy in the
-  `templateLinked` section of the `PolicyDefinition`. If the
-  policy template is ever updated, any policies linked to the policy template
-  automatically use the
-  updated template.
-
-  Creating a policy causes it to be validated against the schema in the policy
-  store. If the
-  policy doesn't pass validation, the operation fails and the policy isn't
-  stored.
-
-  Verified Permissions is *
-  [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency)
-  *. It can take a few seconds for a new or changed element to propagate through
-  the service and be visible in the results of other Verified Permissions
-  operations.
+  Creates a Cedar policy and saves it in the specified policy store. You can
+  create either a static policy or a policy linked to a policy template.
   """
-  @spec create_policy(map(), create_policy_input(), list()) ::
+  @spec create_policy(AWS.Client.t(), create_policy_input(), Keyword.t()) ::
           {:ok, create_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_policy_errors()}
   def create_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePolicy", input, options)
   end
 
   @doc """
-  Creates a policy store.
-
-  A policy store is a container for policy resources.
-
-  Although [Cedar supports multiple namespaces](https://docs.cedarpolicy.com/schema/schema.html#namespace), Verified
-  Permissions currently supports only one
-  namespace per policy store.
-
-  Verified Permissions is *
-  [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency)
-  *. It can take a few seconds for a new or changed element to propagate through
-  the service and be visible in the results of other Verified Permissions
-  operations.
+  Creates a policy store. A policy store is a container for policy resources.
   """
-  @spec create_policy_store(map(), create_policy_store_input(), list()) ::
+  @spec create_policy_store(AWS.Client.t(), create_policy_store_input(), Keyword.t()) ::
           {:ok, create_policy_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_policy_store_errors()}
   def create_policy_store(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePolicyStore", input, options)
   end
 
   @doc """
-  Creates a policy template.
-
-  A template can use placeholders for the principal and resource. A
-  template must be instantiated into a policy by associating it with specific
-  principals
-  and resources to use for the placeholders. That instantiated policy can then be
-  considered in authorization decisions. The instantiated policy works identically
-  to any
-  other policy, except that it is dynamically linked to the template. If the
-  template
-  changes, then any policies that are linked to that template are immediately
-  updated as
-  well.
-
-  Verified Permissions is *
-  [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency)
-  *. It can take a few seconds for a new or changed element to propagate through
-  the service and be visible in the results of other Verified Permissions
-  operations.
+  Creates a policy template. A template can use placeholders for the principal and
+  resource. A template must be instantiated into a policy by associating it with
+  specific principals and resources to use for the placeholders. That
+  instantiated policy can then be considered in authorization decisions. The
+  instantiated policy works identically to any other policy, except that it is
+  dynamically linked to the template. If the template changes, then any policies
+  that are linked to that template are immediately updated as well.
   """
-  @spec create_policy_template(map(), create_policy_template_input(), list()) ::
+  @spec create_policy_template(AWS.Client.t(), create_policy_template_input(), Keyword.t()) ::
           {:ok, create_policy_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_policy_template_errors()}
   def create_policy_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePolicyTemplate", input, options)
   end
 
   @doc """
   Deletes an identity source that references an identity provider (IdP) such as
-  Amazon Cognito.
-
-  After
-  you delete the identity source, you can no longer use tokens for identities from
-  that identity source to
-  represent principals in authorization queries made using
+  Amazon Cognito. After you delete the identity source, you can no longer use
+  tokens for identities from that identity source to represent principals in
+  authorization queries made using
   [IsAuthorizedWithToken](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html).
   operations.
   """
-  @spec delete_identity_source(map(), delete_identity_source_input(), list()) ::
+  @spec delete_identity_source(AWS.Client.t(), delete_identity_source_input(), Keyword.t()) ::
           {:ok, delete_identity_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_identity_source_errors()}
   def delete_identity_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIdentitySource", input, options)
   end
 
   @doc """
   Deletes the specified policy from the policy store.
-
-  This operation is idempotent; if you specify a policy that doesn't
-  exist, the request response returns a successful `HTTP 200` status code.
   """
-  @spec delete_policy(map(), delete_policy_input(), list()) ::
+  @spec delete_policy(AWS.Client.t(), delete_policy_input(), Keyword.t()) ::
           {:ok, delete_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePolicy", input, options)
   end
 
   @doc """
   Deletes the specified policy store.
-
-  This operation is idempotent. If you specify a policy store that does not exist,
-  the request
-  response will still return a successful HTTP 200 status code.
   """
-  @spec delete_policy_store(map(), delete_policy_store_input(), list()) ::
+  @spec delete_policy_store(AWS.Client.t(), delete_policy_store_input(), Keyword.t()) ::
           {:ok, delete_policy_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def delete_policy_store(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePolicyStore", input, options)
   end
 
   @doc """
   Deletes the specified policy template from the policy store.
-
-  This operation also deletes any policies that were created from the specified
-  policy template. Those policies are immediately removed from all future API
-  responses, and are
-  asynchronously deleted from the policy store.
   """
-  @spec delete_policy_template(map(), delete_policy_template_input(), list()) ::
+  @spec delete_policy_template(AWS.Client.t(), delete_policy_template_input(), Keyword.t()) ::
           {:ok, delete_policy_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_policy_template_errors()}
   def delete_policy_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePolicyTemplate", input, options)
   end
@@ -1911,12 +1724,13 @@ defmodule AWS.VerifiedPermissions do
   @doc """
   Retrieves the details about the specified identity source.
   """
-  @spec get_identity_source(map(), get_identity_source_input(), list()) ::
+  @spec get_identity_source(AWS.Client.t(), get_identity_source_input(), Keyword.t()) ::
           {:ok, get_identity_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_identity_source_errors()}
   def get_identity_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIdentitySource", input, options)
   end
@@ -1924,12 +1738,13 @@ defmodule AWS.VerifiedPermissions do
   @doc """
   Retrieves information about the specified policy.
   """
-  @spec get_policy(map(), get_policy_input(), list()) ::
+  @spec get_policy(AWS.Client.t(), get_policy_input(), Keyword.t()) ::
           {:ok, get_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_policy_errors()}
   def get_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPolicy", input, options)
   end
@@ -1937,12 +1752,13 @@ defmodule AWS.VerifiedPermissions do
   @doc """
   Retrieves details about a policy store.
   """
-  @spec get_policy_store(map(), get_policy_store_input(), list()) ::
+  @spec get_policy_store(AWS.Client.t(), get_policy_store_input(), Keyword.t()) ::
           {:ok, get_policy_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_policy_store_errors()}
   def get_policy_store(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPolicyStore", input, options)
   end
@@ -1951,12 +1767,13 @@ defmodule AWS.VerifiedPermissions do
   Retrieve the details for the specified policy template in the specified policy
   store.
   """
-  @spec get_policy_template(map(), get_policy_template_input(), list()) ::
+  @spec get_policy_template(AWS.Client.t(), get_policy_template_input(), Keyword.t()) ::
           {:ok, get_policy_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_policy_template_errors()}
   def get_policy_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPolicyTemplate", input, options)
   end
@@ -1964,69 +1781,55 @@ defmodule AWS.VerifiedPermissions do
   @doc """
   Retrieve the details for the specified schema in the specified policy store.
   """
-  @spec get_schema(map(), get_schema_input(), list()) ::
+  @spec get_schema(AWS.Client.t(), get_schema_input(), Keyword.t()) ::
           {:ok, get_schema_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_schema_errors()}
   def get_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSchema", input, options)
   end
 
   @doc """
   Makes an authorization decision about a service request described in the
-  parameters.
-
-  The information in the parameters can also define additional context that
-  Verified Permissions can
-  include in the evaluation. The request is evaluated against all matching
-  policies in the
-  specified policy store. The result of the decision is either `Allow` or
-  `Deny`, along with a list of the policies that resulted in the
-  decision.
+  parameters. The information in the parameters can also define additional
+  context that Verified Permissions can include in the evaluation. The request
+  is evaluated against all matching policies in the specified policy store. The
+  result of the decision is either `Allow` or `Deny`, along with a list of the
+  policies that resulted in the decision.
   """
-  @spec is_authorized(map(), is_authorized_input(), list()) ::
+  @spec is_authorized(AWS.Client.t(), is_authorized_input(), Keyword.t()) ::
           {:ok, is_authorized_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, is_authorized_errors()}
   def is_authorized(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "IsAuthorized", input, options)
   end
 
   @doc """
   Makes an authorization decision about a service request described in the
-  parameters.
-
-  The principal in this request comes from an external identity source in the form
-  of an identity
-  token formatted as a [JSON web token (JWT)](https://wikipedia.org/wiki/JSON_Web_Token). The information in the
-  parameters can also define additional
-  context that Verified Permissions can include in the evaluation. The request is
-  evaluated against all
-  matching policies in the specified policy store. The result of the decision is
-  either
-  `Allow` or `Deny`, along with a list of the policies that
-  resulted in the decision.
-
-  At this time, Verified Permissions accepts tokens from only Amazon Cognito.
-
-  Verified Permissions validates each token that is specified in a request by
-  checking its expiration
-  date and its signature.
-
-  Tokens from an identity source user continue to be usable until they expire.
-  Token revocation and resource deletion have no effect on the validity of a token
-  in your policy store
+  parameters. The principal in this request comes from an external identity
+  source in the form of an identity token formatted as a [JSON web token
+  (JWT)](https://wikipedia.org/wiki/JSON_Web_Token). The information in the
+  parameters can also define additional context that Verified Permissions can
+  include in the evaluation. The request is evaluated against all matching
+  policies in the specified policy store. The result of the decision is either
+  `Allow` or `Deny`, along with a list of the policies that resulted in the
+  decision. At this time, Verified Permissions accepts tokens from only Amazon
+  Cognito.
   """
-  @spec is_authorized_with_token(map(), is_authorized_with_token_input(), list()) ::
+  @spec is_authorized_with_token(AWS.Client.t(), is_authorized_with_token_input(), Keyword.t()) ::
           {:ok, is_authorized_with_token_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, is_authorized_with_token_errors()}
   def is_authorized_with_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "IsAuthorizedWithToken", input, options)
   end
@@ -2035,12 +1838,13 @@ defmodule AWS.VerifiedPermissions do
   Returns a paginated list of all of the identity sources defined in the specified
   policy store.
   """
-  @spec list_identity_sources(map(), list_identity_sources_input(), list()) ::
+  @spec list_identity_sources(AWS.Client.t(), list_identity_sources_input(), Keyword.t()) ::
           {:ok, list_identity_sources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_identity_sources_errors()}
   def list_identity_sources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListIdentitySources", input, options)
   end
@@ -2048,12 +1852,13 @@ defmodule AWS.VerifiedPermissions do
   @doc """
   Returns a paginated list of all policies stored in the specified policy store.
   """
-  @spec list_policies(map(), list_policies_input(), list()) ::
+  @spec list_policies(AWS.Client.t(), list_policies_input(), Keyword.t()) ::
           {:ok, list_policies_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_policies_errors()}
   def list_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPolicies", input, options)
   end
@@ -2062,11 +1867,12 @@ defmodule AWS.VerifiedPermissions do
   Returns a paginated list of all policy stores in the calling Amazon Web Services
   account.
   """
-  @spec list_policy_stores(map(), list_policy_stores_input(), list()) ::
+  @spec list_policy_stores(AWS.Client.t(), list_policy_stores_input(), Keyword.t()) ::
           {:ok, list_policy_stores_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_policy_stores(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPolicyStores", input, options)
   end
@@ -2074,168 +1880,111 @@ defmodule AWS.VerifiedPermissions do
   @doc """
   Returns a paginated list of all policy templates in the specified policy store.
   """
-  @spec list_policy_templates(map(), list_policy_templates_input(), list()) ::
+  @spec list_policy_templates(AWS.Client.t(), list_policy_templates_input(), Keyword.t()) ::
           {:ok, list_policy_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_policy_templates_errors()}
   def list_policy_templates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPolicyTemplates", input, options)
   end
 
   @doc """
-  Creates or updates the policy schema in the specified policy store.
-
-  The schema is used to
-  validate any Cedar policies and policy templates submitted to the policy store.
-  Any changes to the schema
-  validate only policies and templates submitted after the schema change. Existing
-  policies and templates are not re-evaluated against the changed schema. If you
-  later
-  update a policy, then it is evaluated against the new schema at that time.
-
-  Verified Permissions is *
-  [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency)
-  *. It can take a few seconds for a new or changed element to propagate through
-  the service and be visible in the results of other Verified Permissions
-  operations.
+  Creates or updates the policy schema in the specified policy store. The schema
+  is used to validate any Cedar policies and policy templates submitted to the
+  policy store. Any changes to the schema validate only policies and templates
+  submitted after the schema change. Existing policies and templates are not
+  re-evaluated against the changed schema. If you later update a policy, then it
+  is evaluated against the new schema at that time.
   """
-  @spec put_schema(map(), put_schema_input(), list()) ::
+  @spec put_schema(AWS.Client.t(), put_schema_input(), Keyword.t()) ::
           {:ok, put_schema_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_schema_errors()}
   def put_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutSchema", input, options)
   end
 
   @doc """
   Updates the specified identity source to use a new identity provider (IdP), or
-  to change
-  the mapping of identities from the IdP to a different principal entity type.
-
-  Verified Permissions is *
-  [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency)
-  *. It can take a few seconds for a new or changed element to propagate through
-  the service and be visible in the results of other Verified Permissions
-  operations.
+  to change the mapping of identities from the IdP to a different principal
+  entity type.
   """
-  @spec update_identity_source(map(), update_identity_source_input(), list()) ::
+  @spec update_identity_source(AWS.Client.t(), update_identity_source_input(), Keyword.t()) ::
           {:ok, update_identity_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_identity_source_errors()}
   def update_identity_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateIdentitySource", input, options)
   end
 
   @doc """
-  Modifies a Cedar static policy in the specified policy store.
-
-  You can change only certain elements of
-  the
-  [UpdatePolicyDefinition](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyInput.html#amazonverifiedpermissions-UpdatePolicy-request-UpdatePolicyDefinition) parameter. You can directly update only static policies. To
-  change a template-linked policy, you must update the template instead, using
+  Modifies a Cedar static policy in the specified policy store. You can change
+  only certain elements of the
+  [UpdatePolicyDefinition](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyInput.html#amazonverifiedpermissions-UpdatePolicy-request-UpdatePolicyDefinition)
+  parameter. You can directly update only static policies. To change a
+  template-linked policy, you must update the template instead, using
   [UpdatePolicyTemplate](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyTemplate.html).
-
-    
   If policy validation is enabled in the policy store, then updating a static
-  policy causes
-  Verified Permissions to validate the policy against the schema in the policy
-  store. If the updated
-  static policy doesn't pass validation, the operation fails and the update isn't
-  stored.
-
-    
-  When you edit a static policy, you can change only certain elements of a static
-  policy:
-
-      
-  The action referenced by the policy.
-
-      
-  A condition clause, such as when and unless.
-
-  You can't change these elements of a static policy:
-
-      
-  Changing a policy from a static policy to a template-linked
-  policy.
-
-      
-  Changing the effect of a static policy from permit or forbid.
-
-      
-  The principal referenced by a static policy.
-
-      
-  The resource referenced by a static policy.
-
-    
-  To update a template-linked policy, you must update the template instead.
-
-  Verified Permissions is *
-  [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency)
-  *. It can take a few seconds for a new or changed element to propagate through
-  the service and be visible in the results of other Verified Permissions
-  operations.
+  policy causes Verified Permissions to validate the policy against the schema
+  in the policy store. If the updated static policy doesn't pass validation, the
+  operation fails and the update isn't stored. When you edit a static policy,
+  you can change only certain elements of a static policy: The action referenced
+  by the policy. A condition clause, such as when and unless. You can't change
+  these elements of a static policy: Changing a policy from a static policy to a
+  template-linked policy. Changing the effect of a static policy from permit or
+  forbid. The principal referenced by a static policy. The resource referenced
+  by a static policy. To update a template-linked policy, you must update the
+  template instead.
   """
-  @spec update_policy(map(), update_policy_input(), list()) ::
+  @spec update_policy(AWS.Client.t(), update_policy_input(), Keyword.t()) ::
           {:ok, update_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_policy_errors()}
   def update_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePolicy", input, options)
   end
 
   @doc """
   Modifies the validation setting for a policy store.
-
-  Verified Permissions is *
-  [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency)
-  *. It can take a few seconds for a new or changed element to propagate through
-  the service and be visible in the results of other Verified Permissions
-  operations.
   """
-  @spec update_policy_store(map(), update_policy_store_input(), list()) ::
+  @spec update_policy_store(AWS.Client.t(), update_policy_store_input(), Keyword.t()) ::
           {:ok, update_policy_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_policy_store_errors()}
   def update_policy_store(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePolicyStore", input, options)
   end
 
   @doc """
-  Updates the specified policy template.
-
-  You can update only the description and the some elements
-  of the
-  [policyBody](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyTemplate.html#amazonverifiedpermissions-UpdatePolicyTemplate-request-policyBody). 
+  Updates the specified policy template. You can update only the description and
+  the some elements of the
+  [policyBody](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyTemplate.html#amazonverifiedpermissions-UpdatePolicyTemplate-request-policyBody).
   Changes you make to the policy template content are immediately (within the
-  constraints of
-  eventual consistency) reflected in authorization decisions that involve all
-  template-linked policies
-  instantiated from this template.
-
-  Verified Permissions is *
-  [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency)
-  *. It can take a few seconds for a new or changed element to propagate through
-  the service and be visible in the results of other Verified Permissions
-  operations.
+  constraints of eventual consistency) reflected in authorization decisions that
+  involve all template-linked policies instantiated from this template.
   """
-  @spec update_policy_template(map(), update_policy_template_input(), list()) ::
+  @spec update_policy_template(AWS.Client.t(), update_policy_template_input(), Keyword.t()) ::
           {:ok, update_policy_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_policy_template_errors()}
   def update_policy_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePolicyTemplate", input, options)
   end
